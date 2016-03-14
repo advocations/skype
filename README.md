@@ -21,7 +21,7 @@ Article within each topic are named by MSDN GUID rather than title name. This is
 ##Articles in this repository
 ###Skype Web SDK
 
-- [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/UCWeb_16Con.md)
+- [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/blob/master/UCWeb_16Con.md)
 
 ##Before we can accept your pull request
 
@@ -46,6 +46,6 @@ You can download the Contribution License Agreement (CLA) [here](https://github.
 Once we receive and process your CLA, we will do our best to review your pull request(s) within ten business days.
 
 ## Guidance for contributors
-For more guidance on contributing to Office developer documentation, see [CONTRIBUTING.md](https://github.com/OfficeDev/office-content/blob/master/CONTRIBUTING.md) in this repo. 
+For more guidance on contributing to Office developer documentation, see [CONTRIBUTING.md](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md) in this repo. 
 
 
