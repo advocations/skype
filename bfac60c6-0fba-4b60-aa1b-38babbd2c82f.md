@@ -12,8 +12,9 @@ A user can join an existing meeting with that meeting's URI.
 
 
 1. Get an instance of the [Conversation](http://technet.microsoft.com/library/0c5a6d3a-d3cb-40c0-96f3-0d42c36af4a8%28Office.14%29.aspx). Note that at this point the user still has not joined the conversation.
-    
-  ```
+
+
+  ```js
   var conversation = client.conversationsManager.getConversationByUri(uri);
   ```
 
@@ -23,7 +24,7 @@ A user can join an existing meeting with that meeting's URI.
     
 
 
-  ```
+  ```js
   // join chat
 conversation.chatService.start().then(function() {
 …
@@ -33,7 +34,7 @@ conversation.chatService.start().then(function() {
 
 
 
-  ```
+  ```js
   // join audio
 conversation.audioService.start().then(function() {
 …
@@ -43,7 +44,7 @@ conversation.audioService.start().then(function() {
 
 
 
-  ```
+  ```js
   // join video
 conversation.videoService.start().then(function() {
 …
