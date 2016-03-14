@@ -21,7 +21,7 @@ Article within each topic are named by MSDN GUID rather than title name. This is
 ##Articles in this repository
 ###Skype Web SDK
 
-- [Skype Web SDK Conceptual Content \[en-us\]](https://github.com/OfficeDev/skype-docs/UCWeb_16Con)
+- [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/UCWeb_16Con.md)
 
 ##Before we can accept your pull request
 
