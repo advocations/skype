@@ -119,4 +119,4 @@ app.signInManager.signIn({
 #### Concepts
 
 
-[Retrieve the API entry point and sign in a user](88a49a5e-abc6-45c5-ac9b-26da1a35d42a.md)
+[Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)

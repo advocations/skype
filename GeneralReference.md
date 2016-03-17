@@ -13,18 +13,18 @@ Skype Web SDK provides presence and chat services using new REST-based web servi
 ## Contents of the general reference
 
 
-- [Skype Web SDK core capabilities](f005af89-5a83-4fdc-80fc-ece944955a63.md)
+- [Skype Web SDK core capabilities]( /CoreCapabilities.md)
     
-- [Getting started with Skype Web SDK development](b001f5fe-fe23-46a1-9b5a-9f465107acf4.md)
+- [Getting started with Skype Web SDK development]( /GettingStarted.md)
     
-- [Developing applications with Skype Web SDK](690e98b8-6c6e-4397-8ef6-6714ede3f42a.md)
+- [Developing applications with Skype Web SDK]( /DevelopApplications.md)
     
-- [Skype Web SDK programming tasks](38762d2e-74b9-4668-8c98-8a688cd62535.md)
+- [Skype Web SDK programming tasks](/ProgrammingTasks.md)
     
 
 ## 
 <a name="bk_addresources"> </a>
 
 
-- [Skype Web API Reference](http://technet.microsoft.com/library/94ef8efc-a3d8-4ee7-8a15-7fbe26a30701.aspx)
+- [Skype Web API Reference](https://msdn.microsoft.com/library/office/dn962122(v=office.16).aspx)
     

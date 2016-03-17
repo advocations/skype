@@ -14,7 +14,7 @@ The Skype Web SDK provides the following objects to start or join IM messaging, 
     
 - Use a [Conversation](http://technet.microsoft.com/library/0c5a6d3a-d3cb-40c0-96f3-0d42c36af4a8%28Office.14%29.aspx) object to exchange messages, send and receive audio-visual content, and share applications in the conversation.
     
-- Use the[ Skype Web Conversation Control](c86e284d-b1e3-45b1-81b4-66215b41e3a4.md) to host an IM conversation in your web page. The **Conversation Control** encapsulates the model, view, and view model so that you only write code to host and render the control itself. Use the control when you want to let the Skype Web SDK provide the chat UI. If you use the conversation control, your web page can host a complete IM dialog with as few as three Skype Web SDK API calls.
+- Use the[ Skype Web Conversation Control]( /UseConversationControl.md) to host an IM conversation in your web page. The **Conversation Control** encapsulates the model, view, and view model so that you only write code to host and render the control itself. Use the control when you want to let the Skype Web SDK provide the chat UI. If you use the conversation control, your web page can host a complete IM dialog with as few as three Skype Web SDK API calls.
     
 A conversation is a logical container for communication between two or more persons. The properties of a conversation include  **selfParticipant**, **participants**, **historyService** in the conversation, and conversation services in use. Each of these objects is represented in Figure 1, and the relationship between conversation objects is represented by connectors in the figure. You can add participants to a conversation before it starts or at any time after starting. Adding participants to a 1-on-1 conversation will escalate that conversation to a multiparty meeting.
 
@@ -56,7 +56,7 @@ Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Ch
 #### Concepts
 
 
-[Start a conversation](e2d090ac-0204-4710-9bd1-db51d003c886.md)
-[Respond to a conversation invitation](e54cc0c9-6e2f-4d4c-9298-70fefa393071.md)
-[Add participants to a conversation](2934b380-11bf-4901-bd4f-5771d21298ed.md)
-[Use the Skype Web Conversation Control in a web page](c86e284d-b1e3-45b1-81b4-66215b41e3a4.md)
+[Start a conversation]( /StartConversation.md)
+[Respond to a conversation invitation]( /RespondToInvitation.md)
+[Add participants to a conversation]( /AddParticipants.md)
+[Use the Skype Web Conversation Control in a web page]( /UseConversationControl.md)

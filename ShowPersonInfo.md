@@ -7,7 +7,7 @@
 
 The person information a signed in user can get for another user is restricted by the Privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx) property for that information is null.
 
-After the user is signed in, your application can do the following procedure. The desired person may not be in the user's person list. In that case, see [Search for persons and distribution groups](ae55cb04-940d-47ad-9d28-b9b99bd498da.md) to learn about providing a person search feature.
+After the user is signed in, your application can do the following procedure. The desired person may not be in the user's person list. In that case, see [Search for persons and distribution groups]( /SearchForPersonsAndGroups.md) to learn about providing a person search feature.
 
 ### How to: Show a person's information
 

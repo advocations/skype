@@ -25,6 +25,6 @@ Each  **Person** object in Skype Web SDK represents a person. You can use a pers
 #### Concepts
 
 
-[Search for persons and distribution groups](ae55cb04-940d-47ad-9d28-b9b99bd498da.md)
-[Listening for and generating presence events](1beb480c-d223-489b-9cbd-7e8848981807.md)
-[Show a person's information](4b9a2a9b-552c-42a0-bb7a-c912e8c5ed0c.md)
+[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)
+[Listening for and generating presence events]( /PresenceEvents.md)
+[Show a person's information]( /ShowPersonInfo.md)

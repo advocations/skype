@@ -160,4 +160,4 @@ $('#unsubscribe').click(function () {
 #### Concepts
 
 
-[Get a person and listen for availability](488335bb-3568-4aaf-a8b7-5505765d552a.md)
+[Get a person and listen for availability]( /ListenForAvailability.md)

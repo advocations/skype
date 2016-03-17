@@ -58,7 +58,8 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 #### Concepts
 
 
-[Show a person's information](4b9a2a9b-552c-42a0-bb7a-c912e8c5ed0c.md)
+
+[Show a person's information]( /ShowPersonInfo.md)
 #### Other resources
 
 
