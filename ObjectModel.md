@@ -5,11 +5,11 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Model layer](#sectionSection0)
-[Application object](#sectionSection1)
-[Person list](#sectionSection2)
-[Conversations](#sectionSection3)
+ **In this article**<br/>
+[Model layer](#sectionSection0)<br/>
+[Application object](#sectionSection1)<br/>
+[Person list](#sectionSection2)<br/>
+[Conversations](#sectionSection3)<br/>
 [MePerson object](#sectionSection4)
 
 
@@ -144,7 +144,7 @@ The following [MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b
 #### Concepts
 
 
-[Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)
-[Show a person's information]( /ShowPersonInfo.md)
-[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)
+[Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)<br/>
+[Show a person's information]( /ShowPersonInfo.md)<br/>
+[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)<br/>
 [Respond to a conversation invitation]( /RespondToInvitation.md)

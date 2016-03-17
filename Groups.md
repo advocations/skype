@@ -58,5 +58,5 @@ Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Ch
 #### Concepts
 
 
-[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)
+[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)<br/>
 [Manage persons and groups]( /ManagePersonsAndGroups.md)

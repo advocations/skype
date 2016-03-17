@@ -140,5 +140,5 @@ conversationsManager.conversations.added(function (conversation) {
 #### Concepts
 
 
-[Send and receive text in a conversation]( /SendReceiveText.md)
+[Send and receive text in a conversation]( /SendReceiveText.md)<br/>
 [Add participants to a conversation]( /AddParticipants.md)

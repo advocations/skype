@@ -5,11 +5,11 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Getting user presence information](#sectionSection0)
-[Presence subscription ](#sectionSection1)
-[Generating presence change events](#sectionSection2)
-[Listening for presence changes](#sectionSection3)
+ **In this article**<br/>
+[Getting user presence information](#sectionSection0)<br/>
+[Presence subscription ](#sectionSection1)<br/>
+[Generating presence change events](#sectionSection2)<br/>
+[Listening for presence changes](#sectionSection3)<br/>
 [Canceling a presence subscription](#sectionSection4)
 
 

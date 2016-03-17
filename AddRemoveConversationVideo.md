@@ -5,10 +5,10 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Adding video to a conversation](#sectionSection0)
-[Removing video from a conversation](#sectionSection1)
-[Subscribing to changes from the videoService in a conversation](#sectionSection2)
+ **In this article**<br/>
+[Adding video to a conversation](#sectionSection0)<br/>
+[Removing video from a conversation](#sectionSection1)<br/>
+[Subscribing to changes from the videoService in a conversation](#sectionSection2)<br/>
 [Accepting video without sending video](#sectionSection3)
 
 

@@ -56,7 +56,7 @@ Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Ch
 #### Concepts
 
 
-[Start a conversation]( /StartConversation.md)
-[Respond to a conversation invitation]( /RespondToInvitation.md)
-[Add participants to a conversation]( /AddParticipants.md)
+[Start a conversation]( /StartConversation.md)<br/>
+[Respond to a conversation invitation]( /RespondToInvitation.md)<br/>
+[Add participants to a conversation]( /AddParticipants.md)<br/>
 [Use the Skype Web Conversation Control in a web page]( /UseConversationControl.md)

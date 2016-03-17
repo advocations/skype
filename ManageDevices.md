@@ -5,9 +5,9 @@
 
  _**Applies to:** Skype for Business | Skype for Business 2015_
 
- **In this article**
-[Subscribing to Device Changes](#sectionSection0)
-[Enumerating Available Devices](#sectionSection1)
+ **In this article**<br/>
+[Subscribing to Device Changes](#sectionSection0)<br/>
+[Enumerating Available Devices](#sectionSection1)<br/>
 [Selected Devices](#sectionSection2)
 
 

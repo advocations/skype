@@ -6,9 +6,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Downloading and setting up the samples](#sectionSection0)
-[Samples in the download package](#sectionSection1)
+ **In this article**<br/>
+[Downloading and setting up the samples](#sectionSection0)<br/>
+[Samples in the download package](#sectionSection1)<br/>
 [Additional Resources](#bk_addresources)
 
 
