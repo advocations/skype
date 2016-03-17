@@ -144,7 +144,7 @@ The following [MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b
 #### Concepts
 
 
-[Retrieve the API entry point and sign in a user](88a49a5e-abc6-45c5-ac9b-26da1a35d42a.md)
-[Show a person's information](4b9a2a9b-552c-42a0-bb7a-c912e8c5ed0c.md)
-[Search for persons and distribution groups](ae55cb04-940d-47ad-9d28-b9b99bd498da.md)
-[Respond to a conversation invitation](e54cc0c9-6e2f-4d4c-9298-70fefa393071.md)
+[Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)
+[Show a person's information]( /ShowPersonInfo.md)
+[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)
+[Respond to a conversation invitation]( /RespondToInvitation.md)

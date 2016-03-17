@@ -67,7 +67,7 @@ The Microsoft Skype Web SDK samples are available as a single download at [downl
 <a name="bk_addresources"> </a>
 
 
-- [Skype Web SDK Preview](fa0cdd4f-9886-4730-a0a8-9001d7029d12.md)
+- [Skype Web SDK Preview]( /SkypeWebSDKPreview.md)
     
 - [UCWA: Code](https://ucwa.skype.com/code)
     

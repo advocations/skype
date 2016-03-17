@@ -44,4 +44,4 @@ A collection of all available speakers is in [DevicesManager.speakers](http://te
 #### Concepts
 
 
-[Manage devices](0b244cb1-4f0c-482e-9a59-105d8a02f7c8.md)
+[Manage devices]( /ManageDevices.md)

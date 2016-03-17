@@ -8,9 +8,9 @@
 The following sections describe the Skype Web SDK object model and architecture, and explain how to develop applications for on-premises server and online server using the Skype Web SDK. In the online server scenario, your application authenticates against Azure Active Directory. In the on-premises server scenario, your application authenticates against your own server with its own Active Directory.
 
 
-- [Skype Web SDK architecture](a32ae8d5-9a8d-4747-8896-3db5dc2dd68c.md)
+- [Skype Web SDK architecture]( /Architecture.md)
     
-- [Skype Web SDK object model](aad237af-09c2-40e1-8494-2c06629b5d75.md)
+- [Skype Web SDK object model]( /ObjectModel.md)
     
-- [Developing Web SDK applications for Skype for Business Server](d400dbec-53bf-4752-b26c-f15a2b0722af.md)
+- [Developing Web SDK applications for Skype for Business Server]( /DevelopForSkypeforBusiness.md)
     

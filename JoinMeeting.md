@@ -58,4 +58,4 @@ conversation.videoService.start().then(function() {
 #### Concepts
 
 
-[Join a meeting anonymously](f285efcd-834d-43e5-a222-fae2bbb14e8f.md)
+[Join a meeting anonymously]( /AnonymousMeetingJoin.md)

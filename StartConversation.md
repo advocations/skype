@@ -15,11 +15,11 @@ The following procedure assumes that the user is signed in and has a person to c
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation. Refer to the following topics to add modalities:
     
-    [Send and receive text in a conversation](9c74d80a-e454-4278-972f-1a854cd3020c.md)
+    [Send and receive text in a conversation]( /SendReceiveText.md)
     
-    [Add or remove audio in a conversation](727d8042-a00f-499e-a25b-d68f670393b0.md)
+    [Add or remove audio in a conversation]( /AddRemoveConversationAudio.md)
     
-    [Add or remove video in a conversation](6e461283-b1e3-40a5-94e3-f9654e76d2d6.md)
+    [Add or remove video in a conversation]( /AddRemoveConversationVideo.md)
     
 The following example creates a peer-to-peer conversation. 
 
@@ -56,5 +56,5 @@ var conversation = conversationsManager.createConversation();
 ### Escalating a peer-to-peer conversation to a multiparty conversation
 
 
-- A peer-to-peer conversation will be automatically escalated to a multiparty conversation when a second remote participant is added to the conversation. See [Add participants to a conversation](2934b380-11bf-4901-bd4f-5771d21298ed.md) to add participants.
+- A peer-to-peer conversation will be automatically escalated to a multiparty conversation when a second remote participant is added to the conversation. See [Add participants to a conversation]( /AddParticipants.md) to add participants.
     
