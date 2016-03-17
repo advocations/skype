@@ -19,8 +19,6 @@ This section describes the key programming tasks for the Skype Web SDK. It consi
     
 - [Start a conversation]( /StartConversation.md)
     
-- [Start a conversation with context](http://technet.microsoft.com/library/99b61131-ed8d-4f5d-bb9a-1dc7c861bee8.aspx)
-    
 - [Send and receive text in a conversation]( /SendReceiveText.md)
     
 - [Respond to a conversation invitation]( /RespondToInvitation.md)
