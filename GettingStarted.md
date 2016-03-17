@@ -5,11 +5,11 @@
 
  _**Applies to:** Skype for Business_
 
- **In this article**
-[Using the Skype Web SDK in your application](#sectionSection0)
-[Skype for Business Web App Plug-in](#sectionSection1)
-[Bootstrapping the application](#sectionSection2)
-[Developing Skype Web SDK applications](#sectionSection3)
+ **In this article**<br/>
+[Using the Skype Web SDK in your application](#sectionSection0)<br/>
+[Skype for Business Web App Plug-in](#sectionSection1)<br/>
+[Bootstrapping the application](#sectionSection2)<br/>
+[Developing Skype Web SDK applications](#sectionSection3)<br/>
 [ Downloading and running the Skype Web SDK Samples](#sectionSection4)
 
 

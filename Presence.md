@@ -5,11 +5,11 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Availability](#sectionSection0)
-[Personal Note](#sectionSection1)
-[Activity](#sectionSection2)
-[User presence](#sectionSection3)
+ **In this article**<br/>
+[Availability](#sectionSection0)<br/>
+[Personal Note](#sectionSection1)<br/>
+[Activity](#sectionSection2)<br/>
+[User presence](#sectionSection3)<br/>
 [Presence Subscription](#sectionSection4)
 
 

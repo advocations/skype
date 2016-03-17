@@ -5,12 +5,12 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Adding audio to a conversation](#sectionSection0)
-[Removing audio from a conversation](#sectionSection1)
-[Subscribing to changes from the audioService in a conversation](#sectionSection2)
-[Accepting video and sending video automatically](#sectionSection3)
-[Muting a conversation](#sectionSection4)
+ **In this article**<br/>
+[Adding audio to a conversation](#sectionSection0)<br/>
+[Removing audio from a conversation](#sectionSection1)<br/>
+[Subscribing to changes from the audioService in a conversation](#sectionSection2)<br/>
+[Accepting video and sending video automatically](#sectionSection3)<br/>
+[Muting a conversation](#sectionSection4)<br/>
 [Putting a conversation on Hold](#sectionSection5)
 
 

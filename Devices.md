@@ -5,13 +5,13 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Cameras](#sectionSection0)
-[Microphones](#sectionSection1)
+ **In this article**<br/>
+[Cameras](#sectionSection0)<br/>
+[Microphones](#sectionSection1)<br/>
 [Speakers](#sectionSection2)
 
 
-The [DevicesManager](http://technet.microsoft.com/library/0678cf66-ceec-409f-8723-6e9bb4355024%28Office.14%29.aspx) object has members representing audio and video devices for use with Skype Web SDK. This object is a member of the[Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx) object. It has properties for the currently selected devices: **selectedCamera**, **selectedMicrophone**, and **selectedSpeaker**. There are also three lists, each representing the available devices: cameras, microphones, and speakers. The objects in these lists each have properties describing the device they represent, including name, id, type.
+The [DevicesManager](http://technet.microsoft.com/library/0678cf66-ceec-409f-8723-6e9bb4355024%28Office.14%29.aspx) object has members representing audio and video devices for use with Skype Web SDK. This object is a member of the [Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx) object. It has properties for the currently selected devices: **selectedCamera**, **selectedMicrophone**, and **selectedSpeaker**. There are also three lists, each representing the available devices: cameras, microphones, and speakers. The objects in these lists each have properties describing the device they represent, including name, id, type.
 
 ## Cameras
 <a name="sectionSection0"> </a>

@@ -5,11 +5,11 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Creating a new user-defined group](#sectionSection1)
-[Renaming a Group](#sectionSection2)
-[Deleting a Group](#sectionSection3)
-[Adding a Person to a Group](#sectionSection4)
+ **In this article**<br/>
+[Creating a new user-defined group](#sectionSection1)<br/>
+[Renaming a Group](#sectionSection2)<br/>
+[Deleting a Group](#sectionSection3)<br/>
+[Adding a Person to a Group](#sectionSection4)<br/>
 [Removing a Person from a Group](#sectionSection5)
 
 
