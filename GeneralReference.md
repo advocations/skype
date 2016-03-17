@@ -19,12 +19,12 @@ Skype Web SDK provides presence and chat services using new REST-based web servi
     
 - [Developing applications with Skype Web SDK]( /DevelopApplications.md)
     
-- [Skype Web SDK programming tasks](38762d2e-74b9-4668-8c98-8a688cd62535.md)
+- [Skype Web SDK programming tasks](/ProgrammingTasks.md)
     
 
 ## 
 <a name="bk_addresources"> </a>
 
 
-- [Skype Web API Reference](http://technet.microsoft.com/library/94ef8efc-a3d8-4ee7-8a15-7fbe26a30701.aspx)
+- [Skype Web API Reference](https://msdn.microsoft.com/library/office/dn962122(v=office.16).aspx)
     
