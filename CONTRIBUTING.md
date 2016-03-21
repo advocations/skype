@@ -198,6 +198,8 @@ By using references grouped at the bottom of your file, you can easily find, edi
 ## More resources
 
 * For more information on Markdown go to [their site][Markdown Home].
+* For more information on advanced Markdown formatting, go to [GitHub - working with advanced formatting](https://help.github.com/articles/working-with-advanced-formatting/)
+* For more information on table formatting in Markdown, go to [GitHub - Organizing information with tables](https://help.github.com/articles/organizing-information-with-tables/)
 * For more information on using Git and GitHub first check out the [GitHub Help Section] [GitHub Help] and if necessary contact the site administrators.
 
 [GitHub Home]: http://github.com
