@@ -6,7 +6,7 @@ Thank you for your interest in Skype developer documentation!
 * [Before we can accept your pull request](#before-we-can-accept-your-pull-request)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
-* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [How to format your topics](#How-to-format-your-topics)
 * [Standard Markdown](#standard-markdown)
 * [More resources](#more-resources)
 
@@ -55,7 +55,7 @@ The content in the skype-docs repository is grouped  by topic. The README.md fil
 3.	Now that machine is set up with Git, you need a fork of this repository. Go to the top of the page and click the **Fork** button. You now have your own fork of this repository.
 4.	The last step involves copying your fork to your local machine. To do this go open GitBash. On the command prompt enter:
 
-		git clone https://github.com/<your user name>/skype-docs.git
+		git clone https://github.com/{your user name}/skype-docs.git
 
    Next create a reference to the root repository by entering these commands:
 
@@ -125,7 +125,7 @@ After a branch has been successfully merged (i.e. your pull request has been acc
 
 For example, suppose your local branch X was successfully merged into the OfficeDev/skype-docs master branch and you want to make further updates to the content that was merged. Create a new local branch, X2, from the OfficeDev/Office-Content master branch. To do this, open GitBash and execute the following commands:
 
-	cd azure-content
+	cd skype-docs
 	git pull upstream master:X2
 	git push origin X2
 
