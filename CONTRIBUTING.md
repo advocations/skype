@@ -6,7 +6,7 @@ Thank you for your interest in Skype developer documentation!
 * [Before we can accept your pull request](#before-we-can-accept-your-pull-request)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
-* [How to format your topics](#How-to-format-your-topics)
+* [How to format your topics](#how-to-format-your-topics)
 * [Standard Markdown](#standard-markdown)
 * [More resources](#more-resources)
 
