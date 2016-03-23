@@ -13,4 +13,6 @@ The following sections describe the Skype Web SDK object model and architecture,
 - [Skype Web SDK object model]( /ObjectModel.md)
     
 - [Developing Web SDK applications for Skype for Business Server]( /DevelopForSkypeforBusiness.md)
+
+- [Developing Web SDK applications for Skype for Business Online](/DevelopWebSDKappsForSfBOnline.md)
     
