@@ -49,3 +49,6 @@ Once we receive and process your CLA, we will do our best to review your pull re
 For more guidance on contributing to Office developer documentation, see [CONTRIBUTING.md](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md) in this repo. 
 
 
+##Copyright
+Copyright (c) 2016 Microsoft Corporation. All rights reserved.
+
