@@ -27,5 +27,18 @@ This section lists the API product keys that are available to reference in your 
 ## Feature support matrix
 <a name="sectionSection1"> </a>
 
+The following table is a mapping of Features to the API version that they are supported in.
 
-
+||||
+|:-----|:-----|:-----|
+|**Feature**|**Public Preview**|**General Availability**|
+|Sign in, Sign out|X |X|
+|View Signed in user’s information|X|X|
+|Update Note and Presence for the signed in user|X|X|
+|View the contact list of the signed in users |X|X|
+|Search for persons or groups  |X|X|
+|Add/remove/Rename groups in the contact list.  |X|X|
+|Add/remove distribution groups in the contact list.   |X|X|
+|Add/remove contacts to groups in the contact list.   |X|X|
+|Add/remove telephone contacts to groups in the contact list. |X|X|
+|Start/Have P2P chat conversations as a signed in user with another signed in Skype or Skype for business user via Skype Web SDK API.  |X|X|
