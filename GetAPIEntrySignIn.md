@@ -29,6 +29,9 @@ The [SigninManager](http://technet.microsoft.com/library/bfb98537-a02a-4eb5-b980
 
 2. Initialize the bootstrapper.
 
+    >**Note** The API product keys shown in the following example may not be the current product keys. For a list of all available product keys, see [API Product Keys](/APIProductKeys.md).
+
+
   ```js
   // Call the application object
 var config = {
