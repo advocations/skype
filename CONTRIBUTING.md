@@ -59,8 +59,8 @@ The content in the skype-docs repository is grouped  by topic. The README.md fil
 
    Next create a reference to the root repository by entering these commands:
 
-		cd skype-docs<br/>
-		git remote add upstream https://github.com/OfficeDev/skype-docs.git<br/>
+		cd skype-docs
+		git remote add upstream https://github.com/OfficeDev/skype-docs.git
 		git fetch upstream
 
 Congratulations you have now set up your repository.  The above steps will not need to be repeated again.
