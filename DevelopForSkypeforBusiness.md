@@ -6,12 +6,12 @@
  _**Applies to:** Skype for Business_
 
  **In this article**<br/>
-[Initialize the Skype application object](#sectionSection0)<br/>
-[Password grant authentication](#sectionSection1)<br/>
-[Integrated Windows Authentication (IWA)](#sectionSection2)<br/>
-[Anonymous meeting join](#sectionSection3)<br/>
-[Passive/ADFS authentication](#sectionSection4)
-[OAuth2 authentication](#sectionSection5)
+- [Initialize the Skype application object](#sectionSection0)
+- [Password grant authentication](#sectionSection1)
+- [Integrated Windows Authentication (IWA)](#sectionSection2)
+- [Anonymous meeting join](#sectionSection3)
+- [Passive/ADFS authentication](#sectionSection4)
+- [OAuth2 authentication](#sectionSection5)
 
 This section shows how to develop a Skype Web SDK client application for Skype for Business Server.
 
