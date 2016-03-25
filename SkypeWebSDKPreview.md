@@ -1,5 +1,5 @@
 
-# Skype Web SDK Preview
+# Skype Web SDK
 
  **Last modified:** February 11, 2016
 
