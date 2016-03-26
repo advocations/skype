@@ -1,7 +1,7 @@
 
 # Developing Web SDK applications for Skype for Business Online
 
- **Last modified:** March 23, 2016
+ **Last modified:** March 25, 2016
 
  _**Applies to:** Skype for Business | Skype for Business Online_
 
@@ -93,17 +93,16 @@ The following example shows the parameters that are required when signing in to 
 
 ```js
 app.signinManager.signIn({
-     "client_id": "...",  //GUID obtained from Azure app registration.
-     "origins": ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
+     "client_id": "...",  // GUID obtained from Azure app registration.
+     "origins": [ "https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root" ],
      "cors": true, 
-     "redirect_uri": '/myApp/6a2f1539-af96-4cd8-aafa-5ad9c01efa5f/index.html', // Can be any location in the current site. (Any valid Url) 
+     "redirect_uri": '/an/empty/page.html',
      "version": '<YourAppName>/1.0.0.0'
-})
-
+});
 ```
 
 
- >**Note**  The  `redirect_uri` parameter is required for Internet Explorer and _optional_ for other browsers.
+ >**Note** If `redirect_uri` is not specified, the SDK picks a random one. This doesn't work in Internet Explorer because when it sends a GET to it and gets back a 404, it does an extra redirect to `res://ieframe.dll/http_404.htm` and drops the access token from the original URL. If `redirect_uri` points to a folder, implying the `index.html` file under it, then IE will also drop the access token from the original URL.
 
 
 ### Authenticate a user with Office 365 Online
@@ -112,130 +111,90 @@ When a user visits your website and initiates sign-in, your application redirect
 
 The following html content shows the Azure AD sign in page to the user when loaded. Be sure to replace  `<add your client id here>` with the client id you got from Azure AD when you registered your app.
 
-
-
-
 ```HTML
+<!doctype html>
 <html>
 <head>
-    <title>JohnDContosoTestSite</title>
+    <title>OAuth</title>
 </head>
 <body>
     <script>
+    	var hasToken = /^#access_token=/.test(location.hash);
+    	var hasError = /^#error=/.test(location.hash);
+    	
+    	var client_id = '<add your client id here>';
+    
         // redirect to Org ID if there is no token in the URL
-        if (!location.hash) {
+        if (!hasToken && !hasError) {
             location.assign('https://login.microsoftonline.com/common/oauth2/authorize?response_type=token' +
-                '&amp;client_id=<add your client id here>' +
-                '&amp;redirect_uri=' + location.href +
-                '&amp;resource=https://webdir.online.lync.com');
+                '&client_id=' + client_id +
+                '&redirect_uri=' + location.href +
+                '&resource=https://webdir.online.lync.com');
         }
 
         // show the UI if the user has signed in
-        if (/^#access_token=/.test(location.hash)) {
-				// Use Skype Web SDK to start signing in               
+        if (hasToken) {
+		// Use Skype Web SDK to start signing in               
+        }
+        
+        if (hasError) {
+        	console.log(location.hash);
         }
     </script>
 </body>
 </html>
-
 ```
 
 The previous sample shows how to get the access token that you need to use in all Skype Web SDK API calls. To start using the API, you need to get the Skype Web application object with code like the following:
 
-
-
-
 ```js
-var config = {
- apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255', // SDK
- apiKeyCC: '9c967f6b-a846-4df2-b43d-5167e47d81e1' // SDK+UI
-}; 
-Skype.initialize({ apiKey: config.apiKey }, function (api) {
-        
-        var app = new api.application();
-        
-        // whenever client.state changes, display its value
-        app.signInManager.state.changed(function (state) {
-            $('#client_state').text(state);
-        });
-    }, function (err) {
-        console.log(err);
-        alert('Cannot load the SDK.');
-    });
-
-
+Skype.initialize({ apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255' }, function (api) {
+        app = new api.application();
+});
 ```
 
-The apiKey values in the previous example are valid for the preview SDK. At general availability, these values will change. 
+The apiKey value in the previous example is valid for the preview SDK. At general availability, these values will change. 
 
-When you have the application object, you sign a user into SfB Online with code like the following example. The access token you got back from Azure AD is used in this snippet to create an authorization header whose key is  `Bearer`.
-
-
-
+When you have the application object, you sign a user into SfB Online with code like the following example.
 
 ```js
-$("#btn-token-sign-in").click(function () {
-        var client = window.skypeWebApp;
-        $(".modal").show();
-        var domain = $("#txt-domain").val();
-        var access_token = $("#txt-token").val();
-        var Bearercwt = 'Bearer cwt=';
-        var Bearer = 'Bearer ';
-        var cwt = 'cwt';
-        if (access_token.indexOf(cwt) == -1) {
-            access_token = Bearercwt + access_token;
-        }
-        if (access_token.indexOf(Bearer) == -1) {
-            access_token = Bearer + access_token;
-        }
-        var options = {
-            auth: function (req, send) {
-                req.headers['Authorization'] = access_token.trim();
-                return send(req);
-            },
-            domain: domain
-        };
-        client.signInManager.signIn(options).then(function () {
-            $(".modal").hide();
-            console.log('Signed in as ' + client.personsAndGroupsManager.mePerson.displayName());
-            $("#anonymous-join").addClass("disable");
-            $(".menu #sign-in").click();
-        });
-    });
-
+// the SDK will get its own access token
+app.signInManager.signIn({
+	client_id: client_id,
+        cors: true,
+        redirect_uri: '/an//empty/page/for/ie.html',
+        origins: [ "https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root" ]
+});
 ```
 
+>**Note**  The specified redirect page must exist on the site.
 
- **Note**  The specified redirect page must exist on the site.
-
-You may see sign in issues with IE, if you have tried using multiple AAD identities. Please use the following steps to resolve that issue
-
+You may see sign in issues with IE, if you have tried using multiple AAD identities. Please use the following steps to resolve that issue:
 
 1. Clear cache/cookies
-    
 2. Start afresh
-    
 3. Use private browsing session.
-    
 
 ### Tenant Administrator Consent Flow
 
 The Skype for Business Online permissions are tenant administrator consent only. For an app to be used by all users of an O365 tenant, a tenant administrator must provide consent. To provide consent for all users in the tenant, construct the following URL for your app as shown in the example below. 
 
-
- **Note**  Update the  `client Id` and `redirect Uri` for your app.
-
+>**Note**  Update the  `client Id` and `redirect Uri` for your app.
 
 ```
-https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token&amp;client_id= e3d81446-727f-4ebd-adde-adda31311a06&amp;redirect_uri=https://app.contoso.com/&amp;response_mode=form_post&amp;nonce=a4014117-28aa-47ec-abfb-f377be1d3cf5&amp;resource=https://webdir.online.lync.com&amp;prompt=admin_consent
+https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token
+	&client_id= ...
+	&redirect_uri=https://app.contoso.com/
+	&response_mode=form_post
+	&nonce=...
+	&resource=https://webdir.online.lync.com
+	&prompt=admin_consent
 ```
 
 Access the URL and authenticate using a tenant administrator credentials and accept the application permissions. Users will now be able to access the application.
 
-
 ## Additional Resources
 <a name="bk_addresources"> </a>
-
 
 - [How to get an Azure Active Directory tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
     
