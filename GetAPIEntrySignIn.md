@@ -17,7 +17,7 @@ The [SigninManager](http://technet.microsoft.com/library/bfb98537-a02a-4eb5-b980
 
 1. Add a reference to the bootstrapper to your HTML file.
     
-    BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE TERMS OF THE  _[Terms of Service]( /TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
+    BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE TERMS OF THE  _[Terms of Service](/SkypeWebSDKReleaseTerms.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
     
      >**Note**  These license terms apply to the use of the content from the domain swx.cdn.skype.com.
 
