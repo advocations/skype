@@ -11,7 +11,7 @@ A user can join an existing meeting with that meeting's URI.
 ### Joining an existing meeting
 
 
-1. Get an instance of the [Conversation](http://technet.microsoft.com/library/0c5a6d3a-d3cb-40c0-96f3-0d42c36af4a8%28Office.14%29.aspx). Note that at this point the user still has not joined the conversation.
+1. Get an instance of the [Conversation]( https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx.md). Note that at this point the user still has not joined the conversation.
 
 
   ```js

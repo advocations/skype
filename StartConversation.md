@@ -11,7 +11,7 @@ The following procedure assumes that the user is signed in and has a person to c
 ### Starting a peer-to-peer conversation
 
 
-1. Call [ConversationsManager](http://technet.microsoft.com/library/b412eed4-1cbe-4471-ae3d-c4f38a8f7284%28Office.14%29.aspx) **.getConversation** method, with a person for the only argument, to create a conversation object.
+1. Call [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx.md) **.getConversation** method, with a person for the only argument, to create a conversation object.
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation. Refer to the following topics to add modalities:
     
@@ -37,7 +37,7 @@ var conversation = conversationsManager.getConversation(person);
 ### Starting a multiparty conversation (ad-hoc meeting)
 
 
-1. Call **[ConversationsManager](http://technet.microsoft.com/library/b412eed4-1cbe-4471-ae3d-c4f38a8f7284%28Office.14%29.aspx).createConversation** method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
+1. Call **[ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx.md).createConversation** method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation.
     

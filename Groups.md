@@ -7,19 +7,19 @@
 
 ## What is a group?
 
-A group object is the visual metaphor of a person list view. A [Group](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) object can be a collection of individual people or it can be a distribution group that is composed of people and other distribution groups. A group can come from any of these sources. Groups are used to create a person list view organized by people groupings.
+A group object is the visual metaphor of a person list view. A [Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx.md) object can be a collection of individual people or it can be a distribution group that is composed of people and other distribution groups. A group can come from any of these sources. Groups are used to create a person list view organized by people groupings.
 
 
 ### Groups
 
-The [Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx).[PersonsAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx) object provides access to all[Group](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) objects. The **PersonsAndGroupsManager.all** property returns a single "all" **group**. The "all"[Group](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) **.groups** property returns a collection of **group** objects.
+The [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx.md).[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx.md) object provides access to all[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx.md) objects. The **PersonsAndGroupsManager.all** property returns a single "all" **group**. The "all"[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx.md) **.groups** property returns a collection of **group** objects.
 
-The collection returned by  **.groups** contains a **group** of each type including relationship groups, user-created or a server-created[Group](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) objects. The server created groups include distribution groups and "frequent persons". User created groups are known as "custom groups" and owned by the signed in user. Custom group membership is maintained by using the Skype for Business client.
+The collection returned by  **.groups** contains a **group** of each type including relationship groups, user-created or a server-created[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx.md) objects. The server created groups include distribution groups and "frequent persons". User created groups are known as "custom groups" and owned by the signed in user. Custom group membership is maintained by using the Skype for Business client.
 
 
 ### Relationships
 
-A collection of relationship [Group](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) objects is a grouping of persons by work relationship. **RelationshipLevel** include Colleagues, Workgroup, or Blocked.
+A collection of relationship [Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx.md) objects is a grouping of persons by work relationship. **RelationshipLevel** include Colleagues, Workgroup, or Blocked.
 
 
 ### Nested Distribution groups
@@ -33,7 +33,7 @@ A nested distribution group is a distribution group whose parent is a distributi
 
 The scenario shown by figure 1 is represented in the Skype Web SDK object model by figure 2. The red connector in the diagram represents the nested relationship between parent and child person groups.
 
-The groups collection on the  **application.PersonsAndGroupsManager.all.groups** object represents person groups that a user has added to her person list. This collection can include custom groups and distribution groups. A collection of **groups** returned in a search query contains only distribution groups. Read[PersonsAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx) for information about searching for distribution groups.
+The groups collection on the  **application.PersonsAndGroupsManager.all.groups** object represents person groups that a user has added to her person list. This collection can include custom groups and distribution groups. A collection of **groups** returned in a search query contains only distribution groups. Read[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx.md) for information about searching for distribution groups.
 
 
 **Figure 2. Group recursion to represent nested distribution groups**
