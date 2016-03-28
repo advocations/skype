@@ -16,8 +16,6 @@ You can contribute to [Skype Web SDK developer documentation](https://msdn.micro
 
 The content in the Skype-docs repository is grouped  by topic. The README.md file at the root of the topic directory specifies the structure of the articles within the topic.
 
-Article within each topic are named by MSDN GUID rather than title name. This is a side effect of our document management process and cannot be changed at this time. We highly recommend using the table of contents within each topic directory (see links below) to navigate to the files you wish to view or edit.
-
 ##Articles in this repository
 ###Skype Web SDK
 
