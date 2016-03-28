@@ -15,6 +15,7 @@
   - [Getting started](/GettingStarted.md)
     - [Downloading and running samples](/DownloadRunSamples.md)
     - [Skype Web SDK API product keys](/APIProductKeys.md)
+
   - [Developing applications](/DevelopApplications.md)
     - [Architecture](/Architecture.md)
     - [Object model](/ObjectModel.md)

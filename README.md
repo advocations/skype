@@ -10,7 +10,7 @@ You can contribute to [Skype Web SDK developer documentation](https://msdn.micro
 * Report documentation bugs via [GitHub Issues](https://github.com/OfficeDev/office-content/issues)
 * Add documentation requests to the [Office/SharePoint developer UserVoice](http://officespdev.uservoice.com)
 
-*\*We're only taking documentation contributions for the Skype Web SDK Conceptual content at this time*
+>**Note:** We're only taking documentation contributions for the Skype Web SDK Conceptual content at this time*
 
 ## Repository organization
 
@@ -48,4 +48,7 @@ Once we receive and process your CLA, we will do our best to review your pull re
 ## Guidance for contributors
 For more guidance on contributing to Office developer documentation, see [CONTRIBUTING.md](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md) in this repo. 
 
+
+##Copyright
+Copyright (c) 2016 Microsoft Corporation. All rights reserved.
 

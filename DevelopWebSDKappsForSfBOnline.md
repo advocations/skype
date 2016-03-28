@@ -91,7 +91,7 @@ The following example shows the parameters that are required when signing in to 
 
 
 
-```
+```js
 app.signinManager.signIn({
      "client_id": "...",  //GUID obtained from Azure app registration.
      "origins": ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
@@ -145,7 +145,7 @@ The previous sample shows how to get the access token that you need to use in al
 
 
 
-```
+```js
 var config = {
  apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255', // SDK
  apiKeyCC: '9c967f6b-a846-4df2-b43d-5167e47d81e1' // SDK+UI
@@ -173,7 +173,7 @@ When you have the application object, you sign a user into SfB Online with code 
 
 
 
-```
+```js
 $("#btn-token-sign-in").click(function () {
         var client = window.skypeWebApp;
         $(".modal").show();
