@@ -51,4 +51,4 @@ Detaching the video container DOM element removes the element and can cause the 
 #### Other resources
 
 
-[ParticipantVideo]( https://msdn.microsoft.com/en-us/library/office/mt657723(v=office.16).aspx.md)
+[ParticipantVideo]( https://msdn.microsoft.com/en-us/library/office/mt657723(v=office.16).aspx)

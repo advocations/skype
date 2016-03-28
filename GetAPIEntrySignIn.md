@@ -5,9 +5,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx.md) object is created by invoking the Application class constructor with the new keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
+The [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by invoking the Application class constructor with the new keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
 
-The [SigninManager]( https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx.md). **signIn** function method and the[SigninManager]( https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx.md). **signOut** function method are asynchronous methods that return a[Promise]( https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx.md) object. Invoke the **Promise.then** method to set operation success or failure callback logic.
+The [SigninManager]( https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx). **signIn** function method and the[SigninManager]( https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx). **signOut** function method are asynchronous methods that return a[Promise]( https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx) object. Invoke the **Promise.then** method to set operation success or failure callback logic.
 
  **Note**  To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:[Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)[Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
@@ -55,7 +55,7 @@ Skype.initialize({ apiKey: config.apiKey }, function (api) {
     });
   ```
 
-3. Call the [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx.md) constructor to get the entry point of the SDK.
+3. Call the [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) constructor to get the entry point of the SDK.
 
 
   ```js
@@ -100,7 +100,7 @@ Skype.initialize({ apiKey: config.apiKey }, function (api) {
 
 The sign in onSuccess callback is invoked only if the user succeeds in signing in. For any SDK calls (such as getting presence) that depend on the user being signed in, you should add the SDK calls in the onSuccess callback. 
     
->**Note:** If sign in fails or you call **signOut**, you must create a new [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx.md) object before attempting to sign in again. The original application object will not be able to attempt a new **signIn** operation.
+>**Note:** If sign in fails or you call **signOut**, you must create a new [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object before attempting to sign in again. The original application object will not be able to attempt a new **signIn** operation.
     
 The following example uses basic authentication to sign a user in with a user name and password. The user name is in the form of a SIP address.
 

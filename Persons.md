@@ -7,7 +7,7 @@
 
 ## 
 
-A [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md) object in Skype Web SDK represents a single person, and contains all the information the user publishes from presence information and a photo, to phone numbers, job title and current location. Persons can also be related in groups and lists.
+A [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object in Skype Web SDK represents a single person, and contains all the information the user publishes from presence information and a photo, to phone numbers, job title and current location. Persons can also be related in groups and lists.
 
 Figure 1 shows you how to get an instance of the Person object from a user's person list.
 

@@ -12,7 +12,7 @@
 
 ### Using the mePerson object
 
-The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx.md) object is retrieved through the **[application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx.md).[personsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx.md).mePerson** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object is retrieved through the **[application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx).[personsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).mePerson** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -27,7 +27,7 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 
 ```
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx.md) properties which can be set
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which can be set
 
 
 |||
@@ -38,7 +38,7 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |status|Gets or sets the availability of the signed in user.|
  **Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx.md) properties which are read-only
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which are read-only
 
 
 |||
@@ -63,4 +63,4 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 #### Other resources
 
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx.md)
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx)

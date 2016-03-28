@@ -5,24 +5,24 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The person information a signed in user can get for another user is restricted by the Privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md) property for that information is null.
+The person information a signed in user can get for another user is restricted by the Privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) property for that information is null.
 
 After the user is signed in, your application can do the following procedure. The desired person may not be in the user's person list. In that case, see [Search for persons and distribution groups]( /SearchForPersonsAndGroups.md) to learn about providing a person search feature.
 
 ### How to: Show a person's information
 
 
-1. Handle the  **[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx.md).persons** "added" event to put the added person on a web page.
+1. Handle the  **[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).persons** "added" event to put the added person on a web page.
     
-2. Add an event handler for the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md).status** property changed event. Update the web page with the new availability of the person.
+2. Add an event handler for the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx).status** property changed event. Update the web page with the new availability of the person.
     
-3. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md).displayName** property to get the person's name.
+3. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx).displayName** property to get the person's name.
     
-4. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md).title** property to get the person's business title.
+4. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx).title** property to get the person's business title.
     
-5. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md).department** property to get the person's work department.
+5. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx).department** property to get the person's work department.
     
-6. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md).company** property to get the person's company name.
+6. Read the  **[Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx).company** property to get the person's company name.
     
 
 
