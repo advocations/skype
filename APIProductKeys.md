@@ -10,7 +10,7 @@
 
 
 
-This section lists the API product keys that are available to reference in your application. With each successive release of the Skype Web SDK, additional features are supported. Use the support matrix table in this article to find the appropriate product key to use for the features you implement in your app. 
+This section lists the API product keys and the supported capabilities that are available for your production use application. With each successive release of the Skype Web SDK, additional features are supported. Use the support matrix table in this article to find the appropriate product key to use for the features you implement in your app. 
 
 ## Product keys
 <a name="sectionSection0"> </a>
