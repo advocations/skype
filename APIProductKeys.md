@@ -1,4 +1,4 @@
-# Skype Web SDK API Product Keys
+# Skype Web SDK Production Use Capabilities
 
  **Last modified:** March 24, 2016
 
@@ -34,22 +34,41 @@ tst
 |:-----|:-----|:-----|
 |**Feature**|**Public Preview**|**General Availability**|
 |Sign in, Sign out|X |X|
-|View Signed in user’s information|X|X|
-|Update Note and Presence for the signed in user|X|X|
+|View Signed in user’s information (not available for online)|X|X|
+|Update Note and Presence for the signed in user (not available for online)|X|X|
 |View the contact list of the signed in users |X|X|
 |Search for persons or groups  |X|X|
 |Add/remove/Rename groups in the contact list.  |X|X|
 |Add/remove distribution groups in the contact list.   |X|X|
 |Add/remove contacts to groups in the contact list.   |X|X|
 |Add/remove telephone contacts to groups in the contact list. |X|X|
-|Start/Have P2P chat conversations as a signed in user with another signed in Skype or Skype for business user via Skype Web SDK API.  |X|X|
-|Start/Have meeting chat conversations as a signed in user via Skype Web SDK API.  |X|X|
-|Start/Have P2P or meeting audio conversations with the signed in users   |X|-|
+|Start and have P2P chat conversations as a signed in user with another signed in Skype or Skype for business user via Skype Web SDK API (outgoing invitations)  |X|X|
+|Accept and have P2P chat conversations as a signed in user with another signed in Skype or Skype for business user via Skype Web SDK API. (incoming invitations) (not available for online) |X|X|
+|Start and have meeting chat conversations as a signed in user via Skype Web SDK API.  |X|X|
+|Start and have P2P or meeting audio conversations with the signed in users   |X|-|
 |Invite more participant to an online meeting Chat conversation, or to a P2P Chat conversation to escalate to meeting via the Skype Web SDK API |X|X|
 |Invite more participant to an online meeting AV conversation, or to a P2P AV conversation to escalate to meeting |X|-|
 |Join an online meeting and start chat and/or audio service in the conversation. |X|-|
-|Join a Skype for Business online meeting from a signed in user, with chat, audio and video. |X|-|
+|Join a Skype for Business online meeting from a signed in user with audio and video. |X|-|
 |Join a Skype for Business online meeting from an anonymous user. |X|-|
 |In a Skype for Business online meeting, one can open up to four video windows from different remote participants at the same time.  |X|-|
 |The application context can be passed to the remote party in the conversation invite.  |X|X|
 |Use Skype Conversation UI control in your applications for P2P IM  |X|X|
+
+## Supported Browsers
+
+- IE 10+
+- Safari 8+
+- Edge
+- Firefox 40+ (non Audio Video functionality)
+- Chrome 43+ (non Audio Video functionality)
+- Edge 
+
+## Supported Server versions 
+
+- Scenarios: Sign in, Sign out, Presence, View Contacts, Groups, Chat services, Skype Conversation UI
+&nbsp;&nbsp;&nbsp;&nbsp;-Lync 2013 CU6HF2 +
+&nbsp;&nbsp;&nbsp;&nbsp;-SfB 2015 CU1+
+
+- Scenarios: P2P AV, Group AV, Devices selection, Anonymous meeting join, Add/remove contacts and groups
+&nbsp;&nbsp;&nbsp;&nbsp;-SfB 2015 CU1+
