@@ -1,4 +1,4 @@
-## Skype Web SDK - Release Notes 
+# Skype Web SDK - Release Notes 
 
 _**Release Date 03/30/2016**_
 
