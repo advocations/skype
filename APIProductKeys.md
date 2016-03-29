@@ -4,10 +4,10 @@
 
  _**Applies to:** Skype for Business_
 
- **In this article**<br/>
-[Product keys](#product-keys)<br/>
-[Feature support matrix](#feature-support-matrix)<br/>
-[Supported Browsers](#supported-browsers)<br/>
+ **In this article**  
+[Product keys](#product-keys)  
+[Feature support matrix](#feature-support-matrix)  
+[Supported Browsers](#supported-browsers)  
 [Supported Server Versions](#supported-server-versions)
 
 
