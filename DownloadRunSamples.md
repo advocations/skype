@@ -20,7 +20,7 @@ The Microsoft Skype Web SDK includes a set of web application samples that allow
 You can either run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation, or you can use the developer sandbox provided on the Metio.net server. The following instructions apply to setting up and using the samples against the Metio.net sandbox:
 
 
-1. Download the samples files. The Microsoft Skype Web SDK samples are available as a single download at [download.microsoft.com](http://download.microsoft.com/download/A/4/7/A47E03FD-7AEB-4702-B891-2874DCCB6329/SkypeWebSDKSamples.zip).
+1. Download the samples files. The Microsoft Skype Web SDK samples are available on github at https://github.com/OfficeDev/skype-web-sdk-samples.
     
 2. Copy the samples files to a local folder on your computer such as C:\Websites\SkypeWebSDKSamples.
     
@@ -40,7 +40,7 @@ You can either run the Microsoft Skype Web SDK samples against your private Skyp
 ## Samples in the download package
 <a name="sectionSection1"> </a>
 
-The Microsoft Skype Web SDK samples are available as a single download at [download.microsoft.com](http://download.microsoft.com/download/A/4/7/A47E03FD-7AEB-4702-B891-2874DCCB6329/SkypeWebSDKSamples.zip).
+The Microsoft Skype Web SDK samples are available on github at https://github.com/OfficeDev/skype-web-sdk-samples.
 
 
  **Note**  To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers from the following download locations:[Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)[Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg )
