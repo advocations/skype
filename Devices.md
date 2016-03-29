@@ -5,10 +5,10 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**<br/>
-[Cameras](#sectionSection0)<br/>
-[Microphones](#sectionSection1)<br/>
-[Speakers](#sectionSection2)
+ **In this article**  
+[Cameras](#cameras)  
+[Microphones](#microphones)  
+[Speakers](#speakers)
 
 
 The [DevicesManager](https://msdn.microsoft.com/en-us/library/office/mt657715(v=office.16).aspx) object has members representing audio and video devices for use with Skype Web SDK. This object is a member of the [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object. It has properties for the currently selected devices: **selectedCamera**, **selectedMicrophone**, and **selectedSpeaker**. There are also three lists, each representing the available devices: cameras, microphones, and speakers. The objects in these lists each have properties describing the device they represent, including name, id, type.
@@ -44,4 +44,4 @@ A collection of all available speakers is in [DevicesManager.speakers](https://m
 #### Concepts
 
 
-[Manage devices]( /ManageDevices.md)
+[Manage devices](ManageDevices.md)

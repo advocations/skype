@@ -1,13 +1,11 @@
 
 # Local user
 
- **Last modified:** March 14, 2016
+ **Last modified:** March 29, 2016
 
  _**Applies to:** Skype for Business 2015_
 
 ## Local user
-
-.
 
 
 ### Using the mePerson object
@@ -59,7 +57,7 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 
 
 
-[Show a person's information]( /ShowPersonInfo.md)
+[Show a person's information](ShowPersonInfo.md)
 #### Other resources
 
 

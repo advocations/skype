@@ -45,5 +45,5 @@ person.activity.subscribe();
 #### Concepts
 
 
-[Listening for and generating presence events]( /PresenceEvents.md)  
-[Start a conversation]( /StartConversation.md)
+[Listening for and generating presence events](PresenceEvents.md)  
+[Start a conversation](StartConversation.md)
