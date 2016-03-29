@@ -59,7 +59,6 @@ tst
 
 - IE 10+
 - Safari 8+
-- Edge
 - Firefox 40+ (non Audio Video functionality)
 - Chrome 43+ (non Audio Video functionality)
 - Microsoft Edge 
