@@ -29,7 +29,8 @@ We have also resolved several customers reported issues related to Conversations
 
 **Supported Browsers**
 
-- IE 10+
+- IE 10+ (Skype for Business Onprem)
+- IE 11 (Skype for Business Online)
 - Safari 8+
 - Microsoft Edge
 - Firefox 40+ (non Audio Video functionality)
