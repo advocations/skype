@@ -62,7 +62,7 @@ tst
 - Edge
 - Firefox 40+ (non Audio Video functionality)
 - Chrome 43+ (non Audio Video functionality)
-- Edge 
+- Microsoft Edge 
 
 ## Supported Server versions 
 
