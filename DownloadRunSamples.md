@@ -20,7 +20,7 @@ The Microsoft Skype Web SDK includes a set of web application samples that allow
 You can either run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation, or you can use the developer sandbox provided on the Metio.net server. The following instructions apply to setting up and using the samples against the Metio.net sandbox:
 
 
-1. Download the samples files. The Microsoft Skype Web SDK samples are available on github at https://github.com/OfficeDev/skype-web-sdk-samples.
+1. Download the samples files. The Microsoft Skype Web SDK samples are available on github in our GitHub [skype-web-sdk-samples](https://github.com/OfficeDev/skype-web-sdk-samples) directory.
     
 2. Copy the samples files to a local folder on your computer such as C:\Websites\SkypeWebSDKSamples.
     
