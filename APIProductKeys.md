@@ -6,7 +6,9 @@
 
  **In this article**<br/>
 [Product keys](#product-keys)<br/>
-[Feature support matrix](#feature-support-matrix)
+[Feature support matrix](#feature-support-matrix)<br/>
+[Supported Browsers](#supported-browsers)<br/>
+[Supported Server Versions](#supported-server-versions)
 
 
 
