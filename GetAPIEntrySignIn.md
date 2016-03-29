@@ -6,12 +6,12 @@
  _**Applies to:** Skype for Business 2015_
 
 
-The [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by invoking the `Application` class constructor with the `new` keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
+The [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by invoking the **Application** class constructor with the **new** keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
 
-The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)#signIn method and the [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)#signOut method are asynchronous and return a [Promise](https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16) object. Use the `Promise#then` method to set operation success or failure callbacks.
+The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)**#signIn** method and the [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)**#signOut** method are asynchronous and return a [Promise](https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx) object. Use the **Promise#then** method to set operation success or failure callbacks.
 
 
- >**Note** To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:
+ >**Note**: To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:
  - [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
  - [Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
@@ -22,7 +22,7 @@ Add a reference to the bootstrapper to your HTML file.
 
 BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[Terms of Service](/TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
 
->**Note** These license terms apply to the use of the content from the domain swx.cdn.skype.com.
+>**Note**: These license terms apply to the use of the content from the domain swx.cdn.skype.com.
 
 ```html
 <script src="https://swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js"></script>
@@ -45,7 +45,7 @@ Call the [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(
 app = new Application;
 ```
 
-Sign the user in by calling the  `Application#signInManager.signIn` method.
+Sign the user in by calling the  **Application#signInManager.signIn** method.
 
 ```js
 app.signInManager.signIn ({
@@ -58,7 +58,7 @@ app.signInManager.signIn ({
 });
 ```
 
->**Note:** If sign in fails or you call `signOut`, you must create a new [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
+>**Note:** If sign in fails or you call **signOut**, you must create a new [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
 
 The following example uses the password grant authentication to sign a user in with a username and password.
 
