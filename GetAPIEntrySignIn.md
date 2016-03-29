@@ -15,7 +15,7 @@ The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=o
  - [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
  - [Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
-### How to: Get the SDK entry point and sign in a user
+### Get the SDK entry point and sign in a user
 
 Add a reference to the bootstrapper to your HTML file.
 
