@@ -1,7 +1,7 @@
 
 # Skype Web SDK core capabilities
 
- **Last modified:** April 24, 2015
+ **Last modified:** March 28, 2016
 
  _**Applies to:** Skype for Business 2015_
 

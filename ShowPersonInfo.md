@@ -6,24 +6,24 @@
  _**Applies to:** Skype for Business 2015_
 
 
-The person information a signed in user can get for another user is restricted by the privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) property for that information is undefined.
+The person information that a signed-in user can get for another user is restricted by the privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) property for that information is undefined.
 
 
-After the user is signed in, your application can do the following procedure. The desired person may not be in the user's person list. In that case, see [search for persons and distribution groups](/SearchForPersonsAndGroups.md) to learn about providing a person search feature.
+After the user is signed in, your application can perform the following procedure. The desired person may not be in the user's person list. In that case, see [Search for persons and distribution groups](/SearchForPersonsAndGroups.md) to learn about providing a person search feature.
 
 ### How to: Show a person's information
 
-1. Handle the **[PersonsAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx)#persons.added** event to put the added person on a web page.
+1. Handle the [PersonsAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx)**#persons.added** event to put the added person on a webpage.
 
-2. Add an event handler for the  **[Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)#status** property changed event. Update the web page with the new availability of the person.
+2. Add an event handler for the  [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)**#status** property changed event. Update the webpage with the new availability of the person.
 
-3. Read the  **[Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)#displayName** property to get the person's name.
+3. Read the  [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)**#displayName** property to get the person's name.
 
-4. Read the  **[Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)#title** property to get the person's business title.
+4. Read the  [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)**#title** property to get the person's business title.
 
-5. Read the  **[Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)#department** property to get the person's work department.
+5. Read the  [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)**#department** property to get the person's work department.
 
-6. Read the  **[Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)#company** property to get the person's company name.
+6. Read the  [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx)**#company** property to get the person's company name.
 
 ```js
 app.personsAndGroupsManager.all.persons.added(person => {

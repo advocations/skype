@@ -5,12 +5,12 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**<br/>
-[Model layer](#sectionSection0)<br/>
-[Application object](#sectionSection1)<br/>
-[Person list](#sectionSection2)<br/>
-[Conversations](#sectionSection3)<br/>
-[MePerson object](#sectionSection4)
+ **In this article**  
+[Model layer](#sectionSection0)  
+[Application object](#sectionSection1)  
+[Person list](#sectionSection2)  
+[Conversations](#sectionSection3)  
+[MePerson object](#sectionSection4)  
 
 
 The object model is shown in the following figure (Figure 1). Use the [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) constructor and the **new** keyword to create an **Application** object of the [Skype.Web.Model](https://msdn.microsoft.com/en-us/library/office/dn962123(v=office.16).aspx)**.Application** type. **Application** is the only object with a constructor. All other objects are obtained according to figure below.
@@ -35,15 +35,15 @@ A member object is a reference to child model object.
 
 ### Observable Properties
 
-An observable property is a single value [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object that you can add a value change event listener. The `changed` event listener on the observable property tells you when a property value changes. You can also get the cached value of the property by invoking the property as a function.
+An observable property is a single value [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object that you can add a value change event listener. The **changed** event listener on the observable property tells you when a property value changes. You can also get the cached value of the property by invoking the property as a function.
 
 >**Note**: Invoking the property as a function will retrieve the cached value, which may differ from the actual value on the server.
 
-Get a reference to the property instead of the value when you are interested in events on the property. The [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object has a `.changed` method which accepts the listener as a named or an anonymous function. Be sure to pass a named listener function if you intend to cancel the listener later.
+Get a reference to the property instead of the value when you are interested in events on the property. The [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object has a **.changed** method, which accepts the listener as a named or an anonymous function. Be sure to pass a named listener function if you intend to cancel the listener later.
 
-The SDK is not required to initialize and fill an observable property until you have registered a listener for the property and either call `.get` method or call `.subscribe` method for the object. To get the property value the app needs to invoke `.get` if it needs the value once, or invoke `.subscribe` if it needs the value to be updated all the time. A call to `.subscribe` is heavier. However one call to `.subscribe` should be preferred over multiple calls to `.get`, as `.get` isn't cheap either.
+The SDK is not required to initialize and fill an observable property until you have registered a listener for the property and either call **.get** method or call **.subscribe** method for the object. To get the property value the app needs to invoke **.get** if it needs the value once, or invoke **.subscribe** if it needs the value to be updated all the time. A call to **.subscribe** is heavier. However, one call to **.subscribe** should be preferred over multiple calls to **.get**, as **.get** isn't cheap either.
 
-The same is true for a [Collection](https://msdn.microsoft.com/en-us/library/office/mt657710(v=office.16).aspx). These `.get` and `.subscribe` functions allow the model to load data lazily and load only that parts of data that are needed by the app. This reduces unneeded HTTP operations, and improves the responsiveness of your app. Some SDK properties are initialized and filled when their parent objects are created. It is a good practice to register a `changed` listener for each property whose value you are interested in, even when the value is filled on initialization.
+The same is true for a [Collection](https://msdn.microsoft.com/en-us/library/office/mt657710(v=office.16).aspx). These **.get** and **.subscribe** functions allow the model to load data lazily and load only that parts of data that are needed by the app. This reduces unneeded HTTP operations, and improves the responsiveness of your app. Some SDK properties are initialized and filled when their parent objects are created. It is a good practice to register a **changed** listener for each property whose value you are interested in, even when the value is filled on initialization.
 
 ### Collections
 
@@ -53,7 +53,7 @@ The [Collection](https://msdn.microsoft.com/en-us/library/office/mt657710(v=offi
   var collectionArray = object.collection(); 
   ```
 
-If you want to register a listener for the `.added` or `.removed` events, get a reference to the collection instead of a snapshot of the contents. See [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) for more information.
+If you want to register a listener for the **.added** or **.removed** events, get a reference to the collection instead of a snapshot of the contents. See [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) for more information.
 
 ### Asynchronous Commands
 
@@ -62,31 +62,31 @@ The SDK encapsulates HTTP operations in asynchronous commands. Use the [Promises
 ## Application object
 <a name="sectionSection1"> </a>
 
-The [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by calling the application constructor and is the entry point to the API. Use the `Application#signinManager` to get state change events and signed-in user presence. All operations in the SDK depend on the application object and require that a user is signed in through this object. This object encapsulates a REST communication stack for the signed in user. The functions of this object include:
+The [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by calling the application constructor and is the entry point to the API. Use the **Application#signinManager** to get state change events and signed-in user presence. All operations in the SDK depend on the **Application** object and require that a user is signed in through this object. This object encapsulates a REST communication stack for the signed in user. The functions of this object include:
 
-- Sign a user in using OAUTH, NTLM, or basic authentication with `Application.SignInManager`
+- Sign a user in using OAUTH, NTLM, or basic authentication with **Application.SignInManager**
     
-- Sign a user out with [SignInManager]( https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx) by using the `Application#signInManager` member.
+- Sign a user out with [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx) by using the **Application#signInManager** member.
     
 - Get the current sign in state of the user.
     
-- Get a reference to the user's person list by reading the `Application#personAndGroups` member. The member references a [PersonAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) object.
+- Get a reference to the user's person list by reading the **Application#personAndGroups** member. The member references a [PersonAndGroupsManager](https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) object.
     
-- Get a reference to the conversations that the user has joined by reading the `Application#conversationsManager` member. The member references a [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) object.
+- Get a reference to the conversations that the user has joined by reading the **Application#conversationsManager** member. The member references a [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) object.
     
-- Get a reference to the available media devices by reading the `Application#devicesManager` member. The member references a [DevicesManager]( https://msdn.microsoft.com/en-us/library/office/mt657715(v=office.16).aspx) object.
+- Get a reference to the available media devices by reading the **Application#devicesManager** member. The member references a [DevicesManager](https://msdn.microsoft.com/en-us/library/office/mt657715(v=office.16).aspx) object.
     
 
 ## Person list
 <a name="sectionSection2"> </a>
 
-Access the signed in user's person list by getting a  [Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) object on `Application#personsAndGroupsManager.all`:
+Access the signed in user's person list by getting a  [Group](https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) object on **Application#personsAndGroupsManager.all**:
 
-The `.mePerson` members provides a reference to the [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object through **[PersonAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).mePerson**
+The **.mePerson** members provides a reference to the [MePerson](https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object through [PersonAndGroupsManager](https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx)**.mePerson**.  
 
-The `.persons` collection contains all of the persons in the person list across all user defined and server defined groups. Contacts in the distribution groups are not in this collection. Use the `.persons` collection to get a `Person` out of the list. This collection is empty unless the application subscribes to it by calling `.subscribe` or fetches the list once with `.get`.
+The **.persons** collection contains all of the persons in the person list across all user defined and server defined groups. Contacts in the distribution groups are not in this collection. Use the **.persons** collection to get a **Person** out of the list. This collection is empty unless the application subscribes to it by calling **.subscribe** or fetches the list once with **.get**.
 
-The `.groups` collection encapsulate the person groups that appear in the user's person list. Use the `.groups` collection to get sets of person groups based on:
+The **.groups** collection encapsulate the person groups that appear in the user's person list. Use the **.groups** collection to get sets of person groups based on:
     
 - Privacy relationship to user
     
@@ -98,13 +98,13 @@ The `.groups` collection encapsulate the person groups that appear in the user's
 ## Conversations
 <a name="sectionSection3"> </a>
 
-Access the conversations that the user is participating in by reading the [Application#conversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) `.conversations` collection. If you register a callback for the `.added` event on the conversation collection, your application can accept incoming conversation invitations.
+Access the conversations that the user is participating in by reading the [Application#conversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx)**.conversations** collection. If you register a callback for the **.added** event on the conversation collection, your application can accept incoming conversation invitations.
 
 
 ## MePerson object
 <a name="sectionSection4"> </a>
 
-The signed in user is encapsulated by the [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object obtained from the **[PersonAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx)#mePerson** property. The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object lets you read and write the following user properties:
+The signed in user is encapsulated by the [MePerson](https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object obtained from the [PersonAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx)**#mePerson** property. The [MePerson](https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object lets you read and write the following user properties:
 
 
 - User's current location 
@@ -113,7 +113,7 @@ The signed in user is encapsulated by the [MePerson]( https://msdn.microsoft.com
     
 - User presence availability 
     
-The following [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties are read-only:
+The following [MePerson](https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties are read-only:
 
 
 - SIP URI
@@ -140,7 +140,7 @@ The following [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn9621
 #### Concepts
 
 
-[Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)<br/>
-[Show a person's information]( /ShowPersonInfo.md)<br/>
-[Search for persons and distribution groups]( /SearchForPersonsAndGroups.md)<br/>
-[Respond to a conversation invitation]( /RespondToInvitation.md)
+[Retrieve the API entry point and sign in a user](GetAPIEntrySignIn.md)  
+[Show a person's information](ShowPersonInfo.md)  
+[Search for persons and distribution groups](SearchForPersonsAndGroups.md)  
+[Respond to a conversation invitation](RespondToInvitation.md)  
