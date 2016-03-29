@@ -1,7 +1,7 @@
 
 # Skype Web SDK
 
- **Last modified:** February 11, 2016
+ **Last modified:** March 28, 2016
 
  _**Applies to:** Skype for Business 2015_
 
@@ -9,7 +9,7 @@ The Skype Developer Platform for Web ("Skype Web SDK") is a set of JavaScript We
 
 The Skype Web SDK documentation consists of the following sections:
 
-- [Skype Web SDK general reference]( /GeneralReference.md)
+- [Skype Web SDK general reference](GeneralReference.md)
     
 - [Skype Web SDK API reference]( https://msdn.microsoft.com/en-us/library/office/dn962122(v=office.16).aspx)
     
