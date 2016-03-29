@@ -5,12 +5,12 @@
 
  _**Applies to:** Skype for Business 2015_
 
-A Person represents a user. The [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object can be queried for information about a person, such as their availability to join a conversation. The [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object is passed to the conversation starting methods, such as the [ConversationsManager.getConversation](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) method, so that the conversation invitation is sent to the person represented by the [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object.
+A Person represents a user. The [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object can be queried for information about a person, such as their availability to join a conversation. The [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object is passed to the conversation starting methods, such as the [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx)**.getConversation** method, so that the conversation invitation is sent to the person represented by the [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object.
 
 A [Group](https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) can represent a distribution group, server-defined person set, or user-defined person set. If the [Group](https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) is a distribution group, it can also link to other distribution groups. Persons in a distribution group are represented by [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) objects. The arguments for the [PersonsAndGroupsManager](https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).**createGroupSearchQuery** method include a partial or full name query and a numeric limit to the size of the result sets. Results include a collection of distribution groups. To find persons, use the [PersonsAndGroupsManager](https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).**createPersonSearchQuery** method.
 The following procedure assumes that a user has signed in before searching for persons and groups.
 
-### How to: Search for persons
+### Search for persons
 
 
 1. Create a  **SearchQuery** for person search: **personsAndGroupsManager.createPersonSearchQuery**.
@@ -42,7 +42,7 @@ personSearchQuery.getMore().then(null, function (results) {
   ```
 
 
-### How to: Search for groups
+### Search for groups
 
 
 1. Create a  **SearchQuery** for group search: **personsAndGroupsManager.createGroupSearchQuery**.
