@@ -18,14 +18,14 @@ Skype Developer Platform for Web users get current presence for a Skype for Busi
 ## Getting user presence information
 <a name="sectionSection0"> </a>
 
-Before your code starts getting presence event notifications, it must get a [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx) object and "subscribe" to presence changes on the person. There are two ways to get a **Person** object:
+Before your code starts getting presence event notifications, it must get a [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) object and "subscribe" to presence changes on the person. There are two ways to get a **Person** object:
 
 
-- Read the [PersonAndGroupsManager.all](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx) property and iterate the[Group.persons](http://technet.microsoft.com/library/6cf7a1b7-d732-422b-96e6-ff8ac18cedc8%28Office.14%29.aspx) property to find the **Person** object you want presence for.
+- Read the [PersonAndGroupsManager.all]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) property and iterate the[Group.persons]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) property to find the **Person** object you want presence for.
     
-- Create a search query on the [PersonAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx) by calling the **createPersonSearchQuery** method. A[SearchQuery](http://technet.microsoft.com/library/7cec1140-19bf-49a3-a72d-10fe7497917b%28Office.14%29.aspx) object is returned.
+- Create a search query on the [PersonAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) by calling the **createPersonSearchQuery** method. A[SearchQuery]( https://msdn.microsoft.com/en-us/library/office/dn962157(v=office.16).aspx) object is returned.
     
-The following sample code is the  **onSuccess** argument of the[Promise](http://technet.microsoft.com/library/362628c9-9f48-4e26-8f5d-d0bae80e782d%28Office.14%29.aspx) returned by the[SearchQuery.getMore](http://technet.microsoft.com/library/7cec1140-19bf-49a3-a72d-10fe7497917b%28Office.14%29.aspx) operation. It shows how to use JavaScript and the Skype Web SDK to get several presence elements for persons in the search results. The text of these presence values are appended to an HTML tag with the id "results".
+The following sample code is the  **onSuccess** argument of the[Promise]( https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx) returned by the[SearchQuery.getMore]( https://msdn.microsoft.com/en-us/library/office/dn962157(v=office.16).aspx) operation. It shows how to use JavaScript and the Skype Web SDK to get several presence elements for persons in the search results. The text of these presence values are appended to an HTML tag with the id "results".
 
 
 
@@ -129,7 +129,7 @@ Var subActivity = person.activity.subscribe(); // start the subscription
 ## Canceling a presence subscription
 <a name="sectionSection4"> </a>
 
-A subscription uses resources and generates both GET and POST requests. To avoid using resources and bandwidth unnecessarily, be sure to end a presence subscription before your application moves a person object out of scope. JavaScript does not have a concept of a finalizer or destructor, so the person object itself cannot determine when it is no longer needed. To end a subscription, call the  **dispose** function on each object returned by the[Property.subscribe](http://technet.microsoft.com/library/75568de9-0173-45cf-a0ce-ba1e5b0da7d9%28Office.14%29.aspx) method called for each subscription.
+A subscription uses resources and generates both GET and POST requests. To avoid using resources and bandwidth unnecessarily, be sure to end a presence subscription before your application moves a person object out of scope. JavaScript does not have a concept of a finalizer or destructor, so the person object itself cannot determine when it is no longer needed. To end a subscription, call the  **dispose** function on each object returned by the[Property.subscribe]( https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) method called for each subscription.
 
 The following sample cancels a presence subscription by iterating an array of subscription objects and disposing of each in turn.
 

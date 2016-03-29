@@ -18,6 +18,8 @@ This section shows how to get started developing web applications with the Skype
 ## Using the Skype Web SDK in your application
 <a name="sectionSection0"> </a>
 
+>**Note** Please see the [release notes](/ReleaseNotes.md) for this SDK before you start a new web app or update your existing Skype for Business Web SDK-powered app.
+
 Because the Skype Web SDK is hosted through the Content Delivery Network (CDN), you do not have to install it. Instead, you add Skype for Business functionality to your web applications simply by adding a ```<script/>``` tag to your HTML file that points to the Skype Web SDK entry point (swx.cdn.skype.com). Doing so bootstraps the Skype Web SDK JavaScript libraries in your application. For more information, see [Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)
 
 
@@ -96,5 +98,5 @@ After you have run the samples and examined the sample code, and you are ready t
 ## Downloading and running the Skype Web SDK Samples
 <a name="sectionSection4"> </a>
 
-The Microsoft Skype Web SDK includes a set of twelve samples that are provided as a single download at [download.microsoft.com](http://download.microsoft.com/download/A/4/7/A47E03FD-7AEB-4702-B891-2874DCCB6329/SkypeWebSDKSamples.zip). For a detailed description of what the samples do, and an explanation of how to run them, see [Downloading and running the Skype Web SDK samples]( /DownloadRunSamples.md).
+The Microsoft Skype Web SDK includes a set of twelve samples hosted on github at https://github.com/OfficeDev/skype-web-sdk-samples. For a detailed description of what the samples do, and an explanation of how to run them, see [Downloading and running the Skype Web SDK samples]( /DownloadRunSamples.md).
 

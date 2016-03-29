@@ -11,5 +11,5 @@ The Skype Web SDK documentation consists of the following sections:
 
 - [Skype Web SDK general reference]( /GeneralReference.md)
     
-- [Skype Web SDK API reference](http://technet.microsoft.com/library/b22d9a7c-d06c-4628-a8f2-bb060ca7689a.aspx)
+- [Skype Web SDK API reference]( https://msdn.microsoft.com/en-us/library/office/dn962122(v=office.16).aspx)
     

@@ -10,9 +10,9 @@
 The Skype Web SDK provides the following objects to start or join IM messaging, and to send and receive messages in a conversation.
 
 
-- Use a [ConversationsManager](http://technet.microsoft.com/library/b412eed4-1cbe-4471-ae3d-c4f38a8f7284%28Office.14%29.aspx) object to start an outgoing conversation. For incoming invitations, the accept and reject actions are taken on the incoming[Conversation](http://technet.microsoft.com/library/0c5a6d3a-d3cb-40c0-96f3-0d42c36af4a8%28Office.14%29.aspx) object.
+- Use a [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) object to start an outgoing conversation. For incoming invitations, the accept and reject actions are taken on the incoming[Conversation]( https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object.
     
-- Use a [Conversation](http://technet.microsoft.com/library/0c5a6d3a-d3cb-40c0-96f3-0d42c36af4a8%28Office.14%29.aspx) object to exchange messages, send and receive audio-visual content, and share applications in the conversation.
+- Use a [Conversation]( https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object to exchange messages, send and receive audio-visual content, and share applications in the conversation.
     
 - Use the[ Skype Web Conversation Control]( /UseConversationControl.md) to host an IM conversation in your web page. The **Conversation Control** encapsulates the model, view, and view model so that you only write code to host and render the control itself. Use the control when you want to let the Skype Web SDK provide the chat UI. If you use the conversation control, your web page can host a complete IM dialog with as few as three Skype Web SDK API calls.
     
@@ -37,13 +37,13 @@ A conversation can be thought of as two-dimensional, with the number of conversa
 Several conversation service types are supported by the SDK:
 
 
-- [ChatService](http://technet.microsoft.com/library/738a2869-3d8e-4901-b666-348c204f5195%28Office.14%29.aspx)
+- [ChatService]( https://msdn.microsoft.com/en-us/library/office/dn962148(v=office.16).aspx)
     
-- [AudioService](http://technet.microsoft.com/library/7a070090-351b-4ab2-a157-f667b5afb7e1%28Office.14%29.aspx)
+- [AudioService]( https://msdn.microsoft.com/en-us/library/office/mt219384(v=office.16).aspx)
     
-- [VideoService](http://technet.microsoft.com/library/7b1dc369-0680-4263-b625-14bca72cb2fa%28Office.14%29.aspx)
+- [VideoService]( https://msdn.microsoft.com/en-us/library/office/mt219389(v=office.16).aspx)
     
-- [HistoryService](http://technet.microsoft.com/library/920d4b6d-4001-49a4-b4bb-6e5c4e9a85a3%28Office.14%29.aspx)
+- [HistoryService]( https://msdn.microsoft.com/en-us/library/office/dn962130(v=office.16).aspx)
     
  **Supported clients**
 

@@ -13,7 +13,10 @@
     - [Persons](/Persons.md)
     - [Devices](/Devices.md)
   - [Getting started](/GettingStarted.md)
+    - [Release Notes](/ReleaseNotes.md)
     - [Downloading and running samples](/DownloadRunSamples.md)
+    - [Skype Web SDK API product keys](/APIProductKeys.md)
+
   - [Developing applications](/DevelopApplications.md)
     - [Architecture](/Architecture.md)
     - [Object model](/ObjectModel.md)
@@ -39,4 +42,5 @@
     - [Switch between video streams across conversations](/SwitchConversationVideoStreams.md)
     - [Use the Skype Web Conversation Control in a web page](/UseConversationControl.md)
       - [Conversation Control](/ConversationControl.md)
+
 

@@ -5,9 +5,11 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The [Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx) object is created by invoking the `Application` class constructor with the `new` keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
 
-The [SignInManager](http://technet.microsoft.com/library/bfb98537-a02a-4eb5-b980-007b8c46aee1%28Office.14%29.aspx)#signIn method and the [SignInManager](http://technet.microsoft.com/library/bfb98537-a02a-4eb5-b980-007b8c46aee1%28Office.14%29.aspx)#signOut method are asynchronous and return a [Promise](http://technet.microsoft.com/library/362628c9-9f48-4e26-8f5d-d0bae80e782d%28Office.14%29.aspx) object. Use the `Promise#then` method to set operation success or failure callbacks.
+The [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object is created by invoking the `Application` class constructor with the `new` keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
+
+The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)#signIn method and the [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)#signOut method are asynchronous and return a [Promise](https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16) object. Use the `Promise#then` method to set operation success or failure callbacks.
+
 
  >**Note** To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:
  - [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
@@ -16,6 +18,7 @@ The [SignInManager](http://technet.microsoft.com/library/bfb98537-a02a-4eb5-b980
 ### How to: Get the SDK entry point and sign in a user
 
 Add a reference to the bootstrapper to your HTML file.
+
 
 BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[Terms of Service](/TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
 
@@ -35,7 +38,8 @@ Skype.initialize({ apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255' }, function (a
 });
 ```
 
-Call the [Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx) constructor.
+
+Call the [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) constructor.
 
 ```js
 app = new Application;
@@ -54,7 +58,7 @@ app.signInManager.signIn ({
 });
 ```
 
->**Note:** If sign in fails or you call `signOut`, you must create a new [Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
+>**Note:** If sign in fails or you call `signOut`, you must create a new [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
 
 The following example uses the password grant authentication to sign a user in with a username and password.
 

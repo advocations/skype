@@ -5,7 +5,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The person information a signed in user can get for another user is restricted by the privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person](http://technet.microsoft.com/library/10e41c61-92ff-4bb0-a855-61d1ef231833%28Office.14%29.aspx) property for that information is undefined.
+
+The person information a signed in user can get for another user is restricted by the privacy relationships between the two users. When a privacy relationship restricts access to person information, the [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) property for that information is undefined.
+
 
 After the user is signed in, your application can do the following procedure. The desired person may not be in the user's person list. In that case, see [search for persons and distribution groups](/SearchForPersonsAndGroups.md) to learn about providing a person search feature.
 

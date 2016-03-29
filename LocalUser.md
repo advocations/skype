@@ -12,7 +12,7 @@
 
 ### Using the mePerson object
 
-The [MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b-b734-33e4efbea3b5%28Office.14%29.aspx) object is retrieved through the **[application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1%28Office.14%29.aspx).[personsAndGroupsManager](http://technet.microsoft.com/library/ce912c52-5bed-47b1-b4e0-ce4328297c87%28Office.14%29.aspx).mePerson** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object is retrieved through the **[application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx).[personsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).mePerson** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -27,7 +27,7 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 
 ```
 
-[MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b-b734-33e4efbea3b5%28Office.14%29.aspx) properties which can be set
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which can be set
 
 
 |||
@@ -36,9 +36,9 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |location|Gets or sets the location of the signed in user.|
 |note|Gets or sets the personal note of the signed in user.|
 |status|Gets or sets the availability of the signed in user.|
- **Note:** When the above values contain special characters such as <, >, and / they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
+ **Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-[MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b-b734-33e4efbea3b5%28Office.14%29.aspx) properties which are read-only
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which are read-only
 
 
 |||
@@ -63,4 +63,4 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 #### Other resources
 
 
-[MePerson](http://technet.microsoft.com/library/a71b0536-3c1a-487b-b734-33e4efbea3b5%28Office.14%29.aspx)
+[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx)
