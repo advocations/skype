@@ -13,13 +13,13 @@ Skype Web SDK provides presence and chat services using new REST-based web servi
 ## Contents of the general reference
 
 
-- [Skype Web SDK core capabilities]( /CoreCapabilities.md)
+- [Skype Web SDK core capabilities](CoreCapabilities.md)
     
-- [Getting started with Skype Web SDK development]( /GettingStarted.md)
+- [Getting started with Skype Web SDK development](GettingStarted.md)
     
-- [Developing applications with Skype Web SDK]( /DevelopApplications.md)
+- [Developing applications with Skype Web SDK](DevelopApplications.md)
     
-- [Skype Web SDK programming tasks](/ProgrammingTasks.md)
+- [Skype Web SDK programming tasks](ProgrammingTasks.md)
     
 
 ## 
