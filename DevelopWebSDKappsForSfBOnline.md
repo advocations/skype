@@ -5,16 +5,16 @@
 
  _**Applies to:** Skype for Business | Skype for Business Online_
 
- **In this article**<br/>
-[App registration](#app-registration)<br/>
-[Update your code](#update-your-code)<br/>
-[Tenant Administrator Consent Flow](#tenant-administrator-consent-flow)<br/>
-[Additional Resources](#additional-resources)<br/>
+ **In this article**  
+[App registration](#app-registration)  
+[Update your code](#update-your-code)  
+[Tenant Administrator Consent Flow](#tenant-administrator-consent-flow)  
+[Additional Resources](#additional-resources)  
 
 
 This section shows how to develop a Skype Web SDK client application for Skype for Business Online. As a prerequisite, you will need to have already set up a tenant on your Azure subscription, then register your application in Azure AD, and configure the app manifest to allow implicit grant flow. After you update your Skype Web SDK code to configure the sign-in manager, the application is ready to authenticate users.
 
- >**Note**  This topic does not apply to on-premises or hybrid server scenarios; only online scenarios.
+ >**Note**:  This topic does not apply to on-premises or hybrid server scenarios; only to online scenarios.
 
 
 ## App registration
@@ -25,7 +25,7 @@ Skype for Business Online uses Azure Active Directory (Azure AD) to provide auth
 
 1.  **Register your application in Azure AD**. To allow your application access to the Skype Web SDK APIs, you need to register your application in Azure AD. This will allow you to establish an identity for your application and specify the permission levels it needs in order to access the APIs. For details, see **Registering your application in Azure AD**.
     
-2.  **Add a sign in feature to your app**. When a user visits your website and initiates sign-in, your application makes a request to the Microsoft common OAuth2 login endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. A use must explicitly grant consent to allow your application to access user data by means of the Skype Web SDK APIs. The user reads the descriptions of the access permissions that your application is requesting, and then grants or denies the request. After consent is granted, the UI redirects the user back to your application. If authentication and authorization are successful, Azure AD returns a token and grants access to SfB Online and identifies the current signed-in user. For details on authentication, see [Authentication Using Azure AD](http://technet.microsoft.com/library/f66482d2-ac35-4b25-9c8b-0f5f7ab89b01.aspx). For details of authorization, see [Skype for Business Online Scope Permissions](http://technet.microsoft.com/library/e292d8ef-3b05-4442-9983-378f6f958f8b.aspx).
+2.  **Add a sign in feature to your app**. When a user visits your website and initiates sign-in, your application makes a request to the Microsoft common OAuth2 login endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. A use must explicitly grant consent to allow your application to access user data by means of the Skype Web SDK APIs. The user reads the descriptions of the access permissions that your application is requesting, and then grants or denies the request. After consent is granted, the UI redirects the user back to your application. If authentication and authorization are successful, Azure AD returns a token and grants access to Skype for Business Online and identifies the current signed-in user. For details on authentication, see [Authentication Using Azure AD](http://technet.microsoft.com/library/f66482d2-ac35-4b25-9c8b-0f5f7ab89b01.aspx). For details of authorization, see [Skype for Business Online Scope Permissions](http://technet.microsoft.com/library/e292d8ef-3b05-4442-9983-378f6f958f8b.aspx).
     
 3.  **Call the Skype Web SDK APIs**. Your application passes access tokens to the Skype Web SDK APIs to authenticate and authorize your application.
     
@@ -86,7 +86,7 @@ To update your code to support Skype for Business Online, you'll need to update 
 
 You'll need to create additional folders in your web app directory for users who start the app in Internet Explorer. The path must match the redirect uri that you specify when signing a user in.
 
-The following example shows the parameters that are required when signing in to Skype for Business Online. The redirect_uri parameter value in this sample is the url of an index.html page in a folder below the web app folder. You should use the client id GUID from the Azure app registration to name the folder.
+The following example shows the parameters that are required when signing in to Skype for Business Online. The redirect_uri parameter value in this sample is the URL of an index.html page in a folder below the web app folder. You should use the client id GUID from the Azure app registration to name the folder.
 
 
 
@@ -102,14 +102,14 @@ app.signinManager.signIn({
 ```
 
 
- >**Note** If `redirect_uri` is not specified, the SDK picks a random one. This doesn't work in Internet Explorer because when it sends a GET to it and gets back a 404, it does an extra redirect to `res://ieframe.dll/http_404.htm` and drops the access token from the original URL. If `redirect_uri` points to a folder, implying the `index.html` file under it, then IE will also drop the access token from the original URL.
+ >**Note**: If `redirect_uri` is not specified, the SDK picks a random one. This doesn't work in Internet Explorer because when it sends a GET to it and gets back a 404, it does an extra redirect to `res://ieframe.dll/http_404.htm` and drops the access token from the original URL. If `redirect_uri` points to a folder, implying the `index.html` file under it, then IE will also drop the access token from the original URL.
 
 
 ### Authenticate a user with Office 365 Online
 
 When a user visits your website and initiates sign-in, your application redirects the user to the Azure AD authorization endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. 
 
-The following html content shows the Azure AD sign in page to the user when loaded. Be sure to replace  `<add your client id here>` with the client id you got from Azure AD when you registered your app.
+The following HTML content shows the Azure AD sign in page to the user when loaded. Be sure to replace  `<add your client id here>` with the client id you got from Azure AD when you registered your app.
 
 ```HTML
 <!doctype html>
@@ -155,7 +155,7 @@ Skype.initialize({ apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255' }, function (a
 
 The apiKey value in the previous example is valid for the preview SDK. At general availability, these values will change. 
 
-When you have the application object, you sign a user into SfB Online with code like the following example.
+When you have the application object, you sign a user into Skype for Business Online with code like the following example.
 
 ```js
 // the SDK will get its own access token
@@ -167,21 +167,21 @@ app.signInManager.signIn({
 });
 ```
 
->**Note**  The specified redirect page must exist on the site.
+>**Note**:  The specified redirect page must exist on the site.
 
 You may see sign in issues with IE, if you have tried using multiple AAD identities. Please use the following steps to resolve that issue:
 
-1. Clear cache/cookies
-2. Start afresh
+1. Clear cache/cookies.
+2. Start afresh.
 3. Use private browsing session.
 
 ### Tenant Administrator Consent Flow
 
 The Skype for Business Online permissions are tenant administrator consent only. For an app to be used by all users of an O365 tenant, a tenant administrator must provide consent. To provide consent for all users in the tenant, construct the following URL for your app as shown in the example below. 
 
->**Note**  Update the  `client Id` and `redirect Uri` for your app.
+>**Note**:  Update the  **client Id** and **redirect Uri** for your app.
 
-```
+```js
 https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token
 	&client_id= ...
 	&redirect_uri=https://app.contoso.com/
