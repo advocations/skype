@@ -16,13 +16,12 @@ What is included in this release?
 You can now embed and use the Skype Conversation UI control for P2P chats within your application
 We have also resolved several customers reported issues related to Conversations, Chat, Audio and Video. Some key customer reported resolved issues are listed below.
 
-- Incorrect value on displayName property of remote participants
 - Ability to switch video device during the call
 - Ability to change video mode 
 - Temporarily incorrect value on conversation.uri
 - Cannot stream video after restarting video service
-- Participant object for a meeting's owner contains the meeting's sip address and not the
-	user's sip address
+- Participant object for a meeting's owner contains the meeting's sip address and not the user's sip address
+- Incorrect value on displayName property of remote participants
 - Video lost when toggling css property "display" between "none" and "block"
 - Video lost when removing video container from the DOM and adding it again
 - Video Channel isStarted property not in-sync and missing event
