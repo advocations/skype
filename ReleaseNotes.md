@@ -44,4 +44,26 @@ We have also resolved several customers reported issues related to Conversations
 - Scenarios: P2P AV, Group AV, Devices selection, Anonymous meeting join, Add/remove contacts and groups
 - - SfB 2015 CU1+
 
+## Supported Server versions 
+
+- Lync 2013 cumulative update 6HF2 +, Skype for Business 2015 CU1+:
+ 
+   - Scenario:
+    - Sign in
+    - Sign out
+    - Presence
+    - View Contacts
+    - Groups
+    - Chat services
+    - Skype Conversation UI
+    
+
+- Skype for Business 2015 Cumulative Update 1+
+
+    - Scenario: 
+      - P2P AV
+      - Group AV
+      - Devices selection
+      - Anonymous meeting join
+      - Add/remove contacts and groups
 
