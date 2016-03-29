@@ -13,6 +13,7 @@
     - [Persons](/Persons.md)
     - [Devices](/Devices.md)
   - [Getting started](/GettingStarted.md)
+    - [Release Notes](/ReleaseNotes.md)
     - [Downloading and running samples](/DownloadRunSamples.md)
     - [Skype Web SDK API product keys](/APIProductKeys.md)
 
