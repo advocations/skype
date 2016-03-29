@@ -36,16 +36,7 @@ We have also resolved several customers reported issues related to Conversations
 - Firefox 40+ (non Audio Video functionality)
 - Chrome 43+ (non Audio Video functionality)
 
-**Supported server versions**
-
-- Scenarios: Sign in, Sign out, Presence, View Contacts, Groups, Chat services, Skype Conversation UI
-- -	Lync 2013 CU6HF2 +
-- - SfB 2015 CU1+
-
-- Scenarios: P2P AV, Group AV, Devices selection, Anonymous meeting join, Add/remove contacts and groups
-- - SfB 2015 CU1+
-
-## Supported Server versions 
+**Supported Server versions**
 
 - Lync 2013 cumulative update 6HF2 +, Skype for Business 2015 CU1+:
  
