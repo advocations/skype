@@ -66,9 +66,24 @@ tst
 
 ## Supported Server versions 
 
-- Scenarios: Sign in, Sign out, Presence, View Contacts, Groups, Chat services, Skype Conversation UI
-&nbsp;&nbsp;&nbsp;&nbsp;-Lync 2013 CU6HF2 +
-&nbsp;&nbsp;&nbsp;&nbsp;-SfB 2015 CU1+
+- Lync 2013 cumulative update 6HF2 +, Skype for Business 2015 CU1+:
+ 
+   - Scenario:
+    - Sign in
+    - Sign out
+    - Presence
+    - View Contacts
+    - Groups
+    - Chat services
+    - Skype Conversation UI
+    
 
-- Scenarios: P2P AV, Group AV, Devices selection, Anonymous meeting join, Add/remove contacts and groups
-&nbsp;&nbsp;&nbsp;&nbsp;-SfB 2015 CU1+
+- Skype for Business 2015 Cumulative Update 1+
+
+    - Scenario: 
+      - P2P AV
+      - Group AV
+      - Devices selection
+      - Anonymous meeting join
+      - Add/remove contacts and groups
+

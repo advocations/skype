@@ -40,7 +40,7 @@ The Skype for Business Web App plugin, available for browsers such IE, Safari, a
 The programming environment for the Skype Web SDK is JavaScript. Your web application must have a reference to the Skype Web SDK JavaScript libraries in the form of a ```<script>``` tag that points to the Skype Web SDK service endpoint (swx.cdn.skype.com). Doing so enables your application to bootstrap with the Skype Web SDK JavaScript libraries.
 
 
- **Note**  BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE TERMS OF THE  _[Terms of Service]( /SkypeWebSDKReleaseTerms.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.The aforementioned license terms apply to your use of content from the domain swx.cdn.skype.com.
+ **Note**  BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE TERMS OF THE  _[Terms of Service]( /TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.The aforementioned license terms apply to your use of content from the domain swx.cdn.skype.com.
 
 Add a reference to the bootstrapper to your client application's HTML file by inserting a ```<script>``` tag as follows:
 
