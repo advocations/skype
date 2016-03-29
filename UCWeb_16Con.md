@@ -42,5 +42,6 @@
     - [Switch between video streams across conversations](/SwitchConversationVideoStreams.md)
     - [Use the Skype Web Conversation Control in a web page](/UseConversationControl.md)
       - [Conversation Control](/ConversationControl.md)
+  - [Release Notes](ReleaseNotes.md)
 
 
