@@ -96,5 +96,5 @@ After you have run the samples and examined the sample code, and you are ready t
 ## Downloading and running the Skype Web SDK Samples
 <a name="sectionSection4"> </a>
 
-The Microsoft Skype Web SDK includes a set of twelve samples that are provided as a single download at [download.microsoft.com](http://download.microsoft.com/download/A/4/7/A47E03FD-7AEB-4702-B891-2874DCCB6329/SkypeWebSDKSamples.zip). For a detailed description of what the samples do, and an explanation of how to run them, see [Downloading and running the Skype Web SDK samples]( /DownloadRunSamples.md).
+The Microsoft Skype Web SDK includes a set of twelve samples hosted on github at https://github.com/OfficeDev/skype-web-sdk-samples. For a detailed description of what the samples do, and an explanation of how to run them, see [Downloading and running the Skype Web SDK samples]( /DownloadRunSamples.md).
 
