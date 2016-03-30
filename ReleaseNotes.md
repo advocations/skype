@@ -4,11 +4,11 @@ _**Release Date 03/30/2016**_
 
 What is included in this release?
 
-- [Preview and Production API Keys]( /APIProductKeys.md)
-- [Capabilities and Support for Production Use and Preview Use]( /APIProductKeys.md)
-- [Updated Plugins for Windows and Mac](_/GettingStarted.md)  (Supported only against SfB 2015)
+- [Preview and Production API Keys](APIProductKeys.md)
+- [Capabilities and Support for Production Use and Preview Use](APIProductKeys.md)
+- [Updated Plugins for Windows and Mac](GettingStarted.md)  (Supported only against SfB 2015)
 - [Samples for SfB onprem and SfB online](https://github.com/OfficeDev/skype-web-sdk-samples)
-- [Release Software License Terms](_/TermsOfService.md)
+- [Release Software License Terms](TermsOfService.md)
 - [Skype Style Guidelines](https://github.com/OfficeDev/skype-web-sdk-samples/blob/master/SkypeWebSDK-StyleGuidelines.pdf)
 
 **New capabilities and Key resolved issues**
