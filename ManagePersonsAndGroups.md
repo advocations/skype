@@ -5,44 +5,44 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**<br/>
-[Creating a new user-defined group](#sectionSection1)<br/>
-[Renaming a Group](#sectionSection2)<br/>
-[Deleting a Group](#sectionSection3)<br/>
-[Adding a Person to a Group](#sectionSection4)<br/>
-[Removing a Person from a Group](#sectionSection5)
+ **In this article**  
+[Create a new user-defined group](#sectionSection1)  
+[Rename a Group](#sectionSection2)  
+[Delete a Group](#sectionSection3)  
+[Add a Person to a Group](#sectionSection4)  
+[Remove a Person from a Group](#sectionSection5)  
 
 
 The Skype Web SDK provides APIs to manage groups and persons. Basic functionalities related to groups include:
 
-- creating a new user-defined group
+- Creating a new user-defined group
     
-- renaming a user-defined group
+- Renaming a user-defined group
     
-- deleting a user-defined group
+- Deleting a user-defined group
     
-- adding a distribution group to the groups list
+- Adding a distribution group to the groups list
     
-- removing a distribution group from the groups list
+- Removing a distribution group from the groups list
     
 Basic functionalities related to persons include:
 
-- adding a person to a group
+- Adding a person to a group
     
-- removing a person from a group
+- Removing a person from a group
     
 
->**Note**  It is allowed to add or remove a person to or from user-defined groups or special groups such as the default group (Other Contacts) and the pinned group (Favorites); but such operations are not allowed on distribution groups or privacy related groups.
+>**Note**  It is allowed to add or remove a person to or from user-defined groups or special groups, such as the default group (Other Contacts) and the pinned group (Favorites). However, such operations are not allowed on distribution groups or privacy-related groups.
 
-All of these operations involve sending a request to the server and dealing with the response. The server shall emit related events when the operation is completed. Usually such events will be received later than the response. It is important for the client to listen to these events and treat them as final indications of successful operations - hence to update the UI component accordingly.
+All of these operations involve sending a request to the server and dealing with the response. The server will emit related events when the operation is completed. Usually such events will be received later than the response. It is important for the client to listen to these events and treat them as final indications of successful operations and to update the UI component accordingly.
 
-## Creating a new user-defined group
+## Create a new user-defined group
 <a name="sectionSection1"> </a>
 
-With a  **client** object that is already signed in:
+With a  **Client** object that is already signed in:
 
 
-1. Create a new Group object. 
+1. Create a new **Group** object. 
     
 
   ```js
@@ -50,16 +50,16 @@ With a  **client** object that is already signed in:
   ```
 
 
->**Note**  At this point the group has not been created on the server, so operations such as adding a person to the group is not enabled until groups.add is called.
+ >**Note**  At this point the group has not been created on the server so operations, such as adding a person to the group, are not enabled until **groups.add** is called.
 
-2. Set the group name
+2. Set the group name.
     
 
   ```js
   g.name('Group Name');
   ```
 
-3. Add the group (you can optionally check if this operation is enabled)
+3. Add the group. (You can optionally check if this operation is enabled.)
     
 
   ```js
@@ -70,38 +70,38 @@ if(client.personsAndGroupsManager.all.groups.add.enabled())
   ```
 
 
->**Note**   The **add** API can also be used to add a distribution group to the groups list. You can do this by searching for a distribution group, and passing the group object found to the add method.
+ >**Note**   The **add** API can also be used to add a distribution group to the groups list. You can do this by searching for a distribution group, and passing the **Group** object found to the **add** method.
 
-4. As mentioned above, the three operations above will add a group to the group list of a client, but it is also important for the client to handle events and API callbacks in order to keep the UI components in sync with server updates.
+4. The three operations above will add a group to the group list of a client. However, it is also important for the client to handle events and API callbacks to keep the UI components in sync with server updates.
     
 
-```js
-function createGroupSuccess() {
-	// handle success response
-	console.log('create group success');
-}
+   ```js
+   function createGroupSuccess() {
+   	// handle success response
+   	console.log('create group success');
+   }
+   
+   function createGroupFail(e) {
+   	// handle failed response
+   	console.log('create group fail');
+   	console.log(e);
+   }
 
-function createGroupFail(e) {
-	// handle failed response
-	console.log('create group fail');
-	console.log(e);
-}
-
-// handle the "group added" event, usually it is at this
-// point to update the group list on the UI after this
-// event is received.
-client.personsAndGroupsManager.all.groups.added(onGroupAdded);
-
+   // handle the "group added" event, usually it is at this
+   // point to update the group list on the UI after this
+   // event is received.
+   client.personsAndGroupsManager.all.groups.added(onGroupAdded);
+   
   ```
 
 
-## Renaming a Group
+## Rename a Group
 <a name="sectionSection2"> </a>
 
 With a  **client** object that is already signed in:
 
 
-1. Get a group instance
+1. Get a group instance.
 
   ```js
   client.personsAndGroupsManager.all.groups.get().then(function() {
@@ -112,167 +112,167 @@ With a  **client** object that is already signed in:
 
   ```
 
-2. Rename the group
+2. Rename the group.
     
 
-```js
+ ```js
   
-group.name("New name");
+ group.name("New name");
 
-  ```
+   ```
 
 
-Or:
+   Or rename the group in this way:
     
 
 
   ```js
   
-group.name.set("New name").then(renameGroupSuccess, renameGroupFail);
+ group.name.set("New name").then(renameGroupSuccess, renameGroupFail);
 
-  ```
+   ```
 
 3. The difference between the two operations above is that the  **set** method returns a promise so that the client can easily handle the async response.
     
 
-```js
+  ```js
   
-function renameGroupSuccess() {
-	console.log('renameGroup success');
-}
-
-function renameGroupFail(e) {
-	console.log('renameGroup fail');
-	console.log(e);
-}
-
-  ```
-
-
->**Note**  It is important to note that the client might observe different behaviors regarding renaming groups depending on the Contact Store configurations on the server side:
+  function renameGroupSuccess() {
+  	console.log('renameGroup success');
+  }
+ 
+  function renameGroupFail(e) {
+  	console.log('renameGroup fail');
+  	console.log(e);
+  }
+ 
+   ```
 
 
-## Deleting a Group
+ >**Note**  The client might observe different behaviors regarding renaming groups, depending on the Contact Store configurations on the server side.
+
+
+## Delete a Group
 <a name="sectionSection3"> </a>
 
-A user-defined group can be deleted from the groups list (also deleted on the server), and a distribution group can be removed from the group list (not deleted on the server). These operations are achieved using the same API.
+A user-defined group can be deleted from the groups list (also deleted on the server), and a distribution group can be removed from the group list (not deleted on the server). These operations are achieved by using the same API.
 
 With a  **client** object that is already signed in:
 
 
-1. Get a group instance
+1. Get a group instance.
     
 
   ```js
-client.personsAndGroupsManager.all.groups.get().then(function() {
-			var group = client.personsAndGroupsManager.all.groups()[0];
+ client.personsAndGroupsManager.all.groups.get().then(function() {
+     var group = client.personsAndGroupsManager.all.groups()[0];
 
-			…
+	…
 });
 
   ```
 
-2. Remove the group from the client's list of groups
+2. Remove the group from the client's list of groups.
     
 
   ```js
-client.personsAndGroupsManager.all.groups.remove(group).then(
-	removeGroupSuccess, removeGroupFail
-);
+ client.personsAndGroupsManager.all.groups.remove(group).then(
+ 	removeGroupSuccess, removeGroupFail
+ );
+ 
+  ```
+
+3. As mentioned above, it is also important for the client to handle events and API callbacks to keep the UI components in sync with server updates.
+
+ ```js
+ function removeGroupSuccess() {
+ 	console.log('removeGroup success');
+ }
+
+ function removeGroupFail(e) {
+ 	console.log('removeGroup fail');
+ 	console.log(e);
+ }
+ 
+ // handle the "group removed" event, usually it is at this
+ // point to update the group list on the UI after this
+ // event is received.
+ client.personsAndGroupsManager.all.groups.removed(onGroupRemoved);
 
   ```
 
-3. As mentioned above, it is also important for the client to handle events and API callbacks in order to keep the UI components in sync with server updates.
 
-```js
-function removeGroupSuccess() {
-	console.log('removeGroup success');
-}
-
-function removeGroupFail(e) {
-	console.log('removeGroup fail');
-	console.log(e);
-}
-
-// handle the "group removed" event, usually it is at this
-// point to update the group list on the UI after this
-// event is received.
-client.personsAndGroupsManager.all.groups.removed(onGroupRemoved);
-
-  ```
-
-
-## Adding a Person to a Group
+## Add a Person to a Group
 <a name="sectionSection4"> </a>
 
 With an existing  **group** instance and a **person** instance:
 
 
-1. Add person to the persons list of the group:
+1. Add person to the persons list of the group.
     
 
-```js
-group.persons.add(person).then(addPersonSuccess, addPersonFail);
-
-  ```
-
-2. The client must handle events and API callbacks in order to keep the UI components in sync with server updates.
-    
-
-```js
+  ```js
+  group.persons.add(person).then(addPersonSuccess, addPersonFail);
   
-function addPersonSuccess() {
-	console.log('addPerson success');
-}
+   ```
 
-function addPersonFail(e) {
-	console.log('removePerson fail');
-	console.log(e);
-}
+2. The client must handle events and API callbacks to keep the UI components in sync with server updates.
+    
 
-// handle the "contact added" event, usually it is at this
-// point to update the contact list on the UI after this
-// event is received.
-group.persons.added(onPersonAdded);
+  ```js
+  
+ function addPersonSuccess() {
+ 	console.log('addPerson success');
+ }
+ 
+ function addPersonFail(e) {
+ 	console.log('removePerson fail');
+ 	console.log(e);
+ }
+ 
+ // handle the "contact added" event, usually it is at this
+ // point to update the contact list on the UI after this
+ // event is received.
+ 
+ group.persons.added(onPersonAdded);
+ 
+ ```
 
-```
 
-
-## Removing a Person from a Group
+## Remove a Person from a Group
 <a name="sectionSection5"> </a>
 
 With an existing  **group** instance and a **person** instance:
 
 
-1. Remove person from the person list of the group:
+1. Remove person from the person list of the group.
     
 
-```js
+ ```js
   
-group.persons.remove(person).then(
-	removePersonSuccess, removePersonFail
-);
+ group.persons.remove(person).then(
+ 	removePersonSuccess, removePersonFail
+ );
 
-  ```
+   ```
 
-2. The client must handle events and API callbacks in order to keep the UI components in sync with server updates.
+2. The client must handle events and API callbacks to keep the UI components in sync with server updates.
     
 
-```js
-  
-function removePersonSuccess() {
-	console.log('removePerson success');
-}
-
-function removePersonFail(e) {
-	console.log('removePerson fail');
-	console.log(e);
-}
-
-// handle the "contact removed" event, usually it is at this
-// point to update the contact list on the UI after this
-// event is received.
-group.persons.removed(onPersonRemoved);
-
-  ```
+ ```js
+   
+ function removePersonSuccess() {
+ 	console.log('removePerson success');
+ }
+ 
+ function removePersonFail(e) {
+ 	console.log('removePerson fail');
+ 	console.log(e);
+ }
+ // handle the "contact removed" event, usually it is at this
+ // point to update the contact list on the UI after this
+ // event is received.
+   group.persons.removed(onPersonRemoved);
+ 
+   ```
 
