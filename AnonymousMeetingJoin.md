@@ -5,17 +5,17 @@
 
  _**Applies to:** Skype for Business_
 
-A client can join an existing meeting anonymously with that meeting's URI.
+A client can join an existing meeting anonymously by using that meeting's URI.
 
  **Organizer**:
 
-1. Schedules a Skype for Business conference and shares meeting URI with the user.
+1. Schedules a Skype for Business conference and shares the meeting URI with the user.
     
 2. Ensures conference allows all users to join the conference.
     
 **Anonymous users**:
 
-Once they have a meeting URI from the organizer, for example: `sip:user@contoso.com;gruu;opaque=app:conf:focus:id:1WRB13D2`, they first need to:
+Once users have a meeting URI from the organizer, for example: `sip:user@contoso.com;gruu;opaque=app:conf:focus:id:1WRB13D2`, they take these first steps:
 
 1. Sign in the anonymous user using the meeting URI.
     
@@ -26,7 +26,7 @@ Once they have a meeting URI from the organizer, for example: `sip:user@contoso.
 ### Joining a meeting anonymously
 
 
-1. Sign in the anonymous user using the meeting URI.
+1. Sign in the anonymous user by using the meeting URI.
 
    ```js
    var uri = 'sip:user@contoso.com;gruu;opaque-app:conf:focus:id:1WRB13D2';
@@ -51,15 +51,17 @@ Once they have a meeting URI from the organizer, for example: `sip:user@contoso.
   });
   ```
 
-4.  **Alternatively:** clients may also join the meeting by starting the audio service.
+4.  **Alternatively:** Clients can join the meeting by starting the audio service or video service, as shown below.
 
+  Join the meeting by starting the audio service.
+  
   ```js
   conversation.audioService.start().then(function() {
 	// Successfully joined conversation audio
   });
   ```
 
-  or clients can join the meeting by starting the video service.
+  Join the meeting by starting the video service.
   
   ```js
   conversation.videoService.start().then(function() {
