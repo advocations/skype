@@ -11,18 +11,17 @@ The following procedure assumes that the user is signed in and has a person to c
 ### Starting a peer-to-peer conversation
 
 
-1. Call [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) **.getConversation** method, with a person for the only argument, to create a conversation object.
+1. Call the [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx)**.getConversation** method, with a person for the only argument, to create a conversation object.
     
-2. Call the  **start** method on the desired modality to add the modality and start the conversation. Refer to the following topics to add modalities:
+2. Call the  **start** method on the desired modality to add the modality and start the conversation. See the following topics to add modalities:
     
-    [Send and receive text in a conversation]( /SendReceiveText.md)
+    [Send and receive text in a conversation](SendReceiveText.md)  
     
-    [Add or remove audio in a conversation]( /AddRemoveConversationAudio.md)
+    [Add or remove audio in a conversation](AddRemoveConversationAudio.md)  
     
-    [Add or remove video in a conversation]( /AddRemoveConversationVideo.md)
+    [Add or remove video in a conversation](AddRemoveConversationVideo.md)  
     
 The following example creates a peer-to-peer conversation. 
-
 
 
 ```js
@@ -37,7 +36,7 @@ var conversation = conversationsManager.getConversation(person);
 ### Starting a multiparty conversation (ad-hoc meeting)
 
 
-1. Call **[ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx).createConversation** method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
+1. Call the [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx)**.createConversation** method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation.
     
@@ -56,5 +55,5 @@ var conversation = conversationsManager.createConversation();
 ### Escalating a peer-to-peer conversation to a multiparty conversation
 
 
-- A peer-to-peer conversation will be automatically escalated to a multiparty conversation when a second remote participant is added to the conversation. See [Add participants to a conversation]( /AddParticipants.md) to add participants.
+A peer-to-peer conversation will be automatically escalated to a multiparty conversation when a second remote participant is added to the conversation. See [Add participants to a conversation](AddParticipants.md) to add participants.
     
