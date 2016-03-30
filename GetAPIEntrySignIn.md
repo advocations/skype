@@ -11,7 +11,7 @@ The [Application](https://msdn.microsoft.com/en-us/library/office/dn962124(v=off
 The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)**#signIn** method and the [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=office.16).aspx)**#signOut** method are asynchronous and return a [Promise](https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx) object. Use the **Promise#then** method to set operation success or failure callbacks.
 
 
- >**Note**: To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:
+ >**Note**: To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:  
  - [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
  - [Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
