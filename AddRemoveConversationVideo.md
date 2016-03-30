@@ -5,20 +5,18 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**<br/>
-[Adding video to a conversation](#sectionSection0)<br/>
-[Removing video from a conversation](#sectionSection1)<br/>
-[Subscribing to changes from the videoService in a conversation](#sectionSection2)<br/>
-[Accepting video without sending video](#sectionSection3)
+ **In this article**  
+[Add video to a conversation](#sectionSection0)  
+[Remove video from a conversation](#sectionSection1)  
+[Subscribe to changes from the videoService in a conversation](#sectionSection2)  
+[Accept video without sending video](#sectionSection3)  
 
 
 With an existing conversation instance, video can be added or removed.
 
-## Adding video to a conversation
+## Add video to a conversation
 <a name="sectionSection0"> </a>
 
-
-1. 
 
 
   ```js
@@ -33,6 +31,7 @@ With an existing conversation instance, video can be added or removed.
 
 
 You may also set the video window container prior to starting the videoService.
+
     
   ```js
   // Set the video window container
@@ -48,11 +47,9 @@ You may also set the video window container prior to starting the videoService.
 >**Note:** Setting the video container more than one time for the same video stream will cause problems with video playback.
     
 
-## Removing video from a conversation
+## Remove video from a conversation
 <a name="sectionSection1"> </a>
 
-
-1.
 
 
   ```js
@@ -72,7 +69,7 @@ Video can also be removed by stopping the audioService.
   ```
 
 
-## Subscribing to changes from the videoService in a conversation
+## Subscribe to changes from the videoService in a conversation
 <a name="sectionSection2"> </a>
 
 An event is fired when the client has successfully added video to the conversation, or another participant has invited the client to add video.
@@ -86,7 +83,7 @@ An event is fired when the client has successfully added video to the conversati
 });
   ```
 
-2. If the val argument in the previous snippet indicates the event is an invitation to add video, the client may reject or accept the invitation.
+2. If the **val** argument in the previous snippet indicates the event is an invitation to add video, the client may reject or accept the invitation.
 
   ```js
   if (val == 'Notified') {
@@ -103,13 +100,13 @@ An event is fired when the client has successfully added video to the conversati
   ```
 
 
-## Accepting video without sending video
+## Accept video without sending video
 <a name="sectionSection3"> </a>
 
-Clients can accept requests for video without sending their own video by calling audioService.accept().
+Clients can accept requests for video without sending their own video by calling **audioService.accept()**.
 
 
-1. Subscribe to the video state changed event:
+1. Subscribe to the video state changed event.
 
   ```js
   conversation.selfParticipant.video.state.changed(function (val) {
@@ -118,7 +115,7 @@ Clients can accept requests for video without sending their own video by calling
 
   ```
 
-2. If the val argument in the previous snippet indicates the event is an invitation to add video, the client may accept the invitation without sending the client's video.
+2. If the **val** argument in the previous snippet indicates the event is an invitation to add video, the client may accept the invitation without sending the client's video.
 
   ```js
   if (val == 'Notified') {
@@ -127,7 +124,7 @@ Clients can accept requests for video without sending their own video by calling
 
   ```
 
-3. The client's video can be added later:
+3. The client's video can be added later.
 
   ```js
   conversation.selfParticipant.video.channels(0).isStarted(true);

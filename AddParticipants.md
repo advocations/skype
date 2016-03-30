@@ -8,7 +8,7 @@
 Additional Persons can be added to a conversation to escalate that conversation to an online meeting.
 
 
-### Adding participants to a conversation
+## Adding participants to a conversation
 
 
 1. Create a conversation participant.
@@ -30,5 +30,5 @@ Additional Persons can be added to a conversation to escalate that conversation 
   ```
 
 
->**Note:** If the participant rejects the invitation, the participant will still be in the conversation.participants collection with a 'rejected' state. When this occurs, you should remove the participant and clean up any associated user interface.
+>**Note:** If the participant rejects the invitation, the participant will still be in the **conversation.participants** collection with a 'rejected' state. When this occurs, you should remove the participant and clean up any associated user interface.
     
