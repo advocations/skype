@@ -5,10 +5,12 @@
 
  _**Applies to:** Skype for Business 2015_
 
-Additional Persons can be added to a conversation to escalate that conversation to an online meeting.
+
 
 
 ## Adding participants to a conversation
+
+Additional Persons can be added to a conversation to escalate that conversation to an online meeting.
 
 
 1. Create a conversation participant.
