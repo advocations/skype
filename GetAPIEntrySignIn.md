@@ -20,7 +20,7 @@ The [SignInManager](https://msdn.microsoft.com/en-us/library/office/dn962125(v=o
 Add a reference to the bootstrapper to your HTML file.
 
 
-BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[Terms of Service](/TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
+BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[Terms of Service](TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
 
 >**Note**: These license terms apply to the use of the content from the domain swx.cdn.skype.com.
 
@@ -31,7 +31,13 @@ BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[
 Download the SDK package.
 
 ```js
-Skype.initialize({ apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255' }, function (api) {
+
+var config = {
+ apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255', // SDK
+ apiKeyCC: '9c967f6b-a846-4df2-b43d-5167e47d81e1' // SDK+UI
+}; 
+
+Skype.initialize({ apiKey: config.apiKey }, function (api) {
   Application = api.application; // this is the Application constructor
 }, function (err) {
   console.log("cannot load the sdk package", err);
