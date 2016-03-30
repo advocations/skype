@@ -22,17 +22,17 @@ A conversation is a logical container for communication between two or more pers
 **Figure 1. The relationship between objects in the Skype Web SDK conversation model**
 
 ![SkypeWebSDK_ConvObjects](images/7bb0af54-be7a-4c3b-a41c-516b8e7bcd04.png)
-### Conversation Types
+### Conversation types
 
 A conversation can be thought of as two-dimensional, with the number of conversation services representing one dimension, and the number of participants representing the other.
 
 
-- Single modal and multi modal conversation: A single modal conversation is an Instant Message (IM) or an audio conversation, which is actually audio/video. A multi-modal conversation uses two media modalities: IM and audio/video.
+- Single modal and multi-modal conversation: A single modal conversation is an Instant Message (IM) or an audio conversation, which is actually audio/video. A multi-modal conversation uses two media modalities: IM and audio/video.
     
-- Two-party conversation: A two-party conversation is a peer-to-peer conversation. A multi-party conversation is escalated to a meeting when the third party joins the conversation.
+- Two-party conversation: A two-party conversation is a peer-to-peer conversation. A multi-party conversation is escalated to a meeting when the third-party joins the conversation.
     
 
-### Conversation Services
+### Conversation services
 
 Several conversation service types are supported by the SDK:
 
@@ -45,9 +45,9 @@ Several conversation service types are supported by the SDK:
     
 - [HistoryService](https://msdn.microsoft.com/en-us/library/office/dn962130(v=office.16).aspx)  
 
-   
- ## Supported clients
-
+    
+**Supported clients**
+    
 Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
 
 
