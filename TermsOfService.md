@@ -10,7 +10,7 @@ These license terms are an agreement between Microsoft Corporation (or based on 
 
 for this software, unless other terms accompany those items. If so, those terms apply.
 
-**BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THESE TERMS. IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.**
+**BY USING THE SOFTWARE LOCATED HERE: [https://swx.cdn.skype.com](https://swx.cdn.skype.com), YOU ACCEPT THESE TERMS. IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.**
 
 ----------
 
@@ -19,12 +19,12 @@ for this software, unless other terms accompany those items. If so, those terms 
 **1.INSTALLATION AND USE RIGHTS.** 
 
 **a.	Installation and Use.** You may install and use any number of copies of the software on your devices to design, develop and test your applications that communicate only with Microsoft Skype for Business Server or Skype for Business Online.  
-- You may use or test the functions of the pre-release software listed on http://aka.ms/SkypeWebSDKTerms in a live operating environment.
+- You may use or test the functions of the pre-release software listed on [http://aka.ms/SkypeWebSDKTerms](http://aka.ms/SkypeWebSDKTerms) in a live operating environment.
 
 **b.	Third Party Programs.** The software may include third party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third party program are included for your information only.
 
 **2.	SCOPE OF LICENSE.** 
-The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. For more information, see www.microsoft.com/licensing/userights.
+The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. For more information, see [www.microsoft.com/licensing/userights](www.microsoft.com/licensing/userights).
 You may not  
 - work around any technical limitations in the software;
 - reverse engineer, decompile or disassemble the software, or attempt to do so, except and only to the extent required by third party licensing terms governing use of certain open source components that may be included with the software;
@@ -40,7 +40,7 @@ You may not
 	
 **6.	TRANSFER TO ANOTHER DEVICE.** You may uninstall the software and install it on another device for your use. You may not do so to share this license between devices.
 
-**7.	EXPORT RESTRICTIONS.** You must comply with all domestic and international export laws and regulations that apply to the software, which include restrictions on destinations, end users and end use.  For further information on export restrictions, visit (aka.ms/exporting).
+**7.	EXPORT RESTRICTIONS.** You must comply with all domestic and international export laws and regulations that apply to the software, which include restrictions on destinations, end users and end use.  For further information on export restrictions, visit [aka.ms/exporting](http://aka.ms/exporting).
 
 **8.	SUPPORT SERVICES.** Because this software is “as is,” we may not provide support services for it.
 
