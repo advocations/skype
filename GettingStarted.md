@@ -20,7 +20,7 @@ This section shows how to get started developing web applications with the Skype
 
 >**Note** Please read the [release notes](ReleaseNotes.md) for this SDK before you start a new web app or update your existing Skype for Business Web SDK-powered app.
 
-Because the Skype Web SDK is hosted through the Content Delivery Network (CDN), you do not have to install it. Instead, you add Skype for Business functionality to your web applications simply by adding a ```<script/>``` tag to your HTML file that points to the Skype Web SDK entry point (swx.cdn.skype.com). Doing so bootstraps the Skype Web SDK JavaScript libraries in your application. For more information, see [Retrieve the API entry point and sign in a user]( /GetAPIEntrySignIn.md)
+Because the Skype Web SDK is hosted through the Content Delivery Network (CDN), you do not have to install it. Instead, you add Skype for Business functionality to your web applications simply by adding a ```<script/>``` tag to your HTML file that points to the Skype Web SDK entry point (swx.cdn.skype.com). Doing so bootstraps the Skype Web SDK JavaScript libraries in your application. For more information, see [Retrieve the API entry point and sign in a user](GetAPIEntrySignIn.md)
 
 
 ## Skype for Business Web App Plug-in
@@ -41,7 +41,7 @@ The Skype for Business Web App plugin, available for browsers such IE, Safari, a
 The programming environment for the Skype Web SDK is JavaScript. Your web application must have a reference to the Skype Web SDK JavaScript libraries in the form of a ```<script>``` tag that points to the Skype Web SDK service endpoint (swx.cdn.skype.com). Doing so enables your application to bootstrap with the Skype Web SDK JavaScript libraries.
 
 
- **Note**  BY USING THE SOFTWARE LOCATED HERE:[https://swx.cdn.skype.com](https://swx.cdn.skype.com), YOU ACCEPT THE TERMS OF THE  _[Terms of Service]( /TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.The aforementioned license terms apply to your use of content from the domain swx.cdn.skype.com.
+ **Note**  BY USING THE SOFTWARE LOCATED HERE:[https://swx.cdn.skype.com](https://swx.cdn.skype.com), YOU ACCEPT THE TERMS OF THE  _[Terms of Service](TermsOfService.md)_ IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.The aforementioned license terms apply to your use of content from the domain swx.cdn.skype.com.
 
 Add a reference to the bootstrapper to your client application's HTML file by inserting a ```<script>``` tag as follows:
 
@@ -91,7 +91,7 @@ Skype.initialize({ apiKey: config.apiKey }, function (api) {
 ## Developing Skype Web SDK applications
 <a name="sectionSection3"> </a>
 
-After you have run the samples and examined the sample code, and you are ready to develop applications using the Skype Web SDK, see the topics in [Developing applications with Skype Web SDK]( /DevelopApplications.md). These topics explain the scenarios for developing Skype Web SDK applications: In the online server scenario, your application authenticates against Azure Active Directory. In the on-premises server scenario, your application authenticates against your own server with its own Active Directory.
+After you have run the samples and examined the sample code, and you are ready to develop applications using the Skype Web SDK, see the topics in [Developing applications with Skype Web SDK](DevelopApplications.md). These topics explain the scenarios for developing Skype Web SDK applications: In the online server scenario, your application authenticates against Azure Active Directory. In the on-premises server scenario, your application authenticates against your own server with its own Active Directory.
 
 
 ## Downloading and running the Skype Web SDK Samples
