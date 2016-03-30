@@ -7,10 +7,10 @@
 
 ## Sending and receiving a message in a conversation
 
-Receiving messages in a conversation involve getting a conversation object and conversation instant message modality. When the conversation is connected then listen for new messages. When a message is received, get the sender name and message text.
+Receiving messages in a conversation involves getting a conversation object and conversation instant message modality. When the conversation is connected, listen for new messages. When a message is received, get the sender name and message text.
 
 
-### To receive a message
+### Receive a message
 
 
 1. Get the conversation history service.
@@ -55,7 +55,7 @@ Receiving messages in a conversation involve getting a conversation object and c
   ```
 
 
-    The message can also be sent as an HTML formatted message.
+    The message can also be sent as an HTML-formatted message.
     
 
 
@@ -63,11 +63,12 @@ Receiving messages in a conversation involve getting a conversation object and c
   item.html();
   ```
 
+
+
+
+### Send a message
+
 Sending a message involves getting a connected conversation and the conversation chat service. When the user has provided text for a message, send the message on the chatService of the conversation.
-
-
-### To send a message
-
 
 1. Get the conversation chat service.
 
@@ -90,7 +91,9 @@ Sending a message involves getting a connected conversation and the conversation
   chatService.sendMessage(text)
   ```
 
-The following example puts the previous procedure steps together to receive text messages.
+#### Examples
+
+The following example puts the previous procedure steps together to show how to receive text messages.
 
 
 
@@ -110,7 +113,7 @@ historyService.activitytItems.added(function (item) {
 
 ```
 
-The following example puts the previous procedure steps to show how to send a message.
+The following example puts the previous procedure steps to together to show how to send a message.
 
 
 
