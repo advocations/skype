@@ -8,7 +8,7 @@
 Additional Persons can be added to a conversation to escalate that conversation to an online meeting.
 
 
-### Adding participants to a conversation
+## Adding participants to a conversation
 
 
 1. Create a conversation participant.
