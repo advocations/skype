@@ -3,6 +3,7 @@
 --------------------
 
 These license terms are an agreement between Microsoft Corporation (or based on where you live, one of its affiliates) and you. Please read them. They apply to the software named above, which includes the media on which you received it, if any. The terms also apply to any Microsoft  
+
 - updates,
 - supplements,
 - Internet-based services, and
@@ -24,8 +25,9 @@ for this software, unless other terms accompany those items. If so, those terms 
 **b.	Third Party Programs.** The software may include third party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third party program are included for your information only.
 
 **2.	SCOPE OF LICENSE.** 
-The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. For more information, see [www.microsoft.com/licensing/userights](www.microsoft.com/licensing/userights).
-You may not  
+The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. For more information, see [www.microsoft.com/licensing/userights](www.microsoft.com/licensing/userights).  
+You may not
+
 - work around any technical limitations in the software;
 - reverse engineer, decompile or disassemble the software, or attempt to do so, except and only to the extent required by third party licensing terms governing use of certain open source components that may be included with the software;
 - remove, minimize, block or modify any notices of Microsoft or its suppliers; 
