@@ -13,7 +13,7 @@ This section describes the key programming tasks for the Skype Web SDK:
     
 - [Show a person's information](ShowPersonInfo.md)
     
-- [Search for persons and distribution groups](SearchForPersonsAndGroups.md )
+- [Search for persons and distribution groups](SearchForPersonsAndGroups.md)
     
 - [Get a person and listen for availability](ListenForAvailability.md)
     
