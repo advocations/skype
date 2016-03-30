@@ -1,16 +1,15 @@
 
-# Use the Skype Web Conversation Control in a web page
+# Use the Skype Web Conversation Control in a webpage
 
  _**Applies to:** Skype for Business_
 
- **In this article**
- 
-[Add the Conversation Control to a web page](#sectionSection0)  
+ **In this article**  
+[Add the Conversation Control to a webpage](#sectionSection0)  
 [The complete code listing](#sectionSection1)  
-[Additional Resources](#additional-resources)
+[Additional Resources](#additional-resources)  
 
 
-The Skype Web SDK[Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates an IM dialog in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your web page with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
+The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates an IM dialog in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your webpage with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
 
 Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The Microsoft Edge browser is shown in this example, but you can use any other supported browser.
 
@@ -21,7 +20,7 @@ Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The
 
 This topic takes you through the steps to add a [Conversation Control](ConversationControl.md) to you web app. Upon completion of these tasks, your app will let a user sign in to Skype for Business on premise, initiate a new IM conversation with one or more people, and accept invitations to join an IM conversation.
 
-## Add the Conversation Control to a web page
+## Add the Conversation Control to a webpage
 <a name="sectionSection0"> </a>
 
 The steps in this section initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click event handler for starting a new IM conversation.
@@ -32,8 +31,7 @@ The steps in this section initialize the Skype Web SDK API endpoint, add state c
 
 - Declare a structure to hold the API keys
     
->**Important**  The API key values shown in this example are the literal values that you must use in your application. If you use any other strings, your application will not initialize the API endpoint.Change the value of the  `version` key to uniquely identify your app.
-  See [Skype Web SDK Production Use Capabilities](APIProductKeys.md) for a list of supported API keys.
+>**Important**  The API key values shown in this example are the literal values that you must use in your application. If you use any other strings, your application will not initialize the API endpoint.Change the value of the  `version` key to uniquely identify your app. See [Skype Web SDK Production Use Capabilities](APIProductKeys.md) for a list of supported API keys.
 
   ```js
   var config = {
@@ -44,7 +42,7 @@ The steps in this section initialize the Skype Web SDK API endpoint, add state c
 
   ```
 
-- Initialize the API endpoint and get the  **UIApplicationInstance** that provides the[Conversation Control](ConversationControl.md).
+- Initialize the API endpoint and get the  **UIApplicationInstance** that provides the [Conversation Control](ConversationControl.md).
 
 
   ```js
@@ -58,7 +56,7 @@ The steps in this section initialize the Skype Web SDK API endpoint, add state c
 ### Add a chat state event handler
 
 
-- Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the collection on the[ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx.md).
+- Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the collection on the [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx.md).
 
 
   ```js
@@ -95,12 +93,12 @@ The steps in this section initialize the Skype Web SDK API endpoint, add state c
 
 ### Add conversation initiate logic
 
-The following code example depends on a button that you add to your web page. The id of the button is  `start-cv` for this example.
+The following code example depends on a button that you add to your webpage. The id of the button is  `start-cv` for this example.
 
 When the user clicks the button, the code takes the following steps:
 
 
-- Prompts the user for a comma delimited list of SIP addresses for invitees
+- Prompts the user for a comma-delimited list of SIP addresses for invitees.
     
 - Creates a container to host the [Conversation Control](ConversationControl.md)and appends it to a list of other conversations.
     
@@ -205,10 +203,10 @@ $(function () {
 ```
 
 
-## Additional Resources
+## Additional resources
 <a name="bk_addresources"> </a>
 
-[Conversation Control](ConversationControl.md)
+- [Conversation Control](ConversationControl.md)
 
 Supported browsers: Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
 
