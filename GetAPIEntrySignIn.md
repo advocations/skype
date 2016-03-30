@@ -28,7 +28,7 @@ BY USING THE SOFTWARE LOCATED HERE: https://swx.cdn.skype.com, YOU ACCEPT THE _[
 <script src="https://swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js"></script>
 ```
 
-Download the SDK package.
+Download the SDK package. In the following snippet, we are using public preview API keys. You can see all available API keys by reading [Skype Web SDK Production Use Capabilities](APIProductKeys.md)
 
 ```js
 
