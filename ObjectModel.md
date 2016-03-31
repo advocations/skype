@@ -20,12 +20,10 @@ The object model is shown in the following figure (Figure 1). Use the [Applicati
 
 ![Skype Web SDK Object Model](images/317a0cf1-8468-4657-805f-9a12440f1188.jpg)
 
-
 ## Model layer
 <a name="sectionSection0"> </a>
 
-The foundation of the SDK is the  **Application** object. It is an object that includes member objects (other models), collections, observable properties, static properties, and asynchronous methods. This section briefly describes the nature of these API types.
-
+The foundation of the SDK is the  **Application** object. It is an object that includes member objects (other models), collections, observable properties, static properties, and asynchronous methods. This section briefly describes the nature of these API types. See a more detailed description in the Property Model section.
 
 ### Members
 
