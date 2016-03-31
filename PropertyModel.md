@@ -96,6 +96,26 @@ p.changed(newValue => {
 });
 ```
 
+A common use of such event listeners is doing something when the property gets a certain value.
+
+```js
+p.when(123, () => {
+  console.log("the value has changed to 123");
+});
+```
+
+If the callback needs to be invoked only once, use `Property#once`.
+
+```js
+p.once(123, () => {
+  console.log("the value has changed to 123");
+});
+```
+
+There are a few additional features of the property object that are mostly used inside the SDK, but can appear useful in a web app:
+
+- `q = p.map(x => x * x)` creates a new property object which value changes after the value of the parent property. In addition to that calls like `q.get()` or `q.subscribe()` are properly redirected to the parent property.
+
 ### Observable collections
 <a name="collection"></a>
 
