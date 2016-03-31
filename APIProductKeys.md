@@ -2,7 +2,7 @@
 
  **Last modified:** March 24, 2016
 
- _**Applies to:** Skype for Business_
+ _**Applies to:** Skype for Business, Skype for Business Online_
 
  **In this article**  
 [Product keys](#product-keys)  
