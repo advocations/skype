@@ -28,15 +28,64 @@ A model object can be wrapped by another model object in such a way that an obse
 ### Observable properties
 <a name="property"></a>
 
-An observable property is a single value [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object that you can add a value change event listener. The **changed** event listener on the observable property tells you when a property value changes. You can also get the cached value of the property by invoking the property as a function.
+Every property in the SDK is represented by an observable property with this interface. For instance, if there is a `Person` object which has a `displayName` property, the property will be presented in the form of an observable property:
 
->**Note**: Invoking the property as a function will retrieve the cached value, which may differ from the actual value on the server.
+```js
+person.displayName(); // reads the value
+```
 
-Get a reference to the property instead of the value when you are interested in events on the property. The [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) object has a **.changed** method, which accepts the listener as a named or an anonymous function. Be sure to pass a named listener function if you intend to cancel the listener later.
+There are no plain properties in the SDK.
 
-The SDK is not required to initialize and fill an observable property until you have registered a listener for the property and either call **.get** method or call **.subscribe** method for the object. To get the property value the app needs to invoke **.get** if it needs the value once, or invoke **.subscribe** if it needs the value to be updated all the time. A call to **.subscribe** is heavier. However, one call to **.subscribe** should be preferred over multiple calls to **.get**, as **.get** isn't cheap either.
+A property object is as simple as a value wrapped into a function that gives read/write access to the value. This is very similar to the "observables" concept in Knockout.
 
-The same is true for a [Collection](https://msdn.microsoft.com/en-us/library/office/mt657710(v=office.16).aspx). These **.get** and **.subscribe** functions allow the model to load data lazily and load only that parts of data that are needed by the app. This reduces unneeded HTTP operations, and improves the responsiveness of your app. Some SDK properties are initialized and filled when their parent objects are created. It is a good practice to register a **changed** listener for each property whose value you are interested in, even when the value is filled on initialization.
+```js
+function property(value) {
+  return function (newValue) {
+   if (arguments.length == 0)
+    return value;
+   
+   value = new Value;
+  };
+}
+
+p = property(123);
+p(); // get value: 123
+p(456); // set value
+```
+
+On top of this very simple idea the SDK adds numerous methods to deal with the property objects (this doesn't make the property objects heavier because all these methods are in the prototype object shared by all property objects). The most commonly used methods are:
+
+- `p()` reads the current value. This call doesn't have any side effects and simply returns the current value.
+- `p.get()` pulls the current value (usually from UCWA). If the property is simple, i.e. doesn't correspond to any entity on UCWA or somewhere else like `MePerson#status`, then `p.get()` returns a resolved promise object. However some properties correspond to some server state and thus their locally cached values may differ from actual values on the server.
+
+  ```js
+  p.get().then(res => {
+    console.log("the value of p:", res);
+  }, err => {
+    console.log("couldnt pull the value of p:", err);
+  });
+  ```
+  
+  It's safe to invoke `p.get()` multiple times in a row: the SDK puts such requests to a queue and executes them at the next event turn.
+  
+  ```js
+  // this sends just one GET /presence
+  for (i = 0; i < 10; i++)
+    app.personsAndGroupsManager.mePerson.status.get();
+  ```
+
+- `p(123)` sets a new value. In some property objects this will simply change the internal value without any side effects. However many properties in the SDK have customized setters. For instance, changing the `MePerson#status` property makes the SDK send a `POST` request to UCWA to change the user's online status. In those cases `p(123)` invokes the custom setter. If the app needs to observe the progress of the operation, it should use `p.set(123)` which is same as `p(123)` except that it returns a `Promise` object (and this is why it's a bit heavier: `p(123)` doesn't create that extra `Promise` object).
+
+   ```js
+   p.set(123).then(res => {
+     console.log("the new value of p:", res); // res == p()
+   }, err => {
+     console.log("couldnt change the value of p:", err);
+   });
+   ```
+
+- `p.subscribe()` tells that the app needs this property to keep its value up to date at all time, until the subscription is removed.
+- `p.subscribe(300)` starts a periodic polling with `p.get()`.
 
 ### Observable collections
 <a name="collection"></a>
