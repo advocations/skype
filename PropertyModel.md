@@ -5,18 +5,25 @@
  _**Applies to:** Skype for Business 2015_
 
  **In this article**  
-[Model object](#model)
-[Observable properties](#property)
-[Observable collections](#collection)
-[Observable commands/methods](#command)  
-[Promise object](#promise)
+- [Model object](#model)
+- [Observable properties](#property)
+- [Observable collections](#collection)
+- [Observable commands/methods](#command)  
+- [Promise object](#promise)
 
 ### Model objects
 <a name="model"></a>
 
-A member object is a reference to child model object.
+These are plain JS objects that are called "model objects" because their members are of the four types:
 
->**Important**: Except for the [Skype.Web.Model.Application](http://technet.microsoft.com/library/e0969542-53e2-473a-b02f-2554b01451f1.aspx) object, all other member objects are obtained by getting their references from a parent object.
+- other model objects
+- observable properties
+- observable collections 
+- observable commands
+
+A model object can be wrapped by another model object in such a way that an observer won't be able to determine that there is a wrapper on top of the actual object. If model objects had plain properties, i.e. `model = { a: 123, b: "def" }`, this wouldn't be possible.
+
+>The next revision of JS (aka ES6) has introduced the Proxy API that allows to achieve this behavior for any JS object, without applying restrictions on types of members/properties it can have. However the SDK is supposed to work in ES5 environments and thus cannot use features like Proxy.
 
 ### Observable properties
 <a name="property"></a>
