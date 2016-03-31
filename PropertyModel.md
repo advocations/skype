@@ -9,6 +9,7 @@
 - [Observable properties](#property)
 - [Observable collections](#collection)
 - [Observable commands/methods](#command)  
+- [Event object](#event)
 - [Promise object](#promise)
 
 ### Model objects
@@ -87,21 +88,28 @@ On top of this very simple idea the SDK adds numerous methods to deal with the p
 - `p.subscribe()` tells that the app needs this property to keep its value up to date at all time, until the subscription is removed.
 - `p.subscribe(300)` starts a periodic polling with `p.get()`.
 
+Every property object has a `changed` event, which is an instance of the `Event` object, and whenever the property value changes, it notifies observers via this event:
+
+```js
+p.changed(newValue => {
+  console.log("the new value of p:", newValue);
+});
+```
+
 ### Observable collections
 <a name="collection"></a>
 
-The [Collection](https://msdn.microsoft.com/en-us/library/office/mt657710(v=office.16).aspx) is a collection of references to objects. You can get a snapshot of the current values in a collection by invoking the **Collection** as a method with the following syntax:
-
-  ```js
-  var collectionArray = object.collection(); 
-  ```
-
-If you want to register a listener for the **.added** or **.removed** events, get a reference to the collection instead of a snapshot of the contents. See [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) for more information.
+TODO
 
 ### Observable commands/methods
 <a name="command"></a>
 
-The SDK encapsulates HTTP operations in asynchronous commands. Use the [Promises/A+](http://promisesaplus.com/) pattern for all the SDK methods that return [Promise](https://msdn.microsoft.com/en-us/library/office/mt657726(v=office.16).aspx) objects. You can chain successive promises together to enforce operational dependency and error handling. Use promise chaining to prevent application logic from changing the state of an object until the object is initialized and ready.
+TODO
+
+### Event object
+<a name="event"></a>
+
+TODO
 
 ### Promise object
 <a name="promise"></a>
