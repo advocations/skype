@@ -31,6 +31,25 @@ The foundation of the SDK is the `Application` model object. It is an object tha
 - Commands. These are just functions with a boolean observable property called `enabled` that tells if the function can be invoked at the moment. Many commands in the SDK interface are asynchronous and return a promise object.
 - Promise. This is the Promise/A+ object that is well decribed elsewhere. In short, it's a object that reprsents a pending asynchronous operation and allows to set callbacks to be invoked once the operation is completed: `p.then(onSuccess, onFailure)`.
 
+`Application` is the only constructor accessible to the app. Internally in the SDK every model object has a constructor, but an app wouldn't be able to invoke it even if it was accessible because those internal constructors need references to many internal objects, such as the "UCWA stack" object or the "contact cache".
+
+The SDK allows to create multiple instance of `Application` and potentially different instances may sign in with different user identities and connect to different UCWA servers. For instance:
+
+```js
+app1 = new Application;
+app2 = new Application;
+
+app1.signIn({
+  username: "johndoe@contoso.com",
+  password: "***********"
+});
+
+app2.signIn({
+  username: "joesmith@abc.com",
+  password: "********"
+});
+```
+
 ## Application object
 <a name="sectionSection1"> </a>
 
