@@ -25,7 +25,7 @@ The object model is shown in the following figure (Figure 1). Use the [Applicati
 
 The foundation of the SDK is the `Application` model object. It is an object that includes other model objects as members (i.e. `signInManager` or `personsAndGroupsManager`), collections, properties and commands/methods. This section briefly describes the nature of these API types. See an in-depth description in the Property Model section.
 
-- Model objects. Theese are plain JS objects that are called "model objects" because their members are of the four types: other model objects, observable properties, observable collections and observable commands.
+- Model objects. These are plain JS objects that are called "model objects" because their members are of the four types: other model objects, observable properties, observable collections and observable commands.
 - Properties. These objects are actually functions that keep the current value and provide certain API to deal with that value. The property objects are somewhat similar to the Knockout's observables.
 - Collections. They resemble the property objects in many ways, but deal with arrays of values. Internally, a collection is a pair of arrays: values and keys for those values.
 - Commands. These are just functions with a boolean observable property called `enabled` that tells if the function can be invoked at the moment. Many commands in the SDK interface are asynchronous and return a promise object.
