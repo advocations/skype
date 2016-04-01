@@ -85,8 +85,31 @@ On top of this very simple idea the SDK adds numerous methods to deal with the p
    });
    ```
 
-- `p.subscribe()` tells that the app needs this property to keep its value up to date at all time, until the subscription is removed.
-- `p.subscribe(300)` starts a periodic polling with `p.get()`.
+- `p.subscribe()` tells that the app needs this property to keep its value up to date at all time, until the subscription is removed. This makes an effect only on properties that can be subscribed to, i.e. `MePerson#status`, while on other properties the `subscribe` call will do nothing. If a property can be subscribed to, then `p.subscribe()` will increment the internal subscriptions counter and if this is the first subscription, it will invoke the subscription procedure associated with that property: for `MePerson#status` that would be a `POST` request to UCWA, for `DevicesManager#cameras` that would be a WebRTC call and so on. A subscription can be released with the `dispose` method:
+
+    ```js
+    s = p.subscribe();
+    setTimeout(() => s.dispose(), 3600 * 1000); // unsubscribe 1 hour later
+    ```
+
+  If a property is subscribed to, there is no need to poll its value with `p.get()` as the SDK does this for the app. A subscription is generally heavier than a one time fetch with `p.get()`, but lighter than frequent `get` calls.
+
+- `p.subscribe(300)` starts a periodic polling with `p.get()`. In some cases the app needs to poll the property value from time to time, but doesn't want to create a subscription, as it's heavy. One approach would be to set a timer that would poll the value periodically:
+
+    ```js
+    setInterval(() => p.get(), 15 * 60 * 1000); // poll every 15 mins
+    ```
+  
+  This works well as long as there is just one place in the app that manages this polling. However when the app becomes more complex, this approach no longer works. A typical situation is when the same `Person` object needs to be displayed by different view models in different places in the UI, that have different lifetime: one UI element is ok to poll the property once every hour, another needs more frequent polling, while the third one needs a subscription. In such cases the `p.subscribe(300)` method becomes useful: it keeps track on how many and which type of subscriptions it has and upgrades/downgrades them as appropriate.
+  
+    ```js
+    s1 = p.subscribe(300); // poll every 300 seconds
+    s2 = p.subscribe(50); // now poll every 50 seconds
+    s3 = p.subscribe(); // stop polling and create a subscription
+    s3.dispose(); // now continue polling every 50 seconds
+    ```
+    
+  In this example the SDK first upgrades the polling to a subscription and then downgrades it back at the app request.
 
 Every property object has a `changed` event, which is an instance of the `Event` object, and whenever the property value changes, it notifies observers via this event:
 
