@@ -142,7 +142,27 @@ There are a few additional features of the property object that are mostly used 
 ### Observable collections
 <a name="collection"></a>
 
-Collections and properties have very similar interfaces and this is why a collection can be thought of as a property holding an array of values. Internally, a collection is a pair of arrays: one array with values, another array with keys. 
+Collections and properties have very similar interfaces and this is why a collection can be thought of as a property holding an array of values. Internally, a collection is a pair of arrays: one array with values, another array with keys. So on the one hand a collection is an array of items with a certain order, while on the other hand every item has a key associated with it and even if the item is relocated within the collection, it can still be found by its key.
+
+`persons()` returns an array of items in the collection. This call doesn't have any side effects and simply returns the internal array of items (a copy of that array).
+
+`persons.get()` fetches the list of items, usually from UCWA. If the collection doesn't have a custom getter, then this `get` call returns a resolved promise. The returned promise is resolved with the array of items.
+
+```js
+persons.get().then(ps => {
+    console.log("the list of persons:", ps); // ps is same as persons() here
+});
+```
+
+`persons.subscribe()` creates a subscription to the collection. This is no different from this method works in property objects, except that subscription to some collections is generally heavier.
+
+`persons.subscribe(300)` starts polling the collection with the given interval in seconds. This is no different how this works in properties.
+
+`persons.add(p)` adds a new item to the collection and returns a promise object to track the async operation. This works if the collection is writable.
+
+`persons.remove(p)` removes an item from the collection and returns a promise object to track the async operation. This works if the collection is writable.
+
+TODO
 
 ### Observable commands/methods
 <a name="command"></a>
