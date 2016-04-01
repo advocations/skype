@@ -119,6 +119,8 @@ p.changed(newValue => {
 });
 ```
 
+If the property doesn't have a value, i.e. its value is `undefined`, then `p.changed(fn)` merely adds the `fn` listener. However if the property had a value, it invokes `fn` right away. This behavior allows to not write special handling for thw two cases: when the property has a value and when it doesn't.
+
 A common use of such event listeners is doing something when the property gets a certain value.
 
 ```js
@@ -180,6 +182,8 @@ persons.changed(() => {
 });
 ```
 
+If the collection had some items, then `persons.changed(fn)` invokes `fn` once right away and `persons.added(fn)` invokes `fn` once for every item in the collection. This allows to now write special handling for the two cases: when the collection is empty and when it has some items.
+
 There are a few methods to derive new collections based on existing ones.
 
 - `b = a.sort((lhs, rhs) => lhs.tag < rhs.tag)` creates a sorted read only collection. The new collection remains observable: it observes the parent collection and adds or removes items according to the given order. This is useful when the same collection needs to be displayed in one placed sorte by, say, display names, and in another placed sorted by online status:
@@ -208,12 +212,45 @@ There are a few methods to derive new collections based on existing ones.
 ### Observable commands/methods
 <a name="command"></a>
 
-TODO
+In the SDK a command is simply a function with the `enabled` boolean property. When a command is invoked, it checks the value of the `enabled` property and throws an error if it's `false`. There are two uses of the `enabled` property:
+
+- It can be observed and the UI can gray out a button associated with the command.
+- `enabled.reason` tells why the command is disabled.
 
 ### Event object
 <a name="event"></a>
 
-TODO
+The event object is simply an array of callbacks: the app can add or removed them and the SDK can "fire" the event to invoke the callbacks. In general, adding or removing event listeners doesn't have any side effects.
+
+- `event.on(fn)` or just `event(fn)` adds an event listener.
+- `event.off(fn)` removes the event listener. Another way to remove it is to use the `dispose` method.
+
+The most common pattern is to use `on` and `off` methods with a named event listener:
+
+```js
+person.status.changed(fn);
+persons.status.changed.off(fn);
+```
+
+Another pattern is to use the `dispose` method that allows to add anonymous callbacks:
+
+```js
+s = persons.status.changed(fn);
+s.dispose();
+```
+
+The third pattern is to use anonymous named callbacks:
+
+```js
+persons.status.changed(function fn(status) {
+  if (status == "Offline")
+    persons.status.changed.off(fn);
+    
+  // do something else
+});
+```
+
+This pattern is useful to add one time event listeners that remove themselves. The `dispose` pattern wouldn't work in all cases because the added callback may be invoked right away if the property `status` had a value.
 
 ### Promise object
 <a name="promise"></a>
