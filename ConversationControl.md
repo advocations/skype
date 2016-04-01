@@ -90,6 +90,20 @@ renderConversation('#container', {
 ```
 
 
+#### Make the conversation control render in narrow mode.
+
+
+```js
+var c = document.getElementById('container');
+c.classList.add('narrow');
+renderConversation(c, {
+     conversationId: 'someID',
+     modalities: ['Chat']
+});
+
+```
+
+
 ### Supported clients
 
 Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
