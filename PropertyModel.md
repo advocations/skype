@@ -255,4 +255,47 @@ This pattern is useful to add one time event listeners that remove themselves. T
 ### Promise object
 <a name="promise"></a>
 
-TODO
+In the SDK some methods are return the result right away, while some are asynchronous: they return a `Promise` object that is eventually resolved with the result. The SDK adheres to the `Promise/A+` specification which is well documented elsewhere, so here only common patterns with promise objects are explained.
+
+The most common use is to set a callback that's invoked once the async operation succeeds:
+
+```js
+person.status.get().then(() => {
+  console.log("the status is:", person.status());
+});
+```
+
+Error handler can be added as the second callback:
+
+```js
+person.status.get().then(res => {
+  console.log("the status is:", res);
+}, err => {
+  console.log("something went wrong:", err);
+});
+```
+
+The first callback can be omiited:
+
+```js
+person.status.get().then(null, err => {
+  console.log("something went wrong:", err);
+});
+```
+
+Since this is a very common pattern, the spec defines `Promise#catch` method for this purpose:
+
+```js
+person.status.get().catch(err => {
+  console.log("something went wrong:", err);
+});
+```
+
+Similarly, to do something after the operation completes - eitehr succeeds or fails - there is a method called `finally`, which is not in the `Promise/A+` spec yet:
+
+```js
+person.status.get().finally(() => {
+  console.log("the .get() has succeeded or failed");
+});
+```
+
