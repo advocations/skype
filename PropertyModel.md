@@ -144,7 +144,7 @@ There are a few additional features of the property object that are mostly used 
 
 Collections and properties have very similar interfaces and this is why a collection can be thought of as a property holding an array of values. Internally, a collection is a pair of arrays: one array with values, another array with keys. So on the one hand a collection is an array of items with a certain order, while on the other hand every item has a key associated with it and even if the item is relocated within the collection, it can still be found by its key.
 
-- `persons()` returns an array of items in the collection. This call doesn't have any side effects and simply returns the internal array of items (a copy of that array).
+- `persons()` returns an array of items in the collection. This call doesn't have any side effects and simply returns the internal array of items (a copy of that array). `persons(3)` returns an item at the given index: same as `persons()[3]`.
 
 - `persons.get()` fetches the list of items, usually from UCWA. If the collection doesn't have a custom getter, then this `get` call returns a resolved promise. The returned promise is resolved with the array of items.
 
@@ -153,6 +153,8 @@ Collections and properties have very similar interfaces and this is why a collec
     console.log("the list of persons:", ps); // ps is same as persons() here
   });
   ```
+  
+  `persons.get(3)` does the same thing, but returns the item at the given index. The same result can be achieved with `persons.get().then(ps => ps[3])`.
 
 - `persons.subscribe()` creates a subscription to the collection. This is no different from this method works in property objects, except that subscription to some collections is generally heavier.
 
