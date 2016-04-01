@@ -144,25 +144,64 @@ There are a few additional features of the property object that are mostly used 
 
 Collections and properties have very similar interfaces and this is why a collection can be thought of as a property holding an array of values. Internally, a collection is a pair of arrays: one array with values, another array with keys. So on the one hand a collection is an array of items with a certain order, while on the other hand every item has a key associated with it and even if the item is relocated within the collection, it can still be found by its key.
 
-`persons()` returns an array of items in the collection. This call doesn't have any side effects and simply returns the internal array of items (a copy of that array).
+- `persons()` returns an array of items in the collection. This call doesn't have any side effects and simply returns the internal array of items (a copy of that array).
 
-`persons.get()` fetches the list of items, usually from UCWA. If the collection doesn't have a custom getter, then this `get` call returns a resolved promise. The returned promise is resolved with the array of items.
+- `persons.get()` fetches the list of items, usually from UCWA. If the collection doesn't have a custom getter, then this `get` call returns a resolved promise. The returned promise is resolved with the array of items.
+
+  ```js
+  persons.get().then(ps => {
+    console.log("the list of persons:", ps); // ps is same as persons() here
+  });
+  ```
+
+- `persons.subscribe()` creates a subscription to the collection. This is no different from this method works in property objects, except that subscription to some collections is generally heavier.
+
+- `persons.subscribe(300)` starts polling the collection with the given interval in seconds. This is no different how this works in properties.
+
+- `persons.add(p)` adds a new item to the collection and returns a promise object to track the async operation. This works if the collection is writable.
+
+- `persons.remove(p)` removes an item from the collection and returns a promise object to track the async operation. This works if the collection is writable.
+
+Just like properties, collections have the `changed` event, but in addition to that they have `added` and `removed` events that notify the app when an item is added or removed. The `changed` event simply aggregates the `added` and `removed` events.
 
 ```js
-persons.get().then(ps => {
-    console.log("the list of persons:", ps); // ps is same as persons() here
+persons.added((p, key) => {
+  console.log("new person added:", key, p);
+});
+
+persons.removed((p, key) => {
+  console.log("a person removed:", key, p);
+});
+
+persons.changed(() => {
+  console.log("the updated list of items:", p());
 });
 ```
 
-`persons.subscribe()` creates a subscription to the collection. This is no different from this method works in property objects, except that subscription to some collections is generally heavier.
+There are a few methods to derive new collections based on existing ones.
 
-`persons.subscribe(300)` starts polling the collection with the given interval in seconds. This is no different how this works in properties.
+- `b = a.sort((lhs, rhs) => lhs.tag < rhs.tag)` creates a sorted read only collection. The new collection remains observable: it observes the parent collection and adds or removes items according to the given order. This is useful when the same collection needs to be displayed in one placed sorte by, say, display names, and in another placed sorted by online status:
+  
+  ```js
+  // s1 is the list of persons sorted by display name
+  s1 = persons.sort((p1, p2) => p1.displayName() < p2.displayName());
+  
+  // s2 is the list of persons sorted by online status
+  s2 = persons.sort((p1, p2) => p1.status() < p2.status());
+  ```
 
-`persons.add(p)` adds a new item to the collection and returns a promise object to track the async operation. This works if the collection is writable.
+  Note the difference from `Array#sort`: the list of persons could be sorted with `persons().sort((p1, p2) => p1.displayName() < p2.displayName() ? -1 : 0)` but then the created sorted array would remain static and after the parent collection is changed, the array would remain the same.
+  
+- `b = a.filter(x => x.tag > 123)` creates a collection with items from the parent collection matching a certain predicate. The items appear in the same order.
 
-`persons.remove(p)` removes an item from the collection and returns a promise object to track the async operation. This works if the collection is writable.
-
-TODO
+  ```js
+  // the new collection is observable, but contains messages only: no missed calls items and so on
+  messages = conversation.historyService.activityItems.filter(x => x.type() == "TextMessage");
+  ```
+  
+  In this example the `messages` collection is observing the parent `activityItems` collection, checks if newly added items match the predicate and adds them ifthey do.
+  
+- `b = a.map(x => x.tag)` creates a collection which takes all items from the parent collection and applies to the the given mapping function. Same idea as in `Array#map` except that the result remains connected with the parent collection.
 
 ### Observable commands/methods
 <a name="command"></a>
