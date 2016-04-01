@@ -142,7 +142,7 @@ There are a few additional features of the property object that are mostly used 
 ### Observable collections
 <a name="collection"></a>
 
-TODO
+Collections and properties have very similar interfaces and this is why a collection can be thought of as a property holding an array of values. Internally, a collection is a pair of arrays: one array with values, another array with keys. 
 
 ### Observable commands/methods
 <a name="command"></a>
