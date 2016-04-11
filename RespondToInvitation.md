@@ -1,7 +1,7 @@
 
 # Respond to a conversation invitation
 
- **Last modified:** February 02, 2016
+ **Last modified:** March 31, 2016
 
  _**Applies to:** Skype for Business 2015_
 
@@ -15,13 +15,13 @@ The SDK creates a set of objects and raises several events to support a new conv
 
 - A [Conversation]( https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object is created to encapsulate the incoming conversation invitation.
     
-- One or more conversation service objects such as [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.chatService**, [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.audioService**, or [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.videoService** is created to encapsulate the conversation modes chosen by the caller.
+- Conversation service objects such as [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.chatService**, [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.audioService**, or [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.videoService** are created to encapsulate the conversation modes chosen by the caller.
     
-- One or more [Participant](https://msdn.microsoft.com/en-us/library/office/dn962129(v=office.16).aspx) objects are created to represent the people in the conversation.
+- One [Participant](https://msdn.microsoft.com/en-us/library/office/dn962129(v=office.16).aspx) object is created to represent the inviter and added to the `Conversation#participants` collection.
     
-- The state of one of the conversation's modalities becomes "Notified."
+- The state of one of the conversation's services becomes "Notified".
     
-At this moment, the app must call the  **accept()** method or the **decline()** method on the [ConversationService](https://msdn.microsoft.com/en-us/library/office/mt657711(v=office.16).aspx) modality object. Whether the call is taken or declined depends on which method is called.
+At this moment, the app must call the  **accept** method or the **reject** method on the [ConversationService](https://msdn.microsoft.com/en-us/library/office/mt657711(v=office.16).aspx) object. Whether the call is taken or declined depends on which method is called.
 
 The following procedure catches the conversation-related "added" events, forms a UI prompt, accepts the user's action, and updates the app UI to show the right kind of content.
 
