@@ -1,7 +1,7 @@
 
 # Local user
 
- **Last modified:** March 29, 2016
+ **Last modified:** March 31, 2016
 
  _**Applies to:** Skype for Business 2015_
 
@@ -16,7 +16,7 @@ The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=offic
 ```js
 // tell the mePerson to change the availability state
 
-personsAndGroupsManager.mePerson.status.set('Online').then(function () {
+app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
     alert('The status of mePerson has been changed');
 }).then(null, function (error) {
     // and if could not be changed, report the failure
@@ -32,9 +32,9 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |:-----|:-----|
 |Property|Description|
 |location|Gets or sets the location of the signed in user.|
-|note|Gets or sets the personal note of the signed in user.|
+|note.text|Gets or sets the personal note of the signed in user.|
 |status|Gets or sets the availability of the signed in user.|
- **Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
+>**Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
 [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which are read-only
 
@@ -46,9 +46,9 @@ personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |email|Gets the primary email address of the signed in user.|
 |emails|Gets the email addresses associated with the signed in user.|
 |displayName|Gets the display name of the signed in user.|
-|avatarURL|Gets the photo URL of the signed in user.|
+|avatarUrl|Gets the photo URL of the signed in user.|
 |title|Gets the business title of the signed in user.|
-|ID|Gets the SIP Uri of the signed in user.|
+|id|Gets the SIP URI of the signed in user.|
 
 ## See also
 
