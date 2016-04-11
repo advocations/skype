@@ -1,7 +1,7 @@
 
 # Conversations
 
- **Last modified:** March 28, 2016
+ **Last modified:** March 31, 2016
 
  _**Applies to:** Skype for Business 2015_
 
@@ -44,6 +44,89 @@ Several conversation service types are supported by the SDK:
 - [VideoService](https://msdn.microsoft.com/en-us/library/office/mt219389(v=office.16).aspx)  
     
 - [HistoryService](https://msdn.microsoft.com/en-us/library/office/dn962130(v=office.16).aspx)  
+
+### Starting a conversation
+
+In short, starting a conversation takes three steps:
+
+- Get a conversation object.
+- Add participant objects.
+- Start a chat/audio/video service or just send a message.
+
+If just one participant object is added, the SDK starts a peer-to-peer (1:1) conversation. If no participants or a few participants are added, then the SDk starts a multi-party (1:N) conversation which is also known as an ad-hoc online meeting.
+
+For the simplest case - starting a 1:1 conversation - use the `getConversation` method that creates new or _gets an existing_ 1:1 conversation with the specified person.
+
+```js
+conv = app.conversationsManager.getConversation("sip:johndoe@contoso.com");
+conv.chatService.sendMessage("Hi");
+```
+
+If there was no conversation with this person, it will be created and the conversation object will have one item in the `participants` collection. The created participant object will generally have just one property set: `.person.id` which is the given SIP URI. Other properties will become available once the conversation is started.
+
+Another way to get the same result is to use a person object.
+
+```js
+p = app.personsAndGroupsManager.all.persons(3);
+conv = app.conversationsManager.getConversation(p);
+conv.chatService.sendMessage("Hi");
+```
+
+In this case the created participant object will use the given person object that may have all the properties filled with data. When starting the conversation, the SDK will do a `p.id.get()` to get the SIP URI, which will be a noop if the SIP URI was already available.
+
+About the same result can be achieved with the `createConversation` method which creates an empty conversation object.
+
+```js
+conv = app.conversationsManager.createConversation();
+conv.participants.add("sip:johndoe@contoso.com"); // can use a Person object here
+conv.chatService.sendMessage("Hi");
+```
+
+In this case a new 1:1 conversation is created even if there was already a 1:1 conversation with this participant.
+
+After a 1:1 conversation is started, more participants can be added to turn the peer-to-peer conversation into a multi-party one:
+
+```js
+conv = app.conversationsManager.getConversation("sip:johndoe@contoso.com");
+conv.chatService.sendMessage("Hi").then(() => {
+  // joesmith will get an invitation to join the ad-hoc meeting
+  conv.participants.add("sip:joesmith@contoso.com");
+});
+```
+
+Participants can also be removed from the conversation. However removing all the participants except one from a multiparty conversation doesn't convert it back into a peer-to-peer one: the conversation remains an onlinead-hoc meeting with two participants (the local participant and the remote participant).
+
+```js
+pt0 = conv.participants(0)
+conv.participants.remove(pt0).catch(err => {
+  console.log("looks like the current user doesn't have permissions to remove participants:", err);
+});
+```
+
+It's possible to create an empty ad-hoc meeting and invite participants later.
+
+```js
+conv = app.conversationsManager.createConversation();
+conv.chatService.start(); // sendMessage also works
+```
+
+Note, that the chat service was used as an example. It's possible to start audio or video service to start conversations.
+
+Before a conversation is started, it's possible to set the subject/topic of that conversation. After the conversation is started, its topic cannot be changed.
+
+```js
+conv = app.conversationsManager.createConversation();
+conv.topic.set("ABC");
+conv.chatService.start(); // sendMessage also works
+```
+
+### Ending a conversation
+
+This is as simple as invoking the `leave` method:
+
+```js
+conversation.leave();
+```
 
     
 **Supported clients**
