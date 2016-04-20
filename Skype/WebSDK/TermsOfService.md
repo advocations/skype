@@ -20,7 +20,7 @@ for this software, unless other terms accompany those items. If so, those terms 
 **1.INSTALLATION AND USE RIGHTS.** 
 
 **a.	Installation and Use.** You may install and use any number of copies of the software on your devices to design, develop and test your applications that communicate only with Microsoft Skype for Business Server or Skype for Business Online.  
-- You may use or test the functions of the pre-release software listed on [http://aka.ms/SkypeWebSDKTerms](http://aka.ms/SkypeWebSDKTerms) in a live operating environment.
+- You may use or test the functions of the pre-release software that has an X in the General Availability column listed on [http://aka.ms/SkypeWebSDKTerms](http://aka.ms/SkypeWebSDKTerms) in a live operating environment.
 
 **b.	Third Party Programs.** The software may include third party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third party program are included for your information only.
 
