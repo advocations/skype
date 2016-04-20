@@ -20,6 +20,7 @@
   - [Developing applications](/DevelopApplications.md)
     - [Architecture](/Architecture.md)
     - [Object model](/ObjectModel.md)
+    - [Property model](/PropertyModel.md)
     - [Developing for Skype for Business Server](/DevelopForSkypeforBusiness.md)
     - [Developing Web SDK applications for Skype for Business Online](/DevelopWebSDKappsForSfBOnline.md)
   - [Programming tasks](/ProgrammingTasks.md)
