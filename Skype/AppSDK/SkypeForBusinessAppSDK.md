@@ -1,4 +1,4 @@
-# Skype for Business App SDK for embedding business-to-consumer communications
+# Embed Skype business-to-consumer communications in your mobile app
 
 ## Overview
 

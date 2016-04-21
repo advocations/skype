@@ -44,4 +44,4 @@
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
 ## [Skype App SDK general reference](AppSDK/GeneralReference.md)
-## [Skype for Business App SDK](AppSDK/SkypeForBusinessAppSDK.md)
+### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
