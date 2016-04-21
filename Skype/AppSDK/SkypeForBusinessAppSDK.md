@@ -29,7 +29,7 @@ This call-flow is often referred to as Anonymous Meeting Join.  Meetings are ide
 > **Note**: The scheduled meeting needs to explicitly allow anonymous users in the meeting.
 
 
-This workflow for anonymous meeting join is available today via the Skype for Business (Lync) mobile applications.  You can experiment with it by creating a Skype for Business  meeting in Outlook and then launching the URL while on your phone.  
+This workflow for anonymous meeting join is available today via the Skype for Business (Lync) mobile applications.  You can experiment with it by creating a Skype for Business  meeting in Outlook or the Skype for Business desktop client and then launching the URL while on your phone.  
 
 In future, this scenario may require the back-end services to also obtain an access token and pass it to the client app, along with the meeting URL.
 
@@ -37,7 +37,7 @@ In future, this scenario may require the back-end services to also obtain an acc
 
 Figure 2. Anonymous meeting join
 
-##### Anonymous meting join work items
+##### Anonymous meeting join work items
  
 1. Write a back-end application to handle client “visits”:
    * Receive a request from a client app, _initially via your own back channel_.
@@ -50,9 +50,12 @@ Figure 2. Anonymous meeting join
 3. App SDK joins the meeting.
  
 
- 
-## SDK Object Model 	
+## Enabling a simple anonymous meeting join code pattern 
 
+The initial public preview of the SDK supports anonymous meeting join by providing a simple API that you use to join a meeting using chat and video. The API exposes a conversation object with a single method to join a meeting and methods for preparing video, starting video, and muting audio. You can learn more about simplified meeting join in [Getting Started with the App SDK](GettingStarted.md). If you want more control over an anonymous meeting, you can use the object model described in the following section.
+
+## SDK Object Model 	
+ 
 Figure 4 provides an overview of the object model hierarchy of the Skype for Business App SDK. A brief description of the objects follows.  Detailed descriptions of the operations provided by each object are available in the Deep Dive section.
   
 ![Skype for Business App SDK object model diagram](images/Fig4_.skype_for_business_OM.png "Figure 4. The Skype for Business App SDK object model hierarchy")
@@ -111,7 +114,4 @@ Once generally available, we anticipate that the SDK will be updated frequently 
 
 ## Licensing
 
-_The licensing model for the SDK is still to be determined.  Your suggestions are encouraged._
-
-Currently, the SDK can be used to participate in conversations where at least one of the participants is a licensed user of Skype for Business.
-We may consider other models if appropriate, for example, models based on usage.
+The SDK can be used to participate in conversations where at least one of the participants is a licensed user of Skype for Business.

@@ -1,5 +1,5 @@
 # Skype for Business Web SDK 
-## [SkypeWebSDKPreview](WebSDK/SkypeWebSDKPreview.md)
+## [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
 ### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
 ##### [Presence](WebSDK/Presence.md)
@@ -42,5 +42,5 @@
 ###### [Conversation Control](WebSDK/ConversationControl.md)
 #### [CONTRIBUTING](WebSDK/CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
-# AppSDK TOC 
-## [test page](AppSDK/index.md)
+# Skype for Business App SDK 
+## [Skype for Business App SDK](AppSDK/SkypeForBusinessAppSDK.md)
