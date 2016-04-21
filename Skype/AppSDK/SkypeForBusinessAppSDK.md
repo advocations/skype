@@ -102,9 +102,7 @@ The **DevicesManager** object provides access to configuration of multimedia dev
  
 ## Versioning and staying up to date
 
-_This is a draft proposal on which we welcome your feedback._
-
-Once generally available, we anticipate that the SDK will be updated frequently with new capabilities.
+The capabilities of the public preview of the App SDK are limited to anonymous meeting join with audio/video and chat. Once generally available, we anticipate that the SDK will be updated frequently with new capabilities.
 
 * We’ll make every effort to ensure API back-compatibility with previous versions.  We will communicate any breaking changes clearly.
 * To allow the SDK to move forward quickly, our guidance will be to update to the latest SDK at least every six months.  Where an app is based on an older version of the SDK, it may need to be updated so that:
