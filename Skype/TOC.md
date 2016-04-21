@@ -43,4 +43,5 @@
 #### [CONTRIBUTING](WebSDK/CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
+## [Skype App SDK general reference](AppSDK/GeneralReference.md)
 ## [Skype for Business App SDK](AppSDK/SkypeForBusinessAppSDK.md)
