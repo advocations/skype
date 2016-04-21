@@ -45,6 +45,6 @@
 # Skype for Business App SDK 
 ## [Skype App SDK general reference](AppSDK/GeneralReference.md)
 ### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
-### [Platform considerations](PlatformConsiderations.md)
-### [Object model](ObjectModel.md)
-### [Getting started](GettingStarted.md)
+### [Platform considerations](AppSDK/PlatformConsiderations.md)
+### [Object model](AppSDK/ObjectModel.md)
+### [Getting started](AppSDK/GettingStarted.md)
