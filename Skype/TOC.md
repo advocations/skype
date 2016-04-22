@@ -1,4 +1,4 @@
-# Skype for Business Web SDK 
+## Skype for Business Web SDK 
 ## [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
 ### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
