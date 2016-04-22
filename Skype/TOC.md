@@ -43,7 +43,7 @@
 #### [CONTRIBUTING](WebSDK/CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
-## [Skype App SDK general reference](AppSDK/GeneralReference.md)
+## [Skype App SDK Preview](AppSDK/SkypeAppSDKPreview.md)
 ### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
 ### [Platform considerations](AppSDK/PlatformConsiderations.md)
 ### [Helper classes](HelperClass.md)
