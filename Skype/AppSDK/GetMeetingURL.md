@@ -40,3 +40,5 @@ as shown in figure 3
  to create a meeting and get the meeting URL. You will need to write a client-side feature to
  communicate with your server application to initiate this transaction and get the
  returned meeting URL.
+ 
+ See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA.
