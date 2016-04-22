@@ -19,8 +19,12 @@ The configuration steps include:
 ##### Add embedded binaries
 
 Add embeded binaries for the App SDK in your XCode project. The SDK comes with a binary for use on physical devices
-and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. For running your app on a device, choose the 
-**AppSDKiOS** folder and the **SFB.framework** file. For running on the emulator, choose the **AppSDKiOSSimulator** folder and then select the **SFB.Framework** file in that folder.
+and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. 
+
+* To run your app on a device, choose the 
+**AppSDKiOS** folder and the **SFB.framework** file. 
+
+* To debug your app on an emulator, choose the **AppSDKiOSSimulator** folder and then select the **SFB.Framework** file in that folder.
 
 ##### Reference the API header file
 
@@ -38,16 +42,11 @@ The android libraries are added to the Dependencies structure of the build.gradl
 ```java
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile(name: "libucmp-release", ext: 'aar')
     compile(name: "platform-release", ext: 'aar')
     compile(name: "library-release", ext: 'aar')
     compile(name: "sfb-appsdk-release", ext: 'aar')
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
-    compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.android.support:cardview-v7:22.2.1'
+    
 }
 
 ```
@@ -86,6 +85,25 @@ dependencies {
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+```
+
+##### Importing App SDK classes
+
+To write Skype for Business anonymous meeting logic in your app, import the following
+API objects into your class. 
+
+>Note: Android Studio automatically adds these imports when you reference the objects in your code. If you configure Android Studio to automatically optmize import statements,
+the import statements are removed by Android Studio unless you have referenced the objects
+in code.
+
+```java 
+import com.microsoft.office.sfb.appsdk.Application;
+import com.microsoft.office.sfb.appsdk.Camera;
+import com.microsoft.office.sfb.appsdk.Conversation;
+import com.microsoft.office.sfb.appsdk.DevicesManager;
+import com.microsoft.office.sfb.appsdk.Observable;
+import com.microsoft.office.sfb.appsdk.SFBException;
+import com.microsoft.office.sfb.appsdk.VideoService;
 ```
 
 ### The helper classes
