@@ -45,9 +45,10 @@
 # Skype for Business App SDK 
 ## [Skype App SDK Preview](AppSDK/SkypeAppSDKPreview.md)
 ### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
-### [Platform considerations](AppSDK/PlatformConsiderations.md)
-### [Helper classes](HelperClass.md)
-### [Object model](AppSDK/ObjectModel.md)
 ### [Getting started](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](GetMeetingURL.md)
 #### [Use the helper classes to join a meeting](UseHelperClass.md)
+### [Orientation](Orientation.md)
+#### [Platform considerations](AppSDK/PlatformConsiderations.md)
+#### [Helper classes](HelperClass.md)
+#### [Object model](AppSDK/ObjectModel.md)
