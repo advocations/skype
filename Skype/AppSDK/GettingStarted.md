@@ -10,7 +10,8 @@ For the Android SDK, the source files include the helper interface and implement
 ### Configure your project for the Skype for Business App SDK
 
 You can start coding and building your project with the App SDK after you complete the following
-configuration tasks for your platform.
+configuration tasks for your platform. To get a quick start on App SDK development, use the
+[Helper classes](HelperClass.md) that you downloaded as source code in the App SDK download package.
 
 #### iOS
 
@@ -21,7 +22,7 @@ The configuration steps include:
 Add embeded binaries for the App SDK in your XCode project. The SDK comes with a binary for use on physical devices
 and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. 
 
-* To run your app on a device, choose the 
+* To run your app on a device, navigate to the location where you downloaded the App SDK and choose the 
 **AppSDKiOS** folder and the **SFB.framework** file. 
 
 * To debug your app on an emulator, choose the **AppSDKiOSSimulator** folder and then select the **SFB.Framework** file in that folder.
@@ -89,7 +90,7 @@ dependencies {
 
 ##### Importing App SDK classes
 
-To write Skype for Business anonymous meeting logic in your app, import the following
+If you are using the core App SDK classes instead of the **Helper classes**,  import the following
 API objects into your class. 
 
 >Note: Android Studio automatically adds these imports when you reference the objects in your code. If you configure Android Studio to automatically optmize import statements,
@@ -106,6 +107,9 @@ import com.microsoft.office.sfb.appsdk.SFBException;
 import com.microsoft.office.sfb.appsdk.VideoService;
 ```
 
-### The helper classes
+## Next steps
+Now that you've configured your project to code against the **App SDK** API, you're
+ready for the next steps:
 
-The helpers let you add the anonymous meeting join feature  
+* [Get a meeting URL](GetMeetingURL.md)
+* [Use the helper classes to join a meeting](UseHelperClass.md)
