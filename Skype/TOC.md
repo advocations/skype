@@ -52,3 +52,5 @@
 #### [Platform considerations](AppSDK/PlatformConsiderations.md)
 #### [Helper classes](HelperClass.md)
 #### [Object model](AppSDK/ObjectModel.md)
+#### [Download the App SDK](AppSDK/Download.md)
+#### [App SDK samples](AppSDK/Samples.md)

@@ -6,3 +6,5 @@ your mobile app, read the following sections:
 - [Platform considerations](PlatformConsiderations.md)
 - [Helper classes](HelperClass.md)
 - [Object model](ObjectModel.md)
+- [Download the App SDK](Download.md)
+- [App SDK samples](Samples.md)
