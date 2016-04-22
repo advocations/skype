@@ -9,6 +9,6 @@ The Skype Developer Platform for Apps ("Skype App SDK") is a set of native APIs 
 
 The Skype App SDK documentation consists of the following sections:
 
-- [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
-- [Getting started](AppSDK/GettingStarted.md)
-- [Orientation](AppSDK/Orientation.md)
+- [Embed Skype business-to-consumer communications in your mobile app](SkypeForBusinessAppSDK.md)
+- [Getting started](GettingStarted.md)
+- [Orientation](Orientation.md)
