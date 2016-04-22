@@ -24,7 +24,7 @@ as shown in figure 3
 
 
                                                                                  
- ### Get the meeting URL
+### Get the meeting URL
  
  Join the meeting you scheduled in the previous step. The **Skype for Business** meeting window has a  round "..." button at the 
  bottom right corner of the window. Click the button and choose the **Meeting Entry Info** option from the 
@@ -34,7 +34,8 @@ as shown in figure 3
  ![Get the meeting URL from the meeting window](images/entryinfo.PNG "Figure 4. Get the meeting URL from the meeting window")
  
  
- ## In production
+ 
+## In production
  
  To create new meetings on demand and send the new meeting URL to your mobile app, you'll 
  write a UCWA-based server application that makes server-to-server REST calls into a **Skype for Business** server
@@ -44,7 +45,8 @@ as shown in figure 3
  
  See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA.
  
- ## Use the meeting URL in your app
+ 
+## Use the meeting URL in your app
  
  Once you have the meeting URL string, create an **URI** and provide it to the API. The following snippets show this for the Android and iOS platforms:
 
