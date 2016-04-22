@@ -48,6 +48,7 @@
 ### [Getting started with the App SDK](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](AppSDK/GetMeetingURL.md)
 #### [Use the helper classes to join a meeting](AppSDK/UseHelperClass.md)
+#### [Client call flows](AppSDK/ClientCallFlows.md)
 ### [Orientation](AppSDK/Orientation.md)
 #### [Platform considerations](AppSDK/PlatformConsiderations.md)
 #### [Helper classes](AppSDK/HelperClass.md)
