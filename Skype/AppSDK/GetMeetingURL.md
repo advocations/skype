@@ -22,6 +22,10 @@ as shown in figure 3
 
   ![Set meeting options](images/meetingoptions.PNG "Figure 3. set meeting options")
 
+Once you have the meeting URL, fill the ``` conversation = mSkypeApplication
+                    .getConversationsManager()
+                    .getOrCreateConversationMeetingByUri(meetingUri);
+```
 
  ### Get the meeting URL
  

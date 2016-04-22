@@ -70,3 +70,7 @@ The capabilities of the public preview of the App SDK are limited to anonymous m
 ## Licensing
 
 The SDK can be used to participate in conversations where at least one of the participants is a licensed user of Skype for Business.
+
+## Next steps
+
+- [Getting started with the App SDK](GettingStarted.md)
