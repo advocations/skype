@@ -108,8 +108,8 @@ import com.microsoft.office.sfb.appsdk.VideoService;
 ```
 
 ## Next steps
-Now that you've configured your project to code against the **App SDK** API, you're
-ready for the next steps:
+Now that you've configured your project to code against the **App SDK** API, learn how to get the Url of a **Skype for Business** meeting and then
+use the API to enable your mobile app to join the meeting:
 
 * [Get a meeting URL](GetMeetingURL.md)
 * [Use the helper classes to join a meeting](UseHelperClass.md)

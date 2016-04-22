@@ -1,8 +1,8 @@
-# Embed Skype business-to-consumer communications in your mobile app
+# What is the Skype for Business App SDK?
 
 ## Overview
 
-The Skype for Business App SDK provides a platform to businesses to enable communication scenarios within their applications. The SDK offers capabilities to seamlessly integrate messaging, audio, and video experiences. 
+Embed Skype business-to-consumer communications in your mobile app. The Skype for Business App SDK provides a platform to businesses to enable communication scenarios within their applications. The SDK offers capabilities to seamlessly integrate messaging, audio, and video experiences. 
  
 ![Sample client application integration with Skype for Business App SDK](images/appsdk_arch.png "Figure 1. Sample client application integration with Skype for Business App SDK")
 

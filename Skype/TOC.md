@@ -44,8 +44,8 @@
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
 ## [Skype App SDK Preview](AppSDK/SkypeAppSDK.md)
-### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
-### [Getting started](AppSDK/GettingStarted.md)
+### [What is the Skype for Business App SDK?](AppSDK/SkypeForBusinessAppSDK.md)
+### [Getting started with the App SDK](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](GetMeetingURL.md)
 #### [Use the helper classes to join a meeting](UseHelperClass.md)
 ### [Orientation](Orientation.md)

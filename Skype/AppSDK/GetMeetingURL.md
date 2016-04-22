@@ -22,11 +22,8 @@ as shown in figure 3
 
   ![Set meeting options](images/meetingoptions.PNG "Figure 3. set meeting options")
 
-Once you have the meeting URL, fill the ``` conversation = mSkypeApplication
-                    .getConversationsManager()
-                    .getOrCreateConversationMeetingByUri(meetingUri);
-```
 
+                                                                                 
  ### Get the meeting URL
  
  Join the meeting you scheduled in the previous step. The **Skype for Business** meeting window has a  round "..." button at the 
@@ -46,3 +43,12 @@ Once you have the meeting URL, fill the ``` conversation = mSkypeApplication
  returned meeting URL.
  
  See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA.
+ 
+ ## Use the meeting URL in your app
+ 
+ Once you have the meeting URL string, create an **URI** and provide it to the API. The following snippets show this for the Android and iOS platforms:
+
+- In Java for Android:   ``` conversation = mSkypeApplication.getConversationsManager().getOrCreateConversationMeetingByUri(meetingUri);```
+
+- In Objective C for iOS: ```[self.conversationsManager getOrCreateConversationMeetingByUri:meetingURL error:&err];```
+
