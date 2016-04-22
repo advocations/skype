@@ -17,6 +17,11 @@ days so that you don't need to get a new meeting URL whenever you are testing yo
 
  ![Schedule a meeting in Outlook](images/outlookmeeting.PNG "Figure 2. Schedule a meeting in Outlook")
  
+Be sure to check the meeting options for the new meeting. The lobby waiting option must be disabled for anyone who enters the meeting.
+as shown in figure 3
+
+  ![Set meeting options](images/meetingoptions.PNG "Figure 3. set meeting options")
+
  ### Get the meeting URL
  
  Join the meeting you scheduled in the previous step. The **Skype for Business** meeting window has a  round "..." button at the 
@@ -24,7 +29,7 @@ days so that you don't need to get a new meeting URL whenever you are testing yo
  context menu. The dialog that opens shows a **Meeting Link** field which contains the URL that you'll use to join the
  meeting.  
  
- ![Get the meeting URL from the meeting window](images/entryinfo.PNG "Figure 3. Get the meeting URL from the meeting window")
+ ![Get the meeting URL from the meeting window](images/entryinfo.PNG "Figure 4. Get the meeting URL from the meeting window")
  
  ## In production
  
