@@ -1,5 +1,5 @@
 
-# Skype App SDK
+# Skype App SDK preview
 
  **Last modified:** April 21, 2016
 
