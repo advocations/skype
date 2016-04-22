@@ -22,6 +22,7 @@ as shown in figure 3
 
   ![Set meeting options](images/meetingoptions.PNG "Figure 3. set meeting options")
 
+
  ### Get the meeting URL
  
  Join the meeting you scheduled in the previous step. The **Skype for Business** meeting window has a  round "..." button at the 
@@ -30,6 +31,7 @@ as shown in figure 3
  meeting.  
  
  ![Get the meeting URL from the meeting window](images/entryinfo.PNG "Figure 4. Get the meeting URL from the meeting window")
+ 
  
  ## In production
  
