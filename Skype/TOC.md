@@ -43,7 +43,7 @@
 #### [CONTRIBUTING](WebSDK/CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
-## [Skype App SDK Preview](AppSDK/SkypeAppSDKPreview.md)
+## [Skype App SDK Preview](AppSDK/SkypeAppSDK.md)
 ### [Embed Skype business-to-consumer communications in your mobile app](AppSDK/SkypeForBusinessAppSDK.md)
 ### [Getting started](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](GetMeetingURL.md)
