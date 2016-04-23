@@ -17,6 +17,8 @@ The initial focus of the SDK is to enable iOS and Android applications to embed 
 
 The Skype App SDK documentation consists of the following sections:
 
-- [Embed Skype business-to-consumer communications in your mobile app](EmbedSkypeB2Ccomms.md)
+- [Overview: Embed Skype business-to-consumer communications in your mobile app](EmbedSkypeB2Ccomms.md)
 - [Getting started](GettingStarted.md)
 - [Orientation](Orientation.md)
+- [Download the App SDK](Download.md)
+- [App SDK samples](Samples.md)

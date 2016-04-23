@@ -1,43 +1,20 @@
 # Embed Skype business-to-consumer communications in your mobile app
 
-## Overview
+![Guest meeting join scenario diagram](images/Fig2_anonymous_meeting_join.png "Figure 1. Guest meeting join")
 
-. The Skype for Business App SDK provides a platform to businesses to enable communication scenarios within their applications. The SDK offers capabilities to seamlessly integrate messaging, audio, and video experiences. 
- 
-![Sample client application integration with Skype for Business App SDK](images/appsdk_arch.png "Figure 1. Sample client application integration with Skype for Business App SDK")
+Figure 1. Guest  meeting join
 
-Figure 1. Sample client application integration with Skype for Business App SDK
+## Communication via a Skype for Business meeting
 
-The initial focus of the SDK is to enable businesses to create consumer-facing iOS and Android applications that include IM, audio and video communication capabilities from consumers (external users with no Skype for Business account) to business users (internal Skype for Business-enabled users within the business).  The SDK makes it possible for these Skype for Business communications to occur from within the business application, alongside your own business-specific data or tasks.  
+The app uses the SDK's "guest meeting join" or "anonymous meeting join" capability. Note that while the user is anonymous from the Skype for Business viewpoint, the app may well know who the user is and will authenticate the user against its own back-end authentication systems, before joining the user to the meeting. 
 
-This article outlines the relevant **architectural concepts** and the **API** surface of the SDK to help developers (product managers, designers, and engineers) conceptualize the integration of the Skype for Business App SDK with their applications and also design their workflows. 
+Meetings are identified by a meeting URL, such as: [https://join.contoso.com/meet/john/BW9Z1MJD]( https://join.contoso.com/meet/john/BW9Z1MJD).  The client app will need to obtain this URL from its own back-end services (which in turn, may obtain it using the Skype for Business server-side APIs).  
 
-### Platforms
+> **Note**: The meeting needs to explicitly allow anonymous users to attend.
 
-The SDK will be available for the iOS and Android platforms and will include a platform-specific Objective-C and Java interfaces, respectively.  The precise details of the interfaces will be communicated later.  For now, this document focuses on the SDK concepts and call-flows in a platform-neutral way. 
+This flow is available today.  You can experiment with it by creating a meeting in Skype for Business desktop client (or via Outlook) and then launching the meeting URL on a phone with the Skype for Business mobile app installed on it.  
 
-### Business to Consumer (B2C) scenarios
-
-The consumer endpoint will be the application with the integrated Skype for Business App SDK.  The business endpoint is a Skype for Business-capable user/employee of the business.  The SDK will allow Consumer to Business communication either via a Skype for Business meeting or direct 1:1 Skype for Business conversation to a service endpoint.
-
-#### Communication via a Skype for Business meeting
-
-In this scenario, the application will use the SDK to connect to a Skype for Business meeting.  Because the consumer using the application will not have Skype for Business credentials, the SDK will support joining the Skype for Business meetings as a _guest_. 
- 
-This call-flow is often referred to as Anonymous Meeting Join.  Meetings are identified by a meeting URL, such as: [https://join.contoso.com/meet/john/BW9Z1MJD]( https://join.contoso.com/meet/john/BW9Z1MJD).  The client app will need to obtain this URL from its own back-end services (which in turn, may obtain it using the Skype for Business server-side APIs).  
-
-> **Note**: The scheduled meeting needs to explicitly allow anonymous users in the meeting.
-
-
-This workflow for anonymous meeting join is available today via the Skype for Business (Lync) mobile applications.  You can experiment with it by creating a Skype for Business  meeting in Outlook or the Skype for Business desktop client and then launching the URL while on your phone.  
-
-In future, this scenario may require the back-end services to also obtain an access token and pass it to the client app, along with the meeting URL.
-
-![Anonymous meeting join scenario diagram](images/Fig2_anonymous_meeting_join.png "Figure 2. Anonymous meeting join")
-
-Figure 2. Anonymous meeting join
-
-##### Anonymous meeting join work items
+## Summary of steps required:
  
 1. Write a back-end application to handle client “visits”:
    * Receive a request from a client app, _initially via your own back channel_.

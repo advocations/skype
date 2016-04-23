@@ -4,7 +4,7 @@ This section shows how to get started developing mobile applications with the Sk
 
 ##Using the Skype App SDK in your application
 
-The native libraries for the Android and iOS platforms are available for download from [](). The download is a compressed file that includes the libraries and a set of source files. 
+The SDKs for iOS and Android are available for download from [](). The download is a compressed file that includes the libraries and a set of source files. 
 For the Android SDK, the source files include the helper interface and implementing class. The iOS SDK source files include a helper header and implementing method file.  
 
 ### Configure your project for the Skype for Business App SDK

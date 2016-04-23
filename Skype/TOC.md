@@ -43,7 +43,7 @@
 #### [CONTRIBUTING](WebSDK/CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
-## [Skype App SDK Preview](AppSDK/SkypeAppSDK.md)
+## [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
 ### [What is the Skype for Business App SDK?](AppSDK/SkypeForBusinessAppSDK.md)
 ### [Getting started with the App SDK](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](AppSDK/GetMeetingURL.md)
@@ -53,5 +53,5 @@
 #### [Platform considerations](AppSDK/PlatformConsiderations.md)
 #### [Helper classes](AppSDK/HelperClass.md)
 #### [Object model](AppSDK/ObjectModel.md)
-#### [Download the App SDK](AppSDK/Download.md)
-#### [App SDK samples](AppSDK/Samples.md)
+### [Download the App SDK](AppSDK/Download.md)
+### [App SDK samples](AppSDK/Samples.md)
