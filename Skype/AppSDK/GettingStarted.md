@@ -8,7 +8,7 @@ The SDKs for iOS and Android are available for download from []().
 
 <!--- Can add back comment on structure of download, once Dev made final decision on this.  -->
  
-<!--- Split instructions at this point.  1. Run sample app (still needs meeting URL).  2.  Add SDK to your own app   -->
+<!--- Split instructions at this point.  1. Run sample app (still needs meeting URL).  2.  Add SDK to your own app.  Also split by platform too?   -->
 
 
 ## Configure your project for the Skype for Business App SDK
@@ -112,12 +112,11 @@ import com.microsoft.office.sfb.appsdk.SFBException;
 import com.microsoft.office.sfb.appsdk.VideoService;
 ```
 
-<!--- Let's discuss this. -->
+<!--- Let's discuss this too. -->
 
 
 ## Next steps
-Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then
-use the API to enable your mobile app to join the meeting:
+Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
 
 * [Get a meeting URL](GetMeetingURL.md)
 * [Use the SDK to join a meeting](UseHelperClass.md)

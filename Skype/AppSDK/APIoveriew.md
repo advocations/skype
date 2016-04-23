@@ -19,7 +19,7 @@ The **ConversationsManager** object provides functionality to start a new conver
 
 ### Conversation
 
-<!--- Let's discuss the Conversation Helper here when discussing Conversation -->
+<!--- The helper is now a 'Conversation Helper'.  It's not as completely separate as we were presnting it.  So let's discuss it here as part of this section -->
 
 The **Conversation** object represents a communication between one or more participants and is controlled by a set of “services”.
 
