@@ -4,4 +4,4 @@ To get more familiar with the **Skype for Business App SDK** and equip yourself 
 
 - [Platform considerations](PlatformConsiderations.md)
 - [Helper classes](HelperClass.md)
-- [Object model](ObjectModel.md)
+- [API Overview](APIoverview.md)

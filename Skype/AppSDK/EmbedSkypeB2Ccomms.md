@@ -4,6 +4,8 @@
 
 Figure 1. Guest  meeting join
 
+<!--- Need to update diagram to remove mention of 'token'. -->
+
 ## Communication via a Skype for Business meeting
 
 The app uses the SDK's "guest meeting join" or "anonymous meeting join" capability. Note that while the user is anonymous from the Skype for Business viewpoint, the app may well know who the user is and will authenticate the user against its own back-end authentication systems, before joining the user to the meeting. 
