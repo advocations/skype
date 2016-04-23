@@ -1,14 +1,22 @@
 
-# Skype App SDK preview
+# Skype for Business App SDK preview
 
- **Last modified:** April 21, 2016
+ **Last modified:** April 23, 2016
 
  _**Applies to:** Skype for Business 2015_
 
-The Skype Developer Platform for Apps ("Skype App SDK") is a set of native APIs that enable you to build mobile experiences for Android and iOS that seamlessly integrate a wide variety of real-time collaboration models leveraging Skype for Business services and the larger Skype network. It provides support for multiple core collaboration services like presence, chat, audio, and video, enabling mobile experiences across a broad spectrum of users, platforms, and devices.
+![Skype for Business App SDK](images/Fig1_samp_client_app_integration.png "Figure 1. Skype for Business App SDK")
+
+Figure 1. Skype for Business App SDK
+
+The Skype for Business App SDK enables apps to seamlessly integrate messaging, audio, and video experiences. 
+ 
+The initial focus of the SDK is to enable iOS and Android applications to embed communications from "guests" (external users or consumers) to Skype for Business users within an organization.  It does so via a "guest meeting join" capability.
+
+> **Note**: Over time, the SDK's capabilities will expand to cover other scenarios. 
 
 The Skype App SDK documentation consists of the following sections:
 
-- [Embed Skype business-to-consumer communications in your mobile app](SkypeForBusinessAppSDK.md)
+- [Embed Skype business-to-consumer communications in your mobile app](EmbedSkypeB2Ccomms.md)
 - [Getting started](GettingStarted.md)
 - [Orientation](Orientation.md)
