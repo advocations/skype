@@ -4,7 +4,9 @@ This section shows how to get started developing mobile applications with the Sk
 
 ## Download the Skype App SDK
 
-The SDKs for iOS and Android are available for download from []().
+The SDKs for iOS and Android are available for download from Microsoft. 
+* [Skype for Business App SDK - iOS](http://aka.ms/sfbAppSDKDownload_ios)
+* [Skype for Business App SDK - Android](http://aka.ms/sfbAppSDKDownload_android)
 
 <!--- Can add back comment on structure of download, once Dev made final decision on this.  -->
  

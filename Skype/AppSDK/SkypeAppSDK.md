@@ -20,6 +20,8 @@ The Skype App SDK documentation consists of the following sections:
 - [Overview: Embed Skype business-to-consumer communications in your mobile app](EmbedSkypeB2Ccomms.md)
 - [Getting started](GettingStarted.md)
 - [App SDK orientation](Orientation.md)
+- [App SDK library reference - Android](http://aka.ms/sfbAppSDKRef_Android)
+- [App SDK library reference - iOS](http://aka.ms/sfbAppSDKRef_iOS)
 - [Download the App SDK](Download.md)
 - [App SDK samples](Samples.md)
 
