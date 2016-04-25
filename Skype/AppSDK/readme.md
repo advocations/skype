@@ -1,5 +1,7 @@
 # README
 
+<!--- Add link to live home page.  Go there to read docs.  Stay her eonly if you're looking to contribute. -->
+
 Thank you for your interest in Skype for Business developer documentation!
 
 ## Ways to contribute

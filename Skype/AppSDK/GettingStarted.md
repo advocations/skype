@@ -2,16 +2,18 @@
 
 This section shows how to get started developing mobile applications with the Skype App SDK. It also provides guidance on using the Skype App SDK samples.
 
-##Using the Skype App SDK in your application
+## Download the Skype App SDK
 
-The native libraries for the Android and iOS platforms are available for download from [](). The download is a compressed file that includes the libraries and a set of source files. 
-For the Android SDK, the source files include the helper interface and implementing class. The iOS SDK source files include a helper header and implementing method file.  
+The SDKs for iOS and Android are available for download from []().
 
-### Configure your project for the Skype for Business App SDK
+<!--- Can add back comment on structure of download, once Dev made final decision on this.  -->
+ 
+<!--- Split instructions at this point.  1. Run sample app (still needs meeting URL).  2.  Add SDK to your own app.  Also split by platform too?   -->
 
-You can start coding and building your project with the App SDK after you complete the following
-configuration tasks for your platform. To get a quick start on App SDK development, use the
-[Helper classes](HelperClass.md) that you downloaded as source code in the App SDK download package.
+
+## Configure your project for the Skype for Business App SDK
+
+You can start coding with the App SDK after you complete the following configuration tasks for your platform.
 
 #### iOS
 
@@ -19,11 +21,13 @@ The configuration steps include:
 
 ##### Add embedded binaries
 
-Add embeded binaries for the App SDK in your XCode project. The SDK comes with a binary for use on physical devices
-and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. 
+Add embedded binaries for the App SDK in your XCode project.
 
-* To run your app on a device, navigate to the location where you downloaded the App SDK and choose the 
-**AppSDKiOS** folder and the **SFB.framework** file. 
+<!--- Add precise Xcode instructions to do this.  I can show you on my Mac -->
+
+The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. 
+
+* To run your app on a device, navigate to the location where you downloaded the App SDK and choose the **AppSDKiOS** folder and the **SFB.framework** file. 
 
 * To debug your app on an emulator, choose the **AppSDKiOSSimulator** folder and then select the **SFB.Framework** file in that folder.
 
@@ -53,6 +57,8 @@ dependencies {
 ```
 
 ##### AndroidManifest permissions
+
+<!--- Let's discuss this. -->
 
 
 ```java
@@ -90,8 +96,7 @@ dependencies {
 
 ##### Importing App SDK classes
 
-If you are using the core App SDK classes instead of the **Helper classes**,  import the following
-API objects into your class. 
+Import the following API objects. 
 
 >Note: Android Studio automatically adds these imports when you reference the objects in your code. If you configure Android Studio to automatically optmize import statements,
 the import statements are removed by Android Studio unless you have referenced the objects
@@ -107,10 +112,11 @@ import com.microsoft.office.sfb.appsdk.SFBException;
 import com.microsoft.office.sfb.appsdk.VideoService;
 ```
 
+<!--- Let's discuss this too. -->
+
+
 ## Next steps
-Now that you've configured your project to code against the **App SDK** API, learn how to get the Url of a **Skype for Business** meeting and then
-use the API to enable your mobile app to join the meeting:
+Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
 
 * [Get a meeting URL](GetMeetingURL.md)
-* [Use the helper classes to join a meeting](UseHelperClass.md)
-* [Client call flows](ClientCallFlows.md)
+* [Use the SDK to join a meeting](UseSDKtoJoinMeeting.md)

@@ -1,12 +1,9 @@
 # Get a Skype for Business meeting URL
-If you have not written a server-side feature to schedule a meeting and return a new meeting URL, you can
-still get a meeting URL and develop against a live meeting. Users of your production app will rely on server
-logic to return a new meeting whenever they use the join meeting feature of the **App SDK**.
+If you have not written a server-side feature to schedule a meeting and return a new meeting URL, you can still get a meeting URL and develop against a live meeting. Users of your production app will rely on server logic to return a new meeting whenever they use the join meeting feature of the **App SDK**.
 
 
 ## While developing your app
-While your app is in development, you can create your own anonymous Skype for Business meeting as long as you are
-a licensed user of Skype for Business. There are two easy ways to do this.
+While your app is in development, you can create your own anonymous Skype for Business meeting as long as you are a licensed user of Skype for Business. There are two easy ways to do this.
 
 * Start an ad-hoc meeting from your **Skype for Business** desktop client as shown in figure 1. 
 

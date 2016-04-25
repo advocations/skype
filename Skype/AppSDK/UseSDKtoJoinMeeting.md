@@ -1,0 +1,1 @@
+# Use the SDK to join a Skype for Business meeting
