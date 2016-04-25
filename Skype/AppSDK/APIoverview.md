@@ -1,4 +1,4 @@
-# The Skype for Business App SDK Object Model
+# Skype for Business App SDK - API overview
 ## SDK Object Model 	
  
 Figure 1 provides an overview of the object model hierarchy of the Skype for Business App SDK. A brief description of the objects follows.  Detailed descriptions of the operations provided by each object are available in the Deep Dive section.
@@ -13,9 +13,13 @@ The **Application** object is a root entity that provides access to all other en
 
 ### ConversationsManager
 
+<!--- I think Dev have deleted this for now, so need to update here and the diagram. -->
+
 The **ConversationsManager** object provides functionality to start a new conversation and manage current conversations.  In the early stages, where the focus is on scenarios where the app user is a consumer without Skype for Business credentials, the SDK will only support a single active conversation at a time. 
 
 ### Conversation
+
+<!--- The helper is now a 'Conversation Helper'.  It's not as completely separate as we were presnting it.  So let's discuss it here as part of this section -->
 
 The **Conversation** object represents a communication between one or more participants and is controlled by a set of “services”.
 

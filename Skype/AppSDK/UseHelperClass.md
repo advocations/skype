@@ -1,1 +1,0 @@
-# Use the helper classes to join a Skype for Business meeting
