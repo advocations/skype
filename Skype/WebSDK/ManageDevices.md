@@ -46,7 +46,7 @@ The devicesManager object has three collections for available devices: cameras, 
 client.devicesManager.cameras.subscribe();
 
 console.log("Available cameras:");
-for(var i = 0, i < client.devicesManager.cameras.length; i++) {
+for(var i = 0; i < client.devicesManager.cameras.length; i++) {
 	var camera = client.devicesManager.cameras[i];
 	console.log(camera.name());
 }
