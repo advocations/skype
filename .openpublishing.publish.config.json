@@ -1,0 +1,19 @@
+{
+    "build_entry_point": "",
+    "need_generate_pdf": false,
+    "git_repository_url_open_to_public_contributors": "",
+    "docsets_to_publish": [
+        {
+            "docset_name": "SkypeSDK",
+            "build_output_subfolder": "skype",
+            "locale": "en-us",
+            "version": 0,
+            "open_to_public_contributors": "false",
+            "type_mapping": {
+                "Conceptual": "Content"
+            }
+        }
+    ],
+    "notification_subscribers": ["johnau@microsoft.com"],
+    "branches_to_filter": ["live"]
+}
