@@ -122,3 +122,9 @@ Now that you've configured your project to code against the **App SDK** API, lea
 
 * [Get a meeting URL](GetMeetingURL.md)
 * [Use the SDK to join a meeting](UseSDKtoJoinMeeting.md)
+
+## Additional resources
+Here are some more resources to help you build apps with the **Skype for Business App SDK**
+
+* [App SDK samples](Samples.md) 
+* [Questions, bugs, feature requests, and contributions](Feedback.md)

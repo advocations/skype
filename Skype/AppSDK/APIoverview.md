@@ -11,12 +11,6 @@ Figure 1. The Skype for Business App SDK object model hierarchy
 
 The **Application** object is a root entity that provides access to all other entities and services in the SDK. Developers are expected to initialize the application before using other entities in the SDK. It provides access to the **ConversationsManager** object.
 
-### ConversationsManager
-
-<!--- I think Dev have deleted this for now, so need to update here and the diagram. -->
-
-The **ConversationsManager** object provides functionality to start a new conversation and manage current conversations.  In the early stages, where the focus is on scenarios where the app user is a consumer without Skype for Business credentials, the SDK will only support a single active conversation at a time. 
-
 ### Conversation
 
 <!--- The helper is now a 'Conversation Helper'.  It's not as completely separate as we were presnting it.  So let's discuss it here as part of this section -->
@@ -25,6 +19,7 @@ The **Conversation** object represents a communication between one or more parti
 
 * Participant child objects can be added and removed.   Events are available that indicate when, for example, a new participant has joined the conversation.
 * The service child objects are fixed and cannot be added or removed; there is one for each aspect to the communication.
+* A ConversationHelper class. The SDK comes with a conversation helper class that handles the details of managing conversation participants and services. Use the helper class if you want to support the core meeting scenarios with a minimum of code.  
 
 #### Service
 
@@ -46,3 +41,6 @@ Events are available that indicate when, for example, the participant starts typ
 ### DevicesManager
 
 The **DevicesManager** object provides access to configuration of multimedia devices used in audio and video calls. It provides lists of available devices of each type (speakers, microphones, cameras) and allows selection of which one should be used.  Devices and their attributes may vary between platforms. 
+
+## Additional Resources
+* [How to join a Skype for Business meeting anonymously](HowToConversationHelper.md)
