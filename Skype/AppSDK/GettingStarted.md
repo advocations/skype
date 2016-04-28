@@ -12,6 +12,8 @@ The SDKs for iOS and Android are available for download from Microsoft.
  
 <!--- Split instructions at this point.  1. Run sample app (still needs meeting URL).  2.  Add SDK to your own app.  Also split by platform too?   -->
 
+>Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.
+Just download the SDK libraries, get the URL of an established **Skype for Business** meeting, run the sample, and join the meeting. 
 
 ## Configure your project for the Skype for Business App SDK
 
@@ -21,42 +23,44 @@ You can start coding with the App SDK after you complete the following configura
 
 The configuration steps include:
 
-##### Add embedded binaries
 
-Add embedded binaries for the App SDK in your XCode project.
+1. **Add embedded binary**: In XCode, in the Interface Builder  Source Pane, select the project node and open the project properties pane. Add an embedded binary from the folder that 
+you downloaded the SDK libraries into. 
 
-<!--- Add precise Xcode instructions to do this.  I can show you on my Mac -->
+  > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the 
+same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and 
+choose the _AppSDKiOS_ folder and the _SFB.framework_ file. To run your app in a **simulator**, choose the **AppSDKiOSSimulator** folder 
+and then select the **SFB.Framework** file in that folder.
 
-The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the same name but are in separate folders. 
+2. **Import the SDK header file**: Add the following import statement to your header file.
 
-* To run your app on a device, navigate to the location where you downloaded the App SDK and choose the **AppSDKiOS** folder and the **SFB.framework** file. 
-
-* To debug your app on an emulator, choose the **AppSDKiOSSimulator** folder and then select the **SFB.Framework** file in that folder.
-
-##### Reference the API header file
-
-Add the following import statement to your header file.
-```cpp
-#import <SFB/SFB.h>
-```
+      ```cpp
+        #import <SFB/SFB.h>
+      ```
 
 
 #### Android
-The android libraries are added to the Dependencies structure of the build.gradle file for your project module. 
 
-##### Gradle dependencies
+The configuration steps include:
 
-```java
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile(name: "libucmp-release", ext: 'aar')
-    compile(name: "platform-release", ext: 'aar')
-    compile(name: "library-release", ext: 'aar')
-    compile(name: "sfb-appsdk-release", ext: 'aar')
+1. **Copy the appsdk folder into your project structure**: Copy from your App SDK download folder into the root folder of your Android project.
+The **appsdk** folder end up in folder where your **settings.gradle** file is. 
+1. **Add SDK libraries to the module Gradle dependencies struct:** 
+ 
+  ```java
+  dependencies {
+      compile fileTree(dir: 'libs', include: ['*.jar'])
+      compile(name: "libucmp", ext: 'aar')
+      compile(name: "platform", ext: 'aar')
+      compile(name: "sfb-appsdk", ext: 'aar')
+      compile(name: "TelemetryService", ext: 'aar')
+      compile(name: "ucmp-enums", ext: 'aar')
+      compile(name: "TelemetryClient2", ext: 'aar')
+      compile(name: "injector", ext: 'aar')
     
-}
+  }
 
-```
+  ```
 
 ##### AndroidManifest permissions
 

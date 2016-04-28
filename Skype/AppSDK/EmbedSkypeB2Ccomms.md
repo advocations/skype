@@ -4,7 +4,6 @@
 
 Figure 1. Guest  meeting join
 
-<!--- Need to update diagram to remove mention of 'token'. -->
 
 ## Communication via a Skype for Business meeting
 

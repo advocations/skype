@@ -13,8 +13,6 @@ The **Application** object is a root entity that provides access to all other en
 
 ### Conversation
 
-<!--- The helper is now a 'Conversation Helper'.  It's not as completely separate as we were presnting it.  So let's discuss it here as part of this section -->
-
 The **Conversation** object represents a communication between one or more participants and is controlled by a set of “services”.
 
 * Participant child objects can be added and removed.   Events are available that indicate when, for example, a new participant has joined the conversation.
@@ -43,4 +41,4 @@ Events are available that indicate when, for example, the participant starts typ
 The **DevicesManager** object provides access to configuration of multimedia devices used in audio and video calls. It provides lists of available devices of each type (speakers, microphones, cameras) and allows selection of which one should be used.  Devices and their attributes may vary between platforms. 
 
 ## Additional Resources
-* [How to join a Skype for Business meeting anonymously](HowToConversationHelper.md)
+* [How to join a Skype for Business meeting anonymously](HowToJoinMeeting.md)
