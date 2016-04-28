@@ -29,7 +29,7 @@ you downloaded the SDK libraries into.
 
   > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the 
 same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and 
-choose the _AppSDKiOS_ folder and the _SFB.framework_ file. To run your app in a **simulator**, choose the **AppSDKiOSSimulator** folder 
+choose the _AppSDKiOS_ folder and the _SFB.framework_ file. To run your app in a **simulator**, choose the _AppSDKiOSSimulator_ folder 
 and then select the **SFB.Framework** file in that folder.
 
 2. **Import the SDK header file**: Add the following import statement to your header file.
@@ -38,14 +38,18 @@ and then select the **SFB.Framework** file in that folder.
         #import <SFB/SFB.h>
       ```
 
-
 #### Android
 
 The configuration steps include:
 
 1. **Copy the appsdk folder into your project structure**: Copy from your App SDK download folder into the root folder of your Android project.
 The **appsdk** folder end up in folder where your **settings.gradle** file is. 
+
+1. **Copy the annotations-1.0.jar file**: The SDK includes this jar file in the compressed download
+file. Copy the jar file to the _libs_ folder inside your project module folder.
+
 1. **Add SDK libraries to the module Gradle dependencies struct:** 
+> Note: Be sure to include the ```compile fileTree(dir: 'libs', include: ['*.jar'])``` statement. 
  
   ```java
   dependencies {
@@ -61,64 +65,43 @@ The **appsdk** folder end up in folder where your **settings.gradle** file is.
   }
 
   ```
-
-##### AndroidManifest permissions
-
-<!--- Let's discuss this. -->
+1. **Add app permissions**: Add _uses-permission_ tagsto the project **AndroidManifest.xml** file. 
 
 
-```java
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:node="replace" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  ```java
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission
+          android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+          tools:node="replace" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+      <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+      <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+      <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.VIBRATE" />
+      <uses-permission android:name="android.permission.CALL_PHONE" />
+      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+      <uses-permission android:name="android.permission.RECORD_AUDIO" />
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <uses-permission android:name="android.permission.BLUETOOTH" />
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-permission android:name="android.permission.READ_CONTACTS" />
+      <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+      <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+      <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+      <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+      <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+      <uses-permission android:name="android.permission.READ_LOGS" />
+      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-```
+  ```
 
-##### Importing App SDK classes
 
-Import the following API objects. 
-
->Note: Android Studio automatically adds these imports when you reference the objects in your code. If you configure Android Studio to automatically optmize import statements,
-the import statements are removed by Android Studio unless you have referenced the objects
-in code.
-
-```java 
-import com.microsoft.office.sfb.appsdk.Application;
-import com.microsoft.office.sfb.appsdk.Camera;
-import com.microsoft.office.sfb.appsdk.Conversation;
-import com.microsoft.office.sfb.appsdk.DevicesManager;
-import com.microsoft.office.sfb.appsdk.Observable;
-import com.microsoft.office.sfb.appsdk.SFBException;
-import com.microsoft.office.sfb.appsdk.VideoService;
-```
-
-<!--- Let's discuss this too. -->
 
 
 ## Next steps
