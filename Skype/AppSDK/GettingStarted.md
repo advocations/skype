@@ -121,4 +121,4 @@ Now that you've configured your project to code against the **App SDK** API, lea
 Here are some more resources to help you build apps with the **Skype for Business App SDK**
 
 * [App SDK samples](Samples.md) 
-* [Questions, bugs, feature requests, and contributions](Feedback.md)
+* [Submit your questions, bugs, feature requests, and contributions](Feedback.md)

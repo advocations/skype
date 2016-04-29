@@ -57,5 +57,5 @@
 ### [Samples](AppSDK/Samples.md)
 #### [Run the Android samples](AppSDK/RunAndroidSamples.md)
 #### [run the iOS samples](AppSDK/RuniOSSamples.md)
-### [Questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
+### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
