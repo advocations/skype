@@ -47,7 +47,7 @@ as shown in figure 3.
  
  Once you have the meeting URL string, create an **URI** and provide it to the API. The following snippets show this for the Android and iOS platforms:
 
-- In Java for Android:   ``` conversation = mSkypeApplication.getConversationsManager().getOrCreateConversationMeetingByUri(meetingUri);```
+- In Java for Android:   ``` conversation = mApplication.joinMeetingAnonymously(getString(R.string.userDisplayName), meetingURI);```
 
-- In Objective C for iOS: ```[self.conversationsManager getOrCreateConversationMeetingByUri:meetingURL error:&err];```
+- In Objective C for iOS: ```SfBConversation *conversation = [sfb joinMeetingAnonymousWithUri:[NSURL URLWithString:meetingURLString]displayName:meetingDisplayNameerror:&error];```
 
