@@ -1,91 +1,85 @@
 # Use the SDK to join a meeting with an iOS device
 
-This article shows you how to enable the core  **Skype for Business** anonymous meeting join scenario in your app. Android developers should read
+This article shows an iOS developer how to enable the core  **Skype for Business** anonymous meeting join scenario in your app. Android developers should read
 [Use the SDK to join a meeting with an Android device](HowToJoinMeeting.md). 
 
 After completing the steps in this article, your app can join a **Skype for Business** video meeting with a
 meeting URL. No **Skype for Business** credentials are used to join the meeting.
 
 
->Note: Be sure to read [Getting started with Skype App SDK development](GettingStarted.md) to learn how to configure your Android project 
+>Note: Be sure to read [Getting started with Skype App SDK development](GettingStarted.md) to learn how to configure your iOS project 
 for the **Skype for Business** App SDK.
 
-The code in this sample shows the use of the _ConversationHelper_ class to let you complete the scenario with a minimum of code. 
+The code in this sample shows the use of the _SfBConversationHelper_ class to let you complete the scenario with a minimum of code. 
 
-## Android
 
-### Add ConversationHelper.java to your project
+## Add SfBConversationHelper  to your project
 
-The ConversationHelper source file is included in the **Skype for Business** App SDK download. The Android App SDK download includes 
-**ConversationHelper.java**. The iOS App SDK download includes **ConversationHelper.h** and **ConversationHelper.m**. 
+The SfBConversationHelper source files are included in the **Skype for Business** App SDK download. The iOS App SDK download includes 
+The iOS App SDK download includes **SfBConversationHelper.h** and **SfBConversationHelper.m**. 
 
-1. Copy ConversationHelper.java into your **Android Studio** project src folder. For example, the [Healthcare app sample ](https://github.com/OfficeDev/skype-android-app-sdk-samples/tree/master/HealthcareApp) source code path is 
-_C:\android\SkypeDemo-Android\SfbWellBaby\app\src\main\java\com\microsoft\office\sfb\sfbwellbaby_. 
+1. Copy SfBConversationHelper.h and SfBConversationHelper.m into your **XCode** project source folder.  
 
-2. Update the package statement in ConversationHelper.java to the packages you've added the class to.
+2. Import the SfBConversationHelper to the method file where you will call the API ```#import "SfBConversationHelper.h"```.
 
-2. Declare a class that implements a callback listener for conversation state changes
+  > Note: as per the license terms, before you start video for the first time after install, you must prompt the user to accept the Microsoft end-user license (also included in the SDK).  Subsequent versions of the SDK preview will include code to assist you in doing so.
+  
+2. Declare methods that implement a callback listeners for video service state changes
 
-  ```java
-      /**
-     * Callback implementation for listening for conversation property changes.
-     */
-    class ConversationPropertyChangeListener extends
-            Observable.OnPropertyChangedCallback {
-        ConversationPropertyChangeListener() {
-        }
-
-        /**
-         * onProperty changed will be called by the Observable instance on a property change.
-         *
-         * @param sender     Observable instance.
-         * @param propertyId property that has changed.
-         */
-        @Override
-        public void onPropertyChanged(Observable sender, int propertyId) {
-            Conversation conversation = (Conversation) sender;
-            if (propertyId == Conversation.STATE_PROPERTY_ID) {
-                if (conversation.getState() == Conversation.State.ESTABLISHED) {
-
-                    try {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                loadCallFragment();
-                                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                                if (progressBar != null) {
-                                    progressBar.setVisibility(View.GONE);
-                                }
-                            }
-                        });
-                    } catch (Exception e) {
-                        Log.e("SkypeCall", "exception on meeting started");
-                    }
-                }
-            }
-        }
+    ```java
+      #pragma mark - Skype Delegates
+    // At incoming video, unhide the participant video view
+    - (void)conversationHelper:(SfBConversationHelper *)avHelper didSubscribeToVideo:(SfBParticipantVideo *)video {
+        self.participantVideoView.hidden = NO; 
     }
-      ```
 
-3. In your code, initialize the **App SDK** application by calling the static _Application.getInstance(Context)_ method:
+    // When video service is ready to start, unhide self video view and start the service.
+    - (void)conversationHelper:(SfBConversationHelper *)avHelper videoService:(SfBVideoService *)videoService didChangeCanStart:(BOOL)canStart {
+        if (canStart) {
+            if (self.selfVideoView.hidden) {
+                self.selfVideoView.hidden = NO;
+            }
+        
+            [videoService start:nil];
+        } 
+   }
+
+    // When the audio status changes, reflect in UI
+    - (void)conversationHelper:(SfBConversationHelper *)avHelper selfAudio:(SfBParticipantAudio *)audio didChangeIsMuted:(BOOL)isMuted {
+
+        if (!isMuted) {
+            [self.muteButton setTitle:@"Unmute" forState:UIControlStateNormal];
+        }
+        else {
+            [self.muteButton setTitle:@"Mute" forState:UIControlStateNormal];
+        } 
+    }
+      ```   
+         
+3. In your code, initialize the **App SDK** application :
 
   ```java
-  Application mApplication = Application.getInstance(this);
+   SfBApplication *sfb = SfBApplication.sharedApplication;
     ```
-   >Note: Be sure to select the Application object in the _com.microsoft.office.sfb.appsdk_ package!
-   
 4. Start joining the meeting by calling _Application.joinMeetingAnonymously(String displayName, URI meetingUri)_   
 
   ```java
-  conversation = mApplication
-                    .joinMeetingAnonymously(
-                            getString(R.string.userDisplayName), meetingURI);
+   SfBConversation *conversation = [sfb joinMeetingAnonymousWithUri:[NSURL URLWithString:meetingURLString]
+                                                         displayName:meetingDisplayName
+                                                               error:&error];
   ```
   
-5.  Connect the conversation property callback to the **conversation** returned in the previous step.
+5.  Initialize the conversation helper with the callback methods in the previous step.
 
   ```java
-      mConversation.addOnPropertyChangedCallback(new ConversationPropertyChangeListener()); 
+       if (conversation) {
+        [conversation addObserver:self forKeyPath:@"canLeave" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        
+        _conversationHelper = [[SfBConversationHelper alloc] initWithConversation:conversation
+                                                                         delegate:self
+                                                                   devicesManager:sfb.devicesManager
+                                                                outgoingVideoView:self.selfVideoView
+                                                               incomingVideoLayer:(CAEAGLLayer *) self.participantVideoView.layer
+                                                                         userInfo:@{DisplayNameInfo:meetingDisplayName}]; 
   ```      
         

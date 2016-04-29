@@ -95,6 +95,7 @@ The configuration steps are:
       <uses-permission android:name="android.permission.BROADCAST_STICKY" />
       <uses-permission android:name="android.permission.READ_LOGS" />
       <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+      <uses-permission android:name="android.permission.READ_PROFILE" />
 
   ```
 
