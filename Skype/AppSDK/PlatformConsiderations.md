@@ -38,12 +38,7 @@ Some methods may be unavailable at certain times and their availability is chang
 
 DevicesManager audio interfaces are reduced on iOS. When headphones or a headset is connected, microphone and speaker are implicitly rerouted. The only configurable option is the speaker endpoint, which can be switched between loudspeaker (which is the phone’s own loudspeaker no matter what devices are connected) and non-loudspeaker (which is an external device or the phone’s internal speaker).
 
-### Process lifecycle
-
-TBD.
-
 ### Permissions and security
-
 
 You must request access to the microphone and camera before calling any audio and video functions.
 

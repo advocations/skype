@@ -6,9 +6,7 @@ This article shows you how to enable the core  **Skype for Business** anonymous 
 After completing the steps in this article, your app can join a **Skype for Business** video meeting with a
 meeting URL. No **Skype for Business** credentials are used to join the meeting.
 
-
->Note: Be sure to read [Getting started with Skype App SDK development](GettingStarted.md) to learn how to configure your Android project 
-for the **Skype for Business** App SDK.
+>Note: Be sure to read [Getting started with Skype App SDK development](GettingStarted.md) to learn how to configure your Android project for the **Skype for Business** App SDK.
 
 The code in this sample shows the use of the _ConversationHelper_ class to let you complete the scenario with a minimum of code. 
 
@@ -24,7 +22,7 @@ _C:\android\SkypeDemo-Android\healthcare\app\src\main\java\com\microsoft\office\
 
 2. Update the package statement in ConversationHelper.java to the packages you've added the class to.
 
-2. Declare a class that implements a callback listener for conversation state changes
+3. Declare a class that implements a callback listener for conversation state changes
 
   ```java
       /**
@@ -64,20 +62,20 @@ _C:\android\SkypeDemo-Android\healthcare\app\src\main\java\com\microsoft\office\
         }
     }
       ```
-3. Implement the **ConversationHelper.ConversationCallback** interface
+4. Implement the **ConversationHelper.ConversationCallback** interface
 
   ```java
   implements ConversationHelper.ConversationCallback
     ```
 
-4. In your code, initialize the **App SDK** application by calling the static _Application.getInstance(Context)_ method:
+5. In your code, initialize the **App SDK** application by calling the static _Application.getInstance(Context)_ method:
 
   ```java
   Application mApplication = Application.getInstance(this);
     ```
    >Note: Be sure to select the Application object in the _com.microsoft.office.sfb.appsdk_ package!
    
-4. Start joining the meeting by calling _Application.joinMeetingAnonymously(String displayName, URI meetingUri)_   
+6. Start joining the meeting by calling _Application.joinMeetingAnonymously(String displayName, URI meetingUri)_   
 
   ```java
   conversation = mApplication
@@ -85,13 +83,13 @@ _C:\android\SkypeDemo-Android\healthcare\app\src\main\java\com\microsoft\office\
                             getString(R.string.userDisplayName), meetingURI);
   ```
   
-5.  Connect the conversation property callback to the **conversation** returned in the previous step.
+7.  Connect the conversation property callback to the **conversation** returned in the previous step.
 
   ```java
       mConversation.addOnPropertyChangedCallback(new ConversationPropertyChangeListener()); 
   ```      
         
-6. When the state of the conversation changes to Conversation.State.ESTABLISHED, construct a ConversationHelper object. Pass the following
+8. When the state of the conversation changes to Conversation.State.ESTABLISHED, construct a ConversationHelper object. Pass the following
 objects:
 
   * The **conversation** object returned in a prior step
@@ -114,7 +112,9 @@ objects:
                 
   ```      
 
-7. Start the incoming and outgoing meeting video.
+9. Start the incoming and outgoing meeting video.
+
+Note that, as per the license terms, before you start video for the first time after install, you must prompt the user to accept the Microsoft end-user license (also included in the SDK).  Subsequent versions of the SDK preview will include code to assist you in doing so.
 
   ```java
 
