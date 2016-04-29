@@ -8,12 +8,8 @@ The SDKs for iOS and Android are available for download from Microsoft.
 * [Skype for Business App SDK - iOS](http://aka.ms/sfbAppSDKDownload_ios)
 * [Skype for Business App SDK - Android](http://aka.ms/sfbAppSDKDownload_android)
 
-<!--- Can add back comment on structure of download, once Dev made final decision on this.  -->
- 
-<!--- Split instructions at this point.  1. Run sample app (still needs meeting URL).  2.  Add SDK to your own app.  Also split by platform too?   -->
+>Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md for these samples for instructions.
 
->Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.
-Just download the SDK libraries, get the URL of an established **Skype for Business** meeting, run the sample, and join the meeting. 
 
 ## Configure your project for the Skype for Business App SDK
 
@@ -23,8 +19,7 @@ You can start coding with the App SDK after you complete the following configura
 
 The configuration steps include:
 
-
-1. **Add embedded binary**: In XCode, in the Interface Builder  Source Pane, select the project node and open the project properties pane. Add an embedded binary from the folder that 
+1. **Add embedded binary**: In XCode, in the Interface Builder Source Pane, select the project node and open the project properties pane. Add an embedded binary from the folder that 
 you downloaded the SDK libraries into. 
 
   > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the 
@@ -50,8 +45,8 @@ The configuration steps include:
 
 1. **Copy the contents of the _AppSDKAndroid_ folder into your project**: Copy from your App SDK download folder into the _libs_ folder of the project module.
 
-
-1. **Add SDK libraries to the module Gradle dependencies struct:** 
+2. **Add the Conversation Helper into your project**: This helper code simplfies the code needed for some mainline scenarios.  Copy it from the _Helpers_ folder in your App SDK download into your app's source folder.  
+3. **Add SDK libraries to the module Gradle dependencies struct:** 
 > Note: Be sure to include the ```compile fileTree(dir: 'libs', include: ['*.jar'])``` statement. 
  
   ```java
@@ -68,8 +63,7 @@ The configuration steps include:
   }
 
   ```
-1. **Add app permissions**: Add _uses-permission_ tagsto the project **AndroidManifest.xml** file. 
-
+4. **Add app permissions**: Add _uses-permission_ tagsto the project **AndroidManifest.xml** file. 
 
   ```java
       <uses-permission android:name="android.permission.INTERNET" />
@@ -103,9 +97,9 @@ The configuration steps include:
       <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
   ```
-
-
-
+  
+  
+  
 
 ## Next steps
 Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
