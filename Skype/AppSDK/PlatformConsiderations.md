@@ -55,7 +55,7 @@ The SDK is currently supported on following versions.
 ||
 |:-----|:-----|
 |MIN_SDK_VERSION|14 (ICE_CREAM_SANDWICH)|
-|TARGET_SDK_VERSION|23 (M)|
+|TARGET_SDK_VERSION|22 (L)|
 
 The Public Preview App SDK supports armeabi-v7a processors only. You cannot use the SDK on devices with an x86 CPU architecture. You should run any apps in development on a physical Android device. For the Public Preview, emulators are not supported.
  
@@ -145,5 +145,6 @@ Add the following permissions to the AndroidManifest of your Android Studio proj
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
 
 ```
