@@ -20,7 +20,7 @@ The ConversationHelper source file is included in the **Skype for Business** App
 **ConversationHelper.java**. The iOS App SDK download includes **ConversationHelper.h** and **ConversationHelper.m**. 
 
 1. Copy ConversationHelper.java into your **Android Studio** project src folder. For example, the [Healthcare app sample ](https://github.com/OfficeDev/skype-android-app-sdk-samples/tree/master/HealthcareApp) source code path is 
-_C:\android\SkypeDemo-Android\SfbWellBaby\app\src\main\java\com\microsoft\office\sfb\sfbwellbaby_. 
+_C:\android\SkypeDemo-Android\healthcare\app\src\main\java\com\microsoft\office\sfb\healthcare_. 
 
 2. Update the package statement in ConversationHelper.java to the packages you've added the class to.
 
