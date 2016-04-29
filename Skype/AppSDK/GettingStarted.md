@@ -55,7 +55,7 @@ The configuration steps include:
       compile fileTree(dir: 'libs', include: ['*.jar'])
       compile(name: "libucmp", ext: 'aar')
       compile(name: "platform", ext: 'aar')
-      compile(name: "sfb-appsdk", ext: 'aar')
+      compile(name: "SkypeForBusiness", ext: 'aar')
       compile(name: "TelemetryService", ext: 'aar')
       compile(name: "ucmp-enums", ext: 'aar')
       compile(name: "TelemetryClient2", ext: 'aar')
