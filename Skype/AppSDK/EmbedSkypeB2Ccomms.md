@@ -11,7 +11,6 @@ The app uses the SDK's "guest meeting join" or "anonymous meeting join" capabili
 
 Meetings are identified by a meeting URL, such as: [https://join.contoso.com/meet/john/BW9Z1MJD]( https://join.contoso.com/meet/john/BW9Z1MJD).  The client app will need to obtain this URL from its own back-end services (which in turn, may obtain it using the Skype for Business server-side APIs).  
 
-> **Note**: The meeting needs to explicitly allow anonymous users to attend.
 
 This flow is available today.  You can experiment with it by creating a meeting in Skype for Business desktop client (or via Outlook) and then launching the meeting URL on a phone with the Skype for Business mobile app installed on it.  
 
