@@ -8,7 +8,7 @@ The SDKs for iOS and Android are available for download from Microsoft.
 * [Skype for Business App SDK - iOS](http://aka.ms/sfbAppSDKDownload_ios)
 * [Skype for Business App SDK - Android](http://aka.ms/sfbAppSDKDownload_android)
 
->Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md for these samples for instructions.
+>Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md in each of these samples for instructions.
 
 
 ## Configure your project for the Skype for Business App SDK
@@ -17,15 +17,11 @@ You can start coding with the App SDK after you complete the following configura
 
 #### iOS
 
-The configuration steps include:
+The configuration steps are:
 
-1. **Add embedded binary**: In XCode, in the Interface Builder Source Pane, select the project node and open the project properties pane. Add an embedded binary from the folder that 
-you downloaded the SDK libraries into. 
+1. **Add embedded binary**: In XCode, select the project node and open the project properties pane. Add SkypeForBusiness.framework as an "Embedded Binary" (not a "Linked Framework"). 
 
-  > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the 
-same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and 
-choose the _AppSDKiOS_ folder and the _SkypeForBusiness.framework_ file. To run your app in a **simulator**, choose the _AppSDKiOSSimulator_ folder 
-and then select the **SkypeForBusiness.framework** file in that folder.
+  > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator.  The binaries have the same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and select the _SkypeForBusiness.framework_ file in the _AppSDKiOS_ folder. To run your app in a **simulator**,  selec the _SkypeForBusiness.framework_ file in the _AppSDKiOSSimulator_ folder.
 
 2. **Import the SDK header file**: Add the following import statement to your header file.
 
@@ -42,12 +38,15 @@ and then select the **SkypeForBusiness.framework** file in that folder.
 
 #### Android
 
-The configuration steps include:
+The configuration steps are:
 
-1. **Copy the contents of the _AppSDKAndroid_ folder into your project**: Copy from your App SDK download folder into the _libs_ folder of the project module.
+1. **Copy the contents of the _AppSDKAndroid_ folder into your project**: Copy from your App SDK download folder into the _libs_ folder of your project module.
 
-2. **Add the Conversation Helper into your project**: This helper code simplfies the code needed for some mainline scenarios.  Copy it from the _Helpers_ folder in your App SDK download into your app's source folder.  
-3. **Add SDK libraries to the module Gradle dependencies struct:** 
+2. **Add the Conversation Helper into your project**: This helper code simplfies the code needed for some mainline scenarios.  Copy it from the _Helpers_ folder in your App SDK download into your app's source folder.
+
+3. **Update the Conversation Helper package name**: Set it to match your app's own package name.
+  
+4. **Add the SDK libraries to the module Gradle dependencies struct:** 
 > Note: Be sure to include the ```compile fileTree(dir: 'libs', include: ['*.jar'])``` statement. 
  
   ```java
@@ -98,6 +97,8 @@ The configuration steps include:
       <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
   ```
+
+>Note: Subsequent versions of the SDK will eliminate any uneccesary permissions.
   
   
   
