@@ -72,7 +72,7 @@ This will tell the SDK to send GETs to these URLs instead:
 
 GETs to `root` URLs do not require authentication. A GET to a `root` URL returns a so called `user` URL which does require authentication:
 
-```js
+```
 GET https://sfbweb1.contoso.com/autodiscover/autodiscoverservice.svc/root
 
 HTTP 200
@@ -91,7 +91,7 @@ app.signInManager.signIn({
 
 The SDK proceeds with a GET to the `user` URL and gets back a `401` response. Most browsers log such responses in the dev console.
 
-```js
+```
 GET https://sfbweb1.contoso.com/autodiscover/autodiscoverservice.svc/user
 
 HTTP 401
@@ -100,7 +100,7 @@ WWW-Authenticate: MsRtcOAuth grant_type="password"
 
 The SDK checks that in the 401 response the server says that it supports the password grant auth. Then the SDK sends a POST request with username and password to get a web ticket and resends the GET /user request with the web ticket. The response is supposed to have a so called `applications` URL which is also known as UCWA URL, because this is when the UCWA service is hosted.
 
-```js
+```
 GET https://sfbweb1.contoso.com/autodiscover/autodiscoverservice.svc/user
 Authorization: Bearer cwt=AAB...
 
@@ -122,7 +122,7 @@ More often than not the `applications` URL belongs to a different domain. This h
 
 Web tickets are usually issued for a specific server domain and cannot be used to access a different server. This is why when the SDK attempts to access the `applications` URL, it gets an authorization-related error (can be a 401, 403 or 500) and another 4xx/5xx response gets printed to the dev console by the browser. Once the SDK gets another web ticket for the new server FQDN, it sends a POST /applications to create a UCWA endpoint:
 
-```js
+```
 POST https://sfbwebfes0b0m.infra.contoso.com/.../applications
 Authorization: Bearer cwt=AAC...
 
@@ -203,7 +203,9 @@ app.signInManager.signIn({
 
 The user is supposed to be logged in at the OAuth provider beforehand. The SDK uses a hidden `<iframe>` element to send the OAuth2 request and if the user isn't logged in, the promise object returned by `signIn` will be rejected with an error:
 
-`{ code: "OAuthFailed", error: "login_required", error_description: "..." }`
+```js
+{ code: "OAuthFailed", error: "login_required", error_description: "..." }
+```
 
 The discovery process can be customized as described above.
 
