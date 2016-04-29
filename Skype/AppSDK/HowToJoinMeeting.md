@@ -51,12 +51,9 @@ _C:\android\SkypeDemo-Android\SfbWellBaby\app\src\main\java\com\microsoft\office
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                //Update application UI to show conversation is established.
+                                //Open video call fragment.
 
-                                loadCallFragment();
-                                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                                if (progressBar != null) {
-                                    progressBar.setVisibility(View.GONE);
-                                }
                             }
                         });
                     } catch (Exception e) {
@@ -67,8 +64,13 @@ _C:\android\SkypeDemo-Android\SfbWellBaby\app\src\main\java\com\microsoft\office
         }
     }
       ```
+3. Implement the **ConversationHelper.ConversationCallback** interface
 
-3. In your code, initialize the **App SDK** application by calling the static _Application.getInstance(Context)_ method:
+  ```java
+  implements ConversationHelper.ConversationCallback
+    ```
+
+4. In your code, initialize the **App SDK** application by calling the static _Application.getInstance(Context)_ method:
 
   ```java
   Application mApplication = Application.getInstance(this);
@@ -89,3 +91,34 @@ _C:\android\SkypeDemo-Android\SfbWellBaby\app\src\main\java\com\microsoft\office
       mConversation.addOnPropertyChangedCallback(new ConversationPropertyChangeListener()); 
   ```      
         
+6. When the state of the conversation changes to Conversation.State.ESTABLISHED, construct a ConversationHelper object. Pass the following
+objects:
+
+  * The **conversation** object returned in a prior step
+  * the **Application.DevicesManager** 
+  * A **TextureView** control to show a preview of outgoing video
+  * A view such as a **RelativeLayout** to contain the **MMVRSurfaceview** that will show incoming video.
+
+  ```java
+
+        //Initialize the conversation helper with the established conversation,
+        //the SfB App SDK devices manager, the outgoing video TextureView,
+        //The view container for the incoming video, and a conversation helper
+        //callback.
+        mConversationHelper = new ConversationHelper(
+                mConversation,
+                mDevicesManager,
+                previewVideoTextureView,
+                mParticipantVideoSurfaceView,
+                this);         
+                
+  ```      
+
+7. Start the incoming and outgoing meeting video.
+
+  ```java
+
+        //Start up the incoming and outgoing video
+        mConversationHelper.startOutgoingVideo();
+        mConversationHelper.startIncomingVideo();
+  ```      
