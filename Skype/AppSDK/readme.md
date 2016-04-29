@@ -1,8 +1,8 @@
 # README
 
-<!--- Add link to live home page.  Go there to read docs.  Stay her eonly if you're looking to contribute. -->
+This documentation is hosted at http://aka.ms/skypeappsdk.  Please read it there.
 
-Thank you for your interest in Skype for Business developer documentation!
+If you're interested in contributing to this documentation, then please read on. 
 
 ## Ways to contribute
 

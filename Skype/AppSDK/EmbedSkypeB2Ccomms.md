@@ -18,14 +18,14 @@ This flow is available today.  You can experiment with it by creating a meeting 
 ## Summary of steps required:
  
 1. Write a back-end application to handle client “visits”:
-   * Receive a request from a client app, _initially via your own back channel_.
+   * Receive a request from your client app, _initially via your own back channel_.
    * Verify the visitor.
-2. Use back-end app to get a meeting URL:
-   * Such as https://join.contoso.com/meet/john/BW9Z1MJD
-   * Via calendar metadata or via our APIs (User API / UCWA)
-   * Prescheduled (manually) or on-demand
-   * Pass the URL (and token) up to your client app and into the App SDK
-3. App SDK joins the meeting.
+   
+2. Use your back-end application to get a meeting URL such as https://join.contoso.com/meet/john/BW9Z1MJD:
+   * Get this via calendar metadata (for pre-scheduled meetings) or on-demand via our APIs (User API / UCWA).
+   * Pass the URL (and token) up to your client app and into the App SDK.
+   
+3. Ask the App SDK to join the meeting.
  
 
 ## Next steps
