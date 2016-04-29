@@ -32,17 +32,18 @@ same name but are in separate folders. To run your app on a **device**, navigate
 choose the _AppSDKiOS_ folder and the _SkypeForBusiness.framework_ file. To run your app in a **simulator**, choose the _AppSDKiOSSimulator_ folder 
 and then select the **SkypeForBusiness.framework** file in that folder.
 
-1. Add SfBConversationHelper.h and SfBConversationHelper.m files to your project. These files are found in your SDK download folder under _helpers_. 
-
 2. **Import the SDK header file**: Add the following import statement to your header file.
 
-      ```cpp
+      ```objective-c
         #import <SkypeForBusiness/SkypeForBusiness.h>
       ```
-3. If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
-      ```cpp
+3. The SDK comes with a convenient helper class for handling a simple anonymous meeting join with AV scenario. To use this, add SfBConversationHelper.h and SfBConversationHelper.m files from the SDK download folder under helpers to your project. 
+
+4. If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
+      ```objective-c
       #import "SfBConversationHelper.h"
-      ```
+```
+
 
 #### Android
 
