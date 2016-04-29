@@ -29,13 +29,19 @@ you downloaded the SDK libraries into.
 
   > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator. The binaries have the 
 same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and 
-choose the _AppSDKiOS_ folder and the _SFB.framework_ file. To run your app in a **simulator**, choose the _AppSDKiOSSimulator_ folder 
-and then select the **SFB.Framework** file in that folder.
+choose the _AppSDKiOS_ folder and the _SkypeForBusiness.framework_ file. To run your app in a **simulator**, choose the _AppSDKiOSSimulator_ folder 
+and then select the **SkypeForBusiness.framework** file in that folder.
+
+1. Add SfBConversationHelper.h and SfBConversationHelper.m files to your project. These files are found in your SDK download folder under _helpers_. 
 
 2. **Import the SDK header file**: Add the following import statement to your header file.
 
       ```cpp
-        #import <SFB/SFB.h>
+        #import <SkypeForBusiness/SkypeForBusiness.h>
+      ```
+3. If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
+      ```cpp
+      #import "SfBConversationHelper.h"
       ```
 
 #### Android
@@ -108,7 +114,8 @@ file. Copy the jar file to the _libs_ folder inside your project module folder.
 Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
 
 * [Get a meeting URL](GetMeetingURL.md)
-* [Use the SDK to join a meeting](UseSDKtoJoinMeeting.md)
+* [Use the SDK to join a meeting with an Android device](HowToJoinMeeting.md)
+* [Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.md)
 
 ## Additional resources
 Here are some more resources to help you build apps with the **Skype for Business App SDK**

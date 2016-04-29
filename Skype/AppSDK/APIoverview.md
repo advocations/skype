@@ -41,4 +41,4 @@ Events are available that indicate when, for example, the participant starts typ
 The **DevicesManager** object provides access to configuration of multimedia devices used in audio and video calls. It provides lists of available devices of each type (speakers, microphones, cameras) and allows selection of which one should be used.  Devices and their attributes may vary between platforms. 
 
 ## Additional Resources
-* [How to join a Skype for Business meeting anonymously](HowToJoinMeeting.md)
+* [How to join a Skype for Business meeting anonymously](HowToConversationHelper.md)

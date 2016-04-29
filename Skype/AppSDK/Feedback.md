@@ -11,7 +11,7 @@ is factually incorrect or unclear. To help us fix the problem more quickly, quot
 * API bugs: Please contact us via our [Skype developer insiders email](mailto:skypedevinsiders@microsoft.com ) box. We are on an agile release cadence and will respond quickly to get more information
 about the bug you are reporting.
 
-* Feature requests: If our API doesn't empower you to do a feature that you really need, please contact us via our [User Voice](https://officespdev.uservoice.com/) channel.
+* Feature requests: If our API doesn't empower you to do a feature that you really need, please contact us via our [Skype feedback](http://www.skypefeedback.com/) channel.
 
 * Sample application bugs: If you find a bug in one of our samples, open an issue for [Android sample issues](https://github.com/OfficeDev/skype-android-app-sdk-samples/issues) or [iOS sample issues](https://github.com/OfficeDev/skype-ios-app-sdk-samples/issues) on **GitHub**. Be sure to describe the steps to reproduce the bug.
 

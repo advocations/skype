@@ -1,7 +1,7 @@
-# Use the SDK to join a meeting with an Android device
+# Use the SDK to join a meeting with an iOS device
 
-This article shows you how to enable the core  **Skype for Business** anonymous meeting join scenario in your Android app. iOS developers should read
-[Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.md). 
+This article shows you how to enable the core  **Skype for Business** anonymous meeting join scenario in your app. Android developers should read
+[Use the SDK to join a meeting with an Android device](HowToJoinMeeting.md). 
 
 After completing the steps in this article, your app can join a **Skype for Business** video meeting with a
 meeting URL. No **Skype for Business** credentials are used to join the meeting.

@@ -47,8 +47,8 @@
 ### [Overview: Embed B2C communications](AppSDK/EmbedSkypeB2Ccomms.md)
 ### [Getting started](AppSDK/GettingStarted.md)
 #### [Get a meeting URL](AppSDK/GetMeetingURL.md)
-#### [Use the SDK to join a meeting](AppSDK/UseSDKtoJoinMeeting.md)
-#### [Questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
+#### [Use the SDK to join a meeting with an Android device](AppSDK/HowToJoinMeeting.md)
+#### [Use the SDK to join a meeting with an iOS device](AppSDK/HowToJoinMeeting_iOS.md)
 ### [Orientation](AppSDK/Orientation.md)
 #### [API Overview](AppSDK/APIoverview.md)
 #### [Platform considerations](AppSDK/PlatformConsiderations.md)
@@ -57,3 +57,5 @@
 ### [Samples](AppSDK/Samples.md)
 #### [Run the Android samples](AppSDK/RunAndroidSamples.md)
 #### [run the iOS samples](AppSDK/RuniOSSamples.md)
+### [Questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
+
