@@ -17,7 +17,7 @@ The **Conversation** object represents a communication between one or more parti
 
 * Participant child objects can be added and removed.   Events are available that indicate when, for example, a new participant has joined the conversation.
 * The service child objects are fixed and cannot be added or removed; there is one for each aspect to the communication.
-* A ConversationHelper class. The SDK comes with a conversation helper class that handles the details of managing conversation participants and services. Use the helper class if you want to support the core meeting scenarios with a minimum of code.  
+* A ConversationHelper class. The SDK comes with a conversation helper class that handles some of the details of managing a conversation. Use the helper class if you want to support the core meeting scenarios with a minimum of code.  
 
 #### Service
 
@@ -32,9 +32,11 @@ Events are available that indicate that a new message has arrived or the audio/v
 
 #### Participant
 
-The **Participant** object represents a specific participant in the conversation.  (A conversation may have many participants.)   This object provides access to the participant’s attributes (for example, name) and to the chat, audio, and video services that are specific to that participant.
+The **Participant** object represents a specific participant in the conversation.  (A conversation may have many participants.)   This object provides access to the participant’s attributes (for example, name) and to the chat, audio, and video sub-services that are specific to that participant.
 
 Events are available that indicate when, for example, the participant starts typing or their audio/video state has changed.
+
+There is a participant object for the local (or "self") participant.  To achieve some operations, both the chat, audio and video sub-services for this specific local participant must be used alongside the local device services described above.  See the API reference documentation for further details on how this works for each operation.  
 
 ### DevicesManager
 
