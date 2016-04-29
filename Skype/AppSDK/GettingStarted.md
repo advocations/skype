@@ -48,11 +48,8 @@ and then select the **SkypeForBusiness.framework** file in that folder.
 
 The configuration steps include:
 
-1. **Copy the appsdk folder into your project structure**: Copy from your App SDK download folder into the root folder of your Android project.
-The **appsdk** folder end up in folder where your **settings.gradle** file is. 
+1. **Copy the contents of the _AppSDKAndroid_ folder into your project**: Copy from your App SDK download folder into the _libs_ folder of the project module.
 
-1. **Copy the annotations-1.0.jar file**: The SDK includes this jar file in the compressed download
-file. Copy the jar file to the _libs_ folder inside your project module folder.
 
 1. **Add SDK libraries to the module Gradle dependencies struct:** 
 > Note: Be sure to include the ```compile fileTree(dir: 'libs', include: ['*.jar'])``` statement. 
