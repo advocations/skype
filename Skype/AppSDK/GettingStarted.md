@@ -21,16 +21,16 @@ The configuration steps are:
 
 1. **Add embedded binary**: In XCode, select the project node and open the project properties pane. Add SkypeForBusiness.framework as an "Embedded Binary" (not a "Linked Framework"). 
 
-  > Note: The SDK comes with a binary for use on physical devices and a binary for running the iOS emulator.  The binaries have the same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and select the _SkypeForBusiness.framework_ file in the _AppSDKiOS_ folder. To run your app in a **simulator**,  selec the _SkypeForBusiness.framework_ file in the _AppSDKiOSSimulator_ folder.
+  > Note: The SDK comes with a binary for use on physical devices (recommended) and a binary for running the iOS simulator (limited because audio and video function won't work correctly).  The binaries have the same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and select the _SkypeForBusiness.framework_ file in the _AppSDKiOS_ folder. To run your app in a **simulator**,  selec the _SkypeForBusiness.framework_ file in the _AppSDKiOSSimulator_ folder.
 
 2. **Import the SDK header file**: Add the following import statement to your header file.
 
       ```objective-c
         #import <SkypeForBusiness/SkypeForBusiness.h>
       ```
-3. The SDK comes with a convenient helper class for handling a simple anonymous meeting join with AV scenario. To use this, add SfBConversationHelper.h and SfBConversationHelper.m files from the SDK download folder under helpers to your project. 
+3. **Add the Conversation Helper into your project (optional)**: The SDK comes with an optional "conversation helper" class that simplifies interaction with the core APIs in mainline scenarios.  To use it, add SfBConversationHelper.h and SfBConversationHelper.m files from the _Helpers_ folder in your SDK download into your app's source code. 
 
-4. If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
+4. **Update the Conversation Helper package name**: If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
       ```objective-c
       #import "SfBConversationHelper.h"
 ```
@@ -42,9 +42,9 @@ The configuration steps are:
 
 1. **Copy the contents of the _AppSDKAndroid_ folder into your project**: Copy from your App SDK download folder into the _libs_ folder of your project module.
 
-2. **Add the Conversation Helper into your project**: This helper code simplfies the code needed for some mainline scenarios.  Copy it from the _Helpers_ folder in your App SDK download into your app's source folder.
+2. **Add the Conversation Helper into your project (optional)**: The SDK comes with an optional "conversation helper" class that simplifies interaction with the core APIs in mainline scenarios.  To use it, add SfBConversationHelper.java from the _Helpers_ folder in your App SDK download into your app's source code.
 
-3. **Update the Conversation Helper package name**: Set it to match your app's own package name.
+3. **Update the Conversation Helper package name**: If using the conversation helper, set it to match your app's own package name.
   
 4. **Add the SDK libraries to the module Gradle dependencies struct:** 
 > Note: Be sure to include the ```compile fileTree(dir: 'libs', include: ['*.jar'])``` statement. 
@@ -63,7 +63,7 @@ The configuration steps are:
   }
 
   ```
-4. **Add app permissions**: Add _uses-permission_ tagsto the project **AndroidManifest.xml** file. 
+4. **Add app permissions**: Add _uses-permission_ tags to the project **AndroidManifest.xml** file. 
 
   ```java
       <uses-permission android:name="android.permission.INTERNET" />
@@ -108,7 +108,7 @@ The configuration steps are:
 Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
 
 * [Get a meeting URL](GetMeetingURL.md)
-* [Use the SDK to join a meeting with an Android device](HowToJoinMeeting.md)
+* [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
 * [Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.md)
 
 ## Additional resources

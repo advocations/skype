@@ -14,8 +14,7 @@ days so that you don't need to get a new meeting URL whenever you are testing yo
 
  ![Schedule a meeting in Outlook](images/outlookmeeting.PNG "Figure 2. Schedule a meeting in Outlook")
  
-Be sure to check the meeting options for the new meeting. The lobby waiting option must be disabled for anyone who enters the meeting
-as shown in figure 3.
+* Be sure to check the options for the new meeting are what you want, particularly the lobby options.
 
   ![Set meeting options](images/meetingoptions.PNG "Figure 3. set meeting options")
 
@@ -40,7 +39,7 @@ as shown in figure 3.
  communicate with your server application to initiate this transaction and get the
  returned meeting URL.
  
- See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA.
+ See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA and obtaining a "joinUrl".
  
  
 ## Use the meeting URL in your app

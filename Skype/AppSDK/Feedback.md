@@ -2,14 +2,12 @@
 
 The **Skype for Business** team responds to the developer communitity across several channels. Please tell us about your:
 
-* **Questions**: We listen and respond on [stackoverflow](http://stackoverflow.com/questions/tagged/skype-for-business). Tag your question with "skype-for-business" so that our team and the **Skype for Business** developer
-community can respond with helpful answers.
+* **Questions**: We listen and respond on [stackoverflow](http://stackoverflow.com/questions/tagged/skype-for-business). Tag your question with "skype-for-business" so that our team and the **Skype for Business** developer community can respond with helpful answers.
 
 * **Documentation bugs**: If you find a bug in the **App SDK** documentation, open an [issue](https://github.com/OfficeDev/skype-docs/issues) on **GitHub**. Be sure to tell us which topic
 is factually incorrect or unclear. To help us fix the problem more quickly, quote the text to be changed. 
 
-* **API bugs**: Please contact us via our [Skype developer insiders email](mailto:skypedevinsiders@microsoft.com ) box. We are on an agile release cadence and will respond quickly to get more information
-about the bug you are reporting.
+* **API bugs**: Please contact us via our [Skype developer insiders email](mailto:skypedevinsiders@microsoft.com ) box. We are on an agile release cadence and will respond quickly to get more information about the bug you are reporting.
 
 * **Feature requests**: If our API doesn't empower you to do a feature that you really need, please contact us via our channel for [Skype feedback on the developer platform](http://www.skypefeedback.com/forums/299913-generally-available/category/120892-developer-platform).
 
