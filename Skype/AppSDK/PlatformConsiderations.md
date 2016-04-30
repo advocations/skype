@@ -45,8 +45,9 @@ You must request access to the microphone and camera before calling any audio an
  
 ## Android considerations
 
-### Development environment
-The Skype for Business App SDK samples are intended to be 
+### Concurrency
+
+All of the SDK’s interfaces must be used only from the application main thread (main run loop). Notifications are delivered in the same thread as well.  As a result, no synchronization around the SDK’s interfaces is required.  The SDK, however, may create threads for internal purposes.
 
 ### Android versions 
 
@@ -91,7 +92,7 @@ class ConversationPropertyChangeHandler extends Observable.OnPropertyChangedCall
 }
 
 // Join the meeting and register for events
-Conversation conversation = conversationsManager.getOrCreateConversationByUri (URI);
+Conversation conversation = application.getOrCreateConversationByUri(URI);
 conversation.addOnPropertyChangedCallback (conversationPropertyChangeHandlerInstance);
 ```
 
@@ -100,7 +101,7 @@ conversation.addOnPropertyChangedCallback (conversationPropertyChangeHandlerInst
 
 Similar to properties, the collections provided are observable. These collections implement the **ObservableList** interface. Clients can register for callbacks when the collections changes. The can do so by providing an implementation of **ObservableList.OnListChangedCallback** class.
 
-For example, the collection of conversations provided by the **ConversationsManager** is Observable.
+For example, the collection of participants provided by the **Conversation** is Observable.
 
 #### Conditional methods
 
@@ -110,9 +111,7 @@ These methods are Observable properties so that clients can listen for state cha
 
 #### Data binding
 
-The Android platform does not provide data binding support. This support was recently announced and it is provided as a [Beta library]( https://developer.android.com/tools/data-binding/guide.html). 
-
-By providing Observable properties and collections, using very similar interfaces, we hope to make this transition to data binding interfaces seamless with minimal changes when official platform support is available.
+The Observable properties and collections intentionally have very similar interfaces to [the Android platform's new data binding support](https://developer.android.com/tools/data-binding/guide.html).  Subsequent versions of the SDK may transition to these official Android interfaces.
 
 
 
