@@ -9,7 +9,7 @@ Figure 1. The Skype for Business App SDK object model hierarchy
 
 ### Application
 
-The **Application** object is a root entity that provides access to all other entities and services in the SDK. Developers are expected to initialize the application before using other entities in the SDK. It provides access to the **ConversationsManager** object.
+The **Application** object is a root entity that provides access to all other entities and services in the SDK. Developers are expected to initialize the application before using other entities in the SDK.
 
 ### Conversation
 
@@ -41,6 +41,3 @@ There is a participant object for the local (or "self") participant.  To achieve
 ### DevicesManager
 
 The **DevicesManager** object provides access to configuration of multimedia devices used in audio and video calls. It provides lists of available devices of each type (speakers, microphones, cameras) and allows selection of which one should be used.  Devices and their attributes may vary between platforms. 
-
-## Additional Resources
-* [How to join a Skype for Business meeting anonymously](HowToJoinMeeting.md)
