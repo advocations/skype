@@ -1,9 +1,5 @@
 # Sample applications for the Skype for Business App SDK
 
-You can find a set of sample applications on GitHub for iOS and Android development:
-
-## iOS
-
 There are **Skype for Business App SDK** samples in our **GitHub** repositories for you to clone or download:
 
 - [iOS samples](https://github.com/OfficeDev/skype-ios-app-sdk-samples)
