@@ -40,7 +40,7 @@
 ##### [Switch between video streams across conversations](WebSDK/SwitchConversationVideoStreams.md)
 ##### [Use the Skype Web Conversation Control in a web page](WebSDK/UseConversationControl.md)
 ###### [Conversation Control](WebSDK/ConversationControl.md)
-#### [CONTRIBUTING](../Skype/CONTRIBUTING.md)
+#### [CONTRIBUTING](../../CONTRIBUTING.md)
 #### [TermsOfService](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
 ## [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
