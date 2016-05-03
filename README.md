@@ -4,7 +4,7 @@ Thank you for your interest in Skype for Business developer documentation!
 
 ## Ways to contribute
 
-You can contribute to [Skype Web SDK developer documentation](https://msdn.microsoft.com/en-us/skype/websdk/skypewebsdkpreview) and [Skype for Business App SDK developer documentation](https://github.com/OfficeDev/skype-docs/blob/master/Skype/AppSDK/SkypeAppSDK.md) in a  few different ways:
+You can contribute to [Skype Web SDK developer documentation](https://msdn.microsoft.com/en-us/skype/websdk/skypewebsdkpreview) and [Skype for Business App SDK developer documentation](https://msdn.microsoft.com/en-us/skype/appsdk/skypeappsdk) in a  few different ways:
 
 * Contribute to articles via the [public Skype Web SDK developer docs repo](https://github.com/OfficeDev/skype-docs/WebSDK) and [Skype App SDK developer docs repo](https://github.com/OfficeDev/skype-docs/AppSDK)*
 * Report documentation bugs via [GitHub Issues](https://github.com/OfficeDev/office-content/issues)
