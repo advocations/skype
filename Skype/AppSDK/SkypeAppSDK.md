@@ -5,9 +5,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The Skype for Business App SDK enables apps to seamlessly integrate messaging, audio, and video experiences. 
- 
-The initial focus of the SDK is to enable consumer iOS and Android apps to embed communications from "guests" to Skype for Business users within an organization, via the "guest meeting join" capability.
+The Skype for Business App SDK enables developers to seamlessly integrate messaging, audio, and video experiences into mobile and tablet applications.
+
+The initial focus of this SDK is to power “remote advisor” solutions that enable consumer iOS and Android apps to embed communications from external guests to users within a Skype for Business organization, via the “guest meeting join” capability.  
 
 > **Note**: Over time, the SDK's capabilities will expand to cover other scenarios. 
 
