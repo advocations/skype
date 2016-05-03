@@ -21,6 +21,10 @@ The content in the Skype-docs repository is grouped  by topic. The README.md fil
 
 - [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/blob/master/UCWeb_16Con.md)
 
+###Skype App SDK
+
+- [Skype for Business App SDK preview](https://github.com/OfficeDev/skype-docs/blob/master/Skype/AppSDK/SkypeAppSDK.md)
+
 ##Before we can accept your pull request
 
 ###Minor corrections
