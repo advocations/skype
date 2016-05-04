@@ -53,9 +53,9 @@ All of the SDK’s interfaces must be used only from the application main thread
 
 The SDK is currently supported on following versions.
 
-||
+|||
 |:-----|:-----|
-|MIN_SDK_VERSION|14 (ICE_CREAM_SANDWICH)|
+|MIN_SDK_VERSION|17 (JELLY_BEAN)|
 |TARGET_SDK_VERSION|22 (L)|
 
 The Public Preview App SDK supports armeabi-v7a processors only. You cannot use the SDK on devices with an x86 CPU architecture. You should run any apps in development on a physical Android device. For the Public Preview, emulators are not supported.
