@@ -1,6 +1,10 @@
-#Skype for Business App SDK
+#Skype for Business
 
-The new Skype Developer Platform provides opportunities to customize and extend the capabilities not only with Skype for Business but also through Skype. Developers don't have to think anymore in "silos" for business and allows for more consumer customization opportunities. Find in-depth developer resources, how-to documentation, SDKs and references, and code samples for Skype developer platform verticals.
+Build integrated communications experiences and solutions to leverage the power and reach of Skype and Skype for Business.
+
+Use the Skype network to optimize communications and to build better relationships between people who "just" want to connect and communicate. We're building out one of the largest communications environments with Skype, Skype for Business, and Skype for Business Online in O365. This powerful platform provides video, voice, IM, and other types of communications capabilities. We also provide SDKs that help customers and partners  extend the capabilities of our platform, Android and iOS mobile platforms, meet specific business requirements, and close their gaps in end-to-end communications and collaborations processes.
+
+![Skype developer platform](images/skype.png)
 
 - [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
 - [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
