@@ -7,6 +7,6 @@ Use the Skype network to optimize communications and to build better relationshi
 - [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
 - [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
 
-![Skype developer platform](images/SkypeDevPlatform.png)
+![Skype developer platform](images/skype.png)
 
 
