@@ -41,7 +41,7 @@
 ##### [Use the Skype Web Conversation Control in a web page](WebSDK/UseConversationControl.md)
 ###### [Conversation Control](WebSDK/ConversationControl.md)
 #### [Release Notes](WebSDK/ReleaseNotes.md)
-#### [CONTRIBUTING](../CONTRIBUTING.md)
+#### [CONTRIBUTING](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md)
 #### [Terms Of Service](WebSDK/TermsOfService.md)
 # Skype for Business App SDK 
 ## [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
