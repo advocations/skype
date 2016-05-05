@@ -2,7 +2,7 @@
 
 The **Skype for Business** team responds to the developer communitity across several channels. Please tell us about your:
 
-* **Questions**: We listen and respond on [stackoverflow](http://stackoverflow.com/questions/tagged/skype-for-business). Tag your question with "skype-for-business" so that our team and the **Skype for Business** developer community can respond with helpful answers.
+* **Questions**: We listen and respond on [stackoverflow](http://stackoverflow.com/questions/tagged/skypedeveloper). Tag your question with "skype-for-business" so that our team and the **Skype for Business** developer community can respond with helpful answers.
 
 * **Documentation bugs**: If you find a bug in the **App SDK** documentation, open an [issue](https://github.com/OfficeDev/skype-docs/issues) on **GitHub**. Be sure to tell us which topic
 is factually incorrect or unclear. To help us fix the problem more quickly, quote the text to be changed. 
