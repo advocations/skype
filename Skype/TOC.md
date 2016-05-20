@@ -1,8 +1,6 @@
-# [Skype][Skype Page Link]
-[Skype Page Link]:https://msdn.microsoft.com/en-us/library/office/dn954235(v=office.16).aspx
+# [Skype](https://msdn.microsoft.com/en-us/library/office/dn954235.aspx)
 
-## [Skype Developer platform][Skype Developer Platform Link]
-[Skype Developer Platform Link]:https://msdn.microsoft.com/en-us/library/office/mt650889(v=office.16).aspx
+## [Skype Developer platform](https://msdn.microsoft.com/en-us/library/office/mt650889.aspx)
 
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 
@@ -69,15 +67,11 @@
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
-### [Unified Communications Managed API (UCMA)][Unified Communications Managed API (UCMA) Link]
-[Unified Communications Managed API (UCMA) Link]:https://msdn.microsoft.com/en-us/library/office/dn454984(v=office.16).aspx
-### [Unified Communications Web API (UCWA)][Unified Communications Web API (UCWA) Link]
-[Unified Communications Web API (UCWA) Link]:https://msdn.microsoft.com/en-us/library/office/dn324971(v=office.16).aspx)
-### [Skype for Business SDN Interface][Skype for Business SDN Interface Link]
-[Skype for Business SDN Interface Link]:https://msdn.microsoft.com/en-us/library/office/dn785131(v=office.16).aspx
+### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
+### [Unified Communications Web API (UCWA)](https://msdn.microsoft.com/en-us/library/office/dn324971.aspx)
+### [Skype for Business SDN Interface](https://msdn.microsoft.com/en-us/library/office/dn785131.aspx)
+
 
 ## [Lync](https://msdn.microsoft.com/en-us/library/office/dn820099.aspx)
-### [Lync 2013][Lync 2013 Link]
-[Lync 2013 Link]:https://msdn.microsoft.com/en-us/library/office/jj162980.aspx
-###[Lync 2010][Lync 2010 Link]
-[Lync 2010 Link]:https://msdn.microsoft.com/en-us/library/office/hh467893(v=office.14).aspx
+### [Lync 2013](https://msdn.microsoft.com/en-us/library/office/jj162980.aspx)
+###[Lync 2010](https://msdn.microsoft.com/en-us/library/office/hh467893.aspx)
