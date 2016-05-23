@@ -27,8 +27,8 @@ Because the Skype Web SDK is hosted through the Content Delivery Network (CDN), 
 
 The Skype for Business Web App plugin, available for browsers such IE, Safari, and Firefox, provides audio/video media capability and desktop sharing. It is available for Windows and Mac computers from the following download locations:
 
-- [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
-- [Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg )
+- [Windows Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
+- [Mac Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
 
  **Note**  To enable audio/video functionality, client applications must install the Skype for Business Web App Plug-in. Note that this restricts media modalities to desktop browsers only, as mobile browsers such as mobile Safari and the Windows Store browser do not allow third-party plug-ins.
