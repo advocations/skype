@@ -27,7 +27,7 @@ To request continued presence notifications from Skype for Business Server when 
 
 ```js
 //get a person. In this case, the first person in the user's person list   
-var person = application.personsAndGroupsManager.all.persons(0)
+var person = application.personsAndGroupsManager.all.persons(0);
 person.status.changed(function (status) {
     console.log('availability status is changed to ' + status);
 });
@@ -36,6 +36,25 @@ person.activity.changed(function (activity) {
 });
 person.status.subscribe();
 person.activity.subscribe();
+```
+
+
+### To fetch presence on demand
+
+
+1. Get a person from the user's person list or from search results.
+    
+2. Call  **status.get** method to trigger a call to UCWA to fetch the person's presence. In this case, the code is getting a reference to the **status** [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) and the **get** function is called on the property reference.
+
+>**Note**: Doing a get on the **status** forces a server call. However, this is the preferred method of fetching presence
+in on-demand scenarios (eg. opening contact card) rather than subscribing to every person's status.
+
+```js
+//get a person. In this case, the first person in the user's person list   
+var person = application.personsAndGroupsManager.all.persons(0);
+person.status.get.then(function (status) {
+    console.log('availability status is ', status);
+});
 ```
 
 
