@@ -44,8 +44,8 @@ The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Sa
 
 
  >**Note**  To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers from the following download locations:
- - [Windows Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
- - [Mac Download](https://mlccdn.blob.core.windows.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg )
+ - [Windows Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
+ - [Mac Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
 
 
 |||
