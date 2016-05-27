@@ -8,7 +8,7 @@ The SDKs for iOS and Android are available for download from Microsoft.
 * [Skype for Business App SDK - iOS](http://aka.ms/sfbAppSDKDownload_ios)
 * [Skype for Business App SDK - Android](http://aka.ms/sfbAppSDKDownload_android)
 
->Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md in each of these samples for instructions.
+>**Note**: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md in each of these samples for instructions.
 
 
 ## Configure your project for the Skype for Business App SDK
@@ -23,17 +23,10 @@ The configuration steps are:
 
   > Note: The SDK comes with a binary for use on physical devices (recommended) and a binary for running the iOS simulator (limited because audio and video function won't work correctly).  The binaries have the same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and select the _SkypeForBusiness.framework_ file in the _AppSDKiOS_ folder. To run your app in a **simulator**,  selec the _SkypeForBusiness.framework_ file in the _AppSDKiOSSimulator_ folder.
 
-2. **Import the SDK header file**: Add the following import statement to your header file.
+2. **Add the _Conversation Helper_** into your project (optional): The SDK comes with an optional "conversation helper" class that can be used to simplify interaction with the core APIs in mainline scenarios.  To use these, add SfBConversationHelper.h/SfBConversationHelper.m files from the _Helpers_ folder in your SDK download into your app's source code. 
+  > Note: This helper assumes that you are using both audio/video and messaging.  If you only need messaging, take a look at the _ChatHandler_ class in the sample apps ([Objective C](https://github.com/OfficeDev/skype-ios-app-sdk-samples/blob/master/BankingAppObjectiveC/BankingApp/ChatHandler.h), [Swift](https://github.com/OfficeDev/skype-ios-app-sdk-samples/blob/master/BankingAppSwift/BankingAppSwift/ChatHandler.h)).  This class is based on SfBConversationHelper, but it does not include audio and video support.
 
-      ```objective-c
-        #import <SkypeForBusiness/SkypeForBusiness.h>
-      ```
-3. **Add the Conversation Helper into your project (optional)**: The SDK comes with an optional "conversation helper" class that simplifies interaction with the core APIs in mainline scenarios.  To use it, add SfBConversationHelper.h and SfBConversationHelper.m files from the _Helpers_ folder in your SDK download into your app's source code. 
-
-4. **Update the Conversation Helper package name**: If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
-      ```objective-c
-      #import "SfBConversationHelper.h"
-```
+3. **Make sure _Enable Bitcode_ option is set to NO** in your iOS project. In the Project Navigator, select your project and go to the Editor pane.  Select Project -> Build Settings -> All tab -> Build Options -> Enable Bitcode = NO
 
 
 #### Android
