@@ -131,6 +131,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
         self.participantVideoView.hidden = false
     }
      ```
+    >Note: For more information on _SfBConversationHelperDelegate_ methods, please refer _SfBConversationHelper_ class in SkypeForBusiness framework.
      
 6. Now the meeting is established, you can use additional APIs to switch camera, mute/hold audio, pause video, send/receive messages, leave the meeting etc.  See the [API reference documentation](http://aka.ms/sfbAppSDKRef_iOS) for more details and the sample apps ([Objective C](https://github.com/OfficeDev/skype-ios-app-sdk-samples/tree/master/BankingAppObjectiveC), [Swift](https://github.com/OfficeDev/skype-ios-app-sdk-samples/tree/master/BankingAppSwift)) for examples of how to do this.  You may also want to adapt SfBConversationHelper for your own needs: its source code is available in the SDK download.
      
