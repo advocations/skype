@@ -69,7 +69,7 @@ The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Sa
 <a name="bk_addresources"> </a>
 
 
-- [Skype Web SDK Preview](SkypeWebSDKPreview.md)
+- [Skype Web SDK Preview](SkypeWebSDK.md)
     
 - [UCWA: Code](https://ucwa.skype.com/code)
     
