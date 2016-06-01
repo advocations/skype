@@ -27,7 +27,7 @@ Skype for Business Online uses Azure Active Directory (Azure AD) to provide auth
     
 2.  **Add a sign in feature to your app**. When a user visits your website and initiates sign-in, your application makes a request to the Microsoft common OAuth2 login endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. A use must explicitly grant consent to allow your application to access user data by means of the Skype Web SDK APIs. The user reads the descriptions of the access permissions that your application is requesting, and then grants or denies the request. After consent is granted, the UI redirects the user back to your application. If authentication and authorization are successful, Azure AD returns a token and grants access to Skype for Business Online and identifies the current signed-in user. For details on authentication, see [Authentication Using Azure AD](http://technet.microsoft.com/library/f66482d2-ac35-4b25-9c8b-0f5f7ab89b01.aspx). For details of authorization, see [Skype for Business Online Scope Permissions](http://technet.microsoft.com/library/e292d8ef-3b05-4442-9983-378f6f958f8b.aspx).
     
-3.  **Call the Skype Web SDK APIs**. Your application passes access tokens to the Skype Web SDK APIs to authenticate and authorize your application.
+3.  **Call the Skype Web SDK APIs**. The token you got from the previous step can be discarded, as the SDK can get its own tokens from AAD. Pass the `client_id` and `redirect_uri` registered in AAD to the SDK and it will be able to sign in.
     
 
 ### Registering your application in Azure AD
