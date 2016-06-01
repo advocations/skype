@@ -1,0 +1,19 @@
+
+# Developing applications with UCWA
+
+ **Last modified:** November 30, 2015
+
+The following sections explain how to develop applications for on-premises server and online server using the . In the online server scenario, your application authenticates against Azure Active Directory. In the on-premises server scenario, your application authenticates against your own server with its own Active Directory.
+
+- [Developing UCWA applications for Skype for Business Server](DevelopingUCWAApplicationsForSkypeForBusinessServer.md)
+    
+- [Developing UCWA applications for Skype for Business Online](DevelopingUCWAApplicationsForSfBOnline.md)
+    
+The following topics apply to both the workflows for Online and for Server (for on-premises server) web applications:
+
+- [Event channel details](EventChannelDetails.md)
+    
+- [Batching requests](BatchingRequests.md)
+    
+- [Web links](WebLinks.md)
+    

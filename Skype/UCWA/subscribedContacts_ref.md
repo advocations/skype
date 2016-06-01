@@ -1,0 +1,269 @@
+
+# subscribedContacts (UCWA)
+
+ **Last modified:** July 14, 2015
+
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+A collection of contacts for which the logged-on user has created active presence subscriptions. 
+
+## Web Link
+<a name="sectionSection0"> </a>
+
+For more on web links, see [Web links](WebLinks.md).
+
+
+
+|**Name**|**Description**|
+|:-----|:-----|
+|rel|The resource that this link points to. In JSON, this is the outer container.|
+|href|The location of this resource on the server, and the target of an HTTP operation.|
+
+## Resource description
+<a name="sectionSection1"> </a>
+
+This collection is read-only: it can be used only to view contacts with existing presence subscriptions. New presence subscriptions are created by using either the [presenceSubscriptions (UCWA)](presenceSubscriptions_ref.md) resource or the[subscribeToGroupPresence (UCWA)](subscribeToGroupPresence_ref.md) resource. These contacts can be members of a group or the result of an ad hoc subscription.
+
+
+### Properties
+
+None
+
+
+### Links
+
+This resource can have the following relationships.
+
+
+
+|**Link**|**Description**|
+|:-----|:-----|
+|self|The link to the current resource.|
+|contact|Represents a person or service that the user can communicate and collaborate with.|
+
+## Events
+<a name="sectionSection2"> </a>
+
+
+
+
+### added
+
+
+
+
+
+|**Resource**|**Priority**|**Sender**|**Reason**|
+|:-----|:-----|:-----|:-----|
+|contact|Medium|people|Delivered when a contact resource is added.|
+Sample of returned event data.
+
+This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
+
+
+
+```
+
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "people",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "contact",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+          },
+          "in" : {
+            "rel" : "subscribedContacts",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
+          },
+          "type" : "added"
+        }
+      ]
+    }
+  ]
+}
+					
+```
+
+
+### deleted
+
+
+
+
+
+|**Resource**|**Priority**|**Sender**|**Reason**|
+|:-----|:-----|:-----|:-----|
+|contact|Medium|people|Delivered when a contact resource is deleted.|
+Sample of returned event data.
+
+
+
+
+```
+
+{
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "people",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "contact",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+          },
+          "in" : {
+            "rel" : "subscribedContacts",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
+          },
+          "type" : "deleted"
+        }
+      ]
+    }
+  ]
+}
+					
+```
+
+
+## Operations
+<a name="sectionSection3"> </a>
+
+
+
+
+### GET
+
+Returns a representation of a collection of contacts for which the logged-on user has created active presence subscriptions.
+
+
+#### Request body
+
+None
+
+
+#### Response body
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
+
+
+#### Synchronous errors
+
+The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
+
+
+
+|**Error**|**Code**|**Subcode**|**Description**|
+|:-----|:-----|:-----|:-----|
+|Forbidden|403|None|The user does not have sufficient privileges to access the contact list.|
+|ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
+|Conflict|409|AlreadyExists|The already exists error.|
+|Conflict|409|TooManyGroups|The too many groups error.|
+|Conflict|409|None|Un-supported Service/Resource/API error.|
+
+#### Examples
+
+
+
+
+#### JSON Request
+
+
+```
+
+										Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
+										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+										Host: fe1.contoso.com
+										Accept: application/json
+										
+									
+```
+
+
+#### JSON Response
+
+This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
+
+```
+
+										HTTP/1.1 200 OK
+										Content-Type: application/json
+										Content-Length: 154
+										{
+  "rel" : "subscribedContacts",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/subscribedContacts"
+    },
+    "contact" : [
+      {
+        "href" : "//v1/applications/833/people/376"
+      }
+    ]
+  }
+}
+									
+```
+
+
+#### XML Request
+
+
+```
+
+										Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
+										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+										Host: fe1.contoso.com
+										Accept: application/xml
+										
+									
+```
+
+
+#### XML Response
+
+This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
+
+```
+
+										HTTP/1.1 200 OK
+										Content-Type: application/xml
+										Content-Length: 298
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;subscribedContacts&amp;quot; href=&amp;quot;//v1/applications/833/subscribedContacts&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/268&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;subscribedContacts&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
+									
+```
+
