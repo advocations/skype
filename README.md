@@ -4,9 +4,9 @@ Thank you for your interest in Skype for Business developer documentation!
 
 ## Ways to contribute
 
-You can contribute to [Skype Web SDK developer documentation](https://msdn.microsoft.com/en-us/skype/websdk/skypewebsdkpreview) and [Skype for Business App SDK developer documentation](https://msdn.microsoft.com/en-us/skype/appsdk/skypeappsdk) in a  few different ways:
+You can contribute to [Skype Web SDK developer documentation](https://msdn.microsoft.com/en-us/skype/websdk/skypewebsdk) and [Skype for Business App SDK developer documentation](https://msdn.microsoft.com/en-us/skype/appsdk/skypeappsdk) in a  few different ways:
 
-* Contribute to articles via the [public Skype Web SDK developer docs repo](https://github.com/OfficeDev/skype-docs/WebSDK) and [Skype App SDK developer docs repo](https://github.com/OfficeDev/skype-docs/AppSDK)*
+* Contribute to articles via the [public Skype Web SDK developer docs repo](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK) and [Skype App SDK developer docs repo](https://github.com/OfficeDev/skype-docs/tree/master/Skype/AppSDK)*
 * Report documentation bugs via [GitHub Issues](https://github.com/OfficeDev/office-content/issues)
 * Add documentation requests to the [Office/SharePoint developer UserVoice](http://officespdev.uservoice.com)
 
@@ -19,11 +19,11 @@ The content in the Skype-docs repository is grouped  by topic. The README.md fil
 ##Articles in this repository
 ###Skype Web SDK
 
-- [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/blob/master/UCWeb_16Con.md)
+- [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/blob/master/Skype/WebSDK/GeneralReference.md)
 
 ###Skype App SDK
 
-- [Skype for Business App SDK preview](https://github.com/OfficeDev/skype-docs/blob/master/Skype/AppSDK/SkypeAppSDK.md)
+- [Skype for Business App SDK preview](https://github.com/OfficeDev/skype-docs/tree/master/Skype/AppSDK/SkypeAppSDK.md)
 
 ##Before we can accept your pull request
 
