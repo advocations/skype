@@ -8,7 +8,7 @@ The SDKs for iOS and Android are available for download from Microsoft.
 * [Skype for Business App SDK - iOS](http://aka.ms/sfbAppSDKDownload_ios)
 * [Skype for Business App SDK - Android](http://aka.ms/sfbAppSDKDownload_android)
 
->Note: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md in each of these samples for instructions.
+>**Note**: We maintain a set of [App SDK samples](Samples.md) for Android and iOS on **GitHub**. These samples are configured to use the App SDK and are ready to run.  See the readme.md in each of these samples for instructions.
 
 
 ## Configure your project for the Skype for Business App SDK

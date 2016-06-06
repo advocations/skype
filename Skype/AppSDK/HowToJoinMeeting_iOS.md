@@ -103,26 +103,41 @@ sfb.configurationManager.requireWifiForVideo = NO;
         self.participantVideoView.hidden = NO; 
     }
 
-    // When video service is ready to start, unhide self video view and start the service.
+    **Objective C**
+     ```Objectivec 
+    // When it's ready, start the video service and show the outgoing video view.
     - (void)conversationHelper:(SfBConversationHelper *)avHelper videoService:(SfBVideoService *)videoService didChangeCanStart:(BOOL)canStart {
         if (canStart) {
+            [videoService start:nil];
+            
             if (self.selfVideoView.hidden) {
                 self.selfVideoView.hidden = NO;
+            }       
+        } 
+    }
+
+    // When incoming video is ready, show it.
+    - (void)conversationHelper:(SfBConversationHelper *)avHelper didSubscribeToVideo:(SfBParticipantVideo *)video {
+        self.participantVideoView.hidden = NO; 
+    }
+    ```   
+    
+    **Swift**
+     ```swift
+    // When it's ready, start the video service and show the outgoing video view.
+    func conversationHelper(conversationHelper: SfBConversationHelper, videoService: SfBVideoService, didChangeCanStart canStart: Bool) {     
+        if (canStart) {
+            do {
+                try videoService.start()
             }
-        
-            [videoService start:nil];
-        } 
-   }
-
-    // When the audio status changes, reflect in UI
-    - (void)conversationHelper:(SfBConversationHelper *)avHelper selfAudio:(SfBParticipantAudio *)audio didChangeIsMuted:(BOOL)isMuted {
-
-        if (!isMuted) {
-            [self.muteButton setTitle:@"Unmute" forState:UIControlStateNormal];
+            catch let error as NSError {
+                print(error.localizedDescription)
+                                
+            }
+            if (self.selfVideoView.hidden) {
+                self.selfVideoView.hidden = false
+            }
         }
-        else {
-            [self.muteButton setTitle:@"Mute" forState:UIControlStateNormal];
-        } 
     }
     ```   
     

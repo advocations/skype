@@ -71,7 +71,10 @@ The following sample code is the  **onSuccess** argument of the[Promise]( https:
 
 A presence subscription on a person is a request on the Skype for Business Server to provide continual updates to a user's presence. A presence update generates an event on the associated  **person** object whenever a user changes a presence value such as status or the personal note. You should create a unique presence subscription for each person that you display in your UI.
 
-You can cancel a presence subscription for a given person at any time. Normally presence subscriptions are cancelled when a subscribed person is no longer shown on your UI. Cancelling unneeded presence subscriptions can lead to better application performance. 
+You can cancel a presence subscription for a given person at any time. Normally presence subscriptions are cancelled when a subscribed person is no longer shown on your UI. Cancelling unneeded presence subscriptions can lead to better application performance.
+
+>**Note**: A presence fetch is also possible using the **get** method on the persons's **status** property. This is a more lightweight operation than creating a subscription, but it will
+retrieve the person's latest presence at that particular point in time only (no persistent notifications).  
 
 
 ## Generating presence change events
