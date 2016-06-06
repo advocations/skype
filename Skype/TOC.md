@@ -5,7 +5,7 @@
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 
 
-### [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
+### [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 #### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
 ##### [Presence](WebSDK/Presence.md)
