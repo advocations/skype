@@ -81,7 +81,8 @@ sfb.configurationManager.requireWifiForVideo = NO;
                                                      
       }
   ```      
-    **Swift**
+  
+  **Swift**
      ```Swift
    self.conversationHelper = SfBConversationHelper(conversation: conversation,
                                                             delegate: self,
@@ -94,7 +95,8 @@ sfb.configurationManager.requireWifiForVideo = NO;
       
 5. Implement SfBConversationHelperDelegate methods to handle video service state changes.
 
-    **Objective C**
+   **Objective C**
+   
      ```Objectivec 
       #pragma mark - Skype Delegates
     
@@ -103,8 +105,6 @@ sfb.configurationManager.requireWifiForVideo = NO;
         self.participantVideoView.hidden = NO; 
     }
 
-    **Objective C**
-     ```Objectivec 
     // When it's ready, start the video service and show the outgoing video view.
     - (void)conversationHelper:(SfBConversationHelper *)avHelper videoService:(SfBVideoService *)videoService didChangeCanStart:(BOOL)canStart {
         if (canStart) {
@@ -227,6 +227,13 @@ sfb.configurationManager.requireWifiForVideo = NO;
             self.conversationHelper?.conversation.removeObserver(self, forKeyPath: "canLeave")
         }
 ```
+
+## Error Handling
+
+SkypeForBusiness SDK API has both _SfBApplication_ and _SfBConversation_ level delegate method for handling possible errors or exceptions. The _SfBApplication_ alertDelegate handles global level concerns, while the _SfBConversation_ alertDelegate handles alerts specific to the conversation instance.
+
+The delegate method _didReceiveAlert_ is called when new alert appears in the context where alertDelegate is attached.
+
 
 ## Text Chat 
 
