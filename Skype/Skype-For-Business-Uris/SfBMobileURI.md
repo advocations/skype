@@ -11,10 +11,10 @@ A ms-sfb URI has the following general form: `"ms-sfb://" [operation] ["?" query
 The components are: 
 - `operation = call / chat`
 - `query =   [ "?" *(term "=" condition ) ]`
-- `term = 1*ALPHA`
-- `condition = 1*ALPHA`
+  - `term = 1*ALPHA`
+  - `condition = 1*ALPHA`
 
-Note: If required parameters are missing or have invalid values, a 400 (bad request error) will be returned. Any additional/unknown parameters will be ignored.
+>Note: If required parameters are missing or have invalid values, a 400 (bad request error) will be returned. Any additional/unknown parameters will be ignored.
 
 # Operations
 
@@ -36,5 +36,4 @@ Start a call:
 Start a video call (Android only):
 - `ms-sfb://call?id=user@contoso.com&video=true`
 
-Note:
-In Skype for Business Android, the user will be presented with a dialog box or a filled-in dialpad before calls are initiated. The dialog box has a "Don't show this again" checkbox.
+>Note: In Skype for Business Android, the user will be presented with a dialog box or a filled-in dialpad before calls are initiated. The dialog box has a "Don't show this again" checkbox.
