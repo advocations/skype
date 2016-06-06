@@ -66,6 +66,8 @@
 #### [Samples](AppSDK/Samples.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
+### [Skype for Business Uris](Skype-For-Business-Uris/SfBMobileURI.md)
+
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
 ### [Unified Communications Web API (UCWA)](https://msdn.microsoft.com/en-us/library/office/dn324971.aspx)

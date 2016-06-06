@@ -25,6 +25,10 @@ The content in the Skype-docs repository is grouped  by topic. The README.md fil
 
 - [Skype for Business App SDK preview](https://github.com/OfficeDev/skype-docs/tree/master/Skype/AppSDK/SkypeAppSDK.md)
 
+###Skype for Business Uris
+
+- [Skype for Business Uris](https://github.com/OfficeDev/skype-docs/tree/master/Skype/Skype-For-Business-Uris)
+
 ##Before we can accept your pull request
 
 ###Minor corrections
