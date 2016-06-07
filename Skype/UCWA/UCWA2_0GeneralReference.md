@@ -4,21 +4,21 @@ Conceptual topics that describe the features and operation of the .
 
  **Last modified:** November 13, 2015
 
- _ **Applies to:** Skype for Business | Skype for Business 2015_
+ _**Applies to:** Skype for Business | Skype for Business 2015_
 
  is a REST API that exposes Skype for Business Server 2015 instant messaging (IM) and presence capabilities. It enables developers to make their enterprise applications and intranets more engaging and connected to business contacts.
 
 Key use cases that this API enables include:
 
 - Enabling anonymous web chat, a pro-active chat feature for e-commerce site, helpdesk, support, and other scenarios. This lets your customers interact with customer service representatives on your website or mobile app.
-    
+ 
 - Lighting up presence in Line of Business apps and intranets.
-    
+ 
 - Embedding IM experience in enterprise-specific Line of Business apps across platforms, browsers, and devices (contextual communications), especially Windows 8, Apple iPad, and others.
-    
+ 
 Although is language-independent, you can develop using any programming language from C/C++ to Java, and the API is fine-tuned for web developers familiar with ordinary web technologies such as HTTP, OAuth, JSON, and JavaScript.
 
- **Note**   is available only to customers who have an on-premises deployment.
+ **Note** is available only to customers who have an on-premises deployment.
 
 
 ## Key scenarios
@@ -45,18 +45,18 @@ The topics in this section provide an overview of and its capabilities.
 
 
 - [What's New in UCWA 2.0](WhatsNewInUCWA2_0.md)
-    
+ 
 - [Core capabilities](CoreCapabilities.md)
-    
+ 
 - [Key programming concepts](KeyProgrammingConcepts.md)
-    
+ 
 - [Dashboard concepts](DashboardConcepts.md)
-    
+ 
 - [Developing UCWA applications for Skype for Business Server](DevelopingUCWAApplicationsForSkypeForBusinessServer.md)
-    
+ 
 - [Developing UCWA applications for Skype for Business Online](DevelopingUCWAApplicationsForSfBOnline.md)
-    
+ 
 - [Key tasks](KeyTasks.md)
-    
+ 
 - [Advanced topics](AdvancedTopics.md)
-    
+ 

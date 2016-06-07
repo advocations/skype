@@ -4,13 +4,13 @@
  **Last modified:** July 14, 2015
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
-Represents the privacy relationship between the user and a [contact (UCWA)](contact_ref.md). 
+Represents the privacy relationship between the user and a [contact](contact_ref.md). 
 
 
 ## Web Link
@@ -77,33 +77,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "contactPrivacyRelationship",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPrivacyRelationship"
-          },
-          "in" : {
-            "rel" : "contact",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "people",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "contactPrivacyRelationship",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPrivacyRelationship"
+ },
+ "in" : {
+ "rel" : "contact",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -176,16 +176,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 295
 										{
-  "rel" : "contactPrivacyRelationship",
-  "relationshipLevel" : "Colleagues",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
-    },
-    "resetContactPrivacyRelationship" : {
-      "href" : "//v1/applications/833/people/166/contactPrivacyRelationship/resetContactPrivacyRelationship"
-    }
-  }
+ "rel" : "contactPrivacyRelationship",
+ "relationshipLevel" : "Colleagues",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+ },
+ "resetContactPrivacyRelationship" : {
+ "href" : "//v1/applications/833/people/166/contactPrivacyRelationship/resetContactPrivacyRelationship"
+ }
+ }
 }
 									
 ```
@@ -217,12 +217,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: c7bdd94b-e1dd-47bf-855a-e6ba31217a23
 										Content-Type: application/xml
 										Content-Length: 471
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;contactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;resetContactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship/resetContactPrivacyRelationship&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactPrivacyRelationship&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;relationshipLevel&amp;quot;&amp;gt;Workgroup&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="resetContactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship/resetContactPrivacyRelationship" />
+ <property name="rel">contactPrivacyRelationship</property>
+ <property name="relationshipLevel">Workgroup</property>
+</resource>
 									
 ```
 
@@ -270,8 +270,8 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										if-match: 3ac8b2cb-b054-41fb-b7b3-1a6a88049e8e
 										Content-Length: 75
 										{
-  "rel" : "contactPrivacyRelationship",
-  "relationshipLevel" : "FriendsAndFamily"
+ "rel" : "contactPrivacyRelationship",
+ "relationshipLevel" : "FriendsAndFamily"
 }
 									
 ```
@@ -301,11 +301,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										if-match: a537b5cb-2414-4e87-b86e-d5497b581c3b
 										Content-Length: 233
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactPrivacyRelationship&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;relationshipLevel&amp;quot;&amp;gt;FriendsAndFamily&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">contactPrivacyRelationship</property>
+ <property name="relationshipLevel">FriendsAndFamily</property>
+</resource>
 									
 ```
 

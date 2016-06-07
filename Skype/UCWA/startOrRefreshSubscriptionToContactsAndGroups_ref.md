@@ -1,14 +1,14 @@
 
-# startOrRefreshSubscriptionToContactsAndGroups (UCWA)
+# startOrRefreshSubscriptionToContactsAndGroups 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Starts or refreshes the subscription to a user's contacts and groups. 
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The presence of this resource indicates that a user can begin or extend a [myContactsAndGroupsSubscription (UCWA)](myContactsAndGroupsSubscription_ref.md). 
+The presence of this resource indicates that a user can begin or extend a [myContactsAndGroupsSubscription](myContactsAndGroupsSubscription_ref.md). 
 
 
 ### Properties
@@ -73,7 +73,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[myContactsAndGroupsSubscription (UCWA)](myContactsAndGroupsSubscription_ref.md)|Represents the subscription to a user's contacts and groups.|
+| [myContactsAndGroupsSubscription](myContactsAndGroupsSubscription_ref.md)|Represents the subscription to a user's contacts and groups.|
 
 #### Synchronous errors
 
@@ -120,19 +120,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 464
 										{
-  "rel" : "myContactsAndGroupsSubscription",
-  "state" : "Connecting",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
-    },
-    "startOrRefreshSubscriptionToContactsAndGroups" : {
-      "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups"
-    },
-    "stopSubscriptionToContactsAndGroups" : {
-      "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups"
-    }
-  }
+ "rel" : "myContactsAndGroupsSubscription",
+ "state" : "Connecting",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
+ },
+ "startOrRefreshSubscriptionToContactsAndGroups" : {
+ "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups"
+ },
+ "stopSubscriptionToContactsAndGroups" : {
+ "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups"
+ }
+ }
 }
 									
 ```
@@ -162,13 +162,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 201 Created
 										Content-Type: application/xml
 										Content-Length: 654
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;myContactsAndGroupsSubscription&amp;quot; href=&amp;quot;//v1/applications/833/people/myContactsAndGroupsSubscription&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;startOrRefreshSubscriptionToContactsAndGroups&amp;quot; href=&amp;quot;//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;stopSubscriptionToContactsAndGroups&amp;quot; href=&amp;quot;//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myContactsAndGroupsSubscription&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Connecting&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="myContactsAndGroupsSubscription" href="//v1/applications/833/people/myContactsAndGroupsSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="startOrRefreshSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups" />
+ <link rel="stopSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups" />
+ <property name="rel">myContactsAndGroupsSubscription</property>
+ <property name="state">Connecting</property>
+</resource>
 									
 ```
 

@@ -4,12 +4,12 @@
  **Last modified:** July 14, 2015
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Adds a [distributionGroup (UCWA)](distributionGroup_ref.md) into contact list.
+Adds a [distributionGroup](distributionGroup_ref.md) into contact list.
 
 
 ## Web Link
@@ -27,7 +27,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
- The AddToContactList resource can be used to add a[distributionGroup (UCWA)](distributionGroup_ref.md) into contact list.
+ The AddToContactList resource can be used to add a [distributionGroup](distributionGroup_ref.md) into contact list.
 
 
 ### Properties
@@ -48,7 +48,7 @@ None
 
 ### POST
 
-Adds a [distributionGroup (UCWA)](distributionGroup_ref.md) into contact list.
+Adds a [distributionGroup](distributionGroup_ref.md) into contact list.
 
 
 #### Query parameters

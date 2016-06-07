@@ -1,17 +1,17 @@
 
-# onlineMeetingExtensions (UCWA)
+# onlineMeetingExtensions 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the set of [onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md). 
+Represents the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -45,7 +45,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|onlineMeetingExtension|Represents custom data for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md) that can be used by an application.|
+|onlineMeetingExtension|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -55,7 +55,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the set of [onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md).
+Returns a representation of the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md).
 
 
 #### Request body
@@ -111,26 +111,26 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 397
 										{
-  "rel" : "onlineMeetingExtensions",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
-    }
-  },
-  "_embedded" : {
-    "onlineMeetingExtension" : [
-      {
-        "rel" : "onlineMeetingExtension",
-        "id" : "917823",
-        "type" : "RoamedParticipantData",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
-          }
-        }
-      }
-    ]
-  }
+ "rel" : "onlineMeetingExtensions",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
+ }
+ },
+ "_embedded" : {
+ "onlineMeetingExtension" : [
+ {
+ "rel" : "onlineMeetingExtension",
+ "id" : "917823",
+ "type" : "RoamedParticipantData",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
+ }
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -162,12 +162,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 594
 										<?xml version="1.0" encoding="utf-8"?>
 <resource rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <property name="rel">onlineMeetingExtensions</property>
-  <resource rel="onlineMeetingExtension" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension">
-    <property name="rel">onlineMeetingExtension</property>
-    <property name="id">917823</property>
-    <property name="type">RoamedParticipantData</property>
-  </resource>
+ <property name="rel">onlineMeetingExtensions</property>
+ <resource rel="onlineMeetingExtension" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension">
+ <property name="rel">onlineMeetingExtension</property>
+ <property name="id">917823</property>
+ <property name="type">RoamedParticipantData</property>
+ </resource>
 </resource>
 									
 ```
@@ -175,7 +175,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ### POST
 
-Creates a new [onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md) for the associated[onlineMeeting (UCWA)](onlineMeeting_ref.md).
+Creates a new [onlineMeetingExtension](onlineMeetingExtension_ref.md) for the associated [onlineMeeting](onlineMeeting_ref.md).
 
 
 #### Request body
@@ -189,7 +189,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md)|Represents custom data for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md) that can be used by an application.|
+| [onlineMeetingExtension](onlineMeetingExtension_ref.md)|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
 
 #### Synchronous errors
 
@@ -221,8 +221,8 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Accept: application/json
 										Content-Length: 46
 										{
-  "id" : "917823",
-  "type" : "RoamedParticipantData"
+ "id" : "917823",
+ "type" : "RoamedParticipantData"
 }
 									
 ```
@@ -240,14 +240,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 211
 										{
-  "rel" : "onlineMeetingExtension",
-  "id" : "917823",
-  "type" : "RoamedParticipantData",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
-    }
-  }
+ "rel" : "onlineMeetingExtension",
+ "id" : "917823",
+ "type" : "RoamedParticipantData",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
+ }
+ }
 }
 									
 ```
@@ -266,8 +266,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 198
 										<?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <property name="id">917823</property>
-  <property name="type">RoamedParticipantData</property>
+ <property name="id">917823</property>
+ <property name="type">RoamedParticipantData</property>
 </input>
 									
 ```
@@ -286,9 +286,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 399
 										<?xml version="1.0" encoding="utf-8"?>
 <resource rel="onlineMeetingExtension" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <property name="rel">onlineMeetingExtension</property>
-  <property name="id">917823</property>
-  <property name="type">RoamedParticipantData</property>
+ <property name="rel">onlineMeetingExtension</property>
+ <property name="id">917823</property>
+ <property name="type">RoamedParticipantData</property>
 </resource>
 									
 ```

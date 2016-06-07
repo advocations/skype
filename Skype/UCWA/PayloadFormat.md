@@ -4,28 +4,28 @@ Request and response payloads can be specified as either JSON or XML.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[JSON representation](#sectionSection0)
-[XML representation](#sectionSection1)
-[Input formats](#sectionSection2)
-[Data URI](#sectionSection3)
-[Required and optional parameters](#sectionSection4)
+ [JSON representation](#sectionSection0)
+ [XML representation](#sectionSection1)
+ [Input formats](#sectionSection2)
+ [Data URI](#sectionSection3)
+ [Required and optional parameters](#sectionSection4)
 
 
  supports two payload formats for HTTP requests and responses:
 
 - JSON, with content type application/json
-    
+ 
 - XML, with content type application/xml
-    
+ 
 Note that the more generic content types are used by popular convention. Clients that wish to be more precise can use the following:
 
 - JSON: application/vnd.microsoft.com.ucwa+json 
-    
+ 
 - XML: application/vnd.microsoft.com.ucwa+xml
-    
+ 
 The body of a request or response often contains a resource, which can have properties, links to other resources, or embedded resources. For more information, see [Resources in UCWA](ResourcesInUCWA.md).
 
 ## JSON representation
@@ -34,19 +34,19 @@ The body of a request or response often contains a resource, which can have prop
 
 ```
 {
-  rel : 'resource',
-  prop1 : 1,
-  _links : {
-    self : {href : 'http://ucwa.lync.com/'}
-  },
-  _embedded : {
-    otherResource : {
-      rel : 'otherResource',
-      _links : {
-        self : {href : 'http://ucwa.lync.com/otherResource/1'}
-    }
-    }
-  }
+ rel : 'resource',
+ prop1 : 1,
+ _links : {
+ self : {href : 'http://ucwa.lync.com/'}
+ },
+ _embedded : {
+ otherResource : {
+ rel : 'otherResource',
+ _links : {
+ self : {href : 'http://ucwa.lync.com/otherResource/1'}
+ }
+ }
+ }
 }
 
 ```
@@ -79,7 +79,7 @@ In JSON, embedded resources are stored in an object in a property named "_embedd
 There can be as many levels of embedding as needed; however, in most cases usually embeds resources only one or two levels deep.
 
 
- **Note**  Changes in embedded resources do not affect the computation of the ETag for the containing resource, as they are technically separate resources, not part of the containing resource.
+ **Note** Changes in embedded resources do not affect the computation of the ETag for the containing resource, as they are technically separate resources, not part of the containing resource.
 
 
 ## XML representation
@@ -88,9 +88,9 @@ There can be as many levels of embedding as needed; however, in most cases usual
 
 ```XML
 <resource rel="resource" href="http://ucwa.lync.com/resource/1/">
-  <property name="prop1">1</property>
-  <resource rel="otherResource" href="http://ucwa.lync.com/otherResource/1">
-  </resource>
+ <property name="prop1">1</property>
+ <resource rel="otherResource" href="http://ucwa.lync.com/otherResource/1">
+ </resource>
 </resource>
 
 ```
@@ -99,15 +99,15 @@ The XML representation used by resources takes advantage of XML attributes. Beca
 
 
 - Dates in XML are supplied in ISO 8601 format. 
-    
+ 
 - A resource is enclosed in a <resource xmlns="..." rel="..." href="..."> element, where "rel" and "href" form the self link to the resource.
-    
+ 
 - Links are represented by a <link rel="..." href="..." [ title = "..."] /> element, child of <resource>. There is no explicit element for a self link because it is part of the enclosing <resource> element. In case of multiple links with the same "rel" value, the <link> element is repeated multiple times. Unlike in JSON, there is no way to distinguish a single link from a one-element collection of links.
-    
-- Properties are represented by a <property name="...">[value]</property> element. Array-valued properties are represented by a <propertyList name="..."> element, containing <item>[value]</item> elements for each array member in order.
-    
+ 
+- Properties are represented by a <property name="..."> [value]</property> element. Array-valued properties are represented by a <propertyList name="..."> element, containing <item> [value]</item> elements for each array member in order.
+ 
 - Embedded resources are represented by a <resource rel="..." href="..."> element inside the containing <resource> element.
-    
+ 
 
 ## Input formats
 <a name="sectionSection2"> </a>

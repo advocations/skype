@@ -4,7 +4,7 @@ Learn about key concepts that developers need to know.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 The topics in this section are intended to familiarize developers with important programming concepts that are related to applications.
 
@@ -13,24 +13,24 @@ The topics in this section are intended to familiarize developers with important
 
 
 - [HTTP](HTTP.md)
-    
+ 
 - [Hypermedia](Hypermedia.md)
-    
+ 
 - [Resources in UCWA](ResourcesInUCWA.md)
-    
+ 
 - [Payload Format](PayloadFormat.md)
-    
+ 
 - [Query Parameters](QueryParameters.md)
-    
+ 
 - [Events in UCWA](EventsInUCWA.md)
-    
+ 
 - [Operation resource](OperationResource.md)
-    
+ 
 - [Cross-domain communication](CrossDomainCommunication.md)
-    
+ 
 - [Caching](Caching.md)
-    
+ 
 - [Grouping requests in a batch](GroupingRequestsInABatch.md)
-    
+ 
 - [Errors and informational messages](ErrorsAndInformationalMessages.md)
-    
+ 

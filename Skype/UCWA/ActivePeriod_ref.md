@@ -1,5 +1,5 @@
 
-# ActivePeriod (UCWA)
+# ActivePeriod 
 
  **Last modified:** March 24, 2015
 

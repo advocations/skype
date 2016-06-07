@@ -1,17 +1,17 @@
 
-# derivedMessaging (UCWA)
+# derivedMessaging 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the [messaging (UCWA)](messaging_ref.md) modality in a[derivedConversation (UCWA)](derivedConversation_ref.md). 
+Represents the [messaging](messaging_ref.md) modality in a [derivedConversation](derivedConversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource indicates that the [messaging (UCWA)](messaging_ref.md) modality will be served from a different[conversation (UCWA)](conversation_ref.md) because the[acceptedByParticipant (UCWA)](acceptedByParticipant_ref.md) is different from the current remote[participant (UCWA)](participant_ref.md) of the conversation where[messaging (UCWA)](messaging_ref.md) was added.
+This resource indicates that the [messaging](messaging_ref.md) modality will be served from a different [conversation](conversation_ref.md) because the [acceptedByParticipant](acceptedByParticipant_ref.md) is different from the current remote [participant](participant_ref.md) of the conversation where [messaging](messaging_ref.md) was added.
 
 
 ### Properties
@@ -54,7 +54,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the [messaging (UCWA)](messaging_ref.md) modality in a[derivedConversation (UCWA)](derivedConversation_ref.md).
+Returns a representation of the [messaging](messaging_ref.md) modality in a [derivedConversation](derivedConversation_ref.md).
 
 
 #### Request body
@@ -110,35 +110,35 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 785
 										{
-  "rel" : "messaging",
-  "negotiatedMessageFormats" : [
-    "Plain",
-    "Html"
-  ],
-  "state" : "Connecting",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/messaging"
-    },
-    "addMessaging" : {
-      "href" : "//v1/applications/833/communication/conversations/802/messaging/addMessaging"
-    },
-    "conversation" : {
-      "href" : "//v1/applications/833/communication/conversations/802"
-    },
-    "sendMessage" : {
-      "href" : "//v1/applications/833/communication/conversations/802/messaging/sendMessage"
-    },
-    "setIsTyping" : {
-      "href" : "//v1/applications/833/communication/conversations/802/messaging/setIsTyping"
-    },
-    "stopMessaging" : {
-      "href" : "//v1/applications/833/communication/conversations/802/messaging/stopMessaging"
-    },
-    "typingParticipants" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/typingParticipants"
-    }
-  }
+ "rel" : "messaging",
+ "negotiatedMessageFormats" : [
+ "Plain",
+ "Html"
+ ],
+ "state" : "Connecting",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversations/802/messaging"
+ },
+ "addMessaging" : {
+ "href" : "//v1/applications/833/communication/conversations/802/messaging/addMessaging"
+ },
+ "conversation" : {
+ "href" : "//v1/applications/833/communication/conversations/802"
+ },
+ "sendMessage" : {
+ "href" : "//v1/applications/833/communication/conversations/802/messaging/sendMessage"
+ },
+ "setIsTyping" : {
+ "href" : "//v1/applications/833/communication/conversations/802/messaging/setIsTyping"
+ },
+ "stopMessaging" : {
+ "href" : "//v1/applications/833/communication/conversations/802/messaging/stopMessaging"
+ },
+ "typingParticipants" : {
+ "href" : "//v1/applications/833/communication/conversations/802/participants/typingParticipants"
+ }
+ }
 }
 									
 ```
@@ -168,21 +168,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1037
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;messaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;addMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/addMessaging&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;sendMessage&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/sendMessage&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;setIsTyping&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/setIsTyping&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;stopMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/stopMessaging&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;typingParticipants&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/typingParticipants&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;messaging&amp;lt;/property&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;negotiatedMessageFormats&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;Plain&amp;lt;/item&amp;gt;
-    &amp;lt;item&amp;gt;Html&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Connecting&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="messaging" href="//v1/applications/833/communication/conversations/802/messaging" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="addMessaging" href="//v1/applications/833/communication/conversations/802/messaging/addMessaging" />
+ <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+ <link rel="sendMessage" href="//v1/applications/833/communication/conversations/802/messaging/sendMessage" />
+ <link rel="setIsTyping" href="//v1/applications/833/communication/conversations/802/messaging/setIsTyping" />
+ <link rel="stopMessaging" href="//v1/applications/833/communication/conversations/802/messaging/stopMessaging" />
+ <link rel="typingParticipants" href="//v1/applications/833/communication/conversations/802/participants/typingParticipants" />
+ <property name="rel">messaging</property>
+ <propertyList name="negotiatedMessageFormats">
+ <item>Plain</item>
+ <item>Html</item>
+ </propertyList>
+ <property name="state">Connecting</property>
+</resource>
 									
 ```
 

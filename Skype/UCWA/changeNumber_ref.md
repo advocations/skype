@@ -1,17 +1,17 @@
 
-# changeNumber (UCWA)
+# changeNumber 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Changes or clears the number stored in the corresponding [phone (UCWA)](phone_ref.md) resource.
+Changes or clears the number stored in the corresponding [phone](phone_ref.md) resource.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -49,7 +49,7 @@ None
 
 ### POST
 
-Changes or clears the number stored in the corresponding [phone (UCWA)](phone_ref.md) resource.
+Changes or clears the number stored in the corresponding [phone](phone_ref.md) resource.
 
 
 #### Query parameters
@@ -61,7 +61,7 @@ Changes or clears the number stored in the corresponding [phone (UCWA)](phone_re
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |includeInContactCard|Whether the phone resource is visible to other contacts.|No|
-|number|The new phone number for the corresponding [phone (UCWA)](phone_ref.md) resource.The maximum length is 80 characters.The maximum length is 80 characters.|No|
+|number|The new phone number for the corresponding [phone](phone_ref.md) resource.The maximum length is 80 characters.The maximum length is 80 characters.|No|
 
 #### Request body
 

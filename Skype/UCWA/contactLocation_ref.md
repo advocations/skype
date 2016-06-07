@@ -1,18 +1,18 @@
 
-# contactLocation (UCWA)
+# contactLocation 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
-Represents a [contact (UCWA)](contact_ref.md)'s location. 
+Represents a [contact](contact_ref.md)'s location. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -29,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-contactLocation gets updated whenever the [contact (UCWA)](contact_ref.md)'s location changes. 
+contactLocation gets updated whenever the [contact](contact_ref.md)'s location changes. 
 
 
 ### Properties
@@ -77,33 +77,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "contactLocation",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactLocation"
-          },
-          "in" : {
-            "rel" : "contact",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "people",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "contactLocation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactLocation"
+ },
+ "in" : {
+ "rel" : "contact",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -174,13 +174,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 132
 										{
-  "rel" : "contactLocation",
-  "location" : "By the beach...",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people/166/contactLocation"
-    }
-  }
+ "rel" : "contactLocation",
+ "location" : "By the beach...",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people/166/contactLocation"
+ }
+ }
 }
 									
 ```
@@ -210,11 +210,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 290
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;contactLocation&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactLocation&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactLocation&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;location&amp;quot;&amp;gt;By the beach...&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">contactLocation</property>
+ <property name="location">By the beach...</property>
+</resource>
 									
 ```
 

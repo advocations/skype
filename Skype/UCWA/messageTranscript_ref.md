@@ -4,9 +4,9 @@
  **Last modified:** July 14, 2015
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Represents a message transcript within a [conversationLog](conversationLog_ref.md). 
@@ -115,18 +115,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 349
 										{
-  "rel" : "messageTranscript",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript"
-    },
-    "htmlMessage" : {
-      "href" : "data:text/html;base64,base64-encoded-htmlmessage"
-    },
-    "plainMessage" : {
-      "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
-    }
-  }
+ "rel" : "messageTranscript",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript"
+ },
+ "htmlMessage" : {
+ "href" : "data:text/html;base64,base64-encoded-htmlmessage"
+ },
+ "plainMessage" : {
+ "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
+ }
+ }
 }
 									
 ```
@@ -156,12 +156,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 502
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;messageTranscript&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;htmlMessage&amp;quot; href=&amp;quot;data:text/html;base64,base64-encoded-htmlmessage&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;plainMessage&amp;quot; href=&amp;quot;data:text/plain;charset=utf8,URLEncodedMessageString&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;messageTranscript&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="messageTranscript" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
+ <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />
+ <property name="rel">messageTranscript</property>
+</resource>
 									
 ```
 

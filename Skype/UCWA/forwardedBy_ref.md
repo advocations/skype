@@ -1,17 +1,17 @@
 
-# forwardedBy (UCWA)
+# forwardedBy 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the [contact (UCWA)](contact_ref.md) who last forwarded the invitation before it was received by the user.
+Represents the [contact](contact_ref.md) who last forwarded the invitation before it was received by the user.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -63,11 +63,11 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|contactLocation|Represents a [contact (UCWA)](contact_ref.md)'s location.|
-|contactNote|Represents a [contact (UCWA)](contact_ref.md)'s personal or out-of-office note.|
+|contactLocation|Represents a [contact](contact_ref.md)'s location.|
+|contactNote|Represents a [contact](contact_ref.md)'s personal or out-of-office note.|
 |contactPhoto|The photo of a contact.|
-|contactPresence|Represents a [contact (UCWA)](contact_ref.md)'s availability and activity.|
-|contactPrivacyRelationship|Represents the privacy relationship between the user and a [contact (UCWA)](contact_ref.md).|
+|contactPresence|Represents a [contact](contact_ref.md)'s availability and activity.|
+|contactPrivacyRelationship|Represents the privacy relationship between the user and a [contact](contact_ref.md).|
 |contactSupportedModalities|Represents the communication modalities supported by a contact.|
 
 ## Operations
@@ -78,7 +78,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the [contact (UCWA)](contact_ref.md) that last forwarded the invitation before it was received by the user.
+Returns a representation of the [contact](contact_ref.md) that last forwarded the invitation before it was received by the user.
 
 
 #### Request body
@@ -138,46 +138,46 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 1082
 										{
-  "rel" : "forwardedBy",
-  "company" : "Contoso Corp.",
-  "department" : "Engineering",
-  "emailAddresses" : [
-    "Alex.Doe@contoso.com"
-  ],
-  "homePhoneNumber" : "tel:+19185550107",
-  "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
-  "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
-  "name" : "Alex Doe",
-  "office" : "tel:+1425554321;ext=54321",
-  "otherPhoneNumber" : "tel:+19195558194",
-  "sourceNetwork" : "SameEnterprise",
-  "title" : "Engineer 2",
-  "type" : "User",
-  "uri" : "sip:alex@contoso.com",
-  "workPhoneNumber" : "tel:+1425554321;ext=54321",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people/339"
-    },
-    "contactLocation" : {
-      "href" : "//v1/applications/833/people/166/contactLocation"
-    },
-    "contactNote" : {
-      "href" : "//v1/applications/833/people/166/contactNote"
-    },
-    "contactPhoto" : {
-      "href" : "//v1/applications/833/people/166/contactPhoto"
-    },
-    "contactPresence" : {
-      "href" : "//v1/applications/833/people/166/contactPresence"
-    },
-    "contactPrivacyRelationship" : {
-      "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
-    },
-    "contactSupportedModalities" : {
-      "href" : "//v1/applications/833/people/166/contactSupportedModalities"
-    }
-  }
+ "rel" : "forwardedBy",
+ "company" : "Contoso Corp.",
+ "department" : "Engineering",
+ "emailAddresses" : [
+ "Alex.Doe@contoso.com"
+ ],
+ "homePhoneNumber" : "tel:+19185550107",
+ "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+ "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+ "name" : "Alex Doe",
+ "office" : "tel:+1425554321;ext=54321",
+ "otherPhoneNumber" : "tel:+19195558194",
+ "sourceNetwork" : "SameEnterprise",
+ "title" : "Engineer 2",
+ "type" : "User",
+ "uri" : "sip:alex@contoso.com",
+ "workPhoneNumber" : "tel:+1425554321;ext=54321",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people/339"
+ },
+ "contactLocation" : {
+ "href" : "//v1/applications/833/people/166/contactLocation"
+ },
+ "contactNote" : {
+ "href" : "//v1/applications/833/people/166/contactNote"
+ },
+ "contactPhoto" : {
+ "href" : "//v1/applications/833/people/166/contactPhoto"
+ },
+ "contactPresence" : {
+ "href" : "//v1/applications/833/people/166/contactPresence"
+ },
+ "contactPrivacyRelationship" : {
+ "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+ },
+ "contactSupportedModalities" : {
+ "href" : "//v1/applications/833/people/166/contactSupportedModalities"
+ }
+ }
 }
 									
 ```
@@ -211,29 +211,29 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 1602
 										<?xml version="1.0" encoding="utf-8"?>
 <resource rel="forwardedBy" href="//v1/applications/833/people/339" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
-  <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
-  <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
-  <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
-  <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
-  <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
-  <property name="rel">forwardedBy</property>
-  <property name="company">Contoso Corp.</property>
-  <property name="department">Engineering</property>
-  <propertyList name="emailAddresses">
-    <item>Alex.Doe@contoso.com</item>
-  </propertyList>
-  <property name="homePhoneNumber">tel:+19185550107</property>
-  <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
-  <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
-  <property name="name">Alex Doe</property>
-  <property name="office">tel:+1425554321;ext=54321</property>
-  <property name="otherPhoneNumber">tel:+19195558194</property>
-  <property name="sourceNetwork">SameEnterprise</property>
-  <property name="title">Engineer 2</property>
-  <property name="type">User</property>
-  <property name="uri">sip:alex@contoso.com</property>
-  <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
+ <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
+ <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
+ <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
+ <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
+ <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
+ <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
+ <property name="rel">forwardedBy</property>
+ <property name="company">Contoso Corp.</property>
+ <property name="department">Engineering</property>
+ <propertyList name="emailAddresses">
+ <item>Alex.Doe@contoso.com</item>
+ </propertyList>
+ <property name="homePhoneNumber">tel:+19185550107</property>
+ <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
+ <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
+ <property name="name">Alex Doe</property>
+ <property name="office">tel:+1425554321;ext=54321</property>
+ <property name="otherPhoneNumber">tel:+19195558194</property>
+ <property name="sourceNetwork">SameEnterprise</property>
+ <property name="title">Engineer 2</property>
+ <property name="type">User</property>
+ <property name="uri">sip:alex@contoso.com</property>
+ <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
 </resource>
 									
 ```

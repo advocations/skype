@@ -1,14 +1,14 @@
 
-# unansweredCallToContact (UCWA)
+# unansweredCallToContact 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Forward all incoming calls to a user-provided number or contact if the user does not respond. 
@@ -61,7 +61,7 @@ Forward all incoming calls to a user-provided number or contact if the user does
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |ringDelay|The length of the delay, in seconds, before calls ring for the specified number or contact.The maximum value is 60 and the minimum value is 5.|No|
-|target|The number or contact that the user wants to forward her unanswered calls to.If the target is a number, the application should provide a tel URI, which is provided by the [contact (UCWA)](contact_ref.md).If the target is a contact, the application should provide a sip URI, which is provided by the [contact (UCWA)](contact_ref.md).The maximum length is 80 characters.|Yes|
+|target|The number or contact that the user wants to forward her unanswered calls to.If the target is a number, the application should provide a tel URI, which is provided by the [contact](contact_ref.md).If the target is a contact, the application should provide a sip URI, which is provided by the [contact](contact_ref.md).The maximum length is 80 characters.|Yes|
 
 #### Request body
 

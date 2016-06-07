@@ -1,18 +1,18 @@
 
-# dataCollaboration (UCWA)
+# dataCollaboration 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
-Represents the data collaboration modality in the corresponding [conversation (UCWA)](conversation_ref.md). 
+Represents the data collaboration modality in the corresponding [conversation](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -78,29 +78,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "dataCollaboration",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/dataCollaboration"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "dataCollaboration",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/dataCollaboration"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -114,7 +114,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 ### GET
 
-Returns a representation of the data collaboration modality in the corresponding [conversation (UCWA)](conversation_ref.md).
+Returns a representation of the data collaboration modality in the corresponding [conversation](conversation_ref.md).
 
 
 #### Request body
@@ -170,16 +170,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 231
 										{
-  "rel" : "dataCollaboration",
-  "state" : "Disconnected",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/dataCollaboration"
-    },
-    "conversation" : {
-      "href" : "//v1/applications/833/communication/conversations/802"
-    }
-  }
+ "rel" : "dataCollaboration",
+ "state" : "Disconnected",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversations/802/dataCollaboration"
+ },
+ "conversation" : {
+ "href" : "//v1/applications/833/communication/conversations/802"
+ }
+ }
 }
 									
 ```
@@ -209,12 +209,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 397
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;dataCollaboration&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/dataCollaboration&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;dataCollaboration&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Connecting&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="dataCollaboration" href="//v1/applications/833/communication/conversations/802/dataCollaboration" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+ <property name="rel">dataCollaboration</property>
+ <property name="state">Connecting</property>
+</resource>
 									
 ```
 

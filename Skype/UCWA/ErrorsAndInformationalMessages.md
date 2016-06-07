@@ -4,25 +4,25 @@ Learn about the types of errors and informational messages that are used in .
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Error types](#sectionSection0)
-[Asynchronous informational messages](#sectionSection1)
-[Error response body](#sectionSection2)
-[Client/server programming contract](#sectionSection3)
-[Error sample - JSON](#sectionSection4)
-[Error sample - XML](#sectionSection5)
-[HTTP error codes returned by UCWA](#sectionSection6)
+ [Error types](#sectionSection0)
+ [Asynchronous informational messages](#sectionSection1)
+ [Error response body](#sectionSection2)
+ [Client/server programming contract](#sectionSection3)
+ [Error sample - JSON](#sectionSection4)
+ [Error sample - XML](#sectionSection5)
+ [HTTP error codes returned by UCWA](#sectionSection6)
 
 
 To report failures, uses the failure response classes (4xx &amp; 5xx) that are defined in Section 10 (Status Code Definitions) of the [HTTP RFC](http://tools.ietf.org/html/rfc2616). An HTTP request that is targeted to can have multiple intermediate proxies on the path, meaning an intermediate component can return a failure response of 4xx or 5xx as well. 
 If responds with a failure, it will provide supplementary information in the error response that can be used to aid in problem diagnosis or drive the user interface. Clients can determine whether the response comes from by analyzing the Content-Type header. In this release, the supported content types are:
 
 - application/json
-    
+ 
 - application/xml
-    
+ 
 
 ## Error types
 <a name="sectionSection0"> </a>
@@ -59,7 +59,7 @@ The errors listed in the following table apply to most resources.
 
 ### Asynchronous errors
 
-Asynchronous errors are returned only in the event channel, and are used to indicate failure reasons. These errors are associated exclusively with operation resources such as the [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) resource.
+Asynchronous errors are returned only in the event channel, and are used to indicate failure reasons. These errors are associated exclusively with operation resources such as the [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) resource.
 
 
 ## Asynchronous informational messages
@@ -89,11 +89,11 @@ The following table lists the properties in an error response body.
 
 
 - The only property that is required in the error body is "code". All other properties are optional.
-    
+ 
 - New subcodes can be introduced at any time. Clients should be designed that that they ignore missing or unknown subcodes.
-    
-- Both Code and Subcode should be consumed contextually. For example, if the [messaging (UCWA)](messaging_ref.md) modality sends an **updated** event, with a subcode of "Removed", this means that the **messaging** modality was removed. There are no modality-specific subcodes.
-    
+ 
+- Both Code and Subcode should be consumed contextually. For example, if the [messaging](messaging_ref.md) modality sends an **updated** event, with a subcode of "Removed", this means that the **messaging** modality was removed. There are no modality-specific subcodes.
+ 
 Anything that resides under <debugInfo> is subject to change, so a client must not make assumptions about the contents of this property. However, clients are recommended to log this information along with the failed request. These items can provide substantial help when troubleshooting the problem.
 
 
@@ -105,9 +105,9 @@ The following shows the form of a 400 BadRequest error body in JSON format.
 
 ```
 {
-  "code": "Conflict",
-  "subcode": "AlreadyExists",
-  "message": "The requested resource already exists. Please wait and try again."
+ "code": "Conflict",
+ "subcode": "AlreadyExists",
+ "message": "The requested resource already exists. Please wait and try again."
 }
 
 ```
@@ -122,11 +122,11 @@ The following shows the general form of a 409 Conflict error body in XML format.
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <reason xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <code>Conflict</code>
-  <subcode>AlreadyExists</subcode>
-  <message>The requested resource already exists. Please wait and try again.</message>
-  <debugInfo />
-  <parameters />
+ <code>Conflict</code>
+ <subcode>AlreadyExists</subcode>
+ <message>The requested resource already exists. Please wait and try again.</message>
+ <debugInfo />
+ <parameters />
 </reason>
 
 ```

@@ -3,12 +3,12 @@
 
  **Last modified:** April 23, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Contact and Group Management](#sectionSection0)
-[Conversation History and Auto-Accept](#sectionSection1)
-[Ability to contact a Skype buddy](#sectionSection2)
+ [Contact and Group Management](#sectionSection0)
+ [Conversation History and Auto-Accept](#sectionSection1)
+ [Ability to contact a Skype buddy](#sectionSection2)
 
 
 This page lists new features in .

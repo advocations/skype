@@ -1,17 +1,17 @@
 
-# presenceSubscriptionMembership (UCWA)
+# presenceSubscriptionMembership 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the [presenceSubscription (UCWA)](presenceSubscription_ref.md) membership of a single[contact (UCWA)](contact_ref.md). 
+Represents the [presenceSubscription](presenceSubscription_ref.md) membership of a single [contact](contact_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource captures a unique pair that consists of a [contact (UCWA)](contact_ref.md) and a[presenceSubscription (UCWA)](presenceSubscription_ref.md). If a [contact (UCWA)](contact_ref.md) appears in multiple[presenceSubscription (UCWA)](presenceSubscription_ref.md)s, there will be a separate resource for each membership of this contact. An application can use this to remove a [contact (UCWA)](contact_ref.md) from a particular[presenceSubscription (UCWA)](presenceSubscription_ref.md). 
+This resource captures a unique pair that consists of a [contact](contact_ref.md) and a [presenceSubscription](presenceSubscription_ref.md). If a [contact](contact_ref.md) appears in multiple [presenceSubscription](presenceSubscription_ref.md)s, there will be a separate resource for each membership of this contact. An application can use this to remove a [contact](contact_ref.md) from a particular [presenceSubscription](presenceSubscription_ref.md). 
 
 
 ### Properties
@@ -56,7 +56,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the [presenceSubscription (UCWA)](presenceSubscription_ref.md) membership of a single[contact (UCWA)](contact_ref.md).
+Returns a representation of the [presenceSubscription](presenceSubscription_ref.md) membership of a single [contact](contact_ref.md).
 
 
 #### Request body
@@ -114,18 +114,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 283
 										{
-  "rel" : "presenceSubscriptionMembership",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
-    },
-    "contact" : {
-      "href" : "//v1/applications/833/people/166"
-    },
-    "presenceSubscription" : {
-      "href" : "//v1/applications/833/presenceSubscription"
-    }
-  }
+ "rel" : "presenceSubscriptionMembership",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
+ },
+ "contact" : {
+ "href" : "//v1/applications/833/people/166"
+ },
+ "presenceSubscription" : {
+ "href" : "//v1/applications/833/presenceSubscription"
+ }
+ }
 }
 									
 ```
@@ -155,19 +155,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 449
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscriptionMembership&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMembership&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscriptionMembership" href="//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="contact" href="//v1/applications/833/people/166" />
+ <link rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" />
+ <property name="rel">presenceSubscriptionMembership</property>
+</resource>
 									
 ```
 
 
 ### DELETE
 
-Removes the [contact (UCWA)](contact_ref.md) from the[presenceSubscription (UCWA)](presenceSubscription_ref.md).
+Removes the [contact](contact_ref.md) from the [presenceSubscription](presenceSubscription_ref.md).
 
 
 #### Request body

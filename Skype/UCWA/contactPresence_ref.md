@@ -1,18 +1,18 @@
 
-# contactPresence (UCWA)
+# contactPresence 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
-Represents a [contact (UCWA)](contact_ref.md)'s availability and activity. 
+Represents a [contact](contact_ref.md)'s availability and activity. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -29,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-contactPresence is updated when a [contact (UCWA)](contact_ref.md)'s availability or activity changes.
+contactPresence is updated when a [contact](contact_ref.md)'s availability or activity changes.
 
 
 ### Properties
@@ -80,33 +80,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "contactPresence",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence"
-          },
-          "in" : {
-            "rel" : "contact",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "people",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "contactPresence",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence"
+ },
+ "in" : {
+ "rel" : "contact",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -177,16 +177,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 225
 										{
-  "rel" : "contactPresence",
-  "activity" : "in-a-conference",
-  "availability" : "BeRightBack",
-  "deviceType" : "DeskPhone",
-  "lastActive" : "\/Date(1436925243767)\/",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people/166/contactPresence"
-    }
-  }
+ "rel" : "contactPresence",
+ "activity" : "in-a-conference",
+ "availability" : "BeRightBack",
+ "deviceType" : "DeskPhone",
+ "lastActive" : "\/Date(1436925243767)\/",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people/166/contactPresence"
+ }
+ }
 }
 									
 ```
@@ -216,14 +216,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 460
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactPresence&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;activity&amp;quot;&amp;gt;in-a-conference&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;availability&amp;quot;&amp;gt;BeRightBack&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;deviceType&amp;quot;&amp;gt;Unknown&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;lastActive&amp;quot;&amp;gt;2015-07-14T20:54:03.7675175-05:00&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">contactPresence</property>
+ <property name="activity">in-a-conference</property>
+ <property name="availability">BeRightBack</property>
+ <property name="deviceType">Unknown</property>
+ <property name="lastActive">2015-07-14T20:54:03.7675175-05:00</property>
+</resource>
 									
 ```
 

@@ -1,14 +1,14 @@
 
-# decline (UCWA)
+# decline 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Declines an incoming invitation. 
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource is used to decline an incoming [messagingInvitation (UCWA)](messagingInvitation_ref.md), [phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md) or[onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) as part of a new or existing[conversation (UCWA)](conversation_ref.md). decline causes the corresponding invitation to fail with an indication that it was declined. For an incoming [messagingInvitation (UCWA)](messagingInvitation_ref.md), decline will make the instant messaging modality disconnected in the corresponding conversation. For an incoming [phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md), decline will make the phone audio modality disconnected in the corresponding conversation. For an incoming [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md), decline will terminate the conversation. Other participants may remain active in the [onlineMeeting (UCWA)](onlineMeeting_ref.md). 
+This resource is used to decline an incoming [messagingInvitation](messagingInvitation_ref.md), [phoneAudioInvitation](phoneAudioInvitation_ref.md) or [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) as part of a new or existing [conversation](conversation_ref.md). decline causes the corresponding invitation to fail with an indication that it was declined. For an incoming [messagingInvitation](messagingInvitation_ref.md), decline will make the instant messaging modality disconnected in the corresponding conversation. For an incoming [phoneAudioInvitation](phoneAudioInvitation_ref.md), decline will make the phone audio modality disconnected in the corresponding conversation. For an incoming [onlineMeetingInvitation](onlineMeetingInvitation_ref.md), decline will terminate the conversation. Other participants may remain active in the [onlineMeeting](onlineMeeting_ref.md). 
 
 
 ### Properties
@@ -91,7 +91,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Content-Type: application/json
 										Content-Length: 18
 										{
-  "reason" : "Local"
+ "reason" : "Local"
 }
 									
 ```
@@ -120,10 +120,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Host: fe1.contoso.com
 										Content-Type: application/xml
 										Content-Length: 147
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;reason&amp;quot;&amp;gt;Local&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="reason">Local</property>
+</input>
 									
 ```
 

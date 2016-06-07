@@ -1,14 +1,14 @@
 
-# xframe (UCWA)
+# xframe 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Represents the cross-domain frame used for web-based applications. 
@@ -109,7 +109,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: text/html
 										Content-Length: 12
-										&amp;lt;h&amp;gt;Hello&amp;lt;/h&amp;gt;
+										<h>Hello</h>
 									
 ```
 
@@ -138,7 +138,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: text/html
 										Content-Length: 12
-										&amp;lt;h&amp;gt;Hello&amp;lt;/h&amp;gt;
+										<h>Hello</h>
 									
 ```
 

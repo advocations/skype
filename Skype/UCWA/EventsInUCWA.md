@@ -4,14 +4,14 @@ Learn how the server notifies clients by sending events in the event channel.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Pending GET (P-GET) response](#sectionSection0)
-[Event response structure](#sectionSection1)
-[Aggregation](#sectionSection2)
-[Timeouts](#sectionSection3)
-[Resume/resynchronize](#sectionSection4)
+ [Pending GET (P-GET) response](#sectionSection0)
+ [Event response structure](#sectionSection1)
+ [Aggregation](#sectionSection2)
+ [Timeouts](#sectionSection3)
+ [Resume/resynchronize](#sectionSection4)
 
 
 As a real-time communications API, needs a way for the server to notify the client about events such as incoming messages or presence updates. Because HTTP provides no built-in capability for server-to-client communication, implements this within HTTP with a "long poll" model called pending GET or P-GET. This "server-to-client" communication channel is called the event channel to distinguish it from the command channel where ordinary client-to-server HTTP operations take place. 
@@ -32,82 +32,82 @@ An event can contain a link to the changed resource, or for some resources it ca
 
 
 - self link - common to all resources.
-    
+ 
 - next link - the URL to which the client should send the next P-GET.
-    
+ 
 - sender array - each sender in the array contains an array of events that were sent by that sender.
-    
+ 
 The following is an example event response and an explanation. 
 
 The _links property contains a self link and a next link.
 
-The sender array has two elements - a [communication (UCWA)](communication_ref.md) resource (mostly omitted), and a[conversation (UCWA)](conversation_ref.md) resource.
+The sender array has two elements - a [communication](communication_ref.md) resource (mostly omitted), and a [conversation](conversation_ref.md) resource.
 
-The events array under conversation contains two elements. The first of these events indicates that a [participant (UCWA)](participant_ref.md) has been added to the conversation. The second event here indicates that the[messaging (UCWA)](messaging_ref.md) resource has been updated, so that the messaging modality is now in the Connecting state.
+The events array under conversation contains two elements. The first of these events indicates that a [participant](participant_ref.md) has been added to the conversation. The second event here indicates that the [messaging](messaging_ref.md) resource has been updated, so that the messaging modality is now in the Connecting state.
 
 
 
 
 ```
 {
-  "_links":{
-    "self":{"href":"/ucwa/oauth/v1/applications/102/events?ack=2"},
-    "next":{"href":"/ucwa/oauth/v1/applications/102/events?ack=3"}
-  },
-  "sender":[
-    {
-      "rel":"communication",
-      ...
-    },
-    {
-      "rel":"conversation",
-      "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1",
-      "events":[
-        {
-          "link":{
-            "rel":"localParticipant",
-            "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/participants/johndoe@contoso.com",
-            "title":"John Doe"
-          },
-          "_embedded":{
-            "localParticipant":{
-              "sourceNetwork":"SameEnterprise",
-              "anonymous":false,
-              "name":"John Doe",
-              "uri":"sip:johndoe@contoso.com",
-              "_links":{
-                "self":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/participants/johndoe@contoso.com"},
-                "conversation":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1"},
-                "me":{"href":"/ucwa/oauth/v1/applications/102/me"}
-              },
-              "rel":"participant"
-            }
-          },
-          "type":"added"
-        },
-        {
-          "link":{
-            "rel":"messaging",
-            "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/messaging"
-           },
-           "_embedded":{
-             "messaging":{
-               "state":"Connecting",
-               "_links":{
-                 "self":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/messaging"},
-                 ...
-               }
-               "rel":"messaging"
-             }
-           },
-           "type":"updated"
-         },
-         {
-           ...
-         }
-       ]
-     }
-  ]
+ "_links":{
+ "self":{"href":"/ucwa/oauth/v1/applications/102/events?ack=2"},
+ "next":{"href":"/ucwa/oauth/v1/applications/102/events?ack=3"}
+ },
+ "sender": [
+ {
+ "rel":"communication",
+ ...
+ },
+ {
+ "rel":"conversation",
+ "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1",
+ "events": [
+ {
+ "link":{
+ "rel":"localParticipant",
+ "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/participants/johndoe@contoso.com",
+ "title":"John Doe"
+ },
+ "_embedded":{
+ "localParticipant":{
+ "sourceNetwork":"SameEnterprise",
+ "anonymous":false,
+ "name":"John Doe",
+ "uri":"sip:johndoe@contoso.com",
+ "_links":{
+ "self":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/participants/johndoe@contoso.com"},
+ "conversation":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1"},
+ "me":{"href":"/ucwa/oauth/v1/applications/102/me"}
+ },
+ "rel":"participant"
+ }
+ },
+ "type":"added"
+ },
+ {
+ "link":{
+ "rel":"messaging",
+ "href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/messaging"
+ },
+ "_embedded":{
+ "messaging":{
+ "state":"Connecting",
+ "_links":{
+ "self":{"href":"/ucwa/oauth/v1/applications/102/communication/conversations/21a1/messaging"},
+ ...
+ }
+ "rel":"messaging"
+ }
+ },
+ "type":"updated"
+ },
+ {
+ ...
+ }
+ ]
+ }
+ ]
 }
 
 ```

@@ -1,17 +1,17 @@
 
-# enableAudienceMessaging (UCWA)
+# enableAudienceMessaging 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Enables the [messaging (UCWA)](messaging_ref.md) modality for all members of a[conversation (UCWA)](conversation_ref.md). 
+Enables the [messaging](messaging_ref.md) modality for all members of a [conversation](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -49,7 +49,7 @@ None
 
 ### POST
 
-Enables the [messaging (UCWA)](messaging_ref.md) modality for the entire conversation.
+Enables the [messaging](messaging_ref.md) modality for the entire conversation.
 
 
 #### Request body

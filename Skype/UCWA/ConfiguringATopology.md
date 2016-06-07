@@ -4,14 +4,14 @@ Learn how to configure a topology that supports .
 
  **Last modified:** April 20, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 ## Allowed domains
 
 
 ### What is a domain?
 
-Browser-based applications require server-side configuration before they will work. For security, an allowed list is maintained on the server to protect from malicious third-party domains (see [Cross-domain IFRAME](Cross_domainIFRAME.md) for more information). Domains, or origins, are defined in[RFC 6454](http://tools.ietf.org/html/rfc6454) as scheme, host, and port.
+Browser-based applications require server-side configuration before they will work. For security, an allowed list is maintained on the server to protect from malicious third-party domains (see [Cross-domain IFRAME](Cross_domainIFRAME.md) for more information). Domains, or origins, are defined in [RFC 6454](http://tools.ietf.org/html/rfc6454) as scheme, host, and port.
 
 
 
@@ -24,13 +24,13 @@ According to the definition, all three of the following are different:
 
 
 - http://contoso.com
-    
+ 
 - http://contoso.com:8080
-    
+ 
 - https://contoso.com
-    
+ 
 - https://app.contoso.com
-    
+ 
 Given these nuances, an admin must be careful when editing the allowed list.
 
 The samples will indicate that the host domain is not on the allowed list by alerting the following string, sent by the server in the headers of a 403 response:
@@ -64,7 +64,7 @@ Set-CsWebServiceConfiguration -Identity "{YOUR_IDENTITY}" -CrossDomainAuthorizat
 
 ```
 
-If you do not know the value of  **Identity** for your , you can run the following command to see all identities configured on the server:
+If you do not know the value of **Identity** for your , you can run the following command to see all identities configured on the server:
 
 
 

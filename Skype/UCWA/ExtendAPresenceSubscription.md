@@ -4,62 +4,62 @@ Extend a presence subscription beyond its normal expiration time.
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
-A presence subscription has an expiration time set by the  **duration** parameter when the subscription is created. When the subscription is about to expire, a **presenceSubscription** **updated** event is sent on the event channel. Upon receiving such an event, the application can choose to extend, ignore, or delete the subscription. When ignored, the subscription will expire when its lifetime reaches the preset **duration** value. To delete a presence subscription, see[Delete a presence subscription](DeleteAPresenceSubscription.md). 
+A presence subscription has an expiration time set by the **duration** parameter when the subscription is created. When the subscription is about to expire, a **presenceSubscription** **updated** event is sent on the event channel. Upon receiving such an event, the application can choose to extend, ignore, or delete the subscription. When ignored, the subscription will expire when its lifetime reaches the preset **duration** value. To delete a presence subscription, see [Delete a presence subscription](DeleteAPresenceSubscription.md). 
 
 To extend the subscription, follow these steps:
-The steps here assume that you have already created an application and have received a response that contains the href for an [application (UCWA)](application_ref.md) resource. For more information, see[Create an application](CreateAnApplication.md).
+The steps here assume that you have already created an application and have received a response that contains the href for an [application](application_ref.md) resource. For more information, see [Create an application](CreateAnApplication.md).
 
-1. Parse the  **presenceSubscription** **updated** event.
-    
-    Parse the  **self** link of the **presenceSubscription** **updated** event (as shown below) to obtain the URL of the resource representing the presence subscription.
-    
+1. Parse the **presenceSubscription** **updated** event.
+ 
+ Parse the **self** link of the **presenceSubscription** **updated** event (as shown below) to obtain the URL of the resource representing the presence subscription.
+ 
 
 
-  ```
-  {
-   "_links":{
-      "self":{"href":"/ucwa/v1/applications/101/events?ack=10"},
-      "next":{"href":"/ucwa/v1/applications/101/events?ack=11"}
-    },
-    "sender":[
-    {
-      "rel":"people",
-      "href":"/ucwa/v1/applications/101/people",
-      "events":[
-         {
-            "link":{
-              "rel":"presenceSubscription",
-              "href":"/ucwa/v1/applications/101/people/presenceSubscriptions/97b6bd66"
-            },
-            "_embedded":{
-               "presenceSubscription":{
-                  "id":"97b6bd66",
-                  "_links":{
-                     "self":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptions/97b6bd66"},
-                     "memberships":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"},
-                     "addToPresenceSubscription":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"}
-                  },
-                  "rel":"presenceSubscription"
-               }
-            },
-            "type":"updated"
-          }
-       ]
-    }]
+ ```
+ {
+ "_links":{
+ "self":{"href":"/ucwa/v1/applications/101/events?ack=10"},
+ "next":{"href":"/ucwa/v1/applications/101/events?ack=11"}
+ },
+ "sender": [
+ {
+ "rel":"people",
+ "href":"/ucwa/v1/applications/101/people",
+ "events": [
+ {
+ "link":{
+ "rel":"presenceSubscription",
+ "href":"/ucwa/v1/applications/101/people/presenceSubscriptions/97b6bd66"
+ },
+ "_embedded":{
+ "presenceSubscription":{
+ "id":"97b6bd66",
+ "_links":{
+ "self":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptions/97b6bd66"},
+ "memberships":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"},
+ "addToPresenceSubscription":{"href":"/ucwa/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"}
+ },
+ "rel":"presenceSubscription"
+ }
+ },
+ "type":"updated"
+ }
+ ]
+ }]
 }
 
-  ```
+ ```
 
-2. Send a POST request on the  **presenceSubscription** resource with a new **duration** value.
-    
-    Specify the new  **duration** value in the query parameter. An example of the HTTP request is shown as follows:
-    
+2. Send a POST request on the **presenceSubscription** resource with a new **duration** value.
+ 
+ Specify the new **duration** value in the query parameter. An example of the HTTP request is shown as follows:
+ 
 
 
-  ```
-  POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/people/presenceSubscriptions/97b6bd66?duration=11 HTTP/1.1
+ ```
+ POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/people/presenceSubscriptions/97b6bd66?duration=11 HTTP/1.1
 Authorization: Bearer cwt=AAEBHAEFAAAAAAAFFQAAAIxVppb
 Accept: application/json
 X-Ms-Origin: http://localhost
@@ -73,16 +73,16 @@ Content-Length: 0
 DNT: 1
 Connection: Keep-Alive
 Cache-Control: no-cache
-  ```
+ ```
 
 3. Process the response from the POST request above.
-    
-    If the request is successful, a 200 OK response will be returned. An example is shown as follows:
-    
+ 
+ If the request is successful, a 200 OK response will be returned. An example is shown as follows:
+ 
 
 
-  ```
-  HTTP/1.1 200 OK
+ ```
+ HTTP/1.1 200 OK
 Connection: Keep-Alive
 Content-Length: 541
 Date: Fri, 25 Jan 2013 19:38:41 GMT
@@ -94,24 +94,24 @@ X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
 X-Powered-By: ASP.NET
 
 {
-  "id":"97b6bd66",
-  "_links":{
-     "self":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptions/97b6bd66"},
-     "memberships":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"},
-     "addToPresenceSubscription":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"}
-  },
-  "rel":"presenceSubscription"
+ "id":"97b6bd66",
+ "_links":{
+ "self":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptions/97b6bd66"},
+ "memberships":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"},
+ "addToPresenceSubscription":{"href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=97b6bd66"}
+ },
+ "rel":"presenceSubscription"
 }
 
-  ```
+ ```
 
 
-    If the presence subscription has expired when the extension request is submitted, a 404 Not Found response will be returned.
-    
+ If the presence subscription has expired when the extension request is submitted, a 404 Not Found response will be returned.
+ 
 
 
-  ```
-  HTTP/1.1 404 Not Found
+ ```
+ HTTP/1.1 404 Not Found
 Connection: Keep-Alive
 Content-Length: 148
 Expires: -1
@@ -125,13 +125,13 @@ X-MS-Server-Fqdn: W15-LYNC-SE1.metio.ms
 X-Powered-By: ASP.NET
 
 {
-   "code":"NotFound",
-   "subcode":"ApplicationNotFound",
-   "message":"An error occurred. Please retry. If the problem persists, contact your support team."
+ "code":"NotFound",
+ "subcode":"ApplicationNotFound",
+ "message":"An error occurred. Please retry. If the problem persists, contact your support team."
 }
 
-  ```
+ ```
 
 
-    In this case, the application should recreate the subscription. See [Subscribe to the presence of a group of contacts](SubscribeToThePresenceOfAGroupOfContacts.md) or[Subscribe to the presence of selected contacts](SubscribeToThePresenceOfSelectedContacts.md) for information on how to create the presenceSubscription resource, depending on how the original request was created.
-    
+ In this case, the application should recreate the subscription. See [Subscribe to the presence of a group of contacts](SubscribeToThePresenceOfAGroupOfContacts.md) or [Subscribe to the presence of selected contacts](SubscribeToThePresenceOfSelectedContacts.md) for information on how to create the presenceSubscription resource, depending on how the original request was created.
+ 

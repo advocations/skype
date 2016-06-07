@@ -1,23 +1,23 @@
 
 # Application dashboard
-The  **application** resource serves as a kind of dashboard that represents a single application of the user.
+The **application** resource serves as a kind of dashboard that represents a single application of the user.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Resource representation](#sectionSection0)
-[Creating an application](#sectionSection1)
-[Application lifetime](#sectionSection2)
+ [Resource representation](#sectionSection0)
+ [Creating an application](#sectionSection1)
+ [Application lifetime](#sectionSection2)
 
 
-An [application (UCWA)](application_ref.md) resource represents a single application on one of a user's devices or browsers. Based on the inputs provided during application creation, a unique **application** resource is created by the to represent the user in the context of an application.
+An [application](application_ref.md) resource represents a single application on one of a user's devices or browsers. Based on the inputs provided during application creation, a unique **application** resource is created by the to represent the user in the context of an application.
 
 ## Resource representation
 <a name="sectionSection0"> </a>
 
-The following table contains a representation of the  **application** resource.
+The following table contains a representation of the **application** resource.
 
 
 
@@ -31,17 +31,17 @@ The following table contains a representation of the  **application** resource.
 
 **Links**
 ```
-"self" : {      
-  "href" : "/ucwa/v1/applications/105"    
+"self" : { 
+ "href" : "/ucwa/v1/applications/105" 
 },
 "batch" : {
-  "href" : "/ucwa/v1/applications/105/batch"
+ "href" : "/ucwa/v1/applications/105/batch"
 },
 "events" : {
-  "href" : "/ucwa/v1/applications/105/events"
+ "href" : "/ucwa/v1/applications/105/events"
 },
 "policies" : {
-  "href" : "/ucwa/v1/applications/105/policies"
+ "href" : "/ucwa/v1/applications/105/policies"
 }
 ```
 
@@ -56,21 +56,21 @@ The following table contains a representation of the  **application** resource.
 ```
 
 > Note:
-The  **application** resource can be thought of as a dashboard that shows the communication and collaboration capabilities available to a specific application on a specific server. The embedded resources within an application, shown in the following table, provide a view of these capabilities. The **application** resource also contains links for performing operations in a batch, receiving asynchronous events, and fetching server policies.
+The **application** resource can be thought of as a dashboard that shows the communication and collaboration capabilities available to a specific application on a specific server. The embedded resources within an application, shown in the following table, provide a view of these capabilities. The **application** resource also contains links for performing operations in a batch, receiving asynchronous events, and fetching server policies.
 
 
 
 |**Embedded resources**|**Description**|
 |:-----|:-----|
-|[me (UCWA)](me_ref.md)|Represents the user. The  **me** resource is updated whenever the application becomes ready for incoming calls and leaves lurker mode.|
-|[people (UCWA)](people_ref.md)|A hub for the people with whom the logged-on user can communicate, using . The  **people** resource provides access to resources that enable the logged-on user to find, organize, communicate with, and subscribe to the presence of other people.|
-|[onlineMeetings (UCWA)](onlineMeetings_ref.md)|Represents the dashboard for viewing and scheduling online meetings. The  **onlineMeetings** resource exposes the meetings and settings available to the user, including the ability to create a new[myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md).|
-|[communication (UCWA)](communication_ref.md)|Represents the dashboard for communication capabilities. The  **communication** resource exposes the modalities and settings available to the user, including the ability to join an[onlineMeeting (UCWA)](onlineMeeting_ref.md) or create an ad-hoc **onlineMeeting**.|
+| [me](me_ref.md)|Represents the user. The **me** resource is updated whenever the application becomes ready for incoming calls and leaves lurker mode.|
+| [people](people_ref.md)|A hub for the people with whom the logged-on user can communicate, using . The **people** resource provides access to resources that enable the logged-on user to find, organize, communicate with, and subscribe to the presence of other people.|
+| [onlineMeetings](onlineMeetings_ref.md)|Represents the dashboard for viewing and scheduling online meetings. The **onlineMeetings** resource exposes the meetings and settings available to the user, including the ability to create a new [myOnlineMeeting](myOnlineMeeting_ref.md).|
+| [communication](communication_ref.md)|Represents the dashboard for communication capabilities. The **communication** resource exposes the modalities and settings available to the user, including the ability to join an [onlineMeeting](onlineMeeting_ref.md) or create an ad-hoc **onlineMeeting**.|
 
 ## Creating an application
 <a name="sectionSection1"> </a>
 
-An application is created by performing a POST on the [applications (UCWA)](applications_ref.md) resource. As a result of this operation the **application** resource is returned. The application can be fetched at any time by doing a GET on the **application** resource. When the user exits the application, the client must delete the application by sending a DELETE request on the **application** resource.
+An application is created by performing a POST on the [applications](applications_ref.md) resource. As a result of this operation the **application** resource is returned. The application can be fetched at any time by doing a GET on the **application** resource. When the user exits the application, the client must delete the application by sending a DELETE request on the **application** resource.
 
 
 ## Application lifetime

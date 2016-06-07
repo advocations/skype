@@ -4,16 +4,16 @@ AutoDiscovery.js is a JavaScript library that helps an application find the home
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
-Use the functions in the AutoDiscovery module to discover the correct location of the AutoDiscover service and set up a  **Transport** object with the correct final domain. For more information, see[Transport library](TransportLibrary.md).
+Use the functions in the AutoDiscovery module to discover the correct location of the AutoDiscover service and set up a **Transport** object with the correct final domain. For more information, see [Transport library](TransportLibrary.md).
 
 
 ## Create an AutoDiscovery object
 
 
 
-The  **AutoDiscovery** constructor has one parameter: a **Transport** object. Before an **Autodiscovery** object can be created, an object representing the parameter must be created.
+The **AutoDiscovery** constructor has one parameter: a **Transport** object. Before an **Autodiscovery** object can be created, an object representing the parameter must be created.
 
 
 
@@ -31,7 +31,7 @@ The variables declared in the preceding example are used in subsequent examples 
 
 ## startDiscovery(domain, container, callback)
 
-The  **startDiscovery** function is the starting point for auto-discovery.
+The **startDiscovery** function is the starting point for auto-discovery.
 
 
 
@@ -56,11 +56,11 @@ startDiscovery(domain, container, callback)
 
 ```
 function handleResult(data) {
-    if (data !== null) {
-        // Can start authentication.
-    } else {
-        // Something went wrong as it was unable to find AutoDiscoverService root.
-    }
+ if (data !== null) {
+ // Can start authentication.
+ } else {
+ // Something went wrong as it was unable to find AutoDiscoverService root.
+ }
 }
 AutoDiscovery.startDiscovery(domain, container, handleResult);
 ```
@@ -68,5 +68,5 @@ AutoDiscovery.startDiscovery(domain, container, handleResult);
 
 ### Remarks
 
-The  **startDiscovery** function stores the supplied callback, and begins the internal processing of auto-discovery.
+The **startDiscovery** function stores the supplied callback, and begins the internal processing of auto-discovery.
 

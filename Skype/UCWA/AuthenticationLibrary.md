@@ -4,15 +4,15 @@ Authentication.js is a JavaScript library that helps authenticate the user.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Create an Authentication object](#sectionSection0)
-[destroyApplication(callback)](#sectionSection1)
-[isAuthenticated()](#sectionSection2)
-[setAnonymousJoinUri(conferenceUri)](#sectionSection3)
-[setCredentials(username, password)](#sectionSection4)
-[start(link, application, callback)](#sectionSection5)
+ [Create an Authentication object](#sectionSection0)
+ [destroyApplication(callback)](#sectionSection1)
+ [isAuthenticated()](#sectionSection2)
+ [setAnonymousJoinUri(conferenceUri)](#sectionSection3)
+ [setCredentials(username, password)](#sectionSection4)
+ [start(link, application, callback)](#sectionSection5)
 
 
 The Authentication module is responsible for responding to a challenge for credentials during auto-discovery.
@@ -21,7 +21,7 @@ This module provides several functions that a application can use to authenticat
 ## Create an Authentication object
 <a name="sectionSection0"> </a>
 
-The  **Authentication** constructor has two parameters: a **Cache** object and a **Transport** object. For more information, see[Cache library](CacheLibrary.md) and[Transport library](TransportLibrary.md). Before an  **Authentication** object can be created, objects representing the two parameters must be created.
+The **Authentication** constructor has two parameters: a **Cache** object and a **Transport** object. For more information, see [Cache library](CacheLibrary.md) and [Transport library](TransportLibrary.md). Before an **Authentication** object can be created, objects representing the two parameters must be created.
 
 
 ```
@@ -38,7 +38,7 @@ The variables declared in the preceding example are used in subsequent examples 
 ## destroyApplication(callback)
 <a name="sectionSection1"> </a>
 
-The  **destroyApplication** function attempts to destroy the currently active UCWA application.
+The **destroyApplication** function attempts to destroy the currently active UCWA application.
 
 
 
@@ -63,11 +63,11 @@ destroyApplication(callback)
 Authentication.destroyApplication(handleStatus);
 
 function handleStatus(isAuthenticated, data) {
-    if (data &amp;&amp; data.statusText &amp;&amp; data.statusText === "success") {
-        // Application is now online...
-    } else {
-        // Application is now offline or successfully destroyed...
-    }
+ if (data &amp;&amp; data.statusText &amp;&amp; data.statusText === "success") {
+ // Application is now online...
+ } else {
+ // Application is now offline or successfully destroyed...
+ }
 }
 ```
 
@@ -89,7 +89,7 @@ function callback( /* bool */ authenticatedState, /* obj */ responseData )
 ## isAuthenticated()
 <a name="sectionSection2"> </a>
 
-The  **isAuthenticated** function determines whether application creation and user authentication have succeeded.
+The **isAuthenticated** function determines whether application creation and user authentication have succeeded.
 
  **Returns**: Boolean indicating whether the user is authenticated.
 
@@ -109,7 +109,7 @@ isAuthenticated()
 
 ```
 if (Authentication.isAuthenticated()) {
-    alert("Application is online");
+ alert("Application is online");
 }
 ```
 
@@ -117,7 +117,7 @@ if (Authentication.isAuthenticated()) {
 ## setAnonymousJoinUri(conferenceUri)
 <a name="sectionSection3"> </a>
 
-The  **setAnonymousJoinUri** function sets an internal variable with the conference URI and performs a check to determine whether the conference URI is valid. Using a conference URI a user can join a conference anonymously.
+The **setAnonymousJoinUri** function sets an internal variable with the conference URI and performs a check to determine whether the conference URI is valid. Using a conference URI a user can join a conference anonymously.
 
 
 
@@ -147,13 +147,13 @@ var result = Authentication.setAnonymousJoinUri(conferenceUri);
 
 ### Remarks
 
-A conference URI should have the following form:  `sip:john@contoso.com;gruu;opaque=app:conf:focus:id:G03W98W4`
+A conference URI should have the following form: `sip:john@contoso.com;gruu;opaque=app:conf:focus:id:G03W98W4`
 
 
 ## setCredentials(username, password)
 <a name="sectionSection4"> </a>
 
-The  **setCredentials** function sets the user credentials to be used by authentication.
+The **setCredentials** function sets the user credentials to be used by authentication.
 
 
 
@@ -183,13 +183,13 @@ Authentication.setCredentials("bob@contoso.com", "A.B.#.123!");
 ## start(link, application, callback)
 <a name="sectionSection5"> </a>
 
-The  **start** function starts the authentication process.
+The **start** function starts the authentication process.
 
 
 
 |**Parameter**|**Description**|
 |:-----|:-----|
-|link|The URL of the site where authentication is taking place, which is the AutodiscoverService root location for the user's domain, such as  `https://lyncweb.contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user?originalDomain=contoso.com`.|
+|link|The URL of the site where authentication is taking place, which is the AutodiscoverService root location for the user's domain, such as `https://lyncweb.contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user?originalDomain=contoso.com`.|
 |application|The request payload for the application to be created.An example application is shown after this table |
 |callback|Callback to execute after authentication completes.|
  **Syntax**
@@ -208,12 +208,12 @@ start(link, application, callback)
 
 ```
 var Application = {
-    userAgent: "UCWA Samples",
-    endpointId: this.GeneralHelper.generateUUID(),
-    culture: "en-US"
+ userAgent: "UCWA Samples",
+ endpointId: this.GeneralHelper.generateUUID(),
+ culture: "en-US"
 };
 Authentication.start(link, Application, handleResult);
 ```
 
-After the  **start** function is called, it stores the application and callback and begins handling state logic.
+After the **start** function is called, it stores the application and callback and begins handling state logic.
 

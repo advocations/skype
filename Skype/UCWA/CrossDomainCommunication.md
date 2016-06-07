@@ -4,7 +4,7 @@ Learn how to enable cross-domain communication for web applications.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 Browser-based web applications that are not loaded from the same domain as the service are restricted from interacting with the API due to the same-origin policy of most browsers (see [RFC 6454 - The Web Origin Concept](http://tools.ietf.org/html/rfc6454)). To enable cross-domain communication for these web applications, exposes an HTML iframe that allows web applications to securely interact with resources that are located on another domain. 
 

@@ -1,17 +1,17 @@
 
-# phoneDialInInformation (UCWA)
+# phoneDialInInformation 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents phone access information for an [onlineMeeting (UCWA)](onlineMeeting_ref.md). 
+Represents phone access information for an [onlineMeeting](onlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -57,7 +57,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|dialInRegion|Represents access information for phone users who wish to join an [onlineMeeting (UCWA)](onlineMeeting_ref.md).|
+|dialInRegion|Represents access information for phone users who wish to join an [onlineMeeting](onlineMeeting_ref.md).|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -67,7 +67,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the phone access information for an [onlineMeeting (UCWA)](onlineMeeting_ref.md).
+Returns a representation of the phone access information for an [onlineMeeting](onlineMeeting_ref.md).
 
 
 #### Request body
@@ -123,40 +123,40 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 633
 										{
-  "rel" : "phoneDialInInformation",
-  "conferenceId" : "12983487",
-  "defaultRegion" : "Redmond",
-  "externalDirectoryUri" : "https://dial.contoso.com",
-  "internalDirectoryUri" : "https://dial.contoso.com",
-  "isAudioConferenceProviderEnabled" : false,
-  "participantPassCode" : "samplevalue",
-  "tollFreeNumbers" : [
-    "samplevalue"
-  ],
-  "tollNumber" : "samplevalue",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation"
-    }
-  },
-  "_embedded" : {
-    "dialInRegion" : [
-      {
-        "rel" : "dialInRegion",
-        "languages" : [
-          "en-US",
-          "fr-FR"
-        ],
-        "name" : "Redmond",
-        "number" : "tel:+14255550001",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation/505"
-          }
-        }
-      }
-    ]
-  }
+ "rel" : "phoneDialInInformation",
+ "conferenceId" : "12983487",
+ "defaultRegion" : "Redmond",
+ "externalDirectoryUri" : "https://dial.contoso.com",
+ "internalDirectoryUri" : "https://dial.contoso.com",
+ "isAudioConferenceProviderEnabled" : false,
+ "participantPassCode" : "samplevalue",
+ "tollFreeNumbers" : [
+ "samplevalue"
+ ],
+ "tollNumber" : "samplevalue",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation"
+ }
+ },
+ "_embedded" : {
+ "dialInRegion" : [
+ {
+ "rel" : "dialInRegion",
+ "languages" : [
+ "en-US",
+ "fr-FR"
+ ],
+ "name" : "Redmond",
+ "number" : "tel:+14255550001",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation/505"
+ }
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -186,29 +186,29 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1086
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;phoneDialInInformation&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/phoneDialInInformation&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;phoneDialInInformation&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;conferenceId&amp;quot;&amp;gt;12983487&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;defaultRegion&amp;quot;&amp;gt;Redmond&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;externalDirectoryUri&amp;quot;&amp;gt;https://dial.contoso.com&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;internalDirectoryUri&amp;quot;&amp;gt;https://dial.contoso.com&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;isAudioConferenceProviderEnabled&amp;quot;&amp;gt;False&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;participantPassCode&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;tollFreeNumbers&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;samplevalue&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;property name=&amp;quot;tollNumber&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;dialInRegion&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/phoneDialInInformation/505&amp;quot;&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;dialInRegion&amp;lt;/property&amp;gt;
-    &amp;lt;propertyList name=&amp;quot;languages&amp;quot;&amp;gt;
-      &amp;lt;item&amp;gt;en-US&amp;lt;/item&amp;gt;
-      &amp;lt;item&amp;gt;fr-FR&amp;lt;/item&amp;gt;
-    &amp;lt;/propertyList&amp;gt;
-    &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;Redmond&amp;lt;/property&amp;gt;
-    &amp;lt;property name=&amp;quot;number&amp;quot;&amp;gt;tel:+14255550001&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="phoneDialInInformation" href="//v1/applications/833/onlineMeetings/phoneDialInInformation" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">phoneDialInInformation</property>
+ <property name="conferenceId">12983487</property>
+ <property name="defaultRegion">Redmond</property>
+ <property name="externalDirectoryUri">https://dial.contoso.com</property>
+ <property name="internalDirectoryUri">https://dial.contoso.com</property>
+ <property name="isAudioConferenceProviderEnabled">False</property>
+ <property name="participantPassCode">samplevalue</property>
+ <propertyList name="tollFreeNumbers">
+ <item>samplevalue</item>
+ </propertyList>
+ <property name="tollNumber">samplevalue</property>
+ <resource rel="dialInRegion" href="//v1/applications/833/onlineMeetings/phoneDialInInformation/505">
+ <property name="rel">dialInRegion</property>
+ <propertyList name="languages">
+ <item>en-US</item>
+ <item>fr-FR</item>
+ </propertyList>
+ <property name="name">Redmond</property>
+ <property name="number">tel:+14255550001</property>
+ </resource>
+</resource>
 									
 ```
 

@@ -5,7 +5,7 @@
 
  **Last modified:** April 09, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  enables developers to make their Enterprise applications and intranets more lively and connected to business contacts.
 
@@ -17,6 +17,6 @@
 
 
 - [UCWA 2.0 general reference](UCWA2_0GeneralReference.md)
-    
+ 
 - [UCWA 2.0 API reference](UCWA2_0APIReference.md)
-    
+ 

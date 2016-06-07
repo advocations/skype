@@ -1,17 +1,17 @@
 
-# startMessaging (UCWA)
+# startMessaging 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Starts a [messagingInvitation (UCWA)](messagingInvitation_ref.md) that adds the[messaging (UCWA)](messaging_ref.md) modality to a new[conversation (UCWA)](conversation_ref.md). 
+Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the [messaging](messaging_ref.md) modality to a new [conversation](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
- The startMessaging resource can be used to create a new peer-to-peer[messaging (UCWA)](messaging_ref.md)[conversation (UCWA)](conversation_ref.md) with a[contact (UCWA)](contact_ref.md). 
+ The startMessaging resource can be used to create a new peer-to-peer [messaging](messaging_ref.md) [conversation](conversation_ref.md) with a [contact](contact_ref.md). 
 
 
 ### Properties
@@ -49,7 +49,7 @@ None
 
 ### POST
 
-Starts a [messagingInvitation (UCWA)](messagingInvitation_ref.md) that adds the instant messaging modality to a new[conversation (UCWA)](conversation_ref.md).
+Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant messaging modality to a new [conversation](conversation_ref.md).
 
 
 #### Query parameters
@@ -73,7 +73,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[messagingInvitation (UCWA)](messagingInvitation_ref.md)|Represents an invitation to a [conversation (UCWA)](conversation_ref.md) for the[messaging (UCWA)](messaging_ref.md) modality.|
+| [messagingInvitation](messagingInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
 
 #### Synchronous errors
 
@@ -104,16 +104,16 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 										Content-Type: application/json
 										Content-Length: 257
 										{
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "to" : "sip:john@contoso.com",
-  "importance" : "Urgent",
-  "subject" : "Skype for Business",
-  "threadId" : "292e0aaef36c426a97757f43dda19d06",
-  "_links" : {
-    "message" : {
-      "href" : "data:text/plain;base64,somebase64encodedmessage"
-    }
-  }
+ "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+ "to" : "sip:john@contoso.com",
+ "importance" : "Urgent",
+ "subject" : "Skype for Business",
+ "threadId" : "292e0aaef36c426a97757f43dda19d06",
+ "_links" : {
+ "message" : {
+ "href" : "data:text/plain;base64,somebase64encodedmessage"
+ }
+ }
 }
 									
 ```
@@ -143,14 +143,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Host: fe1.contoso.com
 										Content-Type: application/xml
 										Content-Length: 398
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;to&amp;quot;&amp;gt;sip:john@contoso.com&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;importance&amp;quot;&amp;gt;Normal&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Skype for Business&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;threadId&amp;quot;&amp;gt;292e0aaef36c426a97757f43dda19d06&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+ <property name="to">sip:john@contoso.com</property>
+ <property name="importance">Normal</property>
+ <property name="subject">Skype for Business</property>
+ <property name="threadId">292e0aaef36c426a97757f43dda19d06</property>
+</input>
 									
 ```
 

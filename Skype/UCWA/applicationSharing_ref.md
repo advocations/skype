@@ -1,18 +1,18 @@
 
-# applicationSharing (UCWA)
+# applicationSharing 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
-Represents the application sharing modality in the corresponding [conversation (UCWA)](conversation_ref.md). 
+Represents the application sharing modality in the corresponding [conversation](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -51,7 +51,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|applicationSharer|Represents the participant in a [conversation (UCWA)](conversation_ref.md) who is currently sharing a program or her screen.|
+|applicationSharer|Represents the participant in a [conversation](conversation_ref.md) who is currently sharing a program or her screen.|
 |conversation|Represents the local participants perspective on a multi-modal, multi-party communication.|
 
 ## Events
@@ -79,29 +79,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "applicationSharing",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/applicationSharing"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "applicationSharing",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/applicationSharing"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -115,7 +115,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 ### GET
 
-Returns the application sharing modality in the corresponding [conversation (UCWA)](conversation_ref.md).
+Returns the application sharing modality in the corresponding [conversation](conversation_ref.md).
 
 
 #### Request body
@@ -171,19 +171,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 355
 										{
-  "rel" : "applicationSharing",
-  "state" : "Transferring",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/applicationSharing"
-    },
-    "applicationSharer" : {
-      "href" : "//v1/applications/833/communication/conversations/802/applicationSharing/applicationSharer"
-    },
-    "conversation" : {
-      "href" : "//v1/applications/833/communication/conversations/802"
-    }
-  }
+ "rel" : "applicationSharing",
+ "state" : "Transferring",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversations/802/applicationSharing"
+ },
+ "applicationSharer" : {
+ "href" : "//v1/applications/833/communication/conversations/802/applicationSharing/applicationSharer"
+ },
+ "conversation" : {
+ "href" : "//v1/applications/833/communication/conversations/802"
+ }
+ }
 }
 									
 ```
@@ -213,13 +213,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 532
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;applicationSharing&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/applicationSharing&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;applicationSharer&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/applicationSharing/applicationSharer&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;applicationSharing&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Transferring&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="applicationSharing" href="//v1/applications/833/communication/conversations/802/applicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="applicationSharer" href="//v1/applications/833/communication/conversations/802/applicationSharing/applicationSharer" />
+ <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+ <property name="rel">applicationSharing</property>
+ <property name="state">Transferring</property>
+</resource>
 									
 ```
 
