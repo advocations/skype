@@ -6,16 +6,6 @@ Transport.js is a JavaScript library that helps make HTTP requests and assists w
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create a Transport object](#sectionSection0)
- [clientRequest(request)](#sectionSection1)
- [getDomain()](#sectionSection2)
- [injectFrame(xframe, container, callback)](#sectionSection3)
- [setAuthorization(accessToken, tokenType)](#sectionSection4)
- [setElement(element, xframe)](#sectionSection5)
- [setRequestCallbacks(callbacks)](#sectionSection6)
-
-
 Use the functions in the Transport library to issue HTTP requests to a remote location using iframes and HTML 5's **postMessage** function. It also handles cases where the domain changes by injecting a new iframe into a container element, if necessary.
 
 ## Create a Transport object
