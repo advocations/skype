@@ -4,15 +4,6 @@ Learn how a online application authenticates a user with Azure AD to access Skyp
 
  **Last modified:** March 22, 2016
 
- **In this article**
- [Registering an application in Azure AD](#sectionSection0)
- [Sign-in](#sectionSection1)
- [Autodiscovery](#sectionSection2)
- [Requesting an access token using implicit grant flow](#sectionSection3)
- [Resending an autodiscovery request with the bearer token](#sectionSection4)
- [Access the applications resource](#sectionSection5)
-
-
 In order for your application to access Skype for Business resources (such as messaging or presence), it needs to obtain an access token using implicit grant flow. This token gives the application permission to access the resource.
 
 

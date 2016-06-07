@@ -6,12 +6,6 @@ Batch.js is a JavaScript library that helps combine multiple HTTP requests into 
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create a Batch object](#sectionSection0)
- [processBatch()](#sectionSection1)
- [queueRequest(request)](#sectionSection2)
-
-
 Use the functions in the Batch library to package multiple HTTP requests into a single request using a Transport object. For more information, see [Transport library](TransportLibrary.md). 
 Batch.js has a queuing mechanism that stores up to 20 requests before sending. The queue can also be sent as a result of a timer elapsing. The timer defaults to 3 minutes.
 

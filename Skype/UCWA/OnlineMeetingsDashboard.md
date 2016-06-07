@@ -6,17 +6,6 @@ The **onlineMeetings** resource acts as a dashboard that represents the ability 
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [myOnlineMeetings](#sectionSection1)
- [myAssignedOnlineMeeting](#sectionSection2)
- [onlineMeetingDefaultValues](#sectionSection3)
- [onlineMeetingEligibleValues](#sectionSection4)
- [onlineMeetingPolicies](#sectionSection5)
- [phoneDialInInformation](#sectionSection6)
- [onlineMeetingInvitationCustomization](#sectionSection7)
-
-
 Users can create and manage online meetings in by using the [onlineMeetings](onlineMeetings_ref.md) resource. This is the dashboard to view, schedule and manage online meetings.
 
 ## Resource representation

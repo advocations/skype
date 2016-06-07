@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 A hub for the people with whom the logged-on user can communicate, using Skype for Business. 
 
 ## Web Link

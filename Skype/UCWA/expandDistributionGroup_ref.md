@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Expands a distribution group and returns the set of [contact](contact_ref.md) resources it contains.
 
 ## Web Link

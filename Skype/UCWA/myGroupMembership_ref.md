@@ -3,14 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Represents the [group](group_ref.md) membership of a single [contact](contact_ref.md). 
 
 ## Web Link

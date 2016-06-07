@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Sets the user's typing status in a [conversation](conversation_ref.md). 
 
 ## Web Link

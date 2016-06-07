@@ -6,12 +6,6 @@ OperationResource.js is a JavaScript library that helps start operations whose o
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create an OperationResource object](#sectionSection0)
- [startOperation(data, callbacks)](#sectionSection1)
- [stopOperation(id)](#sectionSection2)
-
-
 The OperationResource module simplifies the process of starting an operation resource in the event channel. Use the functions in this module to track event channel data based on href, resource, or everything.
 Some UCWA resources, such as [addMessaging](addMessaging_ref.md), [startMessaging](startMessaging_ref.md), [addPhoneAudio](addPhoneAudio_ref.md), [startPhoneAudio](startPhoneAudio_ref.md), [addParticipant](addParticipant_ref.md), [joinOnlineMeeting](joinOnlineMeeting_ref.md), and [startOnlineMeeting](startOnlineMeeting_ref.md), cause the server to create an operation resource that usually takes the form of an invitation. For more information, see [Operation resource](OperationResource.md). For example, the **addMessaging** and **startMessaging** resources cause the server to create a [messagingInvitation](messagingInvitation_ref.md) resource, and the **addParticipant** resource causes a [participantInvitation](participantInvitation_ref.md) resource to be sent.
 After the server creates the invitation, it sends it on the event channel. If a UCWA application has created a handler for this type of event, the application can process the invitation.

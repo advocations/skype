@@ -5,13 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 Represents a persistent, system-created group where a user's contacts are placed by default. 
 
 ## Web Link

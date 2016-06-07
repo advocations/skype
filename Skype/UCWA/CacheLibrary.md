@@ -6,16 +6,6 @@ Cache.js is a JavaScript library that helps store and retrieve frequently used r
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create a Cache object](#sectionSection0)
- [cacheLinks(data)](#sectionSection1)
- [findEmbeddedLinkInCache(target, resource)](#sectionSection2)
- [findLinkInCache(resource)](#sectionSection3)
- [findLinkInResource(rel, data)](#sectionSection4)
- [read(href)](#sectionSection5)
- [write(data)](#sectionSection6)
-
-
 Use the functions in the Cache library to read data from or write data to a cookie or to HTML 5 local storage.
 The cache has two parts:
 

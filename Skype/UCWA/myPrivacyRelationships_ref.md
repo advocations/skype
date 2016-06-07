@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Represents the various privacy relationships that the user maintains with his or her contacts. 
 
 ## Web Link

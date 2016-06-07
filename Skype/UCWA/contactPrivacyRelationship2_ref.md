@@ -3,13 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 Represents the privacy relationship between the user and a [contact](contact_ref.md). 
 
 

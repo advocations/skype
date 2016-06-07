@@ -6,15 +6,6 @@ Authentication.js is a JavaScript library that helps authenticate the user.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create an Authentication object](#sectionSection0)
- [destroyApplication(callback)](#sectionSection1)
- [isAuthenticated()](#sectionSection2)
- [setAnonymousJoinUri(conferenceUri)](#sectionSection3)
- [setCredentials(username, password)](#sectionSection4)
- [start(link, application, callback)](#sectionSection5)
-
-
 The Authentication module is responsible for responding to a challenge for credentials during auto-discovery.
 This module provides several functions that a application can use to authenticate the user on whose behalf the application is running.
 

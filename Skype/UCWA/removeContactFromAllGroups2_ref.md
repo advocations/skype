@@ -3,12 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Remove a contact from the buddy list (delete all the group memerbships that a particular contact belongs to) 
 
 

@@ -6,18 +6,6 @@ Learn about the core features of .
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Contacts and Groups Management](#sectionSection0)
- [Conversation History and Auto-Accept](#sectionSection1)
- [Two-party and multi-party IM](#sectionSection2)
- [Schedule an online meeting](#sectionSection3)
- [Join an online meeting](#sectionSection4)
- [Contact card](#sectionSection5)
- [Phone audio](#sectionSection6)
- [Anonymous access](#sectionSection7)
-
-
-
 ## Contacts and Groups Management
 <a name="sectionSection0"> </a>
 

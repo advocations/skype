@@ -6,14 +6,6 @@ Events.js is a JavaScript library that helps start and stop the event channel an
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create an Events object](#sectionSection0)
- [addEventHandlers(raiser, handlers)](#sectionSection1)
- [removeEventHandlers(raiser)](#sectionSection2)
- [startEvents()](#sectionSection3)
- [stopEvents()](#sectionSection4)
-
-
 The Events module provides access to the UCWA event channel, enabling application developers to start or stop the event channel, and to add or remove handlers for events of interest to them.
 Some UCWA resources, such as the [participantInvitation](participantInvitation_ref.md), [messagingInvitation](messagingInvitation_ref.md), and [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) resources are called operation resources. These resources are created on the server as a result of a previous POST request on, respectively, the [addParticipant](addParticipant_ref.md) resource, the [addMessaging](addMessaging_ref.md) or [startMessaging](startMessaging_ref.md) resource, or the [joinOnlineMeeting](joinOnlineMeeting_ref.md) or [startOnlineMeeting](startOnlineMeeting_ref.md) resource. After the server creates the operation resource, the server sends it to the client on the event channel. For more information, see [Operation resource](OperationResource.md).
 

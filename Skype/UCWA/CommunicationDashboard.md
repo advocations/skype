@@ -6,16 +6,6 @@ The **communication** resource acts as a dashboard for the various abilities of 
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [conversations](#sectionSection1)
- [conversationLogs](#sectionSection2)
- [joinOnlineMeeting](#sectionSection3)
- [startMessaging](#sectionSection4)
- [startOnlineMeeting](#sectionSection5)
- [startPhoneAudio](#sectionSection6)
-
-
 The [communication](communication_ref.md) resource gives the user the ability to communicate with other users. This can be via telephone, starting or joining an online meeting, or peer-to-peer messaging. The user can also specify supported incoming modalities and the message format (plain or HTML) she would like to support while communicating with other users.
 
 ## Resource representation

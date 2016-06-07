@@ -6,16 +6,6 @@ GeneralHelper.js is a JavaScript library of generally useful functions.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Create a GeneralHelper object](#sectionSection0)
- [extractDataFromDataUri(uri, options)](#sectionSection1)
- [extractOriginFromAbsoluteUrl(url)](#sectionSection2)
- [generateUUID()](#sectionSection3)
- [isDefined(object)](#sectionSection4)
- [isEmpty(object)](#sectionSection5)
- [namespace(namespaceString)](#sectionSection6)
-
-
 Use the functions in the GeneralHelper library to create namespaces, to check for null or undefined objects, and to generate unique numbers.
 
 ## Create a GeneralHelper object

@@ -6,15 +6,6 @@ Learn how to request that the event channel be started, and to process events wh
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Requesting events](#sectionSection0)
- [Processing events](#sectionSection1)
- [Sample JSON event response](#sectionSection2)
- [Sample XML event response](#sectionSection3)
- [Special responses](#sectionSection4)
-
-
-
 ## Requesting events
 <a name="sectionSection0"> </a>
 

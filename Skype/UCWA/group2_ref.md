@@ -3,13 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 Represents a user's persistent, personal group version two. 
 
 

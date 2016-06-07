@@ -3,12 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
 Represents a collection of all the [group](group_ref.md) memberships for a particular group
 
 

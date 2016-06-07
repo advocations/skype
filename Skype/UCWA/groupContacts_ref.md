@@ -5,13 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 A collection of contact resources that belong to a particular group resource. 
 
 ## Web Link

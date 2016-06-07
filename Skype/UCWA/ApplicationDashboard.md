@@ -6,12 +6,6 @@ The **application** resource serves as a kind of dashboard that represents a sin
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [Creating an application](#sectionSection1)
- [Application lifetime](#sectionSection2)
-
-
 An [application](application_ref.md) resource represents a single application on one of a user's devices or browsers. Based on the inputs provided during application creation, a unique **application** resource is created by the to represent the user in the context of an application.
 
 ## Resource representation

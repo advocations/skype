@@ -6,14 +6,6 @@ Learn how the server notifies clients by sending events in the event channel.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Pending GET (P-GET) response](#sectionSection0)
- [Event response structure](#sectionSection1)
- [Aggregation](#sectionSection2)
- [Timeouts](#sectionSection3)
- [Resume/resynchronize](#sectionSection4)
-
-
 As a real-time communications API, needs a way for the server to notify the client about events such as incoming messages or presence updates. Because HTTP provides no built-in capability for server-to-client communication, implements this within HTTP with a "long poll" model called pending GET or P-GET. This "server-to-client" communication channel is called the event channel to distinguish it from the command channel where ordinary client-to-server HTTP operations take place. 
 To begin using the event channel, a client sends a GET request to the event channel URL. If the server has no events to send, it holds the connection open until some events arrive or a timer expires. When the server releases a response, the client sends another GET. This way the event channel GET is maintained as a return vehicle for server-initiated communication. 
 

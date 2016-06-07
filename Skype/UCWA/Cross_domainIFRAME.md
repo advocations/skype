@@ -6,13 +6,6 @@ Learn about how cross-domain **iframe** can be used to safely circumvent browser
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Embedding the cross-domain frame](#sectionSection0)
- [postMessage API](#sectionSection1)
- [Web application allow list](#sectionSection2)
- [Browser compatibility](#sectionSection3)
-
-
 Web applications that interact with resources require a cross-domain **iframe** for all HTTP requests sent to . The cross-domain **iframe** is needed to securely bypass the same-origin policy that is enforced by most modern browsers.
 
 ## Embedding the cross-domain frame
