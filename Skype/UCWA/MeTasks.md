@@ -19,9 +19,9 @@ The topics in this section show code samples that use to perform tasks related t
 - [Reset my presence information](ResetMyPresenceInformation.md)
  
 - [Get my note information](GetMyNoteInformation.md)
- 
-- [Set my note information](Set my note information.md)
- 
+    
+- [Set my note information](Setmynoteinformation.md)
+    
 - [Reset my note information](ResetMyNoteInfo.md)
  
 - [Get my photo](GetMyPhoto.md)

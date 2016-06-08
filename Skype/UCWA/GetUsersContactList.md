@@ -91,5 +91,4 @@ X-Powered-By: ASP.NET
  ```
 
 
- If a specific contact is returned in an embedded resource, the result can be parsed to return the contact. Otherwise, a link to the specified contact resource can be followed to get the contact.
- 
+If a specific contact is returned in an embedded resource, the result can be parsed to return the contact. Otherwise, a link to the specified contact resource can be followed to get the contact.
