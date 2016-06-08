@@ -316,9 +316,9 @@
 ###### [videoLockedOnParticipant](UCWA/videoLockedOnParticipant_ref.md)
 ###### [xframe](UCWA/xframe_ref.md)
 
-##### [UCWA enumerations](UCWAenumerations.md)
-##### [UCWA helper library](UCWAHelperLibrary.md)
-##### [Generic synchronous errors](GenericSynchronousErrors.md)
+##### [UCWA enumerations](UCWA/UCWAenumerations.md)
+##### [UCWA helper library](UCWA/UCWAHelperLibrary.md)
+##### [Generic synchronous errors](UCWA/GenericSynchronousErrors.md)
 
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
