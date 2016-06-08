@@ -12,7 +12,9 @@ Learn about the architecture as it relates to .
 **The UCWA architecture in a Skype for Business Server 2015 deployment**
 
 
-! [UCWA architecture in a Lync Server 2013 deployment](images/UCWA15Con_ArchitectureTopology.png)The illustration shows the architecture in deployment at a high level. Some of the components that are involved are:
+![UCWA architecture in a Lync Server 2013 deployment](images/UCWA15Con_ArchitectureTopology.png)
+
+The illustration shows the architecture in deployment at a high level. Some of the components that are involved are:
 
 
 - **UCWA** powers real-time communications for mobile and web clients in . This web component is deployed on all roles as a web component.
@@ -29,7 +31,9 @@ The following illustration shows how fits into the architecture.
 
 **How a UCWA application interacts with Skype for Business Server 2015**
 
-! [How a UCWA application interacts with Lync Server 2013](images/UCWA15Con_HomeServerArch.png)All web traffic flows through the Web Infra layer that is responsible for authentication as well as throttling. This layer is also responsible for proxying traffic to the next hop server; that is, the user's home server. 
+![How a UCWA application interacts with Lync Server 2013](images/UCWA15Con_HomeServerArch.png)
+
+All web traffic flows through the Web Infra layer that is responsible for authentication as well as throttling. This layer is also responsible for proxying traffic to the next hop server; that is, the user's home server. 
 
 After the home server is located, a web application interacts with by using the HTTP protocol. For more information, see [Create an application](CreateAnApplication.md).
 

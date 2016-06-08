@@ -14,15 +14,14 @@ Users can create and manage online meetings in by using the [onlineMeetings](onl
 The following table contains a representation of the **onlineMeetings** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
+
 ```
 "rel" : "onlineMeetings"
 ```
 
-|
-|**Links**|
+**Links**
+
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/878/onlineMeetings"
@@ -51,7 +50,7 @@ The following table contains a representation of the **onlineMeetings** resource
 
 ```
 
-|
+
 Every online meeting is considered a private meeting. Only those who know the coordinates of this meeting can join. Every user also has an assigned meeting, known as the public meeting, if the deployment supports it. The public meeting is per user and the coordinates never change. If the user uses the public meeting to schedule an online meeting, anyone who has the coordinates can step into this meeting at any time. Every online meeting includes several kinds of information such as the ID, subject, description, access level, leader assignment, expiry date, lobbyByPass settings, meeting URI, and so on.
 
 
