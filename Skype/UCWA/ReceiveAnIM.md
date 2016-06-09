@@ -1,6 +1,6 @@
 
 # Receive an IM
-zzpub_summary
+
 
  **Last modified:** March 24, 2015
 
