@@ -127,15 +127,7 @@ X-Powered-By: ASP.NET
 
  ```
 
-5. 
- 
- 
- 
 
-
- ```
- 
- ```
 
 
 ## Receive Presence Data from the Event Channel
