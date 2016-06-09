@@ -16,7 +16,7 @@ The content type for the entire request is "multipart/batching", and each indivi
 
 The following is an example batch request. This request contains two GET requests; one on the [myContacts](myContacts_ref.md) href for a particular user, and the other on the [me](me_ref.md) href for that user.
 
-Note that for brevity, application IDs and the OAuth token have been abbreviated.
+> Note: For brevity, application IDs and the OAuth token have been abbreviated.
 
 
 
