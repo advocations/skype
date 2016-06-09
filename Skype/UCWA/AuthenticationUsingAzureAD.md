@@ -7,7 +7,7 @@ Learn how a online application authenticates a user with Azure AD to access Skyp
 In order for your application to access Skype for Business resources (such as messaging or presence), it needs to obtain an access token using implicit grant flow. This token gives the application permission to access the resource.
 
 
- **Note** If your application authenticates against an online server, you must follow the Azure AD authorization flow as described in this article. If the application authenticates against an on-premises server, this step is not necessary, and you should follow the steps in [Authentication in UCWA](https://msdn.microsoft.com/EN-US/library/dn356686%28v=office.16%29.aspx).
+ > Note: If your application authenticates against an online server, you must follow the Azure AD authorization flow as described in this article. If the application authenticates against an on-premises server, this step is not necessary, and you should follow the steps in [Authentication in UCWA](https://msdn.microsoft.com/EN-US/library/dn356686%28v=office.16%29.aspx).
 
 The authentication and authorization flow comprises the following steps:
 
@@ -135,8 +135,6 @@ HTTP/1.1
 The following table describes the valid parameters in the request:
 
 
-|
-|
 |**Parameter**|**Description**|
 |:-----|:-----|
 |response_type| [Required] The type of content to be sent in the response.Specify `id_token`. This is an unsigned JSON Web Token (JWT) that your application can use to request information about the user. The JWT format is explained in the "Access token response" section.|
@@ -167,8 +165,6 @@ The response to a request for an access token has the following format:
 The access token response contains the following parameters:
 
 
-|
-|
 |**Parameter**|**Description**|
 |:-----|:-----|
 |access_token|The requested access token.|

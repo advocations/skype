@@ -28,7 +28,7 @@ A application must not make any assumptions about where is located. topologies a
 Autodiscovery is used by all client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](http://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Autodiscover service. For more information, see [Autodiscover service requirements](http://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
 
 
- **Note** In coexistence mode (Lync 2010 and ), to support custom application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a pool.
+> Note: In coexistence mode (Lync 2010 and ), to support custom application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a pool.
 
 
 ### Authenticated user flow
@@ -53,20 +53,18 @@ No other HTTP error codes require clearing the cache and starting the autodiscov
 
 **The steps involved in autodiscovery and user authentication**
 
-! [The steps involved in autodiscovery and user authentication](images/UCWA15Con_RootURL.png)
+![The steps involved in autodiscovery and user authentication](images/UCWA15Con_RootURL.png)
 
 1. The user's sign-in address follows the SIP URI format: user@vdomain.com. This is the entry point of the autodiscovery flow.
  
 2. An application can run on an internal network or an external network. The autodiscovery flow always gives priority to the internal network. The following requests can be executed in parallel, although it is highly recommended that only the HTTPS request be enabled.
  
- ```
- HTTPS GET LyncDiscoverInternal.<domain>
-HTTP GET LyncDiscoverInternal.<domain>
-
- ```
-
-
- Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
+   ```
+   HTTPS GET LyncDiscoverInternal.<domain>
+   HTTP GET LyncDiscoverInternal.<domain>
+  
+   ```
+        Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
  
 3. The response from these requests will fail if any of the following occurs:
  
@@ -87,22 +85,20 @@ HTTPS GET LyncDiscover.<domain>
 
 5. For some online scenarios, the Autodiscover service might return a 200 OK response with a "redirect" link in the body. The client should validate the response before following the redirect link. 
  
- **Note** If you have a pure topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, , does not support online scenarios.
+ > Note: If you have a pure topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, , does not support online scenarios.
 
- The following is an example redirect response.
+   The following is an example redirect response.
  
-
-
  ```
- HTTP/1.1 200 OK
-Content-Type: application/json
-{
- "_links":{
- "redirect":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
- }
- }
-}
+   HTTP/1.1 200 OK
+  Content-Type: application/json
+  {
+     "_links":{
+       "redirect":{
+         "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+       }
+    }
+  }
  ```
 
 6. The security check step consists of making sure that the client is not spoofed. A detailed illustration follows this list.
@@ -145,7 +141,7 @@ The flow shown here represents the security check that is mentioned in step 6 of
 
 **Steps performed during a security check during user authentication**
 
-! [Steps performed during a security check during user authentication](images/UCWA15Con_SecurityCheck.png)
+![Steps performed during a security check during user authentication](images/UCWA15Con_SecurityCheck.png)
 
 
 ### Anonymous meeting join flow

@@ -28,8 +28,6 @@ To learn more about configuring applications, see [Integrating Applications with
 The Skype for Business scope permissions are shown in the following table:
 
 
-|
-|
 |**Scope**|**Permission**|**Description**|**Requires admin consent**|
 |:-----|:-----|:-----|:-----|
 |Contacts.ReadWrite|Read and manage user contacts and groups|Allows the application to read and update user contacts and groups|Yes|

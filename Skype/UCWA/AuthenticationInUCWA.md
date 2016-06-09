@@ -9,7 +9,6 @@ Learn how an application authenticates a user in .
 In order to authenticate a user in UCWA, an application needs to perform a number of steps as described in this article:
 
 - When a person using your web application wants to access the Skype for Business service, your web application redirects to the service endpoint. The user enters credentials to authenticate and consents to grant access to service resources, if required.
- 
  The service responds with a challenge containing the OAuth token issuer's URL and the types of authorization code grants it supports.
  
 - The client application uses this information obtain an authorization token from the OAuth service.
@@ -17,7 +16,7 @@ In order to authenticate a user in UCWA, an application needs to perform a numbe
 - The client application uses the OAuth token to make requests to the service.
  
 
- **Note** If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
+ > Note: If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
 
 
 ## Authentication Flow
@@ -44,10 +43,12 @@ The WWW-Authenticate header contains the following information.
  
  - **urn:microsoft.rtc:windows**: This grant type is used when Integrated Windows Authentication (IWA) is used. The request is the same as the password grant, except that username and password parameters must not be present.
  
- **Note** Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
+ > Note: Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
+ 
  - **urn:microsoft.rtc:passive**: This grant type is used when any type of passive authentication is used. This works for Active Directory Federation Services-based scenarios and is useful when you need to delegate authentication to other directories. The request is the same as the password grant, except that username and password parameters must not be present.
  
- **Note** For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
+ > Note: For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
+ 
  - **urn:microsoft.rtc:anonmeeting**: This grant type can be used to allow users join meetings anonymously.
  
 A step-by-step example of how to do autodiscovery and authentication with an on-premises server is provided in [Create an application](https://msdn.microsoft.com/EN-US/library/dn356799%28v=office.16%29.aspx).
@@ -105,7 +106,7 @@ grant_type=urn:microsoft.rtc:windows
 ```
 
 
- **Note** Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
+ > Note: Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
 
  **Response**
 
@@ -173,7 +174,7 @@ Content-Length: 134
 After your client application receives an access token from the OAuth service, it can use the token in requests to the server using "Bearer" plus the OAuth token in the Authorization header as shown in the following example:
 
 
- **Note** requires the presence of the Authorization header in each request.
+ > Note: requires the presence of the Authorization header in each request.
 
 
 ## Error conditions
@@ -209,7 +210,7 @@ The possible values for "error" are:
 - **server_error**: There was an unexpected error on the server that prevented the request from being honored.
  
 
- **Note** It is recommended that you do not take a code dependency against the X-Ms-diagnostics header.
+ > Note: It is recommended that you do not take a code dependency against the X-Ms-diagnostics header.
 
 
 ## Refreshing an OAuth token
@@ -235,5 +236,5 @@ grant_type=urn:microsoft.rtc:anonmeeting&amp;password=5LB7MRBC&amp;ms_rtc_confer
 ```
 
 
- **Note** The body content must be URL-encoded.
+ > Note: The body content must be URL-encoded.
 

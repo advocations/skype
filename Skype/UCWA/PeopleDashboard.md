@@ -14,15 +14,14 @@ The [people](people_ref.md) resource keeps the application updated with all the 
 The following table contains a representation of the **people** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
+
 ```
 "rel" : "people"
 ```
 
-|
-|**Link**|
+**Link** 
+
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/105/people"
@@ -57,7 +56,7 @@ The following table contains a representation of the **people** resource.
 
 ```
 
-|
+
 
 ## myContactsAndGroupsSubscription
 <a name="sectionSection1"> </a>
