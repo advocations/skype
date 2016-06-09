@@ -9,7 +9,6 @@ Learn how an application authenticates a user in .
 In order to authenticate a user in UCWA, an application needs to perform a number of steps as described in this article:
 
 - When a person using your web application wants to access the Skype for Business service, your web application redirects to the service endpoint. The user enters credentials to authenticate and consents to grant access to service resources, if required.
- 
  The service responds with a challenge containing the OAuth token issuer's URL and the types of authorization code grants it supports.
  
 - The client application uses this information obtain an authorization token from the OAuth service.
@@ -17,7 +16,7 @@ In order to authenticate a user in UCWA, an application needs to perform a numbe
 - The client application uses the OAuth token to make requests to the service.
  
 
- **Note** If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
+ > Note: If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
 
 
 ## Authentication Flow
