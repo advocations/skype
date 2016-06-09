@@ -12,28 +12,26 @@ The steps here assume that you have already created an application and have rece
 
 1. Send a POST request on the makeMeAvailable resource.
  
- One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the href for the [makeMeAvailable](makeMeAvailable_ref.md) resource. Search for the [me](me_ref.md) resource embedded in your application, and then locate the href of the **makeMeAvailable** link.
- 
+   One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the href for the [makeMeAvailable](makeMeAvailable_ref.md) resource. Search for the [me](me_ref.md) resource embedded in your application, and then locate the href of the **makeMeAvailable** link.
+   
+   ```
+  POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
+  Accept: application/json
+  Content-Type: application/json
+  Authorization: Bearer cwt=AAEB...buHc
+  X-Ms-Origin: http://app.contoso.com
+  X-Requested-With: XMLHttpRequest
+  Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
+  Accept-Language: en-us
+  Accept-Encoding: gzip, deflate
+  User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
+  Host: lyncweb.contoso.com
+  Content-Length: 37
+  Connection: Keep-Alive
+  Cache-Control: no-cache
 
-
- ```
- POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer cwt=AAEB...buHc
-X-Ms-Origin: http://app.contoso.com
-X-Requested-With: XMLHttpRequest
-Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
-Accept-Language: en-us
-Accept-Encoding: gzip, deflate
-User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
-Host: lyncweb.contoso.com
-Content-Length: 37
-Connection: Keep-Alive
-Cache-Control: no-cache
-
-{"SupportedModalities": ["Messaging"]}
- ```
+  {"SupportedModalities": ["Messaging"]}
+  ```
 
 2. Process the response from the request in the previous step.
  
