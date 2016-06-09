@@ -59,14 +59,12 @@ No other HTTP error codes require clearing the cache and starting the autodiscov
  
 2. An application can run on an internal network or an external network. The autodiscovery flow always gives priority to the internal network. The following requests can be executed in parallel, although it is highly recommended that only the HTTPS request be enabled.
  
- ```
- HTTPS GET LyncDiscoverInternal.<domain>
-HTTP GET LyncDiscoverInternal.<domain>
-
- ```
-
-
- Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
+   ```
+   HTTPS GET LyncDiscoverInternal.<domain>
+   HTTP GET LyncDiscoverInternal.<domain>
+  
+   ```
+        Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
  
 3. The response from these requests will fail if any of the following occurs:
  
@@ -89,20 +87,18 @@ HTTPS GET LyncDiscover.<domain>
  
  > Note: If you have a pure topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, , does not support online scenarios.
 
- The following is an example redirect response.
+   The following is an example redirect response.
  
-
-
  ```
- HTTP/1.1 200 OK
-Content-Type: application/json
-{
- "_links":{
- "redirect":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
- }
- }
-}
+   HTTP/1.1 200 OK
+  Content-Type: application/json
+  {
+     "_links":{
+       "redirect":{
+         "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+       }
+    }
+  }
  ```
 
 6. The security check step consists of making sure that the client is not spoofed. A detailed illustration follows this list.
