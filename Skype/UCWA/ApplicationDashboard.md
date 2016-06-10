@@ -17,17 +17,14 @@ An [application (UCWA)](application_ref.md) resource represents a single applica
 The following table contains a representation of the  **application** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel" : "application",
 "culture" : "en-us",
 "userAgent" : "ContosoApp/1.0"
 ```
 
-|
-|**Links**|
+**Links**
 ```
 "self" : {      
   "href" : "/ucwa/v1/applications/105"    
