@@ -4,12 +4,7 @@ The  **application** resource serves as a kind of dashboard that represents a si
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Resource representation](#sectionSection0)
-[Creating an application](#sectionSection1)
-[Application lifetime](#sectionSection2)
+ _**Applies to:** Skype for Business 2015_
 
 
 An [application (UCWA)](application_ref.md) resource represents a single application on one of a user's devices or browsers. Based on the inputs provided during application creation, a unique **application** resource is created by the Microsoft Unified Communications Web API 2.0 to represent the user in the context of an application.
@@ -20,17 +15,14 @@ An [application (UCWA)](application_ref.md) resource represents a single applica
 The following table contains a representation of the  **application** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel" : "application",
 "culture" : "en-us",
 "userAgent" : "ContosoApp/1.0"
 ```
 
-|
-|**Links**|
+**Links**
 ```
 "self" : {      
   "href" : "/ucwa/v1/applications/105"    
@@ -46,8 +38,8 @@ The following table contains a representation of the  **application** resource.
 }
 ```
 
-|
-|**Embedded resources**|
+
+**Embedded resources**
 ```
 "communication" : { ... },
 "me" : { ... },
@@ -56,7 +48,7 @@ The following table contains a representation of the  **application** resource.
 
 ```
 
-|
+
 The  **application** resource can be thought of as a dashboard that shows the communication and collaboration capabilities available to a specific application on a specific server. The embedded resources within an application, shown in the following table, provide a view of these capabilities. The **application** resource also contains links for performing operations in a batch, receiving asynchronous events, and fetching server policies.
 
 

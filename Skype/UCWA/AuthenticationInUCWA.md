@@ -4,14 +4,7 @@ Learn how an application authenticates a user in UCWA 2.0.
 
  **Last modified:** October 23, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Authentication Flow](#sectionSection0)
-[Obtaining a token from the OAuth service](#sectionSection1)
-[Using the OAuth token](#sectionSection2)
-[Error conditions](#sectionSection3)
-[Refreshing an OAuth token](#sectionSection4)
+ _**Applies to:** Skype for Business 2015_
 
 
 In order to authenticate a user in UCWA, an application needs to perform a number of steps as described in this article:
@@ -181,7 +174,7 @@ Content-Length: 134
 After your client application receives an access token from the OAuth service, it can use the token in requests to the UCWA 2.0 server using "Bearer" plus the OAuth token in the Authorization header as shown in the following example:
 
 
- **Note**  UCWA 2.0 requires the presence of the Authorization header in each request.
+ > Note:  UCWA 2.0 requires the presence of the Authorization header in each request.
 
 
 ## Error conditions
@@ -217,7 +210,7 @@ The possible values for "error" are:
 -  **server_error**: There was an unexpected error on the server that prevented the request from being honored.
     
 
- **Note**  It is recommended that you do not take a code dependency against the X-Ms-diagnostics header.
+ > Note:  It is recommended that you do not take a code dependency against the X-Ms-diagnostics header.
 
 
 ## Refreshing an OAuth token
@@ -243,5 +236,5 @@ grant_type=urn:microsoft.rtc:anonmeeting&amp;password=5LB7MRBC&amp;ms_rtc_confer
 ```
 
 
- **Note**  The body content must be URL-encoded.
+ > Note:  The body content must be URL-encoded.
 

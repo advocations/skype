@@ -4,14 +4,7 @@ Request and response payloads can be specified as either JSON or XML.
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[JSON representation](#sectionSection0)
-[XML representation](#sectionSection1)
-[Input formats](#sectionSection2)
-[Data URI](#sectionSection3)
-[Required and optional parameters](#sectionSection4)
+ _**Applies to:** Skype for Business 2015_
 
 
 UCWA 2.0 supports two payload formats for HTTP requests and responses: 
@@ -100,13 +93,18 @@ The XML representation used by UCWA 2.0 resources takes advantage of XML attribu
 
 - Dates in XML are supplied in ISO 8601 format. 
     
-- A resource is enclosed in a <resource xmlns="..." rel="..." href="..."> element, where "rel" and "href" form the self link to the resource.
+- A resource is enclosed in a ```<resource xmlns="..." rel="..." href="...">``` element, where "rel" and "href" form the self link to the resource.
     
-- Links are represented by a <link rel="..." href="..." [ title = "..."] /> element, child of <resource>. There is no explicit element for a self link because it is part of the enclosing <resource> element. In case of multiple links with the same "rel" value, the <link> element is repeated multiple times. Unlike in JSON, there is no way to distinguish a single link from a one-element collection of links.
+- Links are represented by a ```<link rel="..." href="..." [ title = "..."] />```  
+element, child of  ```<resource>```. 
+There is no explicit element for a self link because it is part of the enclosing ```<resource>```
+ element. In case of multiple links with the same "rel" value, the ```<link>``` element is repeated multiple times. Unlike in JSON, there is no way to distinguish a single link from a one-element collection of links.
     
-- Properties are represented by a <property name="...">[value]</property> element. Array-valued properties are represented by a <propertyList name="..."> element, containing <item>[value]</item> elements for each array member in order.
+- Properties are represented by a ```<property name="...">[value]</property>``` 
+element. Array-valued properties are represented by a ```<propertyList name="...">``` element, containing ```<item>[value]</item>``` elements for each array member in order.
     
-- Embedded resources are represented by a <resource rel="..." href="..."> element inside the containing <resource> element.
+- Embedded resources are represented by a ```<resource rel="..." href="...">``` 
+element inside the containing ```<resource>``` element.
     
 
 ## Input formats
