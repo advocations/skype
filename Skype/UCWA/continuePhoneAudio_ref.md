@@ -3,6 +3,12 @@
 
  **Last modified:** July 14, 2015
 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
 Continues phone audio modality of a past conversation. 
 
 
@@ -56,7 +62,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-| [phoneAudioInvitation](phoneAudioInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
+|[phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md)|Represents an invitation to a [conversation (UCWA)](conversation_ref.md) for the[phoneAudio (UCWA)](phoneAudio_ref.md) modality.|
 
 #### Synchronous errors
 
@@ -87,8 +93,8 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Content-Type: application/json
 										Content-Length: 83
 										{
- "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
- "phoneNumber" : "tel:+14255551234"
+  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+  "phoneNumber" : "tel:+14255551234"
 }
 									
 ```
@@ -118,11 +124,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Host: fe1.contoso.com
 										Content-Type: application/xml
 										Content-Length: 235
-										<?xml version="1.0" encoding="utf-8"?>
-<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
- <property name="phoneNumber">tel:+14255551234</property>
-</input>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneNumber&amp;quot;&amp;gt;tel:+14255551234&amp;lt;/property&amp;gt;
+&amp;lt;/input&amp;gt;
 									
 ```
 

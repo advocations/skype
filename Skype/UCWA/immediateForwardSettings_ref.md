@@ -1,9 +1,15 @@
 
-# immediateForwardSettings 
+# immediateForwardSettings (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Represents the settings for a user to immediately forward incoming calls to a specified target. 
 
@@ -116,25 +122,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 628
 										{
- "rel" : "immediateForwardSettings",
- "target" : "None",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "immediateForwardToContact" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact"
- },
- "immediateForwardToDelegates" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates"
- },
- "immediateForwardToVoicemail" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail"
- }
- }
+  "rel" : "immediateForwardSettings",
+  "target" : "None",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings"
+    },
+    "contact" : {
+      "href" : "//v1/applications/833/people/166"
+    },
+    "immediateForwardToContact" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact"
+    },
+    "immediateForwardToDelegates" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates"
+    },
+    "immediateForwardToVoicemail" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail"
+    }
+  }
 }
 									
 ```
@@ -166,15 +172,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: 8f638eae-55f0-4279-b240-30174a9a6628
 										Content-Type: application/xml
 										Content-Length: 827
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="immediateForwardSettings" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="immediateForwardToContact" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact" />
- <link rel="immediateForwardToDelegates" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates" />
- <link rel="immediateForwardToVoicemail" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail" />
- <property name="rel">immediateForwardSettings</property>
- <property name="target">None</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;immediateForwardSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;immediateForwardToContact&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;immediateForwardToDelegates&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;immediateForwardToVoicemail&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;immediateForwardSettings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

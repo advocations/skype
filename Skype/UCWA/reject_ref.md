@@ -1,9 +1,17 @@
 
-# reject 
+# reject (UCWA)
 
  **Last modified:** July 14, 2015
 
-Denies the corresponding [participant](participant_ref.md) access to the [onlineMeeting](onlineMeeting_ref.md). 
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Denies the corresponding [participant (UCWA)](participant_ref.md) access to the[onlineMeeting (UCWA)](onlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -20,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The application can rely on the presence of this resource to determine that the [onlineMeeting](onlineMeeting_ref.md) supports the [lobby](lobby_ref.md) feature and that the user can refuse to admit the participant to the [onlineMeeting](onlineMeeting_ref.md). 
+The application can rely on the presence of this resource to determine that the [onlineMeeting (UCWA)](onlineMeeting_ref.md) supports the[lobby (UCWA)](lobby_ref.md) feature and that the user can refuse to admit the participant to the[onlineMeeting (UCWA)](onlineMeeting_ref.md). 
 
 
 ### Properties
@@ -41,7 +49,7 @@ None
 
 ### POST
 
-Denies the corresponding [participant](participant_ref.md) access to the [onlineMeeting](onlineMeeting_ref.md).
+Denies the corresponding [participant (UCWA)](participant_ref.md) access to the[onlineMeeting (UCWA)](onlineMeeting_ref.md).
 
 
 #### Request body

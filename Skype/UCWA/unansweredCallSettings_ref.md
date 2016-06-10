@@ -1,9 +1,15 @@
 
-# unansweredCallSettings 
+# unansweredCallSettings (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Represents a user's settings to send unanswered calls to a specified target. 
 
@@ -117,26 +123,26 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 624
 										{
- "rel" : "unansweredCallSettings",
- "ringDelay" : 5,
- "target" : "None",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "resetUnansweredCallSettings" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/resetUnansweredCallSettings"
- },
- "unansweredCallToContact" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact"
- },
- "unansweredCallToVoicemail" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToVoicemail"
- }
- }
+  "rel" : "unansweredCallSettings",
+  "ringDelay" : 5,
+  "target" : "None",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings"
+    },
+    "contact" : {
+      "href" : "//v1/applications/833/people/166"
+    },
+    "resetUnansweredCallSettings" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/resetUnansweredCallSettings"
+    },
+    "unansweredCallToContact" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact"
+    },
+    "unansweredCallToVoicemail" : {
+      "href" : "//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToVoicemail"
+    }
+  }
 }
 									
 ```
@@ -168,16 +174,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: 72bab224-6419-4774-8a5f-c3795bec8c1f
 										Content-Type: application/xml
 										Content-Length: 846
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="unansweredCallSettings" href="//v1/applications/833/me/callForwardingSettings/unansweredCallSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="resetUnansweredCallSettings" href="//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/resetUnansweredCallSettings" />
- <link rel="unansweredCallToContact" href="//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact" />
- <link rel="unansweredCallToVoicemail" href="//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToVoicemail" />
- <property name="rel">unansweredCallSettings</property>
- <property name="ringDelay">5</property>
- <property name="target">None</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;unansweredCallSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/unansweredCallSettings&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;resetUnansweredCallSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/resetUnansweredCallSettings&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;unansweredCallToContact&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;unansweredCallToVoicemail&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToVoicemail&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;unansweredCallSettings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;ringDelay&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 
@@ -225,9 +231,9 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										if-match: bbabb06e-0558-4a5a-b98f-ed51375b785d
 										Content-Length: 62
 										{
- "rel" : "unansweredCallSettings",
- "ringDelay" : 5,
- "target" : "None"
+  "rel" : "unansweredCallSettings",
+  "ringDelay" : 5,
+  "target" : "None"
 }
 									
 ```
@@ -257,12 +263,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										if-match: 4398cb14-6a03-4a8f-baa1-4c02549f32af
 										Content-Length: 245
-										<?xml version="1.0" encoding="utf-8"?>
-<resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">unansweredCallSettings</property>
- <property name="ringDelay">5</property>
- <property name="target">None</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;unansweredCallSettings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;ringDelay&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

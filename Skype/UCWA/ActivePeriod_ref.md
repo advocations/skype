@@ -1,9 +1,9 @@
 
-# ActivePeriod 
+# ActivePeriod (UCWA)
 
  **Last modified:** March 24, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
 Represents when call forwarding settings are active.
 

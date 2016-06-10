@@ -1,11 +1,18 @@
 
-# audioVideo 
+# audioVideo (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the audio/video modality in the corresponding [conversation](conversation_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents the audio/video modality in the corresponding [conversation (UCWA)](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -47,7 +54,7 @@ This resource can have the following relationships.
 |:-----|:-----|
 |self|The link to the current resource.|
 |conversation|Represents the local participants perspective on a multi-modal, multi-party communication.|
-|videoLockedOnParticipant|Represents the [participant](participant_ref.md) on whom the video spotlight is locked in an [onlineMeeting](onlineMeeting_ref.md).|
+|videoLockedOnParticipant|Represents the [participant (UCWA)](participant_ref.md) on whom the video spotlight is locked in an[onlineMeeting (UCWA)](onlineMeeting_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -74,29 +81,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "audioVideo",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "audioVideo",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -110,7 +117,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 ### GET
 
-Returns a representation of the audio/video modality in the corresponding [conversation](conversation_ref.md).
+Returns a representation of the audio/video modality in the corresponding [conversation (UCWA)](conversation_ref.md).
 
 
 #### Request body
@@ -166,21 +173,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 410
 										{
- "rel" : "audioVideo",
- "state" : "Transferring",
- "supportsReplaces" : "None",
- "videoSourcesAllowed" : "PresentersOnly",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/audioVideo"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "videoLockedOnParticipant" : {
- "href" : "//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant"
- }
- }
+  "rel" : "audioVideo",
+  "state" : "Transferring",
+  "supportsReplaces" : "None",
+  "videoSourcesAllowed" : "PresentersOnly",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication/conversations/802/audioVideo"
+    },
+    "conversation" : {
+      "href" : "//v1/applications/833/communication/conversations/802"
+    },
+    "videoLockedOnParticipant" : {
+      "href" : "//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant"
+    }
+  }
 }
 									
 ```
@@ -210,15 +217,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 622
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="audioVideo" href="//v1/applications/833/communication/conversations/802/audioVideo" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="videoLockedOnParticipant" href="//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant" />
- <property name="rel">audioVideo</property>
- <property name="state">Connected</property>
- <property name="supportsReplaces">None</property>
- <property name="videoSourcesAllowed">PresentersOnly</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;audioVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/audioVideo&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;videoLockedOnParticipant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;audioVideo&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Connected&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;supportsReplaces&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;videoSourcesAllowed&amp;quot;&amp;gt;PresentersOnly&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

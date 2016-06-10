@@ -1,11 +1,17 @@
 
-# conversations 
+# conversations (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the user's ongoing [conversation](conversation_ref.md)s. 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Represents the user's ongoing [conversation (UCWA)](conversation_ref.md)s. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -49,7 +55,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the user's ongoing [conversation](conversation_ref.md)s.
+Returns a representation of the user's ongoing [conversation (UCWA)](conversation_ref.md)s.
 
 
 #### Request body
@@ -105,17 +111,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 184
 										{
- "rel" : "conversations",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations"
- },
- "conversation" : [
- {
- "href" : "//v1/applications/833/communication/conversations/637"
- }
- ]
- }
+  "rel" : "conversations",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication/conversations"
+    },
+    "conversation" : [
+      {
+        "href" : "//v1/applications/833/communication/conversations/637"
+      }
+    ]
+  }
 }
 									
 ```
@@ -145,11 +151,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 323
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="conversations" href="//v1/applications/833/communication/conversations" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversation" href="//v1/applications/833/communication/conversations/434" />
- <property name="rel">conversations</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;conversations&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/434&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;conversations&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

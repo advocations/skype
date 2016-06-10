@@ -1,11 +1,18 @@
 
-# lobby 
+# lobby (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents a view of the [participant](participant_ref.md)s who have not yet been admitted to an [onlineMeeting](onlineMeeting_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents a view of the [participant (UCWA)](participant_ref.md)s who have not yet been admitted to an [onlineMeeting (UCWA)](onlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -22,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-A [participant](participant_ref.md) in the lobby can be admitted by another participant in the organizer or presenter role. A participant in the lobby who is not admitted will eventually be disconnected. Lobby settings are controlled by the meeting organizer using the accessLevel property of [onlineMeeting](onlineMeeting_ref.md). 
+A [participant (UCWA)](participant_ref.md) in the lobby can be admitted by another participant in the organizer or presenter role. A participant in the lobby who is not admitted will eventually be disconnected. Lobby settings are controlled by the meeting organizer using the accessLevel property of[onlineMeeting (UCWA)](onlineMeeting_ref.md). 
 
 
 ### Properties
@@ -39,7 +46,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
+|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -55,7 +62,7 @@ This resource can have the following relationships.
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participant|High|conversation|Indicates that a [participant](participant_ref.md) was added to the lobby.|
+|participant|High|conversation|Indicates that a [participant (UCWA)](participant_ref.md) was added to the lobby.|
 Sample of returned event data.
 
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
@@ -66,33 +73,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "participant",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
- },
- "in" : {
- "rel" : "lobby",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/lobby"
- },
- "type" : "added"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "participant",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
+          },
+          "in" : {
+            "rel" : "lobby",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/lobby"
+          },
+          "type" : "added"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -106,7 +113,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participant|High|conversation|Indicates that a [participant](participant_ref.md) was removed from the lobby.|
+|participant|High|conversation|Indicates that a [participant (UCWA)](participant_ref.md) was removed from the lobby.|
 Sample of returned event data.
 
 
@@ -115,33 +122,33 @@ Sample of returned event data.
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "participant",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
- },
- "in" : {
- "rel" : "lobby",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/lobby"
- },
- "type" : "deleted"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "participant",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
+          },
+          "in" : {
+            "rel" : "lobby",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/lobby"
+          },
+          "type" : "deleted"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -155,7 +162,7 @@ Sample of returned event data.
 
 ### GET
 
-Returns a representation of a view of the [participant](participant_ref.md)s who have not yet been admitted to an [onlineMeeting](onlineMeeting_ref.md).
+Returns a representation of a view of the [participant (UCWA)](participant_ref.md)s who have not yet been admitted to an [onlineMeeting (UCWA)](onlineMeeting_ref.md).
 
 
 #### Request body
@@ -211,80 +218,80 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 2061
 										{
- "rel" : "lobby",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/lobby"
- }
- },
- "_embedded" : {
- "participant" : [
- {
- "rel" : "participant",
- "anonymous" : true,
- "name" : "Joe Smith",
- "organizer" : true,
- "otherPhoneNumber" : "tel:+14251111111",
- "role" : "Attendee",
- "sourceNetwork" : "SameEnterprise",
- "uri" : "sip:john@contoso.com",
- "workPhoneNumber" : "tel:+14251111111",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575"
- },
- "admit" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/admit"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "demote" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/demote"
- },
- "eject" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/eject"
- },
- "me" : {
- "href" : "//v1/applications/833/me"
- },
- "participantApplicationSharing" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "participantAudio" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantAudio"
- },
- "participantDataCollaboration" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration"
- },
- "participantMessaging" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
- },
- "participantPanoramicVideo" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo"
- },
- "participantVideo" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
- },
- "promote" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/promote"
- },
- "reject" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/reject"
- }
- }
- }
- ]
- }
+  "rel" : "lobby",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication/conversations/802/lobby"
+    }
+  },
+  "_embedded" : {
+    "participant" : [
+      {
+        "rel" : "participant",
+        "anonymous" : true,
+        "name" : "Joe Smith",
+        "organizer" : true,
+        "otherPhoneNumber" : "tel:+14251111111",
+        "role" : "Attendee",
+        "sourceNetwork" : "SameEnterprise",
+        "uri" : "sip:john@contoso.com",
+        "workPhoneNumber" : "tel:+14251111111",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575"
+          },
+          "admit" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/admit"
+          },
+          "contact" : {
+            "href" : "//v1/applications/833/people/166"
+          },
+          "contactPhoto" : {
+            "href" : "//v1/applications/833/people/166/contactPhoto"
+          },
+          "contactPresence" : {
+            "href" : "//v1/applications/833/people/166/contactPresence"
+          },
+          "conversation" : {
+            "href" : "//v1/applications/833/communication/conversations/802"
+          },
+          "demote" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/demote"
+          },
+          "eject" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/eject"
+          },
+          "me" : {
+            "href" : "//v1/applications/833/me"
+          },
+          "participantApplicationSharing" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
+          },
+          "participantAudio" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantAudio"
+          },
+          "participantDataCollaboration" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration"
+          },
+          "participantMessaging" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
+          },
+          "participantPanoramicVideo" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo"
+          },
+          "participantVideo" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
+          },
+          "promote" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/promote"
+          },
+          "reject" : {
+            "href" : "//v1/applications/833/communication/conversations/802/participants/575/reject"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -314,37 +321,37 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 2510
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="lobby" href="//v1/applications/833/communication/conversations/802/lobby" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">lobby</property>
- <resource rel="participant" href="//v1/applications/833/communication/conversations/802/participants/575">
- <link rel="admit" href="//v1/applications/833/communication/conversations/802/participants/575/admit" />
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="demote" href="//v1/applications/833/communication/conversations/802/participants/575/demote" />
- <link rel="eject" href="//v1/applications/833/communication/conversations/802/participants/575/eject" />
- <link rel="me" href="//v1/applications/833/me" />
- <link rel="participantApplicationSharing" href="//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing" />
- <link rel="participantAudio" href="//v1/applications/833/communication/conversations/802/participants/575/participantAudio" />
- <link rel="participantDataCollaboration" href="//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration" />
- <link rel="participantMessaging" href="//v1/applications/833/communication/conversations/802/participants/575/participantMessaging" />
- <link rel="participantPanoramicVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo" />
- <link rel="participantVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantVideo" />
- <link rel="promote" href="//v1/applications/833/communication/conversations/802/participants/575/promote" />
- <link rel="reject" href="//v1/applications/833/communication/conversations/802/participants/575/reject" />
- <property name="rel">participant</property>
- <property name="anonymous">True</property>
- <property name="name">Joe Smith</property>
- <property name="organizer">True</property>
- <property name="otherPhoneNumber">tel:+14251111111</property>
- <property name="role">Attendee</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="uri">sip:john@contoso.com</property>
- <property name="workPhoneNumber">tel:+14251111111</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;lobby&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/lobby&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;lobby&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;participant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;admit&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/admit&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;demote&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/demote&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;eject&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/eject&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;me&amp;quot; href=&amp;quot;//v1/applications/833/me&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantApplicationSharing&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantAudio&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantAudio&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantDataCollaboration&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantMessaging&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantPanoramicVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;participantVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantVideo&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;promote&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/promote&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;reject&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/reject&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;participant&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;anonymous&amp;quot;&amp;gt;True&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;Joe Smith&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;organizer&amp;quot;&amp;gt;True&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;otherPhoneNumber&amp;quot;&amp;gt;tel:+14251111111&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;role&amp;quot;&amp;gt;Attendee&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;sourceNetwork&amp;quot;&amp;gt;SameEnterprise&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:john@contoso.com&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;workPhoneNumber&amp;quot;&amp;gt;tel:+14251111111&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

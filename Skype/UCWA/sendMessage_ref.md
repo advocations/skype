@@ -1,11 +1,17 @@
 
-# sendMessage 
+# sendMessage (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Sends an instant message to the [participant](participant_ref.md)s in a [conversation](conversation_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Sends an instant message to the [participant (UCWA)](participant_ref.md)s in a [conversation (UCWA)](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -22,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
- Applications can use sendMessage to compose an outgoing instant message. This link is available only when the [messaging](messaging_ref.md) modality is connected.
+ Applications can use sendMessage to compose an outgoing instant message. This link is available only when the[messaging (UCWA)](messaging_ref.md) modality is connected.
 
 
 ### Properties
@@ -43,7 +49,7 @@ None
 
 ### POST
 
-Passes an HTML body to the server, and starts a [message](message_ref.md) operation in the event channel.
+Passes an HTML body to the server, and starts a [message (UCWA)](message_ref.md) operation in the event channel.
 
 
 #### Query parameters
@@ -67,7 +73,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-| [message](message_ref.md)|Represents an instant message sent or received by the local participant.|
+|[message (UCWA)](message_ref.md)|Represents an instant message sent or received by the local participant.|
 
 #### Synchronous errors
 
@@ -97,7 +103,7 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 										Host: fe1.contoso.com
 										Content-Type: text/html
 										Content-Length: 12
-										<h>Hello</h>
+										&amp;lt;h&amp;gt;Hello&amp;lt;/h&amp;gt;
 									
 ```
 
@@ -126,7 +132,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Host: fe1.contoso.com
 										Content-Type: text/html
 										Content-Length: 12
-										<h>Hello</h>
+										&amp;lt;h&amp;gt;Hello&amp;lt;/h&amp;gt;
 									
 ```
 

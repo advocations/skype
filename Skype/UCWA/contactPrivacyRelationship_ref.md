@@ -1,11 +1,18 @@
 
-# contactPrivacyRelationship 
+# contactPrivacyRelationship (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the privacy relationship between the user and a [contact](contact_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents the privacy relationship between the user and a [contact (UCWA)](contact_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -70,33 +77,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "people",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
- "events" : [
- {
- "link" : {
- "rel" : "contactPrivacyRelationship",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "in" : {
- "rel" : "contact",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "people",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "contactPrivacyRelationship",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactPrivacyRelationship"
+          },
+          "in" : {
+            "rel" : "contact",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -167,13 +174,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 156
 										{
- "rel" : "contactPrivacyRelationship",
- "relationshipLevel" : "External",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- }
- }
+  "rel" : "contactPrivacyRelationship",
+  "relationshipLevel" : "External",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+    }
+  }
 }
 									
 ```
@@ -203,11 +210,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 327
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">contactPrivacyRelationship</property>
- <property name="relationshipLevel">Colleagues</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;contactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactPrivacyRelationship&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;relationshipLevel&amp;quot;&amp;gt;Colleagues&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

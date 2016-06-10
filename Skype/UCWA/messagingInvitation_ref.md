@@ -1,11 +1,18 @@
 
-# messagingInvitation 
+# messagingInvitation (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents an invitation to a [conversation (UCWA)](conversation_ref.md) for the[messaging (UCWA)](messaging_ref.md) modality.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -22,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource can be incoming or outgoing. If outgoing, the messagingInvitation can be created in one of two ways. First, [startMessaging](startMessaging_ref.md) will create a messagingInvitation that also creates a [conversation](conversation_ref.md). Second, [addMessaging](addMessaging_ref.md) will attempt to add the [messaging](messaging_ref.md) modality to an existing [conversation](conversation_ref.md). This resource assists in keeping track of the invitation status; for example, the invitation could be accepted, declined, or ignored. An outgoing messagingInvitation will be in the 'Connecting' state while waiting for the recipient to accept or decline it; during this time, the messagingInvitation can be terminated using [cancel](cancel_ref.md). Note that if the recipient does not respond in approximately thirty seconds, the messagingInvitation will complete with failure. Ultimately, the messagingInvitation will complete with success or failure (in which case a [reason](reason_ref.md) is supplied). If the messagingInvitation succeeds, the participant that accepts it will be provided ( [acceptedByParticipant](acceptedByParticipant_ref.md)). If incoming, the messagingInvitation can create a new [conversation](conversation_ref.md) or attempt to add the [messaging](messaging_ref.md) modality to an existing [conversation](conversation_ref.md). 
+This resource can be incoming or outgoing. If outgoing, the messagingInvitation can be created in one of two ways. First, [startMessaging (UCWA)](startMessaging_ref.md) will create a messagingInvitation that also creates a[conversation (UCWA)](conversation_ref.md). Second, [addMessaging (UCWA)](addMessaging_ref.md) will attempt to add the[messaging (UCWA)](messaging_ref.md) modality to an existing[conversation (UCWA)](conversation_ref.md). This resource assists in keeping track of the invitation status; for example, the invitation could be accepted, declined, or ignored. An outgoing messagingInvitation will be in the 'Connecting' state while waiting for the recipient to accept or decline it; during this time, the messagingInvitation can be terminated using [cancel (UCWA)](cancel_ref.md). Note that if the recipient does not respond in approximately thirty seconds, the messagingInvitation will complete with failure. Ultimately, the messagingInvitation will complete with success or failure (in which case a [reason (UCWA)](reason_ref.md) is supplied). If the messagingInvitation succeeds, the participant that accepts it will be provided ([acceptedByParticipant (UCWA)](acceptedByParticipant_ref.md)). If incoming, the messagingInvitation can create a new [conversation (UCWA)](conversation_ref.md) or attempt to add the[messaging (UCWA)](messaging_ref.md) modality to an existing[conversation (UCWA)](conversation_ref.md). 
 
 
 ### Properties
@@ -53,17 +60,17 @@ This resource can have the following relationships.
 |:-----|:-----|
 |self|The link to the current resource.|
 |accept|Accepts an incoming invitation.|
-|acceptedByContact|Represents the [contact](contact_ref.md) who ultimately accepted an incoming invitation.|
+|acceptedByContact|Represents the [contact (UCWA)](contact_ref.md) who ultimately accepted an incoming invitation.|
 |cancel|Cancels the corresponding invitation.|
 |conversation|Represents the local participants perspective on a multi-modal, multi-party communication.|
 |decline|Declines an incoming invitation.|
-|derivedMessaging|Represents the [messaging](messaging_ref.md) modality in a [derivedConversation](derivedConversation_ref.md).|
-|from|Represents the [participant](participant_ref.md) that sent an invitation.|
-|messaging|Represents the instant messaging modality in a [conversation](conversation_ref.md).|
-|onBehalfOf|Represents the [contact](contact_ref.md) on whose behalf the invitation was received.|
-|to|Represents the originally intended target of the invitation as a [contact](contact_ref.md).|
+|derivedMessaging|Represents the [messaging (UCWA)](messaging_ref.md) modality in a[derivedConversation (UCWA)](derivedConversation_ref.md).|
+|from|Represents the [participant (UCWA)](participant_ref.md) that sent an invitation.|
+|messaging|Represents the instant messaging modality in a [conversation (UCWA)](conversation_ref.md).|
+|onBehalfOf|Represents the [contact (UCWA)](contact_ref.md) on whose behalf the invitation was received.|
+|to|Represents the originally intended target of the invitation as a [contact (UCWA)](contact_ref.md).|
 |acceptedByParticipant|Represents the remote participant who accepted the invitation of the user.|
-|from|Represents the [participant](participant_ref.md) that sent an invitation.|
+|from|Represents the [participant (UCWA)](participant_ref.md) that sent an invitation.|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -79,7 +86,7 @@ This resource can have the following relationships.
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|messagingInvitation|High|communication|Delivered when a messaging invitation is started. This occurs when the application starts the [messaging](messaging_ref.md) modality.|
+|messagingInvitation|High|communication|Delivered when a messaging invitation is started. This occurs when the application starts the [messaging (UCWA)](messaging_ref.md) modality.|
 Sample of returned event data.
 
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
@@ -90,29 +97,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "communication",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
- "events" : [
- {
- "link" : {
- "rel" : "messagingInvitation",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
- },
- "type" : "started"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "communication",
+      "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "messagingInvitation",
+            "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
+          },
+          "type" : "started"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -137,29 +144,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "communication",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
- "events" : [
- {
- "link" : {
- "rel" : "messagingInvitation",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "communication",
+      "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "messagingInvitation",
+            "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -184,29 +191,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "communication",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
- "events" : [
- {
- "link" : {
- "rel" : "messagingInvitation",
- "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
- },
- "type" : "completed"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "communication",
+      "href" : "https://fe1.contoso.com:443//v1/applications/316/communication",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "messagingInvitation",
+            "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740"
+          },
+          "type" : "completed"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -214,13 +221,13 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 #### Asynchronous reason codes
 
-The **completed** event is sent on the event channel when the operation is finished. A status value of "success" indicates that the operation completed successfully.A status value of "failure" indicates that the operation failed. In case of failure, the error code and subcode are sent on the event channel.The following table shows the errors that are possible for this resource.
+The  **completed** event is sent on the event channel when the operation is finished. A status value of "success" indicates that the operation completed successfully.A status value of "failure" indicates that the operation failed. In case of failure, the error code and subcode are sent on the event channel.The following table shows the errors that are possible for this resource.
 
 It is recommended that applications handle the error codes shown here. Applications can optionally display subcodes and messages in their user interface.
 
 
 - Conflict
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -231,13 +238,13 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|There was a problem joining the conference focus.|
 |TooManyGroups|The too many groups error.|
 - EntityTooLarge
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |None|The request was too large.|
 - Forbidden
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -250,7 +257,7 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|Participant is not connected to meeting.|
 |Unreachable|The destination is not reachable.|
 - Informational
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -261,7 +268,7 @@ It is recommended that applications handle the error codes shown here. Applicati
 |MediaFallback|The invitation was cancelled by the media fallback logic.|
 |Missed|The invitation was missed.|
 - LocalFailure
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -270,13 +277,13 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|Local failure.|
 |Timeout|The invitation timed out locally.|
 - NotFound
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |DestinationNotFound|The destination identity could not be found.|
 - RemoteFailure
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -295,7 +302,7 @@ It is recommended that applications handle the error codes shown here. Applicati
 |Timeout|The operation has timed out on the callee's end.|
 |UnsupportedMediaType|Unsupported media.|
 - ServiceFailure
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -306,7 +313,7 @@ It is recommended that applications handle the error codes shown here. Applicati
 |Timeout|The operation timed out.|
 |Unavailable|There is no suitable service available for this modality in this conference.|
 - Timeout
- 
+    
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -321,7 +328,7 @@ It is recommended that applications handle the error codes shown here. Applicati
 
 ### GET
 
-Returns a representation of an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.
+Returns a representation of an invitation to a [conversation (UCWA)](conversation_ref.md) for the[messaging (UCWA)](messaging_ref.md) modality.
 
 
 #### Request body
@@ -381,187 +388,187 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 5144
 										{
- "rel" : "messagingInvitation",
- "direction" : "Incoming",
- "importance" : "Normal",
- "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
- "state" : "Connected",
- "subject" : "Strategy for next quarter",
- "threadId" : "292e0aaef36c426a97757f43dda19d06",
- "to" : "sip:john@contoso.com",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/316/communication/invitations/740"
- },
- "customContent" : {
- "href" : "data:application/sdp;base64,base64-encoded-sdp"
- },
- "message" : {
- "href" : "data:text/plain;base64,somebase64encodedmessage"
- },
- "from" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/485"
- },
- "accept" : {
- "href" : "//v1/applications/316/communication/invitations/190/accept"
- },
- "acceptedByContact" : {
- "href" : "//v1/applications/316/people/905"
- },
- "cancel" : {
- "href" : "//v1/applications/316/communication/invitations/190/cancel"
- },
- "conversation" : {
- "href" : "//v1/applications/316/communication/conversations/271"
- },
- "decline" : {
- "href" : "//v1/applications/316/communication/invitations/190/decline"
- },
- "derivedMessaging" : {
- "href" : "//v1/applications/316/communication/invitations/190/derivedMessaging"
- },
- "messaging" : {
- "href" : "//v1/applications/316/communication/conversations/271/messaging"
- },
- "onBehalfOf" : {
- "href" : "//v1/applications/316/people/367"
- },
- "to" : {
- "href" : "//v1/applications/316/people/387"
- }
- },
- "_embedded" : {
- "acceptedByParticipant" : [
- {
- "rel" : "participant",
- "anonymous" : true,
- "name" : "Joe Smith",
- "organizer" : true,
- "otherPhoneNumber" : "tel:+14251111111",
- "role" : "Attendee",
- "sourceNetwork" : "SameEnterprise",
- "uri" : "sip:john@contoso.com",
- "workPhoneNumber" : "tel:+14251111111",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127"
- },
- "admit" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/admit"
- },
- "contact" : {
- "href" : "//v1/applications/316/people/420"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/316/people/420/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/316/people/420/contactPresence"
- },
- "conversation" : {
- "href" : "//v1/applications/316/communication/conversations/271"
- },
- "demote" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/demote"
- },
- "eject" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/eject"
- },
- "me" : {
- "href" : "//v1/applications/316/me"
- },
- "participantApplicationSharing" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing"
- },
- "participantAudio" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantAudio"
- },
- "participantDataCollaboration" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration"
- },
- "participantMessaging" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantMessaging"
- },
- "participantPanoramicVideo" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo"
- },
- "participantVideo" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantVideo"
- },
- "promote" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/promote"
- },
- "reject" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/reject"
- }
- }
- }
- ],
- "from" : {
- "rel" : "participant",
- "anonymous" : true,
- "name" : "Joe Smith",
- "organizer" : true,
- "otherPhoneNumber" : "tel:+14251111111",
- "role" : "Attendee",
- "sourceNetwork" : "SameEnterprise",
- "uri" : "sip:john@contoso.com",
- "workPhoneNumber" : "tel:+14251111111",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127"
- },
- "admit" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/admit"
- },
- "contact" : {
- "href" : "//v1/applications/316/people/420"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/316/people/420/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/316/people/420/contactPresence"
- },
- "conversation" : {
- "href" : "//v1/applications/316/communication/conversations/271"
- },
- "demote" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/demote"
- },
- "eject" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/eject"
- },
- "me" : {
- "href" : "//v1/applications/316/me"
- },
- "participantApplicationSharing" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing"
- },
- "participantAudio" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantAudio"
- },
- "participantDataCollaboration" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration"
- },
- "participantMessaging" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantMessaging"
- },
- "participantPanoramicVideo" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo"
- },
- "participantVideo" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantVideo"
- },
- "promote" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/promote"
- },
- "reject" : {
- "href" : "//v1/applications/316/communication/conversations/271/participants/127/reject"
- }
- }
- }
- }
+  "rel" : "messagingInvitation",
+  "direction" : "Incoming",
+  "importance" : "Normal",
+  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+  "state" : "Connected",
+  "subject" : "Strategy for next quarter",
+  "threadId" : "292e0aaef36c426a97757f43dda19d06",
+  "to" : "sip:john@contoso.com",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/316/communication/invitations/740"
+    },
+    "customContent" : {
+      "href" : "data:application/sdp;base64,base64-encoded-sdp"
+    },
+    "message" : {
+      "href" : "data:text/plain;base64,somebase64encodedmessage"
+    },
+    "from" : {
+      "href" : "//v1/applications/316/communication/conversations/271/participants/485"
+    },
+    "accept" : {
+      "href" : "//v1/applications/316/communication/invitations/190/accept"
+    },
+    "acceptedByContact" : {
+      "href" : "//v1/applications/316/people/905"
+    },
+    "cancel" : {
+      "href" : "//v1/applications/316/communication/invitations/190/cancel"
+    },
+    "conversation" : {
+      "href" : "//v1/applications/316/communication/conversations/271"
+    },
+    "decline" : {
+      "href" : "//v1/applications/316/communication/invitations/190/decline"
+    },
+    "derivedMessaging" : {
+      "href" : "//v1/applications/316/communication/invitations/190/derivedMessaging"
+    },
+    "messaging" : {
+      "href" : "//v1/applications/316/communication/conversations/271/messaging"
+    },
+    "onBehalfOf" : {
+      "href" : "//v1/applications/316/people/367"
+    },
+    "to" : {
+      "href" : "//v1/applications/316/people/387"
+    }
+  },
+  "_embedded" : {
+    "acceptedByParticipant" : [
+      {
+        "rel" : "participant",
+        "anonymous" : true,
+        "name" : "Joe Smith",
+        "organizer" : true,
+        "otherPhoneNumber" : "tel:+14251111111",
+        "role" : "Attendee",
+        "sourceNetwork" : "SameEnterprise",
+        "uri" : "sip:john@contoso.com",
+        "workPhoneNumber" : "tel:+14251111111",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127"
+          },
+          "admit" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/admit"
+          },
+          "contact" : {
+            "href" : "//v1/applications/316/people/420"
+          },
+          "contactPhoto" : {
+            "href" : "//v1/applications/316/people/420/contactPhoto"
+          },
+          "contactPresence" : {
+            "href" : "//v1/applications/316/people/420/contactPresence"
+          },
+          "conversation" : {
+            "href" : "//v1/applications/316/communication/conversations/271"
+          },
+          "demote" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/demote"
+          },
+          "eject" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/eject"
+          },
+          "me" : {
+            "href" : "//v1/applications/316/me"
+          },
+          "participantApplicationSharing" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing"
+          },
+          "participantAudio" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantAudio"
+          },
+          "participantDataCollaboration" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration"
+          },
+          "participantMessaging" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantMessaging"
+          },
+          "participantPanoramicVideo" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo"
+          },
+          "participantVideo" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantVideo"
+          },
+          "promote" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/promote"
+          },
+          "reject" : {
+            "href" : "//v1/applications/316/communication/conversations/271/participants/127/reject"
+          }
+        }
+      }
+    ],
+    "from" : {
+      "rel" : "participant",
+      "anonymous" : true,
+      "name" : "Joe Smith",
+      "organizer" : true,
+      "otherPhoneNumber" : "tel:+14251111111",
+      "role" : "Attendee",
+      "sourceNetwork" : "SameEnterprise",
+      "uri" : "sip:john@contoso.com",
+      "workPhoneNumber" : "tel:+14251111111",
+      "_links" : {
+        "self" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127"
+        },
+        "admit" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/admit"
+        },
+        "contact" : {
+          "href" : "//v1/applications/316/people/420"
+        },
+        "contactPhoto" : {
+          "href" : "//v1/applications/316/people/420/contactPhoto"
+        },
+        "contactPresence" : {
+          "href" : "//v1/applications/316/people/420/contactPresence"
+        },
+        "conversation" : {
+          "href" : "//v1/applications/316/communication/conversations/271"
+        },
+        "demote" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/demote"
+        },
+        "eject" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/eject"
+        },
+        "me" : {
+          "href" : "//v1/applications/316/me"
+        },
+        "participantApplicationSharing" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing"
+        },
+        "participantAudio" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantAudio"
+        },
+        "participantDataCollaboration" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration"
+        },
+        "participantMessaging" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantMessaging"
+        },
+        "participantPanoramicVideo" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo"
+        },
+        "participantVideo" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/participantVideo"
+        },
+        "promote" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/promote"
+        },
+        "reject" : {
+          "href" : "//v1/applications/316/communication/conversations/271/participants/127/reject"
+        }
+      }
+    }
+  }
 }
 									
 ```
@@ -593,80 +600,80 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 6204
 										<?xml version="1.0" encoding="utf-8"?>
 <resource rel="messagingInvitation" href="//v1/applications/316/communication/invitations/740" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="customContent" href="data:application/sdp;base64,base64-encoded-sdp" />
- <link rel="message" href="data:text/plain;base64,somebase64encodedmessage" />
- <link rel="from" href="//v1/applications/316/communication/conversations/271/participants/485" />
- <link rel="accept" href="//v1/applications/316/communication/invitations/190/accept" />
- <link rel="acceptedByContact" href="//v1/applications/316/people/905" />
- <link rel="cancel" href="//v1/applications/316/communication/invitations/190/cancel" />
- <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
- <link rel="decline" href="//v1/applications/316/communication/invitations/190/decline" />
- <link rel="derivedMessaging" href="//v1/applications/316/communication/invitations/190/derivedMessaging" />
- <link rel="messaging" href="//v1/applications/316/communication/conversations/271/messaging" />
- <link rel="onBehalfOf" href="//v1/applications/316/people/367" />
- <link rel="to" href="//v1/applications/316/people/387" />
- <property name="rel">messagingInvitation</property>
- <property name="direction">Incoming</property>
- <property name="importance">Normal</property>
- <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
- <property name="state">Connected</property>
- <property name="subject">Strategy for next quarter</property>
- <property name="threadId">292e0aaef36c426a97757f43dda19d06</property>
- <property name="to">sip:john@contoso.com</property>
- <resource rel="acceptedByParticipant" href="//v1/applications/316/communication/conversations/271/participants/127">
- <link rel="admit" href="//v1/applications/316/communication/conversations/271/participants/127/admit" />
- <link rel="contact" href="//v1/applications/316/people/420" />
- <link rel="contactPhoto" href="//v1/applications/316/people/420/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/316/people/420/contactPresence" />
- <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
- <link rel="demote" href="//v1/applications/316/communication/conversations/271/participants/127/demote" />
- <link rel="eject" href="//v1/applications/316/communication/conversations/271/participants/127/eject" />
- <link rel="me" href="//v1/applications/316/me" />
- <link rel="participantApplicationSharing" href="//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing" />
- <link rel="participantAudio" href="//v1/applications/316/communication/conversations/271/participants/127/participantAudio" />
- <link rel="participantDataCollaboration" href="//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration" />
- <link rel="participantMessaging" href="//v1/applications/316/communication/conversations/271/participants/127/participantMessaging" />
- <link rel="participantPanoramicVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo" />
- <link rel="participantVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantVideo" />
- <link rel="promote" href="//v1/applications/316/communication/conversations/271/participants/127/promote" />
- <link rel="reject" href="//v1/applications/316/communication/conversations/271/participants/127/reject" />
- <property name="rel">participant</property>
- <property name="anonymous">True</property>
- <property name="name">Joe Smith</property>
- <property name="organizer">True</property>
- <property name="otherPhoneNumber">tel:+14251111111</property>
- <property name="role">Attendee</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="uri">sip:john@contoso.com</property>
- <property name="workPhoneNumber">tel:+14251111111</property>
- </resource>
- <resource rel="from" href="//v1/applications/316/communication/conversations/271/participants/127">
- <link rel="admit" href="//v1/applications/316/communication/conversations/271/participants/127/admit" />
- <link rel="contact" href="//v1/applications/316/people/420" />
- <link rel="contactPhoto" href="//v1/applications/316/people/420/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/316/people/420/contactPresence" />
- <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
- <link rel="demote" href="//v1/applications/316/communication/conversations/271/participants/127/demote" />
- <link rel="eject" href="//v1/applications/316/communication/conversations/271/participants/127/eject" />
- <link rel="me" href="//v1/applications/316/me" />
- <link rel="participantApplicationSharing" href="//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing" />
- <link rel="participantAudio" href="//v1/applications/316/communication/conversations/271/participants/127/participantAudio" />
- <link rel="participantDataCollaboration" href="//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration" />
- <link rel="participantMessaging" href="//v1/applications/316/communication/conversations/271/participants/127/participantMessaging" />
- <link rel="participantPanoramicVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo" />
- <link rel="participantVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantVideo" />
- <link rel="promote" href="//v1/applications/316/communication/conversations/271/participants/127/promote" />
- <link rel="reject" href="//v1/applications/316/communication/conversations/271/participants/127/reject" />
- <property name="rel">participant</property>
- <property name="anonymous">True</property>
- <property name="name">Joe Smith</property>
- <property name="organizer">True</property>
- <property name="otherPhoneNumber">tel:+14251111111</property>
- <property name="role">Attendee</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="uri">sip:john@contoso.com</property>
- <property name="workPhoneNumber">tel:+14251111111</property>
- </resource>
+  <link rel="customContent" href="data:application/sdp;base64,base64-encoded-sdp" />
+  <link rel="message" href="data:text/plain;base64,somebase64encodedmessage" />
+  <link rel="from" href="//v1/applications/316/communication/conversations/271/participants/485" />
+  <link rel="accept" href="//v1/applications/316/communication/invitations/190/accept" />
+  <link rel="acceptedByContact" href="//v1/applications/316/people/905" />
+  <link rel="cancel" href="//v1/applications/316/communication/invitations/190/cancel" />
+  <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
+  <link rel="decline" href="//v1/applications/316/communication/invitations/190/decline" />
+  <link rel="derivedMessaging" href="//v1/applications/316/communication/invitations/190/derivedMessaging" />
+  <link rel="messaging" href="//v1/applications/316/communication/conversations/271/messaging" />
+  <link rel="onBehalfOf" href="//v1/applications/316/people/367" />
+  <link rel="to" href="//v1/applications/316/people/387" />
+  <property name="rel">messagingInvitation</property>
+  <property name="direction">Incoming</property>
+  <property name="importance">Normal</property>
+  <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+  <property name="state">Connected</property>
+  <property name="subject">Strategy for next quarter</property>
+  <property name="threadId">292e0aaef36c426a97757f43dda19d06</property>
+  <property name="to">sip:john@contoso.com</property>
+  <resource rel="acceptedByParticipant" href="//v1/applications/316/communication/conversations/271/participants/127">
+    <link rel="admit" href="//v1/applications/316/communication/conversations/271/participants/127/admit" />
+    <link rel="contact" href="//v1/applications/316/people/420" />
+    <link rel="contactPhoto" href="//v1/applications/316/people/420/contactPhoto" />
+    <link rel="contactPresence" href="//v1/applications/316/people/420/contactPresence" />
+    <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
+    <link rel="demote" href="//v1/applications/316/communication/conversations/271/participants/127/demote" />
+    <link rel="eject" href="//v1/applications/316/communication/conversations/271/participants/127/eject" />
+    <link rel="me" href="//v1/applications/316/me" />
+    <link rel="participantApplicationSharing" href="//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing" />
+    <link rel="participantAudio" href="//v1/applications/316/communication/conversations/271/participants/127/participantAudio" />
+    <link rel="participantDataCollaboration" href="//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration" />
+    <link rel="participantMessaging" href="//v1/applications/316/communication/conversations/271/participants/127/participantMessaging" />
+    <link rel="participantPanoramicVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo" />
+    <link rel="participantVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantVideo" />
+    <link rel="promote" href="//v1/applications/316/communication/conversations/271/participants/127/promote" />
+    <link rel="reject" href="//v1/applications/316/communication/conversations/271/participants/127/reject" />
+    <property name="rel">participant</property>
+    <property name="anonymous">True</property>
+    <property name="name">Joe Smith</property>
+    <property name="organizer">True</property>
+    <property name="otherPhoneNumber">tel:+14251111111</property>
+    <property name="role">Attendee</property>
+    <property name="sourceNetwork">SameEnterprise</property>
+    <property name="uri">sip:john@contoso.com</property>
+    <property name="workPhoneNumber">tel:+14251111111</property>
+  </resource>
+  <resource rel="from" href="//v1/applications/316/communication/conversations/271/participants/127">
+    <link rel="admit" href="//v1/applications/316/communication/conversations/271/participants/127/admit" />
+    <link rel="contact" href="//v1/applications/316/people/420" />
+    <link rel="contactPhoto" href="//v1/applications/316/people/420/contactPhoto" />
+    <link rel="contactPresence" href="//v1/applications/316/people/420/contactPresence" />
+    <link rel="conversation" href="//v1/applications/316/communication/conversations/271" />
+    <link rel="demote" href="//v1/applications/316/communication/conversations/271/participants/127/demote" />
+    <link rel="eject" href="//v1/applications/316/communication/conversations/271/participants/127/eject" />
+    <link rel="me" href="//v1/applications/316/me" />
+    <link rel="participantApplicationSharing" href="//v1/applications/316/communication/conversations/271/participants/127/participantApplicationSharing" />
+    <link rel="participantAudio" href="//v1/applications/316/communication/conversations/271/participants/127/participantAudio" />
+    <link rel="participantDataCollaboration" href="//v1/applications/316/communication/conversations/271/participants/127/participantDataCollaboration" />
+    <link rel="participantMessaging" href="//v1/applications/316/communication/conversations/271/participants/127/participantMessaging" />
+    <link rel="participantPanoramicVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantPanoramicVideo" />
+    <link rel="participantVideo" href="//v1/applications/316/communication/conversations/271/participants/127/participantVideo" />
+    <link rel="promote" href="//v1/applications/316/communication/conversations/271/participants/127/promote" />
+    <link rel="reject" href="//v1/applications/316/communication/conversations/271/participants/127/reject" />
+    <property name="rel">participant</property>
+    <property name="anonymous">True</property>
+    <property name="name">Joe Smith</property>
+    <property name="organizer">True</property>
+    <property name="otherPhoneNumber">tel:+14251111111</property>
+    <property name="role">Attendee</property>
+    <property name="sourceNetwork">SameEnterprise</property>
+    <property name="uri">sip:john@contoso.com</property>
+    <property name="workPhoneNumber">tel:+14251111111</property>
+  </resource>
 </resource>
 									
 ```

@@ -3,7 +3,13 @@
 
  **Last modified:** July 14, 2015
 
-Removes a [distributionGroup](distributionGroup_ref.md) from contact list.
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Removes a [distributionGroup (UCWA)](distributionGroup_ref.md) from contact list.
 
 
 ## Web Link
@@ -21,7 +27,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
- The RemoveFromContactList resource can be used to remove a [distributionGroup](distributionGroup_ref.md) from contact list.
+ The RemoveFromContactList resource can be used to remove a[distributionGroup (UCWA)](distributionGroup_ref.md) from contact list.
 
 
 ### Properties
@@ -42,7 +48,7 @@ None
 
 ### POST
 
-Removes a [distributionGroup](distributionGroup_ref.md) from contact list.
+Removes a [distributionGroup (UCWA)](distributionGroup_ref.md) from contact list.
 
 
 #### Query parameters

@@ -1,23 +1,23 @@
 
 # Set my presence information
-Set the presence of the **me** user.
+Set the presence of the  **me** user.
 
  **Last modified:** March 24, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Setting a user's presence involves resource navigation from [application](application_ref.md) to [me](me_ref.md) to [presence](presence_ref.md). 
+Setting a user's presence involves resource navigation from [application (UCWA)](application_ref.md) to[me (UCWA)](me_ref.md) to[presence (UCWA)](presence_ref.md). 
 
-The steps here assume that you have already created an application and have received a response that contains the href for an [application](application_ref.md) resource. For more information, see [Create an application](CreateAnApplication.md).
+The steps here assume that you have already created an application and have received a response that contains the href for an [application (UCWA)](application_ref.md) resource. For more information, see[Create an application](CreateAnApplication.md).
 
-1. Send a POST request on the **makeMeAvailable** resource.
- 
- One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the href for the [makeMeAvailable](makeMeAvailable_ref.md) resource. Search for the [me](me_ref.md) embedded resource, and then locate the href of the **makeMeAvailable** link.
- 
+1. Send a POST request on the  **makeMeAvailable** resource.
+    
+    One of the hypermedia links that are served in the response for the [application (UCWA)](application_ref.md) resource is the href for the[makeMeAvailable (UCWA)](makeMeAvailable_ref.md) resource. Search for the[me (UCWA)](me_ref.md) embedded resource, and then locate the href of the **makeMeAvailable** link.
+    
 
 
- ```
- POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
+  ```
+  POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer cwt=AAEB...buHc
@@ -32,17 +32,17 @@ Content-Length: 37
 Connection: Keep-Alive
 Cache-Control: no-cache
 
-{"SupportedModalities": ["Messaging"]}
- ```
+{"SupportedModalities":["Messaging"]}
+  ```
 
 2. Process the response from the request in the previous step.
- 
- The response you receive should be 204 No content, as shown here.
- 
+    
+    The response you receive should be 204 No content, as shown here.
+    
 
 
- ```
- HTTP/1.1 204 No Content
+  ```
+  HTTP/1.1 204 No Content
 Connection: Keep-Alive
 Date: Thu, 17 Jan 2013 00:00:00 GMT
 Server: Microsoft-IIS/7.5
@@ -50,16 +50,16 @@ Cache-Control: no-cache
 X-AspNet-Version: 4.0.30319
 X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
 X-Powered-By: ASP.NET
- ```
+  ```
 
-3. Send a GET request on the **application** resource.
- 
- A sample request is shown here.
- 
+3. Send a GET request on the  **application** resource.
+    
+    A sample request is shown here.
+    
 
 
- ```
- GET https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101 HTTP/1.1
+  ```
+  GET https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101 HTTP/1.1
 Authorization: Bearer cwt=AAEB...buHc
 Accept: application/json
 X-Ms-Origin: http://app.contoso.com
@@ -72,20 +72,20 @@ Host: lyncweb.contoso.com
 Connection: Keep-Alive
 
 
- ```
+  ```
 
 4. Process the response from the previous request.
- 
- You should receive a response code of 200 OK. The following is a typical response to the previous GET request.
- 
- Some links in the response will be used in subsequent steps, so it is important to cache portions of the response body. The link that will be used later is that for **presence**, which is a link in the **me** embedded resource.
- 
- For brevity, some parts of the response body are omitted, and IDs and tokens are shortened.
- 
+    
+    You should receive a response code of 200 OK. The following is a typical response to the previous GET request.
+    
+    Some links in the response will be used in subsequent steps, so it is important to cache portions of the response body. The link that will be used later is that for  **presence**, which is a link in the  **me** embedded resource.
+    
+    For brevity, some parts of the response body are omitted, and IDs and tokens are shortened.
+    
 
 
- ```
- HTTP/1.1 200 OK
+  ```
+  HTTP/1.1 200 OK
 Connection: Keep-Alive
 Content-Length: 3754
 Date: Thu, 17 Jan 2013 00:00:00 GMT
@@ -99,47 +99,47 @@ X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
 X-Powered-By: ASP.NET
 
 {
- "culture":"en-US",
- "userAgent":"UCWA Samples","
- _links":{
- "self":{"href":"/ucwa/oauth/v1/applications/104"},
- "policies":{"href":"/ucwa/oauth/v1/applications/104/policies"},
- "batch":{"href":"/ucwa/oauth/v1/applications/104/batch"},
- "events":{"href":"/ucwa/oauth/v1/applications/104/events?ack=1"}
- },
- "_embedded":{
- "me":{
- "name":"Dana Birkby",
- "uri":"sip:Dana@contoso.com",
- "emailAddresses": ["Dana@contoso.com"],
- "_links":{
- "self":{"href":"/ucwa/oauth/v1/applications/104/me"},
- "note":{"href":"/ucwa/oauth/v1/applications/104/me/note"},
- "presence":{"href":"/ucwa/oauth/v1/applications/104/me/presence"},
- "location":{"href":"/ucwa/oauth/v1/applications/104/me/location"},
- "reportMyActivity":{"href":"/ucwa/oauth/v1/applications/104/me/reportMyActivity"},
- "callForwardingSettings":{"href":"/ucwa/oauth/v1/applications/104/me/callForwardingSettings"},
- "phones":{"href":"/ucwa/oauth/v1/applications/104/me/phones"},
- "photo":{"href":"/ucwa/oauth/v1/applications/104/photos/Dana@contoso.com"}
- },
- "rel":"me"
- },
- "people":{...},
- "onlineMeetings":{...},
- "communication":{...},
- }
- "rel":"application"
+  "culture":"en-US",
+  "userAgent":"UCWA Samples","
+  _links":{
+    "self":{"href":"/ucwa/oauth/v1/applications/104"},
+    "policies":{"href":"/ucwa/oauth/v1/applications/104/policies"},
+    "batch":{"href":"/ucwa/oauth/v1/applications/104/batch"},
+    "events":{"href":"/ucwa/oauth/v1/applications/104/events?ack=1"}
+  },
+  "_embedded":{
+    "me":{
+      "name":"Dana Birkby",
+      "uri":"sip:Dana@contoso.com",
+      "emailAddresses":["Dana@contoso.com"],
+      "_links":{
+        "self":{"href":"/ucwa/oauth/v1/applications/104/me"},
+        "note":{"href":"/ucwa/oauth/v1/applications/104/me/note"},
+        "presence":{"href":"/ucwa/oauth/v1/applications/104/me/presence"},
+        "location":{"href":"/ucwa/oauth/v1/applications/104/me/location"},
+        "reportMyActivity":{"href":"/ucwa/oauth/v1/applications/104/me/reportMyActivity"},
+        "callForwardingSettings":{"href":"/ucwa/oauth/v1/applications/104/me/callForwardingSettings"},
+        "phones":{"href":"/ucwa/oauth/v1/applications/104/me/phones"},
+        "photo":{"href":"/ucwa/oauth/v1/applications/104/photos/Dana@contoso.com"}
+      },
+      "rel":"me"
+    },
+    "people":{...},
+    "onlineMeetings":{...},
+    "communication":{...},
+  }
+  "rel":"application"
 }
- ```
+  ```
 
-5. Send a POST request on the **presence** resource.
- 
- A sample request is shown here. Note the **availability** property at the bottom of the request.
- 
+5. Send a POST request on the  **presence** resource.
+    
+    A sample request is shown here. Note the  **availability** property at the bottom of the request.
+    
 
 
- ```
- POST https://contoso.com/ucwa/oauth/v1/applications/102/me/presence HTTP/1.1
+  ```
+  POST https://contoso.com/ucwa/oauth/v1/applications/102/me/presence HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer cwt=AAEB...uHc
@@ -155,16 +155,16 @@ DNT: 1
 Connection: Keep-Alive
 Cache-Control: no-cache
 {"availability":"Online"}
- ```
+  ```
 
 6. Process the response from the previous POST request.
- 
- The response you receive should be 204 No Content. This means that your presence request has been received by the server. An event will confirm that your application is the most active and this presence is now being shared with other contacts.
- 
+    
+    The response you receive should be 204 No Content. This means that your presence request has been received by the server. An event will confirm that your application is the most active and this presence is now being shared with other contacts.
+    
 
 
- ```
- HTTP/1.1 204 No Content
+  ```
+  HTTP/1.1 204 No Content
 Connection: Keep-Alive
 Date: Thu, 17 Jan 2013 00:00:00 GMT
 Server: Microsoft-IIS/7.5
@@ -173,5 +173,5 @@ X-AspNet-Version: 4.0.30319
 X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
 X-Powered-By: ASP.NET
 
- ```
+  ```
 

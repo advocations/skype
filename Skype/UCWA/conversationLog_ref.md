@@ -3,6 +3,12 @@
 
  **Last modified:** July 14, 2015
 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
 Represents the user's view of an instance of past conversation. 
 
 
@@ -123,63 +129,63 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 1416
 										{
- "rel" : "conversationLog",
- "creationTime" : "\/Date(1436925244208)\/",
- "direction" : "Incoming",
- "importance" : "Normal",
- "modalities" : [
- "Messaging",
- "Audio",
- "Video",
- "ApplicationSharing"
- ],
- "onlineMeetingUri" : "samplevalue",
- "previewMessage" : "samplevalue",
- "status" : "Archived",
- "subject" : "Conversation with xxx.",
- "threadId" : "534e445ee854436a8abe02c24985f78a",
- "totalRecipientsCount" : 88,
- "type" : "AudioLog",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
- },
- "continueMessaging" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging"
- },
- "continuePhoneAudio" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio"
- },
- "conversationLogTranscripts" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts"
- },
- "markAsRead" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead"
- }
- },
- "_embedded" : {
- "conversationLogRecipient" : [
- {
- "rel" : "conversationLogRecipient",
- "displayName" : "samplevalue",
- "sipUri" : "samplevalue",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- }
- }
- }
- ]
- }
+  "rel" : "conversationLog",
+  "creationTime" : "\/Date(1436925244208)\/",
+  "direction" : "Incoming",
+  "importance" : "Normal",
+  "modalities" : [
+    "Messaging",
+    "Audio",
+    "Video",
+    "ApplicationSharing"
+  ],
+  "onlineMeetingUri" : "samplevalue",
+  "previewMessage" : "samplevalue",
+  "status" : "Archived",
+  "subject" : "Conversation with xxx.",
+  "threadId" : "534e445ee854436a8abe02c24985f78a",
+  "totalRecipientsCount" : 88,
+  "type" : "AudioLog",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
+    },
+    "continueMessaging" : {
+      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging"
+    },
+    "continuePhoneAudio" : {
+      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio"
+    },
+    "conversationLogTranscripts" : {
+      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts"
+    },
+    "markAsRead" : {
+      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead"
+    }
+  },
+  "_embedded" : {
+    "conversationLogRecipient" : [
+      {
+        "rel" : "conversationLogRecipient",
+        "displayName" : "samplevalue",
+        "sipUri" : "samplevalue",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
+          },
+          "contact" : {
+            "href" : "//v1/applications/833/people/166"
+          },
+          "contactPhoto" : {
+            "href" : "//v1/applications/833/people/166/contactPhoto"
+          },
+          "contactPresence" : {
+            "href" : "//v1/applications/833/people/166/contactPresence"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -209,38 +215,38 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1975
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="conversationLog" href="//v1/applications/833/communication/conversationLogs/conversationLog" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="continueMessaging" href="//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging" />
- <link rel="continuePhoneAudio" href="//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio" />
- <link rel="conversationLogTranscripts" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts" />
- <link rel="markAsRead" href="//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead" />
- <property name="rel">conversationLog</property>
- <property name="creationTime">2015-07-14T20:54:04.2145620-05:00</property>
- <property name="direction">Incoming</property>
- <property name="importance">Normal</property>
- <propertyList name="modalities">
- <item>Messaging</item>
- <item>Audio</item>
- <item>Video</item>
- <item>ApplicationSharing</item>
- </propertyList>
- <property name="onlineMeetingUri">samplevalue</property>
- <property name="previewMessage">samplevalue</property>
- <property name="status">Archived</property>
- <property name="subject">Conversation with xxx.</property>
- <property name="threadId">534e445ee854436a8abe02c24985f78a</property>
- <property name="totalRecipientsCount">55</property>
- <property name="type">AudioLog</property>
- <resource rel="conversationLogRecipient" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <property name="rel">conversationLogRecipient</property>
- <property name="displayName">samplevalue</property>
- <property name="sipUri">samplevalue</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;conversationLog&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;continueMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;continuePhoneAudio&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversationLogTranscripts&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;markAsRead&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;conversationLog&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;creationTime&amp;quot;&amp;gt;2015-07-14T20:54:04.2145620-05:00&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;direction&amp;quot;&amp;gt;Incoming&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;importance&amp;quot;&amp;gt;Normal&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;modalities&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;Messaging&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Audio&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Video&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;ApplicationSharing&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingUri&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;previewMessage&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;status&amp;quot;&amp;gt;Archived&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Conversation with xxx.&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;threadId&amp;quot;&amp;gt;534e445ee854436a8abe02c24985f78a&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;totalRecipientsCount&amp;quot;&amp;gt;55&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;AudioLog&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;conversationLogRecipient&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;conversationLogRecipient&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;displayName&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;sipUri&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

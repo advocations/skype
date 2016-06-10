@@ -1,9 +1,15 @@
 
-# phones 
+# phones (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 A collection of phone resources that represent the phone numbers of the logged-on user. 
 
@@ -107,33 +113,33 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 419
 										{
- "rel" : "phones",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me/phones"
- }
- },
- "_embedded" : {
- "phone" : [
- {
- "rel" : "phone",
- "includeInContactCard" : false,
- "number" : "tel:+14255551234",
- "type" : " Other",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me/phones/phone"
- },
- "changeNumber" : {
- "href" : "//v1/applications/833/me/phones/phone/changeNumber"
- },
- "changeVisibility" : {
- "href" : "//v1/applications/833/me/phones/phone/changeVisibility"
- }
- }
- }
- ]
- }
+  "rel" : "phones",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/me/phones"
+    }
+  },
+  "_embedded" : {
+    "phone" : [
+      {
+        "rel" : "phone",
+        "includeInContactCard" : false,
+        "number" : "tel:+14255551234",
+        "type" : " Other",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/me/phones/phone"
+          },
+          "changeNumber" : {
+            "href" : "//v1/applications/833/me/phones/phone/changeNumber"
+          },
+          "changeVisibility" : {
+            "href" : "//v1/applications/833/me/phones/phone/changeVisibility"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -163,18 +169,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 640
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="phones" href="//v1/applications/833/me/phones" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">phones</property>
- <resource rel="phone" href="//v1/applications/833/me/phones/phone">
- <link rel="changeNumber" href="//v1/applications/833/me/phones/phone/changeNumber" />
- <link rel="changeVisibility" href="//v1/applications/833/me/phones/phone/changeVisibility" />
- <property name="rel">phone</property>
- <property name="includeInContactCard">False</property>
- <property name="number">tel:+14255551234</property>
- <property name="type"> Other</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;phones&amp;quot; href=&amp;quot;//v1/applications/833/me/phones&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;phones&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;phone&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;changeNumber&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone/changeNumber&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;changeVisibility&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone/changeVisibility&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;phone&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;includeInContactCard&amp;quot;&amp;gt;False&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;number&amp;quot;&amp;gt;tel:+14255551234&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt; Other&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

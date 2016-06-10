@@ -1,11 +1,17 @@
 
-# setIsTyping 
+# setIsTyping (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Sets the user's typing status in a [conversation](conversation_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Sets the user's typing status in a [conversation (UCWA)](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -22,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The presence of this resource indicates that the user can broadcast her typing status. This resource will start a short timer on the server during which the user will show up in the [typingParticipants](typingParticipants_ref.md) for this [conversation](conversation_ref.md). If the resource is not used again within that time, the user will be removed from [typingParticipants](typingParticipants_ref.md). 
+The presence of this resource indicates that the user can broadcast her typing status. This resource will start a short timer on the server during which the user will show up in the [typingParticipants (UCWA)](typingParticipants_ref.md) for this[conversation (UCWA)](conversation_ref.md). If the resource is not used again within that time, the user will be removed from [typingParticipants (UCWA)](typingParticipants_ref.md). 
 
 
 ### Properties
@@ -43,7 +49,7 @@ None
 
 ### POST
 
-Sets the user's typing status in a [conversation](conversation_ref.md).
+Sets the user's typing status in a [conversation (UCWA)](conversation_ref.md).
 
 
 #### Request body

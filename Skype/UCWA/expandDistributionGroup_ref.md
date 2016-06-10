@@ -1,11 +1,17 @@
 
-# expandDistributionGroup 
+# expandDistributionGroup (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Expands a distribution group and returns the set of [contact](contact_ref.md) resources it contains.
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Expands a distribution group and returns the set of [contact (UCWA)](contact_ref.md) resources it contains.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -48,7 +54,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Expands a distribution group and returns the set of [contact](contact_ref.md) resources it contains.
+Expands a distribution group and returns the set of [contact (UCWA)](contact_ref.md) resources it contains.
 
 
 #### Request body
@@ -69,7 +75,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Forbidden|403|TooManyContacts|Indicates that there are too many [contact](contact_ref.md) resources in this distribution group.|
+|Forbidden|403|TooManyContacts|Indicates that there are too many [contact (UCWA)](contact_ref.md) resources in this distribution group.|
 |Forbidden|403|None|Indicates that the user does not have privileges to view the members of this distribution group.|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
@@ -106,272 +112,272 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 5986
 										{
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- }
- }
- }
- ]
- }
- }
- ]
- }
- }
- ]
- }
- }
- ]
- }
+  "rel" : "distributionGroup",
+  "uri" : "sip:mypersonalgroup@contoso.com",
+  "id" : "7",
+  "name" : "MyPersonalGroup",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/groups/distributionGroup"
+    },
+    "addToContactList" : {
+      "href" : "//v1/applications/833/groups/addToContactList"
+    },
+    "expandDistributionGroup" : {
+      "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+    },
+    "groupContacts" : {
+      "href" : "//v1/applications/833/contacts"
+    },
+    "removeFromContactList" : {
+      "href" : "//v1/applications/833/groups/removeFromContactList"
+    },
+    "subscribeToGroupPresence" : {
+      "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+    }
+  },
+  "_embedded" : {
+    "contact" : [
+      {
+        "rel" : "contact",
+        "company" : "Contoso Corp.",
+        "department" : "Engineering",
+        "emailAddresses" : [
+          "Alex.Doe@contoso.com"
+        ],
+        "homePhoneNumber" : "tel:+19185550107",
+        "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+        "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+        "name" : "Alex Doe",
+        "office" : "tel:+1425554321;ext=54321",
+        "otherPhoneNumber" : "tel:+19195558194",
+        "sourceNetwork" : "SameEnterprise",
+        "title" : "Engineer 2",
+        "type" : "User",
+        "uri" : "sip:alex@contoso.com",
+        "workPhoneNumber" : "tel:+1425554321;ext=54321",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/people/166"
+          },
+          "contactLocation" : {
+            "href" : "//v1/applications/833/people/166/contactLocation"
+          },
+          "contactNote" : {
+            "href" : "//v1/applications/833/people/166/contactNote"
+          },
+          "contactPhoto" : {
+            "href" : "//v1/applications/833/people/166/contactPhoto"
+          },
+          "contactPresence" : {
+            "href" : "//v1/applications/833/people/166/contactPresence"
+          },
+          "contactPrivacyRelationship" : {
+            "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+          },
+          "contactSupportedModalities" : {
+            "href" : "//v1/applications/833/people/166/contactSupportedModalities"
+          }
+        }
+      }
+    ],
+    "distributionGroup" : [
+      {
+        "rel" : "distributionGroup",
+        "uri" : "sip:mypersonalgroup@contoso.com",
+        "id" : "7",
+        "name" : "MyPersonalGroup",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/groups/distributionGroup"
+          },
+          "addToContactList" : {
+            "href" : "//v1/applications/833/groups/addToContactList"
+          },
+          "expandDistributionGroup" : {
+            "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+          },
+          "groupContacts" : {
+            "href" : "//v1/applications/833/contacts"
+          },
+          "removeFromContactList" : {
+            "href" : "//v1/applications/833/groups/removeFromContactList"
+          },
+          "subscribeToGroupPresence" : {
+            "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+          }
+        },
+        "_embedded" : {
+          "contact" : [
+            {
+              "rel" : "contact",
+              "company" : "Contoso Corp.",
+              "department" : "Engineering",
+              "emailAddresses" : [
+                "Alex.Doe@contoso.com"
+              ],
+              "homePhoneNumber" : "tel:+19185550107",
+              "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+              "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+              "name" : "Alex Doe",
+              "office" : "tel:+1425554321;ext=54321",
+              "otherPhoneNumber" : "tel:+19195558194",
+              "sourceNetwork" : "SameEnterprise",
+              "title" : "Engineer 2",
+              "type" : "User",
+              "uri" : "sip:alex@contoso.com",
+              "workPhoneNumber" : "tel:+1425554321;ext=54321",
+              "_links" : {
+                "self" : {
+                  "href" : "//v1/applications/833/people/166"
+                },
+                "contactLocation" : {
+                  "href" : "//v1/applications/833/people/166/contactLocation"
+                },
+                "contactNote" : {
+                  "href" : "//v1/applications/833/people/166/contactNote"
+                },
+                "contactPhoto" : {
+                  "href" : "//v1/applications/833/people/166/contactPhoto"
+                },
+                "contactPresence" : {
+                  "href" : "//v1/applications/833/people/166/contactPresence"
+                },
+                "contactPrivacyRelationship" : {
+                  "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+                },
+                "contactSupportedModalities" : {
+                  "href" : "//v1/applications/833/people/166/contactSupportedModalities"
+                }
+              }
+            }
+          ],
+          "distributionGroup" : [
+            {
+              "rel" : "distributionGroup",
+              "uri" : "sip:mypersonalgroup@contoso.com",
+              "id" : "7",
+              "name" : "MyPersonalGroup",
+              "_links" : {
+                "self" : {
+                  "href" : "//v1/applications/833/groups/distributionGroup"
+                },
+                "addToContactList" : {
+                  "href" : "//v1/applications/833/groups/addToContactList"
+                },
+                "expandDistributionGroup" : {
+                  "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+                },
+                "groupContacts" : {
+                  "href" : "//v1/applications/833/contacts"
+                },
+                "removeFromContactList" : {
+                  "href" : "//v1/applications/833/groups/removeFromContactList"
+                },
+                "subscribeToGroupPresence" : {
+                  "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+                }
+              },
+              "_embedded" : {
+                "contact" : [
+                  {
+                    "rel" : "contact",
+                    "company" : "Contoso Corp.",
+                    "department" : "Engineering",
+                    "emailAddresses" : [
+                      "Alex.Doe@contoso.com"
+                    ],
+                    "homePhoneNumber" : "tel:+19185550107",
+                    "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+                    "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+                    "name" : "Alex Doe",
+                    "office" : "tel:+1425554321;ext=54321",
+                    "otherPhoneNumber" : "tel:+19195558194",
+                    "sourceNetwork" : "SameEnterprise",
+                    "title" : "Engineer 2",
+                    "type" : "User",
+                    "uri" : "sip:alex@contoso.com",
+                    "workPhoneNumber" : "tel:+1425554321;ext=54321",
+                    "_links" : {
+                      "self" : {
+                        "href" : "//v1/applications/833/people/166"
+                      },
+                      "contactLocation" : {
+                        "href" : "//v1/applications/833/people/166/contactLocation"
+                      },
+                      "contactNote" : {
+                        "href" : "//v1/applications/833/people/166/contactNote"
+                      },
+                      "contactPhoto" : {
+                        "href" : "//v1/applications/833/people/166/contactPhoto"
+                      },
+                      "contactPresence" : {
+                        "href" : "//v1/applications/833/people/166/contactPresence"
+                      },
+                      "contactPrivacyRelationship" : {
+                        "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+                      },
+                      "contactSupportedModalities" : {
+                        "href" : "//v1/applications/833/people/166/contactSupportedModalities"
+                      }
+                    }
+                  }
+                ],
+                "distributionGroup" : [
+                  {
+                    "rel" : "distributionGroup",
+                    "uri" : "sip:mypersonalgroup@contoso.com",
+                    "id" : "7",
+                    "name" : "MyPersonalGroup",
+                    "_links" : {
+                      "self" : {
+                        "href" : "//v1/applications/833/groups/distributionGroup"
+                      },
+                      "addToContactList" : {
+                        "href" : "//v1/applications/833/groups/addToContactList"
+                      },
+                      "expandDistributionGroup" : {
+                        "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+                      },
+                      "groupContacts" : {
+                        "href" : "//v1/applications/833/contacts"
+                      },
+                      "removeFromContactList" : {
+                        "href" : "//v1/applications/833/groups/removeFromContactList"
+                      },
+                      "subscribeToGroupPresence" : {
+                        "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+                      }
+                    },
+                    "_embedded" : {
+                      "contact" : [
+                        {
+                          "_links" : {
+                            "self" : {
+                              "href" : "//v1/applications/833/people/166"
+                            }
+                          }
+                        }
+                      ],
+                      "distributionGroup" : [
+                        {
+                          "_links" : {
+                            "self" : {
+                              "href" : "//v1/applications/833/groups/distributionGroup"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -401,128 +407,128 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 7782
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addToContactList" href="//v1/applications/833/groups/addToContactList" />
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="removeFromContactList" href="//v1/applications/833/groups/removeFromContactList" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">distributionGroup</property>
- <property name="uri">sip:mypersonalgroup@contoso.com</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
- <resource rel="contact" href="//v1/applications/833/people/166">
- <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
- <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
- <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
- <property name="rel">contact</property>
- <property name="company">Contoso Corp.</property>
- <property name="department">Engineering</property>
- <propertyList name="emailAddresses">
- <item>Alex.Doe@contoso.com</item>
- </propertyList>
- <property name="homePhoneNumber">tel:+19185550107</property>
- <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
- <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
- <property name="name">Alex Doe</property>
- <property name="office">tel:+1425554321;ext=54321</property>
- <property name="otherPhoneNumber">tel:+19195558194</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="title">Engineer 2</property>
- <property name="type">User</property>
- <property name="uri">sip:alex@contoso.com</property>
- <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
- </resource>
- <resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup">
- <link rel="addToContactList" href="//v1/applications/833/groups/addToContactList" />
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="removeFromContactList" href="//v1/applications/833/groups/removeFromContactList" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">distributionGroup</property>
- <property name="uri">sip:mypersonalgroup@contoso.com</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
- <resource rel="contact" href="//v1/applications/833/people/166">
- <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
- <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
- <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
- <property name="rel">contact</property>
- <property name="company">Contoso Corp.</property>
- <property name="department">Engineering</property>
- <propertyList name="emailAddresses">
- <item>Alex.Doe@contoso.com</item>
- </propertyList>
- <property name="homePhoneNumber">tel:+19185550107</property>
- <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
- <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
- <property name="name">Alex Doe</property>
- <property name="office">tel:+1425554321;ext=54321</property>
- <property name="otherPhoneNumber">tel:+19195558194</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="title">Engineer 2</property>
- <property name="type">User</property>
- <property name="uri">sip:alex@contoso.com</property>
- <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
- </resource>
- <resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup">
- <link rel="addToContactList" href="//v1/applications/833/groups/addToContactList" />
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="removeFromContactList" href="//v1/applications/833/groups/removeFromContactList" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">distributionGroup</property>
- <property name="uri">sip:mypersonalgroup@contoso.com</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
- <resource rel="contact" href="//v1/applications/833/people/166">
- <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
- <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
- <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
- <property name="rel">contact</property>
- <property name="company">Contoso Corp.</property>
- <property name="department">Engineering</property>
- <propertyList name="emailAddresses">
- <item>Alex.Doe@contoso.com</item>
- </propertyList>
- <property name="homePhoneNumber">tel:+19185550107</property>
- <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
- <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
- <property name="name">Alex Doe</property>
- <property name="office">tel:+1425554321;ext=54321</property>
- <property name="otherPhoneNumber">tel:+19195558194</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="title">Engineer 2</property>
- <property name="type">User</property>
- <property name="uri">sip:alex@contoso.com</property>
- <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
- </resource>
- <resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup">
- <link rel="addToContactList" href="//v1/applications/833/groups/addToContactList" />
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="removeFromContactList" href="//v1/applications/833/groups/removeFromContactList" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">distributionGroup</property>
- <property name="uri">sip:mypersonalgroup@contoso.com</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
- <resource rel="contact" href="//v1/applications/833/people/166" />
- <resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup" />
- </resource>
- </resource>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;distributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;addToContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/addToContactList&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;expandDistributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup/expandDistributionGroup&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;groupContacts&amp;quot; href=&amp;quot;//v1/applications/833/contacts&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;removeFromContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/removeFromContactList&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;subscribeToGroupPresence&amp;quot; href=&amp;quot;//v1/applications/833/groups/group/subscribeToGroupPresence&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;distributionGroup&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:mypersonalgroup@contoso.com&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;7&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;MyPersonalGroup&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactLocation&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactLocation&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactNote&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactNote&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;contactSupportedModalities&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactSupportedModalities&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contact&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;company&amp;quot;&amp;gt;Contoso Corp.&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;department&amp;quot;&amp;gt;Engineering&amp;lt;/property&amp;gt;
+    &amp;lt;propertyList name=&amp;quot;emailAddresses&amp;quot;&amp;gt;
+      &amp;lt;item&amp;gt;Alex.Doe@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;/propertyList&amp;gt;
+    &amp;lt;property name=&amp;quot;homePhoneNumber&amp;quot;&amp;gt;tel:+19185550107&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;sourceNetworkIconUrl&amp;quot;&amp;gt;https://images.contoso.com/logo_16x16.png&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;mobilePhoneNumber&amp;quot;&amp;gt;tel:4255551212;phone-context=defaultprofile&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;Alex Doe&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;office&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;otherPhoneNumber&amp;quot;&amp;gt;tel:+19195558194&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;sourceNetwork&amp;quot;&amp;gt;SameEnterprise&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;title&amp;quot;&amp;gt;Engineer 2&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;User&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:alex@contoso.com&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;workPhoneNumber&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+  &amp;lt;resource rel=&amp;quot;distributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;addToContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/addToContactList&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;expandDistributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup/expandDistributionGroup&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;groupContacts&amp;quot; href=&amp;quot;//v1/applications/833/contacts&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;removeFromContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/removeFromContactList&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;subscribeToGroupPresence&amp;quot; href=&amp;quot;//v1/applications/833/groups/group/subscribeToGroupPresence&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;distributionGroup&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:mypersonalgroup@contoso.com&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;7&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;MyPersonalGroup&amp;lt;/property&amp;gt;
+    &amp;lt;resource rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot;&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactLocation&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactLocation&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactNote&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactNote&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;contactSupportedModalities&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactSupportedModalities&amp;quot; /&amp;gt;
+      &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contact&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;company&amp;quot;&amp;gt;Contoso Corp.&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;department&amp;quot;&amp;gt;Engineering&amp;lt;/property&amp;gt;
+      &amp;lt;propertyList name=&amp;quot;emailAddresses&amp;quot;&amp;gt;
+        &amp;lt;item&amp;gt;Alex.Doe@contoso.com&amp;lt;/item&amp;gt;
+      &amp;lt;/propertyList&amp;gt;
+      &amp;lt;property name=&amp;quot;homePhoneNumber&amp;quot;&amp;gt;tel:+19185550107&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;sourceNetworkIconUrl&amp;quot;&amp;gt;https://images.contoso.com/logo_16x16.png&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;mobilePhoneNumber&amp;quot;&amp;gt;tel:4255551212;phone-context=defaultprofile&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;Alex Doe&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;office&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;otherPhoneNumber&amp;quot;&amp;gt;tel:+19195558194&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;sourceNetwork&amp;quot;&amp;gt;SameEnterprise&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;title&amp;quot;&amp;gt;Engineer 2&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;User&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:alex@contoso.com&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;workPhoneNumber&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+    &amp;lt;/resource&amp;gt;
+    &amp;lt;resource rel=&amp;quot;distributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup&amp;quot;&amp;gt;
+      &amp;lt;link rel=&amp;quot;addToContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/addToContactList&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;expandDistributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup/expandDistributionGroup&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;groupContacts&amp;quot; href=&amp;quot;//v1/applications/833/contacts&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;removeFromContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/removeFromContactList&amp;quot; /&amp;gt;
+      &amp;lt;link rel=&amp;quot;subscribeToGroupPresence&amp;quot; href=&amp;quot;//v1/applications/833/groups/group/subscribeToGroupPresence&amp;quot; /&amp;gt;
+      &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;distributionGroup&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:mypersonalgroup@contoso.com&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;7&amp;lt;/property&amp;gt;
+      &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;MyPersonalGroup&amp;lt;/property&amp;gt;
+      &amp;lt;resource rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot;&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactLocation&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactLocation&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactNote&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactNote&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPrivacyRelationship&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;contactSupportedModalities&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactSupportedModalities&amp;quot; /&amp;gt;
+        &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contact&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;company&amp;quot;&amp;gt;Contoso Corp.&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;department&amp;quot;&amp;gt;Engineering&amp;lt;/property&amp;gt;
+        &amp;lt;propertyList name=&amp;quot;emailAddresses&amp;quot;&amp;gt;
+          &amp;lt;item&amp;gt;Alex.Doe@contoso.com&amp;lt;/item&amp;gt;
+        &amp;lt;/propertyList&amp;gt;
+        &amp;lt;property name=&amp;quot;homePhoneNumber&amp;quot;&amp;gt;tel:+19185550107&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;sourceNetworkIconUrl&amp;quot;&amp;gt;https://images.contoso.com/logo_16x16.png&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;mobilePhoneNumber&amp;quot;&amp;gt;tel:4255551212;phone-context=defaultprofile&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;Alex Doe&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;office&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;otherPhoneNumber&amp;quot;&amp;gt;tel:+19195558194&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;sourceNetwork&amp;quot;&amp;gt;SameEnterprise&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;title&amp;quot;&amp;gt;Engineer 2&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;User&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:alex@contoso.com&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;workPhoneNumber&amp;quot;&amp;gt;tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
+      &amp;lt;/resource&amp;gt;
+      &amp;lt;resource rel=&amp;quot;distributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup&amp;quot;&amp;gt;
+        &amp;lt;link rel=&amp;quot;addToContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/addToContactList&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;expandDistributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup/expandDistributionGroup&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;groupContacts&amp;quot; href=&amp;quot;//v1/applications/833/contacts&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;removeFromContactList&amp;quot; href=&amp;quot;//v1/applications/833/groups/removeFromContactList&amp;quot; /&amp;gt;
+        &amp;lt;link rel=&amp;quot;subscribeToGroupPresence&amp;quot; href=&amp;quot;//v1/applications/833/groups/group/subscribeToGroupPresence&amp;quot; /&amp;gt;
+        &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;distributionGroup&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:mypersonalgroup@contoso.com&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;7&amp;lt;/property&amp;gt;
+        &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;MyPersonalGroup&amp;lt;/property&amp;gt;
+        &amp;lt;resource rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+        &amp;lt;resource rel=&amp;quot;distributionGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/distributionGroup&amp;quot; /&amp;gt;
+      &amp;lt;/resource&amp;gt;
+    &amp;lt;/resource&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

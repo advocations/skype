@@ -1,11 +1,18 @@
 
-# contactNote 
+# contactNote (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents a [contact](contact_ref.md)'s personal or out-of-office note. 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents a [contact (UCWA)](contact_ref.md)'s personal or out-of-office note. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -71,33 +78,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "people",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
- "events" : [
- {
- "link" : {
- "rel" : "contactNote",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactNote"
- },
- "in" : {
- "rel" : "contact",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "people",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "contactNote",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166/contactNote"
+          },
+          "in" : {
+            "rel" : "contact",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -168,14 +175,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 142
 										{
- "rel" : "contactNote",
- "message" : "Heads down today",
- "type" : "Personal",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- }
- }
+  "rel" : "contactNote",
+  "message" : "Heads down today",
+  "type" : "Personal",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/people/166/contactNote"
+    }
+  }
 }
 									
 ```
@@ -205,12 +212,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 319
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactNote" href="//v1/applications/833/people/166/contactNote" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">contactNote</property>
- <property name="message">Heads down today</property>
- <property name="type">Personal</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;contactNote&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactNote&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;contactNote&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;message&amp;quot;&amp;gt;Heads down today&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;Personal&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

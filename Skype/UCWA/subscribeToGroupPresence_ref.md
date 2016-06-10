@@ -1,9 +1,15 @@
 
-# subscribeToGroupPresence 
+# subscribeToGroupPresence (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Subscribes to the presence information of all the contacts in a particular group. 
 
@@ -43,7 +49,7 @@ None
 
 ### POST
 
-Creates a time-bound [presenceSubscription](presenceSubscription_ref.md) resource.
+Creates a time-bound [presenceSubscription (UCWA)](presenceSubscription_ref.md) resource.
 
 
 #### Query parameters
@@ -67,7 +73,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-| [presenceSubscription](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
+|[presenceSubscription (UCWA)](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
 
 #### Synchronous errors
 
@@ -112,19 +118,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 299
 										{
- "rel" : "presenceSubscription",
- "id" : "3",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscription"
- },
- "addToPresenceSubscription" : {
- "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
- },
- "memberships" : {
- "href" : "//v1/applications/833/presenceSubscription/memberships"
- }
- }
+  "rel" : "presenceSubscription",
+  "id" : "3",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/presenceSubscription"
+    },
+    "addToPresenceSubscription" : {
+      "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+    },
+    "memberships" : {
+      "href" : "//v1/applications/833/presenceSubscription/memberships"
+    }
+  }
 }
 									
 ```
@@ -154,13 +160,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 201 Created
 										Content-Type: application/xml
 										Content-Length: 478
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
- <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
- <property name="rel">presenceSubscription</property>
- <property name="id">3</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;addToPresenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/addToPresenceSubscription&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;memberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/memberships&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscription&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;3&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

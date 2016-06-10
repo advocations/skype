@@ -1,9 +1,15 @@
 
-# myOnlineMeeting 
+# myOnlineMeeting (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Represents a scheduled meeting on the user's calendar. 
 
@@ -59,8 +65,8 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|onlineMeetingExtensions|Represents the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md).|
-|onlineMeetingExtensions|Represents the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md).|
+|onlineMeetingExtensions|Represents the set of [onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md).|
+|onlineMeetingExtensions|Represents the set of [onlineMeetingExtension (UCWA)](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting (UCWA)](onlineMeeting_ref.md).|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -128,51 +134,51 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 1276
 										{
- "rel" : "myOnlineMeeting",
- "accessLevel" : "Invited",
- "attendees" : [
- "sip:johndoe@contoso.com",
- "sip:janedoe@contoso.com"
- ],
- "automaticLeaderAssignment" : "SameEnterprise",
- "conferenceId" : "12983487",
- "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
- "entryExitAnnouncement" : "Disabled",
- "expirationTime" : "\/Date(1436925248513)\/",
- "joinUrl" : "https://meet.contoso.com/bmauldin/IB88RLLY",
- "leaders" : [
- "sip:aikc@contoso.com",
- "sip:lenea@contoso.com"
- ],
- "lobbyBypassForPhoneUsers" : "Disabled",
- "onlineMeetingId" : "IB88RLLY",
- "onlineMeetingRel" : "myOnlineMeetings",
- "onlineMeetingUri" : "sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY",
- "organizerUri" : "sip:bmauldin@contoso.com",
- "phoneUserAdmission" : "Disabled",
- "subject" : "Quarterly sales numbers",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810"
- },
- "onlineMeetingExtensions" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
- }
- },
- "_embedded" : {
- "onlineMeetingExtension" : [
- {
- "rel" : "onlineMeetingExtension",
- "id" : "917823",
- "type" : "RoamedParticipantData",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
- }
- }
- }
- ]
- }
+  "rel" : "myOnlineMeeting",
+  "accessLevel" : "Invited",
+  "attendees" : [
+    "sip:johndoe@contoso.com",
+    "sip:janedoe@contoso.com"
+  ],
+  "automaticLeaderAssignment" : "SameEnterprise",
+  "conferenceId" : "12983487",
+  "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
+  "entryExitAnnouncement" : "Disabled",
+  "expirationTime" : "\/Date(1436925248513)\/",
+  "joinUrl" : "https://meet.contoso.com/bmauldin/IB88RLLY",
+  "leaders" : [
+    "sip:aikc@contoso.com",
+    "sip:lenea@contoso.com"
+  ],
+  "lobbyBypassForPhoneUsers" : "Disabled",
+  "onlineMeetingId" : "IB88RLLY",
+  "onlineMeetingRel" : "myOnlineMeetings",
+  "onlineMeetingUri" : "sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY",
+  "organizerUri" : "sip:bmauldin@contoso.com",
+  "phoneUserAdmission" : "Disabled",
+  "subject" : "Quarterly sales numbers",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810"
+    },
+    "onlineMeetingExtensions" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
+    }
+  },
+  "_embedded" : {
+    "onlineMeetingExtension" : [
+      {
+        "rel" : "onlineMeetingExtension",
+        "id" : "917823",
+        "type" : "RoamedParticipantData",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -204,38 +210,38 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: c3a5d9a0-ad50-4481-b5cb-64a6073a7cbe
 										Content-Type: application/xml
 										Content-Length: 1897
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="myOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" />
- <property name="rel">myOnlineMeeting</property>
- <property name="accessLevel">Locked</property>
- <propertyList name="attendees">
- <item>sip:johndoe@contoso.com</item>
- <item>sip:janedoe@contoso.com</item>
- </propertyList>
- <property name="automaticLeaderAssignment">Disabled</property>
- <property name="conferenceId">12983487</property>
- <property name="description">We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.</property>
- <property name="entryExitAnnouncement">Disabled</property>
- <property name="expirationTime">2015-07-14T20:54:08.5148072-05:00</property>
- <property name="joinUrl">https://meet.contoso.com/bmauldin/IB88RLLY</property>
- <propertyList name="leaders">
- <item>sip:aikc@contoso.com</item>
- <item>sip:lenea@contoso.com</item>
- </propertyList>
- <property name="lobbyBypassForPhoneUsers">Disabled</property>
- <property name="onlineMeetingId">IB88RLLY</property>
- <property name="onlineMeetingRel">myOnlineMeetings</property>
- <property name="onlineMeetingUri">sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY</property>
- <property name="organizerUri">sip:bmauldin@contoso.com</property>
- <property name="phoneUserAdmission">Disabled</property>
- <property name="subject">Quarterly sales numbers</property>
- <resource rel="onlineMeetingExtension" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension">
- <property name="rel">onlineMeetingExtension</property>
- <property name="id">917823</property>
- <property name="type">RoamedParticipantData</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;myOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingExtensions&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myOnlineMeeting&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;accessLevel&amp;quot;&amp;gt;Locked&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;attendees&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:johndoe@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:janedoe@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;automaticLeaderAssignment&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;conferenceId&amp;quot;&amp;gt;12983487&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;description&amp;quot;&amp;gt;We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;entryExitAnnouncement&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;expirationTime&amp;quot;&amp;gt;2015-07-14T20:54:08.5148072-05:00&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;joinUrl&amp;quot;&amp;gt;https://meet.contoso.com/bmauldin/IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;leaders&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:aikc@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:lenea@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;lobbyBypassForPhoneUsers&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingId&amp;quot;&amp;gt;IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingRel&amp;quot;&amp;gt;myOnlineMeetings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingUri&amp;quot;&amp;gt;sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;organizerUri&amp;quot;&amp;gt;sip:bmauldin@contoso.com&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneUserAdmission&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Quarterly sales numbers&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;onlineMeetingExtension&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension&amp;quot;&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetingExtension&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;917823&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;RoamedParticipantData&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 
@@ -333,7 +339,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-| [myOnlineMeeting](myOnlineMeeting_ref.md)|Represents a scheduled meeting on the user's calendar.|
+|[myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md)|Represents a scheduled meeting on the user's calendar.|
 
 #### Synchronous errors
 
@@ -362,22 +368,22 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Accept: application/json
 										Content-Length: 519
 										{
- "accessLevel" : "SameEnterprise",
- "attendees" : [
- "sip:johndoe@contoso.com",
- "sip:janedoe@contoso.com"
- ],
- "automaticLeaderAssignment" : "Disabled",
- "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
- "entryExitAnnouncement" : "Disabled",
- "expirationTime" : "\/Date(1436925248543)\/",
- "leaders" : [
- "sip:aikc@contoso.com",
- "sip:lenea@contoso.com"
- ],
- "lobbyBypassForPhoneUsers" : "Disabled",
- "phoneUserAdmission" : "Disabled",
- "subject" : "Quarterly sales numbers"
+  "accessLevel" : "SameEnterprise",
+  "attendees" : [
+    "sip:johndoe@contoso.com",
+    "sip:janedoe@contoso.com"
+  ],
+  "automaticLeaderAssignment" : "Disabled",
+  "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
+  "entryExitAnnouncement" : "Disabled",
+  "expirationTime" : "\/Date(1436925248543)\/",
+  "leaders" : [
+    "sip:aikc@contoso.com",
+    "sip:lenea@contoso.com"
+  ],
+  "lobbyBypassForPhoneUsers" : "Disabled",
+  "phoneUserAdmission" : "Disabled",
+  "subject" : "Quarterly sales numbers"
 }
 									
 ```
@@ -395,51 +401,51 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 1277
 										{
- "rel" : "myOnlineMeeting",
- "accessLevel" : "SameEnterprise",
- "attendees" : [
- "sip:johndoe@contoso.com",
- "sip:janedoe@contoso.com"
- ],
- "automaticLeaderAssignment" : "Disabled",
- "conferenceId" : "12983487",
- "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
- "entryExitAnnouncement" : "Disabled",
- "expirationTime" : "\/Date(1436925248543)\/",
- "joinUrl" : "https://meet.contoso.com/bmauldin/IB88RLLY",
- "leaders" : [
- "sip:aikc@contoso.com",
- "sip:lenea@contoso.com"
- ],
- "lobbyBypassForPhoneUsers" : "Disabled",
- "onlineMeetingId" : "IB88RLLY",
- "onlineMeetingRel" : "myOnlineMeetings",
- "onlineMeetingUri" : "sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY",
- "organizerUri" : "sip:bmauldin@contoso.com",
- "phoneUserAdmission" : "Disabled",
- "subject" : "Quarterly sales numbers",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810"
- },
- "onlineMeetingExtensions" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
- }
- },
- "_embedded" : {
- "onlineMeetingExtension" : [
- {
- "rel" : "onlineMeetingExtension",
- "id" : "917823",
- "type" : "RoamedParticipantData",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
- }
- }
- }
- ]
- }
+  "rel" : "myOnlineMeeting",
+  "accessLevel" : "SameEnterprise",
+  "attendees" : [
+    "sip:johndoe@contoso.com",
+    "sip:janedoe@contoso.com"
+  ],
+  "automaticLeaderAssignment" : "Disabled",
+  "conferenceId" : "12983487",
+  "description" : "We\u0027ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.",
+  "entryExitAnnouncement" : "Disabled",
+  "expirationTime" : "\/Date(1436925248543)\/",
+  "joinUrl" : "https://meet.contoso.com/bmauldin/IB88RLLY",
+  "leaders" : [
+    "sip:aikc@contoso.com",
+    "sip:lenea@contoso.com"
+  ],
+  "lobbyBypassForPhoneUsers" : "Disabled",
+  "onlineMeetingId" : "IB88RLLY",
+  "onlineMeetingRel" : "myOnlineMeetings",
+  "onlineMeetingUri" : "sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY",
+  "organizerUri" : "sip:bmauldin@contoso.com",
+  "phoneUserAdmission" : "Disabled",
+  "subject" : "Quarterly sales numbers",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810"
+    },
+    "onlineMeetingExtensions" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions"
+    }
+  },
+  "_embedded" : {
+    "onlineMeetingExtension" : [
+      {
+        "rel" : "onlineMeetingExtension",
+        "id" : "917823",
+        "type" : "RoamedParticipantData",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -456,25 +462,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										Accept: application/xml
 										Content-Length: 911
-										<?xml version="1.0" encoding="utf-8"?>
-<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="accessLevel">None</property>
- <propertyList name="attendees">
- <item>sip:johndoe@contoso.com</item>
- <item>sip:janedoe@contoso.com</item>
- </propertyList>
- <property name="automaticLeaderAssignment">Disabled</property>
- <property name="description">We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.</property>
- <property name="entryExitAnnouncement">Unsupported</property>
- <property name="expirationTime">2015-07-14T20:54:08.5458113-05:00</property>
- <propertyList name="leaders">
- <item>sip:aikc@contoso.com</item>
- <item>sip:lenea@contoso.com</item>
- </propertyList>
- <property name="lobbyBypassForPhoneUsers">Disabled</property>
- <property name="phoneUserAdmission">Disabled</property>
- <property name="subject">Quarterly sales numbers</property>
-</input>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;accessLevel&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;attendees&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:johndoe@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:janedoe@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;automaticLeaderAssignment&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;description&amp;quot;&amp;gt;We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;entryExitAnnouncement&amp;quot;&amp;gt;Unsupported&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;expirationTime&amp;quot;&amp;gt;2015-07-14T20:54:08.5458113-05:00&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;leaders&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:aikc@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:lenea@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;lobbyBypassForPhoneUsers&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneUserAdmission&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Quarterly sales numbers&amp;lt;/property&amp;gt;
+&amp;lt;/input&amp;gt;
 									
 ```
 
@@ -490,38 +496,38 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: e4147866-edbc-4a73-ad24-8b54cab1b8b8
 										Content-Type: application/xml
 										Content-Length: 1907
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="myOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" />
- <property name="rel">myOnlineMeeting</property>
- <property name="accessLevel">Invited</property>
- <propertyList name="attendees">
- <item>sip:johndoe@contoso.com</item>
- <item>sip:janedoe@contoso.com</item>
- </propertyList>
- <property name="automaticLeaderAssignment">SameEnterprise</property>
- <property name="conferenceId">12983487</property>
- <property name="description">We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.</property>
- <property name="entryExitAnnouncement">Unsupported</property>
- <property name="expirationTime">2015-07-14T20:54:08.5468110-05:00</property>
- <property name="joinUrl">https://meet.contoso.com/bmauldin/IB88RLLY</property>
- <propertyList name="leaders">
- <item>sip:aikc@contoso.com</item>
- <item>sip:lenea@contoso.com</item>
- </propertyList>
- <property name="lobbyBypassForPhoneUsers">Disabled</property>
- <property name="onlineMeetingId">IB88RLLY</property>
- <property name="onlineMeetingRel">myOnlineMeetings</property>
- <property name="onlineMeetingUri">sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY</property>
- <property name="organizerUri">sip:bmauldin@contoso.com</property>
- <property name="phoneUserAdmission">Disabled</property>
- <property name="subject">Quarterly sales numbers</property>
- <resource rel="onlineMeetingExtension" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension">
- <property name="rel">onlineMeetingExtension</property>
- <property name="id">917823</property>
- <property name="type">RoamedParticipantData</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;myOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingExtensions&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myOnlineMeeting&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;accessLevel&amp;quot;&amp;gt;Invited&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;attendees&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:johndoe@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:janedoe@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;automaticLeaderAssignment&amp;quot;&amp;gt;SameEnterprise&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;conferenceId&amp;quot;&amp;gt;12983487&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;description&amp;quot;&amp;gt;We&amp;#39;ll be meeting to review the sales numbers for this past quarter and discuss projections for the next two quarters.&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;entryExitAnnouncement&amp;quot;&amp;gt;Unsupported&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;expirationTime&amp;quot;&amp;gt;2015-07-14T20:54:08.5468110-05:00&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;joinUrl&amp;quot;&amp;gt;https://meet.contoso.com/bmauldin/IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;leaders&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;sip:aikc@contoso.com&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;sip:lenea@contoso.com&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;lobbyBypassForPhoneUsers&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingId&amp;quot;&amp;gt;IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingRel&amp;quot;&amp;gt;myOnlineMeetings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;onlineMeetingUri&amp;quot;&amp;gt;sip:bmauldin@contoso.com;gruu;opaque=app:conf:focus:id:IB88RLLY&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;organizerUri&amp;quot;&amp;gt;sip:bmauldin@contoso.com&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneUserAdmission&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Quarterly sales numbers&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;onlineMeetingExtension&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions/onlineMeetingExtension&amp;quot;&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetingExtension&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;917823&amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;RoamedParticipantData&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

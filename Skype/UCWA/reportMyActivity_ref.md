@@ -1,9 +1,15 @@
 
-# reportMyActivity 
+# reportMyActivity (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Indicates that the user is actively using this application. 
 
@@ -65,7 +71,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
 |Forbidden|403|AnonymousNotAllowed|The user is anonymous.|
-|Conflict|409|MakeMeAvailableRequired|The application has not yet sent a request on the [makeMeAvailable](makeMeAvailable_ref.md) resource.|
+|Conflict|409|MakeMeAvailableRequired|The application has not yet sent a request on the [makeMeAvailable (UCWA)](makeMeAvailable_ref.md) resource.|
 |ServiceFailure|500|CallbackChannelError|The remote event channel is not reachable|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|

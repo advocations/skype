@@ -1,11 +1,17 @@
 
-# addToPresenceSubscription 
+# addToPresenceSubscription (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the capability to add contacts to a [presenceSubscription](presenceSubscription_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Represents the capability to add contacts to a [presenceSubscription (UCWA)](presenceSubscription_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -43,7 +49,7 @@ None
 
 ### POST
 
-Add contacts to a [presenceSubscription](presenceSubscription_ref.md).
+Add contacts to a [presenceSubscription (UCWA)](presenceSubscription_ref.md).
 
 
 #### Request body
@@ -57,7 +63,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-| [presenceSubscriptionMemberships](presenceSubscriptionMemberships_ref.md)|A collection of [presenceSubscriptionMembership](presenceSubscriptionMembership_ref.md) resources.|
+|[presenceSubscriptionMemberships (UCWA)](presenceSubscriptionMemberships_ref.md)|A collection of [presenceSubscriptionMembership (UCWA)](presenceSubscriptionMembership_ref.md) resources.|
 
 #### Synchronous errors
 
@@ -89,10 +95,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Accept: application/json
 										Content-Length: 77
 										{
- "contactUris" : [
- "\"sip : user2@microsoft.com\"",
- "\"sip : user3@microsoft.com\""
- ]
+  "contactUris" : [
+    "\"sip : user2@microsoft.com\"",
+    "\"sip : user3@microsoft.com\""
+  ]
 }
 									
 ```
@@ -109,30 +115,30 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 457
 										{
- "rel" : "presenceSubscriptionMemberships",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscriptionMemberships"
- }
- },
- "_embedded" : {
- "presenceSubscriptionMembership" : [
- {
- "rel" : "presenceSubscriptionMembership",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "presenceSubscription" : {
- "href" : "//v1/applications/833/presenceSubscription"
- }
- }
- }
- ]
- }
+  "rel" : "presenceSubscriptionMemberships",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/presenceSubscriptionMemberships"
+    }
+  },
+  "_embedded" : {
+    "presenceSubscriptionMembership" : [
+      {
+        "rel" : "presenceSubscriptionMembership",
+        "_links" : {
+          "self" : {
+            "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
+          },
+          "contact" : {
+            "href" : "//v1/applications/833/people/166"
+          },
+          "presenceSubscription" : {
+            "href" : "//v1/applications/833/presenceSubscription"
+          }
+        }
+      }
+    ]
+  }
 }
 									
 ```
@@ -149,13 +155,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										Accept: application/xml
 										Content-Length: 231
-										<?xml version="1.0" encoding="utf-8"?>
-<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <propertyList name="contactUris">
- <item>"sip:user2@microsoft.com"</item>
- <item>"sip:user3@microsoft.com"</item>
- </propertyList>
-</input>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;contactUris&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;&amp;quot;sip:user2@microsoft.com&amp;quot;&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;&amp;quot;sip:user3@microsoft.com&amp;quot;&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+&amp;lt;/input&amp;gt;
 									
 ```
 
@@ -170,15 +176,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 201 Created
 										Content-Type: application/xml
 										Content-Length: 632
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscriptionMemberships" href="//v1/applications/833/presenceSubscriptionMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">presenceSubscriptionMemberships</property>
- <resource rel="presenceSubscriptionMembership" href="//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" />
- <property name="rel">presenceSubscriptionMembership</property>
- </resource>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;presenceSubscriptionMemberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMemberships&amp;lt;/property&amp;gt;
+  &amp;lt;resource rel=&amp;quot;presenceSubscriptionMembership&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMembership&amp;lt;/property&amp;gt;
+  &amp;lt;/resource&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

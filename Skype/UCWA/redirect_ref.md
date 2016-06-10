@@ -1,7 +1,15 @@
 
-# redirect 
+# redirect (UCWA)
 
  **Last modified:** July 14, 2015
+
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Represents a pointer to a different server that the application should use for future requests. 
 
@@ -104,18 +112,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 240
 										{
- "rel" : "redirect",
- "_links" : {
- "self" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
- },
- "user" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/user"
- },
- "xframe" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
- }
- }
+  "rel" : "redirect",
+  "_links" : {
+    "self" : {
+      "href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
+    },
+    "user" : {
+      "href" : "/autodiscover/autodiscoverservice.svc/root/user"
+    },
+    "xframe" : {
+      "href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
+    }
+  }
 }
 									
 ```
@@ -145,12 +153,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 384
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" />
- <link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />
- <property name="rel">redirect</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;redirect&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/user/redirect&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;user&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/user&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;xframe&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/xframe&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;redirect&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

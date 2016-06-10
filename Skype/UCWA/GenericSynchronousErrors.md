@@ -4,7 +4,7 @@ Some HTTP requests on UCWA resources can produce a response that indicates an er
 
  **Last modified:** April 23, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
 The errors listed in the following table apply to most resources.
 

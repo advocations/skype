@@ -1,9 +1,15 @@
 
-# onlineMeetings 
+# onlineMeetings (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
 
 Represents the dashboard for viewing and scheduling online meetings. 
 
@@ -22,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The onlineMeetings resource exposes the meetings and settings available to the user, including the ability to create a new [myOnlineMeeting](myOnlineMeeting_ref.md). 
+The onlineMeetings resource exposes the meetings and settings available to the user, including the ability to create a new [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md). 
 
 
 ### Properties
@@ -39,13 +45,13 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|myAssignedOnlineMeeting|Represents a user's [onlineMeeting](onlineMeeting_ref.md) that is commonly used for scheduled meetings with other [contact](contact_ref.md)s.|
-|myOnlineMeetings|Represents the set of [myOnlineMeeting](myOnlineMeeting_ref.md)s currently on the user's calendar.|
-|onlineMeetingDefaultValues|Represents the values of [myOnlineMeeting](myOnlineMeeting_ref.md) properties if not specified at scheduling time.|
-|onlineMeetingEligibleValues|Represents the eligible values that the application can choose from when scheduling a [myOnlineMeeting](myOnlineMeeting_ref.md).|
-|onlineMeetingInvitationCustomization|Represents the recommended custom values to use when an [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) is sent.|
-|onlineMeetingPolicies|Represents the admin policies for the user's online meetings ( [myOnlineMeetings](myOnlineMeetings_ref.md)).|
-|phoneDialInInformation|Represents phone access information for an [onlineMeeting](onlineMeeting_ref.md).|
+|myAssignedOnlineMeeting|Represents a user's [onlineMeeting (UCWA)](onlineMeeting_ref.md) that is commonly used for scheduled meetings with other[contact (UCWA)](contact_ref.md)s.|
+|myOnlineMeetings|Represents the set of [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md)s currently on the user's calendar.|
+|onlineMeetingDefaultValues|Represents the values of [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md) properties if not specified at scheduling time.|
+|onlineMeetingEligibleValues|Represents the eligible values that the application can choose from when scheduling a [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md).|
+|onlineMeetingInvitationCustomization|Represents the recommended custom values to use when an [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) is sent.|
+|onlineMeetingPolicies|Represents the admin policies for the user's online meetings ([myOnlineMeetings (UCWA)](myOnlineMeetings_ref.md)).|
+|phoneDialInInformation|Represents phone access information for an [onlineMeeting (UCWA)](onlineMeeting_ref.md).|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -111,33 +117,33 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 793
 										{
- "rel" : "onlineMeetings",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings"
- },
- "myAssignedOnlineMeeting" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/318"
- },
- "myOnlineMeetings" : {
- "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings"
- },
- "onlineMeetingDefaultValues" : {
- "href" : "//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues"
- },
- "onlineMeetingEligibleValues" : {
- "href" : "//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues"
- },
- "onlineMeetingInvitationCustomization" : {
- "href" : "//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization"
- },
- "onlineMeetingPolicies" : {
- "href" : "//v1/applications/833/onlineMeetings/onlineMeetingPolicies"
- },
- "phoneDialInInformation" : {
- "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation"
- }
- }
+  "rel" : "onlineMeetings",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/onlineMeetings"
+    },
+    "myAssignedOnlineMeeting" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/318"
+    },
+    "myOnlineMeetings" : {
+      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings"
+    },
+    "onlineMeetingDefaultValues" : {
+      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues"
+    },
+    "onlineMeetingEligibleValues" : {
+      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues"
+    },
+    "onlineMeetingInvitationCustomization" : {
+      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization"
+    },
+    "onlineMeetingPolicies" : {
+      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingPolicies"
+    },
+    "phoneDialInInformation" : {
+      "href" : "//v1/applications/833/onlineMeetings/phoneDialInInformation"
+    }
+  }
 }
 									
 ```
@@ -167,17 +173,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 983
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetings" href="//v1/applications/833/onlineMeetings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="myAssignedOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/318" />
- <link rel="myOnlineMeetings" href="//v1/applications/833/onlineMeetings/myOnlineMeetings" />
- <link rel="onlineMeetingDefaultValues" href="//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues" />
- <link rel="onlineMeetingEligibleValues" href="//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues" />
- <link rel="onlineMeetingInvitationCustomization" href="//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization" />
- <link rel="onlineMeetingPolicies" href="//v1/applications/833/onlineMeetings/onlineMeetingPolicies" />
- <link rel="phoneDialInInformation" href="//v1/applications/833/onlineMeetings/phoneDialInInformation" />
- <property name="rel">onlineMeetings</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;onlineMeetings&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;myAssignedOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/318&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;myOnlineMeetings&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingDefaultValues&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingEligibleValues&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingInvitationCustomization&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;onlineMeetingPolicies&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingPolicies&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;phoneDialInInformation&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/phoneDialInInformation&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetings&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

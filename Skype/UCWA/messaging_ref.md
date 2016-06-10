@@ -1,11 +1,18 @@
 
-# messaging 
+# messaging (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the instant messaging modality in a [conversation](conversation_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
+
+Represents the instant messaging modality in a [conversation (UCWA)](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -22,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The presence of messaging in a [conversation](conversation_ref.md) indicates that the application can use the instant messaging modality. When present, the resource can be used to determine the status of the instant messaging channel, to start or stop instant messaging, as well as to send a single message or a typing notification. The messaging resource is updated whenever message formats are negotiated or the state and capabilities of the modality are changed.
+The presence of messaging in a [conversation (UCWA)](conversation_ref.md) indicates that the application can use the instant messaging modality. When present, the resource can be used to determine the status of the instant messaging channel, to start or stop instant messaging, as well as to send a single message or a typing notification. The messaging resource is updated whenever message formats are negotiated or the state and capabilities of the modality are changed.
 
 
 ### Properties
@@ -45,12 +52,12 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|addMessaging|Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant messaging modality to an existing [conversation](conversation_ref.md).|
+|addMessaging|Starts a [messagingInvitation (UCWA)](messagingInvitation_ref.md) that adds the instant messaging modality to an existing[conversation (UCWA)](conversation_ref.md).|
 |conversation|Represents the local participants perspective on a multi-modal, multi-party communication.|
-|sendMessage|Sends an instant message to the [participant](participant_ref.md)s in a [conversation](conversation_ref.md).|
-|setIsTyping|Sets the user's typing status in a [conversation](conversation_ref.md).|
+|sendMessage|Sends an instant message to the [participant (UCWA)](participant_ref.md)s in a [conversation (UCWA)](conversation_ref.md).|
+|setIsTyping|Sets the user's typing status in a [conversation (UCWA)](conversation_ref.md).|
 |stopMessaging|Stops the corresponding instant messaging modality that is currently connecting or connected.|
-|typingParticipants|Represents a view of the [participant](participant_ref.md)s who are currently typing a message in a [conversation](conversation_ref.md).|
+|typingParticipants|Represents a view of the [participant (UCWA)](participant_ref.md)s who are currently typing a message in a [conversation (UCWA)](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -77,29 +84,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "messaging",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "messaging",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -113,7 +120,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 ### GET
 
-Returns a representation of the instant messaging modality in a [conversation](conversation_ref.md)
+Returns a representation of the instant messaging modality in a [conversation (UCWA)](conversation_ref.md)
 
 
 #### Request body
@@ -169,35 +176,35 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 784
 										{
- "rel" : "messaging",
- "negotiatedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "state" : "Connected",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/messaging"
- },
- "addMessaging" : {
- "href" : "//v1/applications/833/communication/conversations/802/messaging/addMessaging"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "sendMessage" : {
- "href" : "//v1/applications/833/communication/conversations/802/messaging/sendMessage"
- },
- "setIsTyping" : {
- "href" : "//v1/applications/833/communication/conversations/802/messaging/setIsTyping"
- },
- "stopMessaging" : {
- "href" : "//v1/applications/833/communication/conversations/802/messaging/stopMessaging"
- },
- "typingParticipants" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/typingParticipants"
- }
- }
+  "rel" : "messaging",
+  "negotiatedMessageFormats" : [
+    "Plain",
+    "Html"
+  ],
+  "state" : "Connected",
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication/conversations/802/messaging"
+    },
+    "addMessaging" : {
+      "href" : "//v1/applications/833/communication/conversations/802/messaging/addMessaging"
+    },
+    "conversation" : {
+      "href" : "//v1/applications/833/communication/conversations/802"
+    },
+    "sendMessage" : {
+      "href" : "//v1/applications/833/communication/conversations/802/messaging/sendMessage"
+    },
+    "setIsTyping" : {
+      "href" : "//v1/applications/833/communication/conversations/802/messaging/setIsTyping"
+    },
+    "stopMessaging" : {
+      "href" : "//v1/applications/833/communication/conversations/802/messaging/stopMessaging"
+    },
+    "typingParticipants" : {
+      "href" : "//v1/applications/833/communication/conversations/802/participants/typingParticipants"
+    }
+  }
 }
 									
 ```
@@ -227,21 +234,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1037
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="messaging" href="//v1/applications/833/communication/conversations/802/messaging" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addMessaging" href="//v1/applications/833/communication/conversations/802/messaging/addMessaging" />
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="sendMessage" href="//v1/applications/833/communication/conversations/802/messaging/sendMessage" />
- <link rel="setIsTyping" href="//v1/applications/833/communication/conversations/802/messaging/setIsTyping" />
- <link rel="stopMessaging" href="//v1/applications/833/communication/conversations/802/messaging/stopMessaging" />
- <link rel="typingParticipants" href="//v1/applications/833/communication/conversations/802/participants/typingParticipants" />
- <property name="rel">messaging</property>
- <propertyList name="negotiatedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <property name="state">Connecting</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;messaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;addMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/addMessaging&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversation&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;sendMessage&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/sendMessage&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;setIsTyping&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/setIsTyping&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;stopMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/messaging/stopMessaging&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;typingParticipants&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/typingParticipants&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;messaging&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;negotiatedMessageFormats&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;Plain&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Html&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;property name=&amp;quot;state&amp;quot;&amp;gt;Connecting&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

@@ -1,9 +1,16 @@
 
-# communication 
+# communication (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
+
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Events](#sectionSection2)
+[Operations](#sectionSection3)
+
 
 Represents the dashboard for communication capabilities. 
 
@@ -22,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource exposes the modalities and settings available to the user, including the ability to join an [onlineMeeting](onlineMeeting_ref.md) or create an ad-hoc [onlineMeeting](onlineMeeting_ref.md). Please note that this resource will be the sender for all events pertaining to [conversation](conversation_ref.md)s and modality invitations ( [messagingInvitation](messagingInvitation_ref.md) or [phoneAudioInvitation](phoneAudioInvitation_ref.md)). 
+This resource exposes the modalities and settings available to the user, including the ability to join an [onlineMeeting (UCWA)](onlineMeeting_ref.md) or create an ad-hoc[onlineMeeting (UCWA)](onlineMeeting_ref.md). Please note that this resource will be the sender for all events pertaining to [conversation (UCWA)](conversation_ref.md)s and modality invitations ([messagingInvitation (UCWA)](messagingInvitation_ref.md) or[phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md)). 
 
 
 ### Properties
@@ -48,10 +55,10 @@ This resource can have the following relationships.
 |:-----|:-----|
 |self|The link to the current resource.|
 |conversationLogs|Represents the user's past conversation logs (both peer-to-peer and conferences).|
-|conversations|Represents the user's ongoing [conversation](conversation_ref.md)s.|
+|conversations|Represents the user's ongoing [conversation (UCWA)](conversation_ref.md)s.|
 |joinOnlineMeeting|Joins an online meeting.|
 |missedItems|A collection of unread voicemails and conversations.|
-|startMessaging|Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the [messaging](messaging_ref.md) modality to a new [conversation](conversation_ref.md).|
+|startMessaging|Starts a [messagingInvitation (UCWA)](messagingInvitation_ref.md) that adds the[messaging (UCWA)](messaging_ref.md) modality to a new[conversation (UCWA)](conversation_ref.md).|
 |startOnlineMeeting|Creates and joins an ad-hoc multiparty conversation.|
 |startPhoneAudio|Initiates a call-via-work.|
 
@@ -80,29 +87,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "communication",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication",
- "events" : [
- {
- "link" : {
- "rel" : "communication",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "communication",
+      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "communication",
+            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
 					
 ```
@@ -174,44 +181,44 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 852
 										{
- "simultaneousRingNumberMatch" : "Disabled",
- "rel" : "communication",
- "conversationHistory" : "Disabled",
- "phoneNumber" : "tel:+14255552222",
- "supportedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "supportedModalities" : [
- "PhoneAudio",
- "Messaging"
- ],
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication"
- },
- "conversationLogs" : {
- "href" : "//v1/applications/833/communication/conversationLogs"
- },
- "conversations" : {
- "href" : "//v1/applications/833/communication/conversations"
- },
- "joinOnlineMeeting" : {
- "href" : "//v1/applications/833/communication/joinOnlineMeeting"
- },
- "missedItems" : {
- "href" : "//v1/applications/833/communication/missedItems"
- },
- "startMessaging" : {
- "href" : "//v1/applications/833/communication/startMessaging"
- },
- "startOnlineMeeting" : {
- "href" : "//v1/applications/833/communication/startOnlineMeeting"
- },
- "startPhoneAudio" : {
- "href" : "//v1/applications/833/communication/startPhoneAudio"
- }
- }
+  "simultaneousRingNumberMatch" : "Disabled",
+  "rel" : "communication",
+  "conversationHistory" : "Disabled",
+  "phoneNumber" : "tel:+14255552222",
+  "supportedMessageFormats" : [
+    "Plain",
+    "Html"
+  ],
+  "supportedModalities" : [
+    "PhoneAudio",
+    "Messaging"
+  ],
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/communication"
+    },
+    "conversationLogs" : {
+      "href" : "//v1/applications/833/communication/conversationLogs"
+    },
+    "conversations" : {
+      "href" : "//v1/applications/833/communication/conversations"
+    },
+    "joinOnlineMeeting" : {
+      "href" : "//v1/applications/833/communication/joinOnlineMeeting"
+    },
+    "missedItems" : {
+      "href" : "//v1/applications/833/communication/missedItems"
+    },
+    "startMessaging" : {
+      "href" : "//v1/applications/833/communication/startMessaging"
+    },
+    "startOnlineMeeting" : {
+      "href" : "//v1/applications/833/communication/startOnlineMeeting"
+    },
+    "startPhoneAudio" : {
+      "href" : "//v1/applications/833/communication/startPhoneAudio"
+    }
+  }
 }
 									
 ```
@@ -243,28 +250,28 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: 5362defe-6ebd-4274-8a18-ea521a43c291
 										Content-Type: application/xml
 										Content-Length: 1214
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="communication" href="//v1/applications/833/communication" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversationLogs" href="//v1/applications/833/communication/conversationLogs" />
- <link rel="conversations" href="//v1/applications/833/communication/conversations" />
- <link rel="joinOnlineMeeting" href="//v1/applications/833/communication/joinOnlineMeeting" />
- <link rel="missedItems" href="//v1/applications/833/communication/missedItems" />
- <link rel="startMessaging" href="//v1/applications/833/communication/startMessaging" />
- <link rel="startOnlineMeeting" href="//v1/applications/833/communication/startOnlineMeeting" />
- <link rel="startPhoneAudio" href="//v1/applications/833/communication/startPhoneAudio" />
- <property name="simultaneousRingNumberMatch">Disabled</property>
- <property name="rel">communication</property>
- <property name="conversationHistory">Disabled</property>
- <property name="phoneNumber">tel:+14255552222</property>
- <propertyList name="supportedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <propertyList name="supportedModalities">
- <item>PhoneAudio</item>
- <item>Messaging</item>
- </propertyList>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;communication&amp;quot; href=&amp;quot;//v1/applications/833/communication&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversationLogs&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;conversations&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;joinOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/communication/joinOnlineMeeting&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;missedItems&amp;quot; href=&amp;quot;//v1/applications/833/communication/missedItems&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;startMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/startMessaging&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;startOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/communication/startOnlineMeeting&amp;quot; /&amp;gt;
+  &amp;lt;link rel=&amp;quot;startPhoneAudio&amp;quot; href=&amp;quot;//v1/applications/833/communication/startPhoneAudio&amp;quot; /&amp;gt;
+  &amp;lt;property name=&amp;quot;simultaneousRingNumberMatch&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;communication&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;conversationHistory&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneNumber&amp;quot;&amp;gt;tel:+14255552222&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;supportedMessageFormats&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;Plain&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Html&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;supportedModalities&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;PhoneAudio&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Messaging&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 
@@ -311,18 +318,18 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										if-match: a373bf35-baf5-4086-814a-a0830629a162
 										Content-Length: 222
 										{
- "simultaneousRingNumberMatch" : "Disabled",
- "rel" : "communication",
- "conversationHistory" : "Disabled",
- "phoneNumber" : "tel:+14255552222",
- "supportedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "supportedModalities" : [
- "PhoneAudio",
- "Messaging"
- ]
+  "simultaneousRingNumberMatch" : "Disabled",
+  "rel" : "communication",
+  "conversationHistory" : "Disabled",
+  "phoneNumber" : "tel:+14255552222",
+  "supportedMessageFormats" : [
+    "Plain",
+    "Html"
+  ],
+  "supportedModalities" : [
+    "PhoneAudio",
+    "Messaging"
+  ]
 }
 									
 ```
@@ -352,21 +359,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										if-match: 38a30f2e-4ca7-4603-80c0-33569e846d35
 										Content-Length: 530
-										<?xml version="1.0" encoding="utf-8"?>
-<resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="simultaneousRingNumberMatch">Disabled</property>
- <property name="rel">communication</property>
- <property name="conversationHistory">Disabled</property>
- <property name="phoneNumber">tel:+14255552222</property>
- <propertyList name="supportedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <propertyList name="supportedModalities">
- <item>PhoneAudio</item>
- <item>Messaging</item>
- </propertyList>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;simultaneousRingNumberMatch&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;communication&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;conversationHistory&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;phoneNumber&amp;quot;&amp;gt;tel:+14255552222&amp;lt;/property&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;supportedMessageFormats&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;Plain&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Html&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+  &amp;lt;propertyList name=&amp;quot;supportedModalities&amp;quot;&amp;gt;
+    &amp;lt;item&amp;gt;PhoneAudio&amp;lt;/item&amp;gt;
+    &amp;lt;item&amp;gt;Messaging&amp;lt;/item&amp;gt;
+  &amp;lt;/propertyList&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 

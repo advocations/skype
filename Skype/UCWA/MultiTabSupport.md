@@ -15,15 +15,15 @@ When creating an application resource from different tabs, the underlying resour
 
 
 ```
-POST https://ext.vdomain.com:4443/ucwa/v1/applications HTTP/1.1
+POST https://ext.vdomain.com:4443/ucwa/v1/applications  HTTP/1.1
 X-MS-RequiresMinResourceVersion: 2
  
 {
- "culture": "en-us",
- "endpointId": "123",
- "type": "Browser",
- "userAgent": "foo",
- "instanceId": "abc"
+    "culture": "en-us",
+    "endpointId": "123",
+    "type": "Browser",
+    "userAgent": "foo",
+    "instanceId": "abc"
 }
 
 ```
@@ -34,27 +34,27 @@ X-MS-RequiresMinResourceVersion: 2
 
 
 ```
-HTTP/1.1 201 (or 200) OK
+HTTP/1.1 201  (or 200) OK
  
 {
- "culture": "en-us",
- "userAgent": "foo",
- "type": "Browser",
- "instanceId": "abc",
- "_links": {
- "self": { "href": "/ucwa/v1/applications/114149606281?instanceId=123" },
- "policies": { "href": "/ucwa/v1/applications/114149606281/policies" },
- "batch": { "href": "/ucwa/v1/applications/114149606281/batch" },
- "events": { "href": "/ucwa/v1/applications/114149606281/events?ack=1&amp;instanceId=abc" }
- },
- "_embedded": {
- "me": { ... },
- "people": { ... },
- "onlineMeetings": { ... },
- "communication": { ... }
- },
- "rel": "application",
- "etag": "4059573954"
+    "culture": "en-us",
+    "userAgent": "foo",
+    "type": "Browser",
+    "instanceId": "abc",
+    "_links": {
+        "self": { "href": "/ucwa/v1/applications/114149606281?instanceId=123" },
+        "policies": { "href": "/ucwa/v1/applications/114149606281/policies" },
+        "batch": { "href": "/ucwa/v1/applications/114149606281/batch" },
+        "events": { "href": "/ucwa/v1/applications/114149606281/events?ack=1&amp;instanceId=abc" }
+    },
+    "_embedded": {
+        "me": { ... },
+        "people": { ... },
+        "onlineMeetings": { ... },
+        "communication": { ... }
+    },
+    "rel": "application",
+    "etag": "4059573954"
 }
 
 ```

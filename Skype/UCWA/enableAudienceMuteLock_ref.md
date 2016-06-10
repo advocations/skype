@@ -1,11 +1,17 @@
 
-# enableAudienceMuteLock 
+# enableAudienceMuteLock (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Enables the forced mute of attendees in a [conversation](conversation_ref.md). 
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Enables the forced mute of attendees in a [conversation (UCWA)](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -43,7 +49,7 @@ None
 
 ### POST
 
-Enables the forced mute of attendees in a [conversation](conversation_ref.md).
+Enables the forced mute of attendees in a [conversation (UCWA)](conversation_ref.md).
 
 
 #### Request body

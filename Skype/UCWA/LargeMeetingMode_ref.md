@@ -1,11 +1,11 @@
 
-# LargeMeetingMode 
+# LargeMeetingMode (UCWA)
 
  **Last modified:** March 24, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-The large meeting status of an [onlineMeeting](onlineMeeting_ref.md).
+The large meeting status of an [onlineMeeting (UCWA)](onlineMeeting_ref.md).
 
 
 ## Members

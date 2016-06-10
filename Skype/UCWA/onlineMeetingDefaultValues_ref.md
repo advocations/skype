@@ -1,11 +1,17 @@
 
-# onlineMeetingDefaultValues 
+# onlineMeetingDefaultValues (UCWA)
 
  **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+ _ **Applies to:** Skype for Business 2015_
 
-Represents the values of [myOnlineMeeting](myOnlineMeeting_ref.md) properties if not specified at scheduling time.
+ **In this article**
+[Web Link](#sectionSection0)
+[Resource description](#sectionSection1)
+[Operations](#sectionSection2)
+
+
+Represents the values of [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md) properties if not specified at scheduling time.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -58,7 +64,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the values of [myOnlineMeeting](myOnlineMeeting_ref.md) properties if not specified at scheduling time.
+Returns a representation of the values of [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md) properties if not specified at scheduling time.
 
 
 #### Request body
@@ -114,18 +120,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 343
 										{
- "rel" : "onlineMeetingDefaultValues",
- "accessLevel" : "None",
- "automaticLeaderAssignment" : "Disabled",
- "defaultOnlineMeetingRel" : "myOnlineMeetings",
- "entryExitAnnouncement" : "Unsupported",
- "lobbyBypassForPhoneUsers" : "Enabled",
- "participantsWarningThreshold" : 45,
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues"
- }
- }
+  "rel" : "onlineMeetingDefaultValues",
+  "accessLevel" : "None",
+  "automaticLeaderAssignment" : "Disabled",
+  "defaultOnlineMeetingRel" : "myOnlineMeetings",
+  "entryExitAnnouncement" : "Unsupported",
+  "lobbyBypassForPhoneUsers" : "Enabled",
+  "participantsWarningThreshold" : 45,
+  "_links" : {
+    "self" : {
+      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues"
+    }
+  }
 }
 									
 ```
@@ -155,16 +161,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 631
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetingDefaultValues" href="//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">onlineMeetingDefaultValues</property>
- <property name="accessLevel">Locked</property>
- <property name="automaticLeaderAssignment">Disabled</property>
- <property name="defaultOnlineMeetingRel">myOnlineMeetings</property>
- <property name="entryExitAnnouncement">Unsupported</property>
- <property name="lobbyBypassForPhoneUsers">Enabled</property>
- <property name="participantsWarningThreshold">80</property>
-</resource>
+										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resource rel=&amp;quot;onlineMeetingDefaultValues&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
+  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetingDefaultValues&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;accessLevel&amp;quot;&amp;gt;Locked&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;automaticLeaderAssignment&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;defaultOnlineMeetingRel&amp;quot;&amp;gt;myOnlineMeetings&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;entryExitAnnouncement&amp;quot;&amp;gt;Unsupported&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;lobbyBypassForPhoneUsers&amp;quot;&amp;gt;Enabled&amp;lt;/property&amp;gt;
+  &amp;lt;property name=&amp;quot;participantsWarningThreshold&amp;quot;&amp;gt;80&amp;lt;/property&amp;gt;
+&amp;lt;/resource&amp;gt;
 									
 ```
 
