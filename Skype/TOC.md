@@ -1,6 +1,6 @@
 # [Skype](index.md)
 
-## [Skype Developer platform](https://msdn.microsoft.com/en-us/library/office/mt650889.aspx)
+## [Skype Developer platform](SkypeDeveloperPlatform.md)
 
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 
