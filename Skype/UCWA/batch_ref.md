@@ -1,15 +1,9 @@
 
-# batch (UCWA)
+# batch 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+ _**Applies to:** Skype for Business 2015_
 
 Initiates an operation that groups multiple, independent HTTP operations into a single HTTP request payload. 
 
@@ -63,7 +57,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[batch (UCWA)](batch_ref.md)|Initiates an operation that groups multiple, independent HTTP operations into a single HTTP request payload.|
+| [batch](batch_ref.md)|Initiates an operation that groups multiple, independent HTTP operations into a single HTTP request payload.|
 
 #### Synchronous errors
 
@@ -88,14 +82,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/batch HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: multipart/batching;boundary="EA370946"
-										Accept: multipart/batching
-										Content-Length: 557
-										--EA370946&amp;lt;BR&amp;gt;Content-Type : application/http;msgtype=request&amp;lt;BR&amp;gt;Content-Length : 200&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;GET/ucwa/v1/applications/11540713861/policiesHTTP/1.1&amp;lt;BR&amp;gt;Accept : application/vnd.microsoft.com.ucwa+json&amp;lt;BR&amp;gt;Content-Type : application/vnd.microsoft.com.ucwa+json&amp;lt;BR&amp;gt;Host : fe1.contoso.com&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;--EA370946&amp;lt;BR&amp;gt;Content-Type : application/http;msgtype=request&amp;lt;BR&amp;gt;Content-Length : 201&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;GET/ucwa/v1/applications/11540713861/me/phonesHTTP/1.1&amp;lt;BR&amp;gt;Accept : application/vnd.microsoft.com.ucwa+json&amp;lt;BR&amp;gt;Content-Type : application/vnd.microsoft.com.ucwa+json&amp;lt;BR&amp;gt;Host : fe1.contoso.com&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;--EA370946--
+Post https://fe1.contoso.com:443//v1/applications/833/batch HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: multipart/batching;boundary="EA370946"
+Accept: multipart/batching
+Content-Length: 557
+--EA370946<BR>Content-Type : application/http;msgtype=request<BR>Content-Length : 200<BR><BR>GET/ucwa/v1/applications/11540713861/policiesHTTP/1.1<BR>Accept : application/vnd.microsoft.com.ucwa+json<BR>Content-Type : application/vnd.microsoft.com.ucwa+json<BR>Host : fe1.contoso.com<BR><BR><BR>--EA370946<BR>Content-Type : application/http;msgtype=request<BR>Content-Length : 201<BR><BR>GET/ucwa/v1/applications/11540713861/me/phonesHTTP/1.1<BR>Accept : application/vnd.microsoft.com.ucwa+json<BR>Content-Type : application/vnd.microsoft.com.ucwa+json<BR>Host : fe1.contoso.com<BR><BR><BR>--EA370946--
 									
 ```
 
@@ -107,100 +100,100 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: multipart/batching; boundary="0cac9abd"
-										Content-Length: 2027
-										--0cac9abd&amp;lt;BR&amp;gt;Content-Type : application/http;msgtype=response&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;HTTP/1.1200OK&amp;lt;BR&amp;gt;Cache-Control : no-cache&amp;lt;BR&amp;gt;Content-Type : application/vnd.microsoft.com.ucwa+json;charset=utf-8&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;{
-  "telephonyMode" : "Uc",
-  "exchangeUnifiedMessaging" : "Enabled",
-  "logging" : "Enabled",
-  "loggingLevel" : "Full",
-  "photos" : "Enabled",
-  "voicemailUri" : "sip:jdoe@contoso.com;opaque=app:voicemail",
-  "_links" : {
-    "self" : {
-      "href" : "/ucwa/v1/applications/11540713861/policies"
-    }
-  },
-  "rel" : "policies"
-}&amp;lt;BR&amp;gt;--0cac9abd&amp;lt;BR&amp;gt;Content-Type : application/http;msgtype=response&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;HTTP/1.1200OK&amp;lt;BR&amp;gt;Cache-Control : no-cache&amp;lt;BR&amp;gt;Content-Type : application/vnd.microsoft.com.ucwa+json;charset=utf-8&amp;lt;BR&amp;gt;&amp;lt;BR&amp;gt;{
-  "_links" : {
-    "self" : {
-      "href" : "/ucwa/v1/applications/11540713861/me/phones"
-    }
-  },
-  "_embedded" : {
-    "phone" : [
-      {
-        "number" : "tel:+14255554321;ext=54321",
-        "type" : "work",
-        "includeInContactCard" : true,
-        "_links" : {
-          "self" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/work"
-          }
-        },
-        "rel" : "phone",
-        "etag" : "2758999089"
-      },
-      {
-        "number" : "4255551212",
-        "type" : "mobile",
-        "includeInContactCard" : true,
-        "_links" : {
-          "self" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/mobile"
-          },
-          "changeNumber" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/mobile/changeNumber"
-          },
-          "changeVisibility" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/mobile/changeVisibility"
-          }
-        },
-        "rel" : "phone",
-        "etag" : "2878440199"
-      },
-      {
-        "number" : "",
-        "includeInContactCard" : false,
-        "type" : "home",
-        "_links" : {
-          "self" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/home"
-          },
-          "changeNumber" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/home/changeNumber"
-          },
-          "changeVisibility" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/home/changeVisibility"
-          }
-        },
-        "rel" : "phone",
-        "etag" : "2976547271"
-      },
-      {
-        "number" : "",
-        "includeInContactCard" : false,
-        "type" : "other",
-        "_links" : {
-          "self" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/other"
-          },
-          "changeNumber" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/other/changeNumber"
-          },
-          "changeVisibility" : {
-            "href" : "/ucwa/v1/applications/11540713861/me/phones/other/changeVisibility"
-          }
-        },
-        "rel" : "phone",
-        "etag" : "1067208367"
-      }
-    ]
-  },
-  "rel" : "phones"
-}&amp;lt;BR&amp;gt;--0cac9abd--
+HTTP/1.1 200 OK
+Content-Type: multipart/batching; boundary="0cac9abd"
+Content-Length: 2027
+--0cac9abd<BR>Content-Type : application/http;msgtype=response<BR><BR>HTTP/1.1200OK<BR>Cache-Control : no-cache<BR>Content-Type : application/vnd.microsoft.com.ucwa+json;charset=utf-8<BR><BR>{
+"telephonyMode" : "Uc",
+"exchangeUnifiedMessaging" : "Enabled",
+"logging" : "Enabled",
+"loggingLevel" : "Full",
+"photos" : "Enabled",
+"voicemailUri" : "sip:jdoe@contoso.com;opaque=app:voicemail",
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/policies"
+}
+},
+"rel" : "policies"
+}<BR>--0cac9abd<BR>Content-Type : application/http;msgtype=response<BR><BR>HTTP/1.1200OK<BR>Cache-Control : no-cache<BR>Content-Type : application/vnd.microsoft.com.ucwa+json;charset=utf-8<BR><BR>{
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones"
+}
+},
+"_embedded" : {
+"phone" : [
+{
+"number" : "tel:+14255554321;ext=54321",
+"type" : "work",
+"includeInContactCard" : true,
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/work"
+}
+},
+"rel" : "phone",
+"etag" : "2758999089"
+},
+{
+"number" : "4255551212",
+"type" : "mobile",
+"includeInContactCard" : true,
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/mobile"
+},
+"changeNumber" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/mobile/changeNumber"
+},
+"changeVisibility" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/mobile/changeVisibility"
+}
+},
+"rel" : "phone",
+"etag" : "2878440199"
+},
+{
+"number" : "",
+"includeInContactCard" : false,
+"type" : "home",
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/home"
+},
+"changeNumber" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/home/changeNumber"
+},
+"changeVisibility" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/home/changeVisibility"
+}
+},
+"rel" : "phone",
+"etag" : "2976547271"
+},
+{
+"number" : "",
+"includeInContactCard" : false,
+"type" : "other",
+"_links" : {
+"self" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/other"
+},
+"changeNumber" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/other/changeNumber"
+},
+"changeVisibility" : {
+"href" : "/ucwa/v1/applications/11540713861/me/phones/other/changeVisibility"
+}
+},
+"rel" : "phone",
+"etag" : "1067208367"
+}
+]
+},
+"rel" : "phones"
+}<BR>--0cac9abd--
 									
 ```
 
@@ -209,14 +202,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/batch HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: multipart/batching;boundary="EA370946"
-										Accept: multipart/batching
-										Content-Length: 553
-										--EA370946
+Post https://fe1.contoso.com:443//v1/applications/833/batch HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: multipart/batching;boundary="EA370946"
+Accept: multipart/batching
+Content-Length: 553
+--EA370946
 Content-Type: application/http; msgtype=request
 Content-Length: 200
 
@@ -247,11 +239,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: multipart/batching; boundary="0cac9abd"
-										Content-Length: 2690
-										
-									
+HTTP/1.1 200 OK
+Content-Type: multipart/batching; boundary="0cac9abd"
+Content-Length: 2690
+								
 ```
 

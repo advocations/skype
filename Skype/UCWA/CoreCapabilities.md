@@ -4,19 +4,7 @@ Learn about the core features of Microsoft Unified Communications Web API 2.0.
 
  **Last modified:** April 23, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Contacts and Groups Management](#sectionSection0)
-[Conversation History and Auto-Accept](#sectionSection1)
-[Two-party and multi-party IM](#sectionSection2)
-[Schedule an online meeting](#sectionSection3)
-[Join an online meeting](#sectionSection4)
-[Contact card](#sectionSection5)
-[Phone audio](#sectionSection6)
-[Anonymous access](#sectionSection7)
-
-
+ _**Applies to:** Skype for Business 2015_
 
 ## Contacts and Groups Management
 <a name="sectionSection0"> </a>
@@ -56,7 +44,7 @@ UCWA 2.0 allows for the joining of online meetings with messaging and phone audi
 
 ### Presence, location, and note
 
-UCWA 2.0 enables a user to both publish and view her presence, location, and note. In the current release, the API supports the standard set of presence states, such as  **Online**,  **Busy**, and  **Away**. Custom presence can only be viewed via this API. Locations are user-provided strings that can be set or displayed for sharing with other contacts. For note, the API supports publishing the personal note and viewing either the personal or out of office note; the selection is driven by the server-side logic and the user's calendar. 
+UCWA 2.0 enables a user to both publish and view her presence, location, and note. In the current release, the API supports the standard set of presence states, such as **Online**, **Busy**, and **Away**. Custom presence can only be viewed via this API. Locations are user-provided strings that can be set or displayed for sharing with other contacts. For note, the API supports publishing the personal note and viewing either the personal or out of office note; the selection is driven by the server-side logic and the user's calendar. 
 
 These three pieces of information are viewable for all contacts in the API.
 

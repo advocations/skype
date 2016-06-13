@@ -1,17 +1,17 @@
 
-# onlineMeetingPolicies (UCWA)
+# onlineMeetingPolicies 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the admin policies for the user's online meetings ([myOnlineMeetings (UCWA)](myOnlineMeetings_ref.md)). 
+Represents the admin policies for the user's online meetings ( [myOnlineMeetings](myOnlineMeetings_ref.md)). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -120,18 +120,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 277
 										{
-  "rel" : "onlineMeetingPolicies",
-  "entryExitAnnouncement" : "None",
-  "externalUserMeetingRecording" : "None",
-  "meetingRecording" : "None",
-  "meetingSize" : 5,
-  "phoneUserAdmission" : "None",
-  "voipAudio" : "None",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingPolicies"
-    }
-  }
+ "rel" : "onlineMeetingPolicies",
+ "entryExitAnnouncement" : "None",
+ "externalUserMeetingRecording" : "None",
+ "meetingRecording" : "None",
+ "meetingSize" : 5,
+ "phoneUserAdmission" : "None",
+ "voipAudio" : "None",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/onlineMeetingPolicies"
+ }
+ }
 }
 									
 ```
@@ -161,16 +161,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 558
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;onlineMeetingPolicies&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingPolicies&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetingPolicies&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;entryExitAnnouncement&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;externalUserMeetingRecording&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;meetingRecording&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;meetingSize&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;phoneUserAdmission&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;voipAudio&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="onlineMeetingPolicies" href="//v1/applications/833/onlineMeetings/onlineMeetingPolicies" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">onlineMeetingPolicies</property>
+ <property name="entryExitAnnouncement">None</property>
+ <property name="externalUserMeetingRecording">None</property>
+ <property name="meetingRecording">None</property>
+ <property name="meetingSize">5</property>
+ <property name="phoneUserAdmission">None</property>
+ <property name="voipAudio">None</property>
+</resource>
 									
 ```
 

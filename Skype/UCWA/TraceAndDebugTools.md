@@ -4,11 +4,11 @@ Learn about the Fiddler debugging proxy, the built-in debugging capabilities of 
 
  **Last modified:** April 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 This topic describes tracing and debugging tools that are available to developers of web applications.
 
-For information about Fiddler, see [Fiddler Power Toy - Part 1: HTTP Debugging](http://msdn.microsoft.com/en-us/library/bb250446%28v=VS.85%29.aspx) and[Fiddler Power Toy - Part 2: HTTP Performance](http://msdn.microsoft.com/en-us/library/bb250442%28v=vs.85%29).
+For information about Fiddler, see [Fiddler Power Toy - Part 1: HTTP Debugging](http://msdn.microsoft.com/en-us/library/bb250446%28v=VS.85%29.aspx) and [Fiddler Power Toy - Part 2: HTTP Performance](http://msdn.microsoft.com/en-us/library/bb250442%28v=vs.85%29).
 
 ## Fiddler
 
@@ -27,7 +27,7 @@ For information about the debugging capabilities in Internet Explorer, see [F12 
 
 For information of interest to Google Chrome users, see [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/).
 
-For information about Firebug or for some Firefox options, see [Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Debugging_JavaScript) and[Firebug](http://getfirebug.com/).
+For information about Firebug or for some Firefox options, see [Debugging JavaScript](https://developer.mozilla.org/en-US/docs/Debugging_JavaScript) and [Firebug](http://getfirebug.com/).
 
 For information about Safari tools, see [Safari Web Development Tools](https://developer.apple.com/technologies/safari/developer-tools.mdl).
 

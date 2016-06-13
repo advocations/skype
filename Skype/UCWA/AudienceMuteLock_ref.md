@@ -1,9 +1,9 @@
 
-# AudienceMuteLock (UCWA)
+# AudienceMuteLock 
 
  **Last modified:** July 07, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 Represents mute status for both audio and video.
 

@@ -1,15 +1,15 @@
 
-# me (UCWA)
+# me 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
 Represents the user. 
@@ -29,7 +29,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The me resource will be updated whenever the application becomes ready for incoming calls and leaves lurker mode ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)). Note that me will not be updated if any of its properties, such as emailAddresses or title, change while the application is active. 
+The me resource will be updated whenever the application becomes ready for incoming calls and leaves lurker mode ( [makeMeAvailable](makeMeAvailable_ref.md)). Note that me will not be updated if any of its properties, such as emailAddresses or title, change while the application is active. 
 
 
 ### Properties
@@ -89,29 +89,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "me",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -182,43 +182,43 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 696
 										{
-  "rel" : "me",
-  "department" : "Sales",
-  "emailAddresses" : [
-    "johndoe@contoso.com"
-  ],
-  "name" : "John Doe",
-  "title" : "Senior Manager",
-  "uri" : "sip:johndoe@contoso.com",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me"
-    },
-    "callForwardingSettings" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings"
-    },
-    "location" : {
-      "href" : "//v1/applications/833/me/location"
-    },
-    "makeMeAvailable" : {
-      "href" : "//v1/applications/833/communication/makeMeAvailable"
-    },
-    "note" : {
-      "href" : "//v1/applications/833/me/note"
-    },
-    "phones" : {
-      "href" : "//v1/applications/833/me/phones"
-    },
-    "photo" : {
-      "href" : "//v1/applications/833/photo"
-    },
-    "presence" : {
-      "href" : "//v1/applications/833/me/presence"
-    },
-    "reportMyActivity" : {
-      "href" : "//v1/applications/833/reportMyActivity"
-    }
-  }
+ "rel" : "me",
+ "department" : "Sales",
+ "emailAddresses" : [
+ "johndoe@contoso.com"
+ ],
+ "name" : "John Doe",
+ "title" : "Senior Manager",
+ "uri" : "sip:johndoe@contoso.com",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/me"
+ },
+ "callForwardingSettings" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings"
+ },
+ "location" : {
+ "href" : "//v1/applications/833/me/location"
+ },
+ "makeMeAvailable" : {
+ "href" : "//v1/applications/833/communication/makeMeAvailable"
+ },
+ "note" : {
+ "href" : "//v1/applications/833/me/note"
+ },
+ "phones" : {
+ "href" : "//v1/applications/833/me/phones"
+ },
+ "photo" : {
+ "href" : "//v1/applications/833/photo"
+ },
+ "presence" : {
+ "href" : "//v1/applications/833/me/presence"
+ },
+ "reportMyActivity" : {
+ "href" : "//v1/applications/833/reportMyActivity"
+ }
+ }
 }
 									
 ```
@@ -248,25 +248,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1016
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;me&amp;quot; href=&amp;quot;//v1/applications/833/me&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;callForwardingSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;location&amp;quot; href=&amp;quot;//v1/applications/833/me/location&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;makeMeAvailable&amp;quot; href=&amp;quot;//v1/applications/833/communication/makeMeAvailable&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;note&amp;quot; href=&amp;quot;//v1/applications/833/me/note&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;phones&amp;quot; href=&amp;quot;//v1/applications/833/me/phones&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;photo&amp;quot; href=&amp;quot;//v1/applications/833/photo&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;presence&amp;quot; href=&amp;quot;//v1/applications/833/me/presence&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;reportMyActivity&amp;quot; href=&amp;quot;//v1/applications/833/reportMyActivity&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;me&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;department&amp;quot;&amp;gt;Sales&amp;lt;/property&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;emailAddresses&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;johndoe@contoso.com&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;property name=&amp;quot;name&amp;quot;&amp;gt;John Doe&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;title&amp;quot;&amp;gt;Senior Manager&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;uri&amp;quot;&amp;gt;sip:johndoe@contoso.com&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="me" href="//v1/applications/833/me" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="callForwardingSettings" href="//v1/applications/833/me/callForwardingSettings" />
+ <link rel="location" href="//v1/applications/833/me/location" />
+ <link rel="makeMeAvailable" href="//v1/applications/833/communication/makeMeAvailable" />
+ <link rel="note" href="//v1/applications/833/me/note" />
+ <link rel="phones" href="//v1/applications/833/me/phones" />
+ <link rel="photo" href="//v1/applications/833/photo" />
+ <link rel="presence" href="//v1/applications/833/me/presence" />
+ <link rel="reportMyActivity" href="//v1/applications/833/reportMyActivity" />
+ <property name="rel">me</property>
+ <property name="department">Sales</property>
+ <propertyList name="emailAddresses">
+ <item>johndoe@contoso.com</item>
+ </propertyList>
+ <property name="name">John Doe</property>
+ <property name="title">Senior Manager</property>
+ <property name="uri">sip:johndoe@contoso.com</property>
+</resource>
 									
 ```
 

@@ -1,5 +1,5 @@
 
-# ConversationLogType (UCWA)
+# ConversationLogType 
 
  **Last modified:** July 07, 2015
 

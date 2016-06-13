@@ -1,14 +1,14 @@
 
-# simultaneousRingToContact (UCWA)
+# simultaneousRingToContact 
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Simultaneously send all incoming calls to a user-provided number or contact in addition to the user.

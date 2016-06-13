@@ -1,14 +1,14 @@
 
-# myPrivacyRelationships (UCWA)
+# myPrivacyRelationships 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Represents the various privacy relationships that the user maintains with his or her contacts. 
@@ -112,30 +112,30 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 362
 										{
-  "rel" : "myPrivacyRelationships",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/myPrivacyRelationships"
-    }
-  },
-  "_embedded" : {
-    "myPrivacyRelationship" : [
-      {
-        "rel" : "myPrivacyRelationship",
-        "relationshipLevel" : "Workgroup",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/myPrivacyRelationships/myPrivacyRelationship"
-          },
-          "contact" : [
-            {
-              "href" : "//v1/applications/833/people/661"
-            }
-          ]
-        }
-      }
-    ]
-  }
+ "rel" : "myPrivacyRelationships",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/myPrivacyRelationships"
+ }
+ },
+ "_embedded" : {
+ "myPrivacyRelationship" : [
+ {
+ "rel" : "myPrivacyRelationship",
+ "relationshipLevel" : "Workgroup",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/myPrivacyRelationships/myPrivacyRelationship"
+ },
+ "contact" : [
+ {
+ "href" : "//v1/applications/833/people/661"
+ }
+ ]
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -165,15 +165,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 540
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;myPrivacyRelationships&amp;quot; href=&amp;quot;//v1/applications/833/myPrivacyRelationships&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myPrivacyRelationships&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;myPrivacyRelationship&amp;quot; href=&amp;quot;//v1/applications/833/myPrivacyRelationships/myPrivacyRelationship&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/690&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myPrivacyRelationship&amp;lt;/property&amp;gt;
-    &amp;lt;property name=&amp;quot;relationshipLevel&amp;quot;&amp;gt;External&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="myPrivacyRelationships" href="//v1/applications/833/myPrivacyRelationships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">myPrivacyRelationships</property>
+ <resource rel="myPrivacyRelationship" href="//v1/applications/833/myPrivacyRelationships/myPrivacyRelationship">
+ <link rel="contact" href="//v1/applications/833/people/690" />
+ <property name="rel">myPrivacyRelationship</property>
+ <property name="relationshipLevel">External</property>
+ </resource>
+</resource>
 									
 ```
 

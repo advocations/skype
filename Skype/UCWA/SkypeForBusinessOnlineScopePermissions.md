@@ -7,19 +7,19 @@ Provides a reference of permission scopes that a user can grant in UCWA 2.0.
 
 ## Use scopes to specify access to Skype for Business data
 
-Permission scopes limit access to Skype for Business data to a specific level. A scope is a combination of a resource or capability and an operation in the format  _resource.operation_. For example, `User.ReadWrite` specifies the resource[user (UCWA)](user_ref.md) and the operations Read and Write. There are no default scopes.
+Permission scopes limit access to Skype for Business data to a specific level. A scope is a combination of a resource or capability and an operation in the format _resource.operation_. For example, `User.ReadWrite` specifies the resource [user](user_ref.md) and the operations Read and Write. There are no default scopes.
 
 You can specify scopes for your application in the Azure Management Portal, or declare them in your application manifest. Scope information is stored in the application manifest. The format of the manifest is JSON. To modify the application manifest directly:
 
 
 - Log on to the Azure Management Portal.
-    
+ 
 - View the application definition.
-    
+ 
 - Download the application manifest.
-    
+ 
 - Open the manifest and modify it according to the needs of the application.
-    
+ 
 To learn more about configuring applications, see [Integrating Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/).
 
 

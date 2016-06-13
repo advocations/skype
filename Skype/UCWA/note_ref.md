@@ -1,15 +1,15 @@
 
-# note (UCWA)
+# note 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Events](#sectionSection2)
+ [Operations](#sectionSection3)
 
 
 Represents the user's personal or out-of-office note. 
@@ -78,29 +78,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "note",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "note",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
+ },
+ "type" : "added"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -125,29 +125,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "note",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "note",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -170,29 +170,29 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "note",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "note",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/note"
+ },
+ "type" : "deleted"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -227,7 +227,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's note without first making the user available ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)).|
+|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's note without first making the user available ( [makeMeAvailable](makeMeAvailable_ref.md)).|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
@@ -263,14 +263,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 120
 										{
-  "rel" : "note",
-  "message" : "Heads down today",
-  "type" : "Personal",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/note"
-    }
-  }
+ "rel" : "note",
+ "message" : "Heads down today",
+ "type" : "Personal",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/me/note"
+ }
+ }
 }
 									
 ```
@@ -300,12 +300,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 290
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;note&amp;quot; href=&amp;quot;//v1/applications/833/me/note&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;note&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;message&amp;quot;&amp;gt;Heads down today&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt;Personal&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="note" href="//v1/applications/833/me/note" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">note</property>
+ <property name="message">Heads down today</property>
+ <property name="type">Personal</property>
+</resource>
 									
 ```
 
@@ -343,7 +343,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's note without first making the user available ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)).|
+|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's note without first making the user available ( [makeMeAvailable](makeMeAvailable_ref.md)).|
 |ServiceFailure|500|CallbackChannelError|The remote event channel is not reachable|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|

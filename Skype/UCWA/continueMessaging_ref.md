@@ -3,12 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
-
 Continues instant messaging modality of a past conversation. 
 
 
@@ -62,7 +56,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[messagingInvitation (UCWA)](messagingInvitation_ref.md)|Represents an invitation to a [conversation (UCWA)](conversation_ref.md) for the[messaging (UCWA)](messaging_ref.md) modality.|
+| [messagingInvitation](messagingInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
 
 #### Synchronous errors
 
@@ -87,18 +81,18 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 130
-										{
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "_links" : {
-    "message" : {
-      "href" : "data:text/plain;base64,somebase64encodedmessage"
-    }
-  }
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 130
+{
+"operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+"_links" : {
+"message" : {
+"href" : "data:text/plain;base64,somebase64encodedmessage"
+}
+}
 }
 									
 ```
@@ -110,10 +104,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/700
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/700
 									
 ```
 
@@ -122,16 +114,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 179
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 179
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+</input>
 									
 ```
 
@@ -142,10 +133,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/700
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/700
 									
 ```
 

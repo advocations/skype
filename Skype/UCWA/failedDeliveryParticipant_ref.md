@@ -1,17 +1,11 @@
 
-# failedDeliveryParticipant (UCWA)
+# failedDeliveryParticipant 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
-
-Represents a [participant (UCWA)](participant_ref.md) that failed to receive an instant message sent by the user.
+Represents a [participant](participant_ref.md) that failed to receive an instant message sent by the user.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -54,7 +48,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of a [participant (UCWA)](participant_ref.md) that failed to receive an instant message sent by the user.
+Returns a representation of a [participant](participant_ref.md) that failed to receive an instant message sent by the user.
 
 
 #### Request body
@@ -89,12 +83,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -104,10 +96,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 
 
@@ -115,12 +105,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -130,9 +118,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 

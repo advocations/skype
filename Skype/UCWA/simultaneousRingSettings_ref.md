@@ -1,14 +1,14 @@
 
-# simultaneousRingSettings (UCWA)
+# simultaneousRingSettings 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Represents a user's settings to simultaneously send incoming calls to a specified target. 
@@ -123,26 +123,26 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 632
 										{
-  "rel" : "simultaneousRingSettings",
-  "ringDelay" : 5,
-  "target" : "None",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings"
-    },
-    "contact" : {
-      "href" : "//v1/applications/833/people/166"
-    },
-    "simultaneousRingToContact" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact"
-    },
-    "simultaneousRingToDelegates" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates"
-    },
-    "simultaneousRingToTeam" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam"
-    }
-  }
+ "rel" : "simultaneousRingSettings",
+ "ringDelay" : 5,
+ "target" : "None",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings"
+ },
+ "contact" : {
+ "href" : "//v1/applications/833/people/166"
+ },
+ "simultaneousRingToContact" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact"
+ },
+ "simultaneousRingToDelegates" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates"
+ },
+ "simultaneousRingToTeam" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam"
+ }
+ }
 }
 									
 ```
@@ -174,16 +174,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Etag: 1d2dcd3c-0b0f-4431-bd09-4873b3db27a9
 										Content-Type: application/xml
 										Content-Length: 856
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;simultaneousRingSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;simultaneousRingToContact&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;simultaneousRingToDelegates&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;simultaneousRingToTeam&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;simultaneousRingSettings&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;ringDelay&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="simultaneousRingSettings" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="contact" href="//v1/applications/833/people/166" />
+ <link rel="simultaneousRingToContact" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact" />
+ <link rel="simultaneousRingToDelegates" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates" />
+ <link rel="simultaneousRingToTeam" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam" />
+ <property name="rel">simultaneousRingSettings</property>
+ <property name="ringDelay">5</property>
+ <property name="target">None</property>
+</resource>
 									
 ```
 
@@ -231,9 +231,9 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										if-match: e1280ec6-9ad3-4fc3-b110-52078738a905
 										Content-Length: 64
 										{
-  "rel" : "simultaneousRingSettings",
-  "ringDelay" : 5,
-  "target" : "None"
+ "rel" : "simultaneousRingSettings",
+ "ringDelay" : 5,
+ "target" : "None"
 }
 									
 ```
@@ -263,12 +263,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										if-match: d0cf8e60-2cee-4061-a060-b3bae954696d
 										Content-Length: 247
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;simultaneousRingSettings&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;ringDelay&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">simultaneousRingSettings</property>
+ <property name="ringDelay">5</property>
+ <property name="target">None</property>
+</resource>
 									
 ```
 

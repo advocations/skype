@@ -4,9 +4,9 @@
  **Last modified:** April 21, 2015
 
  **In this article**
-[Web link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
 Removes all group memberships that a contact belongs to.

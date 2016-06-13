@@ -1,17 +1,17 @@
 
-# presenceSubscriptions (UCWA)
+# presenceSubscriptions 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ [Web Link](#sectionSection0)
+ [Resource description](#sectionSection1)
+ [Operations](#sectionSection2)
 
 
-Represents the user's set of [presenceSubscription (UCWA)](presenceSubscription_ref.md) resources.
+Represents the user's set of [presenceSubscription](presenceSubscription_ref.md) resources.
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +28,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-/// This resource can be used to create new [presenceSubscription (UCWA)](presenceSubscription_ref.md)s as well as to modify and delete existing ones. 
+/// This resource can be used to create new [presenceSubscription](presenceSubscription_ref.md)s as well as to modify and delete existing ones. 
 
 
 ### Properties
@@ -55,7 +55,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of a collection of [presenceSubscription (UCWA)](presenceSubscription_ref.md) resources.
+Returns a representation of a collection of [presenceSubscription](presenceSubscription_ref.md) resources.
 
 
 #### Request body
@@ -113,31 +113,31 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 443
 										{
-  "rel" : "presenceSubscriptions",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscriptions"
-    }
-  },
-  "_embedded" : {
-    "presenceSubscription" : [
-      {
-        "rel" : "presenceSubscription",
-        "id" : "3",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/presenceSubscription"
-          },
-          "addToPresenceSubscription" : {
-            "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
-          },
-          "memberships" : {
-            "href" : "//v1/applications/833/presenceSubscription/memberships"
-          }
-        }
-      }
-    ]
-  }
+ "rel" : "presenceSubscriptions",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/presenceSubscriptions"
+ }
+ },
+ "_embedded" : {
+ "presenceSubscription" : [
+ {
+ "rel" : "presenceSubscription",
+ "id" : "3",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/presenceSubscription"
+ },
+ "addToPresenceSubscription" : {
+ "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+ },
+ "memberships" : {
+ "href" : "//v1/applications/833/presenceSubscription/memberships"
+ }
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -167,16 +167,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 631
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscriptions&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptions&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptions&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;addToPresenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/addToPresenceSubscription&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;memberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/memberships&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscription&amp;lt;/property&amp;gt;
-    &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;3&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscriptions" href="//v1/applications/833/presenceSubscriptions" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">presenceSubscriptions</property>
+ <resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription">
+ <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+ <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+ <property name="rel">presenceSubscription</property>
+ <property name="id">3</property>
+ </resource>
+</resource>
 									
 ```
 
@@ -197,7 +197,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[presenceSubscription (UCWA)](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
+| [presenceSubscription](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
 
 #### Synchronous errors
 
@@ -233,11 +233,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 										Accept: application/json
 										Content-Length: 85
 										{
-  "duration" : 15,
-  "uris" : [
-    "\"sip : johndoe@contoso.com\"",
-    "\"sip : janedoe@contoso.com\""
-  ]
+ "duration" : 15,
+ "uris" : [
+ "\"sip : johndoe@contoso.com\"",
+ "\"sip : janedoe@contoso.com\""
+ ]
 }
 									
 ```
@@ -254,19 +254,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 299
 										{
-  "rel" : "presenceSubscription",
-  "id" : "3",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscription"
-    },
-    "addToPresenceSubscription" : {
-      "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
-    },
-    "memberships" : {
-      "href" : "//v1/applications/833/presenceSubscription/memberships"
-    }
-  }
+ "rel" : "presenceSubscription",
+ "id" : "3",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/presenceSubscription"
+ },
+ "addToPresenceSubscription" : {
+ "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+ },
+ "memberships" : {
+ "href" : "//v1/applications/833/presenceSubscription/memberships"
+ }
+ }
 }
 									
 ```
@@ -283,14 +283,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/xml
 										Accept: application/xml
 										Content-Length: 264
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;duration&amp;quot;&amp;gt;15&amp;lt;/property&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;uris&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;&amp;quot;sip:johndoe@contoso.com&amp;quot;&amp;lt;/item&amp;gt;
-    &amp;lt;item&amp;gt;&amp;quot; sip:janedoe@contoso.com&amp;quot;&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-&amp;lt;/input&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="duration">15</property>
+ <propertyList name="uris">
+ <item>"sip:johndoe@contoso.com"</item>
+ <item>" sip:janedoe@contoso.com"</item>
+ </propertyList>
+</input>
 									
 ```
 
@@ -305,13 +305,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 201 Created
 										Content-Type: application/xml
 										Content-Length: 478
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;addToPresenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/addToPresenceSubscription&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;memberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/memberships&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscription&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;3&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+ <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+ <property name="rel">presenceSubscription</property>
+ <property name="id">3</property>
+</resource>
 									
 ```
 
