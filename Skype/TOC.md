@@ -1,4 +1,4 @@
-# [Skype](https://msdn.microsoft.com/en-us/library/office/dn954235.aspx)
+# [Skype](index.md)
 
 ## [Skype Developer platform](https://msdn.microsoft.com/en-us/library/office/mt650889.aspx)
 
