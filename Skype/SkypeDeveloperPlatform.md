@@ -11,6 +11,7 @@
 - [Skype URIs](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 - [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 - [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
+- [Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)
 - [Desktop components](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 - [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
 - [Unified Communications Web API](ucwa/UnifiedCommunicationsWebAPI2_0.md)
@@ -34,6 +35,7 @@ The table lists the supported SDKs and APIs for Skype for Business Server and Sk
 |:-----|:-----|
 |[Skype Web SDK](WebSDK/SkypeWebSDK.md)|Basic|Yes|Yes|
 |[Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)|Basic|Yes|Yes|
+|[Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)|Basic|Yes|Yes|
 |[Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)|Yes|Yes|No|
 |[Unified Communications Web API](ucwa/UnifiedCommunicationsWebAPI2_0.md)|Yes|Yes|Yes|
 |[Lync Server 2013 SDK](https://msdn.microsoft.com/en-us/library/office/dn454964.aspx)|Yes|Yes|No|
