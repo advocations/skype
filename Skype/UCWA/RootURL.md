@@ -28,7 +28,7 @@ UCWA 2.0 always runs in the home pool of the authenticated user. For joining a m
 Autodiscovery is used by all Skype for Business client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](http://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Skype for Business Server 2015 Autodiscover service. For more information, see [Autodiscover service requirements](http://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
 
 
- **Note** In coexistence mode (Lync 2010 and Skype for Business 2015), to support custom UCWA 2.0 application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a Skype for Business Server 2015 pool.
+ >Note: In coexistence mode (Lync 2010 and Skype for Business 2015), to support custom UCWA 2.0 application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a Skype for Business Server 2015 pool.
 
 
 ### Authenticated user flow
@@ -53,18 +53,17 @@ No other HTTP error codes require clearing the cache and starting the autodiscov
 
 **The steps involved in autodiscovery and user authentication**
 
-! [The steps involved in autodiscovery and user authentication](images/UCWA15Con_RootURL.png)
+![The steps involved in autodiscovery and user authentication](images/UCWA15Con_RootURL.png)
 
 1. The user's sign-in address follows the SIP URI format: user@vdomain.com. This is the entry point of the autodiscovery flow.
  
 2. An application can run on an internal network or an external network. The autodiscovery flow always gives priority to the internal network. The following requests can be executed in parallel, although it is highly recommended that only the HTTPS request be enabled.
  
- ```
- HTTPS GET LyncDiscoverInternal.<domain>
-HTTP GET LyncDiscoverInternal.<domain>
+  ```
+  HTTPS GET LyncDiscoverInternal.<domain>
+  HTTP GET LyncDiscoverInternal.<domain>
 
- ```
-
+  ```
 
  Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
  
@@ -87,22 +86,20 @@ HTTPS GET LyncDiscover.<domain>
 
 5. For some online scenarios, the Skype for Business Autodiscover service might return a 200 OK response with a "redirect" link in the body. The client should validate the response before following the redirect link. 
  
- **Note** If you have a pure Skype for Business Server 2015 topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, UCWA 2.0, does not support online scenarios.
+  >Note: If you have a pure Skype for Business Server 2015 topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, UCWA 2.0, does not support online scenarios.
 
- The following is an example redirect response.
+  The following is an example redirect response.
  
-
-
- ```
- HTTP/1.1 200 OK
-Content-Type: application/json
-{
- "_links":{
- "redirect":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+  ```
+  HTTP/1.1 200 OK 
+  Content-Type: application/json
+ {
+  "_links":{
+  "redirect":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+  }
+  }
  }
- }
-}
  ```
 
 6. The security check step consists of making sure that the client is not spoofed. A detailed illustration follows this list.
@@ -111,20 +108,20 @@ Content-Type: application/json
  
 8. The response from Autodiscover is a response with a link to the [user](user_ref.md) and [xframe](xframe_ref.md) resources.
  
- ```
- {
- "_links":{
- "self":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
- },
- "user":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user"
- },
- "xframe":{
- "href":"https://contoso.com/Autodiscover/XFrame/XFrame.html"
+  ```
+  {
+  "_links":{
+  "self":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+  },
+  "user":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user"
+  },
+  "xframe":{
+  "href":"https://contoso.com/Autodiscover/XFrame/XFrame.html"
+  }
+  }
  }
- }
-}
  ```
 
 9. The client must follow the link in the **user** resource.
@@ -133,11 +130,6 @@ Content-Type: application/json
  
 11. The final response contains a link to the [applications](applications_ref.md) resource. This is the link that is used to create the application.
  
- ```
- 
- ```
-
-
 ### Security check
 
 The flow shown here represents the security check that is mentioned in step 6 of the preceding authentication flow.
@@ -145,7 +137,7 @@ The flow shown here represents the security check that is mentioned in step 6 of
 
 **Steps performed during a security check during user authentication**
 
-! [Steps performed during a security check during user authentication](images/UCWA15Con_SecurityCheck.png)
+![Steps performed during a security check during user authentication](images/UCWA15Con_SecurityCheck.png)
 
 
 ### Anonymous meeting join flow

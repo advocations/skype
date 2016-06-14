@@ -12,8 +12,6 @@ This section contains a partial list of UCWA resources, grouped by purpose and t
 ## In this section
 
 
-- [Resource list](ResourceList.md)
- 
 - [UCWA resources](UCWAResources.md)
  
 - [UCWA enumerations](UCWAenumerations.md)

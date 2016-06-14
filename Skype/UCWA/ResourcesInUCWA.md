@@ -23,11 +23,11 @@ A resource represents an atomic unit that is generally not broken up in any prot
 **The components of a resource: property bag, links, and embedded resources**
 
 
-! [A depiction of the components of a resource: property bag, links, and embedded resources](images/UCWA15Con_Resource.png)The following is an abbreviated representation of the [application](application_ref.md) resource.
+![A depiction of the components of a resource: property bag, links, and embedded resources](images/UCWA15Con_Resource.png)
 
-|||
-|:-----|:-----|
-|**Property bag**|
+The following is an abbreviated representation of the [application](application_ref.md) resource.
+
+**Property bag**
 ```
 "rel":"application",
 "culture":"en-US",
@@ -35,7 +35,7 @@ A resource represents an atomic unit that is generally not broken up in any prot
 ```
 
 |
-|**Links**|
+**Links**
 ```
 "self" : {"href" : "/ucwa/v1/applications/764"},
 "batch" : {"href" : "/ucwa/v1/applications/764/batch"},
@@ -43,8 +43,8 @@ A resource represents an atomic unit that is generally not broken up in any prot
 "policies" : {"href" : "/ucwa/v1/applications/764/policies"}
 ```
 
-|
-|**Embedded resources**|
+
+**Embedded resources**
 ```
 "communication" : { ... },
 "me" : { ... },
@@ -52,8 +52,8 @@ A resource represents an atomic unit that is generally not broken up in any prot
 "people" : { ... }
 ```
 
-|
-Note that a resource can change when other related resources and capabilities become dynamically available. Such changes are communicated by means of an event channel as described [Event channel details](EventChannelDetails.md) in this documentation. When the client learns that a resource has been updated, it can reacquire the resource to learn about the new capabilities and related resources.
+
+>Note: A resource can change when other related resources and capabilities become dynamically available. Such changes are communicated by means of an event channel as described [Event channel details](EventChannelDetails.md) in this documentation. When the client learns that a resource has been updated, it can reacquire the resource to learn about the new capabilities and related resources.
 
 ## Rel attribute
 
