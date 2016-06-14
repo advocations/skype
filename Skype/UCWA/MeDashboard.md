@@ -6,17 +6,6 @@ The **me** resource acts as a dashboard that represents the user of a Microsoft 
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [Reporting activity](#sectionSection1)
- [photo](#sectionSection2)
- [phones](#sectionSection3)
- [location](#sectionSection4)
- [presence](#sectionSection5)
- [note](#sectionSection6)
- [Setting call forwarding rules](#sectionSection7)
-
-
 The [me](me_ref.md) resource contains data that pertains to a user of a UCWA 2.0 application.
 
 ## Resource representation

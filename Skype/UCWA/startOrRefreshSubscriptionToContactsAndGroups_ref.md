@@ -1,15 +1,9 @@
 
 # startOrRefreshSubscriptionToContactsAndGroups 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Starts or refreshes the subscription to a user's contacts and groups. 
 
@@ -100,12 +94,12 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -116,25 +110,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/json
-										Content-Length: 464
-										{
- "rel" : "myContactsAndGroupsSubscription",
- "state" : "Connecting",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
- },
- "startOrRefreshSubscriptionToContactsAndGroups" : {
- "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups"
- },
- "stopSubscriptionToContactsAndGroups" : {
- "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups"
- }
- }
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 464
+{
+"rel" : "myContactsAndGroupsSubscription",
+"state" : "Connecting",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
+},
+"startOrRefreshSubscriptionToContactsAndGroups" : {
+"href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups"
+},
+"stopSubscriptionToContactsAndGroups" : {
+"href" : "//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups"
 }
-									
+}
+}
+
 ```
 
 
@@ -143,12 +137,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -159,16 +153,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/xml
-										Content-Length: 654
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Content-Length: 654
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="myContactsAndGroupsSubscription" href="//v1/applications/833/people/myContactsAndGroupsSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="startOrRefreshSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups" />
- <link rel="stopSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups" />
- <property name="rel">myContactsAndGroupsSubscription</property>
- <property name="state">Connecting</property>
+<link rel="startOrRefreshSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups" />
+<link rel="stopSubscriptionToContactsAndGroups" href="//v1/applications/833/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups" />
+<property name="rel">myContactsAndGroupsSubscription</property>
+<property name="state">Connecting</property>
 </resource>
-									
+
 ```
 

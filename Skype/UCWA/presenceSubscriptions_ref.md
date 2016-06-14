@@ -1,10 +1,10 @@
 
 # presenceSubscriptions 
 
- **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+**Last modified:** July 14, 2015
 
+_**Applies to:** Skype for Business 2015_
 
 Represents the user's set of [presenceSubscription](presenceSubscription_ref.md) resources.
 
@@ -88,12 +88,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -104,37 +104,37 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 443
-										{
- "rel" : "presenceSubscriptions",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscriptions"
- }
- },
- "_embedded" : {
- "presenceSubscription" : [
- {
- "rel" : "presenceSubscription",
- "id" : "3",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscription"
- },
- "addToPresenceSubscription" : {
- "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
- },
- "memberships" : {
- "href" : "//v1/applications/833/presenceSubscription/memberships"
- }
- }
- }
- ]
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 443
+{
+"rel" : "presenceSubscriptions",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptions"
 }
-									
+},
+"_embedded" : {
+"presenceSubscription" : [
+{
+"rel" : "presenceSubscription",
+"id" : "3",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscription"
+},
+"addToPresenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+},
+"memberships" : {
+"href" : "//v1/applications/833/presenceSubscription/memberships"
+}
+}
+}
+]
+}
+}
+
 ```
 
 
@@ -143,12 +143,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -159,20 +159,20 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 631
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 631
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="presenceSubscriptions" href="//v1/applications/833/presenceSubscriptions" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">presenceSubscriptions</property>
- <resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription">
- <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
- <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
- <property name="rel">presenceSubscription</property>
- <property name="id">3</property>
- </resource>
+<property name="rel">presenceSubscriptions</property>
+<resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription">
+<link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+<link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+<property name="rel">presenceSubscription</property>
+<property name="id">3</property>
 </resource>
-									
+</resource>
+
 ```
 
 
@@ -221,20 +221,20 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 85
-										{
- "duration" : 15,
- "uris" : [
- "\"sip : johndoe@contoso.com\"",
- "\"sip : janedoe@contoso.com\""
- ]
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Accept: application/json
+Content-Length: 85
+{
+"duration" : 15,
+"uris" : [
+"\"sip : johndoe@contoso.com\"",
+"\"sip : janedoe@contoso.com\""
+]
 }
-									
+
 ```
 
 
@@ -245,25 +245,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/json
-										Content-Length: 299
-										{
- "rel" : "presenceSubscription",
- "id" : "3",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscription"
- },
- "addToPresenceSubscription" : {
- "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
- },
- "memberships" : {
- "href" : "//v1/applications/833/presenceSubscription/memberships"
- }
- }
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 299
+{
+"rel" : "presenceSubscription",
+"id" : "3",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscription"
+},
+"addToPresenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+},
+"memberships" : {
+"href" : "//v1/applications/833/presenceSubscription/memberships"
 }
-									
+}
+}
+
 ```
 
 
@@ -272,21 +272,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 264
-										<?xml version="1.0" encoding="utf-8"?>
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptions HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Accept: application/xml
+Content-Length: 264
+<?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="duration">15</property>
- <propertyList name="uris">
- <item>"sip:johndoe@contoso.com"</item>
- <item>" sip:janedoe@contoso.com"</item>
- </propertyList>
+<property name="duration">15</property>
+<propertyList name="uris">
+<item>"sip:johndoe@contoso.com"</item>
+<item>" sip:janedoe@contoso.com"</item>
+</propertyList>
 </input>
-									
+
 ```
 
 
@@ -297,16 +297,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/xml
-										Content-Length: 478
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Content-Length: 478
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
- <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
- <property name="rel">presenceSubscription</property>
- <property name="id">3</property>
+<link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+<link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+<property name="rel">presenceSubscription</property>
+<property name="id">3</property>
 </resource>
-									
+
 ```
 

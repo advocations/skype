@@ -6,15 +6,6 @@ This topic lists many useful UCWA resources by the categories they fall in.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Discovery](#sectionSection0)
- [General](#sectionSection1)
- [People](#sectionSection2)
- [Me](#sectionSection3)
- [OnlineMeeting](#sectionSection4)
- [Communication](#sectionSection5)
-
-
 The Microsoft Unified Communications Web API provides access to a variety of resources that can be used in application development. A categorized list appears below.
 
 ## Discovery

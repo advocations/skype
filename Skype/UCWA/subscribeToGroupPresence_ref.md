@@ -1,15 +1,9 @@
 
 # subscribeToGroupPresence 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Subscribes to the presence information of all the contacts in a particular group. 
 
@@ -98,12 +92,12 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/groups/group/subscribeToGroupPresence?groupId=Family HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/groups/group/subscribeToGroupPresence?groupId=Family HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -114,25 +108,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/json
-										Content-Length: 299
-										{
- "rel" : "presenceSubscription",
- "id" : "3",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/presenceSubscription"
- },
- "addToPresenceSubscription" : {
- "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
- },
- "memberships" : {
- "href" : "//v1/applications/833/presenceSubscription/memberships"
- }
- }
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 299
+{
+"rel" : "presenceSubscription",
+"id" : "3",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscription"
+},
+"addToPresenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+},
+"memberships" : {
+"href" : "//v1/applications/833/presenceSubscription/memberships"
 }
-									
+}
+}
+
 ```
 
 
@@ -141,12 +135,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/groups/group/subscribeToGroupPresence?groupId=Family HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/groups/group/subscribeToGroupPresence?groupId=Family HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -157,16 +151,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/xml
-										Content-Length: 478
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Content-Length: 478
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
- <link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
- <property name="rel">presenceSubscription</property>
- <property name="id">3</property>
+<link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+<link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+<property name="rel">presenceSubscription</property>
+<property name="id">3</property>
 </resource>
-									
+
 ```
 

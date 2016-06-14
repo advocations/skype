@@ -1,15 +1,9 @@
 
 # root 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the entry point to the API. 
 
@@ -93,12 +87,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -109,27 +103,27 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 301
-										{
- "rel" : "root",
- "_links" : {
- "self" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root"
- },
- "redirect" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
- },
- "user" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/user"
- },
- "xframe" : {
- "href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 301
+{
+"rel" : "root",
+"_links" : {
+"self" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root"
+},
+"redirect" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
+},
+"user" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/user"
+},
+"xframe" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
 }
-									
+}
+}
+
 ```
 
 
@@ -138,12 +132,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -154,16 +148,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 449
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 449
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="root" href="/autodiscover/autodiscoverservice.svc/root" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" />
- <link rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" />
- <link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />
- <property name="rel">root</property>
+<link rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" />
+<link rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" />
+<link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />
+<property name="rel">root</property>
 </resource>
-									
+
 ```
 
