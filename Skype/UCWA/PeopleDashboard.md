@@ -6,19 +6,7 @@ The **people** resource acts as a dashboard that represents the user's contacts.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [myContactsAndGroupsSubscription](#sectionSection1)
- [myContacts](#sectionSection2)
- [myGroupMemberships](#sectionSection3)
- [myGroups](#sectionSection4)
- [myPrivacyRelationships](#sectionSection5)
- [presenceSubscriptionMemberships](#sectionSection6)
- [presenceSubscriptions](#sectionSection7)
- [search](#sectionSection8)
- [subscribedContacts](#sectionSection9)
-
-
+ 
 The [people](people_ref.md) resource keeps the application updated with all the activities involving the people the user cares about.
 
 ## Resource representation
@@ -27,15 +15,13 @@ The [people](people_ref.md) resource keeps the application updated with all the 
 The following table contains a representation of the **people** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel" : "people"
 ```
 
-|
-|**Link**|
+
+**Link**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/105/people"
@@ -70,7 +56,7 @@ The following table contains a representation of the **people** resource.
 
 ```
 
-|
+
 
 ## myContactsAndGroupsSubscription
 <a name="sectionSection1"> </a>

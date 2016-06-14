@@ -25,9 +25,7 @@ The [me](me_ref.md) resource contains data that pertains to a user of a UCWA 2.0
 The following table contains a representation of the **me** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel" : "me",
 "department" : "Sales",
@@ -40,8 +38,7 @@ The following table contains a representation of the **me** resource.
 
 ```
 
-|
-|**Links**|
+**Links**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/105/me"
@@ -73,7 +70,7 @@ The following table contains a representation of the **me** resource.
 
 ```
 
-|
+
 All of the preceding links other than [presence](presence_ref.md), [note](note_ref.md), and [location](location_ref.md) are available on application creation. These three are unavailable because the user is not available to communicate and is therefore not sharing this information with others yet. To get the user's current presence, location and note, the application should indicate availability for incoming communications by invoking [makeMeAvailable](makeMeAvailable_ref.md). If an application is created with anonymous credentials, only the user's URI and name are exposed.
 
 By invoking the **makeMeAvailable** resource, the user indicates her availability for communication from the application, and also indicates the modalities supported for incoming calls.
@@ -93,7 +90,9 @@ For example, if no activity is reported for a certain period (specifically inact
 
 **How user activity or inactivity influences application lifetime**
 
-! [How user activity or inactivity can influence application lifetime](images/UCWA15Con_DashboardTopology.png)Note that availability in this case is only the availability of the user from the current application, and not overall availability. The user could be active on another application.
+![How user activity or inactivity can influence application lifetime](images/UCWA15Con_DashboardTopology.png)
+
+>Note: Availability in this case is only the availability of the user from the current application, and not overall availability. The user could be active on another application.
 
 If the application is unused (no use of **reportMyActivity**) and the user is not participating in calls, the application is terminated on the server. Additionally, if the server does not receive a new event channel request 15 minutes after the previous request was released, it assumes the client has lost connectivity and terminates the application.
 

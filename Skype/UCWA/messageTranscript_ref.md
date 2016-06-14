@@ -3,12 +3,7 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
-
+ 
 Represents a message transcript within a [conversationLog](conversationLog_ref.md). 
 
 

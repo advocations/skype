@@ -6,16 +6,6 @@ The **onlineMeetings** resource acts as a dashboard that represents the ability 
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Resource representation](#sectionSection0)
- [myOnlineMeetings](#sectionSection1)
- [myAssignedOnlineMeeting](#sectionSection2)
- [onlineMeetingDefaultValues](#sectionSection3)
- [onlineMeetingEligibleValues](#sectionSection4)
- [onlineMeetingPolicies](#sectionSection5)
- [phoneDialInInformation](#sectionSection6)
- [onlineMeetingInvitationCustomization](#sectionSection7)
-
 
 Users can create and manage online meetings in Skype for Business by using the [onlineMeetings](onlineMeetings_ref.md) resource. This is the dashboard to view, schedule and manage online meetings.
 
@@ -25,15 +15,12 @@ Users can create and manage online meetings in Skype for Business by using the [
 The following table contains a representation of the **onlineMeetings** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
-```
-"rel" : "onlineMeetings"
-```
+**Property bag**
+  ```
+  "rel" : "onlineMeetings"
+  ```
 
-|
-|**Links**|
+ **Links**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/878/onlineMeetings"
@@ -62,7 +49,7 @@ The following table contains a representation of the **onlineMeetings** resource
 
 ```
 
-|
+
 Every online meeting is considered a private meeting. Only those who know the coordinates of this meeting can join. Every user also has an assigned meeting, known as the public meeting, if the deployment supports it. The public meeting is per user and the coordinates never change. If the user uses the public meeting to schedule an online meeting, anyone who has the coordinates can step into this meeting at any time. Every online meeting includes several kinds of information such as the ID, subject, description, access level, leader assignment, expiry date, lobbyByPass settings, meeting URI, and so on.
 
 

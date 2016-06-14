@@ -13,7 +13,9 @@ The illustration that follows shows the first three levels of a tree view of the
 **Resource hierarchy in UCWA**
 
 
-! [A depiction of resource hierarchy in UCWA](images/UCWA15Con_Hierarchy.png)A hypermedia link is just like the link elements present in HTML documents. The link element contains _rel_and _href_attributes to indicate the resource type and the URL of the resource. The client can store the link and fetch it as needed at some later time. These links are also useful to drive user interface elements affording users access only to the features available at that time. Driving the user interface based on available hypermedia links offers a better overall experience for users.
+![A depiction of resource hierarchy in UCWA](images/UCWA15Con_Hierarchy.png)
+
+A hypermedia link is just like the link elements present in HTML documents. The link element contains _rel_and _href_attributes to indicate the resource type and the URL of the resource. The client can store the link and fetch it as needed at some later time. These links are also useful to drive user interface elements affording users access only to the features available at that time. Driving the user interface based on available hypermedia links offers a better overall experience for users.
 In addition to the **rel** and **href** attributes, some resources can add additional attributes such as **etag** or **title**. A client should ignore any attribute that it does not understand. For an example of one of these extra attributes, consider that a participant link might include the participant's title, which makes it possible for the user interface to show the participant's display name without fetching the full resource.
 
 ## URL usage

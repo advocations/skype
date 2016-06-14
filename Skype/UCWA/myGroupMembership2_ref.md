@@ -3,11 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
 
 Represents the version two of MyGroupMembershipResource (a [group](group_ref.md) membership of a single [contact](contact_ref.md)) 
 

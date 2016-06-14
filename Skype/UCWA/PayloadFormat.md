@@ -6,13 +6,6 @@ Request and response payloads can be specified as either JSON or XML.
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [JSON representation](#sectionSection0)
- [XML representation](#sectionSection1)
- [Input formats](#sectionSection2)
- [Data URI](#sectionSection3)
- [Required and optional parameters](#sectionSection4)
-
 
 UCWA 2.0 supports two payload formats for HTTP requests and responses: 
 

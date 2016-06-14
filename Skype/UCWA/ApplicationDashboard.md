@@ -40,8 +40,7 @@ The following table contains a representation of the **application** resource.
 }
 ```
 
-|
-|**Embedded resources**|
+**Embedded resources**
 ```
 "communication" : { ... },
 "me" : { ... },
@@ -50,7 +49,7 @@ The following table contains a representation of the **application** resource.
 
 ```
 
-|
+
 The **application** resource can be thought of as a dashboard that shows the communication and collaboration capabilities available to a specific application on a specific server. The embedded resources within an application, shown in the following table, provide a view of these capabilities. The **application** resource also contains links for performing operations in a batch, receiving asynchronous events, and fetching server policies.
 
 

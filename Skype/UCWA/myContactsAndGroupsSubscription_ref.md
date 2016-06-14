@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
 
 Represents the subscription to a user's contacts and groups. 
 
@@ -18,7 +12,6 @@ Represents the subscription to a user's contacts and groups.
 <a name="sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|

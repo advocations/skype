@@ -14,9 +14,7 @@ The [communication](communication_ref.md) resource gives the user the ability to
 The following table contains a representation of the communication resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel" : "communication",
 "phoneNumber" : "tel:+14255552222",
@@ -30,8 +28,8 @@ The following table contains a representation of the communication resource.
 ],
 ```
 
-|
-|**Links**|
+
+**Links**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/878/communication"
@@ -53,7 +51,7 @@ The following table contains a representation of the communication resource.
 }
 ```
 
-|
+
 
 ## conversations
 <a name="sectionSection1"> </a>
@@ -86,15 +84,13 @@ A [conversationLogs](conversationLogs_ref.md) resource represents a collection o
 The following table contains a representation of the **conversationLogs** resource.
 
 
-|||
-|:-----|:-----|
-|**Property bag**|
+**Property bag**
 ```
 "rel": "conversationLogs"
 ```
 
-|
-|**Links**|
+
+**Links**
 ```
 "self": {
  "href": "/ucwa/v1/applications/405/communication/conversationLogs"
@@ -104,7 +100,7 @@ The following table contains a representation of the **conversationLogs** resour
 }
 ```
 
-|
+
 
 ## joinOnlineMeeting
 <a name="sectionSection3"> </a>

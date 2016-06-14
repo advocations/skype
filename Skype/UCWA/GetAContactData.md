@@ -29,7 +29,7 @@ The steps here assume that you have already created an application and have rece
 
 2. Process the response from the previous GET request.
  
- The response you receive should be 200 OK. The body of the response contains an array property named "contact" that is an array of individual contacts. Each item in the array includes information about a contact's URI, source network, and screen name, as well as links to other information about the contact.
+  The response you receive should be 200 OK. The body of the response contains an array property named "contact" that is an array of individual contacts. Each item in the array includes information about a contact's URI, source network, and screen name, as well as links to other information about the contact.
  
     ```
     HTTP/1.1 200 OK
@@ -107,7 +107,7 @@ The steps here assume that you have already created an application and have rece
 
 4. Process the response from the previous GET request.
  
- The successful response is 200 OK. The body of the response contains references to supported contact data.
+  The successful response is 200 OK. The body of the response contains references to supported contact data.
  
     ```
     HTTP/1.1 200 OK
