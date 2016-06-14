@@ -1,15 +1,9 @@
 
 # xframe 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the cross-domain frame used for web-based applications. 
 
@@ -90,12 +84,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/xframe HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: text/html
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/xframe HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: text/html
+
+
 ```
 
 
@@ -106,11 +100,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: text/html
-										Content-Length: 12
-										<h>Hello</h>
-									
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 12
+<h>Hello</h>
+
 ```
 
 
@@ -119,12 +113,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/xframe HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: text/html
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/xframe HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: text/html
+
+
 ```
 
 
@@ -135,10 +129,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: text/html
-										Content-Length: 12
-										<h>Hello</h>
-									
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 12
+<h>Hello</h>
+
 ```
 

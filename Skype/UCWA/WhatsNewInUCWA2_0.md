@@ -5,12 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Contact and Group Management](#sectionSection0)
- [Conversation History and Auto-Accept](#sectionSection1)
- [Ability to contact a Skype buddy](#sectionSection2)
-
-
 This page lists new features in UCWA 2.0.
 
 ## Contact and Group Management

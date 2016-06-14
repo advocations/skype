@@ -1,16 +1,9 @@
 
 # phoneAudio 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the phone audio modality in a [conversation](conversation_ref.md). 
 
@@ -82,31 +75,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "phoneAudio",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "conversation",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+"events" : [
+{
+"link" : {
+"rel" : "phoneAudio",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio"
+},
+"type" : "updated"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -154,12 +147,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -170,34 +163,34 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 561
-										{
- "rel" : "phoneAudio",
- "state" : "Disconnected",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/phoneAudio"
- },
- "addPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/addPhoneAudio"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "holdPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/holdPhoneAudio"
- },
- "resumePhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/resumePhoneAudio"
- },
- "stopPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/stopPhoneAudio"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 561
+{
+"rel" : "phoneAudio",
+"state" : "Disconnected",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/phoneAudio"
+},
+"addPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/addPhoneAudio"
+},
+"conversation" : {
+"href" : "//v1/applications/833/communication/conversations/802"
+},
+"holdPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/holdPhoneAudio"
+},
+"resumePhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/resumePhoneAudio"
+},
+"stopPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/stopPhoneAudio"
 }
-									
+}
+}
+
 ```
 
 
@@ -206,12 +199,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/communication/phoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -222,19 +215,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 754
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 754
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="phoneAudio" href="//v1/applications/833/communication/phoneAudio" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addPhoneAudio" href="//v1/applications/833/communication/phoneAudio/addPhoneAudio" />
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="holdPhoneAudio" href="//v1/applications/833/communication/phoneAudio/holdPhoneAudio" />
- <link rel="resumePhoneAudio" href="//v1/applications/833/communication/phoneAudio/resumePhoneAudio" />
- <link rel="stopPhoneAudio" href="//v1/applications/833/communication/phoneAudio/stopPhoneAudio" />
- <property name="rel">phoneAudio</property>
- <property name="state">Transferring</property>
+<link rel="addPhoneAudio" href="//v1/applications/833/communication/phoneAudio/addPhoneAudio" />
+<link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+<link rel="holdPhoneAudio" href="//v1/applications/833/communication/phoneAudio/holdPhoneAudio" />
+<link rel="resumePhoneAudio" href="//v1/applications/833/communication/phoneAudio/resumePhoneAudio" />
+<link rel="stopPhoneAudio" href="//v1/applications/833/communication/phoneAudio/stopPhoneAudio" />
+<property name="rel">phoneAudio</property>
+<property name="state">Transferring</property>
 </resource>
-									
+
 ```
 

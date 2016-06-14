@@ -5,13 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 Represents the user. 
 
 ## Web Link
@@ -161,13 +154,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/me HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
 ```
 
 
@@ -177,50 +168,49 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 696
-										{
- "rel" : "me",
- "department" : "Sales",
- "emailAddresses" : [
- "johndoe@contoso.com"
- ],
- "name" : "John Doe",
- "title" : "Senior Manager",
- "uri" : "sip:johndoe@contoso.com",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me"
- },
- "callForwardingSettings" : {
- "href" : "//v1/applications/833/me/callForwardingSettings"
- },
- "location" : {
- "href" : "//v1/applications/833/me/location"
- },
- "makeMeAvailable" : {
- "href" : "//v1/applications/833/communication/makeMeAvailable"
- },
- "note" : {
- "href" : "//v1/applications/833/me/note"
- },
- "phones" : {
- "href" : "//v1/applications/833/me/phones"
- },
- "photo" : {
- "href" : "//v1/applications/833/photo"
- },
- "presence" : {
- "href" : "//v1/applications/833/me/presence"
- },
- "reportMyActivity" : {
- "href" : "//v1/applications/833/reportMyActivity"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 696
+{
+"rel" : "me",
+"department" : "Sales",
+"emailAddresses" : [
+"johndoe@contoso.com"
+],
+"name" : "John Doe",
+"title" : "Senior Manager",
+"uri" : "sip:johndoe@contoso.com",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/me"
+},
+"callForwardingSettings" : {
+"href" : "//v1/applications/833/me/callForwardingSettings"
+},
+"location" : {
+"href" : "//v1/applications/833/me/location"
+},
+"makeMeAvailable" : {
+"href" : "//v1/applications/833/communication/makeMeAvailable"
+},
+"note" : {
+"href" : "//v1/applications/833/me/note"
+},
+"phones" : {
+"href" : "//v1/applications/833/me/phones"
+},
+"photo" : {
+"href" : "//v1/applications/833/photo"
+},
+"presence" : {
+"href" : "//v1/applications/833/me/presence"
+},
+"reportMyActivity" : {
+"href" : "//v1/applications/833/reportMyActivity"
 }
-									
+}
+}
+							
 ```
 
 
@@ -228,13 +218,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/me HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -244,28 +232,27 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1016
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 1016
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="me" href="//v1/applications/833/me" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="callForwardingSettings" href="//v1/applications/833/me/callForwardingSettings" />
- <link rel="location" href="//v1/applications/833/me/location" />
- <link rel="makeMeAvailable" href="//v1/applications/833/communication/makeMeAvailable" />
- <link rel="note" href="//v1/applications/833/me/note" />
- <link rel="phones" href="//v1/applications/833/me/phones" />
- <link rel="photo" href="//v1/applications/833/photo" />
- <link rel="presence" href="//v1/applications/833/me/presence" />
- <link rel="reportMyActivity" href="//v1/applications/833/reportMyActivity" />
- <property name="rel">me</property>
- <property name="department">Sales</property>
- <propertyList name="emailAddresses">
- <item>johndoe@contoso.com</item>
- </propertyList>
- <property name="name">John Doe</property>
- <property name="title">Senior Manager</property>
- <property name="uri">sip:johndoe@contoso.com</property>
+<link rel="callForwardingSettings" href="//v1/applications/833/me/callForwardingSettings" />
+<link rel="location" href="//v1/applications/833/me/location" />
+<link rel="makeMeAvailable" href="//v1/applications/833/communication/makeMeAvailable" />
+<link rel="note" href="//v1/applications/833/me/note" />
+<link rel="phones" href="//v1/applications/833/me/phones" />
+<link rel="photo" href="//v1/applications/833/photo" />
+<link rel="presence" href="//v1/applications/833/me/presence" />
+<link rel="reportMyActivity" href="//v1/applications/833/reportMyActivity" />
+<property name="rel">me</property>
+<property name="department">Sales</property>
+<propertyList name="emailAddresses">
+<item>johndoe@contoso.com</item>
+</propertyList>
+<property name="name">John Doe</property>
+<property name="title">Senior Manager</property>
+<property name="uri">sip:johndoe@contoso.com</property>
 </resource>
 									
 ```

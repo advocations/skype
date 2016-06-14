@@ -1,15 +1,9 @@
 
 # sendMessage 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Sends an instant message to the [participant](participant_ref.md)s in a [conversation](conversation_ref.md). 
 
@@ -28,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
- Applications can use sendMessage to compose an outgoing instant message. This link is available only when the [messaging](messaging_ref.md) modality is connected.
+Applications can use sendMessage to compose an outgoing instant message. This link is available only when the [messaging](messaging_ref.md) modality is connected.
 
 
 ### Properties
@@ -98,13 +92,13 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/sendMessage HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: text/html
-										Content-Length: 12
-										<h>Hello</h>
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/sendMessage HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: text/html
+Content-Length: 12
+<h>Hello</h>
+
 ```
 
 
@@ -115,10 +109,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/conversations/802/messaging/messages/812
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/conversations/802/messaging/messages/812
+
+
 ```
 
 
@@ -127,13 +121,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/sendMessage HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: text/html
-										Content-Length: 12
-										<h>Hello</h>
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/sendMessage HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: text/html
+Content-Length: 12
+<h>Hello</h>
+
 ```
 
 
@@ -144,9 +138,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/conversations/802/messaging/messages/812
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/conversations/802/messaging/messages/812
+
+
 ```
 

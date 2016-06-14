@@ -1,15 +1,9 @@
 
 # simultaneousRingSettings 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents a user's settings to simultaneously send incoming calls to a specified target. 
 
@@ -101,13 +95,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: dc9e88a9-5992-4933-8f48-aa5ec28588d6
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: dc9e88a9-5992-4933-8f48-aa5ec28588d6
+
+
 ```
 
 
@@ -118,33 +112,33 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 5fe9f878-f78c-43e2-8658-2d54b8947047
-										Content-Type: application/json
-										Content-Length: 632
-										{
- "rel" : "simultaneousRingSettings",
- "ringDelay" : 5,
- "target" : "None",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "simultaneousRingToContact" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact"
- },
- "simultaneousRingToDelegates" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates"
- },
- "simultaneousRingToTeam" : {
- "href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam"
- }
- }
+HTTP/1.1 200 OK
+Etag: 5fe9f878-f78c-43e2-8658-2d54b8947047
+Content-Type: application/json
+Content-Length: 632
+{
+"rel" : "simultaneousRingSettings",
+"ringDelay" : 5,
+"target" : "None",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"simultaneousRingToContact" : {
+"href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact"
+},
+"simultaneousRingToDelegates" : {
+"href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates"
+},
+"simultaneousRingToTeam" : {
+"href" : "//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam"
 }
-									
+}
+}
+
 ```
 
 
@@ -153,13 +147,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: b5f90b0f-f61f-4dbf-ac1c-c3cd76b5c941
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: b5f90b0f-f61f-4dbf-ac1c-c3cd76b5c941
+
+
 ```
 
 
@@ -170,21 +164,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 1d2dcd3c-0b0f-4431-bd09-4873b3db27a9
-										Content-Type: application/xml
-										Content-Length: 856
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Etag: 1d2dcd3c-0b0f-4431-bd09-4873b3db27a9
+Content-Type: application/xml
+Content-Length: 856
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="simultaneousRingSettings" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="simultaneousRingToContact" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact" />
- <link rel="simultaneousRingToDelegates" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates" />
- <link rel="simultaneousRingToTeam" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam" />
- <property name="rel">simultaneousRingSettings</property>
- <property name="ringDelay">5</property>
- <property name="target">None</property>
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="simultaneousRingToContact" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact" />
+<link rel="simultaneousRingToDelegates" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates" />
+<link rel="simultaneousRingToTeam" href="//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToTeam" />
+<property name="rel">simultaneousRingSettings</property>
+<property name="ringDelay">5</property>
+<property name="target">None</property>
 </resource>
-									
+
 ```
 
 
@@ -224,18 +218,18 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Put https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										if-match: e1280ec6-9ad3-4fc3-b110-52078738a905
-										Content-Length: 64
-										{
- "rel" : "simultaneousRingSettings",
- "ringDelay" : 5,
- "target" : "None"
+Put https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+if-match: e1280ec6-9ad3-4fc3-b110-52078738a905
+Content-Length: 64
+{
+"rel" : "simultaneousRingSettings",
+"ringDelay" : 5,
+"target" : "None"
 }
-									
+
 ```
 
 
@@ -246,9 +240,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										
-									
+HTTP/1.1 200 OK
+
+
 ```
 
 
@@ -257,19 +251,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Put https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										if-match: d0cf8e60-2cee-4061-a060-b3bae954696d
-										Content-Length: 247
-										<?xml version="1.0" encoding="utf-8"?>
+Put https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+if-match: d0cf8e60-2cee-4061-a060-b3bae954696d
+Content-Length: 247
+<?xml version="1.0" encoding="utf-8"?>
 <resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">simultaneousRingSettings</property>
- <property name="ringDelay">5</property>
- <property name="target">None</property>
+<property name="rel">simultaneousRingSettings</property>
+<property name="ringDelay">5</property>
+<property name="target">None</property>
 </resource>
-									
+
 ```
 
 
@@ -280,8 +274,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										
-									
+HTTP/1.1 200 OK
+
+
 ```
 

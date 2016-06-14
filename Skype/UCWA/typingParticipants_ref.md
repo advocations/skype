@@ -5,13 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Events](#sectionSection2)
- [Operations](#sectionSection3)
-
-
 Represents a view of the [participant](participant_ref.md)s who are currently typing a message in a [conversation](conversation_ref.md). 
 
 ## Web Link

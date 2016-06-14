@@ -1,15 +1,9 @@
 
 # photo 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the user's photo. 
 
@@ -100,12 +94,12 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/photo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: image/jpeg
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/photo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: image/jpeg
+
+
 ```
 
 
@@ -116,11 +110,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: image/jpeg
-										Content-Length: 19
-										SomeBinaryPhotoData
-									
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 19
+SomeBinaryPhotoData
+
 ```
 
 
@@ -129,12 +123,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/photo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: image/jpeg
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/photo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: image/jpeg
+
+
 ```
 
 
@@ -145,10 +139,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: image/jpeg
-										Content-Length: 19
-										
-									
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 19
+
+
 ```
 

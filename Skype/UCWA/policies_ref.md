@@ -1,15 +1,9 @@
 
 # policies 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
-
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the admin policies that can apply to a user's application. 
 
@@ -112,12 +106,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/policies HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/policies HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -128,36 +122,36 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 637
-										{
- "rel" : "policies",
- "customerExperienceImprovementProgram" : "Disabled",
- "emergencyDialMask" : "555",
- "emergencyDialString" : "911",
- "emoticons" : "Disabled",
- "clientExchangeConnectivity" : "Disabled",
- "exchangeUnifiedMessaging" : "Disabled",
- "htmlMessaging" : "Disabled",
- "logging" : "Enabled",
- "loggingLevel" : " Light",
- "messageArchiving" : "Enabled",
- "messagingUrls" : "Disabled",
- "photos" : "Enabled",
- "saveCallLogs" : "Disabled",
- "saveCredentials" : "Disabled",
- "saveMessagingHistory" : "Disabled",
- "sharingOnlyOnWifi" : "Disabled",
- "telephonyMode" : "AudioVideo",
- "voicemailUri" : "sip:jdoe@contoso.com;opaque=app:voicemail",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/policies"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 637
+{
+"rel" : "policies",
+"customerExperienceImprovementProgram" : "Disabled",
+"emergencyDialMask" : "555",
+"emergencyDialString" : "911",
+"emoticons" : "Disabled",
+"clientExchangeConnectivity" : "Disabled",
+"exchangeUnifiedMessaging" : "Disabled",
+"htmlMessaging" : "Disabled",
+"logging" : "Enabled",
+"loggingLevel" : " Light",
+"messageArchiving" : "Enabled",
+"messagingUrls" : "Disabled",
+"photos" : "Enabled",
+"saveCallLogs" : "Disabled",
+"saveCredentials" : "Disabled",
+"saveMessagingHistory" : "Disabled",
+"sharingOnlyOnWifi" : "Disabled",
+"telephonyMode" : "AudioVideo",
+"voicemailUri" : "sip:jdoe@contoso.com;opaque=app:voicemail",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/policies"
 }
-									
+}
+}
+
 ```
 
 
@@ -166,12 +160,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/policies HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/policies HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -182,31 +176,31 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1177
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 1177
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="policies" href="//v1/applications/833/policies" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">policies</property>
- <property name="customerExperienceImprovementProgram">Disabled</property>
- <property name="emergencyDialMask">555</property>
- <property name="emergencyDialString">911</property>
- <property name="emoticons">Disabled</property>
- <property name="clientExchangeConnectivity">Disabled</property>
- <property name="exchangeUnifiedMessaging">Disabled</property>
- <property name="htmlMessaging">Disabled</property>
- <property name="logging">Enabled</property>
- <property name="loggingLevel">Full</property>
- <property name="messageArchiving">Enabled</property>
- <property name="messagingUrls">Disabled</property>
- <property name="photos">Enabled</property>
- <property name="saveCallLogs">Disabled</property>
- <property name="saveCredentials">Disabled</property>
- <property name="saveMessagingHistory">Disabled</property>
- <property name="sharingOnlyOnWifi">Disabled</property>
- <property name="telephonyMode">AudioVideo</property>
- <property name="voicemailUri">sip:jdoe@contoso.com;opaque=app:voicemail</property>
+<property name="rel">policies</property>
+<property name="customerExperienceImprovementProgram">Disabled</property>
+<property name="emergencyDialMask">555</property>
+<property name="emergencyDialString">911</property>
+<property name="emoticons">Disabled</property>
+<property name="clientExchangeConnectivity">Disabled</property>
+<property name="exchangeUnifiedMessaging">Disabled</property>
+<property name="htmlMessaging">Disabled</property>
+<property name="logging">Enabled</property>
+<property name="loggingLevel">Full</property>
+<property name="messageArchiving">Enabled</property>
+<property name="messagingUrls">Disabled</property>
+<property name="photos">Enabled</property>
+<property name="saveCallLogs">Disabled</property>
+<property name="saveCredentials">Disabled</property>
+<property name="saveMessagingHistory">Disabled</property>
+<property name="sharingOnlyOnWifi">Disabled</property>
+<property name="telephonyMode">AudioVideo</property>
+<property name="voicemailUri">sip:jdoe@contoso.com;opaque=app:voicemail</property>
 </resource>
-									
+
 ```
 
