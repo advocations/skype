@@ -13,7 +13,7 @@ After the discovery and authentication processes, the application is registered 
 **HTTP call flow prior to creating an application in UCWA**
 
 
-! [HTTP call flow prior to creating an application in UCWA](images/UCWA15Con_CreateApp.png)
+![HTTP call flow prior to creating an application in UCWA](images/UCWA15Con_CreateApp.png)
 
 1. Send a GET request on the Autodiscovery URL. 
  
