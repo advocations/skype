@@ -1,9 +1,9 @@
 
-# InvitationState (UCWA)
+# InvitationState 
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 Represents the status of an outgoing call instance.
 

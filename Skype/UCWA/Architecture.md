@@ -17,12 +17,12 @@ Skype for Business Server provides to enterprises a suite of platforms and solut
 The illustration shows the UCWA 2.0 architecture in Skype for Business Server 2015 deployment at a high level. Some of the components that are involved are:
 
 
--  **UCWA** powers real-time communications for mobile and web clients in Skype for Business Server 2015. This web component is deployed on all roles as a web component.
-    
--  **Autodiscovery** allows a client to detect the web entry point; that is, the UCWA 2.0 home pool/server for a specific user. The client connects to the Discovery service, which provides the FQDN of the user's home server pool. After the user "discovers" the home server, the user can interact with UCWA 2.0.
-    
--  **Mediation server** is used to enable Phone Audio for UCWA 2.0.
-    
+- **UCWA** powers real-time communications for mobile and web clients in Skype for Business Server 2015. This web component is deployed on all roles as a web component.
+ 
+- **Autodiscovery** allows a client to detect the web entry point; that is, the UCWA 2.0 home pool/server for a specific user. The client connects to the Discovery service, which provides the FQDN of the user's home server pool. After the user "discovers" the home server, the user can interact with UCWA 2.0.
+ 
+- **Mediation server** is used to enable Phone Audio for UCWA 2.0.
+ 
 
 ## UCWA interaction with Skype for Business Server
 

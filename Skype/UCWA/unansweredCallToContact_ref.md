@@ -1,15 +1,9 @@
 
-# unansweredCallToContact (UCWA)
+# unansweredCallToContact 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Forward all incoming calls to a user-provided number or contact if the user does not respond. 
 
@@ -61,7 +55,7 @@ Forward all incoming calls to a user-provided number or contact if the user does
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |ringDelay|The length of the delay, in seconds, before calls ring for the specified number or contact.The maximum value is 60 and the minimum value is 5.|No|
-|target|The number or contact that the user wants to forward her unanswered calls to.If the target is a number, the application should provide a tel URI, which is provided by the [contact (UCWA)](contact_ref.md).If the target is a contact, the application should provide a sip URI, which is provided by the [contact (UCWA)](contact_ref.md).The maximum length is 80 characters.|Yes|
+|target|The number or contact that the user wants to forward her unanswered calls to.If the target is a number, the application should provide a tel URI, which is provided by the [contact](contact_ref.md).If the target is a contact, the application should provide a sip URI, which is provided by the [contact](contact_ref.md).The maximum length is 80 characters.|Yes|
 
 #### Request body
 
@@ -97,11 +91,11 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -112,9 +106,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -123,11 +117,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -138,8 +132,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 

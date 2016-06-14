@@ -1,16 +1,9 @@
 
-# subscribedContacts (UCWA)
+# subscribedContacts 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
+_**Applies to:** Skype for Business 2015_
 
 A collection of contacts for which the logged-on user has created active presence subscriptions. 
 
@@ -29,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This collection is read-only: it can be used only to view contacts with existing presence subscriptions. New presence subscriptions are created by using either the [presenceSubscriptions (UCWA)](presenceSubscriptions_ref.md) resource or the[subscribeToGroupPresence (UCWA)](subscribeToGroupPresence_ref.md) resource. These contacts can be members of a group or the result of an ad hoc subscription.
+This collection is read-only: it can be used only to view contacts with existing presence subscriptions. New presence subscriptions are created by using either the [presenceSubscriptions](presenceSubscriptions_ref.md) resource or the [subscribeToGroupPresence](subscribeToGroupPresence_ref.md) resource. These contacts can be members of a group or the result of an ad hoc subscription.
 
 
 ### Properties
@@ -73,35 +66,35 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "contact",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
-          },
-          "in" : {
-            "rel" : "subscribedContacts",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "contact",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+},
+"in" : {
+"rel" : "subscribedContacts",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
+},
+"type" : "added"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -122,35 +115,35 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "contact",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
-          },
-          "in" : {
-            "rel" : "subscribedContacts",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "contact",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+},
+"in" : {
+"rel" : "subscribedContacts",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/subscribedContacts"
+},
+"type" : "deleted"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -199,12 +192,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -215,23 +208,23 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 154
-										{
-  "rel" : "subscribedContacts",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/subscribedContacts"
-    },
-    "contact" : [
-      {
-        "href" : "//v1/applications/833/people/376"
-      }
-    ]
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 154
+{
+"rel" : "subscribedContacts",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/subscribedContacts"
+},
+"contact" : [
+{
+"href" : "//v1/applications/833/people/376"
 }
-									
+]
+}
+}
+
 ```
 
 
@@ -240,12 +233,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/subscribedContacts HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -256,14 +249,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 298
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;subscribedContacts&amp;quot; href=&amp;quot;//v1/applications/833/subscribedContacts&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/268&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;subscribedContacts&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 298
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="subscribedContacts" href="//v1/applications/833/subscribedContacts" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="contact" href="//v1/applications/833/people/268" />
+<property name="rel">subscribedContacts</property>
+</resource>
+
 ```
 

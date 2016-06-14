@@ -1,15 +1,9 @@
 
-# participantMessaging (UCWA)
+# participantMessaging 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ _**Applies to:** Skype for Business 2015_
 
 
 Used to determine whether a participant is using the instant messaging modality in a conversation. 
@@ -29,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The application can use this resource to monitor when a participant joins or leaves the [messaging (UCWA)](messaging_ref.md) modality.
+The application can use this resource to monitor when a participant joins or leaves the [messaging](messaging_ref.md) modality.
 
 
 ### Properties
@@ -46,7 +40,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
+|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -74,33 +68,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantMessaging",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantMessaging",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "added"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -126,33 +120,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantMessaging",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantMessaging",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -176,33 +170,33 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantMessaging",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantMessaging",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "deleted"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -272,15 +266,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 247
 										{
-  "rel" : "participantMessaging",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
-    },
-    "participant" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575"
-    }
-  }
+ "rel" : "participantMessaging",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
+ },
+ "participant" : {
+ "href" : "//v1/applications/833/communication/conversations/802/participants/575"
+ }
+ }
 }
 									
 ```
@@ -310,11 +304,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 395
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;participantMessaging&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantMessaging&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;participant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;participantMessaging&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="participantMessaging" href="//v1/applications/833/communication/conversations/802/participants/575/participantMessaging" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="participant" href="//v1/applications/833/communication/conversations/802/participants/575" />
+ <property name="rel">participantMessaging</property>
+</resource>
 									
 ```
 

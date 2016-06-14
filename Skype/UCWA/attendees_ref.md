@@ -1,18 +1,11 @@
 
-# attendees (UCWA)
+# attendees 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
-
-Represents a view of the [participant (UCWA)](participant_ref.md)s having the attendee role in an [onlineMeeting (UCWA)](onlineMeeting_ref.md). 
+Represents a view of the [participant](participant_ref.md)s having the attendee role in an [onlineMeeting](onlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -46,7 +39,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
+|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -62,7 +55,7 @@ This resource can have the following relationships.
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participant|High|conversation|Indicates that a [participant (UCWA)](participant_ref.md) was added to the list of attendee participants.|
+|participant|High|conversation|Indicates that a [participant](participant_ref.md) was added to the list of attendee participants.|
 Sample of returned event data.
 
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
@@ -73,33 +66,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
-          },
-          "in" : {
-            "rel" : "attendees",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
+ },
+ "in" : {
+ "rel" : "attendees",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees"
+ },
+ "type" : "added"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -113,7 +106,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participant|High|conversation|Indicates that a [participant (UCWA)](participant_ref.md) was removed from the list of attendee participants.|
+|participant|High|conversation|Indicates that a [participant](participant_ref.md) was removed from the list of attendee participants.|
 Sample of returned event data.
 
 
@@ -122,33 +115,33 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
-          },
-          "in" : {
-            "rel" : "attendees",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575"
+ },
+ "in" : {
+ "rel" : "attendees",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees"
+ },
+ "type" : "deleted"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -162,7 +155,7 @@ Sample of returned event data.
 
 ### GET
 
-Returns a representation of a view of the [participant (UCWA)](participant_ref.md)s whose role is attendee in an [onlineMeeting (UCWA)](onlineMeeting_ref.md).
+Returns a representation of a view of the [participant](participant_ref.md)s whose role is attendee in an [onlineMeeting](onlineMeeting_ref.md).
 
 
 #### Request body
@@ -197,12 +190,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -213,22 +204,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 210
-										{
-  "rel" : "attendees",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/attendees"
-    },
-    "participant" : [
-      {
-        "href" : "//v1/applications/833/communication/conversations/802/participants/994"
-      }
-    ]
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 210
+{
+"rel" : "attendees",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversations/802/attendees"
+},
+"participant" : [
+{
+"href" : "//v1/applications/833/communication/conversations/802/participants/994"
+}
+]
+}
 }
 									
 ```
@@ -238,13 +228,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/attendees HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -254,15 +242,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 345
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;attendees&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/attendees&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;participant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/821&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;attendees&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 345
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="attendees" href="//v1/applications/833/communication/conversations/802/attendees" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="participant" href="//v1/applications/833/communication/conversations/802/participants/821" />
+<property name="rel">attendees</property>
+</resource>
 									
 ```
 

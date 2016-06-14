@@ -4,32 +4,22 @@ Cache.js is a JavaScript library that helps store and retrieve frequently used r
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Create a Cache object](#sectionSection0)
-[cacheLinks(data)](#sectionSection1)
-[findEmbeddedLinkInCache(target, resource)](#sectionSection2)
-[findLinkInCache(resource)](#sectionSection3)
-[findLinkInResource(rel, data)](#sectionSection4)
-[read(href)](#sectionSection5)
-[write(data)](#sectionSection6)
-
+ _**Applies to:** Skype for Business 2015_
 
 Use the functions in the Cache library to read data from or write data to a cookie or to HTML 5 local storage.
 The cache has two parts:
 
-1. A links cache that is used to keep track of singleton resources such as [application (UCWA)](application_ref.md), [batch (UCWA)](batch_ref.md), or [events (UCWA)](events_ref.md).
-    
+1. A links cache that is used to keep track of singleton resources such as [application](application_ref.md), [batch](batch_ref.md), or [events](events_ref.md).
+ 
 2. A data cache that is used for resources that are delivered in the event channel.
-    
+ 
 The links cache is indexed by resource name; the data cache is indexed by href.
 Often, application latency can be decreased by accessing links or embedded resources that have previously been cached, rather than sending another HTTP request to get them.
 
 ## Create a Cache object
 <a name="sectionSection0"> </a>
 
-A  **Cache** object is created as shown in the following example.
+A **Cache** object is created as shown in the following example.
 
 
 ```
@@ -42,7 +32,7 @@ The variable declared in the preceding example is used in subsequent examples in
 ## cacheLinks(data)
 <a name="sectionSection1"> </a>
 
-The  **cacheLinks** function caches links based on the supplied data.
+The **cacheLinks** function caches links based on the supplied data.
 
 
 
@@ -67,24 +57,24 @@ The object shown in this example is used in the two examples that follow it.
 
 ```
 data = {
-    rel : "contact",
-    name : "John Doe",
-    _links: {
-        self: {href: "/people/johndoe@contoso.com"},
-        contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
-    },
-    _embedded: {
-        presence: {
-            _links: {
-                self: {href: "/people/johndoe@contoso.com/presence"},
-                jean: {href: "/people/jeandoe@contoso.com/presence"}
-            }
-        }
-    }
+ rel : "contact",
+ name : "John Doe",
+ _links: {
+ self: {href: "/people/johndoe@contoso.com"},
+ contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
+ },
+ _embedded: {
+ presence: {
+ _links: {
+ self: {href: "/people/johndoe@contoso.com/presence"},
+ jean: {href: "/people/jeandoe@contoso.com/presence"}
+ }
+ }
+ }
 };
 ```
 
-In the following example, the  _self_ object under the outer __links_ key is stored in the cache.
+In the following example, the _self_object under the outer __links_key is stored in the cache.
 
 
 
@@ -93,7 +83,7 @@ In the following example, the  _self_ object under the outer __links_ key is sto
 Cache.cacheLinks(data._links);
 ```
 
-In the next example, the  _presence_ object under the __embedded_ key is stored in the cache.
+In the next example, the _presence_object under the __embedded_key is stored in the cache.
 
 
 
@@ -113,7 +103,7 @@ If there is a collision between a link to be cached and one already in the cache
 ## findEmbeddedLinkInCache(target, resource)
 <a name="sectionSection2"> </a>
 
-The  **findEmbeddedLinkInCache** function finds a resource link stored in the singleton cache of embedded data. This function gets the JSON links from the cache, to check whether the resource exists in the embedded target resource.
+The **findEmbeddedLinkInCache** function finds a resource link stored in the singleton cache of embedded data. This function gets the JSON links from the cache, to check whether the resource exists in the embedded target resource.
 
 
 
@@ -141,24 +131,24 @@ The next example uses the following definition.
 
 ```
 data = {
-    rel : "contact",
-    name : "John Doe",
-    _links: {
-        self: {href: "/people/johndoe@contoso.com"},
-        contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
-    },
-    _embedded: {
-        presence: {
-            _links: {
-                self: {href: "/people/johndoe@contoso.com/presence"},
-                jean: {href: "/people/jeandoe@contoso.com/presence"}
-            }
-        }
-    }
+ rel : "contact",
+ name : "John Doe",
+ _links: {
+ self: {href: "/people/johndoe@contoso.com"},
+ contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
+ },
+ _embedded: {
+ presence: {
+ _links: {
+ self: {href: "/people/johndoe@contoso.com/presence"},
+ jean: {href: "/people/jeandoe@contoso.com/presence"}
+ }
+ }
+ }
 };
 ```
 
-In the following example,  _link_ will be set to "/people/jeandoe@contoso.com/presence".
+In the following example, _link_will be set to "/people/jeandoe@contoso.com/presence".
 
 
 
@@ -171,7 +161,7 @@ var link = Cache.findEmbeddedLinkInCache("presence", "jean");
 ## findLinkInCache(resource)
 <a name="sectionSection3"> </a>
 
-The  **findLinkInCache** function finds a resource link stored in the singleton cache. This function gets the JSON links from the cache, and determines whether the resource link exists.
+The **findLinkInCache** function finds a resource link stored in the singleton cache. This function gets the JSON links from the cache, and determines whether the resource link exists.
 
 
 
@@ -198,24 +188,24 @@ The next example uses the following definition.
 
 ```
 data = {
-    rel : "contact",
-    name : "John Doe",
-    _links: {
-        self: {href: "/people/johndoe@contoso.com"},
-        contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
-    },
-    _embedded: {
-        presence: {
-            _links: {
-                self: {href: "/people/johndoe@contoso.com/presence"},
-                jean: {href: "/people/jeandoe@contoso.com/presence"}
-            }
-        }
-    }
+ rel : "contact",
+ name : "John Doe",
+ _links: {
+ self: {href: "/people/johndoe@contoso.com"},
+ contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
+ },
+ _embedded: {
+ presence: {
+ _links: {
+ self: {href: "/people/johndoe@contoso.com/presence"},
+ jean: {href: "/people/jeandoe@contoso.com/presence"}
+ }
+ }
+ }
 };
 ```
 
-After the following example runs,  _link_ will be set to /people/johndoe@contoso.com/contactLocation".
+After the following example runs, _link_will be set to /people/johndoe@contoso.com/contactLocation".
 
 
 
@@ -228,7 +218,7 @@ var link = Cache.findLinkInCache("contactLocation");
 ## findLinkInResource(rel, data)
 <a name="sectionSection4"> </a>
 
-The  **findLinkInResource** function looks for a "rel" link that is stored in the singleton cache.
+The **findLinkInResource** function looks for a "rel" link that is stored in the singleton cache.
 
 
 
@@ -256,20 +246,20 @@ The next example uses the following definition.
 
 ```
 data = {
-    rel : "contact",
-    name : "John Doe",
-    _links: {
-        self: {href: "/people/johndoe@contoso.com"},
-        contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
-    },
-    _embedded: {
-        presence: {
-            _links: {
-                self: {href: "/people/johndoe@contoso.com/presence"},
-                joan: {href: "/people/jeandoe@contoso.com/presence"}
-            }
-        }
-    }
+ rel : "contact",
+ name : "John Doe",
+ _links: {
+ self: {href: "/people/johndoe@contoso.com"},
+ contactLocation: {href: "/people/johndoe@contoso.com/contactLocation"}
+ },
+ _embedded: {
+ presence: {
+ _links: {
+ self: {href: "/people/johndoe@contoso.com/presence"},
+ joan: {href: "/people/jeandoe@contoso.com/presence"}
+ }
+ }
+ }
 };
 ```
 
@@ -291,7 +281,7 @@ This function searches the data object for "_links". If found, the function sear
 ## read(href)
 <a name="sectionSection5"> </a>
 
-The  **read** function retrieves data received by way of the event channel from the cache using the _href_ as a key.
+The **read** function retrieves data received by way of the event channel from the cache using the _href_as a key.
 
 
 
@@ -311,32 +301,32 @@ read(href )
 
  **Example**
 
-The following two examples for the  **read** function use this definition.
+The following two examples for the **read** function use this definition.
 
 
 
 
 ```
 var eventData1 = {
-    link : {
-        rel : "contact",
-        href : "/people/johndoe@contoso.com"
-    },
-    type : "added",
-    _embedded : {
-        "contact" : {
-            name : "John Doe",
-            title : "Programmer",
-            _links: {
-                self: {href: "/people/johndoe@contoso.com"},
-                contactPhoto : {href: "/photos/johndoe@contoso.com"}
-            },
-        }
-    }
+ link : {
+ rel : "contact",
+ href : "/people/johndoe@contoso.com"
+ },
+ type : "added",
+ _embedded : {
+ "contact" : {
+ name : "John Doe",
+ title : "Programmer",
+ _links: {
+ self: {href: "/people/johndoe@contoso.com"},
+ contactPhoto : {href: "/photos/johndoe@contoso.com"}
+ },
+ }
+ }
 };
 ```
 
-After the next example runs,  _link1_ will be set to "/people/johndoe@contoso.com".
+After the next example runs, _link1_will be set to "/people/johndoe@contoso.com".
 
 
 
@@ -345,7 +335,7 @@ After the next example runs,  _link1_ will be set to "/people/johndoe@contoso.co
 var link1 = Cache.read(eventData1.link.href);
 ```
 
-After the following example runs,  _link2_ will be set to "/photos/johndoe@contoso.com".
+After the following example runs, _link2_will be set to "/photos/johndoe@contoso.com".
 
 
 
@@ -358,7 +348,7 @@ var link2 = Cache.read(eventData1._embedded.contact._links.contactPhoto.href);
 ## write(data)
 <a name="sectionSection6"> </a>
 
-The  **write** function writes object data received by way of the event channel to the cache using the href as the key.
+The **write** function writes object data received by way of the event channel to the cache using the href as the key.
 
 
 
@@ -383,15 +373,15 @@ write(data )
 
 ```
 eventData2 = {
-    link : {
-        rel : "contact",
-        href : "/people/johndoe@contoso.com"
-    },
-    type : "added"
+ link : {
+ rel : "contact",
+ href : "/people/johndoe@contoso.com"
+ },
+ type : "added"
 };
 ```
 
-The following example writes the data in the  _eventData2_ object to the cache. Note that in this example, the value that is returned by **write** is discarded.
+The following example writes the data in the _eventData2_object to the cache. Note that in this example, the value that is returned by **write** is discarded.
 
 
 

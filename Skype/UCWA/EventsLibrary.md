@@ -4,28 +4,20 @@ Events.js is a JavaScript library that helps start and stop the event channel an
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Create an Events object](#sectionSection0)
-[addEventHandlers(raiser, handlers)](#sectionSection1)
-[removeEventHandlers(raiser)](#sectionSection2)
-[startEvents()](#sectionSection3)
-[stopEvents()](#sectionSection4)
-
+ _**Applies to:** Skype for Business 2015_
 
 The Events module provides access to the UCWA event channel, enabling application developers to start or stop the event channel, and to add or remove handlers for events of interest to them.
-Some UCWA resources, such as the [participantInvitation (UCWA)](participantInvitation_ref.md), [messagingInvitation (UCWA)](messagingInvitation_ref.md), and [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) resources are called operation resources. These resources are created on the server as a result of a previous POST request on, respectively, the[addParticipant (UCWA)](addParticipant_ref.md) resource, the[addMessaging (UCWA)](addMessaging_ref.md) or[startMessaging (UCWA)](startMessaging_ref.md) resource, or the[joinOnlineMeeting (UCWA)](joinOnlineMeeting_ref.md) or[startOnlineMeeting (UCWA)](startOnlineMeeting_ref.md) resource. After the server creates the operation resource, the server sends it to the client on the event channel. For more information, see[Operation resource](OperationResource.md).
+Some UCWA resources, such as the [participantInvitation](participantInvitation_ref.md), [messagingInvitation](messagingInvitation_ref.md), and [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) resources are called operation resources. These resources are created on the server as a result of a previous POST request on, respectively, the [addParticipant](addParticipant_ref.md) resource, the [addMessaging](addMessaging_ref.md) or [startMessaging](startMessaging_ref.md) resource, or the [joinOnlineMeeting](joinOnlineMeeting_ref.md) or [startOnlineMeeting](startOnlineMeeting_ref.md) resource. After the server creates the operation resource, the server sends it to the client on the event channel. For more information, see [Operation resource](OperationResource.md).
 
 ## Create an Events object
 <a name="sectionSection0"> </a>
 
-The  **Events** constructor has two parameters: a **Cache** object and a **Transport** object. For more information, see[Cache library](CacheLibrary.md) and[Transport library](TransportLibrary.md). Before an  **Events** object can be created, objects representing the two parameters must be created.
+The **Events** constructor has two parameters: a **Cache** object and a **Transport** object. For more information, see [Cache library](CacheLibrary.md) and [Transport library](TransportLibrary.md). Before an **Events** object can be created, objects representing the two parameters must be created.
 
 
 ```
 var domain = "https://www.example.com",
-element = $("#frame")[0].contentWindow,
+element = $("#frame") [0].contentWindow,
 targetOrigin = "https://www.myDomain.com",
 Cache = new microsoft.rtc.ucwa.samples.Cache(),
 Transport = new microsoft.rtc.ucwa.samples.Transport(targetOrigin);
@@ -39,7 +31,7 @@ The variables declared in the preceding example are used in subsequent examples 
 ## addEventHandlers(raiser, handlers)
 <a name="sectionSection1"> </a>
 
-The  **addEventHandlers** function adds an event handler for a specified resource.
+The **addEventHandlers** function adds an event handler for a specified resource.
 
 
 
@@ -59,30 +51,30 @@ addEventHandlers(raiser , handlers )
 
  **Example**
 
-In the following example  _raiser_ is an object whose _href_ property indicates the resource we are interested in. In this example, the resource of interest is the **me** user's **presence** resource.
+In the following example _raiser_is an object whose _href_property indicates the resource we are interested in. In this example, the resource of interest is the **me** user's **presence** resource.
 
-The  _handlers_ object is a collection of key-value pairs where each key indicates an event "type" and each paired value contains the name of a function that will be called to handle an event with that type. In this example, if the presence event "type" is either "started" or "updated", the _handlePresence_ function is called.
+The _handlers_object is a collection of key-value pairs where each key indicates an event "type" and each paired value contains the name of a function that will be called to handle an event with that type. In this example, if the presence event "type" is either "started" or "updated", the _handlePresence_function is called.
 
 
 
 
 ```
 var raiser = {
-    href: '/me/presence'
+ href: '/me/presence'
 },
 handlers = {
-    started: handlePresence,
-    updated: handlePresence
+ started: handlePresence,
+ updated: handlePresence
 };
  
 function handlePresence(data) {
-    if (data.results !== undefined) {
-        alert(data.results);
-    }
+ if (data.results !== undefined) {
+ alert(data.results);
+ }
 }
 ```
 
-The next example passes the objects that are created in the previous example as parameters in the  **addEventHandlers** function. This action creates handlers for the "started" and "update" event types on the event raiser, the **me** user's **presence** resource.
+The next example passes the objects that are created in the previous example as parameters in the **addEventHandlers** function. This action creates handlers for the "started" and "update" event types on the event raiser, the **me** user's **presence** resource.
 
 
 
@@ -95,27 +87,27 @@ Events.addEventHandlers(raiser, handlers);
 
 ### Remarks
 
-The  _raiser_ parameter should be an object containing _one_ of the following:
+The _raiser_parameter should be an object containing _one_of the following:
 
 
 ```
 {
-  href: "myLink", // Relative URL of the resource provided by the server
-  rel: "people", // Relation type
-  operationId: "1918-bf83" // Unique, client-supplied ID for tracking operation resources on the event channel)
+ href: "myLink", // Relative URL of the resource provided by the server
+ rel: "people", // Relation type
+ operationId: "1918-bf83" // Unique, client-supplied ID for tracking operation resources on the event channel)
 }
 ```
 
-The  _handlers_ parameter should be an object containing _one or more_ of the following:
+The _handlers_parameter should be an object containing _one or more_of the following:
 
 
 
 
 ```
 {
-    started : function(data) {...},
-    updated : function(data) {...},
-    completed : function(data) {...},
+ started : function(data) {...},
+ updated : function(data) {...},
+ completed : function(data) {...},
 }
 ```
 
@@ -123,7 +115,7 @@ The  _handlers_ parameter should be an object containing _one or more_ of the fo
 ## removeEventHandlers(raiser)
 <a name="sectionSection2"> </a>
 
-The  **removeEventHandlers** function removes event handlers for a specified resource.
+The **removeEventHandlers** function removes event handlers for a specified resource.
 
 
 
@@ -141,7 +133,7 @@ removeEventHandlers(raiser)
 
  **Example**
 
-The following example removes any handlers for events raised by the [message (UCWA)](message_ref.md) resource.
+The following example removes any handlers for events raised by the [message](message_ref.md) resource.
 
 
 
@@ -159,7 +151,7 @@ If a raiser for the event is not found, a message will be displayed in the conso
 ## startEvents()
 <a name="sectionSection3"> </a>
 
-The  **startEvents** function begins listening on the event channel.
+The **startEvents** function begins listening on the event channel.
 
  **Syntax**
 
@@ -188,7 +180,7 @@ Checks whether event handling is already active; if not, it makes the initial re
 ## stopEvents()
 <a name="sectionSection4"> </a>
 
-The  **stopEvents** function stops listening on the event channel and clears the event handler array.
+The **stopEvents** function stops listening on the event channel and clears the event handler array.
 
  **Syntax**
 

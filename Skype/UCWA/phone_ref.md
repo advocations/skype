@@ -1,15 +1,10 @@
 
-# phone (UCWA)
+# phone 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
+ 
 
 Represents one of the user's phone numbers. 
 
@@ -52,7 +47,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|changeNumber|Changes or clears the number stored in the corresponding [phone (UCWA)](phone_ref.md) resource.|
+|changeNumber|Changes or clears the number stored in the corresponding [phone](phone_ref.md) resource.|
 |changeVisibility|Changes the visibility of a phone number to other contacts.|
 
 ## Operations
@@ -100,13 +95,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: ebf356da-c8a5-4bd5-8401-7ad5a8df6cea
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: ebf356da-c8a5-4bd5-8401-7ad5a8df6cea
+
+
 ```
 
 
@@ -117,28 +112,28 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: b00fb720-d8fa-4d80-bc5e-ea55eef1d863
-										Content-Type: application/json
-										Content-Length: 325
-										{
-  "rel" : "phone",
-  "includeInContactCard" : false,
-  "number" : " tel:+1425554321;ext=54321",
-  "type" : "Work",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/phones/phone"
-    },
-    "changeNumber" : {
-      "href" : "//v1/applications/833/me/phones/phone/changeNumber"
-    },
-    "changeVisibility" : {
-      "href" : "//v1/applications/833/me/phones/phone/changeVisibility"
-    }
-  }
+HTTP/1.1 200 OK
+Etag: b00fb720-d8fa-4d80-bc5e-ea55eef1d863
+Content-Type: application/json
+Content-Length: 325
+{
+"rel" : "phone",
+"includeInContactCard" : false,
+"number" : " tel:+1425554321;ext=54321",
+"type" : "Work",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/me/phones/phone"
+},
+"changeNumber" : {
+"href" : "//v1/applications/833/me/phones/phone/changeNumber"
+},
+"changeVisibility" : {
+"href" : "//v1/applications/833/me/phones/phone/changeVisibility"
 }
-									
+}
+}
+
 ```
 
 
@@ -147,13 +142,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 91d20fdd-501a-49ca-befb-e030b187f5ec
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: 91d20fdd-501a-49ca-befb-e030b187f5ec
+
+
 ```
 
 
@@ -164,19 +159,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 1974d869-4dbe-4bba-95b0-1f69699a404d
-										Content-Type: application/xml
-										Content-Length: 538
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;phone&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;changeNumber&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone/changeNumber&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;changeVisibility&amp;quot; href=&amp;quot;//v1/applications/833/me/phones/phone/changeVisibility&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;phone&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;includeInContactCard&amp;quot;&amp;gt;False&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;number&amp;quot;&amp;gt; tel:+1425554321;ext=54321&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;type&amp;quot;&amp;gt; Home&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Etag: 1974d869-4dbe-4bba-95b0-1f69699a404d
+Content-Type: application/xml
+Content-Length: 538
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="phone" href="//v1/applications/833/me/phones/phone" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="changeNumber" href="//v1/applications/833/me/phones/phone/changeNumber" />
+<link rel="changeVisibility" href="//v1/applications/833/me/phones/phone/changeVisibility" />
+<property name="rel">phone</property>
+<property name="includeInContactCard">False</property>
+<property name="number"> tel:+1425554321;ext=54321</property>
+<property name="type"> Home</property>
+</resource>
+
 ```
 

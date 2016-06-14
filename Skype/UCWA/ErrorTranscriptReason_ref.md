@@ -1,5 +1,5 @@
 
-# ErrorTranscriptReason (UCWA)
+# ErrorTranscriptReason 
 
  **Last modified:** July 07, 2015
 

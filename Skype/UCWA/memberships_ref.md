@@ -1,14 +1,9 @@
 
-# memberships (UCWA)
+# memberships 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+_**Applies to:** Skype for Business 2015_
 
 
 The memberships resource. 
@@ -45,7 +40,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|presenceSubscriptionMembership|Represents the [presenceSubscription (UCWA)](presenceSubscription_ref.md) membership of a single[contact (UCWA)](contact_ref.md).|
+|presenceSubscriptionMembership|Represents the [presenceSubscription](presenceSubscription_ref.md) membership of a single [contact](contact_ref.md).|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -93,12 +88,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -109,36 +104,36 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 457
-										{
-  "rel" : "presenceSubscriptionMemberships",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscriptionMemberships"
-    }
-  },
-  "_embedded" : {
-    "presenceSubscriptionMembership" : [
-      {
-        "rel" : "presenceSubscriptionMembership",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
-          },
-          "contact" : {
-            "href" : "//v1/applications/833/people/166"
-          },
-          "presenceSubscription" : {
-            "href" : "//v1/applications/833/presenceSubscription"
-          }
-        }
-      }
-    ]
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 457
+{
+"rel" : "presenceSubscriptionMemberships",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptionMemberships"
 }
-									
+},
+"_embedded" : {
+"presenceSubscriptionMembership" : [
+{
+"rel" : "presenceSubscriptionMembership",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"presenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription"
+}
+}
+}
+]
+}
+}
+
 ```
 
 
@@ -147,12 +142,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -163,19 +158,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 632
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscriptionMemberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMemberships&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;presenceSubscriptionMembership&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMembership&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 632
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscriptionMemberships" href="//v1/applications/833/presenceSubscriptionMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="rel">presenceSubscriptionMemberships</property>
+<resource rel="presenceSubscriptionMembership" href="//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" />
+<property name="rel">presenceSubscriptionMembership</property>
+</resource>
+</resource>
+
 ```
 
 
@@ -195,7 +190,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[presenceSubscriptionMemberships (UCWA)](presenceSubscriptionMemberships_ref.md)|A collection of [presenceSubscriptionMembership (UCWA)](presenceSubscriptionMembership_ref.md) resources.|
+| [presenceSubscriptionMemberships](presenceSubscriptionMemberships_ref.md)|A collection of [presenceSubscriptionMembership](presenceSubscriptionMembership_ref.md) resources.|
 
 #### Synchronous errors
 
@@ -224,19 +219,19 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 77
-										{
-  "contactUris" : [
-    "\"sip : user2@microsoft.com\"",
-    "\"sip : user3@microsoft.com\""
-  ]
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Accept: application/json
+Content-Length: 77
+{
+"contactUris" : [
+"\"sip : user2@microsoft.com\"",
+"\"sip : user3@microsoft.com\""
+]
 }
-									
+
 ```
 
 
@@ -247,36 +242,36 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/json
-										Content-Length: 457
-										{
-  "rel" : "presenceSubscriptionMemberships",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscriptionMemberships"
-    }
-  },
-  "_embedded" : {
-    "presenceSubscriptionMembership" : [
-      {
-        "rel" : "presenceSubscriptionMembership",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
-          },
-          "contact" : {
-            "href" : "//v1/applications/833/people/166"
-          },
-          "presenceSubscription" : {
-            "href" : "//v1/applications/833/presenceSubscription"
-          }
-        }
-      }
-    ]
-  }
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 457
+{
+"rel" : "presenceSubscriptionMemberships",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptionMemberships"
 }
-									
+},
+"_embedded" : {
+"presenceSubscriptionMembership" : [
+{
+"rel" : "presenceSubscriptionMembership",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"presenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription"
+}
+}
+}
+]
+}
+}
+
 ```
 
 
@@ -285,20 +280,20 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 231
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;contactUris&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;&amp;quot;sip:user2@microsoft.com&amp;quot;&amp;lt;/item&amp;gt;
-    &amp;lt;item&amp;gt;&amp;quot;sip:user3@microsoft.com&amp;quot;&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-&amp;lt;/input&amp;gt;
-									
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription/memberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Accept: application/xml
+Content-Length: 231
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<propertyList name="contactUris">
+<item>"sip:user2@microsoft.com"</item>
+<item>"sip:user3@microsoft.com"</item>
+</propertyList>
+</input>
+
 ```
 
 
@@ -309,18 +304,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/xml
-										Content-Length: 632
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscriptionMemberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMemberships&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;presenceSubscriptionMembership&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMembership&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Content-Length: 632
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscriptionMemberships" href="//v1/applications/833/presenceSubscriptionMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="rel">presenceSubscriptionMemberships</property>
+<resource rel="presenceSubscriptionMembership" href="//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" />
+<property name="rel">presenceSubscriptionMembership</property>
+</resource>
+</resource>
+
 ```
 

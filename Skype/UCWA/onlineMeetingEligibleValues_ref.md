@@ -1,17 +1,12 @@
 
-# onlineMeetingEligibleValues (UCWA)
+# onlineMeetingEligibleValues 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ _**Applies to:** Skype for Business 2015_
 
 
-Represents the eligible values that the application can choose from when scheduling a [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md). 
+Represents the eligible values that the application can choose from when scheduling a [myOnlineMeeting](myOnlineMeeting_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -54,8 +49,8 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|myAssignedOnlineMeeting|Represents a user's [onlineMeeting (UCWA)](onlineMeeting_ref.md) that is commonly used for scheduled meetings with other[contact (UCWA)](contact_ref.md)s.|
-|myOnlineMeetings|Represents the set of [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md)s currently on the user's calendar.|
+|myAssignedOnlineMeeting|Represents a user's [onlineMeeting](onlineMeeting_ref.md) that is commonly used for scheduled meetings with other [contact](contact_ref.md)s.|
+|myOnlineMeetings|Represents the set of [myOnlineMeeting](myOnlineMeeting_ref.md)s currently on the user's calendar.|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -65,7 +60,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representatation of the eligible values that the application can choose from when scheduling a [myOnlineMeeting (UCWA)](myOnlineMeeting_ref.md).
+Returns a representatation of the eligible values that the application can choose from when scheduling a [myOnlineMeeting](myOnlineMeeting_ref.md).
 
 
 #### Request body
@@ -121,33 +116,33 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 516
 										{
-  "rel" : "onlineMeetingEligibleValues",
-  "accessLevels" : [
-    "Locked"
-  ],
-  "automaticLeaderAssignments" : [
-    "Disabled"
-  ],
-  "eligibleOnlineMeetingRels" : [
-    "myOnlineMeetings"
-  ],
-  "entryExitAnnouncements" : [
-    "Unsupported"
-  ],
-  "lobbyBypassForPhoneUsersSettings" : [
-    "Disabled"
-  ],
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues"
-    },
-    "myAssignedOnlineMeeting" : {
-      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/318"
-    },
-    "myOnlineMeetings" : {
-      "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings"
-    }
-  }
+ "rel" : "onlineMeetingEligibleValues",
+ "accessLevels" : [
+ "Locked"
+ ],
+ "automaticLeaderAssignments" : [
+ "Disabled"
+ ],
+ "eligibleOnlineMeetingRels" : [
+ "myOnlineMeetings"
+ ],
+ "entryExitAnnouncements" : [
+ "Unsupported"
+ ],
+ "lobbyBypassForPhoneUsersSettings" : [
+ "Disabled"
+ ],
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues"
+ },
+ "myAssignedOnlineMeeting" : {
+ "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings/318"
+ },
+ "myOnlineMeetings" : {
+ "href" : "//v1/applications/833/onlineMeetings/myOnlineMeetings"
+ }
+ }
 }
 									
 ```
@@ -177,27 +172,27 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 890
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;onlineMeetingEligibleValues&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;myAssignedOnlineMeeting&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings/318&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;myOnlineMeetings&amp;quot; href=&amp;quot;//v1/applications/833/onlineMeetings/myOnlineMeetings&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;onlineMeetingEligibleValues&amp;lt;/property&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;accessLevels&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;Invited&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;automaticLeaderAssignments&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;Disabled&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;eligibleOnlineMeetingRels&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;myOnlineMeetings&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;entryExitAnnouncements&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;Unsupported&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-  &amp;lt;propertyList name=&amp;quot;lobbyBypassForPhoneUsersSettings&amp;quot;&amp;gt;
-    &amp;lt;item&amp;gt;Disabled&amp;lt;/item&amp;gt;
-  &amp;lt;/propertyList&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="onlineMeetingEligibleValues" href="//v1/applications/833/onlineMeetings/onlineMeetingEligibleValues" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="myAssignedOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/318" />
+ <link rel="myOnlineMeetings" href="//v1/applications/833/onlineMeetings/myOnlineMeetings" />
+ <property name="rel">onlineMeetingEligibleValues</property>
+ <propertyList name="accessLevels">
+ <item>Invited</item>
+ </propertyList>
+ <propertyList name="automaticLeaderAssignments">
+ <item>Disabled</item>
+ </propertyList>
+ <propertyList name="eligibleOnlineMeetingRels">
+ <item>myOnlineMeetings</item>
+ </propertyList>
+ <propertyList name="entryExitAnnouncements">
+ <item>Unsupported</item>
+ </propertyList>
+ <propertyList name="lobbyBypassForPhoneUsersSettings">
+ <item>Disabled</item>
+ </propertyList>
+</resource>
 									
 ```
 

@@ -3,12 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
 
 A collection of unread voicemails and conversations. 
 
@@ -81,29 +75,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "communication",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "missedItems",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/missedItems"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "communication",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "missedItems",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/missedItems"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -173,18 +167,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 280
 										{
-  "rel" : "missedItems",
-  "conversationLogsCount" : 93,
-  "conversationLogsNotifications" : "Disabled",
-  "missedConversationsCount" : 33,
-  "unreadMissedConversationsCount" : 6,
-  "unreadVoicemailsCount" : 4,
-  "voiceMailsCount" : 78,
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/missedItems"
-    }
-  }
+ "rel" : "missedItems",
+ "conversationLogsCount" : 93,
+ "conversationLogsNotifications" : "Disabled",
+ "missedConversationsCount" : 33,
+ "unreadMissedConversationsCount" : 6,
+ "unreadVoicemailsCount" : 4,
+ "voiceMailsCount" : 78,
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/missedItems"
+ }
+ }
 }
 									
 ```
@@ -214,16 +208,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 559
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;missedItems&amp;quot; href=&amp;quot;//v1/applications/833/communication/missedItems&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;missedItems&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;conversationLogsCount&amp;quot;&amp;gt;76&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;conversationLogsNotifications&amp;quot;&amp;gt;Disabled&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;missedConversationsCount&amp;quot;&amp;gt;67&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;unreadMissedConversationsCount&amp;quot;&amp;gt;8&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;unreadVoicemailsCount&amp;quot;&amp;gt;19&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;voiceMailsCount&amp;quot;&amp;gt;5&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="missedItems" href="//v1/applications/833/communication/missedItems" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">missedItems</property>
+ <property name="conversationLogsCount">76</property>
+ <property name="conversationLogsNotifications">Disabled</property>
+ <property name="missedConversationsCount">67</property>
+ <property name="unreadMissedConversationsCount">8</property>
+ <property name="unreadVoicemailsCount">19</property>
+ <property name="voiceMailsCount">5</property>
+</resource>
 									
 ```
 

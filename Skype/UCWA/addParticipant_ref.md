@@ -1,17 +1,11 @@
 
-# addParticipant (UCWA)
+# addParticipant 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
-
-Invites a [contact (UCWA)](contact_ref.md) to participate in a multiparty[conversation (UCWA)](conversation_ref.md). 
+Invites a [contact](contact_ref.md) to participate in a multiparty [conversation](conversation_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -49,7 +43,7 @@ None
 
 ### POST
 
-Starts a [participantInvitation (UCWA)](participantInvitation_ref.md) in the event channel.
+Starts a [participantInvitation](participantInvitation_ref.md) in the event channel.
 
 
 #### Request body
@@ -63,7 +57,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[participantInvitation (UCWA)](participantInvitation_ref.md)|Represents an invitation to an existing [conversation (UCWA)](conversation_ref.md) for an additional participant.|
+| [participantInvitation](participantInvitation_ref.md)|Represents an invitation to an existing [conversation](conversation_ref.md) for an additional participant.|
 
 #### Synchronous errors
 
@@ -87,15 +81,14 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/addParticipant HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 78
-										{
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "to" : "sip:john@contoso.com"
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/addParticipant HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 78
+{
+"operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+"to" : "sip:john@contoso.com"
 }
 									
 ```
@@ -107,10 +100,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/646
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/646
 									
 ```
 
@@ -119,17 +110,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/addParticipant HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 230
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;to&amp;quot;&amp;gt;sip:john@contoso.com&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/addParticipant HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 230
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+<property name="to">sip:john@contoso.com</property>
+</input>
 									
 ```
 
@@ -140,10 +130,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/646
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/646
 									
 ```
 

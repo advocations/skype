@@ -1,16 +1,9 @@
 
-# location (UCWA)
+# location 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
+ _**Applies to:** Skype for Business 2015_
 
 Represents the user's location. 
 
@@ -75,31 +68,30 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 
 ```
-
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "location",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "location",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
+ },
+ "type" : "added"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -122,31 +114,30 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 
 ```
-
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "location",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "location",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -169,29 +160,29 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "location",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "me",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "location",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/me/location"
+ },
+ "type" : "deleted"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -226,7 +217,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's location without first making the user available ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)).|
+|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's location without first making the user available ( [makeMeAvailable](makeMeAvailable_ref.md)).|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
@@ -241,12 +232,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -257,18 +246,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 110
-										{
-  "rel" : "location",
-  "location" : "By the beach...",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/location"
-    }
-  }
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 110
+ {
+ "rel" : "location",
+ "location" : "By the beach...",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/me/location"
+ }
+ }
 }
 									
 ```
@@ -278,13 +266,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -294,15 +280,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 261
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;location&amp;quot; href=&amp;quot;//v1/applications/833/me/location&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;location&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;location&amp;quot;&amp;gt;By the beach...&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 261
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="location" href="//v1/applications/833/me/location" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="rel">location</property>
+<property name="location">By the beach...</property>
+</resource>
 									
 ```
 
@@ -330,7 +315,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's location without first making the user available ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)).|
+|Conflict|409|MakeMeAvailableRequired|Returned when an application tries to get or set the user's location without first making the user available ( [makeMeAvailable](makeMeAvailable_ref.md)).|
 |ServiceFailure|500|CallbackChannelError|The remote event channel is not reachable|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
@@ -345,14 +330,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 30
-										{
-  "location" : "By the beach..."
+Post https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 30
+{
+"location" : "By the beach..."
 }
 									
 ```
@@ -364,9 +348,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -375,16 +357,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 159
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;location&amp;quot;&amp;gt;By the beach...&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
+Post https://fe1.contoso.com:443//v1/applications/833/me/location HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 159
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="location">By the beach...</property>
+</input>
 									
 ```
 
@@ -395,9 +376,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 

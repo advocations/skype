@@ -3,11 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
 
 The (archived) messages from Exchange. 
 
@@ -111,69 +106,69 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 1614
 										{
-  "rel" : "nextConversationLogTranscripts",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts"
-    },
-    "nextConversationLogTranscripts" : {
-      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts"
-    }
-  },
-  "_embedded" : {
-    "conversationLogTranscript" : [
-      {
-        "rel" : "conversationLogTranscript",
-        "timeStamp" : "\/Date(1436925247906)\/",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript"
-          },
-          "contact" : {
-            "href" : "//v1/applications/833/people/166"
-          },
-          "me" : {
-            "href" : "//v1/applications/833/me"
-          }
-        },
-        "_embedded" : {
-          "audioTranscript" : {
-            "rel" : "audioTranscript",
-            "duration" : "samplevalue",
-            "status" : "Connected",
-            "_links" : {
-              "self" : {
-                "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript"
-              }
-            }
-          },
-          "errorTranscript" : {
-            "rel" : "errorTranscript",
-            "reason" : "TranscriptionFailed",
-            "_links" : {
-              "self" : {
-                "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/errorTranscript"
-              }
-            }
-          },
-          "messageTranscript" : {
-            "rel" : "messageTranscript",
-            "_links" : {
-              "self" : {
-                "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript"
-              },
-              "htmlMessage" : {
-                "href" : "data:text/html;base64,base64-encoded-htmlmessage"
-              },
-              "plainMessage" : {
-                "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
-              }
-            }
-          }
-        }
-      }
-    ]
-  }
+ "rel" : "nextConversationLogTranscripts",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts"
+ },
+ "nextConversationLogTranscripts" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts"
+ }
+ },
+ "_embedded" : {
+ "conversationLogTranscript" : [
+ {
+ "rel" : "conversationLogTranscript",
+ "timeStamp" : "\/Date(1436925247906)\/",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript"
+ },
+ "contact" : {
+ "href" : "//v1/applications/833/people/166"
+ },
+ "me" : {
+ "href" : "//v1/applications/833/me"
+ }
+ },
+ "_embedded" : {
+ "audioTranscript" : {
+ "rel" : "audioTranscript",
+ "duration" : "samplevalue",
+ "status" : "Connected",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript"
+ }
+ }
+ },
+ "errorTranscript" : {
+ "rel" : "errorTranscript",
+ "reason" : "TranscriptionFailed",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/errorTranscript"
+ }
+ }
+ },
+ "messageTranscript" : {
+ "rel" : "messageTranscript",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript"
+ },
+ "htmlMessage" : {
+ "href" : "data:text/html;base64,base64-encoded-htmlmessage"
+ },
+ "plainMessage" : {
+ "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
+ }
+ }
+ }
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -203,31 +198,31 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 1972
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;nextConversationLogTranscripts&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;nextConversationLogTranscripts&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;nextConversationLogTranscripts&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;conversationLogTranscript&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;me&amp;quot; href=&amp;quot;//v1/applications/833/me&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;conversationLogTranscript&amp;lt;/property&amp;gt;
-    &amp;lt;property name=&amp;quot;timeStamp&amp;quot;&amp;gt;2015-07-14T20:54:07.9197528-05:00&amp;lt;/property&amp;gt;
-    &amp;lt;resource rel=&amp;quot;audioTranscript&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript&amp;quot;&amp;gt;
-      &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;audioTranscript&amp;lt;/property&amp;gt;
-      &amp;lt;property name=&amp;quot;duration&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
-      &amp;lt;property name=&amp;quot;status&amp;quot;&amp;gt;Connected&amp;lt;/property&amp;gt;
-    &amp;lt;/resource&amp;gt;
-    &amp;lt;resource rel=&amp;quot;errorTranscript&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/errorTranscript&amp;quot;&amp;gt;
-      &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;errorTranscript&amp;lt;/property&amp;gt;
-      &amp;lt;property name=&amp;quot;reason&amp;quot;&amp;gt;TranscriptionFailed&amp;lt;/property&amp;gt;
-    &amp;lt;/resource&amp;gt;
-    &amp;lt;resource rel=&amp;quot;messageTranscript&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript&amp;quot;&amp;gt;
-      &amp;lt;link rel=&amp;quot;htmlMessage&amp;quot; href=&amp;quot;data:text/html;base64,base64-encoded-htmlmessage&amp;quot; /&amp;gt;
-      &amp;lt;link rel=&amp;quot;plainMessage&amp;quot; href=&amp;quot;data:text/plain;charset=utf8,URLEncodedMessageString&amp;quot; /&amp;gt;
-      &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;messageTranscript&amp;lt;/property&amp;gt;
-    &amp;lt;/resource&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="nextConversationLogTranscripts" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="nextConversationLogTranscripts" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/nextConversationLogTranscripts" />
+ <property name="rel">nextConversationLogTranscripts</property>
+ <resource rel="conversationLogTranscript" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript">
+ <link rel="contact" href="//v1/applications/833/people/166" />
+ <link rel="me" href="//v1/applications/833/me" />
+ <property name="rel">conversationLogTranscript</property>
+ <property name="timeStamp">2015-07-14T20:54:07.9197528-05:00</property>
+ <resource rel="audioTranscript" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript">
+ <property name="rel">audioTranscript</property>
+ <property name="duration">samplevalue</property>
+ <property name="status">Connected</property>
+ </resource>
+ <resource rel="errorTranscript" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/errorTranscript">
+ <property name="rel">errorTranscript</property>
+ <property name="reason">TranscriptionFailed</property>
+ </resource>
+ <resource rel="messageTranscript" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/messageTranscript">
+ <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
+ <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />
+ <property name="rel">messageTranscript</property>
+ </resource>
+ </resource>
+</resource>
 									
 ```
 

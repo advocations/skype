@@ -1,15 +1,9 @@
 
-# user (UCWA)
+# user 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the entry point to the API using user credentials. 
 
@@ -28,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The user resource indicates that the application plans to use the API on behalf of a user. If an application attempts to use this resource without credentials, the server will respond with a 401 Not Authorized and authentication hints in the WWW-Authenticate Header. After credentials are acquired, this resource will point the application to the [applications (UCWA)](applications_ref.md) resource. In some cases, after credentials are acquired, the server might serve a[redirect (UCWA)](redirect_ref.md) resource indicating that the user is homed on another server. The application should follow this resource to the new server. Credentials might need to be resubmitted.
+The user resource indicates that the application plans to use the API on behalf of a user. If an application attempts to use this resource without credentials, the server will respond with a 401 Not Authorized and authentication hints in the WWW-Authenticate Header. After credentials are acquired, this resource will point the application to the [applications](applications_ref.md) resource. In some cases, after credentials are acquired, the server might serve a [redirect](redirect_ref.md) resource indicating that the user is homed on another server. The application should follow this resource to the new server. Credentials might need to be resubmitted.
 
 
 ### Properties
@@ -93,12 +87,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/user HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/user HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -109,27 +103,27 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 284
-										{
-  "rel" : "user",
-  "_links" : {
-    "self" : {
-      "href" : "/autodiscover/autodiscoverservice.svc/root/user"
-    },
-    "applications" : {
-      "href" : "//v1/applications"
-    },
-    "redirect" : {
-      "href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
-    },
-    "xframe" : {
-      "href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 284
+{
+"rel" : "user",
+"_links" : {
+"self" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/user"
+},
+"applications" : {
+"href" : "//v1/applications"
+},
+"redirect" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/user/redirect"
+},
+"xframe" : {
+"href" : "/autodiscover/autodiscoverservice.svc/root/xframe"
 }
-									
+}
+}
+
 ```
 
 
@@ -138,12 +132,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/user HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443/autodiscover/autodiscoverservice.svc/root/user HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -154,16 +148,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 432
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;user&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/user&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;applications&amp;quot; href=&amp;quot;//v1/applications&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;redirect&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/user/redirect&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;xframe&amp;quot; href=&amp;quot;/autodiscover/autodiscoverservice.svc/root/xframe&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;user&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 432
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="applications" href="//v1/applications" />
+<link rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" />
+<link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />
+<property name="rel">user</property>
+</resource>
+
 ```
 

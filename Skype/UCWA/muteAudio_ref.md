@@ -1,17 +1,12 @@
 
-# muteAudio (UCWA)
+# muteAudio 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ _**Applies to:** Skype for Business 2015_
 
 
-Mutes a [participant (UCWA)](participant_ref.md)'s audio. 
+Mutes a [participant](participant_ref.md)'s audio. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The presence of this resource indicates that the user has permissions to mute the audio of the associated [participant (UCWA)](participant_ref.md). 
+The presence of this resource indicates that the user has permissions to mute the audio of the associated [participant](participant_ref.md). 
 
 
 ### Properties

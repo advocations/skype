@@ -1,15 +1,9 @@
 
-# events (UCWA)
+# events 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+ _**Applies to:** Skype for Business 2015_
 
 Represents the event channel resource. 
 
@@ -102,12 +96,10 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 
 ```
+Get http://sample:80/ucwa/v1/applications/appId/events?ack=1 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get http://sample:80/ucwa/v1/applications/appId/events?ack=1 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -117,10 +109,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 
 
@@ -128,12 +118,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get http://sample:80/ucwa/v1/applications/appId/events?ack=1 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get http://sample:80/ucwa/v1/applications/appId/events?ack=1 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -143,9 +131,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										
+HTTP/1.1 200 OK
 									
 ```
 

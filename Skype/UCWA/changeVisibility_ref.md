@@ -1,15 +1,9 @@
 
-# changeVisibility (UCWA)
+# changeVisibility 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+ _**Applies to:** Skype for Business 2015_
 
 Changes the visibility of a phone number to other contacts. 
 
@@ -96,12 +90,10 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 
 ```
+Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -111,9 +103,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -122,12 +112,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -137,9 +125,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 

@@ -1,17 +1,11 @@
 
-# message (UCWA)
+# message 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
-
+ 
 Represents an instant message sent or received by the local participant. 
 
 ## Web Link
@@ -42,7 +36,7 @@ Message is started in the event channel for both incoming and outgoing scenarios
 |:-----|:-----|
 |direction|The direction of this message, either incoming or outgoing.|
 |htmlMessage|If populated, indicates an HTML message body.|
-|operationId|A application-supplied identifier to correlate an outgoing message started in the event channel using [sendMessage (UCWA)](sendMessage_ref.md).|
+|operationId|A application-supplied identifier to correlate an outgoing message started in the event channel using [sendMessage](sendMessage_ref.md).|
 |status|The delivery status of this message.|
 |plainMessage|If populated, indicates a plain text message body.|
 |timeStamp|The message's time stamp.|
@@ -57,9 +51,9 @@ This resource can have the following relationships.
 |:-----|:-----|
 |self|The link to the current resource.|
 |contact|Represents a person or service that the user can communicate and collaborate with.|
-|failedDeliveryParticipant|Represents a [participant (UCWA)](participant_ref.md) that failed to receive an instant message sent by the user.|
-|messaging|Represents the instant messaging modality in a [conversation (UCWA)](conversation_ref.md).|
-|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
+|failedDeliveryParticipant|Represents a [participant](participant_ref.md) that failed to receive an instant message sent by the user.|
+|messaging|Represents the instant messaging modality in a [conversation](conversation_ref.md).|
+|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -86,29 +80,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "message",
-            "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142"
-          },
-          "type" : "started"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "message",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142"
+ },
+ "type" : "started"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -133,29 +127,29 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "message",
-            "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142"
-          },
-          "type" : "completed"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "message",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142"
+ },
+ "type" : "completed"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -163,13 +157,13 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 #### Asynchronous reason codes
 
-The  **completed** event is sent on the event channel when the operation is finished. A status value of "success" indicates that the operation completed successfully.A status value of "failure" indicates that the operation failed. In case of failure, the error code and subcode are sent on the event channel.The following table shows the errors that are possible for this resource.
+The **completed** event is sent on the event channel when the operation is finished. A status value of "success" indicates that the operation completed successfully.A status value of "failure" indicates that the operation failed. In case of failure, the error code and subcode are sent on the event channel.The following table shows the errors that are possible for this resource.
 
 It is recommended that applications handle the error codes shown here. Applications can optionally display subcodes and messages in their user interface.
 
 
 - Conflict
-    
+ 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -178,26 +172,26 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|Un-supported Service/Resource/API error.|
 |TooManyGroups|The too many groups error.|
 - EntityTooLarge
-    
+ 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |None|The request was too large.|
 - Informational
-    
+ 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |Ended|The online meeting has ended.|
 - RemoteFailure
-    
+ 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |NotAllowed|The message body was not understood by the remote participant.|
 |Timeout|The operation has timed out on the callee's end.|
 - ServiceFailure
-    
+ 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
@@ -269,36 +263,36 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 754
 										{
-  "rel" : "message",
-  "direction" : "Incoming",
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "status" : "Pending",
-  "timeStamp" : "\/Date(1436927669509)\/",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/316/communication/conversations/271/messaging/messages/142"
-    },
-    "htmlMessage" : {
-      "href" : "data:text/html;base64,base64-encoded-htmlmessage"
-    },
-    "plainMessage" : {
-      "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
-    },
-    "contact" : {
-      "href" : "//v1/applications/316/people/420"
-    },
-    "failedDeliveryParticipant" : [
-      {
-        "href" : "//v1/applications/316/communication/conversations/271/participants/156"
-      }
-    ],
-    "messaging" : {
-      "href" : "//v1/applications/316/communication/conversations/271/messaging"
-    },
-    "participant" : {
-      "href" : "//v1/applications/316/communication/conversations/271/participants/127"
-    }
-  }
+ "rel" : "message",
+ "direction" : "Incoming",
+ "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+ "status" : "Pending",
+ "timeStamp" : "\/Date(1436927669509)\/",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/316/communication/conversations/271/messaging/messages/142"
+ },
+ "htmlMessage" : {
+ "href" : "data:text/html;base64,base64-encoded-htmlmessage"
+ },
+ "plainMessage" : {
+ "href" : "data:text/plain;charset=utf8,URLEncodedMessageString"
+ },
+ "contact" : {
+ "href" : "//v1/applications/316/people/420"
+ },
+ "failedDeliveryParticipant" : [
+ {
+ "href" : "//v1/applications/316/communication/conversations/271/participants/156"
+ }
+ ],
+ "messaging" : {
+ "href" : "//v1/applications/316/communication/conversations/271/messaging"
+ },
+ "participant" : {
+ "href" : "//v1/applications/316/communication/conversations/271/participants/127"
+ }
+ }
 }
 									
 ```
@@ -330,17 +324,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Length: 1029
 										<?xml version="1.0" encoding="utf-8"?>
 <resource rel="message" href="//v1/applications/316/communication/conversations/271/messaging/messages/142" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-  <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
-  <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />
-  <link rel="contact" href="//v1/applications/316/people/420" />
-  <link rel="failedDeliveryParticipant" href="//v1/applications/316/communication/conversations/271/participants/966" />
-  <link rel="messaging" href="//v1/applications/316/communication/conversations/271/messaging" />
-  <link rel="participant" href="//v1/applications/316/communication/conversations/271/participants/127" />
-  <property name="rel">message</property>
-  <property name="direction">Incoming</property>
-  <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
-  <property name="status">Pending</property>
-  <property name="timeStamp">2015-07-14T21:34:29.5100719-05:00</property>
+ <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
+ <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />
+ <link rel="contact" href="//v1/applications/316/people/420" />
+ <link rel="failedDeliveryParticipant" href="//v1/applications/316/communication/conversations/271/participants/966" />
+ <link rel="messaging" href="//v1/applications/316/communication/conversations/271/messaging" />
+ <link rel="participant" href="//v1/applications/316/communication/conversations/271/participants/127" />
+ <property name="rel">message</property>
+ <property name="direction">Incoming</property>
+ <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+ <property name="status">Pending</property>
+ <property name="timeStamp">2015-07-14T21:34:29.5100719-05:00</property>
 </resource>
 									
 ```

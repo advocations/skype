@@ -6,19 +6,18 @@ Learn how an application authenticates a user in UCWA 2.0.
 
  _**Applies to:** Skype for Business 2015_
 
-
 In order to authenticate a user in UCWA, an application needs to perform a number of steps as described in this article:
 
 - When a person using your web application wants to access the Skype for Business service, your web application redirects to the service endpoint. The user enters credentials to authenticate and consents to grant access to service resources, if required.
-    
-     The service responds with a challenge containing the OAuth token issuer's URL and the types of authorization code grants it supports.
-    
+ 
+ The service responds with a challenge containing the OAuth token issuer's URL and the types of authorization code grants it supports.
+ 
 - The client application uses this information obtain an authorization token from the OAuth service.
-    
+ 
 - The client application uses the OAuth token to make requests to the service.
-    
+ 
 
- **Note**   If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
+ **Note** If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
 
 
 ## Authentication Flow
@@ -36,21 +35,21 @@ The WWW-Authenticate header contains the following information.
 
 
 1. MsRtcOAuth
-    
+ 
 2. The OAuth token issuer's URL.
-    
+ 
 3. The types of authorization code grants supported.
-    
-      -  **password**: The password grant flow contains mandatory username and password parameters. This type of authentication is commonly used in forms-based authentication.
-    
-  -  **urn:microsoft.rtc:windows**: This grant type is used when Integrated Windows Authentication (IWA) is used. The request is the same as the password grant, except that username and password parameters must not be present.
-    
-     **Note**  Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
-  -  **urn:microsoft.rtc:passive**: This grant type is used when any type of passive authentication is used. This works for Active Directory Federation Services-based scenarios and is useful when you need to delegate authentication to other directories. The request is the same as the password grant, except that username and password parameters must not be present.
-    
-     **Note**  For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
-  -  **urn:microsoft.rtc:anonmeeting**: This grant type can be used to allow users join meetings anonymously.
-    
+ 
+ - **password**: The password grant flow contains mandatory username and password parameters. This type of authentication is commonly used in forms-based authentication.
+ 
+ - **urn:microsoft.rtc:windows**: This grant type is used when Integrated Windows Authentication (IWA) is used. The request is the same as the password grant, except that username and password parameters must not be present.
+ 
+ **Note** Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
+ - **urn:microsoft.rtc:passive**: This grant type is used when any type of passive authentication is used. This works for Active Directory Federation Services-based scenarios and is useful when you need to delegate authentication to other directories. The request is the same as the password grant, except that username and password parameters must not be present.
+ 
+ **Note** For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
+ - **urn:microsoft.rtc:anonmeeting**: This grant type can be used to allow users join meetings anonymously.
+ 
 A step-by-step example of how to do autodiscovery and authentication with an on-premises server is provided in [Create an application](https://msdn.microsoft.com/EN-US/library/dn356799%28v=office.16%29.aspx).
 
 
@@ -83,9 +82,9 @@ grant_type=password&amp;username=johndoe&amp;password=A3ddj3w
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 {
-  "access_token":"cwt=2YotnFZFEjr1zCsicMWpAA...",
-  "token_type":"Bearer",
-  "expires_in":3600
+ "access_token":"cwt=2YotnFZFEjr1zCsicMWpAA...",
+ "token_type":"Bearer",
+ "expires_in":3600
 }
 
 ```
@@ -106,7 +105,7 @@ grant_type=urn:microsoft.rtc:windows
 ```
 
 
- **Note**  Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
+ **Note** Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
 
  **Response**
 
@@ -142,7 +141,7 @@ Same as the response for the password grant type.
 
 
 ```
-POST https://contoso.com/WebTicket/oauthtoken  HTTP/1.1
+POST https://contoso.com/WebTicket/oauthtoken HTTP/1.1
 Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 Content-Length: 36
 .
@@ -191,7 +190,7 @@ Pragma: no-cache
 X-Ms-diagnostics: 28029;source="server.contoso.com";reason="Authentication type not allowed."
 
 {
-  "error":"unsupported_grant_type",
+ "error":"unsupported_grant_type",
 }
 
 ```
@@ -199,16 +198,16 @@ X-Ms-diagnostics: 28029;source="server.contoso.com";reason="Authentication type 
 The possible values for "error" are:
 
 
--  **invalid_request**: The request is missing a required parameter, includes an unsupported parameter value (other than grant type), or is otherwise malformed.
-    
--  **invalid_grant**: The credentials provided could not be verified.
-    
--  **unsupported_grant_type**: The authorization grant type is not supported by the authorization server.
-    
--  **invalid_scope**: The requested scope is invalid, unknown, or malformed. The scope property does not need to be sent by the client. As defined by this proposal, the only supported value is "all".
-    
--  **server_error**: There was an unexpected error on the server that prevented the request from being honored.
-    
+- **invalid_request**: The request is missing a required parameter, includes an unsupported parameter value (other than grant type), or is otherwise malformed.
+ 
+- **invalid_grant**: The credentials provided could not be verified.
+ 
+- **unsupported_grant_type**: The authorization grant type is not supported by the authorization server.
+ 
+- **invalid_scope**: The requested scope is invalid, unknown, or malformed. The scope property does not need to be sent by the client. As defined by this proposal, the only supported value is "all".
+ 
+- **server_error**: There was an unexpected error on the server that prevented the request from being honored.
+ 
 
  > Note:  It is recommended that you do not take a code dependency against the X-Ms-diagnostics header.
 
@@ -228,7 +227,7 @@ The following example shows the ms_rtc_renew parameter being used. Note that for
 
 
 ```
-POST https://contoso.com/WebTicket/oauthtoken  HTTP/1.1
+POST https://contoso.com/WebTicket/oauthtoken HTTP/1.1
 Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 
 grant_type=urn:microsoft.rtc:anonmeeting&amp;password=5LB7MRBC&amp;ms_rtc_conferenceuri=sip:john@contoso.com;gruu;opaque=app:conf:focus:id:5LB7MRBC&amp;ms_rtc_renew=cwt%3dAA...L940
@@ -237,4 +236,3 @@ grant_type=urn:microsoft.rtc:anonmeeting&amp;password=5LB7MRBC&amp;ms_rtc_confer
 
 
  > Note:  The body content must be URL-encoded.
-

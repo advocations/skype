@@ -1,17 +1,11 @@
 
-# unmuteAudio (UCWA)
+# unmuteAudio 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+_**Applies to:** Skype for Business 2015_
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
-
-Unmutes a [participant (UCWA)](participant_ref.md)'s audio. 
+Unmutes a [participant](participant_ref.md)'s audio. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-The presence of this resource indicates that the user has permissions to unmute the audio of the associated [participant (UCWA)](participant_ref.md). 
+The presence of this resource indicates that the user has permissions to unmute the audio of the associated [participant](participant_ref.md). 
 
 
 ### Properties
@@ -49,7 +43,7 @@ None
 
 ### POST
 
-Unmutes a [participant (UCWA)](participant_ref.md)'s audio.
+Unmutes a [participant](participant_ref.md)'s audio.
 
 
 #### Request body
@@ -85,11 +79,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/unmuteAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/unmuteAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -100,9 +94,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -111,11 +105,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/unmuteAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/unmuteAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -126,8 +120,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 

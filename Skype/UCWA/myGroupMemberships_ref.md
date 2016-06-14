@@ -1,14 +1,9 @@
 
-# myGroupMemberships (UCWA)
+# myGroupMemberships 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ _**Applies to:** Skype for Business 2015_
 
 
 A collection of groupMembership resources, each of which uniquely links a contact to a group. 
@@ -45,7 +40,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|myGroupMembership|Represents the [group (UCWA)](group_ref.md) membership of a single[contact (UCWA)](contact_ref.md).|
+|myGroupMembership|Represents the [group](group_ref.md) membership of a single [contact](contact_ref.md).|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -122,36 +117,36 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 492
 										{
-  "rel" : "myGroupMemberships",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/myGroupMemberships"
-    }
-  },
-  "_embedded" : {
-    "myGroupMembership" : [
-      {
-        "rel" : "myGroupMembership",
-        "_links" : {
-          "self" : {
-            "href" : "//v1/applications/833/myGroupMemberships/myGroupMembership"
-          },
-          "contact" : {
-            "href" : "//v1/applications/833/people/166"
-          },
-          "defaultGroup" : {
-            "href" : "//v1/applications/833/groups/defaultGroup"
-          },
-          "group" : {
-            "href" : "//v1/applications/833/groups/group"
-          },
-          "pinnedGroup" : {
-            "href" : "//v1/applications/833/groups/pinnedGroup"
-          }
-        }
-      }
-    ]
-  }
+ "rel" : "myGroupMemberships",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/myGroupMemberships"
+ }
+ },
+ "_embedded" : {
+ "myGroupMembership" : [
+ {
+ "rel" : "myGroupMembership",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/myGroupMemberships/myGroupMembership"
+ },
+ "contact" : {
+ "href" : "//v1/applications/833/people/166"
+ },
+ "defaultGroup" : {
+ "href" : "//v1/applications/833/groups/defaultGroup"
+ },
+ "group" : {
+ "href" : "//v1/applications/833/groups/group"
+ },
+ "pinnedGroup" : {
+ "href" : "//v1/applications/833/groups/pinnedGroup"
+ }
+ }
+ }
+ ]
+ }
 }
 									
 ```
@@ -181,17 +176,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 670
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;myGroupMemberships&amp;quot; href=&amp;quot;//v1/applications/833/myGroupMemberships&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myGroupMemberships&amp;lt;/property&amp;gt;
-  &amp;lt;resource rel=&amp;quot;myGroupMembership&amp;quot; href=&amp;quot;//v1/applications/833/myGroupMemberships/myGroupMembership&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;defaultGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/defaultGroup&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;group&amp;quot; href=&amp;quot;//v1/applications/833/groups/group&amp;quot; /&amp;gt;
-    &amp;lt;link rel=&amp;quot;pinnedGroup&amp;quot; href=&amp;quot;//v1/applications/833/groups/pinnedGroup&amp;quot; /&amp;gt;
-    &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;myGroupMembership&amp;lt;/property&amp;gt;
-  &amp;lt;/resource&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="myGroupMemberships" href="//v1/applications/833/myGroupMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <property name="rel">myGroupMemberships</property>
+ <resource rel="myGroupMembership" href="//v1/applications/833/myGroupMemberships/myGroupMembership">
+ <link rel="contact" href="//v1/applications/833/people/166" />
+ <link rel="defaultGroup" href="//v1/applications/833/groups/defaultGroup" />
+ <link rel="group" href="//v1/applications/833/groups/group" />
+ <link rel="pinnedGroup" href="//v1/applications/833/groups/pinnedGroup" />
+ <property name="rel">myGroupMembership</property>
+ </resource>
+</resource>
 									
 ```
 

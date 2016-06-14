@@ -1,15 +1,9 @@
 
-# participantApplicationSharing (UCWA)
+# participantApplicationSharing 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
+ _**Applies to:** Skype for Business 2015_
 
 
 Represents whether a participant is using the application sharing modality in a conversation. 
@@ -47,7 +41,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
+|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -75,33 +69,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantApplicationSharing",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantApplicationSharing",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "added"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -127,33 +121,33 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantApplicationSharing",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantApplicationSharing",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "updated"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -177,33 +171,33 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantApplicationSharing",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "participantApplicationSharing",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
+ },
+ "in" : {
+ "rel" : "localParticipant",
+ "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+ },
+ "type" : "deleted"
+ }
+ ]
+ }
+ ]
 }
 					
 ```
@@ -273,15 +267,15 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 265
 										{
-  "rel" : "participantApplicationSharing",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
-    },
-    "participant" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575"
-    }
-  }
+ "rel" : "participantApplicationSharing",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
+ },
+ "participant" : {
+ "href" : "//v1/applications/833/communication/conversations/802/participants/575"
+ }
+ }
 }
 									
 ```
@@ -311,11 +305,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 422
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;participantApplicationSharing&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;participant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;participantApplicationSharing&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="participantApplicationSharing" href="//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="participant" href="//v1/applications/833/communication/conversations/802/participants/575" />
+ <property name="rel">participantApplicationSharing</property>
+</resource>
 									
 ```
 

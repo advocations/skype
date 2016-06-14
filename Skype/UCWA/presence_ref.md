@@ -1,16 +1,10 @@
 
-# presence (UCWA)
+# presence 
 
- **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+**Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the user's availability and activity. 
 
@@ -29,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-[presence (UCWA)](presence_ref.md) is updated when the user's availability or activity changes.The user can express her willingness to communicate by manually changing her presence.
+[presence](presence_ref.md) is updated when the user's availability or activity changes.The user can express her willingness to communicate by manually changing her presence.
 
 
 ### Properties
@@ -78,31 +72,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presence",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "me",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+"events" : [
+{
+"link" : {
+"rel" : "presence",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
+},
+"type" : "added"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -125,31 +119,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presence",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "me",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+"events" : [
+{
+"link" : {
+"rel" : "presence",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
+},
+"type" : "updated"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -170,31 +164,31 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "me",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/me",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presence",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "me",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me",
+"events" : [
+{
+"link" : {
+"rel" : "presence",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/me/presence"
+},
+"type" : "deleted"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -227,7 +221,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when the user has not made herself available to communicate ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)) or is anonymous.|
+|Conflict|409|MakeMeAvailableRequired|Returned when the user has not made herself available to communicate ( [makeMeAvailable](makeMeAvailable_ref.md)) or is anonymous.|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
@@ -243,12 +237,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -259,20 +253,20 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 132
-										{
-  "rel" : "presence",
-  "activity" : "Off Work",
-  "availability" : "BeRightBack",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/presence"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 132
+{
+"rel" : "presence",
+"activity" : "Off Work",
+"availability" : "BeRightBack",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/me/presence"
 }
-									
+}
+}
+
 ```
 
 
@@ -281,12 +275,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -297,16 +291,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 305
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presence&amp;quot; href=&amp;quot;//v1/applications/833/me/presence&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presence&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;activity&amp;quot;&amp;gt;Off Work&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;availability&amp;quot;&amp;gt;IdleOnline&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 305
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presence" href="//v1/applications/833/me/presence" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="rel">presence</property>
+<property name="activity">Off Work</property>
+<property name="availability">IdleOnline</property>
+</resource>
+
 ```
 
 
@@ -333,7 +327,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
-|Conflict|409|MakeMeAvailableRequired|Returned when the user has not made herself available to communicate ([makeMeAvailable (UCWA)](makeMeAvailable_ref.md)) or is anonymous.|
+|Conflict|409|MakeMeAvailableRequired|Returned when the user has not made herself available to communicate ( [makeMeAvailable](makeMeAvailable_ref.md)) or is anonymous.|
 |ServiceFailure|500|CallbackChannelError|The remote event channel is not reachable|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
@@ -349,15 +343,15 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 23
-										{
-  "availability" : "Away"
+Post https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 23
+{
+"availability" : "Away"
 }
-									
+
 ```
 
 
@@ -368,9 +362,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -379,16 +373,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 152
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;availability&amp;quot;&amp;gt;Busy&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
-									
+Post https://fe1.contoso.com:443//v1/applications/833/me/presence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 152
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="availability">Busy</property>
+</input>
+
 ```
 
 
@@ -399,8 +393,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 

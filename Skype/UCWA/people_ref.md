@@ -1,14 +1,9 @@
 
-# people (UCWA)
+# people 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+ _**Applies to:** Skype for Business 2015_
 
 
 A hub for the people with whom the logged-on user can communicate, using Skype for Business. 
@@ -50,8 +45,8 @@ This resource can have the following relationships.
 |myGroupMemberships|A collection of groupMembership resources, each of which uniquely links a contact to a group.|
 |myGroups|A collection of groups in the contact list of the logged-on user.|
 |myPrivacyRelationships|Represents the various privacy relationships that the user maintains with his or her contacts.|
-|presenceSubscriptionMemberships|A collection of [presenceSubscriptionMembership (UCWA)](presenceSubscriptionMembership_ref.md) resources.|
-|presenceSubscriptions|Represents the user's set of [presenceSubscription (UCWA)](presenceSubscription_ref.md) resources.|
+|presenceSubscriptionMemberships|A collection of [presenceSubscriptionMembership](presenceSubscriptionMembership_ref.md) resources.|
+|presenceSubscriptions|Represents the user's set of [presenceSubscription](presenceSubscription_ref.md) resources.|
 |search|Provides a way to search for contacts.|
 |subscribedContacts|A collection of contacts for which the logged-on user has created active presence subscriptions.|
 
@@ -120,39 +115,39 @@ This sample is given only as an illustration of response syntax. The semantic co
 										Content-Type: application/json
 										Content-Length: 740
 										{
-  "rel" : "people",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/people"
-    },
-    "myContactsAndGroupsSubscription" : {
-      "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
-    },
-    "myContacts" : {
-      "href" : "//v1/applications/833/contacts"
-    },
-    "myGroupMemberships" : {
-      "href" : "//v1/applications/833/myGroupMemberships"
-    },
-    "myGroups" : {
-      "href" : "//v1/applications/833/groups"
-    },
-    "myPrivacyRelationships" : {
-      "href" : "//v1/applications/833/myPrivacyRelationships"
-    },
-    "presenceSubscriptionMemberships" : {
-      "href" : "//v1/applications/833/presenceSubscriptionMemberships"
-    },
-    "presenceSubscriptions" : {
-      "href" : "//v1/applications/833/presenceSubscriptions"
-    },
-    "search" : {
-      "href" : "//v1/applications/833/search"
-    },
-    "subscribedContacts" : {
-      "href" : "//v1/applications/833/subscribedContacts"
-    }
-  }
+ "rel" : "people",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/people"
+ },
+ "myContactsAndGroupsSubscription" : {
+ "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
+ },
+ "myContacts" : {
+ "href" : "//v1/applications/833/contacts"
+ },
+ "myGroupMemberships" : {
+ "href" : "//v1/applications/833/myGroupMemberships"
+ },
+ "myGroups" : {
+ "href" : "//v1/applications/833/groups"
+ },
+ "myPrivacyRelationships" : {
+ "href" : "//v1/applications/833/myPrivacyRelationships"
+ },
+ "presenceSubscriptionMemberships" : {
+ "href" : "//v1/applications/833/presenceSubscriptionMemberships"
+ },
+ "presenceSubscriptions" : {
+ "href" : "//v1/applications/833/presenceSubscriptions"
+ },
+ "search" : {
+ "href" : "//v1/applications/833/search"
+ },
+ "subscribedContacts" : {
+ "href" : "//v1/applications/833/subscribedContacts"
+ }
+ }
 }
 									
 ```
@@ -182,19 +177,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 										HTTP/1.1 200 OK
 										Content-Type: application/xml
 										Content-Length: 938
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;people&amp;quot; href=&amp;quot;//v1/applications/833/people&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;myContactsAndGroupsSubscription&amp;quot; href=&amp;quot;//v1/applications/833/people/myContactsAndGroupsSubscription&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;myContacts&amp;quot; href=&amp;quot;//v1/applications/833/contacts&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;myGroupMemberships&amp;quot; href=&amp;quot;//v1/applications/833/myGroupMemberships&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;myGroups&amp;quot; href=&amp;quot;//v1/applications/833/groups&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;myPrivacyRelationships&amp;quot; href=&amp;quot;//v1/applications/833/myPrivacyRelationships&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;presenceSubscriptionMemberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;presenceSubscriptions&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptions&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;search&amp;quot; href=&amp;quot;//v1/applications/833/search&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;subscribedContacts&amp;quot; href=&amp;quot;//v1/applications/833/subscribedContacts&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;people&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+										<?xml version="1.0" encoding="utf-8"?>
+<resource rel="people" href="//v1/applications/833/people" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ <link rel="myContactsAndGroupsSubscription" href="//v1/applications/833/people/myContactsAndGroupsSubscription" />
+ <link rel="myContacts" href="//v1/applications/833/contacts" />
+ <link rel="myGroupMemberships" href="//v1/applications/833/myGroupMemberships" />
+ <link rel="myGroups" href="//v1/applications/833/groups" />
+ <link rel="myPrivacyRelationships" href="//v1/applications/833/myPrivacyRelationships" />
+ <link rel="presenceSubscriptionMemberships" href="//v1/applications/833/presenceSubscriptionMemberships" />
+ <link rel="presenceSubscriptions" href="//v1/applications/833/presenceSubscriptions" />
+ <link rel="search" href="//v1/applications/833/search" />
+ <link rel="subscribedContacts" href="//v1/applications/833/subscribedContacts" />
+ <property name="rel">people</property>
+</resource>
 									
 ```
 

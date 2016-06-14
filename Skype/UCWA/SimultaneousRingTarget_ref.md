@@ -1,9 +1,9 @@
 
-# SimultaneousRingTarget (UCWA)
+# SimultaneousRingTarget 
 
  **Last modified:** March 24, 2015
 
- _ **Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_
 
 The target of simultaneous ring call forwarding, if enabled.
 

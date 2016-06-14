@@ -1,15 +1,9 @@
 
-# startOnlineMeeting (UCWA)
+# startOnlineMeeting 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Creates and joins an ad-hoc multiparty conversation. 
 
@@ -49,7 +43,7 @@ None
 
 ### POST
 
-Starts an [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) in the event channel.
+Starts an [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) in the event channel.
 
 
 #### Request body
@@ -63,7 +57,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md)|Represents an invitation to a new or existing [onlineMeeting (UCWA)](onlineMeeting_ref.md).|
+| [onlineMeetingInvitation](onlineMeetingInvitation_ref.md)|Represents an invitation to a new or existing [onlineMeeting](onlineMeeting_ref.md).|
 
 #### Synchronous errors
 
@@ -88,18 +82,18 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/startOnlineMeeting HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 149
-										{
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "importance" : "Urgent",
-  "subject" : "Skype for Business",
-  "threadId" : "292e0aaef36c426a97757f43dda19d06"
+Post https://fe1.contoso.com:443//v1/applications/833/communication/startOnlineMeeting HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 149
+{
+"operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+"importance" : "Urgent",
+"subject" : "Skype for Business",
+"threadId" : "292e0aaef36c426a97757f43dda19d06"
 }
-									
+
 ```
 
 
@@ -110,10 +104,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/715
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/715
+
+
 ```
 
 
@@ -122,19 +116,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/startOnlineMeeting HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 347
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;importance&amp;quot;&amp;gt;Urgent&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Skype for Business&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;threadId&amp;quot;&amp;gt;292e0aaef36c426a97757f43dda19d06&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/startOnlineMeeting HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 347
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+<property name="importance">Urgent</property>
+<property name="subject">Skype for Business</property>
+<property name="threadId">292e0aaef36c426a97757f43dda19d06</property>
+</input>
+
 ```
 
 
@@ -145,9 +139,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/715
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/715
+
+
 ```
 

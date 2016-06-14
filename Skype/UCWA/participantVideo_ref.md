@@ -1,16 +1,9 @@
 
-# participantVideo (UCWA)
+# participantVideo 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents whether a participant is using the main video modality in a conversation. 
 
@@ -18,8 +11,6 @@ Represents whether a participant is using the main video modality in a conversat
 <a name="sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
-
 
 |**Name**|**Description**|
 |:-----|:-----|
@@ -54,9 +45,9 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|muteVideo|Mutes a [participant (UCWA)](participant_ref.md)'s video.|
-|participant|Represents a remote participant in a [conversation (UCWA)](conversation_ref.md).|
-|unmuteVideo|Unmutes a [participant (UCWA)](participant_ref.md)'s video.|
+|muteVideo|Mutes a [participant](participant_ref.md)'s video.|
+|participant|Represents a remote participant in a [conversation](conversation_ref.md).|
+|unmuteVideo|Unmutes a [participant](participant_ref.md)'s video.|
 
 ## Events
 <a name="sectionSection2"> </a>
@@ -84,35 +75,35 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantVideo",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "conversation",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+"events" : [
+{
+"link" : {
+"rel" : "participantVideo",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
+},
+"in" : {
+"rel" : "localParticipant",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+},
+"type" : "added"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -136,35 +127,35 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantVideo",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "conversation",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+"events" : [
+{
+"link" : {
+"rel" : "participantVideo",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
+},
+"in" : {
+"rel" : "localParticipant",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+},
+"type" : "updated"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -186,35 +177,35 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "participantVideo",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
-          },
-          "in" : {
-            "rel" : "localParticipant",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "conversation",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
+"events" : [
+{
+"link" : {
+"rel" : "participantVideo",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
+},
+"in" : {
+"rel" : "localParticipant",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
+},
+"type" : "deleted"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -262,12 +253,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -278,30 +269,30 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 557
-										{
-  "rel" : "participantVideo",
-  "videoDirection" : "Unknown",
-  "videoMuted" : false,
-  "videoSourceId" : "1234567",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
-    },
-    "muteVideo" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo/muteVideo"
-    },
-    "participant" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575"
-    },
-    "unmuteVideo" : {
-      "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo/unmuteVideo"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 557
+{
+"rel" : "participantVideo",
+"videoDirection" : "Unknown",
+"videoMuted" : false,
+"videoSourceId" : "1234567",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
+},
+"muteVideo" : {
+"href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo/muteVideo"
+},
+"participant" : {
+"href" : "//v1/applications/833/communication/conversations/802/participants/575"
+},
+"unmuteVideo" : {
+"href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo/unmuteVideo"
 }
-									
+}
+}
+
 ```
 
 
@@ -310,12 +301,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantVideo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -326,19 +317,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 788
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;participantVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantVideo&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;muteVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantVideo/muteVideo&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;participant&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;unmuteVideo&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversations/802/participants/575/participantVideo/unmuteVideo&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;participantVideo&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;videoDirection&amp;quot;&amp;gt;Unknown&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;videoMuted&amp;quot;&amp;gt;False&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;videoSourceId&amp;quot;&amp;gt;1234567&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 788
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="participantVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantVideo" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="muteVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantVideo/muteVideo" />
+<link rel="participant" href="//v1/applications/833/communication/conversations/802/participants/575" />
+<link rel="unmuteVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantVideo/unmuteVideo" />
+<property name="rel">participantVideo</property>
+<property name="videoDirection">Unknown</property>
+<property name="videoMuted">False</property>
+<property name="videoSourceId">1234567</property>
+</resource>
+
 ```
 

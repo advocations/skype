@@ -1,15 +1,9 @@
 
-# immediateForwardSettings (UCWA)
+# immediateForwardSettings 
 
  **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+ _**Applies to:** Skype for Business 2015_
 
 Represents the settings for a user to immediately forward incoming calls to a specified target. 
 
@@ -99,13 +93,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/immediateForwardSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: a0eae570-18a6-4ac4-a264-543159c8ab2a
-										
+Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/immediateForwardSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: a0eae570-18a6-4ac4-a264-543159c8ab2a
 									
 ```
 
@@ -116,31 +108,30 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: f06fdf19-541e-4ec6-aaeb-ce45f49d5976
-										Content-Type: application/json
-										Content-Length: 628
-										{
-  "rel" : "immediateForwardSettings",
-  "target" : "None",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings"
-    },
-    "contact" : {
-      "href" : "//v1/applications/833/people/166"
-    },
-    "immediateForwardToContact" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact"
-    },
-    "immediateForwardToDelegates" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates"
-    },
-    "immediateForwardToVoicemail" : {
-      "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail"
-    }
-  }
+ HTTP/1.1 200 OK
+ Etag: f06fdf19-541e-4ec6-aaeb-ce45f49d5976
+ Content-Type: application/json
+ Content-Length: 628
+ {
+ "rel" : "immediateForwardSettings",
+ "target" : "None",
+ "_links" : {
+ "self" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings"
+ },
+ "contact" : {
+ "href" : "//v1/applications/833/people/166"
+ },
+ "immediateForwardToContact" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact"
+ },
+ "immediateForwardToDelegates" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates"
+ },
+ "immediateForwardToVoicemail" : {
+ "href" : "//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail"
+ }
+ }
 }
 									
 ```
@@ -150,14 +141,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/immediateForwardSettings HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: 3aae9535-5615-4e23-bd6b-000366d4d1d0
 
-										Get https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/immediateForwardSettings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 3aae9535-5615-4e23-bd6b-000366d4d1d0
-										
-									
 ```
 
 
@@ -167,20 +156,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: 8f638eae-55f0-4279-b240-30174a9a6628
-										Content-Type: application/xml
-										Content-Length: 827
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;immediateForwardSettings&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;immediateForwardToContact&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;immediateForwardToDelegates&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;immediateForwardToVoicemail&amp;quot; href=&amp;quot;//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;immediateForwardSettings&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;target&amp;quot;&amp;gt;None&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+HTTP/1.1 200 OK
+Etag: 8f638eae-55f0-4279-b240-30174a9a6628
+Content-Type: application/xml
+Content-Length: 827
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="immediateForwardSettings" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="immediateForwardToContact" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact" />
+<link rel="immediateForwardToDelegates" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates" />
+<link rel="immediateForwardToVoicemail" href="//v1/applications/833/me/callForwardingSettings/immediateForwardSettings/immediateForwardToVoicemail" />
+<property name="rel">immediateForwardSettings</property>
+<property name="target">None</property>
+</resource>
 									
 ```
 

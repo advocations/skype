@@ -3,12 +3,6 @@
 
  **Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
-
 Represents a recipient within a [conversationLog](conversationLog_ref.md). 
 
 
@@ -52,7 +46,7 @@ This resource can have the following relationships.
 |self|The link to the current resource.|
 |contact|Represents a person or service that the user can communicate and collaborate with.|
 |contactPhoto|The photo of a contact.|
-|contactPresence|Represents a [contact (UCWA)](contact_ref.md)'s availability and activity.|
+|contactPresence|Represents a [contact](contact_ref.md)'s availability and activity.|
 
 ## Operations
 <a name="sectionSection2"> </a>
@@ -97,13 +91,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
 ```
 
 
@@ -113,28 +105,27 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 412
-										{
-  "rel" : "conversationLogRecipient",
-  "displayName" : "samplevalue",
-  "sipUri" : "samplevalue",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
-    },
-    "contact" : {
-      "href" : "//v1/applications/833/people/166"
-    },
-    "contactPhoto" : {
-      "href" : "//v1/applications/833/people/166/contactPhoto"
-    },
-    "contactPresence" : {
-      "href" : "//v1/applications/833/people/166/contactPresence"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 412
+{
+"rel" : "conversationLogRecipient",
+"displayName" : "samplevalue",
+"sipUri" : "samplevalue",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+}
+}
 }
 									
 ```
@@ -144,12 +135,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -160,19 +149,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 626
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;conversationLogRecipient&amp;quot; href=&amp;quot;//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;contactPhoto&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPhoto&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;contactPresence&amp;quot; href=&amp;quot;//v1/applications/833/people/166/contactPresence&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;conversationLogRecipient&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;displayName&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;sipUri&amp;quot;&amp;gt;samplevalue&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 626
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="conversationLogRecipient" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
+<link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
+<property name="rel">conversationLogRecipient</property>
+<property name="displayName">samplevalue</property>
+<property name="sipUri">samplevalue</property>
+</resource>
 									
 ```
 

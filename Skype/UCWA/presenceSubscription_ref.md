@@ -1,16 +1,10 @@
 
-# presenceSubscription (UCWA)
+# presenceSubscription 
 
- **Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
+**Last modified:** July 14, 2015
 
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Events](#sectionSection2)
-[Operations](#sectionSection3)
-
+_**Applies to:** Skype for Business 2015_
 
 Represents the subscription to a user-defined set of contacts. 
 
@@ -29,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource allows the application to keep track of members of the subscription. Updates include [presence (UCWA)](presence_ref.md), [location (UCWA)](location_ref.md), or [note (UCWA)](note_ref.md) changes for a specific contact. Additionally, an update on the event channel will inform the application that the subscription is about to expire. The application can then elect to refresh the subscription. Unlike[group (UCWA)](group_ref.md), presenceSubscription is not persistent and is typically relevant only for a short duration. 
+This resource allows the application to keep track of members of the subscription. Updates include [presence](presence_ref.md), [location](location_ref.md), or [note](note_ref.md) changes for a specific contact. Additionally, an update on the event channel will inform the application that the subscription is about to expire. The application can then elect to refresh the subscription. Unlike [group](group_ref.md), presenceSubscription is not persistent and is typically relevant only for a short duration. 
 
 
 ### Properties
@@ -51,7 +45,7 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|addToPresenceSubscription|Represents the capability to add contacts to a [presenceSubscription (UCWA)](presenceSubscription_ref.md).|
+|addToPresenceSubscription|Represents the capability to add contacts to a [presenceSubscription](presenceSubscription_ref.md).|
 |memberships|The memberships resource.|
 
 ## Events
@@ -79,31 +73,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presenceSubscription",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
-          },
-          "type" : "added"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "presenceSubscription",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
+},
+"type" : "added"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -126,31 +120,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presenceSubscription",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
-          },
-          "type" : "updated"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "presenceSubscription",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
+},
+"type" : "updated"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -171,31 +165,31 @@ Sample of returned event data.
 ```
 
 {
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
-    {
-      "rel" : "people",
-      "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
-      "events" : [
-        {
-          "link" : {
-            "rel" : "presenceSubscription",
-            "href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
-          },
-          "type" : "deleted"
-        }
-      ]
-    }
-  ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "presenceSubscription",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/presenceSubscription"
+},
+"type" : "deleted"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -245,12 +239,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -261,25 +255,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 299
-										{
-  "rel" : "presenceSubscription",
-  "id" : "3",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscription"
-    },
-    "addToPresenceSubscription" : {
-      "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
-    },
-    "memberships" : {
-      "href" : "//v1/applications/833/presenceSubscription/memberships"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 299
+{
+"rel" : "presenceSubscription",
+"id" : "3",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscription"
+},
+"addToPresenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+},
+"memberships" : {
+"href" : "//v1/applications/833/presenceSubscription/memberships"
 }
-									
+}
+}
+
 ```
 
 
@@ -288,12 +282,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -304,17 +298,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 478
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;addToPresenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/addToPresenceSubscription&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;memberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/memberships&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscription&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;3&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 478
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+<link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+<property name="rel">presenceSubscription</property>
+<property name="id">3</property>
+</resource>
+
 ```
 
 
@@ -344,7 +338,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[presenceSubscription (UCWA)](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
+| [presenceSubscription](presenceSubscription_ref.md)|Represents the subscription to a user-defined set of contacts.|
 
 #### Synchronous errors
 
@@ -372,12 +366,12 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -388,25 +382,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/json
-										Content-Length: 299
-										{
-  "rel" : "presenceSubscription",
-  "id" : "3",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscription"
-    },
-    "addToPresenceSubscription" : {
-      "href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
-    },
-    "memberships" : {
-      "href" : "//v1/applications/833/presenceSubscription/memberships"
-    }
-  }
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 299
+{
+"rel" : "presenceSubscription",
+"id" : "3",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscription"
+},
+"addToPresenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription/addToPresenceSubscription"
+},
+"memberships" : {
+"href" : "//v1/applications/833/presenceSubscription/memberships"
 }
-									
+}
+}
+
 ```
 
 
@@ -415,12 +409,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -431,17 +425,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Content-Type: application/xml
-										Content-Length: 478
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;addToPresenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/addToPresenceSubscription&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;memberships&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription/memberships&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscription&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;id&amp;quot;&amp;gt;3&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Content-Length: 478
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="addToPresenceSubscription" href="//v1/applications/833/presenceSubscription/addToPresenceSubscription" />
+<link rel="memberships" href="//v1/applications/833/presenceSubscription/memberships" />
+<property name="rel">presenceSubscription</property>
+<property name="id">3</property>
+</resource>
+
 ```
 
 
@@ -480,11 +474,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -495,9 +489,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -506,11 +500,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscription HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -521,8 +515,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 

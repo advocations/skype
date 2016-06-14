@@ -1,15 +1,9 @@
 
-# startPhoneAudio (UCWA)
+# startPhoneAudio 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+_**Applies to:** Skype for Business 2015_
 
 Initiates a call-via-work. 
 
@@ -28,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-startPhoneAudio allows a user to create a new peer-to-peer [conversation (UCWA)](conversation_ref.md) with a[contact (UCWA)](contact_ref.md) using call-via-work. A call-via-work call is an outgoing call that is initiated from a user's phone, and that displays the user's Skype for Business work identity to the remote party. A[phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md) will be started; its status can be tracked on the event channel.
+startPhoneAudio allows a user to create a new peer-to-peer [conversation](conversation_ref.md) with a [contact](contact_ref.md) using call-via-work. A call-via-work call is an outgoing call that is initiated from a user's phone, and that displays the user's Skype for Business work identity to the remote party. A [phoneAudioInvitation](phoneAudioInvitation_ref.md) will be started; its status can be tracked on the event channel.
 
 
 ### Properties
@@ -49,7 +43,7 @@ None
 
 ### POST
 
-Starts a [phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md) and creates a new conversation with a[contact (UCWA)](contact_ref.md).
+Starts a [phoneAudioInvitation](phoneAudioInvitation_ref.md) and creates a new conversation with a [contact](contact_ref.md).
 
 
 #### Query parameters
@@ -73,7 +67,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[phoneAudioInvitation (UCWA)](phoneAudioInvitation_ref.md)|Represents an invitation to a [conversation (UCWA)](conversation_ref.md) for the[phoneAudio (UCWA)](phoneAudio_ref.md) modality.|
+| [phoneAudioInvitation](phoneAudioInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
 
 #### Synchronous errors
 
@@ -100,20 +94,20 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/startPhoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 210
-										{
-  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
-  "phoneNumber" : "tel:+14255551234",
-  "importance" : "Normal",
-  "subject" : "Skype for Business",
-  "threadId" : "292e0aaef36c426a97757f43dda19d06",
-  "to" : "sip:john@contoso.com"
+Post https://fe1.contoso.com:443//v1/applications/833/communication/startPhoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 210
+{
+"operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+"phoneNumber" : "tel:+14255551234",
+"importance" : "Normal",
+"subject" : "Skype for Business",
+"threadId" : "292e0aaef36c426a97757f43dda19d06",
+"to" : "sip:john@contoso.com"
 }
-									
+
 ```
 
 
@@ -124,10 +118,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/596
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/596
+
+
 ```
 
 
@@ -136,21 +130,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/startPhoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 454
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;input xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;operationId&amp;quot;&amp;gt;74cb7404e0a247d5a2d4eb0376a47dbf&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;phoneNumber&amp;quot;&amp;gt;tel:+14255551234&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;importance&amp;quot;&amp;gt;Urgent&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;subject&amp;quot;&amp;gt;Skype for Business&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;threadId&amp;quot;&amp;gt;292e0aaef36c426a97757f43dda19d06&amp;lt;/property&amp;gt;
-  &amp;lt;property name=&amp;quot;to&amp;quot;&amp;gt;sip:john@contoso.com&amp;lt;/property&amp;gt;
-&amp;lt;/input&amp;gt;
-									
+Post https://fe1.contoso.com:443//v1/applications/833/communication/startPhoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 454
+<?xml version="1.0" encoding="utf-8"?>
+<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+<property name="phoneNumber">tel:+14255551234</property>
+<property name="importance">Urgent</property>
+<property name="subject">Skype for Business</property>
+<property name="threadId">292e0aaef36c426a97757f43dda19d06</property>
+<property name="to">sip:john@contoso.com</property>
+</input>
+
 ```
 
 
@@ -161,9 +155,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/596
-										
-									
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/596
+
+
 ```
 

@@ -1,15 +1,9 @@
 
-# accept (UCWA)
+# accept 
 
  **Last modified:** July 15, 2015
 
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
-
+ _**Applies to:** Skype for Business 2015_
 
 Accepts an incoming invitation. 
 
@@ -28,7 +22,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource is used to accept an incoming [messagingInvitation (UCWA)](messagingInvitation_ref.md) or[onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md) as part of a new or existing[conversation (UCWA)](conversation_ref.md). An application can determine whether the invitation was successfully accepted based on whether the corresponding invitation completed with success. For an incoming [messagingInvitation (UCWA)](messagingInvitation_ref.md), accept will change the status of the instant messaging modality to "Connected" in the corresponding conversation. Subsequently the application will be able to send and receive messages and typing notifications.For an incoming [onlineMeetingInvitation (UCWA)](onlineMeetingInvitation_ref.md), accept causes the user to join the corresponding [onlineMeeting (UCWA)](onlineMeeting_ref.md). The [conversation (UCWA)](conversation_ref.md) state will change to "Conferenced". Note that the application is then responsible for joining a modality.
+This resource is used to accept an incoming [messagingInvitation](messagingInvitation_ref.md) or [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) as part of a new or existing [conversation](conversation_ref.md). An application can determine whether the invitation was successfully accepted based on whether the corresponding invitation completed with success. For an incoming [messagingInvitation](messagingInvitation_ref.md), accept will change the status of the instant messaging modality to "Connected" in the corresponding conversation. Subsequently the application will be able to send and receive messages and typing notifications.For an incoming [onlineMeetingInvitation](onlineMeetingInvitation_ref.md), accept causes the user to join the corresponding [onlineMeeting](onlineMeeting_ref.md). The [conversation](conversation_ref.md) state will change to "Conferenced". Note that the application is then responsible for joining a modality.
 
 
 ### Properties
@@ -84,12 +78,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Post https://fe1.contoso.com:443//v1/applications/706/communication/invitations/350/accept HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Post https://fe1.contoso.com:443//v1/applications/706/communication/invitations/350/accept HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -99,9 +91,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -110,12 +100,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/706/communication/invitations/350/accept HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/706/communication/invitations/350/accept HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 ```
 
 
@@ -125,9 +112,6 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
 ```
 

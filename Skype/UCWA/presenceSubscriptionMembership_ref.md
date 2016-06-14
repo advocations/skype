@@ -1,17 +1,12 @@
 
-# presenceSubscriptionMembership (UCWA)
-
- **Last modified:** July 14, 2015
-
- _ **Applies to:** Skype for Business 2015_
-
- **In this article**
-[Web Link](#sectionSection0)
-[Resource description](#sectionSection1)
-[Operations](#sectionSection2)
+# presenceSubscriptionMembership 
 
 
-Represents the [presenceSubscription (UCWA)](presenceSubscription_ref.md) membership of a single[contact (UCWA)](contact_ref.md). 
+**Last modified:** July 14, 2015
+
+_**Applies to:** Skype for Business 2015_
+
+Represents the [presenceSubscription](presenceSubscription_ref.md) membership of a single [contact](contact_ref.md). 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -28,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-This resource captures a unique pair that consists of a [contact (UCWA)](contact_ref.md) and a[presenceSubscription (UCWA)](presenceSubscription_ref.md). If a [contact (UCWA)](contact_ref.md) appears in multiple[presenceSubscription (UCWA)](presenceSubscription_ref.md)s, there will be a separate resource for each membership of this contact. An application can use this to remove a [contact (UCWA)](contact_ref.md) from a particular[presenceSubscription (UCWA)](presenceSubscription_ref.md). 
+This resource captures a unique pair that consists of a [contact](contact_ref.md) and a [presenceSubscription](presenceSubscription_ref.md). If a [contact](contact_ref.md) appears in multiple [presenceSubscription](presenceSubscription_ref.md)s, there will be a separate resource for each membership of this contact. An application can use this to remove a [contact](contact_ref.md) from a particular [presenceSubscription](presenceSubscription_ref.md). 
 
 
 ### Properties
@@ -56,7 +51,7 @@ This resource can have the following relationships.
 
 ### GET
 
-Returns a representation of the [presenceSubscription (UCWA)](presenceSubscription_ref.md) membership of a single[contact (UCWA)](contact_ref.md).
+Returns a representation of the [presenceSubscription](presenceSubscription_ref.md) membership of a single [contact](contact_ref.md).
 
 
 #### Request body
@@ -94,12 +89,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -110,24 +105,24 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 283
-										{
-  "rel" : "presenceSubscriptionMembership",
-  "_links" : {
-    "self" : {
-      "href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
-    },
-    "contact" : {
-      "href" : "//v1/applications/833/people/166"
-    },
-    "presenceSubscription" : {
-      "href" : "//v1/applications/833/presenceSubscription"
-    }
-  }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 283
+{
+"rel" : "presenceSubscriptionMembership",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"presenceSubscription" : {
+"href" : "//v1/applications/833/presenceSubscription"
 }
-									
+}
+}
+
 ```
 
 
@@ -136,12 +131,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -152,22 +147,22 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 449
-										&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resource rel=&amp;quot;presenceSubscriptionMembership&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com&amp;quot; xmlns=&amp;quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&amp;quot;&amp;gt;
-  &amp;lt;link rel=&amp;quot;contact&amp;quot; href=&amp;quot;//v1/applications/833/people/166&amp;quot; /&amp;gt;
-  &amp;lt;link rel=&amp;quot;presenceSubscription&amp;quot; href=&amp;quot;//v1/applications/833/presenceSubscription&amp;quot; /&amp;gt;
-  &amp;lt;property name=&amp;quot;rel&amp;quot;&amp;gt;presenceSubscriptionMembership&amp;lt;/property&amp;gt;
-&amp;lt;/resource&amp;gt;
-									
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 449
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="presenceSubscriptionMembership" href="//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="presenceSubscription" href="//v1/applications/833/presenceSubscription" />
+<property name="rel">presenceSubscriptionMembership</property>
+</resource>
+
 ```
 
 
 ### DELETE
 
-Removes the [contact (UCWA)](contact_ref.md) from the[presenceSubscription (UCWA)](presenceSubscription_ref.md).
+Removes the [contact](contact_ref.md) from the [presenceSubscription](presenceSubscription_ref.md).
 
 
 #### Request body
@@ -200,11 +195,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -215,9 +210,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -226,11 +221,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Delete https://fe1.contoso.com:443//v1/applications/833/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -241,8 +236,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
