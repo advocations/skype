@@ -5,11 +5,6 @@
 
  _**Applies to:** Skype for Business 2015_
 
- **In this article**
- [Web Link](#sectionSection0)
- [Resource description](#sectionSection1)
- [Operations](#sectionSection2)
-
 
 Represents phone access information for an [onlineMeeting](onlineMeeting_ref.md). 
 
