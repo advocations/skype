@@ -17,7 +17,7 @@ In order to authenticate a user in UCWA, an application needs to perform a numbe
 - The client application uses the OAuth token to make requests to the service.
  
 
- **Note** If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
+ >Note: If your application authenticates against an on-premises server, follow the authentication flow as described in this article. If the application authenticates against an online server, follow the Azure AD authentication flow as described in "Authentication using Azure AD."
 
 
 ## Authentication Flow
@@ -44,10 +44,10 @@ The WWW-Authenticate header contains the following information.
  
  - **urn:microsoft.rtc:windows**: This grant type is used when Integrated Windows Authentication (IWA) is used. The request is the same as the password grant, except that username and password parameters must not be present.
  
- **Note** Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
+ >Note: Not all browsers support IWA. Additionally, if your flow contains redirects between domains or servers, the user may be prompted with an authentication dialog window.
  - **urn:microsoft.rtc:passive**: This grant type is used when any type of passive authentication is used. This works for Active Directory Federation Services-based scenarios and is useful when you need to delegate authentication to other directories. The request is the same as the password grant, except that username and password parameters must not be present.
  
- **Note** For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
+ >Note: For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
  - **urn:microsoft.rtc:anonmeeting**: This grant type can be used to allow users join meetings anonymously.
  
 A step-by-step example of how to do autodiscovery and authentication with an on-premises server is provided in [Create an application](https://msdn.microsoft.com/EN-US/library/dn356799%28v=office.16%29.aspx).
@@ -105,7 +105,7 @@ grant_type=urn:microsoft.rtc:windows
 ```
 
 
- **Note** Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
+ >Note: Using this grant type might cause a Windows authentication dialog to be displayed, asking the user to enter credentials.
 
  **Response**
 

@@ -118,7 +118,7 @@ The response body contains an HTML document (not shown here) with the following 
  
  - Password authentication - collect the user's credentials in the code for your application.
  
- To use password authentication, you must provide a function that gets a user's credentials. This can take the form of HTML <input> tags, a JavaScript input dialog box, or other means of getting input.
+ To use password authentication, you must provide a function that gets a user's credentials. This can take the form of HTML ```<input>``` tags, a JavaScript input dialog box, or other means of getting input.
  
  The response shown here uses password authentication. To use Windows authentication, for example, place the following in the request body- grant_type=urn:microsoft.rtc:windows.
  
