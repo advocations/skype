@@ -83,12 +83,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -98,10 +96,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 
 
@@ -109,12 +105,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/904 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -124,9 +118,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 

@@ -6,7 +6,7 @@ Look in this section for examples of tasks that pertain to the application user'
 
  _**Applies to:** Skype for Business 2015_
 
-The topics in this section show code samples that use to perform tasks related to [people](people_ref.md).
+The topics in this section show code samples that use UCWA 2.0 to perform tasks related to [people](people_ref.md).
 
 
 ## In this section

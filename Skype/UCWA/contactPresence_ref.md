@@ -149,12 +149,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -165,21 +163,20 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 225
-										{
- "rel" : "contactPresence",
- "activity" : "in-a-conference",
- "availability" : "BeRightBack",
- "deviceType" : "DeskPhone",
- "lastActive" : "\/Date(1436925243767)\/",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 225
+{
+"rel" : "contactPresence",
+"activity" : "in-a-conference",
+"availability" : "BeRightBack",
+"deviceType" : "DeskPhone",
+"lastActive" : "\/Date(1436925243767)\/",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+}
+}
 }
 									
 ```
@@ -189,12 +186,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/people/166/contactPresence HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -205,17 +200,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 460
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 460
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">contactPresence</property>
- <property name="activity">in-a-conference</property>
- <property name="availability">BeRightBack</property>
- <property name="deviceType">Unknown</property>
- <property name="lastActive">2015-07-14T20:54:03.7675175-05:00</property>
+<property name="rel">contactPresence</property>
+<property name="activity">in-a-conference</property>
+<property name="availability">BeRightBack</property>
+<property name="deviceType">Unknown</property>
+<property name="lastActive">2015-07-14T20:54:03.7675175-05:00</property>
 </resource>
 									
 ```

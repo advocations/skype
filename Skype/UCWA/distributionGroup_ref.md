@@ -251,12 +251,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/distributionGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/groups/distributionGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -268,276 +266,276 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 5986
-										{
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "rel" : "distributionGroup",
- "uri" : "sip:mypersonalgroup@contoso.com",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- },
- "addToContactList" : {
- "href" : "//v1/applications/833/groups/addToContactList"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "removeFromContactList" : {
- "href" : "//v1/applications/833/groups/removeFromContactList"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- },
- "_embedded" : {
- "contact" : [
- {
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- }
- }
- }
- ],
- "distributionGroup" : [
- {
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/distributionGroup"
- }
- }
- }
- ]
- }
- }
- ]
- }
- }
- ]
- }
- }
- ]
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 5986
+{
+"rel" : "distributionGroup",
+"uri" : "sip:mypersonalgroup@contoso.com",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/distributionGroup"
+},
+"addToContactList" : {
+"href" : "//v1/applications/833/groups/addToContactList"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"removeFromContactList" : {
+"href" : "//v1/applications/833/groups/removeFromContactList"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+},
+"_embedded" : {
+"contact" : [
+{
+"rel" : "contact",
+"company" : "Contoso Corp.",
+"department" : "Engineering",
+"emailAddresses" : [
+"Alex.Doe@contoso.com"
+],
+"homePhoneNumber" : "tel:+19185550107",
+"sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+"mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+"name" : "Alex Doe",
+"office" : "tel:+1425554321;ext=54321",
+"otherPhoneNumber" : "tel:+19195558194",
+"sourceNetwork" : "SameEnterprise",
+"title" : "Engineer 2",
+"type" : "User",
+"uri" : "sip:alex@contoso.com",
+"workPhoneNumber" : "tel:+1425554321;ext=54321",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactLocation" : {
+"href" : "//v1/applications/833/people/166/contactLocation"
+},
+"contactNote" : {
+"href" : "//v1/applications/833/people/166/contactNote"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+},
+"contactPrivacyRelationship" : {
+"href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+},
+"contactSupportedModalities" : {
+"href" : "//v1/applications/833/people/166/contactSupportedModalities"
+}
+}
+}
+],
+"distributionGroup" : [
+{
+"rel" : "distributionGroup",
+"uri" : "sip:mypersonalgroup@contoso.com",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/distributionGroup"
+},
+"addToContactList" : {
+"href" : "//v1/applications/833/groups/addToContactList"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"removeFromContactList" : {
+"href" : "//v1/applications/833/groups/removeFromContactList"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+},
+"_embedded" : {
+"contact" : [
+{
+"rel" : "contact",
+"company" : "Contoso Corp.",
+"department" : "Engineering",
+"emailAddresses" : [
+"Alex.Doe@contoso.com"
+],
+"homePhoneNumber" : "tel:+19185550107",
+"sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+"mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+"name" : "Alex Doe",
+"office" : "tel:+1425554321;ext=54321",
+"otherPhoneNumber" : "tel:+19195558194",
+"sourceNetwork" : "SameEnterprise",
+"title" : "Engineer 2",
+"type" : "User",
+"uri" : "sip:alex@contoso.com",
+"workPhoneNumber" : "tel:+1425554321;ext=54321",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactLocation" : {
+"href" : "//v1/applications/833/people/166/contactLocation"
+},
+"contactNote" : {
+"href" : "//v1/applications/833/people/166/contactNote"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+},
+"contactPrivacyRelationship" : {
+"href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+},
+"contactSupportedModalities" : {
+"href" : "//v1/applications/833/people/166/contactSupportedModalities"
+}
+}
+}
+],
+"distributionGroup" : [
+{
+"rel" : "distributionGroup",
+"uri" : "sip:mypersonalgroup@contoso.com",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/distributionGroup"
+},
+"addToContactList" : {
+"href" : "//v1/applications/833/groups/addToContactList"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"removeFromContactList" : {
+"href" : "//v1/applications/833/groups/removeFromContactList"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+},
+"_embedded" : {
+"contact" : [
+{
+"rel" : "contact",
+"company" : "Contoso Corp.",
+"department" : "Engineering",
+"emailAddresses" : [
+"Alex.Doe@contoso.com"
+],
+"homePhoneNumber" : "tel:+19185550107",
+"sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+"mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+"name" : "Alex Doe",
+"office" : "tel:+1425554321;ext=54321",
+"otherPhoneNumber" : "tel:+19195558194",
+"sourceNetwork" : "SameEnterprise",
+"title" : "Engineer 2",
+"type" : "User",
+"uri" : "sip:alex@contoso.com",
+"workPhoneNumber" : "tel:+1425554321;ext=54321",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactLocation" : {
+"href" : "//v1/applications/833/people/166/contactLocation"
+},
+"contactNote" : {
+"href" : "//v1/applications/833/people/166/contactNote"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+},
+"contactPrivacyRelationship" : {
+"href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+},
+"contactSupportedModalities" : {
+"href" : "//v1/applications/833/people/166/contactSupportedModalities"
+}
+}
+}
+],
+"distributionGroup" : [
+{
+"rel" : "distributionGroup",
+"uri" : "sip:mypersonalgroup@contoso.com",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/distributionGroup"
+},
+"addToContactList" : {
+"href" : "//v1/applications/833/groups/addToContactList"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"removeFromContactList" : {
+"href" : "//v1/applications/833/groups/removeFromContactList"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+},
+"_embedded" : {
+"contact" : [
+{
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166"
+}
+}
+}
+],
+"distributionGroup" : [
+{
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/distributionGroup"
+}
+}
+}
+]
+}
+}
+]
+}
+}
+]
+}
+}
+]
+}
 }
 									
 ```
@@ -547,12 +545,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/distributionGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/groups/distributionGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -563,12 +559,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 7782
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 7782
+ <?xml version="1.0" encoding="utf-8"?>
+ <resource rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="addToContactList" href="//v1/applications/833/groups/addToContactList" />
  <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
  <link rel="groupContacts" href="//v1/applications/833/contacts" />

@@ -1,12 +1,12 @@
 
 # Key programming concepts
-Learn about key concepts that developers need to know.
+Learn about key concepts that Microsoft Unified Communications Web API 2.0 developers need to know.
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-The topics in this section are intended to familiarize developers with important programming concepts that are related to applications.
+The topics in this section are intended to familiarize developers with important programming concepts that are related to UCWA 2.0 applications.
 
 
 ## In this section

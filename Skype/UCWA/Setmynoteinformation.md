@@ -14,46 +14,45 @@ The steps here assume that you have already created an application and have rece
  
  One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the href for the [makeMeAvailable](makeMeAvailable_ref.md) resource. Search for the [me](me_ref.md) embedded resource, and then locate the href of the **makeMeAvailable** link.
  
- ```
-        POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
-        Accept: application/json
-        Content-Type: application/json
-        Authorization: Bearer cwt=AAEB...buHc
-        X-Ms-Origin: http://app.contoso.com
-        X-Requested-With: XMLHttpRequest
-        Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
-        Accept-Language: en-us
-        Accept-Encoding: gzip, deflate
-        User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
-        Host: lyncweb.contoso.com
-        Content-Length: 37
-        Connection: Keep-Alive
-        Cache-Control: no-cache
+    ```
+    POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
+    Accept: application/json
+    Content-Type: application/json
+    Authorization: Bearer cwt=AAEB...buHc
+    X-Ms-Origin: http://app.contoso.com
+    X-Requested-With: XMLHttpRequest
+    Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
+    Accept-Language: en-us
+    Accept-Encoding: gzip, deflate
+    User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
+    Host: lyncweb.contoso.com
+    Content-Length: 37
+    Connection: Keep-Alive
+    Cache-Control: no-cache
 
-        {"SupportedModalities": ["Messaging"]}
-  
- ```
+    {"SupportedModalities": ["Messaging"]}
+    ```
 
 2. Process the response from the request in the previous step.
  
  The response you receive should be 204 No content, as shown here.
  
- ```
-        HTTP/1.1 204 No Content
-        Connection: Keep-Alive
-        Date: Thu, 17 Jan 2013 00:00:00 GMT
-        Server: Microsoft-IIS/7.5
-        Cache-Control: no-cache
-        X-AspNet-Version: 4.0.30319
-        X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
-        X-Powered-By: ASP.NET
- ```
+    ```
+    HTTP/1.1 204 No Content
+    Connection: Keep-Alive
+    Date: Thu, 17 Jan 2013 00:00:00 GMT
+    Server: Microsoft-IIS/7.5
+    Cache-Control: no-cache
+    X-AspNet-Version: 4.0.30319
+    X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
+    X-Powered-By: ASP.NET
+    ```
 
 3. Send a GET request on the application resource.
  
  A sample request is shown here.
  
- ```
+    ```
     GET https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101 HTTP/1.1
     Authorization: Bearer cwt=AAEB...buHc
     Accept: application/json
@@ -66,7 +65,7 @@ The steps here assume that you have already created an application and have rece
     Host: lyncweb.contoso.com
     Connection: Keep-Alive
 
- ```
+    ```
 
 4. Process the response from the previous request.
  
@@ -119,7 +118,7 @@ The steps here assume that you have already created an application and have rece
     }, 
     "rel":"application"
     }
- ```
+    ```
 
 5. Send a POST request on the **note** resource.
  

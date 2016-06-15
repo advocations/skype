@@ -84,13 +84,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/groups/group/groupMemberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/group/groupMemberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
 ```
 
 
@@ -100,11 +98,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 501
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 501
+ {
  "rel" : "groupMemberships",
  "_links" : {
  "self" : {
@@ -144,12 +141,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/group/groupMemberships HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/groups/group/groupMemberships HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -160,21 +155,20 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 677
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 677
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">groupMemberships</property>
- <resource rel="myGroupMembership" href="//v1/applications/833/myGroupMemberships/myGroupMembership">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="defaultGroup" href="//v1/applications/833/groups/defaultGroup" />
- <link rel="group" href="//v1/applications/833/groups/group" />
- <link rel="pinnedGroup" href="//v1/applications/833/groups/pinnedGroup" />
- <property name="rel">myGroupMembership</property>
- </resource>
+<property name="rel">groupMemberships</property>
+<resource rel="myGroupMembership" href="//v1/applications/833/myGroupMemberships/myGroupMembership">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="defaultGroup" href="//v1/applications/833/groups/defaultGroup" />
+<link rel="group" href="//v1/applications/833/groups/group" />
+<link rel="pinnedGroup" href="//v1/applications/833/groups/pinnedGroup" />
+<property name="rel">myGroupMembership</property>
 </resource>
-									
+</resource>
+
 ```
 

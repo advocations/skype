@@ -1,13 +1,13 @@
 
 # Errors and informational messages
-Learn about the types of errors and informational messages that are used in .
+Learn about the types of errors and informational messages that are used in UCWA 2.0.
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-To report failures, uses the failure response classes (4xx &amp; 5xx) that are defined in Section 10 (Status Code Definitions) of the [HTTP RFC](http://tools.ietf.org/html/rfc2616). An HTTP request that is targeted to can have multiple intermediate proxies on the path, meaning an intermediate component can return a failure response of 4xx or 5xx as well. 
-If responds with a failure, it will provide supplementary information in the error response that can be used to aid in problem diagnosis or drive the user interface. Clients can determine whether the response comes from by analyzing the Content-Type header. In this release, the supported content types are:
+To report failures, UCWA 2.0 uses the failure response classes (4xx &amp; 5xx) that are defined in Section 10 (Status Code Definitions) of the [HTTP RFC](http://tools.ietf.org/html/rfc2616). An HTTP request that is targeted to UCWA 2.0 can have multiple intermediate proxies on the path, meaning an intermediate component can return a failure response of 4xx or 5xx as well. 
+If UCWA 2.0 responds with a failure, it will provide supplementary information in the error response that can be used to aid in problem diagnosis or drive the user interface. Clients can determine whether the response comes from UCWA 2.0 by analyzing the Content-Type header. In this release, the supported content types are:
 
 - application/json
  
@@ -17,7 +17,7 @@ If responds with a failure, it will provide supplementary information in the err
 ## Error types
 <a name="sectionSection0"> </a>
 
- categorizes errors as either synchronous or asynchronous based on their presence in the command or event channels, respectively.
+UCWA 2.0 categorizes errors as either synchronous or asynchronous based on their presence in the command or event channels, respectively.
 
 
 ### Synchronous errors

@@ -81,23 +81,22 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/makeMeAvailable HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 145
-										{
- "phoneNumber" : "4255552222",
- "signInAs" : "BeRightBack",
- "supportedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "supportedModalities" : [
- "PhoneAudio",
- "Messaging"
- ]
+Post https://fe1.contoso.com:443//v1/applications/833/communication/makeMeAvailable HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 145
+{
+"phoneNumber" : "4255552222",
+"signInAs" : "BeRightBack",
+"supportedMessageFormats" : [
+"Plain",
+"Html"
+],
+"supportedModalities" : [
+"PhoneAudio",
+"Messaging"
+]
 }
 									
 ```
@@ -109,9 +108,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -120,24 +117,23 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/makeMeAvailable HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 394
-										<?xml version="1.0" encoding="utf-8"?>
+Post https://fe1.contoso.com:443//v1/applications/833/communication/makeMeAvailable HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 394
+<?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="phoneNumber">4255552222</property>
- <property name="signInAs">Away</property>
- <propertyList name="supportedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <propertyList name="supportedModalities">
- <item>PhoneAudio</item>
- <item>Messaging</item>
- </propertyList>
+<property name="phoneNumber">4255552222</property>
+<property name="signInAs">Away</property>
+<propertyList name="supportedMessageFormats">
+<item>Plain</item>
+<item>Html</item>
+</propertyList>
+<propertyList name="supportedModalities">
+<item>PhoneAudio</item>
+<item>Messaging</item>
+</propertyList>
 </input>
 									
 ```
@@ -149,9 +145,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 204 No Content
 
-										HTTP/1.1 204 No Content
-										
-									
 ```
 

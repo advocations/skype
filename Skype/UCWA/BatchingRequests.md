@@ -6,7 +6,7 @@ Learn how the **batch** resource can be used to package multiple HTTP requests i
 
  _**Applies to:** Skype for Business 2015_
 
- provides a facility to submit multiple requests in a single HTTP operation, called a batch request. A client application can use it to reduce the number of separate HTTP requests it sends (which will help reduce battery drain on mobile devices), and to reduce the number of separate connections to the server (which is generally limited by web browsers).
+UCWA 2.0 provides a facility to submit multiple requests in a single HTTP operation, called a batch request. A client application can use it to reduce the number of separate HTTP requests it sends (which will help reduce battery drain on mobile devices), and to reduce the number of separate connections to the server (which is generally limited by web browsers).
 
 A batch request is a multipart MIME message, where each part is a separate HTTP request. The batch request is submitted with a POST operation to the [batch](batch_ref.md) resource, and the response to the POST request will be a multipart MIME message where each part is the response to the corresponding request.
 The requests that are present in a batch request can be processed in any order, so applications should not presume a particular order of execution of the requests in a batch.
@@ -16,7 +16,7 @@ The content type for the entire request is "multipart/batching", and each indivi
 
 The following is an example batch request. This request contains two GET requests; one on the [myContacts](myContacts_ref.md) href for a particular user, and the other on the [me](me_ref.md) href for that user.
 
-> Note: For brevity, application IDs and the OAuth token have been abbreviated.
+Note that for brevity, application IDs and the OAuth token have been abbreviated.
 
 
 
@@ -159,9 +159,9 @@ Content-Type: application/json; charset=utf-8
 
 ## Limitations
 
-Batch requests can contain any request, other than another batch request, [photo](photo_ref.md) request or [events](events_ref.md) request.
+Batch requests can contain any UCWA 2.0 request, other than another batch request, [photo](photo_ref.md) request or [events](events_ref.md) request.
 
- limits the number of outstanding requests for each user, and if a batch request causes this limit to be exceeded, the request will be rejected with error code 429 / Too Many Requests. In this case none of the requests in the batch is executed, so it is safe for a client application to retry the request later, preferably splitting it into multiple batch requests of smaller sizes.
+UCWA 2.0 limits the number of outstanding requests for each user, and if a batch request causes this limit to be exceeded, the request will be rejected with error code 429 / Too Many Requests. In this case none of the requests in the batch is executed, so it is safe for a client application to retry the request later, preferably splitting it into multiple batch requests of smaller sizes.
 
 The server-side limit in this version is set at 100 requests for a single user across all batches; a single batch with more than 100 requests can also exceed this limit. It is recommended that clients do not take a dependency on this specific number, as it can be changed in later releases. Instead, clients should split large batch requests into smaller ones if they encounter this error message, and introduce a timeout between retries.
 

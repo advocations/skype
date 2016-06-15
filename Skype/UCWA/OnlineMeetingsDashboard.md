@@ -6,7 +6,8 @@ The **onlineMeetings** resource acts as a dashboard that represents the ability 
 
  _**Applies to:** Skype for Business 2015_
 
-Users can create and manage online meetings in by using the [onlineMeetings](onlineMeetings_ref.md) resource. This is the dashboard to view, schedule and manage online meetings.
+
+Users can create and manage online meetings in Skype for Business by using the [onlineMeetings](onlineMeetings_ref.md) resource. This is the dashboard to view, schedule and manage online meetings.
 
 ## Resource representation
 <a name="sectionSection0"> </a>
@@ -15,13 +16,11 @@ The following table contains a representation of the **onlineMeetings** resource
 
 
 **Property bag**
+  ```
+  "rel" : "onlineMeetings"
+  ```
 
-```
-"rel" : "onlineMeetings"
-```
-
-**Links**
-
+ **Links**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/878/onlineMeetings"
@@ -63,7 +62,7 @@ The [myOnlineMeetings](myOnlineMeetings_ref.md) resource can be used to create a
 ## myAssignedOnlineMeeting
 <a name="sectionSection2"> </a>
 
-The client can send a GET request on the [myAssignedOnlineMeeting](myAssignedOnlineMeeting_ref.md) resource to get the public meeting that is created by default in the store if the deployment supported it. By default this is displayed to the user when she chooses to create an online meeting.
+The client can send a GET request on the [myAssignedOnlineMeeting](myAssignedOnlineMeeting_ref.md) resource to get the public meeting that is created by default in the Skype for Business store if the deployment supported it. By default this is displayed to the user when she chooses to create an online meeting.
 
 
 ## onlineMeetingDefaultValues

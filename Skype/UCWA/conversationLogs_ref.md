@@ -83,12 +83,10 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -99,22 +97,21 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 208
-										{
- "rel" : "conversationLogs",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversationLogs"
- },
- "conversationLog" : [
- {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
- }
- ]
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 208
+{
+"rel" : "conversationLogs",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversationLogs"
+},
+"conversationLog" : [
+{
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
+}
+]
+}
 }
 									
 ```
@@ -124,13 +121,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -140,14 +135,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 350
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 350
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="conversationLogs" href="//v1/applications/833/communication/conversationLogs" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversationLog" href="//v1/applications/833/communication/conversationLogs/conversationLog" />
- <property name="rel">conversationLogs</property>
+<link rel="conversationLog" href="//v1/applications/833/communication/conversationLogs/conversationLog" />
+<property name="rel">conversationLogs</property>
 </resource>
 									
 ```

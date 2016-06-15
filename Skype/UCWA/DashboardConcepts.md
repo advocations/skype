@@ -1,12 +1,12 @@
 
 # Dashboard concepts
-Several resources act as "dashboards" that provide important information in a single place. 
+Several UCWA 2.0 resources act as "dashboards" that provide important information in a single place. 
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-Several often-used resources provide so much information that they can be thought of as "dashboards." These dashboard resources are described in this section.
+Several often-used UCWA 2.0 resources provide so much information that they can be thought of as "dashboards." These dashboard resources are described in this section.
 
 
 ## In this section

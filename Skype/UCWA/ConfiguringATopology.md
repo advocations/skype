@@ -1,6 +1,6 @@
 
 # Configuring a topology
-Learn how to configure a topology that supports .
+Learn how to configure a topology that supports Microsoft Unified Communications Web API 2.0.
 
  **Last modified:** April 20, 2015
 
@@ -11,7 +11,7 @@ Learn how to configure a topology that supports .
 
 ### What is a domain?
 
-Browser-based applications require server-side configuration before they will work. For security, an allowed list is maintained on the server to protect from malicious third-party domains (see [Cross-domain IFRAME](Cross_domainIFRAME.md) for more information). Domains, or origins, are defined in [RFC 6454](http://tools.ietf.org/html/rfc6454) as scheme, host, and port.
+Browser-based UCWA 2.0 applications require server-side configuration before they will work. For security, an allowed list is maintained on the server to protect Skype for Business Server from malicious third-party domains (see [Cross-domain IFRAME](Cross_domainIFRAME.md) for more information). Domains, or origins, are defined in [RFC 6454](http://tools.ietf.org/html/rfc6454) as scheme, host, and port.
 
 
 
@@ -45,7 +45,7 @@ Service does not allow a cross domain request from this origin.
 
 ### Viewing the allowed list
 
-From the on each server (front end, edge, and director), execute the following command:
+From the Skype for Business Management Shell on each server (front end, edge, and director), execute the following command:
 
 
 ```
@@ -55,7 +55,7 @@ Get-CsWebServiceConfiguration | select CrossDomainAuthorizationList
 
 ### Editing the allowed list
 
-From the on each server (front end, edge, and director), execute the following commands (replacing the text in {} with your values):
+From the Skype for Business Management Shell on each server (front end, edge, and director), execute the following commands (replacing the text in {} with your values):
 
 
 ```
@@ -64,7 +64,7 @@ Set-CsWebServiceConfiguration -Identity "{YOUR_IDENTITY}" -CrossDomainAuthorizat
 
 ```
 
-If you do not know the value of **Identity** for your , you can run the following command to see all identities configured on the server:
+If you do not know the value of **Identity** for your Skype for Business Server, you can run the following command to see all identities configured on the server:
 
 
 

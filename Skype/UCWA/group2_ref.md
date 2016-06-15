@@ -246,13 +246,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 9b6e9824-3b5d-46e7-b3bf-47ce22a8f982
-										
+Get https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: 9b6e9824-3b5d-46e7-b3bf-47ce22a8f982
 									
 ```
 
@@ -263,32 +261,31 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: e5d7baae-5276-4996-9b15-ef725bcaf50c
-										Content-Type: application/json
-										Content-Length: 459
-										{
- "rel" : "group",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/group"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "groupMemberships" : {
- "href" : "//v1/applications/833/groups/group/groupMemberships"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- }
+HTTP/1.1 200 OK
+Etag: e5d7baae-5276-4996-9b15-ef725bcaf50c
+Content-Type: application/json
+Content-Length: 459
+{
+"rel" : "group",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/group"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"groupMemberships" : {
+"href" : "//v1/applications/833/groups/group/groupMemberships"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+}
 }
 									
 ```
@@ -298,13 +295,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 6693be57-3a7b-4083-b44e-da1f572b898e
-										
+Get https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: 6693be57-3a7b-4083-b44e-da1f572b898e
 									
 ```
 
@@ -315,20 +310,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: 59b5d50f-0b82-4cea-ad0d-14971b941a48
-										Content-Type: application/xml
-										Content-Length: 662
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Etag: 59b5d50f-0b82-4cea-ad0d-14971b941a48
+Content-Type: application/xml
+Content-Length: 662
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="group" href="//v1/applications/833/groups/group" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">group</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
+<link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
+<link rel="groupContacts" href="//v1/applications/833/contacts" />
+<link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
+<link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
+<property name="rel">group</property>
+<property name="id">7</property>
+<property name="name">MyPersonalGroup</property>
 </resource>
 									
 ```
@@ -363,12 +357,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Delete https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -378,10 +370,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 204 No Content
 
-										HTTP/1.1 204 No Content
-										
-									
 ```
 
 
@@ -389,12 +379,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Delete https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -404,10 +392,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 204 No Content
 
-										HTTP/1.1 204 No Content
-										
-									
 ```
 
 
@@ -445,17 +431,16 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Put https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										if-match: 700e3ff6-41d0-4637-87e4-794a8d6e9053
-										Content-Length: 49
-										{
- "rel" : "group",
- "id" : "7",
- "name" : "MyPersonalGroup"
+Put https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+if-match: 700e3ff6-41d0-4637-87e4-794a8d6e9053
+Content-Length: 49
+{
+"rel" : "group",
+"id" : "7",
+"name" : "MyPersonalGroup"
 }
 									
 ```
@@ -467,9 +452,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										
+HTTP/1.1 200 OK
 									
 ```
 
@@ -478,20 +461,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Put https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										if-match: 5d7a779d-f5f0-4833-a0e1-268838134b60
-										Content-Length: 230
-										<?xml version="1.0" encoding="utf-8"?>
+Put https://fe1.contoso.com:443//v1/applications/833/groups/group HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+if-match: 5d7a779d-f5f0-4833-a0e1-268838134b60
+Content-Length: 230
+<?xml version="1.0" encoding="utf-8"?>
 <resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="rel">group</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
+<property name="rel">group</property>
+<property name="id">7</property>
+<property name="name">MyPersonalGroup</property>
 </resource>
-									
+
 ```
 
 
@@ -501,9 +483,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 200 OK
 
-										HTTP/1.1 200 OK
-										
-									
 ```
 

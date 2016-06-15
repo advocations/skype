@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 Error response. This is never explicitly requested by the client - but the client will receive this in the event of an error. 
 
 ## Web Link

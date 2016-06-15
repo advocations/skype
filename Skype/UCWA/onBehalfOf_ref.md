@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+ 
 Represents the [contact](contact_ref.md) on whose behalf the invitation was received.
 
 ## Web Link
@@ -110,12 +111,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/people/337 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 8bdca23a-d6fd-4d12-a9c9-de9b24186695
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/people/337 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ if-none-match: 8bdca23a-d6fd-4d12-a9c9-de9b24186695
+ 
 									
 ```
 
@@ -127,11 +128,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 5074ad36-8bad-4bfe-bf41-ce5197836e9d
-										Content-Type: application/json
-										Content-Length: 1081
-										{
+ HTTP/1.1 200 OK
+ Etag: 5074ad36-8bad-4bfe-bf41-ce5197836e9d
+ Content-Type: application/json
+ Content-Length: 1081
+ {
  "rel" : "onBehalfOf",
  "company" : "Contoso Corp.",
  "department" : "Engineering",
@@ -182,12 +183,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/people/337 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 57e0acc8-8554-4e5a-90a4-eeb7c1edf4fd
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/people/337 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ if-none-match: 57e0acc8-8554-4e5a-90a4-eeb7c1edf4fd
+ 
 									
 ```
 
@@ -199,11 +200,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 4c4c9e3f-1e97-4ca2-a623-41692905306e
-										Content-Type: application/xml
-										Content-Length: 1600
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Etag: 4c4c9e3f-1e97-4ca2-a623-41692905306e
+ Content-Type: application/xml
+ Content-Length: 1600
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="onBehalfOf" href="//v1/applications/833/people/337" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
  <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />

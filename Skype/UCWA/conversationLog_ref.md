@@ -102,12 +102,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -118,68 +116,67 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 1416
-										{
- "rel" : "conversationLog",
- "creationTime" : "\/Date(1436925244208)\/",
- "direction" : "Incoming",
- "importance" : "Normal",
- "modalities" : [
- "Messaging",
- "Audio",
- "Video",
- "ApplicationSharing"
- ],
- "onlineMeetingUri" : "samplevalue",
- "previewMessage" : "samplevalue",
- "status" : "Archived",
- "subject" : "Conversation with xxx.",
- "threadId" : "534e445ee854436a8abe02c24985f78a",
- "totalRecipientsCount" : 88,
- "type" : "AudioLog",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
- },
- "continueMessaging" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging"
- },
- "continuePhoneAudio" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio"
- },
- "conversationLogTranscripts" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts"
- },
- "markAsRead" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead"
- }
- },
- "_embedded" : {
- "conversationLogRecipient" : [
- {
- "rel" : "conversationLogRecipient",
- "displayName" : "samplevalue",
- "sipUri" : "samplevalue",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- }
- }
- }
- ]
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 1416
+{
+"rel" : "conversationLog",
+"creationTime" : "\/Date(1436925244208)\/",
+"direction" : "Incoming",
+"importance" : "Normal",
+"modalities" : [
+"Messaging",
+"Audio",
+"Video",
+"ApplicationSharing"
+],
+"onlineMeetingUri" : "samplevalue",
+"previewMessage" : "samplevalue",
+"status" : "Archived",
+"subject" : "Conversation with xxx.",
+"threadId" : "534e445ee854436a8abe02c24985f78a",
+"totalRecipientsCount" : 88,
+"type" : "AudioLog",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog"
+},
+"continueMessaging" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging"
+},
+"continuePhoneAudio" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio"
+},
+"conversationLogTranscripts" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts"
+},
+"markAsRead" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead"
+}
+},
+"_embedded" : {
+"conversationLogRecipient" : [
+{
+"rel" : "conversationLogRecipient",
+"displayName" : "samplevalue",
+"sipUri" : "samplevalue",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
+},
+"contact" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+}
+}
+}
+]
+}
 }
 									
 ```
@@ -189,12 +186,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -205,41 +200,40 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1975
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 1975
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="conversationLog" href="//v1/applications/833/communication/conversationLogs/conversationLog" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="continueMessaging" href="//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging" />
- <link rel="continuePhoneAudio" href="//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio" />
- <link rel="conversationLogTranscripts" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts" />
- <link rel="markAsRead" href="//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead" />
- <property name="rel">conversationLog</property>
- <property name="creationTime">2015-07-14T20:54:04.2145620-05:00</property>
- <property name="direction">Incoming</property>
- <property name="importance">Normal</property>
- <propertyList name="modalities">
- <item>Messaging</item>
- <item>Audio</item>
- <item>Video</item>
- <item>ApplicationSharing</item>
- </propertyList>
- <property name="onlineMeetingUri">samplevalue</property>
- <property name="previewMessage">samplevalue</property>
- <property name="status">Archived</property>
- <property name="subject">Conversation with xxx.</property>
- <property name="threadId">534e445ee854436a8abe02c24985f78a</property>
- <property name="totalRecipientsCount">55</property>
- <property name="type">AudioLog</property>
- <resource rel="conversationLogRecipient" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <property name="rel">conversationLogRecipient</property>
- <property name="displayName">samplevalue</property>
- <property name="sipUri">samplevalue</property>
- </resource>
+<link rel="continueMessaging" href="//v1/applications/833/communication/conversationLogs/conversationLog/continueMessaging" />
+<link rel="continuePhoneAudio" href="//v1/applications/833/communication/conversationLogs/conversationLog/continuePhoneAudio" />
+<link rel="conversationLogTranscripts" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogTranscripts" />
+<link rel="markAsRead" href="//v1/applications/833/communication/conversationLogs/conversationLog/markAsRead" />
+<property name="rel">conversationLog</property>
+<property name="creationTime">2015-07-14T20:54:04.2145620-05:00</property>
+<property name="direction">Incoming</property>
+<property name="importance">Normal</property>
+<propertyList name="modalities">
+<item>Messaging</item>
+<item>Audio</item>
+<item>Video</item>
+<item>ApplicationSharing</item>
+</propertyList>
+<property name="onlineMeetingUri">samplevalue</property>
+<property name="previewMessage">samplevalue</property>
+<property name="status">Archived</property>
+<property name="subject">Conversation with xxx.</property>
+<property name="threadId">534e445ee854436a8abe02c24985f78a</property>
+<property name="totalRecipientsCount">55</property>
+<property name="type">AudioLog</property>
+<resource rel="conversationLogRecipient" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient">
+<link rel="contact" href="//v1/applications/833/people/166" />
+<link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
+<link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
+<property name="rel">conversationLogRecipient</property>
+<property name="displayName">samplevalue</property>
+<property name="sipUri">samplevalue</property>
+</resource>
 </resource>
 									
 ```
@@ -274,11 +268,9 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Delete https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
+Delete https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 									
 ```
 
@@ -289,9 +281,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -300,12 +290,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Delete https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
 ```
 
 
@@ -315,9 +303,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 

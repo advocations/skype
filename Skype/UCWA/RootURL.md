@@ -1,16 +1,16 @@
 
 # Root URL
-A application's first task is to use the root URL to discover the URL of the user's home pool.
+A UCWA 2.0 application's first task is to use the root URL to discover the URL of the user's home pool.
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-The first steps in creating a application are _autodiscovery_and _authentication_.
+The first steps in creating a UCWA 2.0 application are _autodiscovery_and _authentication_.
 
-A application uses the root URL to discover the URL of the user's home pool. Autodiscovery is the act of finding the home server.
-Authentication is the act of proving who you are to and . To access user-specific resources, a user must supply a correct set of credentials. To gain anonymous access to an online meeting, a user must supply the meeting ID. 
-The _root URL_for can take different forms, depending on which transport protocol is used (HTTP versus HTTPS) and on whether the application will run internally on the network or externally. Preference should always be given to the HTTPS form.
+A UCWA 2.0 application uses the root URL to discover the URL of the user's home pool. Autodiscovery is the act of finding the home server.
+Authentication is the act of proving who you are to Skype for Business Server and UCWA 2.0. To access user-specific resources, a user must supply a correct set of credentials. To gain anonymous access to an online meeting, a user must supply the meeting ID. 
+The _root URL_for UCWA 2.0 can take different forms, depending on which transport protocol is used (HTTP versus HTTPS) and on whether the application will run internally on the network or externally. Preference should always be given to the HTTPS form.
 The different variations of the root URL are shown in the following table. 
 
 
@@ -21,14 +21,14 @@ The different variations of the root URL are shown in the following table.
 
 ## Discovery
 
-A application must not make any assumptions about where is located. topologies are distributed and the server that will respond to a user's requests can run in different pools, depending on the scenario.
+A UCWA 2.0 application must not make any assumptions about where UCWA 2.0 is located. Skype for Business topologies are distributed and the server that will respond to a user's requests can run in different pools, depending on the scenario.
 
- always runs in the home pool of the authenticated user. For joining a meeting anonymously, or meeting applications that are not designed to receive incoming communications (such as a ), always runs on the home pool of the meeting organizer. The purpose of the Autodiscovery flow that is described here is to find the location of .
+UCWA 2.0 always runs in the home pool of the authenticated user. For joining a meeting anonymously, or meeting applications that are not designed to receive incoming communications (such as a ), UCWA 2.0 always runs on the home pool of the meeting organizer. The purpose of the Autodiscovery flow that is described here is to find the location of UCWA 2.0. 
 
-Autodiscovery is used by all client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](http://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Autodiscover service. For more information, see [Autodiscover service requirements](http://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
+Autodiscovery is used by all Skype for Business client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](http://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Skype for Business Server 2015 Autodiscover service. For more information, see [Autodiscover service requirements](http://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
 
 
-> Note: In coexistence mode (Lync 2010 and ), to support custom application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a pool.
+ >Note: In coexistence mode (Lync 2010 and Skype for Business 2015), to support custom UCWA 2.0 application development, you must point the Autodiscover CNAME (Lyncdiscover.<domain> and LyncDiscoverinternal.<domain>) to a Skype for Business Server 2015 pool.
 
 
 ### Authenticated user flow
@@ -37,7 +37,7 @@ The illustration shows the steps that are involved in authenticating a user. The
 
 The steps shown here are recommended for a secure and generic autodiscovery flow for authenticated users. This flow addresses all possible on-premise topologies that customers are likely to encounter.
 
-This flow should be executed for the first sign-in and succeeds when the client application retrieves the URL. This URL can be cached until a failure occurs. A failure means that the application cannot communicate with for the following reasons:
+This flow should be executed for the first sign-in and succeeds when the client application retrieves the UCWA 2.0 URL. This URL can be cached until a failure occurs. A failure means that the application cannot communicate with UCWA 2.0 for the following reasons:
 
 
 - HTTP 403 Client Forbidden
@@ -59,12 +59,13 @@ No other HTTP error codes require clearing the cache and starting the autodiscov
  
 2. An application can run on an internal network or an external network. The autodiscovery flow always gives priority to the internal network. The following requests can be executed in parallel, although it is highly recommended that only the HTTPS request be enabled.
  
-   ```
-   HTTPS GET LyncDiscoverInternal.<domain>
-   HTTP GET LyncDiscoverInternal.<domain>
-  
-   ```
-        Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
+  ```
+  HTTPS GET LyncDiscoverInternal.<domain>
+  HTTP GET LyncDiscoverInternal.<domain>
+
+  ```
+
+ Some scenarios can allow HTTP as a first hop. In such cases Lync will always respond with a redirect to HTTPS.
  
 3. The response from these requests will fail if any of the following occurs:
  
@@ -83,22 +84,22 @@ No other HTTP error codes require clearing the cache and starting the autodiscov
 HTTPS GET LyncDiscover.<domain>
  ```
 
-5. For some online scenarios, the Autodiscover service might return a 200 OK response with a "redirect" link in the body. The client should validate the response before following the redirect link. 
+5. For some online scenarios, the Skype for Business Autodiscover service might return a 200 OK response with a "redirect" link in the body. The client should validate the response before following the redirect link. 
  
- > Note: If you have a pure topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, , does not support online scenarios.
+  >Note: If you have a pure Skype for Business Server 2015 topology, the redirect scenario will not occur. A redirect can occur in hybrid topologies (On-Premises to Online). The current version, UCWA 2.0, does not support online scenarios.
 
-   The following is an example redirect response.
+  The following is an example redirect response.
  
- ```
-   HTTP/1.1 200 OK
+  ```
+  HTTP/1.1 200 OK 
   Content-Type: application/json
-  {
-     "_links":{
-       "redirect":{
-         "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
-       }
-    }
+ {
+  "_links":{
+  "redirect":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
   }
+  }
+ }
  ```
 
 6. The security check step consists of making sure that the client is not spoofed. A detailed illustration follows this list.
@@ -107,20 +108,20 @@ HTTPS GET LyncDiscover.<domain>
  
 8. The response from Autodiscover is a response with a link to the [user](user_ref.md) and [xframe](xframe_ref.md) resources.
  
- ```
- {
- "_links":{
- "self":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
- },
- "user":{
- "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user"
- },
- "xframe":{
- "href":"https://contoso.com/Autodiscover/XFrame/XFrame.html"
+  ```
+  {
+  "_links":{
+  "self":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root"
+  },
+  "user":{
+  "href":"https://contoso.com/Autodiscover/AutodiscoverService.svc/root/oauth/user"
+  },
+  "xframe":{
+  "href":"https://contoso.com/Autodiscover/XFrame/XFrame.html"
+  }
+  }
  }
- }
-}
  ```
 
 9. The client must follow the link in the **user** resource.
@@ -129,11 +130,6 @@ HTTPS GET LyncDiscover.<domain>
  
 11. The final response contains a link to the [applications](applications_ref.md) resource. This is the link that is used to create the application.
  
- ```
- 
- ```
-
-
 ### Security check
 
 The flow shown here represents the security check that is mentioned in step 6 of the preceding authentication flow.
@@ -146,7 +142,7 @@ The flow shown here represents the security check that is mentioned in step 6 of
 
 ### Anonymous meeting join flow
 
-The flow in an anonymous meeting join is similar to the flow for an authenticated user. The most important difference is that the application should have the URI of the online meeting before starting the flow. The Conference URI format is as follows.
+The flow in an anonymous meeting join is similar to the flow for an authenticated user. The most important difference is that the application should have the URI of the online meeting before starting the flow. The Skype for Business Conference URI format is as follows.
 
 
 ```

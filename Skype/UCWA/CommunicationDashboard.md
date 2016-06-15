@@ -15,7 +15,6 @@ The following table contains a representation of the communication resource.
 
 
 **Property bag**
-
 ```
 "rel" : "communication",
 "phoneNumber" : "tel:+14255552222",
@@ -29,8 +28,8 @@ The following table contains a representation of the communication resource.
 ],
 ```
 
-**Links**
 
+**Links**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/878/communication"
@@ -90,8 +89,8 @@ The following table contains a representation of the **conversationLogs** resour
 "rel": "conversationLogs"
 ```
 
-**Links**
 
+**Links**
 ```
 "self": {
  "href": "/ucwa/v1/applications/405/communication/conversationLogs"

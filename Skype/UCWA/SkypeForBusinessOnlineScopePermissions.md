@@ -1,6 +1,6 @@
 
 # Skype for Business Online scope permissions
-Provides a reference of permission scopes that a user can grant in .
+Provides a reference of permission scopes that a user can grant in UCWA 2.0.
 
  **Last modified:** December 04, 2015
 
@@ -26,6 +26,7 @@ To learn more about configuring applications, see [Integrating Applications with
 ## Skype for Business scope permissions
 
 The Skype for Business scope permissions are shown in the following table:
+
 
 
 |**Scope**|**Permission**|**Description**|**Requires admin consent**|

@@ -3,6 +3,7 @@
 
  **Last modified:** July 14, 2015
 
+
 Represents the entry point for registering this application with the server. 
 
 
@@ -84,11 +85,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -100,10 +101,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 3587
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 3587
+ {
  "rel" : "applications",
  "_links" : {
  "self" : {
@@ -290,11 +291,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -306,10 +307,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 4480
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 4480
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="applications" href="//v1/applications" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">applications</property>
  <resource rel="application" href="//v1/applications/833">
@@ -431,13 +432,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 120
-										{
+ Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/json
+ Accept: application/json
+ Content-Length: 120
+ {
  "culture" : "en-us",
  "endpointId" : "123456",
  "instanceId" : "samplevalue",
@@ -454,11 +455,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: f33dcfdc-3c03-4c52-b566-4b94fc6353bb
-										Content-Type: application/json
-										Content-Length: 3487
-										{
+ HTTP/1.1 201 Created
+ Etag: f33dcfdc-3c03-4c52-b566-4b94fc6353bb
+ Content-Type: application/json
+ Content-Length: 3487
+ {
  "rel" : "application",
  "culture" : "en-us",
  "endpointId" : "samplevalue",
@@ -633,13 +634,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 318
-										<?xml version="1.0" encoding="utf-8"?>
+ Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/xml
+ Accept: application/xml
+ Content-Length: 318
+ <?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="culture">en-us</property>
  <property name="endpointId">123456</property>
@@ -657,11 +658,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: bc27b0a9-d43a-4024-835c-fb1ab9bb4930
-										Content-Type: application/xml
-										Content-Length: 4371
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 201 Created
+ Etag: bc27b0a9-d43a-4024-835c-fb1ab9bb4930
+ Content-Type: application/xml
+ Content-Length: 4371
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="application" href="//v1/applications/833" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="batch" href="//v1/applications/833/batch" />
  <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />

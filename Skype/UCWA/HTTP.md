@@ -1,17 +1,17 @@
 
 # HTTP
-The basic operations in are HTTP requests and responses.
+The basic operations in Microsoft Unified Communications Web API 2.0 are HTTP requests and responses.
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-The Hypertext Transfer Protocol (HTTP) is an application protocol that is the foundation of data communication for the web. leverages HTTP as an application protocol rather than as a transport protocol. The [HTTP RFC](http://www.w3.org/Protocols/rfc2616/rfc2616.mdl) defines the HTTP protocol in detail and contains several recommendations for clients and server components to follow. The protocol is based on the HTTP protocol but makes use of only a small subset of the features that are relevant for the API. For example, does not support HTTP verbs such as OPTIONS, HEAD, or TRACE, or many of the header names that are not relevant for the API. However, intermediate proxies and other edge servers might leverage other features of the HTTP protocol. The RFC provides more details about all of the verbs and headers that are defined for HTTP.
+The Hypertext Transfer Protocol (HTTP) is an application protocol that is the foundation of data communication for the web. Microsoft Unified Communications Web API 2.0 leverages HTTP as an application protocol rather than as a transport protocol. The [HTTP RFC](http://www.w3.org/Protocols/rfc2616/rfc2616.mdl) defines the HTTP protocol in detail and contains several recommendations for clients and server components to follow. The UCWA 2.0 protocol is based on the HTTP protocol but makes use of only a small subset of the features that are relevant for the API. For example, UCWA 2.0 does not support HTTP verbs such as OPTIONS, HEAD, or TRACE, or many of the header names that are not relevant for the API. However, intermediate proxies and other edge servers might leverage other features of the HTTP protocol. The RFC provides more details about all of the verbs and headers that are defined for HTTP.
 
 
 ## HTTP operations
 
-The follows the REST model for manipulating resources. The HTTP verbs POST, GET, PUT, and DELETE are used to create, read, update and delete resources. The create, read, update, and delete operations are sometimes referred to as CRUD ( **C**reate, **R**ead, **U**pdate, and **D**elete) operations.
+The Microsoft Unified Communications Web API 2.0 follows the REST model for manipulating resources. The HTTP verbs POST, GET, PUT, and DELETE are used to create, read, update and delete resources. The create, read, update, and delete operations are sometimes referred to as CRUD ( **C**reate, **R**ead, **U**pdate, and **D**elete) operations.
 
 
 ### POST
@@ -36,7 +36,7 @@ The DELETE verb is used to delete a resource. To delete a specific online meetin
 
 ## HTTP headers
 
- makes use of several HTTP headers. A brief explanation of relevant headers is provided here. For more information, see the [HTTP RFC](http://www.w3.org/Protocols/rfc2616/rfc2616.mdl).
+UCWA 2.0 makes use of several HTTP headers. A brief explanation of relevant headers is provided here. For more information, see the [HTTP RFC](http://www.w3.org/Protocols/rfc2616/rfc2616.mdl).
 
 
 - Accept - Used by clients to state which format is preferred in the response body of an HTTP operation.

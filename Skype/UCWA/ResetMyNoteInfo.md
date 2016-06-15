@@ -32,10 +32,11 @@ The steps here assume that you have already created an application and have rece
 
     {"SupportedModalities": ["Messaging"]}
     ```
+
 2. Process the response from the request in the previous step.
  
  The response you receive should be 204 No content, as shown here. 
-    
+ 
     ```
     HTTP/1.1 204 No Content
     Connection: Keep-Alive

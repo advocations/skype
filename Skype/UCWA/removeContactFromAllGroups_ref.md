@@ -47,18 +47,12 @@ Removes all group memberships that a contact belongs to.
 
 #### Query parameters
 
-
-|
-|
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |contactUri|The maximum length is 250 characters.|Yes|
 
 #### Request body
 
-
-|
-|
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |contactUri|The maximum length is 250 characters.|Yes|

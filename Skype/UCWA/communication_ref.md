@@ -151,13 +151,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 2e75ac4e-eb8a-4cfd-a2d5-473a440e05a3
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: 2e75ac4e-eb8a-4cfd-a2d5-473a440e05a3
 									
 ```
 
@@ -169,49 +167,49 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: fa99b354-8578-49c8-9846-e42efa21fd68
-										Content-Type: application/json
-										Content-Length: 852
-										{
- "simultaneousRingNumberMatch" : "Disabled",
- "rel" : "communication",
- "conversationHistory" : "Disabled",
- "phoneNumber" : "tel:+14255552222",
- "supportedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "supportedModalities" : [
- "PhoneAudio",
- "Messaging"
- ],
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication"
- },
- "conversationLogs" : {
- "href" : "//v1/applications/833/communication/conversationLogs"
- },
- "conversations" : {
- "href" : "//v1/applications/833/communication/conversations"
- },
- "joinOnlineMeeting" : {
- "href" : "//v1/applications/833/communication/joinOnlineMeeting"
- },
- "missedItems" : {
- "href" : "//v1/applications/833/communication/missedItems"
- },
- "startMessaging" : {
- "href" : "//v1/applications/833/communication/startMessaging"
- },
- "startOnlineMeeting" : {
- "href" : "//v1/applications/833/communication/startOnlineMeeting"
- },
- "startPhoneAudio" : {
- "href" : "//v1/applications/833/communication/startPhoneAudio"
- }
- }
+HTTP/1.1 200 OK
+Etag: fa99b354-8578-49c8-9846-e42efa21fd68
+Content-Type: application/json
+Content-Length: 852
+{
+"simultaneousRingNumberMatch" : "Disabled",
+"rel" : "communication",
+"conversationHistory" : "Disabled",
+"phoneNumber" : "tel:+14255552222",
+"supportedMessageFormats" : [
+"Plain",
+"Html"
+],
+"supportedModalities" : [
+"PhoneAudio",
+"Messaging"
+],
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication"
+},
+"conversationLogs" : {
+"href" : "//v1/applications/833/communication/conversationLogs"
+},
+"conversations" : {
+"href" : "//v1/applications/833/communication/conversations"
+},
+"joinOnlineMeeting" : {
+"href" : "//v1/applications/833/communication/joinOnlineMeeting"
+},
+"missedItems" : {
+"href" : "//v1/applications/833/communication/missedItems"
+},
+"startMessaging" : {
+"href" : "//v1/applications/833/communication/startMessaging"
+},
+"startOnlineMeeting" : {
+"href" : "//v1/applications/833/communication/startOnlineMeeting"
+},
+"startPhoneAudio" : {
+"href" : "//v1/applications/833/communication/startPhoneAudio"
+}
+}
 }
 									
 ```
@@ -221,13 +219,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: c7b6e188-96d6-4be8-9bc5-08efac31ba45
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: c7b6e188-96d6-4be8-9bc5-08efac31ba45
 									
 ```
 
@@ -239,31 +235,31 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 5362defe-6ebd-4274-8a18-ea521a43c291
-										Content-Type: application/xml
-										Content-Length: 1214
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Etag: 5362defe-6ebd-4274-8a18-ea521a43c291
+Content-Type: application/xml
+Content-Length: 1214
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="communication" href="//v1/applications/833/communication" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversationLogs" href="//v1/applications/833/communication/conversationLogs" />
- <link rel="conversations" href="//v1/applications/833/communication/conversations" />
- <link rel="joinOnlineMeeting" href="//v1/applications/833/communication/joinOnlineMeeting" />
- <link rel="missedItems" href="//v1/applications/833/communication/missedItems" />
- <link rel="startMessaging" href="//v1/applications/833/communication/startMessaging" />
- <link rel="startOnlineMeeting" href="//v1/applications/833/communication/startOnlineMeeting" />
- <link rel="startPhoneAudio" href="//v1/applications/833/communication/startPhoneAudio" />
- <property name="simultaneousRingNumberMatch">Disabled</property>
- <property name="rel">communication</property>
- <property name="conversationHistory">Disabled</property>
- <property name="phoneNumber">tel:+14255552222</property>
- <propertyList name="supportedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <propertyList name="supportedModalities">
- <item>PhoneAudio</item>
- <item>Messaging</item>
- </propertyList>
+<link rel="conversationLogs" href="//v1/applications/833/communication/conversationLogs" />
+<link rel="conversations" href="//v1/applications/833/communication/conversations" />
+<link rel="joinOnlineMeeting" href="//v1/applications/833/communication/joinOnlineMeeting" />
+<link rel="missedItems" href="//v1/applications/833/communication/missedItems" />
+<link rel="startMessaging" href="//v1/applications/833/communication/startMessaging" />
+<link rel="startOnlineMeeting" href="//v1/applications/833/communication/startOnlineMeeting" />
+<link rel="startPhoneAudio" href="//v1/applications/833/communication/startPhoneAudio" />
+<property name="simultaneousRingNumberMatch">Disabled</property>
+<property name="rel">communication</property>
+<property name="conversationHistory">Disabled</property>
+<property name="phoneNumber">tel:+14255552222</property>
+<propertyList name="supportedMessageFormats">
+<item>Plain</item>
+<item>Html</item>
+</propertyList>
+<propertyList name="supportedModalities">
+<item>PhoneAudio</item>
+<item>Messaging</item>
+</propertyList>
 </resource>
 									
 ```
@@ -303,26 +299,25 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Put https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										if-match: a373bf35-baf5-4086-814a-a0830629a162
-										Content-Length: 222
-										{
- "simultaneousRingNumberMatch" : "Disabled",
- "rel" : "communication",
- "conversationHistory" : "Disabled",
- "phoneNumber" : "tel:+14255552222",
- "supportedMessageFormats" : [
- "Plain",
- "Html"
- ],
- "supportedModalities" : [
- "PhoneAudio",
- "Messaging"
- ]
+Put https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+if-match: a373bf35-baf5-4086-814a-a0830629a162
+Content-Length: 222
+{
+"simultaneousRingNumberMatch" : "Disabled",
+"rel" : "communication",
+"conversationHistory" : "Disabled",
+"phoneNumber" : "tel:+14255552222",
+"supportedMessageFormats" : [
+"Plain",
+"Html"
+],
+"supportedModalities" : [
+"PhoneAudio",
+"Messaging"
+]
 }
 									
 ```
@@ -334,9 +329,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										
+HTTP/1.1 200 OK
 									
 ```
 
@@ -345,27 +338,26 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Put https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										if-match: 38a30f2e-4ca7-4603-80c0-33569e846d35
-										Content-Length: 530
-										<?xml version="1.0" encoding="utf-8"?>
+Put https://fe1.contoso.com:443//v1/applications/833/communication HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+if-match: 38a30f2e-4ca7-4603-80c0-33569e846d35
+Content-Length: 530
+<?xml version="1.0" encoding="utf-8"?>
 <resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="simultaneousRingNumberMatch">Disabled</property>
- <property name="rel">communication</property>
- <property name="conversationHistory">Disabled</property>
- <property name="phoneNumber">tel:+14255552222</property>
- <propertyList name="supportedMessageFormats">
- <item>Plain</item>
- <item>Html</item>
- </propertyList>
- <propertyList name="supportedModalities">
- <item>PhoneAudio</item>
- <item>Messaging</item>
- </propertyList>
+<property name="simultaneousRingNumberMatch">Disabled</property>
+<property name="rel">communication</property>
+<property name="conversationHistory">Disabled</property>
+<property name="phoneNumber">tel:+14255552222</property>
+<propertyList name="supportedMessageFormats">
+<item>Plain</item>
+<item>Html</item>
+</propertyList>
+<propertyList name="supportedModalities">
+<item>PhoneAudio</item>
+<item>Messaging</item>
+</propertyList>
 </resource>
 									
 ```
@@ -377,9 +369,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										
+HTTP/1.1 200 OK
 									
 ```
 

@@ -1,9 +1,10 @@
 
 # pinnedGroup 
 
- **Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+**Last modified:** July 14, 2015
+
+_**Applies to:** Skype for Business 2015_
 
 Represents a system-created group of contacts that the user pins or that the user frequently communicates and collaborates with. 
 
@@ -75,35 +76,35 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "people",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
- "events" : [
- {
- "link" : {
- "rel" : "contact",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
- },
- "in" : {
- "rel" : "pinnedGroup",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
- },
- "type" : "added"
- }
- ]
- }
- ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "contact",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+},
+"in" : {
+"rel" : "pinnedGroup",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
+},
+"type" : "added"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -126,31 +127,31 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "people",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
- "events" : [
- {
- "link" : {
- "rel" : "pinnedGroup",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "pinnedGroup",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
+},
+"type" : "updated"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -171,35 +172,35 @@ Sample of returned event data.
 ```
 
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "people",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people",
- "events" : [
- {
- "link" : {
- "rel" : "contact",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
- },
- "in" : {
- "rel" : "pinnedGroup",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
- },
- "type" : "deleted"
- }
- ]
- }
- ]
+"_links" : {
+"self" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+},
+"next" : {
+"href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
 }
-					
+},
+"sender" : [
+{
+"rel" : "people",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people",
+"events" : [
+{
+"link" : {
+"rel" : "contact",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/people/166"
+},
+"in" : {
+"rel" : "pinnedGroup",
+"href" : "https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup"
+},
+"type" : "deleted"
+}
+]
+}
+]
+}
+
 ```
 
 
@@ -248,12 +249,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
+
 ```
 
 
@@ -264,32 +265,32 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 471
-										{
- "rel" : "pinnedGroup",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/pinnedGroup"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "groupMemberships" : {
- "href" : "//v1/applications/833/groups/group/groupMemberships"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 471
+{
+"rel" : "pinnedGroup",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/pinnedGroup"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"groupMemberships" : {
+"href" : "//v1/applications/833/groups/group/groupMemberships"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
 }
-									
+}
+}
+
 ```
 
 
@@ -298,12 +299,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
+Get https://fe1.contoso.com:443//v1/applications/833/groups/pinnedGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
+
 ```
 
 
@@ -314,19 +315,19 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 680
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 680
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="pinnedGroup" href="//v1/applications/833/groups/pinnedGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">pinnedGroup</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
+<link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
+<link rel="groupContacts" href="//v1/applications/833/contacts" />
+<link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
+<link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
+<property name="rel">pinnedGroup</property>
+<property name="id">7</property>
+<property name="name">MyPersonalGroup</property>
 </resource>
-									
+
 ```
 

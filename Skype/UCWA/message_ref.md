@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+ 
 Represents an instant message sent or received by the local participant. 
 
 ## Web Link
@@ -161,7 +162,7 @@ The **completed** event is sent on the event channel when the operation is finis
 It is recommended that applications handle the error codes shown here. Applications can optionally display subcodes and messages in their user interface.
 
 
-- Conflict
+##### Conflict
  
 
 |**Subcode**|**Reason**|
@@ -170,26 +171,30 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|The request was too large.|
 |None|Un-supported Service/Resource/API error.|
 |TooManyGroups|The too many groups error.|
-- EntityTooLarge
+
+##### EntityTooLarge
  
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |None|The request was too large.|
-- Informational
+
+##### Informational
  
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |Ended|The online meeting has ended.|
-- RemoteFailure
+
+##### RemoteFailure
  
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |NotAllowed|The message body was not understood by the remote participant.|
 |Timeout|The operation has timed out on the callee's end.|
-- ServiceFailure
+
+##### ServiceFailure
  
 
 |**Subcode**|**Reason**|
@@ -242,11 +247,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -258,10 +263,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 754
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 754
+ {
  "rel" : "message",
  "direction" : "Incoming",
  "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
@@ -302,11 +307,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -318,10 +323,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1029
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 1029
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="message" href="//v1/applications/316/communication/conversations/271/messaging/messages/142" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
  <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />

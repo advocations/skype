@@ -78,14 +78,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/decline HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 18
-										{
- "reason" : "Local"
+Post https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/decline HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 18
+{
+"reason" : "Local"
 }
 									
 ```
@@ -97,9 +96,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 204 No Content
-										
+HTTP/1.1 204 No Content
 									
 ```
 
@@ -108,15 +105,14 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/decline HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 147
-										<?xml version="1.0" encoding="utf-8"?>
+Post https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/decline HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 147
+<?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="reason">Local</property>
+<property name="reason">Local</property>
 </input>
 									
 ```
@@ -128,9 +124,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+HTTP/1.1 204 No Content
 
-										HTTP/1.1 204 No Content
-										
-									
 ```
 

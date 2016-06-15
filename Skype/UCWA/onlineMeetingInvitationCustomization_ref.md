@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 Represents the recommended custom values to use when an [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) is sent.
 
 ## Web Link
@@ -93,11 +94,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -109,10 +110,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 484
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 484
+ {
  "rel" : "onlineMeetingInvitationCustomization",
  "enterpriseHelpUrl" : "http://meet.contoso.com/firstimehelp.html",
  "invitationFooterText" : "The information contained in this meeting invitation is confidential.",
@@ -134,11 +135,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -150,10 +151,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 755
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 755
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="onlineMeetingInvitationCustomization" href="//v1/applications/833/onlineMeetings/onlineMeetingInvitationCustomization" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">onlineMeetingInvitationCustomization</property>
  <property name="enterpriseHelpUrl">http://meet.contoso.com/firstimehelp.html</property>

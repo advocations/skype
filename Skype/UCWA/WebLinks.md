@@ -1,6 +1,6 @@
 
 # Web links
-Web links are the key to resource navigation in .
+Web links are the key to resource navigation in UCWA 2.0.
 
  **Last modified:** April 07, 2015
 

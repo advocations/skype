@@ -1,13 +1,13 @@
 
 # Authentication using Azure AD
-Learn how a online application authenticates a user with Azure AD to access Skype for Business resources.
+Learn how a UCWA 2.0 online application authenticates a user with Azure AD to access Skype for Business resources.
 
  **Last modified:** March 22, 2016
 
-In order for your application to access Skype for Business resources (such as messaging or presence), it needs to obtain an access token using implicit grant flow. This token gives the application permission to access the resource.
+In order for your UCWA 2.0 application to access Skype for Business resources (such as messaging or presence), it needs to obtain an access token using implicit grant flow. This token gives the application permission to access the resource.
 
 
- > Note: If your application authenticates against an online server, you must follow the Azure AD authorization flow as described in this article. If the application authenticates against an on-premises server, this step is not necessary, and you should follow the steps in [Authentication in UCWA](https://msdn.microsoft.com/EN-US/library/dn356686%28v=office.16%29.aspx).
+>Note: If your application authenticates against an online server, you must follow the Azure AD authorization flow as described in this article. If the application authenticates against an on-premises server, this step is not necessary, and you should follow the steps in [Authentication in UCWA](https://msdn.microsoft.com/EN-US/library/dn356686%28v=office.16%29.aspx).
 
 The authentication and authorization flow comprises the following steps:
 
@@ -109,10 +109,10 @@ For example, the access token request might look like the following:
 ```
 GET https://login.microsoftonline.com/oauth2/authorize?
 response_type=id_token
-&amp;client_id=aeadda0b-4350-4668-a457-359c60427122
-&amp;redirect_uri=https%3A%2F%2Flocalhost%3A44326%2F
-&amp;state=8f0f4eff-360f-4c50-acf0-99cf8174a58b
-&amp;resource=webdirX.online.lync.com 
+&client_id=aeadda0b-4350-4668-a457-359c60427122
+&redirect_uri=https%3A%2F%2Flocalhost%3A44326%2F
+&state=8f0f4eff-360f-4c50-acf0-99cf8174a58b
+&resource=webdirX.online.lync.com 
 HTTP/1.1
 ```
 
@@ -125,14 +125,16 @@ The GET request to the Azure AD authorization endpoint has the following format:
 ```
 GET https://login.microsoftonline.com/oauth2/authorize?
 response_type=id_token
-&amp;client_id=<your-application's-client-id>
-&amp;redirect_uri=<reply-uri-for-your-app>
-&amp;state=<unique-string-to-track-requests>
-&amp;resource=webdirX.online.lync.com 
+&client_id=<your-application's-client-id>
+&redirect_uri=<reply-uri-for-your-app>
+&state=<unique-string-to-track-requests>
+&resource=webdirX.online.lync.com 
 HTTP/1.1
 ```
 
 The following table describes the valid parameters in the request:
+
+
 
 
 |**Parameter**|**Description**|
@@ -163,6 +165,8 @@ The response to a request for an access token has the following format:
 ```
 
 The access token response contains the following parameters:
+
+
 
 
 |**Parameter**|**Description**|

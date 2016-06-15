@@ -135,7 +135,6 @@
 ###### [Trace and debug tools](UCWA/TraceAndDebugTools.md)
 
 #### [UCWA 2.0 API reference](UCWA/UCWA2_0APIReference.md)
-##### [Resource list](UCWA/ResourceList.md)
 ##### [UCWA resources](UCWA/UCWAResources.md)
 
 ###### [accept](UCWA/accept_ref.md)

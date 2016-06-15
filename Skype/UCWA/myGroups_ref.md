@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 A collection of groups in the contact list of the logged-on user. 
 
 ## Web Link
@@ -213,11 +214,11 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/groups HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -229,10 +230,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 5108
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 5108
+ {
  "rel" : "myGroups",
  "_links" : {
  "self" : {
@@ -487,11 +488,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/groups HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -503,10 +504,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 6503
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 6503
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myGroups" href="//v1/applications/833/groups" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="distributionGroup" href="//v1/applications/833/groups/distributionGroup" />
  <link rel="group" href="//v1/applications/833/groups/group" />

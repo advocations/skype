@@ -75,6 +75,7 @@ The steps here assume that you have already created an application and have rece
     },
     "rel":"myGroups"
     }
+
     ```
 
 3. Send a POST request on a **subscribeToGroupPresence** link that was received in the previous response.
@@ -97,37 +98,6 @@ The steps here assume that you have already created an application and have rece
  
  The successful response is 201 Created. The body of the response contains a link to the created presence subscription.
  
-<<<<<<< Updated upstream
-
-
- ```
- HTTP/1.1 201 Created
-Connection: Keep-Alive
-Content-Length: 852
-Date: Thu, 17 Jan 2013 00:04:19 GMT
-Content-Type: application/json; charset=utf-8
-Server: Microsoft-IIS/7.5
-Cache-Control: no-cache
-X-AspNet-Version: 4.0.30319
-X-MS-Server-Fqdn: W15-LYNC-SE1.contoso.com
-X-Powered-By: ASP.NET
-
-{
- "id":"default_group_id",
- "_links":{
- "self":{
- "href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptions/default_group_id"},
- "memberships":{
- "href":"/ucwa/oauth/v1/applications/101/people/presenceSubscriptionMemberships?presenceSubscriptionId=pres_sub_id"}
- },
- "rel":"presenceSubscription"
-}
-
- ```
-
-
-
-=======
     ```
     HTTP/1.1 201 Created
     Connection: Keep-Alive
@@ -150,9 +120,7 @@ X-Powered-By: ASP.NET
     },
     "rel":"presenceSubscription"
     }
-
     ```
->>>>>>> Stashed changes
 
 ## Receive Presence Data from the Event Channel
 
@@ -183,7 +151,6 @@ To get the actual presence data that appears in the event channel, start the eve
     }
     ]
     }
-
     ```
 An application should listen for an **updated** event for the **presenceSubscription** resource. This can indicate that the subscription is about to expire.
  

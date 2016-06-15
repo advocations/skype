@@ -109,14 +109,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/people/339 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: 014c5652-d92b-4347-893c-2e4018b2a7fd
 
-										Get https://fe1.contoso.com:443//v1/applications/833/people/339 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 014c5652-d92b-4347-893c-2e4018b2a7fd
-										
-									
 ```
 
 
@@ -126,12 +124,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: ce814445-60a9-4c03-85d0-3c4c2e19eac9
-										Content-Type: application/json
-										Content-Length: 1082
-										{
+ HTTP/1.1 200 OK
+ Etag: ce814445-60a9-4c03-85d0-3c4c2e19eac9
+ Content-Type: application/json
+ Content-Length: 1082
+ {
  "rel" : "forwardedBy",
  "company" : "Contoso Corp.",
  "department" : "Engineering",
@@ -181,14 +178,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/people/339 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: 5de72a0e-6e20-430c-9b68-afd0b0319754
 
-										Get https://fe1.contoso.com:443//v1/applications/833/people/339 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 5de72a0e-6e20-430c-9b68-afd0b0319754
-										
-									
 ```
 
 
@@ -198,13 +193,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: 1e872fe0-18b0-4a6b-9859-7beacaf3c127
-										Content-Type: application/xml
-										Content-Length: 1602
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="forwardedBy" href="//v1/applications/833/people/339" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ HTTP/1.1 200 OK
+ Etag: 1e872fe0-18b0-4a6b-9859-7beacaf3c127
+ Content-Type: application/xml
+ Content-Length: 1602
+ <?xml version="1.0" encoding="utf-8"?>
+ <resource rel="forwardedBy" href="//v1/applications/833/people/339" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
  <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
  <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />

@@ -1,12 +1,12 @@
 
 # Me dashboard
-The **me** resource acts as a dashboard that represents the user of a application.
+The **me** resource acts as a dashboard that represents the user of a Microsoft Unified Communications Web API 2.0 application.
 
  **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
-The [me](me_ref.md) resource contains data that pertains to a user of a application.
+The [me](me_ref.md) resource contains data that pertains to a user of a UCWA 2.0 application.
 
 ## Resource representation
 <a name="sectionSection0"> </a>
@@ -15,7 +15,6 @@ The following table contains a representation of the **me** resource.
 
 
 **Property bag**
-
 ```
 "rel" : "me",
 "department" : "Sales",
@@ -27,7 +26,6 @@ The following table contains a representation of the **me** resource.
 }
 
 ```
-
 
 **Links**
 ```
@@ -62,7 +60,7 @@ The following table contains a representation of the **me** resource.
 ```
 
 
-> Note: All of the preceding links other than [presence](presence_ref.md), [note](note_ref.md), and [location](location_ref.md) are available on application creation. These three are unavailable because the user is not available to communicate and is therefore not sharing this information with others yet. To get the user's current presence, location and note, the application should indicate availability for incoming communications by invoking [makeMeAvailable](makeMeAvailable_ref.md). If an application is created with anonymous credentials, only the user's URI and name are exposed.
+All of the preceding links other than [presence](presence_ref.md), [note](note_ref.md), and [location](location_ref.md) are available on application creation. These three are unavailable because the user is not available to communicate and is therefore not sharing this information with others yet. To get the user's current presence, location and note, the application should indicate availability for incoming communications by invoking [makeMeAvailable](makeMeAvailable_ref.md). If an application is created with anonymous credentials, only the user's URI and name are exposed.
 
 By invoking the **makeMeAvailable** resource, the user indicates her availability for communication from the application, and also indicates the modalities supported for incoming calls.
 
@@ -83,7 +81,7 @@ For example, if no activity is reported for a certain period (specifically inact
 
 ![How user activity or inactivity can influence application lifetime](images/UCWA15Con_DashboardTopology.png)
 
-> Note: Availability in this case is only the availability of the user from the current application, and not overall availability. The user could be active on another application.
+>Note: Availability in this case is only the availability of the user from the current application, and not overall availability. The user could be active on another application.
 
 If the application is unused (no use of **reportMyActivity**) and the user is not participating in calls, the application is terminated on the server. Additionally, if the server does not receive a new event channel request 15 minutes after the previous request was released, it assumes the client has lost connectivity and terminates the application.
 
@@ -95,20 +93,20 @@ A [photo](photo_ref.md) link allows the application to fetch the user's photo. T
 
 Applications can indicate the preferred size of the photo by including it as a query parameter when making the request. If a photo of that size is not present, a photo with a lower resolution is returned. The photos are compressed JPEG, and the sizes can vary from 2 Kb to 100 Kb. If the application is not written for browsers, then client application authors are advised to build a cache management framework to optimize photo fetch and download.
 
- provides the following two headers for cache validation:
+UCWA 2.0 provides the following two headers for cache validation:
 
 
 1. Etag: can be used to decide if the content of the photo resource has changed. Subsequent fetches can include the value of this header in the 'If-None-Match' header of the request. If the photo is unchanged, a response code of 304 Not Modified is returned by the server.
  
 2. Expires: indicates for how long this resource can be considered current, so that the application need not attempt to fetch the photo until the time is elapsed. If the photo is displayed in a page and the fetch is controlled by the browser, then a page refresh can result in a photo request and this header might help to tell the browser to avoid sending an unneeded request.
  
- will not serve a photo link without some sort of authorization. The security token, discussed in [Authentication in UCWA](AuthenticationInUCWA.md), is the typical choice for requests. However, a browser-based application may render the image by embedding it in the DOM; since browsers cannot add headers to such requests, the server offers a cookie-based mechanism. The cookie has an expiration time that is closely tied to the expiration of the token. Because of this, the application that refreshes the token is responsible for ensuring that the cookie is fresh as well, so the browser fetch will continue to work. An existing application should perform a get on the [application](application_ref.md) resource to refresh the cookie, while a new application receives its cookie upon application creation (POST to [applications](applications_ref.md)).
+UCWA 2.0 will not serve a photo link without some sort of authorization. The security token, discussed in [Authentication in UCWA](AuthenticationInUCWA.md), is the typical choice for UCWA 2.0 requests. However, a browser-based application may render the image by embedding it in the DOM; since browsers cannot add headers to such requests, the server offers a cookie-based mechanism. The cookie has an expiration time that is closely tied to the expiration of the token. Because of this, the application that refreshes the token is responsible for ensuring that the cookie is fresh as well, so the browser fetch will continue to work. An existing application should perform a get on the [application](application_ref.md) resource to refresh the cookie, while a new application receives its cookie upon application creation (POST to [applications](applications_ref.md)).
 
 
 ## phones
 <a name="sectionSection3"> </a>
 
-The [phones](phones_ref.md) resource contains all the phone numbers configured for the user. The user can share these numbers with other contacts. Currently the API supports one phone number in each of the following categories: work, mobile, home, and other. A user can modify a phone number via based on the presence of the [changeNumber](changeNumber_ref.md) resource. If any of the phone types is configured in Active Directory Domain Services (AD DS), it can only be modified by the system administrator, not from . The absence of the **changeNumber** link will indicate this.
+The [phones](phones_ref.md) resource contains all the phone numbers configured for the user. The user can share these numbers with other contacts. Currently the API supports one phone number in each of the following categories: work, mobile, home, and other. A user can modify a phone number via UCWA 2.0 based on the presence of the [changeNumber](changeNumber_ref.md) resource. If any of the phone types is configured in Active Directory Domain Services (AD DS), it can only be modified by the system administrator, not from UCWA 2.0. The absence of the **changeNumber** link will indicate this.
 
 
 ## location
@@ -126,7 +124,7 @@ Availability indicates how ready the user is for communication and includes the 
 
 Activity indicates how the user is occupied. Examples include in-a-meeting, urgent-interruptions-only, in-a-call, presenting, in-a-conference and off-work. Activity can be well known tokens that can be localized by the application for all languages that it supports. Activity can also be a custom token set by other clients such as the Microsoft Lync desktop client. 
 
-At present supports display of custom tokens, but not publishing. A custom presence includes culture information to allow the client to compare the user's preferred culture and choose the appropriate custom presence. The client application can try to localize the activity token upon receiving it and will show it without any changes if it cannot localize. 
+At present UCWA 2.0 supports display of custom tokens, but not publishing. A custom presence includes culture information to allow the client to compare the user's preferred culture and choose the appropriate custom presence. The client application can try to localize the activity token upon receiving it and will show it without any changes if it cannot localize. 
 
 It is possible for the user to change availability. Notifications will be sent to all applications the user is logged in on, and also to other contacts who are subscribed to the user's presence. 
 
@@ -134,7 +132,7 @@ It is possible for the user to change availability. Notifications will be sent t
 ## note
 <a name="sectionSection6"> </a>
 
-A [note](note_ref.md) resource represents a short message that the user can set for other people to read. They can be personal messages such as 'Such a pleasant day!' or 'Go Team!', or a professional Out Of Office message that is usually set on Exchange Server. The type of the note indicates the intent so they can be rendered accordingly. While allows for viewing of both note types, it can be used to set personal notes only.
+A [note](note_ref.md) resource represents a short message that the user can set for other people to read. They can be personal messages such as 'Such a pleasant day!' or 'Go Team!', or a professional Out Of Office message that is usually set on Exchange Server. The type of the note indicates the intent so they can be rendered accordingly. While UCWA 2.0 allows for viewing of both note types, it can be used to set personal notes only.
 
 
 ## Setting call forwarding rules

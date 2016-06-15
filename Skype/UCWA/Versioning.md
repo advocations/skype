@@ -1,6 +1,6 @@
 
 # Versioning
- interfaces uses link-relations to express capabilities supported by the server and client to discover those capabilities - this is in line with HATEOAS (Hypertext as the engine of application state) principle. New capabilities can be introduced by adding new link-relations, but there will be times when the platform will have to extend existing link-relations with additional semantics without breaking backward compatibility.
+UCWA interfaces uses link-relations to express capabilities supported by the server and client to discover those capabilities - this is in line with HATEOAS (Hypertext as the engine of application state) principle. New capabilities can be introduced by adding new link-relations, but there will be times when the UCWA platform will have to extend existing link-relations with additional semantics without breaking backward compatibility.
 
  **Last modified:** April 12, 2015
 
@@ -11,15 +11,15 @@
 
 ## Versioning Rules
 
- follows particular rules to help a client discover when an existing link-relation is revised with additional properties/semantics so that latest client can take advantage of the latest features, and also to recognize when the latest client is talking to an older server.
+UCWA follows particular rules to help a client discover when an existing link-relation is revised with additional properties/semantics so that latest client can take advantage of the latest features, and also to recognize when the latest client is talking to an older server.
 
 
 ### Scheme
 
- versioning scheme exists to allow each link-relation/Resource to evolve (version) independently with following rules:
+UCWA versioning scheme exists to allow each link-relation/Resource to evolve (version) independently with following rules:
 
 
-- The server will use 'revision' attribute to indicate the version of REL/Resource available: `<link rel="contacts" revision="2" />`
+- The UCWA server will use 'revision' attribute to indicate the version of REL/Resource available: `<link rel="contacts" revision="2" />`
  
 - Lack of revision attribute will imply `version=1` (i.e. the first version when the REL/resource was introduced)
  
@@ -40,7 +40,7 @@
 
 ## Version Targeting
 
-If the client is looking to implement/consume a particular version (for example, '3') of a REL (for example, 'Contacts') then the client MUST do all of the following:
+If theUCWA client is looking to implement/consume a particular version (for example, '3') of a REL (for example, 'Contacts') then the client MUST do all of the following:
 
 
 - The client must validate the capability is available by checking if `<link rel="Contacts" />` is present
@@ -84,5 +84,5 @@ Content-Type: application/vnd.microsoft.ucwa+xml
 
 Resources that are extended with properties as part of subsequent revisions will return the latest version of resource supported by the server, regardless of the client's requested version. The client is expected to handle unknown properties and play back the full resource representation with a `PUT` request.
 
-All responses include the header named `'X-MS-UcwaVersion'` that identifies the resource-revision that the server served for a given request.
+All UCWA responses include the header named `'X-MS-UcwaVersion'` that identifies the resource-revision that the server served for a given request.
 

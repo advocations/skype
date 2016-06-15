@@ -5,7 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-Represents a persistent, system-created group where a user's contacts are placed by default. 
+ Represents a persistent, system-created group where a user's contacts are placed by default. 
 
 ## Web Link
 <a name="sectionSection0"> </a>
@@ -73,7 +73,6 @@ This sample is given only as an illustration of event syntax. The semantic conte
 
 
 ```
-
 {
  "_links" : {
  "self" : {
@@ -247,13 +246,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/groups/defaultGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/defaultGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
-									
 ```
 
 
@@ -263,31 +260,30 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 473
-										{
- "rel" : "defaultGroup",
- "id" : "7",
- "name" : "MyPersonalGroup",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/groups/defaultGroup"
- },
- "expandDistributionGroup" : {
- "href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
- },
- "groupContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "groupMemberships" : {
- "href" : "//v1/applications/833/groups/group/groupMemberships"
- },
- "subscribeToGroupPresence" : {
- "href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 473
+{
+"rel" : "defaultGroup",
+"id" : "7",
+"name" : "MyPersonalGroup",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/groups/defaultGroup"
+},
+"expandDistributionGroup" : {
+"href" : "//v1/applications/833/groups/distributionGroup/expandDistributionGroup"
+},
+"groupContacts" : {
+"href" : "//v1/applications/833/contacts"
+},
+"groupMemberships" : {
+"href" : "//v1/applications/833/groups/group/groupMemberships"
+},
+"subscribeToGroupPresence" : {
+"href" : "//v1/applications/833/groups/group/subscribeToGroupPresence"
+}
+}
 }
 									
 ```
@@ -297,13 +293,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/groups/defaultGroup HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/groups/defaultGroup HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -313,19 +307,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 683
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 683
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="defaultGroup" href="//v1/applications/833/groups/defaultGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
- <link rel="groupContacts" href="//v1/applications/833/contacts" />
- <link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
- <link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
- <property name="rel">defaultGroup</property>
- <property name="id">7</property>
- <property name="name">MyPersonalGroup</property>
+<link rel="expandDistributionGroup" href="//v1/applications/833/groups/distributionGroup/expandDistributionGroup" />
+<link rel="groupContacts" href="//v1/applications/833/contacts" />
+<link rel="groupMemberships" href="//v1/applications/833/groups/group/groupMemberships" />
+<link rel="subscribeToGroupPresence" href="//v1/applications/833/groups/group/subscribeToGroupPresence" />
+<property name="rel">defaultGroup</property>
+<property name="id">7</property>
+<property name="name">MyPersonalGroup</property>
 </resource>
 									
 ```

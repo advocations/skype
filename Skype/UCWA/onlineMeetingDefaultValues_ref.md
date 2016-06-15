@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+ 
 Represents the values of [myOnlineMeeting](myOnlineMeeting_ref.md) properties if not specified at scheduling time.
 
 ## Web Link
@@ -94,11 +95,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -110,10 +111,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 343
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 343
+ {
  "rel" : "onlineMeetingDefaultValues",
  "accessLevel" : "None",
  "automaticLeaderAssignment" : "Disabled",
@@ -136,11 +137,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -152,10 +153,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 631
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 631
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="onlineMeetingDefaultValues" href="//v1/applications/833/onlineMeetings/onlineMeetingDefaultValues" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">onlineMeetingDefaultValues</property>
  <property name="accessLevel">Locked</property>

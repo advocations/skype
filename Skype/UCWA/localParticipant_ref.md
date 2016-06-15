@@ -252,12 +252,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -268,11 +266,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 1540
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 1540
+ {
  "rel" : "localParticipant",
  "anonymous" : true,
  "name" : "Joe Smith",
@@ -332,12 +329,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665 HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -348,12 +343,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1960
-										<?xml version="1.0" encoding="utf-8"?>
-<resource rel="localParticipant" href="//v1/applications/833/communication/conversations/802/onlineMeeting/665" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 1960
+ <?xml version="1.0" encoding="utf-8"?>
+ <resource rel="localParticipant" href="//v1/applications/833/communication/conversations/802/onlineMeeting/665" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="contact" href="//v1/applications/833/people/166" />
  <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
  <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />

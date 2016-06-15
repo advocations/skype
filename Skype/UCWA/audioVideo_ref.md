@@ -145,12 +145,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -161,26 +159,25 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 410
-										{
- "rel" : "audioVideo",
- "state" : "Transferring",
- "supportsReplaces" : "None",
- "videoSourcesAllowed" : "PresentersOnly",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/audioVideo"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "videoLockedOnParticipant" : {
- "href" : "//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 410
+{
+"rel" : "audioVideo",
+"state" : "Transferring",
+"supportsReplaces" : "None",
+"videoSourcesAllowed" : "PresentersOnly",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/conversations/802/audioVideo"
+},
+"conversation" : {
+"href" : "//v1/applications/833/communication/conversations/802"
+},
+"videoLockedOnParticipant" : {
+"href" : "//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant"
+}
+}
 }
 									
 ```
@@ -190,12 +187,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/audioVideo HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 									
 ```
 
@@ -206,18 +201,17 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 622
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 622
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="audioVideo" href="//v1/applications/833/communication/conversations/802/audioVideo" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="videoLockedOnParticipant" href="//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant" />
- <property name="rel">audioVideo</property>
- <property name="state">Connected</property>
- <property name="supportsReplaces">None</property>
- <property name="videoSourcesAllowed">PresentersOnly</property>
+<link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+<link rel="videoLockedOnParticipant" href="//v1/applications/833/communication/conversations/802/audioVideo/videoLockedOnParticipant" />
+<property name="rel">audioVideo</property>
+<property name="state">Connected</property>
+<property name="supportsReplaces">None</property>
+<property name="videoSourcesAllowed">PresentersOnly</property>
 </resource>
 									
 ```

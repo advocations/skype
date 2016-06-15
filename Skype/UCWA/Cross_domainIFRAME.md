@@ -6,7 +6,7 @@ Learn about how cross-domain **iframe** can be used to safely circumvent browser
 
  _**Applies to:** Skype for Business 2015_
 
-Web applications that interact with resources require a cross-domain **iframe** for all HTTP requests sent to . The cross-domain **iframe** is needed to securely bypass the same-origin policy that is enforced by most modern browsers.
+Web applications that interact with UCWA 2.0 resources require a cross-domain **iframe** for all HTTP requests sent to UCWA 2.0. The cross-domain **iframe** is needed to securely bypass the same-origin policy that is enforced by most modern browsers.
 
 ## Embedding the cross-domain frame
 <a name="sectionSection0"> </a>
@@ -111,5 +111,5 @@ Web applications that take a dependency on the cross-domain **iframe** are requi
 ## Browser compatibility
 <a name="sectionSection3"> </a>
 
-Although Internet Explorer 8 has an implementation of the HTML 5 **postMessage** function, it is not compatible with the cross-domain frame that uses. Internet Explorer 9 and Internet Explorer 10 are both supported, as are the latest versions of Chrome, Safari, and Firefox. For more details on browser compatibility, see [Supported Platforms for Lync Web App for Lync 2013](http://technet.microsoft.com/en-us/library/gg425820.aspx).
+Although Internet Explorer 8 has an implementation of the HTML 5 **postMessage** function, it is not compatible with the cross-domain frame that UCWA 2.0 uses. Internet Explorer 9 and Internet Explorer 10 are both supported, as are the latest versions of Chrome, Safari, and Firefox. For more details on browser compatibility, see [Supported Platforms for Lync Web App for Lync 2013](http://technet.microsoft.com/en-us/library/gg425820.aspx).
 

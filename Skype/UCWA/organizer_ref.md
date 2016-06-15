@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 Represents the organizer of the online meeting. 
 
 ## Web Link
@@ -84,12 +85,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/organizer HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: d423e123-f9e1-45d3-93f1-af4fdbd6badd
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/organizer HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ if-none-match: d423e123-f9e1-45d3-93f1-af4fdbd6badd
+ 
 									
 ```
 
@@ -101,11 +102,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 81197869-ca47-4c83-9d54-e38e023d55f3
-										Content-Type: application/json
-										Content-Length: 1078
-										{
+ HTTP/1.1 200 OK
+ Etag: 81197869-ca47-4c83-9d54-e38e023d55f3
+ Content-Type: application/json
+ Content-Length: 1078
+ {
  "rel" : "contact",
  "company" : "Contoso Corp.",
  "department" : "Engineering",
@@ -156,12 +157,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/organizer HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: f48c6e45-3d1a-4ce1-8009-45038653e110
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/organizer HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ if-none-match: f48c6e45-3d1a-4ce1-8009-45038653e110
+ 
 									
 ```
 
@@ -173,11 +174,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 20f4169a-e9bc-4b18-b402-9c0472821c96
-										Content-Type: application/xml
-										Content-Length: 1594
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Etag: 20f4169a-e9bc-4b18-b402-9c0472821c96
+ Content-Type: application/xml
+ Content-Length: 1594
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="contact" href="//v1/applications/833/people/166" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
  <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />

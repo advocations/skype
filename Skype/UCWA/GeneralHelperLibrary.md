@@ -58,7 +58,7 @@ function decodeMessage(message) {
 
 ### Remarks
 
-In , Data URIs are used to transmit instant message bodies. For more information about Data URIs, see [the "data" URL scheme](http://tools.ietf.org/html/rfc2397).
+In UCWA 2.0, Data URIs are used to transmit instant message bodies. For more information about Data URIs, see [the "data" URL scheme](http://tools.ietf.org/html/rfc2397).
 
 
 ## extractOriginFromAbsoluteUrl(url)

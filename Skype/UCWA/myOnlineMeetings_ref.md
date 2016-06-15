@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 Represents the set of [myOnlineMeeting](myOnlineMeeting_ref.md)s currently on the user's calendar. 
 
 ## Web Link
@@ -86,11 +87,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -102,10 +103,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 2730
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 2730
+ {
  "rel" : "myOnlineMeetings",
  "_links" : {
  "self" : {
@@ -142,11 +143,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -158,10 +159,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 3895
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 3895
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myOnlineMeetings" href="//v1/applications/833/onlineMeetings/myOnlineMeetings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">myOnlineMeetings</property>
  <resource rel="myAssignedOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/318">
@@ -273,13 +274,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 511
-										{
+ Post https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/json
+ Accept: application/json
+ Content-Length: 511
+ {
  "accessLevel" : "Locked",
  "attendees" : [
  "sip:johndoe@contoso.com",
@@ -308,11 +309,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: ad207a38-2c52-4443-9b01-8228f44c1eb7
-										Content-Type: application/json
-										Content-Length: 1277
-										{
+ HTTP/1.1 201 Created
+ Etag: ad207a38-2c52-4443-9b01-8228f44c1eb7
+ Content-Type: application/json
+ Content-Length: 1277
+ {
  "rel" : "myOnlineMeeting",
  "accessLevel" : "SameEnterprise",
  "attendees" : [
@@ -368,13 +369,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 914
-										<?xml version="1.0" encoding="utf-8"?>
+ Post https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/xml
+ Accept: application/xml
+ Content-Length: 914
+ <?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="accessLevel">Invited</property>
  <propertyList name="attendees">
@@ -404,11 +405,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: edcfd822-4ebf-45e1-b2fa-a9e7a36e8ee4
-										Content-Type: application/xml
-										Content-Length: 1901
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 201 Created
+ Etag: edcfd822-4ebf-45e1-b2fa-a9e7a36e8ee4
+ Content-Type: application/xml
+ Content-Length: 1901
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" />
  <property name="rel">myOnlineMeeting</property>

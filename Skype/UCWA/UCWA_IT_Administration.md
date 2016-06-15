@@ -1,6 +1,6 @@
 
 # UCWA IT Administration
-Web application administrators can learn about the architecture and topologies.
+Web application administrators can learn about the Microsoft Unified Communications Web API 2.0 architecture and topologies.
 
  **Last modified:** April 07, 2015
 

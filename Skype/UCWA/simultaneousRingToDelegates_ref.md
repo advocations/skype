@@ -1,9 +1,9 @@
 
 # simultaneousRingToDelegates 
 
- **Last modified:** July 14, 2015
+**Last modified:** July 14, 2015
 
- _**Applies to:** Skype for Business 2015_
+_**Applies to:** Skype for Business 2015_
 
 Simultaneously send all incoming calls to a user's delegates in addition to the user. 
 
@@ -92,11 +92,11 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -107,9 +107,9 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 
 
@@ -118,11 +118,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
-									
+Post https://fe1.contoso.com:443//v1/applications/833/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+
+
 ```
 
 
@@ -133,8 +133,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
-									
+HTTP/1.1 204 No Content
+
+
 ```
 

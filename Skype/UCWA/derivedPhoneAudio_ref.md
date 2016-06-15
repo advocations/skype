@@ -83,12 +83,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/derivedPhoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+Get https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/derivedPhoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
 									
 ```
 
@@ -99,33 +97,32 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 559
-										{
- "rel" : "phoneAudio",
- "state" : "Connecting",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/phoneAudio"
- },
- "addPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/addPhoneAudio"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "holdPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/holdPhoneAudio"
- },
- "resumePhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/resumePhoneAudio"
- },
- "stopPhoneAudio" : {
- "href" : "//v1/applications/833/communication/phoneAudio/stopPhoneAudio"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 559
+{
+"rel" : "phoneAudio",
+"state" : "Connecting",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/communication/phoneAudio"
+},
+"addPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/addPhoneAudio"
+},
+"conversation" : {
+"href" : "//v1/applications/833/communication/conversations/802"
+},
+"holdPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/holdPhoneAudio"
+},
+"resumePhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/resumePhoneAudio"
+},
+"stopPhoneAudio" : {
+"href" : "//v1/applications/833/communication/phoneAudio/stopPhoneAudio"
+}
+}
 }
 									
 ```
@@ -135,13 +132,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
+Get https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/derivedPhoneAudio HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/invitations/630/derivedPhoneAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
-									
 ```
 
 
@@ -151,19 +146,18 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 751
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 751
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="phoneAudio" href="//v1/applications/833/communication/phoneAudio" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="addPhoneAudio" href="//v1/applications/833/communication/phoneAudio/addPhoneAudio" />
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="holdPhoneAudio" href="//v1/applications/833/communication/phoneAudio/holdPhoneAudio" />
- <link rel="resumePhoneAudio" href="//v1/applications/833/communication/phoneAudio/resumePhoneAudio" />
- <link rel="stopPhoneAudio" href="//v1/applications/833/communication/phoneAudio/stopPhoneAudio" />
- <property name="rel">phoneAudio</property>
- <property name="state">Connected</property>
+<link rel="addPhoneAudio" href="//v1/applications/833/communication/phoneAudio/addPhoneAudio" />
+<link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
+<link rel="holdPhoneAudio" href="//v1/applications/833/communication/phoneAudio/holdPhoneAudio" />
+<link rel="resumePhoneAudio" href="//v1/applications/833/communication/phoneAudio/resumePhoneAudio" />
+<link rel="stopPhoneAudio" href="//v1/applications/833/communication/phoneAudio/stopPhoneAudio" />
+<property name="rel">phoneAudio</property>
+<property name="state">Connected</property>
 </resource>
 									
 ```

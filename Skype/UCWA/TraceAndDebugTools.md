@@ -12,14 +12,14 @@ For information about Fiddler, see [Fiddler Power Toy - Part 1: HTTP Debugging](
 
 ## Fiddler
 
-Fiddler is an HTTP debugging proxy that can be used to view HTTP traffic between your application and the service. Using this tool, you can see the actual HTTP requests that your application sends 'over the wire' as well as the HTTP responses that sends back.
+Fiddler is an HTTP debugging proxy that can be used to view HTTP traffic between your application and the UCWA 2.0 service. Using this tool, you can see the actual HTTP requests that your application sends 'over the wire' as well as the HTTP responses that UCWA 2.0 sends back.
 
 
 
 
 ## Debugging
 
-In a manner similar to Fiddler, all supported browsers are capable of capturing HTTP traffic sent and received by the browser when interacting with . This support is typically available by pressing the F12 function key.
+In a manner similar to Fiddler, all supported browsers are capable of capturing HTTP traffic sent and received by the browser when interacting with UCWA 2.0. This support is typically available by pressing the F12 function key.
 
 Additionally, they also contain JavaScript debuggers that can be used to set breakpoints, single step through scripts to inspect the values of variables, and perform other related tasks.
 

@@ -3,6 +3,7 @@
 
  **Last modified:** July 14, 2015
 
+
 A collection of unread voicemails and conversations. 
 
 
@@ -146,11 +147,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/missedItems HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/communication/missedItems HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -162,10 +163,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 280
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 280
+ {
  "rel" : "missedItems",
  "conversationLogsCount" : 93,
  "conversationLogsNotifications" : "Disabled",
@@ -188,11 +189,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/communication/missedItems HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/communication/missedItems HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -204,10 +205,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 559
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 559
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="missedItems" href="//v1/applications/833/communication/missedItems" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">missedItems</property>
  <property name="conversationLogsCount">76</property>

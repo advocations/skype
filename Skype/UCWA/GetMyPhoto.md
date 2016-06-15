@@ -12,7 +12,7 @@ The steps here assume that you have already created an application and have rece
 
 1. Send a POST request on the makeMeAvailable resource.
  
- One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the HREF for the [makeMeAvailable](makeMeAvailable_ref.md) resource, which can be found in the embedded me resource.
+  One of the hypermedia links that are served in the response for the [application](application_ref.md) resource is the HREF for the [makeMeAvailable](makeMeAvailable_ref.md) resource, which can be found in the embedded me resource.
  
     ```
     POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101/me/makeMeAvailable HTTP/1.1
@@ -35,7 +35,7 @@ The steps here assume that you have already created an application and have rece
 
 2. Process the response from the request in the previous step.
  
- The response you receive should be 204 No content, as shown here.
+  The response you receive should be 204 No content, as shown here.
  
     ```
     HTTP/1.1 204 No Content

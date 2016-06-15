@@ -1,6 +1,6 @@
 
 # Grouping requests in a batch
-The batch resource can be used to bundle multiple HTTP requests into a single request.
+The UCWA 2.0 batch resource can be used to bundle multiple HTTP requests into a single request.
 
  **Last modified:** April 07, 2015
 

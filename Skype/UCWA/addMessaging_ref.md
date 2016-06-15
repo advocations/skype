@@ -81,21 +81,20 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/addMessaging HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Content-Length: 130
-										{
- "operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
- "_links" : {
- "message" : {
- "href" : "data:text/plain;base64,somebase64encodedmessage"
- }
- }
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/addMessaging HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Content-Length: 130
+{
+"operationId" : "74cb7404e0a247d5a2d4eb0376a47dbf",
+"_links" : {
+"message" : {
+"href" : "data:text/plain;base64,somebase64encodedmessage"
 }
-									
+}
+}
+							
 ```
 
 
@@ -105,10 +104,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/700
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/700
 									
 ```
 
@@ -117,17 +114,16 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/addMessaging HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Content-Length: 179
-										<?xml version="1.0" encoding="utf-8"?>
+Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/messaging/addMessaging HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/xml
+Content-Length: 179
+<?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
-</input>
-									
+<property name="operationId">74cb7404e0a247d5a2d4eb0376a47dbf</property>
+</input>	
+							
 ```
 
 
@@ -137,10 +133,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 201 Created
-										Location: //v1/applications/833/communication/invitations/700
-										
+HTTP/1.1 201 Created
+Location: //v1/applications/833/communication/invitations/700
 									
 ```
 

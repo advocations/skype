@@ -1,6 +1,6 @@
 
 # Query Parameters
-Some resources require requests that take query parameters.
+Some UCWA 2.0 resources require requests that take query parameters.
 
  **Last modified:** April 07, 2015
 
@@ -8,11 +8,11 @@ Some resources require requests that take query parameters.
 
 For some resources or operations, a client application can pass query parameters in an HTTP request. The client should avoid string manipulation to add the query parameters, as this can potentially lead to errors. For example, if there is already a server-supplied query parameter, and you append another query parameter, the URL could end up with two '?' characters in it, making the URL invalid. The recommended way to add query parameters is by using a proper URL parser.
 
-Note that some URLs in the links might already have query parameters that were added by the server for various reasons. It is important for the client to preserve these server-added query parameters without changing their values. 
+>Note: Some URLs in the links might already have query parameters that were added by the server for various reasons. It is important for the client to preserve these server-added query parameters without changing their values. 
 
 ## Query parameters in POST requests
 
-For POST requests to , input can be specified in the request body or as one or more query parameters of the request. The following example shows a POST request on the [note](note_ref.md) resource, with the input values in the request body.
+For POST requests to UCWA 2.0, input can be specified in the request body or as one or more query parameters of the request. The following example shows a POST request on the [note](note_ref.md) resource, with the input values in the request body.
 
 
 ```

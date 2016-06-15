@@ -6,6 +6,7 @@ The **people** resource acts as a dashboard that represents the user's contacts.
 
  _**Applies to:** Skype for Business 2015_
 
+ 
 The [people](people_ref.md) resource keeps the application updated with all the activities involving the people the user cares about.
 
 ## Resource representation
@@ -15,13 +16,12 @@ The following table contains a representation of the **people** resource.
 
 
 **Property bag**
-
 ```
 "rel" : "people"
 ```
 
-**Link** 
 
+**Link**
 ```
 "self" : {
  "href" : "/ucwa/v1/applications/105/people"

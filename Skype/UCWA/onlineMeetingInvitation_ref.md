@@ -5,6 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
+
 Represents an invitation to a new or existing [onlineMeeting](onlineMeeting_ref.md). 
 
 ## Web Link

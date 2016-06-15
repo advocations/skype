@@ -109,13 +109,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 2443eef0-67da-45e6-b867-b33f2d41eca8
-										
+Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+if-none-match: 2443eef0-67da-45e6-b867-b33f2d41eca8
 									
 ```
 
@@ -127,51 +125,51 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 30544f6a-563a-4d93-b514-018684f7e04d
-										Content-Type: application/json
-										Content-Length: 1078
-										{
- "rel" : "contact",
- "company" : "Contoso Corp.",
- "department" : "Engineering",
- "emailAddresses" : [
- "Alex.Doe@contoso.com"
- ],
- "homePhoneNumber" : "tel:+19185550107",
- "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
- "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
- "name" : "Alex Doe",
- "office" : "tel:+1425554321;ext=54321",
- "otherPhoneNumber" : "tel:+19195558194",
- "sourceNetwork" : "SameEnterprise",
- "title" : "Engineer 2",
- "type" : "User",
- "uri" : "sip:alex@contoso.com",
- "workPhoneNumber" : "tel:+1425554321;ext=54321",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactLocation" : {
- "href" : "//v1/applications/833/people/166/contactLocation"
- },
- "contactNote" : {
- "href" : "//v1/applications/833/people/166/contactNote"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "contactPrivacyRelationship" : {
- "href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
- },
- "contactSupportedModalities" : {
- "href" : "//v1/applications/833/people/166/contactSupportedModalities"
- }
- }
+HTTP/1.1 200 OK
+Etag: 30544f6a-563a-4d93-b514-018684f7e04d
+Content-Type: application/json
+Content-Length: 1078
+{
+"rel" : "contact",
+"company" : "Contoso Corp.",
+"department" : "Engineering",
+"emailAddresses" : [
+"Alex.Doe@contoso.com"
+],
+"homePhoneNumber" : "tel:+19185550107",
+"sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+"mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+"name" : "Alex Doe",
+"office" : "tel:+1425554321;ext=54321",
+"otherPhoneNumber" : "tel:+19195558194",
+"sourceNetwork" : "SameEnterprise",
+"title" : "Engineer 2",
+"type" : "User",
+"uri" : "sip:alex@contoso.com",
+"workPhoneNumber" : "tel:+1425554321;ext=54321",
+"_links" : {
+"self" : {
+"href" : "//v1/applications/833/people/166"
+},
+"contactLocation" : {
+"href" : "//v1/applications/833/people/166/contactLocation"
+},
+"contactNote" : {
+"href" : "//v1/applications/833/people/166/contactNote"
+},
+"contactPhoto" : {
+"href" : "//v1/applications/833/people/166/contactPhoto"
+},
+"contactPresence" : {
+"href" : "//v1/applications/833/people/166/contactPresence"
+},
+"contactPrivacyRelationship" : {
+"href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
+},
+"contactSupportedModalities" : {
+"href" : "//v1/applications/833/people/166/contactSupportedModalities"
+}
+}
 }
 									
 ```
@@ -181,13 +179,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: e51e254c-29e3-4a4b-9a85-0b9bcad21ba8
-										
+Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+if-none-match: e51e254c-29e3-4a4b-9a85-0b9bcad21ba8
 									
 ```
 
@@ -198,36 +194,35 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 
 ```
-
-										HTTP/1.1 200 OK
-										Etag: d7d248d0-1121-4a6a-812d-41f61213df47
-										Content-Type: application/xml
-										Content-Length: 1594
-										<?xml version="1.0" encoding="utf-8"?>
+HTTP/1.1 200 OK
+Etag: d7d248d0-1121-4a6a-812d-41f61213df47
+Content-Type: application/xml
+Content-Length: 1594
+<?xml version="1.0" encoding="utf-8"?>
 <resource rel="contact" href="//v1/applications/833/people/166" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
- <link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
- <link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
- <property name="rel">contact</property>
- <property name="company">Contoso Corp.</property>
- <property name="department">Engineering</property>
- <propertyList name="emailAddresses">
- <item>Alex.Doe@contoso.com</item>
- </propertyList>
- <property name="homePhoneNumber">tel:+19185550107</property>
- <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
- <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
- <property name="name">Alex Doe</property>
- <property name="office">tel:+1425554321;ext=54321</property>
- <property name="otherPhoneNumber">tel:+19195558194</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="title">Engineer 2</property>
- <property name="type">User</property>
- <property name="uri">sip:alex@contoso.com</property>
- <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
+<link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
+<link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
+<link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
+<link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
+<link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
+<link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
+<property name="rel">contact</property>
+<property name="company">Contoso Corp.</property>
+<property name="department">Engineering</property>
+<propertyList name="emailAddresses">
+<item>Alex.Doe@contoso.com</item>
+</propertyList>
+<property name="homePhoneNumber">tel:+19185550107</property>
+<property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
+<property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
+<property name="name">Alex Doe</property>
+<property name="office">tel:+1425554321;ext=54321</property>
+<property name="otherPhoneNumber">tel:+19195558194</property>
+<property name="sourceNetwork">SameEnterprise</property>
+<property name="title">Engineer 2</property>
+<property name="type">User</property>
+<property name="uri">sip:alex@contoso.com</property>
+<property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
 </resource>
 									
 ```
