@@ -32,7 +32,7 @@ Related sites
 The table lists the supported SDKs and APIs for Skype for Business Server and Skype for Business Online, as well as for Lync 2013.
 
 |**APIs**|**Lync 2013**|**Skype for Business**|**Skype for Business Online**|
-|:-----|:-----|
+|:-----|:-----|:-----|:-----|
 |[Skype Web SDK](WebSDK/SkypeWebSDK.md)|Basic|Yes|Yes|
 |[Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)|Basic|Yes|Yes|
 |[Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)|Basic|Yes|Yes|
