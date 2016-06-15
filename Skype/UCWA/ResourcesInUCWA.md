@@ -34,7 +34,7 @@ The following is an abbreviated representation of the [application](application_
 "userAgent":"MyApp"
 ```
 
-|
+
 **Links**
 ```
 "self" : {"href" : "/ucwa/v1/applications/764"},

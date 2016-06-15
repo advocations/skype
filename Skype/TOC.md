@@ -1,6 +1,6 @@
-# [Skype](https://msdn.microsoft.com/en-us/library/office/dn954235.aspx)
+# [Skype](index.md)
 
-## [Skype Developer platform](https://msdn.microsoft.com/en-us/library/office/mt650889.aspx)
+## [Skype Developer platform](SkypeDeveloperPlatform.md)
 
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 
@@ -66,6 +66,7 @@
 #### [Download](AppSDK/Download.md)
 #### [Samples](AppSDK/Samples.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
+
 
 ### [Unified Communications Web API (UCWA)](UCWA/UnifiedCommunicationsWebAPI2_0.md)
 #### [UCWA 2.0 general reference](UCWA/UCWA2_0GeneralReference.md)
@@ -371,6 +372,8 @@
 ###### [OperationResource library](UCWA/OperationResourcelibrary.md)
 ###### [Transport library](UCWA/TransportLibrary.md)
 ##### [Generic synchronous errors](UCWA/GenericSynchronousErrors.md)
+
+### [Skype for Business Uris](Skype-For-Business-Uris/SfBMobileURI.md)
 
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
