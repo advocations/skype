@@ -107,12 +107,12 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										if-none-match: 244f40c5-2a61-42f0-86db-bdf454e47e6a
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ if-none-match: 244f40c5-2a61-42f0-86db-bdf454e47e6a
+ 
 									
 ```
 
@@ -124,11 +124,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: d831c13d-9649-4b30-8a29-979c6a86a447
-										Content-Type: application/json
-										Content-Length: 1276
-										{
+ HTTP/1.1 200 OK
+ Etag: d831c13d-9649-4b30-8a29-979c6a86a447
+ Content-Type: application/json
+ Content-Length: 1276
+ {
  "rel" : "myOnlineMeeting",
  "accessLevel" : "Invited",
  "attendees" : [
@@ -184,12 +184,12 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										if-none-match: 60a2f129-93fa-4343-b8f8-6ec4c66e7648
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ if-none-match: 60a2f129-93fa-4343-b8f8-6ec4c66e7648
+ 
 									
 ```
 
@@ -201,11 +201,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: c3a5d9a0-ad50-4481-b5cb-64a6073a7cbe
-										Content-Type: application/xml
-										Content-Length: 1897
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Etag: c3a5d9a0-ad50-4481-b5cb-64a6073a7cbe
+ Content-Type: application/xml
+ Content-Length: 1897
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" />
  <property name="rel">myOnlineMeeting</property>
@@ -271,10 +271,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
+ Delete https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ 
 									
 ```
 
@@ -286,8 +286,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
+ HTTP/1.1 204 No Content
+ 
 									
 ```
 
@@ -297,10 +297,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Delete https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
+ Delete https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ 
 									
 ```
 
@@ -312,8 +312,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
+ HTTP/1.1 204 No Content
+ 
 									
 ```
 
@@ -356,13 +356,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Put https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 519
-										{
+ Put https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/json
+ Accept: application/json
+ Content-Length: 519
+ {
  "accessLevel" : "SameEnterprise",
  "attendees" : [
  "sip:johndoe@contoso.com",
@@ -391,11 +391,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: 27be40fa-f026-4ac0-a90f-f14c1e8e1456
-										Content-Type: application/json
-										Content-Length: 1277
-										{
+ HTTP/1.1 200 OK
+ Etag: 27be40fa-f026-4ac0-a90f-f14c1e8e1456
+ Content-Type: application/json
+ Content-Length: 1277
+ {
  "rel" : "myOnlineMeeting",
  "accessLevel" : "SameEnterprise",
  "attendees" : [
@@ -451,13 +451,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Put https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 911
-										<?xml version="1.0" encoding="utf-8"?>
+ Put https://fe1.contoso.com:443//v1/applications/833/onlineMeetings/myOnlineMeetings/810 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/xml
+ Accept: application/xml
+ Content-Length: 911
+ <?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="accessLevel">None</property>
  <propertyList name="attendees">
@@ -487,11 +487,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Etag: e4147866-edbc-4a73-ad24-8b54cab1b8b8
-										Content-Type: application/xml
-										Content-Length: 1907
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Etag: e4147866-edbc-4a73-ad24-8b54cab1b8b8
+ Content-Type: application/xml
+ Content-Length: 1907
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myOnlineMeeting" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="onlineMeetingExtensions" href="//v1/applications/833/onlineMeetings/myOnlineMeetings/810/onlineMeetingExtensions" />
  <property name="rel">myOnlineMeeting</property>

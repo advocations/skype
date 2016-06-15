@@ -225,13 +225,14 @@ The **completed** event is sent on the event channel when the operation is finis
 It is recommended that applications handle the error codes shown here. Applications can optionally display subcodes and messages in their user interface.
 
 
-- BadRequest
+##### BadRequest
 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |NormalizationFailed|The phone normalization failed.|
-- Conflict
+
+##### Conflict
 
 
 |**Subcode**|**Reason**|
@@ -242,13 +243,15 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|The resource is being deleted.|
 |None|There was a problem joining the conference focus.|
 |TooManyGroups|The too many groups error.|
-- EntityTooLarge
+
+##### EntityTooLarge
 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |None|The request was too large.|
-- Forbidden
+
+##### Forbidden
 
 
 |**Subcode**|**Reason**|
@@ -261,7 +264,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |ModalityNotSupported|The remote client does not support the requested modality.|
 |None|Participant is not connected to meeting.|
 |Unreachable|The destination is not reachable.|
-- Informational
+
+##### Informational
 
 
 |**Subcode**|**Reason**|
@@ -273,7 +277,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |MediaFallback|The invitation was cancelled by the media fallback logic.|
 |Missed|The invitation was missed.|
 |Redirected|The invitation was redirected to another [contact](contact_ref.md).|
-- LocalFailure
+
+##### LocalFailure
 
 
 |**Subcode**|**Reason**|
@@ -283,13 +288,15 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|Local failure.|
 |PstnCallFailed|For an outgoing call scenario, the first stage, PSTN call establishment, failed.|
 |Timeout|The invitation timed out locally.|
-- NotFound
+
+##### NotFound
 
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |DestinationNotFound|The destination identity could not be found.|
-- RemoteFailure
+
+##### RemoteFailure
 
 
 |**Subcode**|**Reason**|
@@ -311,7 +318,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |ThreadIdAlreadyExists|The invitation was not accepted as the remote is already in a conversation with the same thread ID.|
 |Timeout|The operation has timed out on the callee's end.|
 |UnsupportedMediaType|Unsupported media.|
-- ServiceFailure
+
+##### ServiceFailure
 
 
 |**Subcode**|**Reason**|
@@ -324,7 +332,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |PstnCallFailed|For an incoming call fallback from VoIP scenario, the last stage, PSTN call establishment, failed.|
 |Timeout|The operation timed out.|
 |Unavailable|There is no suitable service available for this modality in this conference.|
-- Timeout
+
+##### Timeout
 
 
 |**Subcode**|**Reason**|

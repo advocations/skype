@@ -220,24 +220,26 @@ The **completed** event is sent on the event channel when the operation is finis
 It is recommended that applications handle the error codes shown here. Applications can optionally display subcodes and messages in their user interface.
 
 
-- Conflict
+##### **Conflict**
  
 
-|**Subcode**|**Reason**|
-|:-----|:-----|
-|AlreadyExists|There was a problem joining the conference focus.|
-|AlreadyExists|The already exists error.|
-|None|Un-supported Service/Resource/API error.|
-|None|The resource is being deleted.|
-|None|There was a problem joining the conference focus.|
-|TooManyGroups|The too many groups error.|
-- EntityTooLarge
+  |**Subcode**|**Reason**|
+  |:-----|:-----|
+  |AlreadyExists|There was a problem joining the conference focus.|
+  |AlreadyExists|The already exists error.|
+  |None|Un-supported Service/Resource/API error.|
+  |None|The resource is being deleted.|
+  |None|There was a problem joining the conference focus.|
+  |TooManyGroups|The too many groups error.|
+
+##### **EntityTooLarge**
  
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |None|The request was too large.|
-- Forbidden
+
+##### Forbidden
  
 
 |**Subcode**|**Reason**|
@@ -250,7 +252,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |ModalityNotSupported|The remote client does not support the requested modality.|
 |None|Participant is not connected to meeting.|
 |Unreachable|The destination is not reachable.|
-- Informational
+
+##### Informational
  
 
 |**Subcode**|**Reason**|
@@ -261,7 +264,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |DerivedConversation|A derived conversation was created.|
 |MediaFallback|The invitation was cancelled by the media fallback logic.|
 |Missed|The invitation was missed.|
-- LocalFailure
+
+##### LocalFailure
  
 
 |**Subcode**|**Reason**|
@@ -270,13 +274,15 @@ It is recommended that applications handle the error codes shown here. Applicati
 |Declined|The invitation was declined by the local user.|
 |None|Local failure.|
 |Timeout|The invitation timed out locally.|
-- NotFound
+
+##### NotFound
  
 
 |**Subcode**|**Reason**|
 |:-----|:-----|
 |DestinationNotFound|The destination identity could not be found.|
-- RemoteFailure
+
+##### RemoteFailure
  
 
 |**Subcode**|**Reason**|
@@ -295,7 +301,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |ThreadIdAlreadyExists|The invitation was not accepted as the remote is already in a conversation with the same thread ID.|
 |Timeout|The operation has timed out on the callee's end.|
 |UnsupportedMediaType|Unsupported media.|
-- ServiceFailure
+
+##### ServiceFailure
  
 
 |**Subcode**|**Reason**|
@@ -306,7 +313,8 @@ It is recommended that applications handle the error codes shown here. Applicati
 |None|Internal server error.|
 |Timeout|The operation timed out.|
 |Unavailable|There is no suitable service available for this modality in this conference.|
-- Timeout
+
+##### Timeout
  
 
 |**Subcode**|**Reason**|
@@ -362,11 +370,11 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -378,10 +386,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 5144
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 5144
+ {
  "rel" : "messagingInvitation",
  "direction" : "Incoming",
  "importance" : "Normal",
@@ -573,11 +581,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740 HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/316/communication/invitations/740 HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -589,10 +597,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 6204
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 6204
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="messagingInvitation" href="//v1/applications/316/communication/invitations/740" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="customContent" href="data:application/sdp;base64,base64-encoded-sdp" />
  <link rel="message" href="data:text/plain;base64,somebase64encodedmessage" />

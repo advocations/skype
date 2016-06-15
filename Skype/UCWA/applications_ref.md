@@ -86,13 +86,13 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/json
-										Accept: application/json
-										Content-Length: 120
-										{
+Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Content-Type: application/json
+Accept: application/json
+Content-Length: 120
+{
  "culture" : "en-us",
  "endpointId" : "123456",
  "instanceId" : "samplevalue",
@@ -109,11 +109,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: 2dbc6b7a-e659-4cdc-8e08-a0d36dc0680f
-										Content-Type: application/json
-										Content-Length: 3487
-										{
+ HTTP/1.1 201 Created
+ Etag: 2dbc6b7a-e659-4cdc-8e08-a0d36dc0680f
+ Content-Type: application/json
+ Content-Length: 3487
+ {
  "rel" : "application",
  "culture" : "en-us",
  "endpointId" : "samplevalue",
@@ -288,13 +288,13 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Content-Type: application/xml
-										Accept: application/xml
-										Content-Length: 318
-										<?xml version="1.0" encoding="utf-8"?>
+ Post https://fe1.contoso.com:443//v1/applications HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Content-Type: application/xml
+ Accept: application/xml
+ Content-Length: 318
+ <?xml version="1.0" encoding="utf-8"?>
 <input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="culture">en-us</property>
  <property name="endpointId">123456</property>
@@ -312,11 +312,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 201 Created
-										Etag: 129d6844-0896-49c2-aa86-5f740b70e3ff
-										Content-Type: application/xml
-										Content-Length: 4371
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 201 Created
+ Etag: 129d6844-0896-49c2-aa86-5f740b70e3ff
+ Content-Type: application/xml
+ Content-Length: 4371
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="application" href="//v1/applications/833" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="batch" href="//v1/applications/833/batch" />
  <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />

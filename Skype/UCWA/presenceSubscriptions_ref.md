@@ -23,7 +23,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name="sectionSection1"> </a>
 
-/// This resource can be used to create new [presenceSubscription](presenceSubscription_ref.md)s as well as to modify and delete existing ones. 
+This resource can be used to create new [presenceSubscription](presenceSubscription_ref.md)s as well as to modify and delete existing ones. 
 
 
 ### Properties

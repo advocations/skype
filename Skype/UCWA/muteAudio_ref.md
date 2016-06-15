@@ -80,10 +80,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/muteAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
+ Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/muteAudio HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ 
 									
 ```
 
@@ -95,8 +95,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
+ HTTP/1.1 204 No Content
+ 
 									
 ```
 
@@ -106,10 +106,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/muteAudio HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										
+ Post https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantAudio/muteAudio HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ 
 									
 ```
 
@@ -121,8 +121,8 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 204 No Content
-										
+ HTTP/1.1 204 No Content
+ 
 									
 ```
 

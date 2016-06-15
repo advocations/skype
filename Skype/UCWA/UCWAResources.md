@@ -6,7 +6,7 @@ Reference pages for UCWA resources.
 
  _**Applies to:** Skype for Business 2015_
 
-The Microsoft Unified Communications Web API provides access to a variety of entities that can be used in Web development. These entities are referred to as _resources_in this documentation.
+The Microsoft Unified Communications Web API provides access to a variety of entities that can be used in Web development. These entities are referred to as _resources_ in this documentation.
 
 ## Discovery
 <a name="sectionSection0"> </a>

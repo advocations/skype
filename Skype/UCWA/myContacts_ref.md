@@ -204,11 +204,11 @@ Only server-supplied query parameters, if any, are shown in the request sample.
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/contacts?groupId=samplevalue HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/json
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/contacts?groupId=samplevalue HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/json
+ 
 									
 ```
 
@@ -220,10 +220,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/json
-										Content-Length: 1241
-										{
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Content-Length: 1241
+ {
  "rel" : "myContacts",
  "_links" : {
  "self" : {
@@ -291,11 +291,11 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										Get https://fe1.contoso.com:443//v1/applications/833/contacts?groupId=samplevalue HTTP/1.1
-										Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
-										Host: fe1.contoso.com
-										Accept: application/xml
-										
+ Get https://fe1.contoso.com:443//v1/applications/833/contacts?groupId=samplevalue HTTP/1.1
+ Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+ Host: fe1.contoso.com
+ Accept: application/xml
+ 
 									
 ```
 
@@ -307,10 +307,10 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```
 
-										HTTP/1.1 200 OK
-										Content-Type: application/xml
-										Content-Length: 1774
-										<?xml version="1.0" encoding="utf-8"?>
+ HTTP/1.1 200 OK
+ Content-Type: application/xml
+ Content-Length: 1774
+ <?xml version="1.0" encoding="utf-8"?>
 <resource rel="myContacts" href="//v1/applications/833/contacts" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="contact" href="//v1/applications/833/people/215" />
  <property name="rel">myContacts</property>
