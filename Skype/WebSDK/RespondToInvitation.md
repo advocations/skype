@@ -13,15 +13,15 @@ A conversation invitation is extended to the local user to join a conversation. 
 The SDK creates a set of objects and raises several events to support a new conversation. 
 
 
-- A [Conversation]( https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object is created to encapsulate the incoming conversation invitation.
+- A [Conversation]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) object is created to encapsulate the incoming conversation invitation.
     
-- Conversation service objects such as [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.chatService**, [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.audioService**, or [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx)**.videoService** are created to encapsulate the conversation modes chosen by the caller.
+- Conversation service objects such as [Conversation.chatService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html#chatservice), [Conversation.audioService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html#audioservice), or [Conversation.videoService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html#videoservice) are created to encapsulate the conversation modes chosen by the caller.
     
-- One [Participant](https://msdn.microsoft.com/en-us/library/office/dn962129(v=office.16).aspx) object is created to represent the inviter and added to the `Conversation#participants` collection.
+- One [Participant](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.participant.html) object is created to represent the inviter and added to the [Conversation#participants](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html#participants) collection.
     
 - The state of one of the conversation's services becomes "Notified".
     
-At this moment, the app must call the  **accept** method or the **reject** method on the [ConversationService](https://msdn.microsoft.com/en-us/library/office/mt657711(v=office.16).aspx) object. Whether the call is taken or declined depends on which method is called.
+At this moment, the app must call the  **accept** method or the **reject** method on the [ConversationService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationservice.html) object. Whether the call is taken or declined depends on which method is called.
 
 The following procedure catches the conversation-related "added" events, forms a UI prompt, accepts the user's action, and updates the app UI to show the right kind of content.
 
@@ -29,13 +29,13 @@ The following procedure catches the conversation-related "added" events, forms a
 ### Respond to a conversation invitation
 
 
-1. Listen for the  **added** event on the [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx)**.conversations** collection for new conversations.
+1. Listen for the  **added** event on the [ConversationsManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html)**.conversations** collection for new conversations.
     
-2. For a new conversation, listen for change events on the service's  **state** property as enumerated [CallConnectionState](https://msdn.microsoft.com/en-us/library/office/mt657736(v=office.16).aspx). If the state is 'Notified', then it indicates the incoming invitation.
+2. For a new conversation, listen for change events on the service's  **state** property as enumerated [CallConnectionState](https://ucwa.skype.com/reference/WebSDK/modules/_s4b_sdk_d_.jcafe.html#callconnectionstate). If the state is 'Notified', then it indicates the incoming invitation.
     
-3. If it is an incoming IM invitation, call the [ChatService](https://msdn.microsoft.com/en-us/library/office/dn962148(v=office.16).aspx)**.accept** method to accept the invitation.
+3. If it is an incoming IM invitation, call the [ChatService.accept](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.chatservice.html#accept) method to accept the invitation.
     
-4. You may call the [ChatService]( https://msdn.microsoft.com/en-us/library/office/dn962148(v=office.16).aspx).**reject** method to decline the invitation.
+4. You may call the [ChatService.reject]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.chatservice.html#reject) method to decline the invitation.
     
 The following example shows how to accept an incoming IM call.
 

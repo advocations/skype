@@ -56,7 +56,7 @@ The steps in this section initialize the Skype Web SDK API endpoint, add state c
 ### Add a chat state event handler
 
 
-- Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the collection on the [ConversationsManager]( https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx.md).
+- Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html).
 
 
   ```js

@@ -7,19 +7,19 @@
 
 ## What is a group?
 
-A group object is the visual metaphor of a person list view. A [Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) object can be a collection of individual people or it can be a distribution group that is composed of people and other distribution groups. A group can come from any of these sources. Groups are used to create a person list view organized by people groupings.
+A group object is the visual metaphor of a person list view. A [Group]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html) object can be a collection of individual people or it can be a distribution group that is composed of people and other distribution groups. A group can come from any of these sources. Groups are used to create a person list view organized by people groupings.
 
 
 ### Groups
 
-The [Application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx).[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) object provides access to all[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) objects. The **PersonsAndGroupsManager.all** property returns a single "all" **group**. The "all"[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) **.groups** property returns a collection of **group** objects.
+The [Application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html).[PersonsAndGroupsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html) object provides access to all[Group]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html) objects. The **PersonsAndGroupsManager.all** property returns a single "all" **group**. The "all" [Group.groups]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html#groups) property returns a collection of **group** objects.
 
-The collection returned by  **.groups** contains a **group** of each type including relationship groups, user-created or a server-created[Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) objects. The server created groups include distribution groups and "frequent persons". User created groups are known as "custom groups" and owned by the signed in user. Custom group membership is maintained by using the Skype for Business client.
+The collection returned by  **.groups** contains a **group** of each type including relationship groups, user-created or a server-created[Group]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html) objects. The server created groups include distribution groups and "frequent persons". User created groups are known as "custom groups" and owned by the signed in user. Custom group membership is maintained by using the Skype for Business client.
 
 
 ### Relationships
 
-A collection of relationship [Group]( https://msdn.microsoft.com/en-us/library/office/dn962156(v=office.16).aspx) objects is a grouping of persons by work relationship. **RelationshipLevel** include Colleagues, Workgroup, or Blocked.
+A collection of relationship [Group]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html) objects is a grouping of persons by work relationship. **RelationshipLevel** include Colleagues, Workgroup, or Blocked.
 
 
 ### Nested Distribution groups
@@ -33,7 +33,7 @@ A nested distribution group is a distribution group whose parent is a distributi
 
 The scenario shown by figure 1 is represented in the Skype Web SDK object model by figure 2. The red connector in the diagram represents the nested relationship between parent and child person groups.
 
-The groups collection on the  **application.PersonsAndGroupsManager.all.groups** object represents person groups that a user has added to her person list. This collection can include custom groups and distribution groups. A collection of **groups** returned in a search query contains only distribution groups. Read[PersonsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx) for information about searching for distribution groups.
+The groups collection on the  **application.PersonsAndGroupsManager.all.groups** object represents person groups that a user has added to her person list. This collection can include custom groups and distribution groups. A collection of **groups** returned in a search query contains only distribution groups. Read[PersonsAndGroupsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html) for information about searching for distribution groups.
 
 
 **Figure 2. Group recursion to represent nested distribution groups**

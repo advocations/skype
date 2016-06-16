@@ -10,9 +10,9 @@
 The Skype Web SDK provides the following objects to start or join IM messaging, and to send and receive messages in a conversation.
 
 
-- Use a [ConversationsManager](https://msdn.microsoft.com/en-us/library/office/dn962151(v=office.16).aspx) object to start an outgoing conversation. For incoming invitations, the accept and reject actions are taken on the incoming [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object.
+- Use a [ConversationsManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html) object to start an outgoing conversation. For incoming invitations, the accept and reject actions are taken on the incoming [Conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) object.
     
-- Use a [Conversation](https://msdn.microsoft.com/en-us/library/office/dn962132(v=office.16).aspx) object to exchange messages, send and receive audio-visual content, and share applications in the conversation.
+- Use a [Conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) object to exchange messages, send and receive audio-visual content, and share applications in the conversation.
     
 - Use the [Skype Web Conversation Control](UseConversationControl.md) to host an IM conversation in your webpage. The **Conversation Control** encapsulates the model, view, and view model so that you only write code to host and render the control itself. Use the control when you want to let the Skype Web SDK provide the chat UI. If you use the conversation control, your webpage can host a complete IM dialog with as few as three Skype Web SDK API calls.
     
@@ -37,13 +37,13 @@ A conversation can be thought of as two-dimensional, with the number of conversa
 Several conversation service types are supported by the SDK:
 
 
-- [ChatService](https://msdn.microsoft.com/en-us/library/office/dn962148(v=office.16).aspx)  
+- [ChatService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.chatservice.html)  
     
-- [AudioService](https://msdn.microsoft.com/en-us/library/office/mt219384(v=office.16).aspx)  
+- [AudioService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.audioservice.html)  
     
-- [VideoService](https://msdn.microsoft.com/en-us/library/office/mt219389(v=office.16).aspx)  
+- [VideoService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.videoservice.html)  
     
-- [HistoryService](https://msdn.microsoft.com/en-us/library/office/dn962130(v=office.16).aspx)  
+- [HistoryService](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.historyservice.html)  
 
 ### Starting a conversation
 
