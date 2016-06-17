@@ -48,4 +48,4 @@ Detaching the video container DOM element removes the element and can cause the 
 ## Additional resources
 
 
-[ParticipantVideo](https://msdn.microsoft.com/en-us/library/office/mt657723(v=office.16).aspx)
+[ParticipantVideo](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.participantvideo.html)

@@ -5,7 +5,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The Application object in Skype Web SDK contains persons and groups collections, which contain a user's persons and person groups respectively. A [Person]( https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx.md) is a logical representation of a person and a person group is a logical grouping of a user's person list people.
+The Application object in Skype Web SDK contains persons and groups collections, which contain a user's persons and person groups respectively. A [Person](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html) is a logical representation of a person and a person group is a logical grouping of a user's person list people.
 
 
 ## Person lists

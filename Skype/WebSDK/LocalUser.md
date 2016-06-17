@@ -10,7 +10,7 @@
 
 ### Using the mePerson object
 
-The [MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) object is retrieved through the **[application]( https://msdn.microsoft.com/en-us/library/office/dn962124(v=office.16).aspx).[personsAndGroupsManager]( https://msdn.microsoft.com/en-us/library/office/dn962153(v=office.16).aspx).mePerson** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The [MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object is retrieved through the **[application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html).[personsAndGroupsManager.mePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson)** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -25,7 +25,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 
 ```
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which can be set
+[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which can be set
 
 
 |||
@@ -36,7 +36,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |status|Gets or sets the availability of the signed in user.|
 >**Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx) properties which are read-only
+[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which are read-only
 
 
 |||
@@ -61,4 +61,4 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 #### Other resources
 
 
-[MePerson]( https://msdn.microsoft.com/en-us/library/office/dn962127(v=office.16).aspx)
+[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)

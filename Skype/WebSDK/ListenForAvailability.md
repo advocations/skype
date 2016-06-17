@@ -5,7 +5,7 @@
 
  _**Applies to:** Skype for Business 2015 | Skype for Business Online_
 
-The SDK gives you access to a user's person list. A user can start a conversation with a person from of her person list or from a person search result. After a user gets a [Person](https://msdn.microsoft.com/en-us/library/office/dn962150(v=office.16).aspx) from one of these sources, she can start a conversation as long as the person's presence shows as available. Your app should show current person presence to give a real-time view of the availability of any person displayed in a UI.
+The SDK gives you access to a user's person list. A user can start a conversation with a person from of her person list or from a person search result. After a user gets a [Person](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html) from one of these sources, she can start a conversation as long as the person's presence shows as available. Your app should show current person presence to give a real-time view of the availability of any person displayed in a UI.
 
 
 ## Requesting presence notifications
@@ -18,11 +18,11 @@ To request continued presence notifications from Skype for Business Server when 
 
 1. Get a person from the user's person list or from search results.
     
-2. Register a listener for the "changed" event on the  **Person.status** [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx).
+2. Register a listener for the "changed" event on the  [Person.status](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html#status)  [Property](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.property.html).
     
 3. In the listener method, show the new availability on your UI.
     
-4. Call  **status.subscribe** method to subscribe for update of the person's status. In this case, the code is getting a reference to the **status** [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) and the **subscribe** function is called on the property reference.
+4. Call  **status.subscribe** method to subscribe for update of the person's status. In this case, the code is getting a reference to the **status** [Property](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.property.html) and the **subscribe** function is called on the property reference.
     
 
 ```js
@@ -44,7 +44,7 @@ person.activity.subscribe();
 
 1. Get a person from the user's person list or from search results.
     
-2. Call  **status.get** method to trigger a call to UCWA to fetch the person's presence. In this case, the code is getting a reference to the **status** [Property](https://msdn.microsoft.com/en-us/library/office/mt657725(v=office.16).aspx) and the **get** function is called on the property reference.
+2. Call  **status.get** method to trigger a call to UCWA to fetch the person's presence. In this case, the code is getting a reference to the **status** [Property](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.property.html) and the **get** function is called on the property reference.
 
 >**Note**: Doing a get on the **status** forces a server call. However, this is the preferred method of fetching presence
 in on-demand scenarios (eg. opening contact card) rather than subscribing to every person's status.
