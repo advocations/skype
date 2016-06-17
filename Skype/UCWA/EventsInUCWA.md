@@ -2,7 +2,6 @@
 # Events in UCWA
 Learn how the server notifies clients by sending events in the event channel.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

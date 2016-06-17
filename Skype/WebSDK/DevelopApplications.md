@@ -1,7 +1,6 @@
 
 # Developing applications with Skype Web SDK
 
- **Last modified:** February 19, 2016
 
  _**Applies to:** Skype for Business_
 

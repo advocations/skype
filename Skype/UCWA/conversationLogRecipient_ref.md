@@ -1,7 +1,6 @@
 
 # conversationLogRecipient
 
- **Last modified:** July 14, 2015
 
 Represents a recipient within a [conversationLog](conversationLog_ref.md). 
 

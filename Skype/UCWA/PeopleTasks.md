@@ -2,7 +2,6 @@
 # People tasks 
 Look in this section for examples of tasks that pertain to the application user's contacts and groups.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

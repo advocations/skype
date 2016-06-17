@@ -2,7 +2,6 @@
 # Query Parameters
 Some UCWA 2.0 resources require requests that take query parameters.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

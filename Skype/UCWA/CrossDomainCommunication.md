@@ -2,7 +2,6 @@
 # Cross-domain communication
 Learn how to enable cross-domain communication for web applications.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

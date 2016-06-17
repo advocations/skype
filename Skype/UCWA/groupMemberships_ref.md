@@ -1,7 +1,6 @@
 
 # groupMemberships
 
- **Last modified:** July 14, 2015
 
 Represents a collection of all the [group](group_ref.md) memberships for a particular group
 

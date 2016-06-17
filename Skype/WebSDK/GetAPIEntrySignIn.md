@@ -1,7 +1,6 @@
 
 # Retrieve the API entry point and sign in a user
 
- **Last modified:** March 25, 2016
 
  _**Applies to:** Skype for Business 2015_
 

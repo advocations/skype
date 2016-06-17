@@ -2,7 +2,6 @@
 # Payload Format
 Request and response payloads can be specified as either JSON or XML.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

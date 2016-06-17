@@ -2,7 +2,6 @@
 # Caching
 To improve efficiency, web applications should cache important or often-used resources.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

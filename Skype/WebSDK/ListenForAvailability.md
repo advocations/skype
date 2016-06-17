@@ -1,7 +1,6 @@
 
 # Get a person and listen for availability
 
- **Last modified:** February 02, 2016
 
  _**Applies to:** Skype for Business 2015 | Skype for Business Online_
 

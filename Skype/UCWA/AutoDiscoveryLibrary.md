@@ -2,7 +2,6 @@
 # AutoDiscovery library
 AutoDiscovery.js is a JavaScript library that helps an application find the Microsoft Unified Communications Web API 2.0 home server.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

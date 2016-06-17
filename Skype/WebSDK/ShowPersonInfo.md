@@ -1,7 +1,6 @@
 
 # Show a person's information
 
- **Last modified:** March 23, 2016
 
  _**Applies to:** Skype for Business 2015_
 

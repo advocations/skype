@@ -1,7 +1,6 @@
 
 # Developing Web SDK applications for Skype for Business Online
 
- **Last modified:** March 25, 2016
 
  _**Applies to:** Skype for Business | Skype for Business Online_
 

@@ -1,7 +1,6 @@
 
 # Join an existing meeting
 
- **Last modified:** February 02, 2016
 
  _**Applies to:** Skype for Business 2015_
 

@@ -2,7 +2,6 @@
 # Transport library
 Transport.js is a JavaScript library that helps make HTTP requests and assists with cross-domain communication.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

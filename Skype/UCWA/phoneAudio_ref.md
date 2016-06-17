@@ -2,7 +2,6 @@
 # phoneAudio 
 
 
-**Last modified:** July 14, 2015
 
 _**Applies to:** Skype for Business 2015_
 

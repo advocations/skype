@@ -1,7 +1,6 @@
 
 # conversationLogTranscript
 
- **Last modified:** July 14, 2015
 
 Represents a transcript within a [conversationLog](conversationLog_ref.md). 
 

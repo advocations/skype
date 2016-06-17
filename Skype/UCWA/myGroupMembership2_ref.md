@@ -1,7 +1,6 @@
 
 # myGroupMembership2
 
- **Last modified:** July 14, 2015
 
 
 Represents the version two of MyGroupMembershipResource (a [group](group_ref.md) membership of a single [contact](contact_ref.md)) 

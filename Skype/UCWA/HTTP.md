@@ -2,7 +2,6 @@
 # HTTP
 The basic operations in Microsoft Unified Communications Web API 2.0 are HTTP requests and responses.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

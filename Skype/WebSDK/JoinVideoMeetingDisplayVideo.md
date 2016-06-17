@@ -1,7 +1,6 @@
 
 # Join a meeting with video and display the video streams
 
- **Last modified:** April 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -2,7 +2,6 @@
 # AudienceMessaging 
 The possible states of the messaging modality for all members of an audience (a conversation).
 
- **Last modified:** July 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

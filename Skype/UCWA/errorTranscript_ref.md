@@ -1,7 +1,6 @@
 
 # errorTranscript
 
- **Last modified:** July 14, 2015
 
 Represents an error transcript within a [conversationLog](conversationLog_ref.md). 
 

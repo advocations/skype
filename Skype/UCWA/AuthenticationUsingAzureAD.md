@@ -2,7 +2,6 @@
 # Authentication using Azure AD
 Learn how a UCWA 2.0 online application authenticates a user with Azure AD to access Skype for Business resources.
 
- **Last modified:** March 22, 2016
 
 In order for your UCWA 2.0 application to access Skype for Business resources (such as messaging or presence), it needs to obtain an access token using implicit grant flow. This token gives the application permission to access the resource.
 

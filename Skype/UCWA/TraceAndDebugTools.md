@@ -2,7 +2,6 @@
 # Trace and debug tools
 Learn about the Fiddler debugging proxy, the built-in debugging capabilities of popular web browsers.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

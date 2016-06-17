@@ -2,7 +2,6 @@
 # Grouping requests in a batch
 The UCWA 2.0 batch resource can be used to bundle multiple HTTP requests into a single request.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

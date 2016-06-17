@@ -2,7 +2,6 @@
 # Configuring a topology
 Learn how to configure a topology that supports Microsoft Unified Communications Web API 2.0.
 
- **Last modified:** April 20, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -2,7 +2,6 @@
 # Communication dashboard
 The **communication** resource acts as a dashboard for the various abilities of the user to communication with others.
 
- **Last modified:** April 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # Save and restore a snapshot of the Application state
 
- **Last modified:** April 27, 2015
 
  _**Applies to:** Skype for Business_
 

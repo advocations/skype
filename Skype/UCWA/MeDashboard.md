@@ -2,7 +2,6 @@
 # Me dashboard
 The **me** resource acts as a dashboard that represents the user of a Microsoft Unified Communications Web API 2.0 application.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,6 +1,5 @@
 # Skype Web SDK property model
 
- **Last modified:** March 30, 2016
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # Join a meeting anonymously
 
- **Last modified:** March 22, 2015
 
  _**Applies to:** Skype for Business_
 

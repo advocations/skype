@@ -2,7 +2,6 @@
 # Web links
 Web links are the key to resource navigation in UCWA 2.0.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 
