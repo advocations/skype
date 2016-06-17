@@ -1,7 +1,6 @@
 
 # markAsRead
 
- **Last modified:** July 14, 2015
 
 Marks a [conversationLog](conversationLog_ref.md) as read in Exchange.
 

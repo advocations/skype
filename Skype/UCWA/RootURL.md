@@ -2,7 +2,6 @@
 # Root URL
 A UCWA 2.0 application's first task is to use the root URL to discover the URL of the user's home pool.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

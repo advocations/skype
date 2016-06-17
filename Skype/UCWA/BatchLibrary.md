@@ -2,7 +2,6 @@
 # Batch library
 Batch.js is a JavaScript library that helps combine multiple HTTP requests into a single batch request.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

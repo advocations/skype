@@ -2,7 +2,6 @@
 # Events library
 Events.js is a JavaScript library that helps start and stop the event channel and add event handlers.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

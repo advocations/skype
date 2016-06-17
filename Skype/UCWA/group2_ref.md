@@ -1,7 +1,6 @@
 
 # group2
 
- **Last modified:** July 14, 2015
 
 Represents a user's persistent, personal group version two. 
 

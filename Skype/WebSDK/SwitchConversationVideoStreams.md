@@ -2,7 +2,6 @@
 # Switch between video streams across conversations
 
 
- **Last modified:** February 06, 2016
 
 This topic shows you how to use JavaScript to show and hide video streams in multiple conversations hosted by a single app. If your app can host multiple conversations simultaneously, you will need to be able to hide a conversation's video when a user wants the video in another conversation shown. 
 

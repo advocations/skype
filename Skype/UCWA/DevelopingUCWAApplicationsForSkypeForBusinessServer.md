@@ -2,7 +2,6 @@
 # Developing UCWA applications for Skype for Business Server
 Learn how to develop web applications for UCWA 2.0 Server (on-premises server).
 
- **Last modified:** November 30, 2015
 
  _**Applies to:** Skype for Business 2015_
 

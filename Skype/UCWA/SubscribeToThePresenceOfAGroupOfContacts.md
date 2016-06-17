@@ -2,7 +2,6 @@
 # Subscribe to the presence of a group of contacts
 Subscribe to the presence of members of a contact group.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

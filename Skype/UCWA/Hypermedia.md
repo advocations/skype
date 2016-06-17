@@ -2,7 +2,6 @@
 # Hypermedia
 A Microsoft Unified Communications Web API 2.0 application uses hypermedia links to discover and dynamically navigate the features that are currently available. 
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # Manage devices
 
- **Last modified:** March 14, 2016
 
  _**Applies to:** Skype for Business | Skype for Business 2015_
 

@@ -2,7 +2,6 @@
 # Advanced topics
 This section lists tools and best practices for developers who are using UCWA 2.0.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

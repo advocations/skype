@@ -1,7 +1,6 @@
 
 # continuePhoneAudio
 
- **Last modified:** July 14, 2015
 
 Continues phone audio modality of a past conversation. 
 

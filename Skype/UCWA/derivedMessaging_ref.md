@@ -1,7 +1,6 @@
 
 # derivedMessaging 
 
- **Last modified:** July 14, 2015
 
 Represents the [messaging](messaging_ref.md) modality in a [derivedConversation](derivedConversation_ref.md). 
 

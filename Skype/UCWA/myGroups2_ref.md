@@ -1,7 +1,6 @@
 
 # myGroups2
 
- **Last modified:** July 14, 2015
 
 
 A collection of groups in the contact list of the logged-on user. 

@@ -2,7 +2,6 @@
 # Developing UCWA applications for Skype for Business Online
  Learn how to develop UCWA 2.0 online web applications.
 
- **Last modified:** December 15, 2015
 
 
  >Note: This topic does not apply to on-premises or hybrid server scenarios; only online scenarios.

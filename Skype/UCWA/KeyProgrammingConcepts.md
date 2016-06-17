@@ -2,7 +2,6 @@
 # Key programming concepts
 Learn about key concepts that Microsoft Unified Communications Web API 2.0 developers need to know.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

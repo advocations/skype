@@ -2,7 +2,6 @@
 # Batching requests
 Learn how the **batch** resource can be used to package multiple HTTP requests into a single request.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # Skype Web SDK architecture
 
- **Last modified:** November 10, 2015
 
  _**Applies to:** Skype for Business 2015_
 

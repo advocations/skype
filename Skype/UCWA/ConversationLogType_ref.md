@@ -1,7 +1,6 @@
 
 # ConversationLogType 
 
- **Last modified:** July 07, 2015
 
 Represents the type of a call instance.
 

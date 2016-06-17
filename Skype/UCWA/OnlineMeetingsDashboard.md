@@ -2,7 +2,6 @@
 # Online meetings dashboard
 The **onlineMeetings** resource acts as a dashboard that represents the ability of a user to create and manage online meetings.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

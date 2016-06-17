@@ -1,7 +1,6 @@
 
 # conversationLogTranscripts
 
- **Last modified:** July 14, 2015
 
 The (archived) messages from Exchange. 
 

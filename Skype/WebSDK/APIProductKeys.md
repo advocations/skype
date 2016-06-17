@@ -1,6 +1,5 @@
 # Skype Web SDK Production Use Capabilities
 
- **Last modified:** March 24, 2016
 
  _**Applies to:** Skype for Business, Skype for Business Online_
 

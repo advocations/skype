@@ -1,7 +1,6 @@
 
 # conversationLog
 
- **Last modified:** July 14, 2015
 
 Represents the user's view of an instance of past conversation. 
 

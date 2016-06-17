@@ -2,7 +2,6 @@
 # Downloading and running the Skype Web SDK samples
 
 
- **Last modified:** March 28, 2016
 
  _**Applies to:** Skype for Business 2015_
 

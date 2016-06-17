@@ -1,7 +1,6 @@
 
 # Multi-Tab Support
 
- **Last modified:** July 16, 2015
 
 UCWA has special support for multiple client instances in different web browser tabs. This reduces server load and allows the UCWA plugin to pool connections to a server. Application resource instances with the same culture, endpointId, type, and userAgent will internally be the same application resource, but each instance will have its own event channel.
 

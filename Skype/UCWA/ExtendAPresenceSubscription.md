@@ -2,7 +2,6 @@
 # Extend a presence subscription
 Extend a presence subscription beyond its normal expiration time.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

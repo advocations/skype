@@ -2,7 +2,6 @@
 # Me tasks
 Look in this section for examples of tasks that are related to the **me** user.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

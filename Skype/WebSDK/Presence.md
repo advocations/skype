@@ -1,7 +1,6 @@
 
 # Presence
 
- **Last modified:** December 08, 2015
 
  _**Applies to:** Skype for Business 2015_
 

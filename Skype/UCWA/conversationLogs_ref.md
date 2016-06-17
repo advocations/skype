@@ -1,7 +1,6 @@
 
 # conversationLogs
 
- **Last modified:** July 14, 2015
 
 Represents the user's past conversation logs (both peer-to-peer and conferences). 
 

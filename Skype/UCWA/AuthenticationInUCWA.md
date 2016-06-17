@@ -2,7 +2,6 @@
 # Authentication in UCWA
 Learn how an application authenticates a user in UCWA 2.0.
 
- **Last modified:** October 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # What's New in UCWA 2.0
 
- **Last modified:** April 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

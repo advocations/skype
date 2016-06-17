@@ -2,7 +2,6 @@
 # Get presence data of a contact
 Get the presence of a specific contact of the **me** user.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

@@ -1,7 +1,6 @@
 
 # myGroupMemberships2
 
- **Last modified:** July 14, 2015
 
 
 Represents the version two of MyGroupMembershipsResource (a collection of groupMembership resources) 

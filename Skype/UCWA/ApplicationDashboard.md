@@ -2,7 +2,6 @@
 # Application dashboard
 The **application** resource serves as a kind of dashboard that represents a single application of the user.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

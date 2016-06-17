@@ -2,7 +2,6 @@
 # Authentication library
 Authentication.js is a JavaScript library that helps authenticate the user.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

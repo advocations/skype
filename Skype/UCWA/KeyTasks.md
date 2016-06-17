@@ -2,7 +2,6 @@
 # Key tasks
 Learn about how your web application can use UCWA 2.0 to perform a variety of tasks.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

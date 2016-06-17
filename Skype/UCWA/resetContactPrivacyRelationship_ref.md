@@ -1,7 +1,6 @@
 
 # resetContactPrivacyRelationship
 
-**Last modified:** July 14, 2015
 
 Resets a contact's privacy relationship 
 

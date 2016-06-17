@@ -1,7 +1,6 @@
 
 # startPhoneAudio2
 
-**Last modified:** July 14, 2015
 
 Initiates a call-via-work. 
 
