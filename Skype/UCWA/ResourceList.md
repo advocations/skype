@@ -2,7 +2,6 @@
 # Resource list
 This topic lists many useful UCWA resources by the categories they fall in.
 
- **Last modified:** July 01, 2015
 
  _**Applies to:** Skype for Business 2015_
 

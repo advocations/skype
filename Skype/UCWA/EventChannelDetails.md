@@ -2,7 +2,6 @@
 # Event channel details
 Learn how to request that the event channel be started, and to process events when they arrive on the event channel.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

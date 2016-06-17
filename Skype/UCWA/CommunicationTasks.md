@@ -2,7 +2,6 @@
 # Communication tasks
 Look here for examples of tasks that pertain to communicating with others.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

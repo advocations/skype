@@ -2,7 +2,6 @@
 # Create an application
 Learn the steps that must be performed to produce an **application** resource.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

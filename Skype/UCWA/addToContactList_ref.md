@@ -1,7 +1,6 @@
 
 # addToContactList
 
- **Last modified:** July 14, 2015
 
 Adds a [distributionGroup](distributionGroup_ref.md) into contact list.
 

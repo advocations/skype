@@ -1,7 +1,6 @@
 
 # removeContactFromAllGroups2
 
-**Last modified:** July 14, 2015
 
 Remove a contact from the buddy list (delete all the group memerbships that a particular contact belongs to) 
 

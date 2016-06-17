@@ -2,7 +2,6 @@
 # UCWA 2.0 general reference
 Conceptual topics that describe the features and operation of the Microsoft Unified Communications Web API 2.0.
 
- **Last modified:** November 13, 2015
 
  _**Applies to:** Skype for Business | Skype for Business 2015_
 

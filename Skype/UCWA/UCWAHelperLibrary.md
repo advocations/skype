@@ -2,7 +2,6 @@
 # UCWA helper library
 For the convenience of the developer, a library of useful modules written in JavaScript is included.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

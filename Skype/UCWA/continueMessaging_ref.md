@@ -1,7 +1,6 @@
 
 # continueMessaging
 
- **Last modified:** July 14, 2015
 
 Continues instant messaging modality of a past conversation. 
 

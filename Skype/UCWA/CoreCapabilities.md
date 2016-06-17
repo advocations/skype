@@ -2,7 +2,6 @@
 # Core capabilities
 Learn about the core features of Microsoft Unified Communications Web API 2.0.
 
- **Last modified:** April 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

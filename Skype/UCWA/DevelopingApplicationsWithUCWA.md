@@ -1,7 +1,6 @@
 
 # Developing applications with UCWA
 
- **Last modified:** November 30, 2015
 
 The following sections explain how to develop applications for on-premises server and online server using the UCWA 2.0. In the online server scenario, your application authenticates against Azure Active Directory. In the on-premises server scenario, your application authenticates against your own server with its own Active Directory.
 

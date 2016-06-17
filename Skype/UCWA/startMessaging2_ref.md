@@ -1,7 +1,6 @@
 
 # startMessaging2
 
-**Last modified:** July 14, 2015
 
 Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the [messaging](messaging_ref.md) modality to a new [conversation](conversation_ref.md). 
 

@@ -2,7 +2,6 @@
 # Operation resource
 Long-running operations are represented in UCWA 2.0 as operation resources.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

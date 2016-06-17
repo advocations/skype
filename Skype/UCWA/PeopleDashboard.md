@@ -2,7 +2,6 @@
 # People dashboard
 The **people** resource acts as a dashboard that represents the user's contacts.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

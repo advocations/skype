@@ -2,7 +2,6 @@
 # Generic synchronous errors
 Some HTTP requests on UCWA resources can produce a response that indicates an error. This topic lists the common errors that can appear synchronously (in the HTTP response).
 
- **Last modified:** April 23, 2015
 
  _**Applies to:** Skype for Business 2015_
 

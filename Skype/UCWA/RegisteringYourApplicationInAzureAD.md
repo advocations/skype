@@ -2,7 +2,6 @@
 # Registering your application in Azure AD
 Learn how to register your application with Azure AD.
 
- **Last modified:** December 14, 2015
 
 Before running your client application, you need to register it with Azure AD. This section shows how to register the application in the Azure Management Portal.
 

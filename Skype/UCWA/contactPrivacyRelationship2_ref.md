@@ -1,7 +1,6 @@
 
 # contactPrivacyRelationship2
 
- **Last modified:** July 14, 2015
 
 Represents the privacy relationship between the user and a [contact](contact_ref.md). 
 

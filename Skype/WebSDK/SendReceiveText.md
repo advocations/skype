@@ -1,7 +1,6 @@
 
 # Send and receive text in a conversation
 
- **Last modified:** July 25, 2015
 
  _**Applies to:** Skype for Business 2015_
 

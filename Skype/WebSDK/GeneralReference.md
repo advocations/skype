@@ -2,7 +2,6 @@
 # Skype Web SDK general reference
 The general reference contains information you need to program with the Microsoft Skype Web SDK.
 
- **Last modified:** November 17, 2015
 
  _**Applies to:** Skype for Business 2015_
 

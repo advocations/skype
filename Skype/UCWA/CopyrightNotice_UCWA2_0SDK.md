@@ -1,7 +1,6 @@
 
 # Copyright notice (UCWA 1.0 SDK)
 
- **Last modified:** April 09, 2015
 
  _**Applies to:** Skype for Business 2015_
 

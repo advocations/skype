@@ -2,7 +2,6 @@
 # Errors and informational messages
 Learn about the types of errors and informational messages that are used in UCWA 2.0.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

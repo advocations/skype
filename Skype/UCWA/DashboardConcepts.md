@@ -2,7 +2,6 @@
 # Dashboard concepts
 Several UCWA 2.0 resources act as "dashboards" that provide important information in a single place. 
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

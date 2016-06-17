@@ -1,7 +1,6 @@
 
 # applications2
 
- **Last modified:** July 14, 2015
 
 
 Represents the entry point for registering this application with the server. 

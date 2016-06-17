@@ -2,7 +2,6 @@
 # Online meeting tasks
 Look here for examples of tasks that pertain to scheduling or updating an online meeting.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

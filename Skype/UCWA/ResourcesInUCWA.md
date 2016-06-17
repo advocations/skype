@@ -2,7 +2,6 @@
 # Resources in UCWA
 Resources are the API in Microsoft Unified Communications Web API 2.0. 
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

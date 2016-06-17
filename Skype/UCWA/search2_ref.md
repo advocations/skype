@@ -1,7 +1,6 @@
 
 # search2
 
-**Last modified:** July 14, 2015
 
 Provides a way to search for contacts. 
 

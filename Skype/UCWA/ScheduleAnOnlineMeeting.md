@@ -2,7 +2,6 @@
 # Schedule an online meeting
 Schedule a "meet now" online meeting.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

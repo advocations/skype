@@ -1,7 +1,6 @@
 
 # removeContactFromAllGroups
 
- **Last modified:** April 21, 2015
 
 Removes all group memberships that a contact belongs to.
 

@@ -2,7 +2,6 @@
 # Cross-domain IFRAME
 Learn about how cross-domain **iframe** can be used to safely circumvent browser restrictions on scripts that process code in a different domain.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

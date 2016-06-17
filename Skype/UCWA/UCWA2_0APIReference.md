@@ -2,7 +2,6 @@
 # UCWA 2.0 API reference
 Reference materials for UCWA programmers.
 
- **Last modified:** April 07, 2015
 
  _**Applies to:** Skype for Business 2015_
 

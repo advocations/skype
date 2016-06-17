@@ -2,7 +2,6 @@
 # Cache library
 Cache.js is a JavaScript library that helps store and retrieve frequently used resource URLs for later use.
 
- **Last modified:** March 24, 2015
 
  _**Applies to:** Skype for Business 2015_
 

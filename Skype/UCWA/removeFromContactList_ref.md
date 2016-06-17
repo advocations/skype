@@ -1,7 +1,6 @@
 
 # removeFromContactList
 
-**Last modified:** July 14, 2015
 
 Removes a [distributionGroup](distributionGroup_ref.md) from contact list.
 
