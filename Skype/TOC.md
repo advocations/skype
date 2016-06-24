@@ -1,11 +1,10 @@
 # [Skype](index.md)
 
-## [Skype Developer platform](SkypeDeveloperPlatform.md)
-
+## [Skype Consumer Developer Platform](SkypeConsumerDevPlatform.md)
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
+### [Skype Mobile SDK](SfC/SkypeMobile.md)
 
-
-
+## [Skype for Business Developer Platform](SkypeDeveloperPlatform.md)
 ### [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 #### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
@@ -384,5 +383,11 @@
 ## [Lync](https://msdn.microsoft.com/en-us/library/office/dn820099.aspx)
 ### [Lync 2013](https://msdn.microsoft.com/en-us/library/office/jj162980.aspx)
 ###[Lync 2010](https://msdn.microsoft.com/en-us/library/office/hh467893.aspx)
+
+
+
+
+
+
 
 

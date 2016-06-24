@@ -1,10 +1,13 @@
-#Skype for Business
+#Skype Developer Platform
 
 Build integrated communications experiences and solutions to leverage the power and reach of Skype and Skype for Business.
 
-Use the Skype network to optimize communications and to build better relationships between people who "just" want to connect and communicate. We're building out one of the largest communications environments with Skype, Skype for Business, and Skype for Business Online in Office 365. This powerful platform provides video, voice, IM, and other types of communications capabilities. We also provide SDKs that help customers and partners  extend the capabilities of our platform, Android and iOS mobile platforms, meet specific business requirements, and close their gaps in end-to-end communications and collaborations processes.
+Use the Skype network to optimize communications and to build better relationships between people who "just" want to connect
+ and communicate. We're building out one of the largest communications environments with Skype, Skype for Business, and 
+ Skype for Business Online in Office 365. This powerful platform provides video, voice, IM, and other types of communications
+  capabilities. We also provide SDKs that help customers and partners  extend the capabilities of our platform, Android and iOS mobile platforms, meet specific business requirements, and close their gaps in end-to-end communications and collaborations processes.
 
-- [Skype URIs](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
+##Skype for Business Developer Platform
 - [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 - [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
 - [Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)
@@ -12,6 +15,9 @@ Use the Skype network to optimize communications and to build better relationshi
 - [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
 - [Unified Communications Web API](ucwa/UnifiedCommunicationsWebAPI2_0.md)
 
+##Skype Developer Platform
+- [Skype URIs](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
+- [Skype Mobile SDK](SfC/SkypeMobile.md)
 
 Related sites 
 - [Skype](http://www.skype.com/en/)
