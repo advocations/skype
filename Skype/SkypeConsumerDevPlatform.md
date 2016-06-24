@@ -11,7 +11,6 @@
 **Documentation**
 
 - [Skype URIs](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
-- [Skype Mobile SDK](SfC/SkypeMobile.md)
 
 Related sites 
 - [Skype](http://www.skype.com/en/)
