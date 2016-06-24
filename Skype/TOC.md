@@ -2,7 +2,7 @@
 
 ## [Skype Developer Platform](SkypeConsumerDevPlatform.md)
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
-### [Skype Mobile SDK](SfC/SkypeMobile.md)
+### [Skype Mobile SDK](SkypeMobile/SkypeMobile.md)
 
 ## [Skype for Business Developer Platform](SkypeDeveloperPlatform.md)
 ### [Skype Web SDK](WebSDK/SkypeWebSDK.md)
