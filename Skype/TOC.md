@@ -1,6 +1,6 @@
 # [Skype](index.md)
 
-## [Skype Consumer Developer Platform](SkypeConsumerDevPlatform.md)
+## [Skype Developer Platform](SkypeConsumerDevPlatform.md)
 ### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
 ### [Skype Mobile SDK](SfC/SkypeMobile.md)
 
