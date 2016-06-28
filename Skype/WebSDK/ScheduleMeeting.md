@@ -7,7 +7,7 @@
 The SDK gives you the ability to schedule meetings as shown below:
 
 
-1. Create a new meeting. This is still a client side operation and returns a MyOnlineMeeting model containing observable properties.
+1. Create a new meeting. This is still a client side operation and returns a model containing observable properties.
 
   ```js
   var meeting = app.conversationsManager.createMeeting();
@@ -25,5 +25,5 @@ The SDK gives you the ability to schedule meetings as shown below:
   ```js
   meeting.onlineMeetingUri.get().then(uri => {
       var conversation = app.conversationsManager.getConversationByUri(uri);
-  } 
+  });
   ```
