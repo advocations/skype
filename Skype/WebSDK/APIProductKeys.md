@@ -49,6 +49,7 @@ tst
 |Start and have P2P or meeting audio conversations with the signed in users   |X|-|
 |Invite more participant to an online meeting Chat conversation, or to a P2P Chat conversation to escalate to meeting via the Skype Web SDK API |X|X|
 |Invite more participant to an online meeting AV conversation, or to a P2P AV conversation to escalate to meeting |X|-|
+|Schedule a Skype for Business online meeting. |X|X|
 |Join an online meeting and start chat and/or audio service in the conversation. |X|-|
 |Join a Skype for Business online meeting from a signed in user with audio and video. |X|-|
 |Join a Skype for Business online meeting from an anonymous user. |X|-|
