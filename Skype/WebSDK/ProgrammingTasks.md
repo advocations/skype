@@ -23,6 +23,8 @@ This section describes the key programming tasks for the Skype Web SDK:
 - [Respond to a conversation invitation](RespondToInvitation.md)
     
 - [Add participants to a conversation](AddParticipants.md)
+
+- [Schedule meetings](ScheduleMeeting.md)
     
 - [Join an existing meeting](JoinMeeting.md)
     
