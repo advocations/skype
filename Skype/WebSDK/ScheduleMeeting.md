@@ -4,9 +4,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
-The SDK lets you schedule online meetings. The meeting you create can be joined from the time it is created until the specified expiration date.
+The SDK lets your app schedule online meetings. The meeting your code creates can be joined from the time it is created until the specified expiration date.
 Scheduling an online meeting involves creating a client-side model of a future online meeting, setting properties on the model, and then POSTing the model to a server-side UCWA endpoint. 
-Once you POST the model, you can join the meeting. If you have provisioned the meeting with a list of attendees, you must make the joinUri or OnlineMeetingUri available
+Once your code POSTs the model, a user can join the meeting. If you have provisioned the meeting with a list of attendees, you must make the joinUri or OnlineMeetingUri available
 to the attendees so that they can join. 
 
 >Note: The scheduled meeting is a Skype-only meeting. It is not visible in or available to join from a user's Outlook calendar.
@@ -15,10 +15,11 @@ to the attendees so that they can join.
 ## Meeting properties
 All of the properties of an online meeting are optional. However, you should set the following properties:
 
-* Subject
-* Expiration time
-* Access level. The access level determines the set of people who can join the meeting. The [AccessLevel](ucwa/AccessLevel_ref.md) values are 
+* [Subject](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#subject)
+* [Expiration time](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#expirationtime)
+* [Access level](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#accesslevel). The access level determines the set of people who can join the meeting. The [AccessLevel](../ucwa/AccessLevel_ref.md) values are 
 enumerated in the UCWA 2.0 SDK.
+* [Attendees](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#attendees). Set this property if the access level specified is 'invited'
 
 ## Schedule the meeting
 
