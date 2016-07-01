@@ -25,7 +25,7 @@ For more on web links, see [Web links](WebLinks.md).
 These meetings can be created and updated via the API. The resource captures information about the meeting, including the join URL, 
 the attendees list, and the description. 
 
->Note: A *myOnlineMeeting* _may_ have a cooresponding meeting item in the user's Outlook calendar. The correspondence
+>Note: A *myOnlineMeeting*  _may_ have a cooresponding meeting item in the user's Outlook calendar. The correspondence
 is created when a meeting is scheduled in Outlook and then [Skype online meeting coordinates are added to the Outlook meeting](https://support.office.com/en-US/article/Set-up-a-Skype-for-Business-meeting-in-Outlook-b8305620-d16e-4667-989d-4a977aad6556). The Outlook 
 meeting stores a reference to the Skype online meeting but the *myOnlineMeeting* object does not have a reference to the Outlook calendar item. 
 If you schedule a meeting by POSTing a new meeting on [myOnlineMeetings](myOnlineMeetings_ref.md), there is no corresponding Outlook calendar item.
