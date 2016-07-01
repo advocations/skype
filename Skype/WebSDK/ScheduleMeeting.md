@@ -19,7 +19,7 @@ All of the properties of an online meeting are optional. However, you should set
 * [Expiration time](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#expirationtime)
 * [Access level](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#accesslevel). The access level determines the set of people who can join the meeting. The [AccessLevel](../ucwa/AccessLevel_ref.md) values are 
 enumerated in the UCWA 2.0 SDK.
-* [Attendees](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#attendees). Set this property if the access level specified is 'invited'
+* [Attendees](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#attendees). Set this property if the access level specified is 'Invited'
 
 ## Schedule the meeting
 

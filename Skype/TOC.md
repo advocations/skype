@@ -35,7 +35,7 @@
 ##### [Get a person and listen for availability](WebSDK/ListenForAvailability.md)
 ##### [Start a conversation](WebSDK/StartConversation.md)
 ##### [Respond to a conversation invitation](WebSDK/RespondToInvitation.md)
-##### [Schedule meetings](WebSDK/ScheduleMeeting.md)
+##### [Scheduling an online meeting](WebSDK/ScheduleMeeting.md)
 ##### [Join an existing meeting](WebSDK/JoinMeeting.md)
 ##### [Join a meeting anonymously](WebSDK/AnonymousMeetingJoin.md)
 ##### [Join a meeting with video and display the video streams](WebSDK/JoinVideoMeetingDisplayVideo.md)
