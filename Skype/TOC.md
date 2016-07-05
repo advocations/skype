@@ -367,7 +367,7 @@
 ##### [Transport library](UCWA/TransportLibrary.md)
 #### [Generic synchronous errors](UCWA/GenericSynchronousErrors.md)
 
-## [Skype for Business Uris](Skype-For-Business-Uris/SfBMobileURI.md)
+## [Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)
 
 ## [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ## [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
