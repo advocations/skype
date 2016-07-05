@@ -9,7 +9,7 @@
 [Additional resources](#additional-resources)  
 
 
-The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates an IM dialog in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your webpage with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
+The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates IM and a/v dialogs in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your webpage with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
 
 Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The Microsoft Edge browser is shown in this example, but you can use 
 any other supported browser.
@@ -86,7 +86,8 @@ collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSD
 
   ```js
 
-    //Add modalities if a/v is to be enabled when the control is initially rendered. Otherwise omit them and show A/V 
+    //Add modalities if a/v is to be enabled when the control is initially 
+    //rendered. Otherwise omit them and show A/V 
     //when A/V state changes to 'Notified'
     var state = {
             participants: ['ssiprodfoo@ssiprodfoo.onmicrosoft.com'],
@@ -138,7 +139,9 @@ When the user clicks the button, the code takes the following steps:
 
 ```js
        $('#start-cv').on('click', function () {
-            var input = prompt('SIP URIs of the participants:', 'sip:example@example.com,sip:example2@example.com');
+            var input = prompt('SIP URIs of the participants:', 
+                'sip:example@example.com,sip:example2@example.com');
+
             if (!input)
                 return;
             var uris = input.split(',').map(function (s) { return s.trim(); });
@@ -150,7 +153,8 @@ When the user clicks the button, the code takes the following steps:
                 document.querySelector('#conversations').appendChild(container);
             }
             var promise = api.renderConversation(container, {
-                modalities: ['Chat','audio'],  //Start outgoing call with chat and audio
+                //Start outgoing call with chat and audio
+                modalities: ['Chat','audio'],  
                 participants: uris
             });
             monitor('start conversation', promise);
@@ -172,9 +176,11 @@ $(function () {
         app = api.UIApplicationInstance;
         app.conversationsManager.conversations.added(function (conversation) {
 
+        //Add these modalities if audio & video are to be enabled when the control
+        //is initally rendered
         var state = {
                participants: ['ssiprodfoo@ssiprodfoo.onmicrosoft.com'],
-               modalities: ['audio','video'] //Add these modalities if audio & video are to be enabled when the control is initally rendered
+               modalities: ['audio','video'] 
         };
 
         api.renderConversation('#content', state).then(function (conversation) {
