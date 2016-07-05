@@ -73,9 +73,9 @@ collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSD
 
   ```
 
-- Inside of the previous callback method, add a callback for changes in the chat channel state of the added conversation.
+- Inside of the previous callback method, add a callback for changes in the audio channel state of the added conversation.
     
-    When the state of the channel is changed to 'Notified', an invitation to chat has been received. To show the [Conversation Control](ConversationControl.md), 
+    When the state of the channel is changed to 'Notified', an invitation to talk has been received. To show the [Conversation Control](ConversationControl.md), 
     call the  **renderConversation** method on the **UIApplicationInstance**.
 
     >note: The default conversation modality is chat. If you want the conversation audio or vidio modality to be enabled when the conversation control
@@ -85,9 +85,12 @@ collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSD
 
 
   ```js
+
+    //Add modalities if a/v is to be enabled when the control is initially rendered. Otherwise omit them and show A/V 
+    //when A/V state changes to 'Notified'
     var state = {
             participants: ['ssiprodfoo@ssiprodfoo.onmicrosoft.com'],
-            modalities: ['audio','video'] //Add these modalities if audio & video are to be enabled when the control is rendered
+            modalities: ['audio','video'] 
     };
 
     api.renderConversation('#content', state).then(function (conversation) {
