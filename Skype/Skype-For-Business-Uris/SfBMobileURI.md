@@ -43,3 +43,8 @@ Read the following topics for examples of how to implement the Skype for Busines
 
 * [Start a Skype call from an Android mobile device](AndroidCall.md)
 
+##Mobile URI SDK Samples
+
+You can find Android samples for this SDK in our [GitHub repository](https://github.com/OfficeDev/Skype-for-Business-Android-Uri-Sample) today. 
+Check back later for iOS samples.
+
