@@ -56,6 +56,7 @@ tst
 |In a Skype for Business online meeting, one can open up to four video windows from different remote participants at the same time.  |X|-|
 |The application context can be passed to the remote party in the conversation invite.  |X|X|
 |Use Skype Conversation UI control in your applications for P2P IM  |X|X|
+|Use Skype Conversation UI control in your applications for P2P AV  |X|-|
 
 ## Supported Browsers
 
