@@ -10,7 +10,7 @@ the following dialog opens with the Skype client. If the user checks the **Don't
 If the URI is formatted like "ms-sfb://call?id=+1425-555-1234", when the Skype client activity starts, the PSTN phone number is pre-filled
 in the Skype dial pad.
 
- ![Skype call permission dialog](/images/SkypeCallPerm.png)
+ ![Skype call permission dialog](images/SkypeCallPerm.png)
 
  ##Android code example
 
@@ -37,4 +37,4 @@ in the Skype dial pad.
 The main activity of the sample application accepts user input for a telephone number to call or the SIP address of a Skype
 for Business user. If the user checks the _video call_ check box, the URI query string is appended with a video call parameter.
 
-![The main activity of the Skype call sample](/images/SkypeCall.png)
+![The main activity of the Skype call sample](images/SkypeCall.png)
