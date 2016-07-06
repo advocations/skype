@@ -11,6 +11,8 @@
 
 The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates IM and A/V dialogs in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your webpage with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
 
+To learn about the capabilities of the conversation control for each version of the SDK, see [Skype Web SDK Production Use Capabilities](APIProductKeys.md).
+
 Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The Microsoft Edge browser is shown in this example, but you can use 
 any other supported browser.
 
