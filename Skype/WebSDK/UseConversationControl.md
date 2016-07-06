@@ -86,12 +86,16 @@ collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSD
 
   ```js
 
-    //Add modalities if a/v is to be enabled when the control is initially 
-    //rendered. Otherwise omit them and show A/V 
-    //when A/V state changes to 'Notified'
+    //Add modalities if a/v call is to be started when the control is initially 
+    //rendered. Otherwise omit them and by default Converstion Control is initiated 
+    //in Chat mode with AV buttons enabled for the user to click and initiate AV call
+    
+    // If no modalities are specified, the default behavior is to launch Conversation 
+    // control with Chat and buttons to initiate AV call
+    
     var state = {
-            participants: ['ssiprodfoo@ssiprodfoo.onmicrosoft.com'],
-            modalities: ['audio','video'] 
+            participants: ['alexd@contoso.com'],
+            modalities: ['Chat','Audio','Video'] 
     };
 
     api.renderConversation('#content', state).then(function (conversation) {
@@ -176,11 +180,16 @@ $(function () {
         app = api.UIApplicationInstance;
         app.conversationsManager.conversations.added(function (conversation) {
 
-        //Add these modalities if audio & video are to be enabled when the control
-        //is initally rendered
+        //Add modalities if a/v call is to be started when the control is initially 
+        //rendered. Otherwise omit them and by default Converstion Control is initiated 
+        //in Chat mode with AV buttons enabled for the user to click and initiate AV call
+        
+        // If no modalities are specified, the default behavior is to launch Conversation 
+        // control with Chat and buttons to initiate AV call
+        
         var state = {
-               participants: ['ssiprodfoo@ssiprodfoo.onmicrosoft.com'],
-               modalities: ['audio','video'] 
+               participants: ['alexd@contoso.com'],
+               modalities: ['Chat','Audio','Video'] 
         };
 
         api.renderConversation('#content', state).then(function (conversation) {
