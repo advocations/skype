@@ -87,28 +87,31 @@ There can be as many levels of embedding as needed; however, in most cases UCWA 
 
 ```
 
-The XML representation used by UCWA 2.0 resources takes advantage of XML attributes. Because of this, there is not a straightforward mapping between XML and JSON representations. The most significant differences are as follows:
+The XML representation used by UCWA 2.0 resources takes advantage of XML attributes. Because of this, there is not a 
+straightforward mapping between XML and JSON representations. The most significant differences are as follows:
 
 
 - Dates in XML are supplied in ISO 8601 format. 
-- A resource is enclosed in a ```<resource xmlns="..." rel="..." href="...">``` element, where "rel" and "href" form the self link to the resource.
+- A resource is enclosed in a `<resource xmlns="..." rel="..." href="...">` element, where "rel" and "href" form the self link to the resource.
  
-- Links are represented by a ```<link rel="..." href="..." [ title = "..."] />``` 
-element, child of ```<resource>```
-. There is no explicit element for a self link because it is part of the enclosing ```<resource>``` 
-element. In case of multiple links with the same "rel" value, the ```<link>``` element is repeated multiple times. Unlike in JSON, there is no way to distinguish a single link from a one-element collection of links.
+- Links are represented by a `<link rel="..." href="..." [ title = "..."] />` element, child of `<resource>`
+. There is no explicit element for a self link because it is part of the enclosing `<resource>` element. In case of multiple
+ links with the same "rel" value, the `<link>` element is repeated multiple times. Unlike in JSON, there is no way to 
+ distinguish a single link from a one-element collection of links.
  
-- Properties are represented by a ```<property name="..."> [value]</property>``` 
-element. Array-valued properties are represented by a ```<propertyList name="...">``` 
-element, containing ```<item> [value]</item>``` elements for each array member in order.
+- Properties are represented by a `<property name="..."> [value]</property>` element. Array-valued properties are 
+represented by a `<propertyList name="...">` element, containing `<item> [value]</item>` elements for each array member 
+in order.
  
-- Embedded resources are represented by a ```<resource rel="..." href="...">``` 
-element inside the containing ```<resource>``` element.
+- Embedded resources are represented by a `<resource rel="..." href="...">` element inside the containing `<resource>` element.
  
 ## Input formats
 <a name="sectionSection2"> </a>
 
-UCWA 2.0 accepts input for POST or PUT methods in the XML and JSON formats already listed. However, the manipulation of links and embedded resources in POST or PUT inputs is not supported. UCWA 2.0 will ignore them, so it is safe to send a GET request on a resource, change the necessary properties and then send the entire contents back to the server in a PUT request (including any links and embedded resources from the GET response).
+UCWA 2.0 accepts input for POST or PUT methods in the XML and JSON formats already listed. However, the manipulation of links 
+and embedded resources in POST or PUT inputs is not supported. UCWA 2.0 will ignore them, so it is safe to send a GET request on a 
+resource, change the necessary properties and then send the entire contents back to the server in a PUT request (including any 
+links and embedded resources from the GET response).
 
 
 ## Data URI
