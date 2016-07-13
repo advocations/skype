@@ -52,7 +52,7 @@ tst
 |Schedule a Skype for Business online meeting. |X|X|
 |Join an online meeting and start chat and/or audio service in the conversation. |X|-|
 |Join a Skype for Business online meeting from a signed in user with audio and video. |X|-|
-|Join a Skype for Business online meeting from an anonymous user. |X|-|
+|Join a Skype for Business online meeting from an anonymous user. |-|-|
 |In a Skype for Business online meeting, one can open up to four video windows from different remote participants at the same time.  |X|-|
 |The application context can be passed to the remote party in the conversation invite.  |X|X|
 |Use Skype Conversation UI control in your applications for P2P IM  |X|X|
