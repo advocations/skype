@@ -13,7 +13,7 @@ What is included in this release?
 
 **New capabilities and Key resolved issues**
 
-- You can embed and use the Skype Conversation UI control for P2P Audio video within your application along with P2P Chat conversations. Audio and video capabilities with Conversation Control are available in public preview.  
+- You can embed and use the Skype Conversation UI control for P2P audio and video within your application along with P2P chat conversations. Audio and video capabilities with Conversation UI Control are available in public preview.  
 - You can schedule a Skype Meeting using the Skype Web SDK. This is now generally available for production use.
 - Additional customer reported issues in Audio and Video capabilities are now resolved.
 
@@ -48,5 +48,5 @@ What is included in this release?
       - Devices selection
       - Anonymous meeting join
       - Add/remove contacts and groups
-      - Skype Conversation UI with P2P Chat and Audio Video
+      - Skype Conversation UI with P2P chat, audio and video
 
