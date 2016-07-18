@@ -11,8 +11,8 @@ The [SignInManager.SignIn](https://ucwa.skype.com/reference/WebSDK/interfaces/_s
 
 
  >**Note**: To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:  
- - [Windows Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/windows/archive/SkypeForBusinessPlugin-16.0.0.101.msi)
- - [Mac Download](https://az801095.vo.msecnd.net/prod/LWA/plugins/mac/archive/SkypeForBusinessPlugin-16.0.0.63.pkg)
+ - [Windows Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi)
+ - [Mac Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg)
 
 ### Get the SDK entry point and sign in a user
 
