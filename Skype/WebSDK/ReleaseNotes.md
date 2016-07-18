@@ -1,6 +1,6 @@
 # Skype Web SDK - Release Notes 
 
-_**Release Date 03/30/2016**_
+_**Release Date 07/18/2016**_
 
 What is included in this release?
 
@@ -13,21 +13,10 @@ What is included in this release?
 
 **New capabilities and Key resolved issues**
 
-- The Skype Web SDK now supports Skype for Business server and Skype for Business Online. 
-- You can now embed and use the Skype Conversation UI control for P2P chats within your application
-- We have also resolved several customers reported issues related to Conversations, Chat, Audio and Video.
-- Some key customer reported resolved issues are listed below.
+- You can embed and use the Skype Conversation UI control for P2P Audio video within your application along with P2P Chat conversations. Audio and video capabilities with Conversation Control are available in public preview.  
+- You can schedule a Skype Meeting using the Skype Web SDK. This is now generally available for production use.
+- Additional customer reported issues in Audio and Video capabilities are now resolved.
 
-    - Ability to switch video device during the call
-    - Ability to change video mode 
-    - Temporarily incorrect value on conversation.uri
-    - Cannot stream video after restarting video service
-    - Participant object for a meeting's owner contains the meeting's sip address and not the user's sip address
-    - Incorrect value on displayName property of remote participants
-    - Video lost when toggling css property "display" between "none" and "block"
-    - Video lost when removing video container from the DOM and adding it again
-    - Video Channel isStarted property not in-sync and missing event
-    - selfParticipant.audio.isMuted(true) doesn't work in meetings
 
 **Supported Browsers**
 
@@ -49,7 +38,6 @@ What is included in this release?
     - View Contacts
     - Groups
     - Chat services
-    - Skype Conversation UI
     
 
 - Skype for Business 2015 Cumulative Update 1+
@@ -60,4 +48,5 @@ What is included in this release?
       - Devices selection
       - Anonymous meeting join
       - Add/remove contacts and groups
+      - Skype Conversation UI with P2P Chat and Audio Video
 
