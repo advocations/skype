@@ -24,13 +24,13 @@ Because the Skype Web SDK is hosted through the Content Delivery Network (CDN), 
 ## Skype for Business Web App Plug-in/ORTC Support
 <a name="sectionSection1"> </a>
 
-The Skype for Business Web App plugin, available for browsers such IE, Safari, and Firefox, provides audio/video media capability and desktop sharing. It is available for Windows and Mac computers from the following download locations:
+The Skype for Business Web App plugin, available for browsers IE 11 and Safari, provides audio/video media capabilities. It is available for Windows and Mac computers from the following download locations:
 
 - [Windows Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi)
 - [Mac Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg)
 
 
- **Note**  To enable audio/video functionality, client applications must install the Skype for Business Web App Plug-in. Note that this restricts media modalities to desktop browsers only, as mobile browsers such as mobile Safari and the Windows Store browser do not allow third-party plug-ins.
+ **Note**  To enable audio/video functionality, client applications must install the Skype for Business Web App Plug-in. Note that this restricts media modalities to desktop browsers only.
 
 ORTC support is available in the Microsoft Edge browser, which will allow audio/video calls without a plugin installed.  ORTC support for other browsers will be added in the near future, however the plugins are still available as a fallback.
  

@@ -10,7 +10,7 @@ The [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_
 The [SignInManager.SignIn](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.signinmanager.html#signin) method and the [SignInManager.SignOut](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.signinmanager.html#signout) method are asynchronous and return a [Promise](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.promise.html) object. Use the **Promise#then** method to set operation success or failure callbacks.
 
 
- >**Note**: To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:  
+ >**Note**: To enable audio/video functionality for IE 11 and Safari you need to install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:  
  - [Windows Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi)
  - [Mac Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg)
 
