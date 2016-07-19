@@ -30,7 +30,7 @@ The Skype for Business Web App plugin, available for browsers IE 11 and Safari, 
 - [Mac Download](https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg)
 
 
- **Note**  To enable audio/video functionality, client applications must install the Skype for Business Web App Plug-in. Note that this restricts media modalities to desktop browsers only.
+ **Note**  To enable audio/video functionality, browser applications must install the Skype for Business Web App Plug-in. Note that this restricts media modalities to desktop browsers only.
 
 ORTC support is available in the Microsoft Edge browser, which will allow audio/video calls without a plugin installed.  ORTC support for other browsers will be added in the near future, however the plugins are still available as a fallback.
  
