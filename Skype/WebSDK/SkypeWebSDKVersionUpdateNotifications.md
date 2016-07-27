@@ -1,7 +1,7 @@
 # Skype Web SDK Version Update
 
 | Product        | New Version           | Last Updates  |Previous Version
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| -----:|----------:|
 | Conversation Control DF     | 1.52.79 | 7/27/16 |1.51.69
 | Web SDK DF    | 0.4.245      |  7/27/16|0.4.239
 | Conversation Control Prod | 1.51.69 – Rollout 5%     |   7/27/16|1.50.51
