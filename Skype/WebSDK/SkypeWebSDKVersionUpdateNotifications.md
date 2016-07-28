@@ -4,8 +4,8 @@
 | ------------- |:-------------:| -----:|----------:|
 | Conversation Control DF     | 1.52.79 | 7/27/16 |1.51.69
 | Web SDK DF    | 0.4.245      |  7/27/16|0.4.239
-| Conversation Control Prod | 1.51.69 – Rollout 5%     |   7/27/16|1.50.51
-| Web SDK Prod| 0.4.239 – Rollout 5%|  7/27/16 |  0.4.232 |
+| Conversation Control Prod | 1.51.69     |   7/27/16|1.50.51
+| Web SDK Prod| 0.4.239 |  7/27/16 |  0.4.232 |
 
 **Bugs fixed in the new dogfood build:**
  
