@@ -235,7 +235,7 @@ Authorization: Bearer <access-token>
 {
  "UserAgent":"UCWA Samples",
  "EndpointId":"a917c6f4-976c-4cf3-847d-cdfffa28ccdf",
- "Culture":"en-US",
+ "Culture":"en-US"
 }
 ```
 
