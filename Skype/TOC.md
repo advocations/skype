@@ -19,7 +19,6 @@
 ##### [Devices](WebSDK/Devices.md)
 
 #### [Getting Started](WebSDK/GettingStarted.md)
-##### [Release Notes](WebSDK/ReleaseNotes.md)
 ##### [Downloading and running samples](WebSDK/DownloadRunSamples.md)
 ##### [Skype Web SDK API product keys](WebSDK/APIProductKeys.md)
 #### [Developing Applications](WebSDK/DevelopApplications.md)
@@ -49,7 +48,8 @@
 ##### [Switch between video streams across conversations](WebSDK/SwitchConversationVideoStreams.md)
 ##### [Use the Skype Web Conversation Control in a web page](WebSDK/UseConversationControl.md)
 ###### [Conversation Control](WebSDK/ConversationControl.md)
-#### [Release Notes](WebSDK/ReleaseNotes.md)
+####  [Release Notes](WebSDK/ReleaseNotes.md)
+##### [Skype Web SDK Version Update Notifications](WebSDK/SkypeWebSDKVersionUpdateNotifications.md)
 #### [CONTRIBUTING](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md)
 #### [Terms Of Service](WebSDK/TermsOfService.md)
 
