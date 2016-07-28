@@ -191,7 +191,7 @@ Pragma: no-cache
 X-Ms-diagnostics: 28029;source="server.contoso.com";reason="Authentication type not allowed."
 
 {
- "error":"unsupported_grant_type",
+ "error":"unsupported_grant_type"
 }
 
 ```
