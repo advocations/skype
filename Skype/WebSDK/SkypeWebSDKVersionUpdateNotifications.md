@@ -1,5 +1,23 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 8/16/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.55.101 | 8/16/16 |1.54.107
+| Skype Web SDK Preview    | 0.4.262      |  8/16/16|0.4.256
+| Conversation Control Production | 1.54.107     |   8/16/16|1.53.59
+| Skype Web SDK Production| 0.4.256 |  8/16/16 |  0.4.250 |
+
+**Bugs fixed in the new public preview build:**
+
+- Remove duplicate call ended activity items in certain call scenarios
+- Fix certain behavioral bugs of p2p video calls in Edge
+
+The latest release includes fixes to remove duplicate activity items in certain calling scenarios and improvements to the reliability of p2p video calls in Edge.
+
+---
+
 ## Skype Web SDK Version Update 8/9/16
 
 | Product        | New Version           | Last Updated  |Previous Version
