@@ -11,10 +11,10 @@
 
 **Bugs fixed in the new public preview build:**
 
-- Remove duplicate call ended activity items in certain call scenarios
+- Remove duplicate call ended activity items in group calls escalated from p2p
 - Fix certain behavioral bugs of p2p video calls in Edge
 
-The latest release includes fixes to remove duplicate activity items in certain calling scenarios and improvements to the reliability of p2p video calls in Edge.
+The latest release includes fixes for activity items and improvements to video calls in Edge.
 
 ---
 
