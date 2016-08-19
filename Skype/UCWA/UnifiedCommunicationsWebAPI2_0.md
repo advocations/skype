@@ -3,7 +3,7 @@
 Microsoft Unified Communications Web API 2.0 is a REST API that exposes Skype for Business Server 2015 instant messaging (IM) and presence capabilities.
 
 
- _**Applies to:** Skype for Business 2015_
+ _**Applies to:** Skype for Business 2015_, _Skype for Business Online_
 
 UCWA 2.0 enables developers to make their enterprise applications and intranets more lively and connected to business contacts.
 
