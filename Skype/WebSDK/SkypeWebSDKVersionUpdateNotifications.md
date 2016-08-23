@@ -1,5 +1,24 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 8/23/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.56.78 | 8/23/16 |1.55.101
+| Skype Web SDK Preview    | 0.4.269      |  8/23/16| 0.4.262
+| Conversation Control Production | 1.55.101    |   8/23/16|1.54.107
+| Skype Web SDK Production| 0.4.262 |  8/23/16 |  0.4.256 |
+
+**Bugs fixed in the new public preview build:**
+
+- A/V plugin installation flow now completes successfully on Safari
+- During Edge audio calls, self video is no longer turned on automatically when remote turns on video
+- Video no longer dropped after nulling and restoring the video container during a video call
+
+The latest release includes improvements to video calls in Edge, allows AV calls in Safari to proceed after the plugin is installed without refreshing, and allows video calls to continue when the video container is nulled and restored.
+
+---
+
 ## Skype Web SDK Version Update 8/16/16
 
 | Product        | New Version           | Last Updated  |Previous Version
