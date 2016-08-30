@@ -1,5 +1,22 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 8/30/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.57.70 | 8/30/16 |1.56.78
+| Skype Web SDK Preview    | 0.4.275      |  8/30/16| 0.4.269
+| Conversation Control Production | 1.56.78    |   8/30/16|1.55.101
+| Skype Web SDK Production| 0.4.269 |  8/30/16 |  0.4.262  |
+
+The latest release includes improvements to application telemetry and a fix for an audio bug that can arise when a p2p conversation is escalated to a group conversation.
+
+**Bugs fixed in the new public preview build:**
+
+- Add telemetry parameter to indicate whether sign in is online or onprem
+- After escalating a call to group call mute/unmute feature/button no longer stops working for escalatee
+
+---
 ## Skype Web SDK Version Update 8/23/16
 
 | Product        | New Version           | Last Updated  |Previous Version
