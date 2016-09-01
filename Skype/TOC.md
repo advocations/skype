@@ -2,8 +2,8 @@
 
 ## [Skype Developer platform](SkypeDeveloperPlatform.md)
 
-### [Skype URI](SkypeURIs/SkypeDevelopment.md)
-#### [Skype SDK  for Android](SkypeURIs/SkypeSDKforAndroid.md)
+### [Skype URI Development](SkypeURIs/SkypeDevelopment.md)
+#### [Skype SDK for Android](SkypeURIs/SkypeSDKforAndroid.md)
 #### [Skype URIs](SkypeURIs/SkypeURIs.md)
 ##### [Skype URI API reference](SkypeURIs/SkypeURIAPIReference.md)
 ##### [Branding](SkypeURIs/SkypeURIs_BrandingGuidelines.md)
