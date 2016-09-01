@@ -26,10 +26,10 @@ all audio and video—is through the Skype client.
 Currently supported Skype URIs include:
 
 
-* Switching focus to the Skype client. (See [Start/switch focus to the Skype client](SkypeURIAPIReference#focus).)
-* Initiating audio calls to other Skype users, phones, or mobiles—both one-to-one dialogs and multi-party conferences. (See [Audio call—implicit](SkypeURIAPIReference#call).)
-* Initiating video calls to another Skype user. (See [Video call](SkypeURIAPIReference#video).)
-* Sending instant messages to an individual or establishing a group multi-chat. (See [Chats](SkypeURIAPIReference#chats).)
+* Switching focus to the Skype client. (See [Start/switch focus to the Skype client](SkypeURIAPIReference.md).)
+* Initiating audio calls to other Skype users, phones, or mobiles—both one-to-one dialogs and multi-party conferences. (See [Audio call—implicit](SkypeURIAPIReference.md).)
+* Initiating video calls to another Skype user. (See [Video call](SkypeURIAPIReference.md).)
+* Sending instant messages to an individual or establishing a group multi-chat. (See [Chats](SkypeURIAPIReference.md).)
 
 ## How Skype URIs work
 
@@ -54,9 +54,9 @@ Clicking the link:
 block of HTML that has a Skype URI at its core. Simply use the form to specify the type of button you want, then 
 paste the code snippet into a webpage so people can easily call or chat with you over Skype.
 
-The [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skype.ui) enables you to dynamically embed Skype URIs 
+The [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md) enables you to dynamically embed Skype URIs 
 that have a predefined appearance and user interface similar to [Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/), 
-but provides additional functionality, such as video, conference calls, and multichats.
+but provides additional functionality, such as video, conference calls, and multi-chats.
 
 Apps can construct and access an appropriate Skype URI in response to user actions. For example, tapping a contact's 
 picture on your mobile device might construct and access a "call" Skype URI specifying that contact's Skype Name or 
@@ -128,7 +128,7 @@ platform and the accessing browser, webpage, or application. Ideally, you want t
 present, and direct the user to download and install the Skype client if it is not. In fact, your app should navigate 
 directly to the mobile device's marketplace or the platform-specific Skype client's [download page](http://www.skype.com/go/download) 
 on skype.com whenever it detects that a Skype client is not present. For information about and sample code for detecting 
-and installing a missing Skype client, see the associated tutorial page; for example, [What to do if a Skype client is not installed](SkypeURITutorial_AndroidApps#What_client), 
+and installing a missing Skype client, see the associated tutorial page; for example, [What to do if a Skype client is not installed](SkypeURITutorial_AndroidApps.md), 
 if you are developing an Android app.
 
 Keep in mind that installing the Skype client on the device might additionally require the user to create a Skype account 

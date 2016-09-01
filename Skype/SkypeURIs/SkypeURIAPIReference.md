@@ -9,7 +9,7 @@ Learn how to use Skype URIs to add Skype functionality to your client applicatio
 This API reference details the functionality, options, and syntax of each supported Skype URI. Use this reference if you're 
 interested in creating applications for Windows, Android, and iOS platforms and mobile devices, or creating Skype URI-enabled emails or signature blocks.
 
-If you're interested in creating Skype URI-enabled webpages, see the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui).
+If you're interested in creating Skype URI-enabled webpages, see the [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md).
 
 ## Supported Skype URI APIs
 
