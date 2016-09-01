@@ -57,7 +57,9 @@ You should use an element's white variant only when your background conflicts wi
 
 **Figure 2. Skype logo on complimentary colored backgrounds**
 
-![Skype logo on complimentary colored backgrounds](images/290fc15d-5cfe-478f-a8c0-5136db46bcc7.jpg)You must ensure that the Skype Brand Elements appears on an appropriately contrasted background. Do not place the Skype logo over busy areas of photographs. The logo should always be legible.
+![Skype logo on complimentary colored backgrounds](images/290fc15d-5cfe-478f-a8c0-5136db46bcc7.jpg)
+
+You must ensure that the Skype Brand Elements appears on an appropriately contrasted background. Do not place the Skype logo over busy areas of photographs. The logo should always be legible.
 
 
 **Figure 3. Skype logo on contrasted backgrounds**
@@ -67,7 +69,7 @@ You should use an element's white variant only when your background conflicts wi
 
 ## Downloading the Skype Brand Elements
 
-For webpages, the [Skype.ui JavaScript function](0a73cb5e-b655-449c-add2-e87b14dfd832.md#skypeui) incorporates and accesses the Skype URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space around the Skype Brand Element, it cannot ensure placement on an appropriate background.
+For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) incorporates and accesses the Skype URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space around the Skype Brand Element, it cannot ensure placement on an appropriate background.
 
 For Windows 8, Android, and iOS applications, you can [download](http://www.microsoft.com/download/details.aspx?id=43127) the Skype URI-specific brand elements from the Skype Developer website, and incorporate them as application resources.
 
@@ -134,14 +136,14 @@ Do not alter the Skype Brand Elements in any way.
 ## Additional resources
 
 
-* [Skype URIs](10f120df-50b8-4942-a8e4-636bbf6d7744.md)
-* [Skype URI API reference](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md)
-* [Skype URIs: Branding guidelines](a4e772c7-39b1-45b6-b55f-9c9a166cc51b.md)
-* [Skype URIs: FAQs](368672ef-de32-42fa-a743-ed436f9ef638.md)
-* [Skype URI tutorial: Windows 8 apps](14adc687-a0dc-4bfe-85a6-edc754c728ce.md)
-* [Skype URI tutorial: Email](304c9d0c-486d-4307-8a8d-8d92bd9a6ec1.md)
-* [Skype URI tutorial: Webpages](0a73cb5e-b655-449c-add2-e87b14dfd832.md)
-* [Skype URI tutorial: Android apps](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md)
-* [Skype URI tutorial: iOS apps](b3e1e690-039f-4112-accb-9481794266d0.md)
+* [Skype URIs](SkypeURIs)
+* [Skype URI API reference](SkypeURIAPIReference)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
+* [Skype URIs: FAQs](SkypeURIs_FAQs)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
 * [Skype URI-specific brand elements](https://developer.skype.com/resources/skype-button-assets.zip)
 

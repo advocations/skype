@@ -20,10 +20,10 @@ For a Skype URI to work, a Skype client must be installed on the user's device, 
 Currently supported Skype URIs include:
 
 
-* Switching focus to the Skype client. (See [Start/switch focus to the Skype client](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md#focus).)
-* Initiating audio calls to other Skype users, phones, or mobiles—both one-to-one dialogs and multi-party conferences. (See [Audio call—implicit](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md#call).)
-* Initiating video calls to another Skype user. (See [Video call](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md#video).)
-* Sending instant messages to an individual or establishing a group multi-chat. (See [Chats](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md#chats).)
+* Switching focus to the Skype client. (See [Start/switch focus to the Skype client](SkypeURIAPIReference#focus).)
+* Initiating audio calls to other Skype users, phones, or mobiles—both one-to-one dialogs and multi-party conferences. (See [Audio call—implicit](SkypeURIAPIReference#call).)
+* Initiating video calls to another Skype user. (See [Video call](SkypeURIAPIReference#video).)
+* Sending instant messages to an individual or establishing a group multi-chat. (See [Chats](SkypeURIAPIReference#chats).)
 
 ## How Skype URIs work
 
@@ -45,20 +45,20 @@ Clicking the link:
 
 [Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/) provide you with a generated block of HTML that has a Skype URI at its core. Simply use the form to specify the type of button you want, then paste the code snippet into a webpage so people can easily call or chat with you over Skype.
 
-The [Skype.ui JavaScript function](0a73cb5e-b655-449c-add2-e87b14dfd832.md#skypeui) enables you to dynamically embed Skype URIs that have a predefined appearance and user interface similar to[Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/), but provides additional functionality, such as video, conference calls, and multichats.
+The [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) enables you to dynamically embed Skype URIs that have a predefined appearance and user interface similar to[Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/), but provides additional functionality, such as video, conference calls, and multichats.
 
 Apps can construct and access an appropriate Skype URI in response to user actions. For example, tapping a contact's picture on your mobile device might construct and access a "call" Skype URI specifying that contact's Skype Name or phone number.
 
-For information about the syntax of each currently supported Skype URIs, see [Skype URI API reference](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md).
+For information about the syntax of each currently supported Skype URIs, see [Skype URI API reference](SkypeURIAPIReference).
 
 For information about and sample codes that illustrate how you can use each of the currently supported Skype URIs in your apps, emails, and webpages, see the following:
 
 
-* [Skype URI tutorial: Windows 8 apps](14adc687-a0dc-4bfe-85a6-edc754c728ce.md)
-* [Skype URI tutorial: Email](304c9d0c-486d-4307-8a8d-8d92bd9a6ec1.md)
-* [Skype URI tutorial: Webpages](0a73cb5e-b655-449c-add2-e87b14dfd832.md)
-* [Skype URI tutorial: Android apps](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md)
-* [Skype URI tutorial: iOS apps](b3e1e690-039f-4112-accb-9481794266d0.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
 
 
 >**Note:**  Your use of Skype URIs implies access to and use of Skype software, as governed by Skype's [Terms of Use](http://www.skype.com/go/tou/).
@@ -98,7 +98,7 @@ The documentation for your app should encourage users to enable their Skype clie
 
 When the Skype client completes the requested, regardless of success, focus can remain with the Skype client rather than returning to your app. This depends on the type of action requested, as well as which platform the Skype client is running on. For example, chats are open-ended, so focus always stays with the Skype client. However, while calls terminate when all but one participant has hung up, focus always stays with the Skype for Windows client but returns to your app for the Skype for Android client.
 
-Determining whether a Skype client is available on a mobile or desktop device—and what to do if it is not—depends on the platform and the accessing browser, webpage, or application. Ideally, you want to detect whether the Skype client is present, and direct the user to download and install the Skype client if it is not. In fact, your app should navigate directly to the mobile device's marketplace or the platform-specific Skype client's [download page](http://www.skype.com/go/download) on skype.com whenever it detects that a Skype client is not present. For information about and sample code for detecting and installing a missing Skype client, see the associated tutorial page; for example,[What to do if a Skype client is not installed](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md#What_client), if you are developing an Android app.
+Determining whether a Skype client is available on a mobile or desktop device—and what to do if it is not—depends on the platform and the accessing browser, webpage, or application. Ideally, you want to detect whether the Skype client is present, and direct the user to download and install the Skype client if it is not. In fact, your app should navigate directly to the mobile device's marketplace or the platform-specific Skype client's [download page](http://www.skype.com/go/download) on skype.com whenever it detects that a Skype client is not present. For information about and sample code for detecting and installing a missing Skype client, see the associated tutorial page; for example,[What to do if a Skype client is not installed](SkypeURITutorial_AndroidApps#What_client), if you are developing an Android app.
 
 Keep in mind that installing the Skype client on the device might additionally require the user to create a Skype account and issue/accept one or more Contact requests before they can effectively use Skype URIs.
 
@@ -116,7 +116,7 @@ Embedding Skype URIs in advertisements, search results, email signatures, "conta
 
 Your use of the Skype logo, name, and other brand elements in the design, appearance, and marketing materials for your app are detailed in and governed by the [Skype Trade Mark Guidelines](http://www.skype.com/en/legal/brand-guidelines/). As a general rule, third parties  _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the proposed use falls within certain limited exceptions.
 
-See [Skype URIs: Branding guidelines](a4e772c7-39b1-45b6-b55f-9c9a166cc51b.md) for complete guidelines regarding use of the Skype URI-specific brand elements.
+See [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines) for complete guidelines regarding use of the Skype URI-specific brand elements.
 
 
 ## Need help?
@@ -127,14 +127,14 @@ Please contact [Skype Developer Support](mailto:SkypeDev@Microsoft.com?subject=S
 ## In this section
 
 
-* [Skype URI API reference](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md)
-* [Skype URIs: Branding guidelines](a4e772c7-39b1-45b6-b55f-9c9a166cc51b.md)
-* [Skype URIs: FAQs](368672ef-de32-42fa-a743-ed436f9ef638.md)
-* [Skype URI tutorial: Windows 8 apps](14adc687-a0dc-4bfe-85a6-edc754c728ce.md)
-* [Skype URI tutorial: Email](304c9d0c-486d-4307-8a8d-8d92bd9a6ec1.md)
-* [Skype URI tutorial: Webpages](0a73cb5e-b655-449c-add2-e87b14dfd832.md)
-* [Skype URI tutorial: Android apps](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md)
-* [Skype URI tutorial: iOS apps](b3e1e690-039f-4112-accb-9481794266d0.md)
+* [Skype URI API reference](SkypeURIAPIReference)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
+* [Skype URIs: FAQs](SkypeURIs_FAQs)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
 
 
 ## Additional resources

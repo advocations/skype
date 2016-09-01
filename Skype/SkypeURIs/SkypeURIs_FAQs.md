@@ -3,7 +3,7 @@
 
 Find answers to frequently asked questions about using Skype URIs in your applications and webpages.
 
- _ **Applies to:** Skype_
+ _**Applies to:** Skype_
 
 ## If I have more than one Skype Button on my webpage, why does only the first one work?
 
@@ -15,9 +15,9 @@ The format of the ID is:
 
 In this example:
 
-* `function` is either "Call" or "Chat".
-* `username` is the Skype Name of the person you want the Button to call or chat with.
-* `sequence` is a sequence number to make the ID string unique within your webpage.
+* **function** is either "Call" or "Chat".
+* **username** is the Skype Name of the person you want the Button to call or chat with.
+* **sequence** is a sequence number to make the ID string unique within your webpage.
 
 This ID appears in two places in the generated code. Both places must be the same, as shown in the following example.
 
@@ -88,17 +88,17 @@ If you are embedding Skype buttons on a page that uses SSL, you can change the C
 
 Skype has two different clients for Windows 8 users. The first, Skype for Desktop, will seem very similar to our existing Skype for Windows client. The second, however, Skype for Windows 8, is something completely new and visually stunning. We've built Skype for Windows 8 from the ground up to enable the best of what Skype and Windows 8 have to offer.
 
-The best way to integrate Skype into your Windows Store App is to use [Skype URIs](10f120df-50b8-4942-a8e4-636bbf6d7744.md), which are simple, cross-platform links that you can use to initiate Skype calls and chats in Skype clients.
+The best way to integrate Skype into your Windows Store App is to use [Skype URIs](SkypeURIs), which are simple, cross-platform links that you can use to initiate Skype calls and chats in Skype clients.
 
 
 ## Additional resources
 
 
-* [Skype URIs](10f120df-50b8-4942-a8e4-636bbf6d7744.md)
-* [Skype URI API reference](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md)
-* [Skype URIs: Branding guidelines](a4e772c7-39b1-45b6-b55f-9c9a166cc51b.md)
-* [Skype URI tutorial: Windows 8 apps](14adc687-a0dc-4bfe-85a6-edc754c728ce.md)
-* [Skype URI tutorial: Email](304c9d0c-486d-4307-8a8d-8d92bd9a6ec1.md)
-* [Skype URI tutorial: Webpages](0a73cb5e-b655-449c-add2-e87b14dfd832.md)
-* [Skype URI tutorial: Android apps](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md)
-* [Skype URI tutorial: iOS apps](b3e1e690-039f-4112-accb-9481794266d0.md)
+* [Skype URIs](SkypeURIs)
+* [Skype URI API reference](SkypeURIAPIReference)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)

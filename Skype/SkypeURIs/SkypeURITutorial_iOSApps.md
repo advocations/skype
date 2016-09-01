@@ -43,11 +43,11 @@ If the Skype client is not installed, your app should alert the user, and direct
 ## Additional resources
 
 
-* [Skype URIs](10f120df-50b8-4942-a8e4-636bbf6d7744.md)
-* [Skype URI API reference](aeddfd97-e83b-462b-a27c-2512bd7f5c4d.md)
-* [Skype URIs: Branding guidelines](a4e772c7-39b1-45b6-b55f-9c9a166cc51b.md)
-* [Skype URIs: FAQs](368672ef-de32-42fa-a743-ed436f9ef638.md)
-* [Skype URI tutorial: Windows 8 apps](14adc687-a0dc-4bfe-85a6-edc754c728ce.md)
-* [Skype URI tutorial: Email](304c9d0c-486d-4307-8a8d-8d92bd9a6ec1.md)
-* [Skype URI tutorial: Webpages](0a73cb5e-b655-449c-add2-e87b14dfd832.md)
-* [Skype URI tutorial: Android apps](e7ff59ec-22ec-42ae-98ef-2a370aa212f1.md)
+* [Skype URIs](SkypeURIs)
+* [Skype URI API reference](SkypeURIAPIReference)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
+* [Skype URIs: FAQs](SkypeURIs_FAQs)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
