@@ -23,7 +23,7 @@ The **Skype for Android SDK** lets you start a chat, audio, or video call with a
 
  **Skype URIs** enable you to create innovative mobile, web, and desktop apps that initiate **Skype** calls and chats, enabling your users to reach their friends, family and businesses in a convenient yet familiar way. For example, if your mobile app presents a contact list that contains Skype names or phone numbers, your app can use a **Skype URI** to launch the official **Skype** client and initiate a call to a selected contact.
 
-* [Skype URIs](/SkypeURIs/SkypeURIs)
+* [Skype URIs](SkypeURIs.md)
 
 ## Additional resources
 
