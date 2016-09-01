@@ -1,43 +1,43 @@
 
-# Skype URI tutorial: Webpages
-Learn how to incorporate Skype communication functionality into your webpages. 
+# Skype URI tutorial: Web pages
+Learn how to incorporate Skype communication functionality into your web pages. 
 
  _**Applies to:** Skype_
 
-## Use Skype URIs in webpages
+## Use Skype URIs in web pages
 
-Skype provides two ways for using Skype URIs in your webpages:
+Skype provides two ways for using Skype URIs in your web pages:
 
 
 * [Skype Buttons](#buttons)
-* [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md)
+* [Skype.ui JavaScript function](SkypeURItutorial_web pages.md)
 
 Each of these approaches additionally determines whether a Skype client is installed, and takes the appropriate action.
 
-Of course, because using a Skype URI on a webpage is really no different than using any other hyperlink, you can always 
+Of course, because using a Skype URI on a web page is really no different than using any other hyperlink, you can always 
 just set the value of your anchor tag's *href* attribute to the Skype URI.
 
 For example:
 
  `<a href="skype:echo123?call">Call</a> the Skype Echo / Sound Test Service`
 
-However, your webpage must determine whether a Skype client is installed, and take the appropriate action if it is not.
+However, your web page must determine whether a Skype client is installed, and take the appropriate action if it is not.
 
 
 ### Skype Buttons
 
 Skype buttons provide you with a generated block of HTML that has a Skype URI at its core. If all you want to do is have 
 people call or chat with you over Skype, then simply use the form to specify the type of button you want, and paste its 
-code snippet into your webpage. Skype buttons will attempt to determine if a Skype client is installed, and take 
+code snippet into your web page. Skype buttons will attempt to determine if a Skype client is installed, and take 
 appropriate action as required. 
 
-If you're adding multiple Skype Buttons to your webpage:
+If you're adding multiple Skype Buttons to your web page:
 
 
 1. Remove the following line from all but the first instance:
 
      `<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>`
-1. Modify the  **div** element's **id** attribute and the **element** property so that each instance has matching unique values on your webpage.
+1. Modify the  **div** element's **id** attribute and the **element** property so that each instance has matching unique values on your web page.
 
 For example:
 
@@ -51,12 +51,12 @@ similar to Skype buttons, but provides additional formatting options and functio
 video, conference calls, and multi chats. **Skype.ui** will attempt to determine if a Skype client is installed, and 
 take appropriate action as required.
 
-The basic design pattern for adding Skype URIs to your webpages involves:
+The basic design pattern for adding Skype URIs to your web pages involves:
 
 
-* Importing the [skype-uri.js](http://www.skypeassets.com/i/scom/js/skype-uri.js) file from **http://www.skypeassets.com/i/scom/js/** into your webpage.
-* Using a  **div** tag to mark where you want place the Skype URI on your webpage.
-* Invoking the generator function, Skype.ui, to create and append an anchor element, based on a JSON representation of the Skype object, and append it to your webpage.
+* Importing the [skype-uri.js](http://www.skypeassets.com/i/scom/js/skype-uri.js) file from **http://www.skypeassets.com/i/scom/js/** into your web page.
+* Using a  **div** tag to mark where you want place the Skype URI on your web page.
+* Invoking the generator function, Skype.ui, to create and append an anchor element, based on a JSON representation of the Skype object, and append it to your web page.
 
 For example, the following figure shows a code fragment that adds a Skype URI that initiates an audio call to the Skype 
 Echo/Sound Test Service:
@@ -112,7 +112,7 @@ the 32 pixel, white image asset:
 
 #### Embedding the Skype URI
 
- The **Skype.ui** function generates and embeds a Skype URI link on your webpage. The function accepts a single 
+ The **Skype.ui** function generates and embeds a Skype URI link on your web page. The function accepts a single 
  argument—an instance of a Skype object, which you specify using JSON. On success, the function returns **true**. 
  On failure, the function returns  **false**.
 
@@ -134,7 +134,7 @@ associated with the various types of Skype URIs, see the Skype.ui quick referenc
 |topic|The optional topic string for a conference call, group video chat, or multi chat. Special characters in the value—specifically spaces, colons, and slashes—are additionally escaped. For example:<br/> **topic: "Quantum Mechanics 401 (Room: 7; 02/17/2012)"** <br/>is automatically escaped to yield:<br/>**Quantum%20Mechanics%20401%20(Room%3A%207;%2002%2F17%2F2012)** <br/>Ignored if there are fewer than two participants, or if this Skype URI is not an explicit call or chat; that is, name is omitted or specified as other than  **call**,  **chat**, or **dropdown**. Like the participants, the topic string is also optionally included as text immediately following the generated link. |
 |listTopic|Whether to list the topic string immediately following the generated link. Values are:<br/>* **true** - List the topic string.<br/>* **false** (or any value other than **true**) - Do not list the topic string.<br/>The default is **false**. Ignored if there is no topic string to list.|
 |imageSize|Which size of the image asset to use. Values are:<br/>* **Omitted**, **null**, an empty string, or a non-supported size - Use the default size.<br/>* **999** - Use the specified size, which must be one of the supported sizes: 10, 12, 14, 16, 24, and 32.<br/>The default size is 16 pixels.
-|imageColor|Which text color variant of the image asset to use, depending on your webpage's background. Values are:<br/>* **omitted**, **null**, an empty string, or a non-supported color - Use the default color.<br/>* **skype** - Use the Skype Blue variant.<br/>* **white** - Use the white variant.<br/>The default color is Skype Blue. |
+|imageColor|Which text color variant of the image asset to use, depending on your web page's background. Values are:<br/>* **omitted**, **null**, an empty string, or a non-supported color - Use the default color.<br/>* **skype** - Use the Skype Blue variant.<br/>* **white** - Use the white variant.<br/>The default color is Skype Blue. |
 
 
 
@@ -162,7 +162,7 @@ are always optional), they are not included in the table.
 
 ## How can I determine if a Skype client is installed?
 
-For webpages running in browsers, determining whether a Skype client is available varies from automatic to complex 
+For web pages running in browsers, determining whether a Skype client is available varies from automatic to complex 
 and unreliable. Some browsers on some platforms simply intercept the navigation failure, making it difficult, if not 
 impossible, for your code to recover from the perceived error.
 
