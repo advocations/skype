@@ -17,7 +17,7 @@ Your app will only start **Skype** calls on an Android device with the **Skype**
 
 The **Skype for Android SDK** lets you start a chat, audio, or video call with as few as two lines of Java code.
 
-* [Skype SDK for Android](SkypeSDKforAndroid)
+* [Skype SDK for Android](SkypeSDKforAndroid.md)
 
 ## Skype URIs
 

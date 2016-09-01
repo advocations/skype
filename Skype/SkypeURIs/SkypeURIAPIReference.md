@@ -27,7 +27,8 @@ Currently supported Skype URIs include:
 * If the Skype client is not running—starts the Skype client, and switches focus to the Skype main window.
 * If the Skype client is already running—switches focus to the Skype client.
 * If the Skype client is already running and has the current focus—no effect; the Skype client retains focus.
-* If the Skype URI starts the Skype client, focus is set to the Skype client's main window (auto-login is enabled), or to its sign-in dialog box (auto-login is not enabled). If the Skype client is already running, the focus is set to the main Skype window, even if a Skype client dialog box, such as the  **Tools−>Options** dialog box, is open.
+* If the Skype URI starts the Skype client, focus is set to the Skype client's main window (auto-login is enabled), 
+or to its sign-in dialog box (auto-login is not enabled). If the Skype client is already running, the focus is set to the main Skype window, even if a Skype client dialog box, such as the  **Tools−>Options** dialog box, is open.
 
  **Syntax**
 
@@ -189,13 +190,13 @@ Opens the conversation that matches the specified list of participants, or creat
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
-* [Skype URI tutorial: Email](SkypeURITutorial_Email)
-* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
-* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps.md)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email.md)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages.md)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)
 

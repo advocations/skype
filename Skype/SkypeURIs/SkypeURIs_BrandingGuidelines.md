@@ -6,11 +6,15 @@ Learn how to properly and effectively incorporate Skype branding elements into y
 
  _**Applies to:** Skype_
 
-Your use of the Skype logo, name, and other brand elements in your app's design, appearance, and marketing materials are detailed in and governed by the [Skype Brand Guidelines](http://www.skype.com/go/brand-guidelines/). As a general rule, third parties  _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the proposed use falls within certain limited exceptions.
+Your use of the Skype logo, name, and other brand elements in your app's design, appearance, and marketing materials are 
+detailed in and governed by the [Skype Brand Guidelines](http://www.skype.com/go/brand-guidelines/). As a general rule, 
+third parties  _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the 
+proposed use falls within certain limited exceptions.
 
 In particular, your app or webpage:
 
-* Must not incorporate any of the Skype Brand Elements, or variations thereof, into your own product names, service names, trademarks, logos, company names, domain names, meta tags, adwords, keywords, search terms, and so forth.
+* Must not incorporate any of the Skype Brand Elements, or variations thereof, into your own product names, service names, 
+trademarks, logos, company names, domain names, meta tags, adwords, keywords, search terms, and so forth.
 * Must ensure sufficient space around the Skype Brand Elements so they appear clean and uncluttered.
 * Must ensure placement of the Skype Brand Elements on an appropriate background.
 
@@ -32,9 +36,12 @@ Your app or webpage must use the appropriate brand element for the Skype URI act
 
 ## Size and spacing requirements
 
-You must keep sufficient space around the Skype Brand Elements so they appear clean and uncluttered, particularly if the Skype URI is associated with another logo or text string.
+You must keep sufficient space around the Skype Brand Elements so they appear clean and uncluttered, particularly if the 
+Skype URI is associated with another logo or text string.
 
-Specifically, this means maintaining 100% spacing or 16 pixels, whichever is larger. For example, if you are using a 24 pixel brand element, you must maintain a 24 pixel margin around that brand element. Similarly, if you are using a 10 pixel brand element, you must maintain a 16 pixel margin around that brand element.
+Specifically, this means maintaining 100% spacing or 16 pixels, whichever is larger. For example, if you are using a 24 
+pixel brand element, you must maintain a 24 pixel margin around that brand element. Similarly, if you are using a 10 pixel 
+brand element, you must maintain a 16 pixel margin around that brand element.
 
 
 **Figure 1. Branding elements with appropriate pixel margins**
@@ -59,7 +66,8 @@ You should use an element's white variant only when your background conflicts wi
 
 ![Skype logo on complimentary colored backgrounds](images/290fc15d-5cfe-478f-a8c0-5136db46bcc7.jpg)
 
-You must ensure that the Skype Brand Elements appears on an appropriately contrasted background. Do not place the Skype logo over busy areas of photographs. The logo should always be legible.
+You must ensure that the Skype Brand Elements appears on an appropriately contrasted background. Do not place the Skype 
+logo over busy areas of photographs. The logo should always be legible.
 
 
 **Figure 3. Skype logo on contrasted backgrounds**
@@ -69,23 +77,29 @@ You must ensure that the Skype Brand Elements appears on an appropriately contra
 
 ## Downloading the Skype Brand Elements
 
-For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) incorporates and accesses the Skype URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space around the Skype Brand Element, it cannot ensure placement on an appropriate background.
+For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) incorporates and accesses the Skype 
+URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space 
+around the Skype Brand Element, it cannot ensure placement on an appropriate background.
 
-For Windows 8, Android, and iOS applications, you can [download](http://www.microsoft.com/download/details.aspx?id=43127) the Skype URI-specific brand elements from the Skype Developer website, and incorporate them as application resources.
+For Windows 8, Android, and iOS applications, you can [download](http://www.microsoft.com/download/details.aspx?id=43127) 
+the Skype URI-specific brand elements from the Skype Developer website, and incorporate them as application resources.
 
-The brand elements are available as PNG files in the following pixel sizes: 10, 12, 14, 16, 24, 32, 48, 64, and 80. Color choices are Skype Blue and white, both on transparent backgrounds.
+The brand elements are available as PNG files in the following pixel sizes: 10, 12, 14, 16, 24, 32, 48, 64, and 80. Color 
+choices are Skype Blue and white, both on transparent backgrounds.
 
 
 ## How not to use the Skype Brand Elements
 
-The Skype action must always be kept clear and uncluttered as a standalone capability. Along these lines, here are some examples of how not to use the Skype URI-specific brand elements.
+The Skype action must always be kept clear and uncluttered as a standalone capability. Along these lines, here are 
+some examples of how not to use the Skype URI-specific brand elements.
 
 
 ### Backgrounds
 
 Do not place the Skype Brand Elements on a non-complimentary background.
 
-For example, do not use an element's Skype Blue variant on a blue or similarly hued background. In addition, do not use an element's white variant on a light-colored background, or on one that compliments the element's Skype Blue variant.
+For example, do not use an element's Skype Blue variant on a blue or similarly hued background. In addition, do not use 
+an element's white variant on a light-colored background, or on one that compliments the element's Skype Blue variant.
 
 
 **Figure 4. Skype icon placed on non-complimentary backgrounds**
@@ -95,7 +109,8 @@ For example, do not use an element's Skype Blue variant on a blue or similarly h
 
 ### Clear space
 
-Do not place the Skype Brand Elements next to other design elements, such as text, within the clear space area (100% of the size of the Skype Brand Element or 16 pixels, whichever is larger).
+Do not place the Skype Brand Elements next to other design elements, such as text, within the clear space area 
+(100% of the size of the Skype Brand Element or 16 pixels, whichever is larger).
 
 
 **Figure 5. Skype logo with text placed within clear space area**
@@ -119,7 +134,7 @@ Do not add borders or lines to the Skype Brand Elements, or place them in an ina
 
 ### Alterations
 
-Do not alter the Skype Brand Elements in any way. 
+Do not alter the Skype Brand Elements in any way.
 
 
 **Table 2. Skype Brand Element alterations to avoid**
@@ -136,14 +151,14 @@ Do not alter the Skype Brand Elements in any way.
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
-* [Skype URI tutorial: Email](SkypeURITutorial_Email)
-* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
-* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps.md)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email.md)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages.md)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)
 * [Skype URI-specific brand elements](https://developer.skype.com/resources/skype-button-assets.zip)
 

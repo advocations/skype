@@ -7,7 +7,8 @@ Learn how to incorporate Skype communication functionality into your Android app
 
 ## Use Skype URIs in my Android apps
 
-You can use Skype URIs in your Android apps, for example, tapping a contact's picture might start a Skype audio call. After you have constructed the appropriate Skype URI, use an Android  **Intent** to initiate its actions.
+You can use Skype URIs in your Android apps, for example, tapping a contact's picture might start a Skype audio call. 
+After you have constructed the appropriate Skype URI, use an Android **Intent** to initiate its actions.
 
 Keep in mind these two important points regarding the Skype for Android client:
 
@@ -48,7 +49,8 @@ public void initiateSkypeUri(Context myContext, String mySkypeUri) {
 
 ## Determine if a Skype client is installed
 
-Your Android app can use the  **PackageManager.getPackageInfo** method to determine whether a Skype client is installed on the device.
+Your Android app can use the  **PackageManager.getPackageInfo** method to determine whether a Skype client is installed 
+on the device.
 
 ```java
 /**
@@ -69,7 +71,9 @@ public boolean isSkypeClientInstalled(Context myContext) {
 
 ## What to do if a Skype client is not installed
 
-If the Skype client is not installed, your app should alert the user, and direct them to the Android Market or Google PlayStore. Ideally, your app should use a  **market:** scheme **Intent** to navigate directly to the Skype for Android install page.
+If the Skype client is not installed, your app should alert the user, and direct them to the Android Market or 
+Google PlayStore. Ideally, your app should use a **market:** scheme **Intent** to navigate directly to the Skype 
+for Android install page.
 
 
 ```java
@@ -91,11 +95,11 @@ public void goToMarket(Context myContext) {
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
-* [Skype URI tutorial: Email](SkypeURITutorial_Email)
-* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps.md)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email.md)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)

@@ -214,11 +214,11 @@ the platform-specific Skype client's [download page](http://www.skype.com/go/dow
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
-* [Skype URI tutorial: Email](SkypeURITutorial_Email)
-* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps.md)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email.md)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)

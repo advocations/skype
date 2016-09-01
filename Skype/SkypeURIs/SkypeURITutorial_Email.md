@@ -20,7 +20,8 @@ However, keep the following in mind:
 
 ## If you can't click a Skype URI in your emails
 
-Not all email applications or readers support Skype URIs (or hyperlinks in general) in the same manner. For someone receiving an email containing a Skype URI, such as in a signature block, the rendering email application might do any of the following:
+Not all email applications or readers support Skype URIs (or hyperlinks in general) in the same manner. For someone 
+receiving an email containing a Skype URI, such as in a signature block, the rendering email application might do any of the following:
 
 
 * Block the hyperlink's action, typically causing a security warning dialog to appear.
@@ -29,7 +30,8 @@ Not all email applications or readers support Skype URIs (or hyperlinks in gener
 
 ## Determine whether a Skype client is installed
 
-Microsoft email applications running on Windows 8, such as Outlook and Mail, detect that no application is associated with the  **skype:** scheme, and alert the user. Other email applications behave differently.
+Microsoft email applications running on Windows 8, such as Outlook and Mail, detect that no application is associated 
+with the  **skype:** scheme, and alert the user. Other email applications behave differently.
 
 
 **Figure 2. Windows Store dialog box**
@@ -41,7 +43,9 @@ Keep in mind that detecting the presence of the Skype client is only important i
 
 ## What to do if a Skype client is not installed
 
-Microsoft email applications running on Windows 8, such as Outlook, include a link to the Store as part of its alert whenever they detect that there is no application associated with the  **skype:** scheme. Simply click the Store icon to navigate to the Skype client's entry.
+Microsoft email applications running on Windows 8, such as Outlook, include a link to the Store as part of its alert 
+whenever they detect that there is no application associated with the  **skype:** scheme. Simply click the Store icon 
+to navigate to the Skype client's entry.
 
 
 **Figure 3. Windows Store dialog box**
@@ -52,12 +56,12 @@ Microsoft email applications running on Windows 8, such as Outlook, include a li
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps)
-* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
-* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Windows 8 apps](SkypeURITutorial_Windows8Apps.md)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages.md)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)
 

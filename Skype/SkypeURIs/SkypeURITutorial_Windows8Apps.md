@@ -8,7 +8,9 @@ Learn how to incorporate Skype communication functionality into your Windows 8 a
 
 ## Use Skype URIs in your Windows 8 apps
 
-You can use Skype URIs in your Windows 8 apps; for example, tapping a contact's picture might start a Skype audio call. After you have constructed the appropriate Skype URI, simply set it as the value of  **document.location** to initiate its actions.
+You can use Skype URIs in your Windows 8 apps; for example, tapping a contact's picture might start a Skype audio call. 
+After you have constructed the appropriate Skype URI, simply set it as the value of  **document.location** to initiate 
+its actions.
 
 For an introduction to the Fixed Layout template, see [JavaScript project templates for Store apps](http://go.microsoft.com/fwlink/?LinkId=232508)
 
@@ -105,7 +107,8 @@ Windows 8 applications detect that there is no application associated with the  
 
 ## What to do if a Skype client is not installed
 
-Windows 8 applications include a link to the Store as part of an alert whenever they detect that no application is associated with the  **skype:** scheme. Click the Store icon to navigate to the entry for the Skype client.
+Windows 8 applications include a link to the Store as part of an alert whenever they detect that no application is 
+associated with the  **skype:** scheme. Click the Store icon to navigate to the entry for the Skype client.
 
 
 **Figure 2. Windows Store dialog box**
@@ -116,12 +119,12 @@ Windows 8 applications include a link to the Store as part of an alert whenever 
 ## Additional resources
 
 
-* [Skype URIs](SkypeURIs)
-* [Skype URI API reference](SkypeURIAPIReference)
-* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines)
-* [Skype URIs: FAQs](SkypeURIs_FAQs)
-* [Skype URI tutorial: Email](SkypeURITutorial_Email)
-* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages)
-* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps)
-* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps)
+* [Skype URIs](SkypeURIs.md)
+* [Skype URI API reference](SkypeURIAPIReference.md)
+* [Skype URIs: Branding guidelines](SkypeURIs_BrandingGuidelines.md)
+* [Skype URIs: FAQs](SkypeURIs_FAQs.md)
+* [Skype URI tutorial: Email](SkypeURITutorial_Email.md)
+* [Skype URI tutorial: Webpages](SkypeURItutorial_Webpages.md)
+* [Skype URI tutorial: Android apps](SkypeURITutorial_AndroidApps.md)
+* [Skype URI tutorial: iOS apps](SkypeURITutorial_iOSApps.md)
 
