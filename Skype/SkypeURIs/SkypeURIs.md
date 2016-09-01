@@ -54,7 +54,7 @@ Clicking the link:
 block of HTML that has a Skype URI at its core. Simply use the form to specify the type of button you want, then 
 paste the code snippet into a webpage so people can easily call or chat with you over Skype.
 
-The [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) enables you to dynamically embed Skype URIs 
+The [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skype.ui) enables you to dynamically embed Skype URIs 
 that have a predefined appearance and user interface similar to [Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/), 
 but provides additional functionality, such as video, conference calls, and multichats.
 

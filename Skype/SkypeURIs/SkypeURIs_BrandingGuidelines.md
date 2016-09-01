@@ -77,7 +77,7 @@ logo over busy areas of photographs. The logo should always be legible.
 
 ## Downloading the Skype Brand Elements
 
-For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skypeui) incorporates and accesses the Skype 
+For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages#skype.ui) incorporates and accesses the Skype 
 URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space 
 around the Skype Brand Element, it cannot ensure placement on an appropriate background.
 
