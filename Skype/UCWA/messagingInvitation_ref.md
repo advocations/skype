@@ -165,7 +165,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 ```
 
 
-### updated
+### completed
 
 
 
