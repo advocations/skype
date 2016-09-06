@@ -1,5 +1,24 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 9/6/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.58.81 | 9/6/16 |1.57.70
+| Skype Web SDK Preview    | 0.4.281      |  9/6/16| 0.4.275
+| Conversation Control Production | 1.57.72    |   9/6/16|1.56.78
+| Skype Web SDK Production| 0.4.275 |  9/6/16 |  0.4.269  |
+
+The latest release includes improvements to group video calling in Chrome, the implementation of DevicesManager properties isMicrophoneEnabled and isCameraEnabled, and improvements to application telemetry, calling and overall reliability.
+
+**Bugs fixed in the new public preview build:**
+
+- Fix SfB native client and Microsoft Edge web client do not see remote video from Chrome client
+- Implement isMicrophoneEnabled and isCameraEnabled for pluginless calling scenarios
+- Delete minimum telemetry data necessary collectOII disabled
+- Fix TypeError when stop is called while receiving an incoming call
+
+---
 ## Skype Web SDK Version Update 8/30/16
 
 | Product        | New Version           | Last Updated  |Previous Version
