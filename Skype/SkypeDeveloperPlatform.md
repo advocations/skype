@@ -8,7 +8,8 @@
 
  **Documentation**
 
-- [Skype URIs](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
+- [Skype URIs](SkypeURIs/SkypeURIs.md)
+- [Skype SDK for Android](SkypeURIs/SkypeSDKforAndroid.md)
 - [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 - [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
 - [Skype for Business - Mobile URIs](Skype-For-Business-Uris/SfBMobileURI.md)
