@@ -2,10 +2,17 @@
 
 ## [Skype Developer platform](SkypeDeveloperPlatform.md)
 
-### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
-
-
-
+### [Skype URI Development](SkypeURIs/SkypeDevelopment.md)
+#### [Skype SDK for Android](SkypeURIs/SkypeSDKforAndroid.md)
+#### [Skype URIs](SkypeURIs/SkypeURIs.md)
+##### [Skype URI API reference](SkypeURIs/SkypeURIAPIReference.md)
+##### [Branding](SkypeURIs/SkypeURIs_BrandingGuidelines.md)
+##### [FAQs](SkypeURIs/SkypeURIs_FAQs.md)
+##### [Windows 8 apps tutorial](SkypeURIs/SkypeURITutorial_Windows8Apps.md)
+##### [Email tutorial](SkypeURIs/SkypeURITutorial_Email.md)
+##### [Webpages tutorial](SkypeURIs/SkypeURItutorial_Webpages.md)
+##### [Android apps tutorial](SkypeURIs/SkypeURITutorial_AndroidApps.md)
+##### [iOS apps tutorial](SkypeURIs/SkypeURITutorial_iOSApps.md)
 ### [Skype Web SDK](WebSDK/SkypeWebSDK.md)
 #### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
