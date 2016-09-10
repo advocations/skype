@@ -118,15 +118,15 @@ This is the same as adding a phone number contact to a newly created conversatio
 ## How to answer an incoming call from a phone number?
 <a name="sectionSection6"> </a>
 
-This is the same as answering any other incoming calls using the 'audioService.accept' API. The state of audioService will become 'Notified' when an incoming conversation is ready to be accepted.
+This is the same as answering any other incoming calls using the 'audioService.accept' API. The state of selfParticipant.audio will become 'Notified' when an incoming conversation is ready to be accepted.
 
 
   ```js
   application.conversationsManager.conversations.added(function (conversation) {
     // a new conversation is created by the Web SDK to handle the incoming call
     // the incoming call is ready to be accepted when the audio state becomes 'Notified'
-    // note: you can also listen to changes on 'conversation.selfParticipant.audio.state'
-    conversation.audioService.state.changed(function (newVal) {
+    // note: you can also listen to changes on 'conversation.audioService.state'
+    conversation.selfParticipant.audio.state.changed(function (newVal) {
       if (newVal == 'Notified') {
         conversation.audioService.accept();
       }
@@ -154,8 +154,43 @@ This is the same for handling all calls. It essentially depends on how you want 
 
  - When a conversation is removed from the conversations collection, your application may want to 
 
-2. The state of conversation.audioService (or conversation.selfParticipant.audio):
+2. The audio state of selfParticipant (or conversation.audioService.state):
 
- - When an incoming invitation arrives, the Web SDK will create a new conversation and bring its audioService state to 'Notified'. This is the recommended indicator for the user application to notify the user to either accept the call or reject it.
+ - When an incoming invitation arrives, the Web SDK will create a new conversation and bring the audio state of the selfParticipant to 'Notified'. This is the recommended indicator for the user application to notify the user to either accept the call or reject it.
 
- - When a conversation is successfully established (for both incoming or outgoing calls, and for the remote party being either a phone number or sip contact), the audioService state will become 'Connected'. This is when the user application needs to render the conversation status to the user (e.g., a counter to show the elapsed time, icons to show the call is connected, and the remote party's name, type, etc.).
+ - When a conversation is successfully established (for both incoming or outgoing calls, and for the remote party being either a phone number or sip contact), the audio state will become 'Connected'. This is when the user application needs to render the conversation status to the user (e.g., a counter to show the elapsed time, icons to show the call is connected, and the remote party's name, type, etc.).
+
+3. The audio state of a remote participant:
+
+ - When you call a remote participant (a phone number or sip contact), the audio state of the remote participant can switch between 'Ringing', 'Connecting', 'Connected', and 'Disconnected'. Listening to these state changes will let your application display meaning calling states to the user.
+
+Here is an example of calling a phone number and updating the call status:
+
+  ```js
+  var conversation = application.conversationsManager.createConversation();
+  conversation.participants.add('tel:+14259999999'); // where you specify the phone number uri
+
+  // listen to the audio state changes of the selfParticipant
+  conversation.selfParticipant.audio.state.changed(function (newState, reason, oldState) {
+    // showing newState in some <div-self>
+  });
+
+  // listen to the audio state changes of the remote participant
+  conversation.participants(0).audio.state.changed(function (newState, reason, oldState) {
+    // showing newState in some <div-remote>
+  });
+
+  // make the call
+  // the user may see these changes in <div-self> and <div-remote>:
+  // "Disconnected" -> "Notified" -> "Connecting" -> "Connected"
+  // "Disconnected" -> "Ringing" -> "Connecting" -> "Connected"
+  conversation.audioService.start();
+
+  $('#endCall').click(function () {
+    // end the call if the user chooses to do so
+    // the user may see these changes in <div-self> and <div-remote>:
+    // "Connected" -> "Disconnecting" -> "Disconnected"
+    conversation.audioService.stop();
+  });
+  ```
+
