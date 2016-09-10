@@ -1,18 +1,20 @@
 
-# Add or remove audio in a conversation
+# Making incoming and outgoing calls with phone numbers
 
 
  _**Applies to:** Skype for Business 2015_
 
  **In this article**  
-[How to identify if a contact is a phone number or a sip contact?](#sectionSection0)
-[How to identify if a conversation is with a phone number or a sip contact?](#sectionSection1)
-[How to call a phone number using Web SDK API?](#sectionSection2)
-[How to call a phone number using conversation control?](#sectionSection3)
-[How to add a phone number to an existing call?](#sectionSection4)
-[How to answer an incoming call with a phone number?](#sectionSection5)
-[How to end a call with a phone number?](#sectionSection6)
-[How to handle the states and event updates for a call with a phone number?](#sectionSection7)
+[How to add a phone number as a contact?](#sectionSection0)  
+[How to identify if a contact is a phone number or a sip contact?](#sectionSection1)  
+[How to identify if a conversation is with a phone number or a sip contact?](#sectionSection2)  
+[How to call a phone number using Web SDK API?](#sectionSection3)  
+[How to call a phone number using conversation control?](#sectionSection4)  
+[How to add a phone number to an existing call?](#sectionSection5)  
+[How to answer an incoming call with a phone number?](#sectionSection6)  
+[How to end a call with a phone number?](#sectionSection7)  
+[How to handle the states and event updates for a call with a phone number?](#sectionSection8)  
+
 
 
 ## How to add a phone number as a contact?
