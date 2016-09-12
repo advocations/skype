@@ -33,3 +33,22 @@ The Skype for Business scope permissions are shown in the following table:
 |Contacts.ReadWrite|Read and manage user contacts and groups|Allows the application to read and update user contacts and groups|Yes|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the application to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|Yes|
 |Meetings.ReadWrite|Create online meetings|Allows the application to create Online meetings on-behalf of the signed-in user|Yes|
+
+
+### Tenant Administrator Consent Flow
+
+The Skype for Business Online permissions are tenant administrator consent only. For an app to be used by all users of an O365 tenant, a tenant administrator must provide consent. To provide consent for all users in the tenant, construct the following URL for your app as shown in the example below. 
+
+>**Note**:  Update the  **client Id** and **redirect Uri** for your app.
+
+```js
+https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token
+	&client_id= ...
+	&redirect_uri=https://app.contoso.com/
+	&response_mode=form_post
+	&nonce=...
+	&resource=https://webdir.online.lync.com
+	&prompt=admin_consent
+```
+
+Access the URL and authenticate using a tenant administrator credentials and accept the application permissions. Users will now be able to access the application.
