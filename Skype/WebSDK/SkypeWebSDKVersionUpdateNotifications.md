@@ -1,5 +1,23 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 9/13/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.59.79 | 9/13/16 |1.58.81
+| Skype Web SDK Preview    | 0.4.288  |  9/13/16| 0.4.281
+| Conversation Control Production | 1.58.81   |   9/13/16|1.57.72 
+| Skype Web SDK Production| 0.4.288 |  9/13/16 |  0.4.269  |
+
+The latest release includes a critical fix to telemetry for the standalone SDK and improvements to AV calls in Microsoft Edge.
+
+**Bugs fixed in the new public preview build:**
+
+- Stop waiting for renegotiation in Microsoft Edge to declare call connected
+- Remote user turning on video turns on self video if both users in Microsoft Edge
+- Standalone telemetry manager sending events incorrectly
+
+---
 ## Skype Web SDK Version Update 9/6/16
 
 | Product        | New Version           | Last Updated  |Previous Version
