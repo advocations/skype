@@ -1,4 +1,6 @@
-### Enable getting conversation history
+# Conversations history/logs in the SDK
+
+## Enable getting conversation history
 
 It can be enabled with the `convLogSettings` param in the ctor:
 
@@ -14,7 +16,7 @@ Skype.initialize(config).then(api => {
 
 Once this is done, the SDK will be synchronizing the local list of conversations and messages with what UCWA has in the conversation logs.
 
-### How to invoke the API, what it does and how it works
+## How to invoke the API, what it does and how it works
 
 The logs can be synchronized on demand with the async `getMoreConversations` method, which is internal at the moment:
 
@@ -40,7 +42,7 @@ Thanks to batching, the SDK needs to send only 3 requests:
 - a POST that sends a batch of up to 20 GETs to get the metadata
 - a POST that sends a batch of up to 20 GETs to get messages
 
-### What should a UI team do to display history items
+## What should a UI team do to display history items
 
 Messages from the archive appear in the SDK just like all other messages sent or received by the user, so if there is a UI that can render all that, it can also render the archived messages. A message from the archive will have text/html content, timestamp and id of the person who sent it:
 
@@ -74,11 +76,11 @@ messages.added(message => {
 });
 ```
 
-### How to identify active conversations Vs. history fetched
+## How to identify active conversations vs. history fetched
 
 There is no special indicator for that. It's possible to check the conversation state, but if a conversation is disconnected, this does not necessarily mean that it is from the archive. 
 
-### How to restart a conversation on history
+## How to restart a conversation on history
 
 It can be started/restarted just like any other conversation: by sending a message, starting the chat service, starting an AV call and so on. The easiest way is probably to just send a message:
 
@@ -89,11 +91,11 @@ It can be started/restarted just like any other conversation: by sending a messa
 conv.chatService.sendMessage("Hi");
 ``` 
 
-### How to force refetch history items
+## How to force refetch history items
 
 With the `getMoreConversations` method. However this shouldn't be needed: UCWA sends `missedItems updated` events when new items appear in the archive.
 
-### Sample
+## Sample
 
 ```js
 Skype.initialize({
