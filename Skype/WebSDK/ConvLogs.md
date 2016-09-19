@@ -1,0 +1,142 @@
+### Enable getting conversation history
+
+It can be enabled with the `convLogSettings` param in the ctor:
+
+```js
+Skype.initialize(config).then(api => {
+    var app = new api.application({
+        settings: {
+            convLogSettings: true
+        }
+    });
+});
+```
+
+Once this is done, the SDK will be synchronizing the local list of conversations and messages with what UCWA has in the conversation logs.
+
+### How to invoke the API, what it does and how it works
+
+The logs can be synchronized on demand with the async `getMoreConversations` method, which is internal at the moment:
+
+```js
+app.conversationsManager.getMoreConversations();
+```
+
+It's safe to invoke this method multiple times: calls to it are debounced internally. The SDK will also invoke this method whenever a new conversation is archived: UCWA notifies the SDK about this with a `missedItems updated` event.
+
+This method does a few things:
+
+1. Gets the list of archived conversations (aka conversation logs): UCWA gives a list with 100 URLs.
+2. Picks the top 20 URLs: this works because most recent entries are at the top of the list.
+3. Discards those URLs that have been loaded by previous calls to the method.
+4. Sends a GET to each of the URL to get metadata of the archived conversations.
+5. Picks only p2p conversations with messages. Other types: conferences, video calls and so on are discarded.
+6. Sends a GET to each of the conversation logs to get the list of messages. Only first 20 messages are loaded.
+7. Creates local p2p conversation objects, if necessary, and adds message objects. Messages are sorted by timestamp, so messages from the archive will appear before the messages sent recently.
+
+Thanks to batching, the SDK needs to send only 3 requests:
+
+- a GET to get the list of conversation logs URLs
+- a POST that sends a batch of up to 20 GETs to get the metadata
+- a POST that sends a batch of up to 20 GETs to get messages
+
+### What should a UI team do to display history items
+
+Messages from the archive appear in the SDK just like all other messages sent or received by the user, so if there is a UI that can render all that, it can also render the archived messages. A message from the archive will have text/html content, timestamp and id of the person who sent it:
+
+```js
+// this collection has messages only: no AV call records, etc.
+var messages = conv.historyService.activityItems
+    .filter(item => item.type() == "TextMessage");
+
+messages.added(message => {
+    message.direction();
+    message.timestamp();
+    message.text();
+    message.html();
+    message.sender.id(); // SIP URI
+
+    // fetch the display name from UCWA
+    message.sender.displayName.get().then(name => {
+        console.log(name);
+    });
+
+    // fetch the contact photo
+    message.sender.avatarUrl.get().then(url => {
+        console.log(url);
+    });
+
+    // subscribe to the sender's presence status
+    message.sender.availability.subscribe();
+    message.sender.availability.changed(status => {
+        console.log(status);
+    });
+});
+```
+
+### How to identify active conversations Vs. history fetched
+
+There is no special indicator for that. It's possible to check the conversation state, but if a conversation is disconnected, this does not necessarily mean that it is from the archive. 
+
+### How to restart a conversation on history
+
+It can be started/restarted just like any other conversation: by sending a message, starting the chat service, starting an AV call and so on. The easiest way is probably to just send a message:
+
+```js
+// if it's already started, this will just send the message;
+// otherwise it'll tell UCWA to create a conversation and
+// then will send the message
+conv.chatService.sendMessage("Hi");
+``` 
+
+### How to force refetch history items
+
+With the `getMoreConversations` method. However this shouldn't be needed: UCWA sends `missedItems updated` events when new items appear in the archive.
+
+### Sample
+
+```js
+Skype.initialize({
+    apiKey: "..."
+}).then(api => {
+    var app = new api.application({
+        settings: { convLogSettings: true }
+    });
+
+    app.signInManager.signIn({
+        client_id: "...",
+        origins: [ "..." ],
+    }).then(() => {
+        // at this point the SDK is observing the "missedItems updated"
+        // event from UCWA and pulls new archived conversations if necessary:
+        // in such cases the UI will see new conversation objects and new
+        // message objects:
+        app.conversationsManager.conversations.added(conv => {
+            // the UI can bind the conversation object to a UI element here
+            // and also can wait for new messages to be added; the UI must
+            // properly handle "added" and "removed" events as well as take
+            // into account that messages added later can have timestamps
+            // in the past as they can come from an archived conversation 
+
+            conv.historyService.activityItems.added(item => {
+                console.log(item.type(), item.timestamp());
+
+                if (item.type() == "TextMessage")
+                    console.log(item.text());
+            });
+
+            conv.historyService.activityItems.removed(item => {
+                // the SDK may need to remove some of the items,
+                // mainly to keep them sorted by timestamp
+            });
+        });
+    });
+
+    // it's possible to sync logs on demand
+    document.querySelector("button#synclogs").addEventListener("click", () => {
+        app.conversationsManager.getMoreConversations().then(() => {
+            console.log("done");
+        });
+    });
+});
+```
