@@ -18,13 +18,15 @@ Once this is done, the SDK will be synchronizing the local list of conversations
 
 ## How to invoke the API, what it does and how it works
 
-The logs can be synchronized on demand with the async `getMoreConversations` method, which is internal at the moment:
+The logs can be synchronized on demand with the async `getMoreConversations` method:
 
 ```js
-app.conversationsManager.getMoreConversations();
+app.conversationsManager.getMoreConversations().then(() => {
+    console.log('done');
+});
 ```
 
-It's safe to invoke this method multiple times: calls to it are debounced internally. The SDK will also invoke this method whenever a new conversation is archived: UCWA notifies the SDK about this with a `missedItems updated` event.
+It's safe to invoke this method multiple times: calls to it are debounced internally. Once this method is invoked, the SDK will be synchronizing the list of conversations whenever a new conversation is archived: UCWA notifies the SDK about this with a `missedItems updated` event.
 
 This method does a few things:
 
@@ -33,13 +35,29 @@ This method does a few things:
 3. Discards those URLs that have been loaded by previous calls to the method.
 4. Sends a GET to each of the URL to get metadata of the archived conversations.
 5. Picks only p2p conversations with messages. Other types: conferences, video calls and so on are discarded.
-6. Sends a GET to each of the conversation logs to get the list of messages. Only first 20 messages are loaded.
-7. Creates local p2p conversation objects, if necessary, and adds message objects. Messages are sorted by timestamp, so messages from the archive will appear before the messages sent recently.
+6. Creates local p2p conversation objects, if necessary. Multiple conv logs can map to one conversation.
 
-Thanks to batching, the SDK needs to send only 3 requests:
+Thanks to batching, the SDK needs to send only 2 requests:
 
 - a GET to get the list of conversation logs URLs
 - a POST that sends a batch of up to 20 GETs to get the metadata
+
+This method does not pull messages from teh conv logs and to get messages use `getMoreActivityItems`:
+
+```js
+conversation.historyService.getMoreActivityItems().then(() => {
+    console.log('done');
+});
+```
+
+This method does a few things:
+
+1. Sends a GET to each conv log associated with the conversation to get the list of messages.
+2. Picks first 20 messages from each conv log.
+3. Adds message objects to the conversation. Messages are sorted by timestamp, so messages from the archive will appear before the messages sent recently.
+
+Thanks to batching, the SDK needs only one request even if messages for multiple conversations are pulled:
+
 - a POST that sends a batch of up to 20 GETs to get messages
 
 ## What should a UI team do to display history items
@@ -80,7 +98,7 @@ messages.added(message => {
 
 There is no special indicator for that. It's possible to check the conversation state, but if a conversation is disconnected, this does not necessarily mean that it is from the archive. 
 
-## How to restart a conversation on history
+## How to restart an archived conversation
 
 It can be started/restarted just like any other conversation: by sending a message, starting the chat service, starting an AV call and so on. The easiest way is probably to just send a message:
 
@@ -131,11 +149,18 @@ Skype.initialize({
                 // the SDK may need to remove some of the items,
                 // mainly to keep them sorted by timestamp
             });
+
+            // it's possible to download archived messages
+            // for this conversation right away, however
+            // it's better to do this only when the conversation
+            // becomes visible in the UI: downloading messages
+            // is a very expensive operation 
+            conv.historyService.getMoreActivityItems();
         });
     });
 
-    // it's possible to sync logs on demand
     document.querySelector("button#synclogs").addEventListener("click", () => {
+        // after this conv logs will be synced automatically
         app.conversationsManager.getMoreConversations().then(() => {
             console.log("done");
         });
