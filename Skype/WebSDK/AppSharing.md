@@ -165,3 +165,13 @@ TODO
 ## How to switch from sharing to viewing content
 
 TODO
+
+## Troubleshooting
+
+ It's important that this element doesn't have width set as otehrwise the plugin shifts the content somewhere right down which hides it from the view if the element isn't high enough. If the content does not appear, consider changing the style this way:
+         
+```html
+<div style="height:200px;margin:10pt"></div>
+```
+
+Here "width" remains unspecified, which makes the `<div>` occupy the entire width of the parent element, excluding margins (that don't seem to confuse the plugin).
