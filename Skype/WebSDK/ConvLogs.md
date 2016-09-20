@@ -42,13 +42,15 @@ Thanks to batching, the SDK needs to send only 2 requests:
 - a GET to get the list of conversation logs URLs
 - a POST that sends a batch of up to 20 GETs to get the metadata
 
-This method does not pull messages from teh conv logs and to get messages use `getMoreActivityItems`:
+This method does not pull messages from the conv logs and to get messages use `getMoreActivityItems`:
 
 ```js
 conversation.historyService.getMoreActivityItems().then(() => {
     console.log('done');
 });
 ```
+
+> Note, that downloading messages with `getMoreActivityItems` is a very expensive operation and should be done only when the corresponding conversation is visible in the UI.
 
 This method does a few things:
 
