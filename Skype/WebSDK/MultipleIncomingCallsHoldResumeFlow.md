@@ -4,6 +4,8 @@
 - [Overview](#overview)
 - [Sample logic flow](#logic)
 - [Sample implementation](#implementation)
+- [Multi-tab apps](#multitab)
+- [Known Issues](#knownissues)
 
 ---
 ## Overview <a id="overview"></a>
@@ -156,3 +158,27 @@ Skype.initialize({
     });
 });
 ```
+---
+## Multi-tab apps <a id="multitab"></a>
+
+Note that if the same user is signed in to an SfB account on multiple tabs, when the user receives
+an incoming call she will be notified on all tabs. However, after accepting the call, all subsequent
+actions related to that call must be performed from the same tab. The same is true for outgoing calls.
+All subsequent actions to control the call must be performed in the same tab in which the call was 
+initiated/accepted. These actions include:
+
+- hold/resume
+- mute/unmute
+- start/stop video
+- add participant
+- end call
+
+---
+## Known Issues <a id="knownissues"></a>
+
+There is an ongoing issue in Microsoft Edge that prevents the above flow from working as intended.
+When the user accepts a second incoming call, the first call will be put on hold but the second
+call will fail to connect. This issue is being investigated and will be resolved soon.
+
+The code sample has been tested in IE and Safari and works on both browsers assuming the plugin
+is correctly installed.
