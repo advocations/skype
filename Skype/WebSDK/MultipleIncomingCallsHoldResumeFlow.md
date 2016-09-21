@@ -1,9 +1,9 @@
 # Handling multiple incoming calls using hold/resume
 
 ## Contents
-[Overview](#overview)\
-[Sample logic flow](#logic)\
-[Sample implementation](#implementation)
+- [Overview](#overview)
+- [Sample logic flow](#logic)
+- [Sample implementation](#implementation)
 
 ---
 ## Overview <a id="overview"></a>
