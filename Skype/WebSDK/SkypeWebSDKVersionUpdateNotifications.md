@@ -1,5 +1,22 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 9/20/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.60.72 | 9/20/16 |1.59.79
+| Skype Web SDK Preview    | 0.4.293  |  9/20/16| 0.4.288
+| Conversation Control Production | 1.59.79   |   9/20/16|1.58.81 
+| Skype Web SDK Production| 0.4.288 |  9/20/16 |  0.4.288  |
+
+The latest release includes preview support for phone audio calling (PSTN) and improvements to AV calls in Microsoft Edge.
+
+**Bugs fixed in the new public preview build:**
+
+- Implement phone audio conversation modality
+- Fix issue where SWX in Microsoft Edge doesn't process multiple media offers 
+
+---
 ## Skype Web SDK Version Update 9/13/16
 
 | Product        | New Version           | Last Updated  |Previous Version
