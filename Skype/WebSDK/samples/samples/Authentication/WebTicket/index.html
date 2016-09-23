@@ -1,0 +1,37 @@
+<div class="step">
+    <h3><i>Works for Skype for Business Server</i></h3>
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Bootstrap Skype Web SDK</li>
+        </ol>
+    </div>
+    <div class="description">
+        <h3>Provide a username and password to authenticate.</h3>
+        <p>After bootstrapping the Skype Web SDK we have access to an api object which exposes an application object.  If we create a new instance of an application we get access to a signInManager.  The signInManager provides us with a signIn(...) method that we can supply a domain and auth function that sets the request's Authorization header with a web ticket to authenticate.</p>
+    </div>
+    <div class="controls table">
+        <div class="table-row">
+            <div class="table-cell">
+                <label>Web Ticket</label>
+            </div>
+            <div class="table-cell">
+                <input type="text" class="webTicket" placeholder="Bearer cwt=..." data-enter-bind="signin">
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">
+                <label>Domain</label>
+            </div>
+            <div class="table-cell">
+                <input type="text" class="domain" placeholder="metio.net" data-enter-bind="signin">
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">
+                <div class="button signin">Sign-in</div>
+            </div>
+        </div>
+    </div>
+    <div class="snippet"></div>
+</div>

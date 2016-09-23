@@ -1,0 +1,11 @@
+{
+  "name": "jCafe",
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "1.7.3",
+    "typedoc": "0.3.12"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/tsc && powershell ./docgen/BuildSDK.ps1"
+  }
+}

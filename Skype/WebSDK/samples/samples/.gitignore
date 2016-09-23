@@ -1,0 +1,6 @@
+# ignore generated files
+*.js
+location_config.js
+
+#ignore copied file
+config.js

@@ -1,0 +1,18 @@
+<div class="step">
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Bootstrap Skype Web SDK</li>
+            <li>Sign-In</li>
+        </ol>
+    </div>
+    <div class="description">
+        <h3>Select a contact to remove them from the contact list.</h3>
+        <p>A group object exposes a persons collection which allows us to remove a contact from that group.  In this example we subscribe to the persons collection on the all property of the personsAndGroupsManager object as well as listening for the added event.  In some cases a displayName property may not be readily available so we can listen to the changed event of the displayName property to be certain we have the value.</p>
+    </div>
+    <div class="controls">
+        <select class="personsSelect"></select>
+        <div class="button remove">Remove</div>
+    </div>
+    <div class="snippet"></div>
+</div>

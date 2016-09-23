@@ -1,0 +1,214 @@
+﻿{
+    "categories":  [
+                       {
+                           "name":  "Authentication",
+                           "items":  [
+                                         {
+                                             "name":  "Azure AD",
+                                             "location":  "samples/Authentication/Azure AD"
+                                         },
+                                         {
+                                             "name":  "Password",
+                                             "location":  "samples/Authentication/Password"
+                                         },
+                                         {
+                                             "name":  "WebTicket",
+                                             "location":  "samples/Authentication/WebTicket"
+                                         },
+                                         {
+                                             "name":  "Windows Auth",
+                                             "location":  "samples/Authentication/Windows Auth"
+                                         },
+                                         {
+                                             "name":  "Sign Out",
+                                             "location":  "samples/Authentication/Sign Out"
+                                         }
+                                     ],
+                           "preview":  false
+                       },
+                       {
+                           "name":  "MePerson",
+                           "items":  [
+                                         {
+                                             "name":  "Dashboard",
+                                             "location":  "samples/MePerson/Dashboard"
+                                         },
+                                         {
+                                             "name":  "Location",
+                                             "location":  "samples/MePerson/Location"
+                                         },
+                                         {
+                                             "name":  "Note",
+                                             "location":  "samples/MePerson/Note"
+                                         },
+                                         {
+                                             "name":  "Status",
+                                             "location":  "samples/MePerson/Status"
+                                         }
+                                     ],
+                           "preview":  false
+                       },
+                       {
+                           "name":  "Contacts",
+                           "items":  [
+                                         {
+                                             "name":  "Search",
+                                             "location":  "samples/Contacts/Search"
+                                         },
+                                         {
+                                             "name":  "Contact Card",
+                                             "location":  "samples/Contacts/Contact Card"
+                                         },
+                                         {
+                                             "name":  "All",
+                                             "location":  "samples/Contacts/All"
+                                         }
+                                     ],
+                           "preview":  false
+                       },
+                       {
+                           "name":  "Groups",
+                           "items":  [
+                                         {
+                                             "name":  "Search",
+                                             "location":  "samples/Groups/Search"
+                                         },
+                                         {
+                                             "name":  "All",
+                                             "location":  "samples/Groups/All"
+                                         },
+                                         {
+                                             "name":  "Add Contact",
+                                             "location":  "samples/Groups/Add Contact"
+                                         },
+                                         {
+                                             "name":  "Remove Contact",
+                                             "location":  "samples/Groups/Remove Contact"
+                                         },
+                                         {
+                                             "name":  "Add Group",
+                                             "location":  "samples/Groups/Add Group"
+                                         },
+                                         {
+                                             "name":  "Remove Group",
+                                             "location":  "samples/Groups/Remove Group"
+                                         },
+                                         {
+                                             "name":  "Rename Group",
+                                             "location":  "samples/Groups/Rename Group"
+                                         }
+                                     ],
+                           "preview":  false
+                       },
+                       {
+                           "name":  "Chat",
+                           "items":  [
+                                         {
+                                             "name":  "Outgoing P2P",
+                                             "location":  "samples/Chat/Outgoing P2P"
+                                         },
+                                         {
+                                             "name":  "Incoming P2P",
+                                             "location":  "samples/Chat/Incoming P2P"
+                                         },
+                                         {
+                                             "name":  "P2P Escalation",
+                                             "location":  "samples/Chat/P2P Escalation"
+                                         },
+                                         {
+                                             "name":  "Group",
+                                             "location":  "samples/Chat/Group"
+                                         }
+                                     ],
+                           "preview":  false
+                       },
+                       {
+                           "name":  "Audio",
+                           "items":  [
+                                         {
+                                             "name":  "Outgoing P2P",
+                                             "location":  "samples/Audio/Outgoing P2P"
+                                         },
+                                         {
+                                             "name":  "Incoming P2P",
+                                             "location":  "samples/Audio/Incoming P2P"
+                                         },
+                                         {
+                                             "name":  "P2P Escalation",
+                                             "location":  "samples/Audio/P2P Escalation"
+                                         },
+                                         {
+                                             "name":  "Group",
+                                             "location":  "samples/Audio/Group"
+                                         },
+                                         {
+                                             "name":  "Mute",
+                                             "location":  "samples/Audio/Mute"
+                                         },
+                                         {
+                                             "name":  "Hold",
+                                             "location":  "samples/Audio/Hold"
+                                         },
+                                         {
+                                             "name":  "PhoneAudio",
+                                             "location":  "samples/Audio/PhoneAudio"
+                                         }
+                                     ],
+                           "preview":  true
+                       },
+                       {
+                           "name":  "Video",
+                           "items":  [
+                                         {
+                                             "name":  "Outgoing P2P",
+                                             "location":  "samples/Video/Outgoing P2P"
+                                         },
+                                         {
+                                             "name":  "Incoming P2P",
+                                             "location":  "samples/Video/Incoming P2P"
+                                         },
+                                         {
+                                             "name":  "P2P Escalation",
+                                             "location":  "samples/Video/P2P Escalation"
+                                         },
+                                         {
+                                             "name":  "Group",
+                                             "location":  "samples/Video/Group"
+                                         },
+                                         {
+                                             "name":  "Add Video",
+                                             "location":  "samples/Video/Add Video"
+                                         }
+                                     ],
+                           "preview":  true
+                       },
+                       {
+                           "name":  "Meetings",
+                           "items":  [
+                                         {
+                                             "name":  "Schedule",
+                                             "location":  "samples/Meetings/Schedule"
+                                         },
+                                         {
+                                             "name":  "Join",
+                                             "location":  "samples/Meetings/Join"
+                                         },
+                                         {
+                                             "name":  "Anonymous",
+                                             "location":  "samples/Meetings/Anonymous"
+                                         }
+                                     ],
+                           "preview":  true
+                       },
+                       {
+                           "name":  "UI",
+                           "items":  [
+                                         {
+                                             "name":  "Conversation Control",
+                                             "location":  "samples/UI/Conversation Control"
+                                         }
+                                     ],
+                           "preview":  true
+                       }
+                   ]
+}

@@ -1,0 +1,38 @@
+<div class="step">
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Bootstrap Skype Web SDK</li>
+            <li>Sign-In</li>
+        </ol>
+    </div>
+    <div class="description">
+        <h3>Provide SIP URIs to create a group chat conversation with the Conversation Control.</h3>
+        <p>The Conversation Control provides a method, renderConversation(...) that takes a container element and configuration options and creates a visual control similar to a client chat window.</p>
+        <p>The configuration options include specifying modalities and a list of participants to invite.</p>
+    </div>
+    <div class="controls">
+        <input type="text" class="id" placeholder="sip:user@domain.com" data-enter-bind="call">
+        <input type="text" class="id2" placeholder="sip:user@domain.com" data-enter-bind="call">
+        <div class="button call">Call</div>
+    </div>
+    <div class="snippet"></div>
+</div>
+<div class="step">
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Conversation Control created</li>
+        </ol>
+    </div>
+    <div class="description">
+        <h3>Send a message to invite participant(s).</h3>
+        <p>The Conversation Control handles sending invitations to invite participant(s) to the conversation.  It also provides the ability to add additional participant(s).</p>
+        <p>When finished click the end button to terminate the conversation.</p>
+    </div>
+    <div class="conversationContainer"></div>
+    <div class="controls">
+        <div class="button end">End</div>
+    </div>
+    <div class="snippet"></div>
+</div>

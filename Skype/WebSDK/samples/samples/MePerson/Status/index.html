@@ -1,0 +1,33 @@
+<div class="step">
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Bootstrap Skype Web SDK</li>
+            <li>Sign-In</li>
+        </ol>
+    </div>
+    <div class="permissions">
+        <h2>Permissions</h2>
+        <p>For Skype for Business Online application, you will need the following permission(s):</p>
+        <ul>
+            <li>
+                <span>Read and manage user information</span>
+            </li>
+        </ul>
+    </div>
+    <div class="description">
+        <h3>Select a status and click to change presence.</h3>
+        <p>We can make use of the mePerson object exposed by personsAndGroupsManager and from this object get access to the status property.  This property is a writeable allowing changes via a set(...) method that takes a provided string matching a status such as Online, Away, Busy.</p>
+    </div>
+    <div class="controls">
+        <select>
+            <option>Online</option>
+            <option>Away</option>
+            <option value="BeRightBack">BeRightBack</option>
+            <option>Busy</option>
+            <option value="DoNotDisturb">Do Not Disturb</option>
+        </select>
+        <div class="button set">Set</div>
+    </div>
+    <div class="snippet"></div>
+</div>

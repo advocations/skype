@@ -1,0 +1,37 @@
+<div class="step">
+    <h3><i>Works for Skype for Business Server</i></h3>
+    <div class="prereqs">
+        <h2>Prerequisites</h2>
+        <ol>
+            <li>Bootstrap Skype Web SDK</li>
+        </ol>
+    </div>
+    <div class="description">
+        <h3>Provide a username and password to authenticate.</h3>
+        <p>After bootstrapping the Skype Web SDK we have access to an api object which exposes an application object.  If we create a new instance of an application we get access to a signInManager.  The signInManager provides us with a signIn(...) method that we can supply a version, username, and password to authenticate.</p>
+    </div>
+    <div class="controls table">
+        <div class="table-row">
+            <div class="table-cell">
+                <label>Login</label>
+            </div>
+            <div class="table-cell">
+                <input type="text" class="username" placeholder="user@domain.com" data-enter-bind="signin">
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">
+                <label>Password</label>
+            </div>
+            <div class="table-cell">
+                <input type="password" class="password" placeholder="********" data-enter-bind="signin">
+            </div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">
+                <div class="button signin">Sign-in</div>
+            </div>
+        </div>
+    </div>
+    <div class="snippet"></div>
+</div>

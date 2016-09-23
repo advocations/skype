@@ -1,0 +1,40 @@
+/// <reference path="../../../framework.d.ts" />
+(function () {
+    'use strict';
+
+    const content = window.framework.findContentDiv();
+
+    window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
+
+    function reset () {
+        (<HTMLInputElement>content.querySelector('.query')).value = '';
+        (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.contacts')).style.display = 'none';
+    }
+
+    window.framework.registerNavigation(reset);
+    window.framework.addEventListener(content.querySelector('.search'), 'click', () => {
+        const query = (<HTMLInputElement>content.querySelector('.query')).value;
+        const contactsDiv = <HTMLElement>content.querySelector('.contacts');
+        const application = window.framework.application;
+        window.framework.reportStatus('Searching for Contacts...', window.framework.status.info);
+        // @snippet
+        const search = application.personsAndGroupsManager.createPersonSearchQuery();
+        search.text(query);
+        search.limit(5);
+        search.getMore().then(() => {
+            reset();
+            const contacts = search.results();
+            if (contacts.length !== 0) {
+                contactsDiv.style.display = 'block';
+                window.framework.populateContacts(search.results(), contactsDiv);
+                window.framework.reportStatus('Contacts Found', window.framework.status.success);
+            } else {
+                window.framework.reportError('No contacts found, try a different search');
+            }
+        }, error => {
+            window.framework.reportError(error, reset);
+        });
+        // @end_snippet
+    });
+})();
