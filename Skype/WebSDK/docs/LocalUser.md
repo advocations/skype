@@ -55,7 +55,7 @@ photo.src = mePerson.avatarUrl();
 window.setTimeout(function (photo: HTMLImageElement) {
     // if the photo isn't set revert back to a default
     if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
-        photo.src = window.framework.getContentLocation() + 'images/default.png';
+        photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
     }
 }, 1000, photo);
 name.innerHTML = mePerson.displayName();

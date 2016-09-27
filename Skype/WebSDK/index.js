@@ -150,9 +150,8 @@
                     window.setTimeout(function (img) {
                         // if the photo isn't set revert back to a default
                         if (img.naturalWidth === 0 || img.naturalHeight === 0) {
-                            // var imgUrl = isRunningLocally() ? window.location.pathname : window.framework.getContentLocation();
                             var imgUrl = window.framework.getContentLocation();
-                            imgUrl += 'images/default.png';
+                            imgUrl += 'images/samples/default.png';
                             img.src = imgUrl
                         }
                     }, 1000, img);
@@ -218,7 +217,7 @@
                 rowDiv.appendChild(leftCellDiv);
                 if (item.direction() === 'Incoming') {
                     var img = document.createElement('img');
-                    var imgUrl = window.framework.getContentLocation() + 'images/default.png';
+                    var imgUrl = window.framework.getContentLocation() + 'images/samples/default.png';
                     img.src = imgUrl;
                     leftCellDiv.appendChild(img);
                     var leftMiddleCellDiv = document.createElement('div');
