@@ -1,15 +1,12 @@
 
-# MessageFormat 
+# MessageFormat
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents the possible message formats allowed for instance messages.
-
-
+            Represents the possible message formats allowed for instance messages.
+            
 ## Members
-
-
 
 
 

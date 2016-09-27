@@ -1,15 +1,12 @@
 
-# ErrorCode 
+# ErrorCode
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Error Codes
-
-
+            Error Codes
+            
 ## Members
-
-
 
 
 
@@ -18,12 +15,14 @@ Error Codes
 |BadRequest|Request Error.|
 |Conflict|Conflict.|
 |EntityTooLarge|The request is too large.|
+|ExchangeServiceFailure|Service failures due to Exchange did not return timely or returned malformed response.This is defined by us and not in standard HttpStatusCode.|
 |Forbidden|Forbidden.|
 |GatewayTimeout|GatewayTimeout.|
 |Gone|The resource is permanently gone. The client should not retry.|
 |Informational|Informational.|
 |LocalFailure|Local Failure.|
 |MethodNotAllowed|Method Not allowed.|
+|NotAcceptable|Not acceptable here.|
 |NotFound|Resource Not Found|
 |PreconditionFailed|Precondition failed (e.g. ETag mismatch).|
 |PreconditionRequired|A precondition is required.|

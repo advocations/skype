@@ -1,15 +1,12 @@
 
-# VideoSourcesAllowed 
+# VideoSourcesAllowed
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Indicates which participants are allowed to contribute video sources in an online meeting.
-
-
+            Indicates which participants are allowed to contribute video sources in an online meeting.
+            
 ## Members
-
-
 
 
 

@@ -1,16 +1,15 @@
-
-# changeVisibility 
-
+# changeVisibility
 
  _**Applies to:** Skype for Business 2015_
 
-Changes the visibility of a phone number to other contacts. 
+
+            Changes the visibility of a phone number to other contacts.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -19,34 +18,45 @@ For more on web links, see [Web links](WebLinks.md).
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-The presence of this resource indicates that the user can choose whether or not she wants to share this number with others. 
-
+The presence of this resource indicates that the user can choose whether or not she wants to share this number with others.
 
 ### Properties
 
-None
 
+
+None
 
 ### Links
 
+
+
 None
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|
 
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### POST
 
+
+
+
 Changes the visibility of a phone number to other contacts.
 
-
 #### Query parameters
-
 
 
 
@@ -55,21 +65,27 @@ Changes the visibility of a phone number to other contacts.
 |:-----|:-----|:-----|
 |includeInContactCard|Whether this phone number can be shared with others.|No|
 
+
 #### Request body
 
-None
 
+
+
+|**Name**|**Description**|**Required?**|
+|:-----|:-----|:-----|
+|includeInContactCard|Whether this phone number can be shared with others.|No|
 
 #### Response body
 
-None
 
+
+None
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
@@ -79,17 +95,21 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
-Only server-supplied query parameters, if any, are shown in the request sample.
 
+
+Only server-supplied query parameters, if any, are shown in the request sample.
 
 #### JSON Request
 
 
+
+
 ```
-Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
+Post https://fe1.contoso.com:443/ucwa/v1/applications/192/me/phones/phone/changeVisibility HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 
@@ -98,20 +118,22 @@ Host: fe1.contoso.com
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
 HTTP/1.1 204 No Content
-									
+
 ```
 
 
 #### XML Request
 
 
+
+
 ```
-Post https://fe1.contoso.com:443//v1/applications/833/me/phones/phone/changeVisibility HTTP/1.1
+Post https://fe1.contoso.com:443/ucwa/v1/applications/192/me/phones/phone/changeVisibility HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 
@@ -120,11 +142,12 @@ Host: fe1.contoso.com
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
 HTTP/1.1 204 No Content
-									
+
 ```
+
 

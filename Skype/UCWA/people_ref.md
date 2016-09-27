@@ -1,17 +1,15 @@
-
-# people 
-
+# people
 
  _**Applies to:** Skype for Business 2015_
 
 
-A hub for the people with whom the logged-on user can communicate, using Skype for Business. 
+            A hub for the people with whom the logged-on user can communicate, using Skype for Business.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -20,21 +18,21 @@ For more on web links, see [Web links](WebLinks.md).
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-This resource provides access to resources that enable the logged-on user to find, organize, communicate with, and subscribe to the presence of other people. 
-
+This resource provides access to resources that enable the logged-on user to find, organize, communicate with,and subscribe to the presence of other people.
 
 ### Properties
 
-None
 
+
+None
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
@@ -49,40 +47,56 @@ This resource can have the following relationships.
 |search|Provides a way to search for contacts.|
 |subscribedContacts|A collection of contacts for which the logged-on user has created active presence subscriptions.|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|Contacts.ReadWrite|Read/write Skype user contacts and groups|Allows the app to read and write Skype user contacts and groups|
+
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of the hub for the people with whom the logged-on user can communicate, using Skype for Business.
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
 |Forbidden|403|None|The user does not have sufficient privileges to access the contact list.|
+|Forbidden|403|None|The user does not have sufficient privileges to access pending contacts|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -92,103 +106,100 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
-```
 
- Get https://fe1.contoso.com:443//v1/applications/833/people HTTP/1.1
- Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
- Host: fe1.contoso.com
- Accept: application/json
- 
-									
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/people HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
 ```
 
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
- HTTP/1.1 200 OK
- Content-Type: application/json
- Content-Length: 740
- {
- "rel" : "people",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/people"
- },
- "myContactsAndGroupsSubscription" : {
- "href" : "//v1/applications/833/people/myContactsAndGroupsSubscription"
- },
- "myContacts" : {
- "href" : "//v1/applications/833/contacts"
- },
- "myGroupMemberships" : {
- "href" : "//v1/applications/833/myGroupMemberships"
- },
- "myGroups" : {
- "href" : "//v1/applications/833/groups"
- },
- "myPrivacyRelationships" : {
- "href" : "//v1/applications/833/myPrivacyRelationships"
- },
- "presenceSubscriptionMemberships" : {
- "href" : "//v1/applications/833/presenceSubscriptionMemberships"
- },
- "presenceSubscriptions" : {
- "href" : "//v1/applications/833/presenceSubscriptions"
- },
- "search" : {
- "href" : "//v1/applications/833/search"
- },
- "subscribedContacts" : {
- "href" : "//v1/applications/833/subscribedContacts"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 780
+{
+  "rel" : "people",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/people"
+    },
+    "myContactsAndGroupsSubscription" : {
+      "href" : "/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription"
+    },
+    "myContacts" : {
+      "href" : "/ucwa/v1/applications/192/contacts"
+    },
+    "myGroupMemberships" : {
+      "href" : "/ucwa/v1/applications/192/myGroupMemberships"
+    },
+    "myGroups" : {
+      "href" : "/ucwa/v1/applications/192/groups"
+    },
+    "myPrivacyRelationships" : {
+      "href" : "/ucwa/v1/applications/192/myPrivacyRelationships"
+    },
+    "presenceSubscriptionMemberships" : {
+      "href" : "/ucwa/v1/applications/192/presenceSubscriptionMemberships"
+    },
+    "presenceSubscriptions" : {
+      "href" : "/ucwa/v1/applications/192/presenceSubscriptions"
+    },
+    "search" : {
+      "href" : "/ucwa/v1/applications/192/search"
+    },
+    "subscribedContacts" : {
+      "href" : "/ucwa/v1/applications/192/subscribedContacts"
+    }
+  }
 }
-									
 ```
 
 
 #### XML Request
 
 
-```
 
- Get https://fe1.contoso.com:443//v1/applications/833/people HTTP/1.1
- Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
- Host: fe1.contoso.com
- Accept: application/xml
- 
-									
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/people HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
 ```
 
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
- HTTP/1.1 200 OK
- Content-Type: application/xml
- Content-Length: 938
- <?xml version="1.0" encoding="utf-8"?>
-<resource rel="people" href="//v1/applications/833/people" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="myContactsAndGroupsSubscription" href="//v1/applications/833/people/myContactsAndGroupsSubscription" />
- <link rel="myContacts" href="//v1/applications/833/contacts" />
- <link rel="myGroupMemberships" href="//v1/applications/833/myGroupMemberships" />
- <link rel="myGroups" href="//v1/applications/833/groups" />
- <link rel="myPrivacyRelationships" href="//v1/applications/833/myPrivacyRelationships" />
- <link rel="presenceSubscriptionMemberships" href="//v1/applications/833/presenceSubscriptionMemberships" />
- <link rel="presenceSubscriptions" href="//v1/applications/833/presenceSubscriptions" />
- <link rel="search" href="//v1/applications/833/search" />
- <link rel="subscribedContacts" href="//v1/applications/833/subscribedContacts" />
- <property name="rel">people</property>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 978
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="people" href="/ucwa/v1/applications/192/people" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="myContactsAndGroupsSubscription" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription" />
+  <link rel="myContacts" href="/ucwa/v1/applications/192/contacts" />
+  <link rel="myGroupMemberships" href="/ucwa/v1/applications/192/myGroupMemberships" />
+  <link rel="myGroups" href="/ucwa/v1/applications/192/groups" />
+  <link rel="myPrivacyRelationships" href="/ucwa/v1/applications/192/myPrivacyRelationships" />
+  <link rel="presenceSubscriptionMemberships" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships" />
+  <link rel="presenceSubscriptions" href="/ucwa/v1/applications/192/presenceSubscriptions" />
+  <link rel="search" href="/ucwa/v1/applications/192/search" />
+  <link rel="subscribedContacts" href="/ucwa/v1/applications/192/subscribedContacts" />
+  <property name="rel">people</property>
 </resource>
-									
 ```
+
 

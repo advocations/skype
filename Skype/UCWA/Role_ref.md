@@ -1,15 +1,12 @@
 
-# Role 
+# Role
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-An enumeration that represents the role type of a participant.
-
-
+            An enumeration that represents the role type of a participant.
+            
 ## Members
-
-
 
 
 

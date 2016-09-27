@@ -1,16 +1,15 @@
-
-# contact 
-
+# contact
 
  _**Applies to:** Skype for Business 2015_
 
-Represents a person or service that the user can communicate and collaborate with. 
+
+            Represents a person or service that the user can communicate and collaborate with.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -19,14 +18,11 @@ For more on web links, see [Web links](WebLinks.md).
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-contact is the persistent representation of a person or service. A contact can be referenced by a [participant](participant_ref.md) or in the context of communication. A contact resource can also be referenced by various containers such as a [group](group_ref.md) or [subscribedContacts](subscribedContacts_ref.md). 
-
+contact is the persistent representation of a person or service.A contact can be referenced by a [participant](participant_ref.md) or in the context of communication.A contact resource can also be referenced by various containers such as a [group](group_ref.md) or [subscribedContacts](subscribedContacts_ref.md).
 
 ### Properties
-
-
 
 
 
@@ -41,17 +37,17 @@ contact is the persistent representation of a person or service. A contact can b
 |name|The contact's name.|
 |office|The contact's office number.|
 |otherPhoneNumber|The contact's other phone number.|
-|sourceNetwork|The contact's source network (SourceNetwork), such as SameEnterprise or PublicCloud (such as a Skype contact).|
+|sourceNetwork|The contact's source network ([SourceNetwork](SourceNetwork_ref.md)), such as SameEnterprise or PublicCloud (such as a Skype contact).|
 |title|The contact's title.|
-|type|The contact's type (ContactType), such as User, Phone, or Bot.|
+|type|The contact's type ([ContactType](ContactType_ref.md)), such as User, Phone, or Bot.|
 |uri|The contact's URI.|
 |workPhoneNumber|The contact's work phone number.|
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
@@ -63,41 +59,57 @@ This resource can have the following relationships.
 |contactPrivacyRelationship|Represents the privacy relationship between the user and a [contact](contact_ref.md).|
 |contactSupportedModalities|Represents the communication modalities supported by a contact.|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|Contacts.ReadWrite|Read/write Skype user contacts and groups|Allows the app to read and write Skype user contacts and groups|
+
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of a person or service that the user can communicate and collaborate with.
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
 |Forbidden|403|None|Returned when an application does not have permission to view this contact's information.|
 |Forbidden|403|None|The user does not have sufficient privileges to access the contact list.|
+|Forbidden|403|None|The user does not have sufficient privileges to access pending contacts|
 |ServiceFailure|500|InvalidExchangeServerVersion|Invalid exchange server version.The exchange mailbox of the server might have moved to an unsupported version for the required feature.|
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -107,122 +119,124 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
+
+
 ```
-Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/people/282?displayName=John&participantHash=AHJKUYKL== HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/json
-if-none-match: 2443eef0-67da-45e6-b867-b33f2d41eca8
-									
+if-none-match: 314c9ffc-cafc-4885-9b6b-d01e2962656c
+
 ```
 
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
 HTTP/1.1 200 OK
-Etag: 30544f6a-563a-4d93-b514-018684f7e04d
+Etag: d6f84ec5-b6e7-45eb-9e47-56e76fd50972
 Content-Type: application/json
-Content-Length: 1078
+Content-Length: 1106
 {
-"rel" : "contact",
-"company" : "Contoso Corp.",
-"department" : "Engineering",
-"emailAddresses" : [
-"Alex.Doe@contoso.com"
-],
-"homePhoneNumber" : "tel:+19185550107",
-"sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
-"mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
-"name" : "Alex Doe",
-"office" : "tel:+1425554321;ext=54321",
-"otherPhoneNumber" : "tel:+19195558194",
-"sourceNetwork" : "SameEnterprise",
-"title" : "Engineer 2",
-"type" : "User",
-"uri" : "sip:alex@contoso.com",
-"workPhoneNumber" : "tel:+1425554321;ext=54321",
-"_links" : {
-"self" : {
-"href" : "//v1/applications/833/people/166"
-},
-"contactLocation" : {
-"href" : "//v1/applications/833/people/166/contactLocation"
-},
-"contactNote" : {
-"href" : "//v1/applications/833/people/166/contactNote"
-},
-"contactPhoto" : {
-"href" : "//v1/applications/833/people/166/contactPhoto"
-},
-"contactPresence" : {
-"href" : "//v1/applications/833/people/166/contactPresence"
-},
-"contactPrivacyRelationship" : {
-"href" : "//v1/applications/833/people/166/contactPrivacyRelationship"
-},
-"contactSupportedModalities" : {
-"href" : "//v1/applications/833/people/166/contactSupportedModalities"
+  "rel" : "contact",
+  "company" : "Contoso Corp.",
+  "department" : "Engineering",
+  "emailAddresses" : [
+    "Alex.Doe@contoso.com"
+  ],
+  "homePhoneNumber" : "tel:+19185550107",
+  "sourceNetworkIconUrl" : "https://images.contoso.com/logo_16x16.png",
+  "mobilePhoneNumber" : "tel:4255551212;phone-context=defaultprofile",
+  "name" : "Alex Doe",
+  "office" : "tel:+1425554321;ext=54321",
+  "otherPhoneNumber" : "tel:+19195558194",
+  "sourceNetwork" : "SameEnterprise",
+  "title" : "Engineer 2",
+  "type" : "User",
+  "uri" : "sip:alex@contoso.com",
+  "workPhoneNumber" : "tel:+1425554321;ext=54321",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/people/282"
+    },
+    "contactLocation" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactLocation"
+    },
+    "contactNote" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactNote"
+    },
+    "contactPhoto" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPhoto"
+    },
+    "contactPresence" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPresence"
+    },
+    "contactPrivacyRelationship" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPrivacyRelationship"
+    },
+    "contactSupportedModalities" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactSupportedModalities"
+    }
+  }
 }
-}
-}
-									
 ```
 
 
 #### XML Request
 
 
+
+
 ```
-Get https://fe1.contoso.com:443//v1/applications/833/people/166?displayName=John&amp;participantHash=AHJKUYKL== HTTP/1.1
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/people/282?displayName=John&participantHash=AHJKUYKL== HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/xml
-if-none-match: e51e254c-29e3-4a4b-9a85-0b9bcad21ba8
-									
+if-none-match: 53624482-5f90-4309-bac4-f62f6e607304
+
 ```
 
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
 HTTP/1.1 200 OK
-Etag: d7d248d0-1121-4a6a-812d-41f61213df47
+Etag: 860f4869-bdf8-4ec1-bf28-5ace1e9887a6
 Content-Type: application/xml
-Content-Length: 1594
+Content-Length: 1622
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contact" href="//v1/applications/833/people/166" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-<link rel="contactLocation" href="//v1/applications/833/people/166/contactLocation" />
-<link rel="contactNote" href="//v1/applications/833/people/166/contactNote" />
-<link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
-<link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
-<link rel="contactPrivacyRelationship" href="//v1/applications/833/people/166/contactPrivacyRelationship" />
-<link rel="contactSupportedModalities" href="//v1/applications/833/people/166/contactSupportedModalities" />
-<property name="rel">contact</property>
-<property name="company">Contoso Corp.</property>
-<property name="department">Engineering</property>
-<propertyList name="emailAddresses">
-<item>Alex.Doe@contoso.com</item>
-</propertyList>
-<property name="homePhoneNumber">tel:+19185550107</property>
-<property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
-<property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
-<property name="name">Alex Doe</property>
-<property name="office">tel:+1425554321;ext=54321</property>
-<property name="otherPhoneNumber">tel:+19195558194</property>
-<property name="sourceNetwork">SameEnterprise</property>
-<property name="title">Engineer 2</property>
-<property name="type">User</property>
-<property name="uri">sip:alex@contoso.com</property>
-<property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
+<resource rel="contact" href="/ucwa/v1/applications/192/people/282" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="contactLocation" href="/ucwa/v1/applications/192/people/282/contactLocation" />
+  <link rel="contactNote" href="/ucwa/v1/applications/192/people/282/contactNote" />
+  <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />
+  <link rel="contactPresence" href="/ucwa/v1/applications/192/people/282/contactPresence" />
+  <link rel="contactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship" />
+  <link rel="contactSupportedModalities" href="/ucwa/v1/applications/192/people/282/contactSupportedModalities" />
+  <property name="rel">contact</property>
+  <property name="company">Contoso Corp.</property>
+  <property name="department">Engineering</property>
+  <propertyList name="emailAddresses">
+    <item>Alex.Doe@contoso.com</item>
+  </propertyList>
+  <property name="homePhoneNumber">tel:+19185550107</property>
+  <property name="sourceNetworkIconUrl">https://images.contoso.com/logo_16x16.png</property>
+  <property name="mobilePhoneNumber">tel:4255551212;phone-context=defaultprofile</property>
+  <property name="name">Alex Doe</property>
+  <property name="office">tel:+1425554321;ext=54321</property>
+  <property name="otherPhoneNumber">tel:+19195558194</property>
+  <property name="sourceNetwork">SameEnterprise</property>
+  <property name="title">Engineer 2</property>
+  <property name="type">User</property>
+  <property name="uri">sip:alex@contoso.com</property>
+  <property name="workPhoneNumber">tel:+1425554321;ext=54321</property>
 </resource>
-									
 ```
+
 
