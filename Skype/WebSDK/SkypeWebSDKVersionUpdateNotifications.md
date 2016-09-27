@@ -1,5 +1,26 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 9/27/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.61.68 | 9/27/16 |1.60.72 
+| Skype Web SDK Preview    | 0.4.300  |  9/27/16| 0.4.293
+| Conversation Control Production | 1.60.72   |   9/27/16|1.59.79 
+| Skype Web SDK Production| 0.4.293 |  9/27/16 |  0.4.288  |
+
+The latest preview release includes an improvement to AV calls in Microsoft Edge, a fix for an edge case where suspended
+multi-tab apps may not resume correctly, preview support for call transfer, and support for call hold and resume in Microsoft Edge.
+
+**Bugs fixed in the new public preview build:**
+
+- Implement basic call transfer
+- Implement self hold/resume in P2P calls in Microsoft Edge
+- Set person.type to phone if its sip uri ends with ;user=phone
+- Fix bug in which SDK only relays the first SDP offer to media stack when accepting 
+    an incoming AV call in Microsoft Edge
+
+---
 ## Skype Web SDK Version Update 9/20/16
 
 | Product        | New Version           | Last Updated  |Previous Version
