@@ -1,0 +1,12 @@
+{
+  "name": "skype_web_sdk_samples",
+  "version": "0.0.1",
+  "description": "Skype Web SDK Samples",
+  "private": true,
+  "devDependencies": {
+    "tslint": "3.5.0",
+    "typescript": "1.8.2"
+  },
+  "author": "Microsoft",
+  "license": "Commercial Confidential"
+}

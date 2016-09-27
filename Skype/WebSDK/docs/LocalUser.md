@@ -21,7 +21,6 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
     // and if could not be changed, report the failure
     alert(error || 'The server has rejected this availability state.');
 });
-
 ```
 
 [MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which can be set
@@ -48,6 +47,22 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |avatarUrl|Gets the photo URL of the signed in user.|
 |title|Gets the business title of the signed in user.|
 |id|Gets the SIP URI of the signed in user.|
+
+```js
+// retrieve local user details
+const mePerson = app.personsAndGroupsManager.mePerson;
+photo.src = mePerson.avatarUrl();
+window.setTimeout(function (photo: HTMLImageElement) {
+    // if the photo isn't set revert back to a default
+    if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
+        photo.src = window.framework.getContentLocation() + 'images/default.png';
+    }
+}, 1000, photo);
+name.innerHTML = mePerson.displayName();
+status.src = getStatusPath(mePerson.status());
+message.innerHTML = mePerson.note.text();
+location.innerHTML = mePerson.location();
+```
 
 ## See also
 

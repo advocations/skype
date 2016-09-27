@@ -1,0 +1,24 @@
+
+# Local user Location
+
+
+ _**Applies to:** Skype for Business 2015_
+
+## Local user - Set Location
+
+We can make use of the mePerson object exposed by personsAndGroupsManager and from this object get access to the location property.  This property is a writeable allowing changes via a set(...) method that takes a provided string.
+
+### Provide a location and click to change location
+
+```js
+var mePerson = application.personsAndGroupsManager.mePerson;
+mePerson.location.set(location).then(function () {
+    window.framework.reportStatus('Location Changed', window.framework.status.success);
+}, function (error) {
+    window.framework.reportError(error);
+}).then(reset);
+```
+
+#### Other resources
+
+[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)

@@ -23,7 +23,7 @@ The following procedure assumes that a user has signed in before searching for p
 >**Note**:  The maximum number of results for a person search query is 50. 
 
   ```js
-  var personSearchQuery = application.personsAndGroupsManager.createPersonSearchQuery();
+var personSearchQuery = application.personsAndGroupsManager.createPersonSearchQuery();
 personSearchQuery.text('John Doe');
 personSearchQuery.limit(50);
 personSearchQuery.getMore().then(null, function (results) {
@@ -54,7 +54,7 @@ personSearchQuery.getMore().then(null, function (results) {
 
 
   ```js
-  var groupSearchQuery = application.personsAndGroupsManager.createGroupSearchQuery();
+var groupSearchQuery = application.personsAndGroupsManager.createGroupSearchQuery();
 groupSearchQuery.text('mygroup');
 groupSearchQuery.limit(50);
 groupSearchQuery.getMore().then(null, function (results) {
