@@ -20,7 +20,7 @@ A conversation is a logical container for communication between two or more pers
 
 **Figure 1. The relationship between objects in the Skype Web SDK conversation model**
 
-![SkypeWebSDK_ConvObjects](images/7bb0af54-be7a-4c3b-a41c-516b8e7bcd04.png)
+![SkypeWebSDK_ConvObjects](../images/7bb0af54-be7a-4c3b-a41c-516b8e7bcd04.png)
 ### Conversation types
 
 A conversation can be thought of as two-dimensional, with the number of conversation services representing one dimension, and the number of participants representing the other.

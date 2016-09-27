@@ -16,7 +16,7 @@ Notice that the connector in figure 1 shows relationships between the groups col
 
 **Figure 1. Skype Web SDK objects that encapsulate a user's person list**
 
-![SkypeWebSDK_PersonListObjectmodel](images/1168c6b2-e49a-435c-9233-d5d1695ed605.png)
+![SkypeWebSDK_PersonListObjectmodel](../images/1168c6b2-e49a-435c-9233-d5d1695ed605.png)
 ### Person list ordered by person
 
 This combines the person memberships of all of the user's person groups into one view. Each person in the list is represented only once, even if they are a member in multiple groups. Use the  **PersonsAndGroupsManager.all.persons** collection to get the person list. Lists are dynamic because a user can add or remove people from her person list at any time. The **persons** collection provides a set of events that you can listen to if you want to keep a person list view current..

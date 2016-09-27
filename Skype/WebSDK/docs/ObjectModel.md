@@ -17,7 +17,7 @@ The object model is shown in the following figure (Figure 1). Use the [Applicati
 **Figure 1. Object Model**
 
 
-![Skype Web SDK Object Model](images/317a0cf1-8468-4657-805f-9a12440f1188.jpg)
+![Skype Web SDK Object Model](../images/317a0cf1-8468-4657-805f-9a12440f1188.jpg)
 
 ## Model layer
 <a name="sectionSection0"> </a>

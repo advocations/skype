@@ -28,7 +28,7 @@ A nested distribution group is a distribution group whose parent is a distributi
 
 **Figure 1. Nested distribution groups in Skype for Business**
 
-![SkypeWebSDK_ConvObjects](images/7bb0af54-be7a-4c3b-a41c-516b8e7bcd04.png) 
+![SkypeWebSDK_ConvObjects](../images/7bb0af54-be7a-4c3b-a41c-516b8e7bcd04.png) 
 
 The scenario shown by figure 1 is represented in the Skype Web SDK object model by figure 2. The red connector in the diagram represents the nested relationship between parent and child person groups.
 
@@ -37,7 +37,7 @@ The groups collection on the  **application.PersonsAndGroupsManager.all.groups**
 
 **Figure 2. Group recursion to represent nested distribution groups**
 
-![SkypeWebSDK_GroupRecursionObjectmodel](images/98268a50-4d6f-4969-be93-2c7a81fe57a8.png) 
+![SkypeWebSDK_GroupRecursionObjectmodel](../images/98268a50-4d6f-4969-be93-2c7a81fe57a8.png) 
 
 **Nested distribution group persons**: Instead of getting all persons and groups at all nesting levels with one operation, an application must get persons from the **group.persons** collection on distribution group objects at each nesting level. To get deeper nesting levels, an application gets groups from the **group.groups** collection of the current nesting level.
 
