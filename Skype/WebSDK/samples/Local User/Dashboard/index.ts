@@ -6,15 +6,15 @@
 
     function reset () {
         (<HTMLElement>content.querySelector('.meDashboard')).style.display = 'none';
-        (<HTMLImageElement>content.querySelector('.photo')).src = window.framework.getContentLocation() + 'images/default.png';
+        (<HTMLImageElement>content.querySelector('.photo')).src = window.framework.getContentLocation() + 'images/samples/default.png';
         (<HTMLElement>content.querySelector('.name')).innerHTML = '';
-        (<HTMLImageElement>content.querySelector('.status')).src = window.framework.getContentLocation() + 'images/status/unknown.png';
+        (<HTMLImageElement>content.querySelector('.status')).src = window.framework.getContentLocation() + 'images/samples/status/unknown.png';
         (<HTMLElement>content.querySelector('.noteMessage')).innerHTML = '';
         (<HTMLElement>content.querySelector('.location')).innerHTML = '';
     }
 
     function getStatusPath (value: string): string {
-        const path = window.framework.getContentLocation() + 'images/status/';
+        const path = window.framework.getContentLocation() + 'images/samples/status/';
 
         switch (value) {
             case 'Online':
@@ -50,7 +50,7 @@
         window.setTimeout(function (photo: HTMLImageElement) {
             // if the photo isn't set revert back to a default
             if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
-                photo.src = window.framework.getContentLocation() + 'images/default.png';
+                photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
             }
         }, 1000, photo);
 

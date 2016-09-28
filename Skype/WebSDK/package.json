@@ -5,6 +5,7 @@
   "private": true,
   "devDependencies": {
     "tslint": "3.5.0",
+    "tslint-microsoft-contrib": "^2.0.12",
     "typescript": "1.8.2"
   },
   "author": "Microsoft",

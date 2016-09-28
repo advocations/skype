@@ -432,11 +432,4 @@
 .conversationControl > * {
   min-height: 300px;
 }
-
-.description {
-  border: 1px solid #000000 ;
-  border-radius: 25px;
-  border-bottom: 6px solid #191970;
-  background-color: #B0E0E6
-}
 /* end of UI styles */

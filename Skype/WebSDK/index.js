@@ -525,6 +525,26 @@
         }
     }
 
+    function updateAuthenticationList() {
+        var sidebar = document.getElementsByClassName('sidebar')[0];
+        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].style.display = 'none';
+        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].style.display = 'none';
+        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[2].style.display = 'none';
+        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.display = 'none';
+        var name = document.createElement('div');
+        name.appendChild(document.createTextNode('Signed in as: ' + window.framework.application.personsAndGroupsManager.mePerson.displayName()));
+        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(name);
+        var photo = document.createElement('img');
+        photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
+        window.setTimeout(function (photo) {
+            // if the photo isn't set revert back to a default
+            if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
+                photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
+            }
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(photo);
+        }, 1000, photo);
+    }
+
     function initializeSkype () {
         Skype.initialize({
             apiKey: config.apiKeyCC
@@ -543,11 +563,11 @@
                         version: config.version,
                         client_id: client_id,
                         origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
-                        // origins: ["https://webdir.tip.lync.com/autodiscover/autodiscoverservice.svc/root"],
                         cors: true,
                         redirect_uri: location.href + location_config.token + '/token.html'
                     }).then(function () {
                         window.framework.reportStatus('Signed In', window.framework.status.success);
+                        updateAuthenticationList();
                     });
                 }
             }
