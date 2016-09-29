@@ -9,45 +9,34 @@
 With a Person object it is possible to retrieve additional information such as department, title, company, email addresses, phone numbers, and SIP URI among other information.  With this information we will build a simple contact card displaying additional information about a contact.  In this example we re-use logic from contact search and limit the results to a single contact and build a simple table containing the extra information.
 
 ```js
-function addDetail(header, value, container) {
+addContactCardDetail: function (header, value, container) {
     if (value) {
-        var rowDiv = document.createElement('div');
-        rowDiv.className = 'table-row';
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'mui-row';
+        const colLeftDiv = document.createElement('div');
+        colLeftDiv.className = 'mui-col-md-6';
+        colLeftDiv.style.fontWeight = 'bold';
+        colLeftDiv.innerHTML = header;
+        const colRightDiv = document.createElement('div');
+        colRightDiv.className = 'mui-col-md-6';
+        colRightDiv.style.fontStyle = 'italic';
+        colRightDiv.innerHTML = value;
+        rowDiv.appendChild(colLeftDiv);
+        rowDiv.appendChild(colRightDiv);
         container.appendChild(rowDiv);
-        var cellDiv = document.createElement('div');
-        cellDiv.className = 'table-cell';
-        rowDiv.appendChild(cellDiv);
-        var cellHeaderDiv = document.createElement('div');
-        cellHeaderDiv.innerHTML = header;
-        cellDiv.appendChild(cellHeaderDiv);
-        var cellContentDiv = document.createElement('div');
-        cellContentDiv.innerHTML = value;
-        cellDiv.appendChild(cellContentDiv);
     }
 }
 
-function createContactCard(contact, container) {
-    var title = contact.title();
-    var department = contact.department();
-    var company = contact.company();
-    var emails = contact.emails();
-    // const workPhone = contact.workPhone();
-    var id = contact.id();
-    if (title || department) {
-        var titleDeptarmentDiv = document.createElement('div');
-        titleDeptarmentDiv.innerHTML = title ? title + ', ' : '';
-        titleDeptarmentDiv.innerHTML += department ? department : '';
-        container.querySelector('.table-row > .table-cell:last-child').appendChild(titleDeptarmentDiv);
-    }
-    var contactCardDiv = document.createElement('div');
+createContactCard: function (contact, container) {
+    const contactCardDiv = document.createElement('div');
     contactCardDiv.className = 'contactCard table';
+    container.appendChild(document.createElement('br'));
     container.appendChild(contactCardDiv);
-    addDetail('Company', company, contactCardDiv);
-    if (emails.length !== 0) {
-        addDetail('Send Email', emails[0].emailAddress(), contactCardDiv);
-    }
-    // addDetail('Call Work', workPhone, contactCardDiv);
-    addDetail('IM', id, contactCardDiv);
+    contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
+    contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
+    contact.emails().length !== 0 && window.framework.addContactCardDetail('Email Address', contact.emails()[0].emailAddress(), contactCardDiv);
+    contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
+    contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone Number', contact.phoneNumbers()[0].displayString(), contactCardDiv);
 }
 ```
 

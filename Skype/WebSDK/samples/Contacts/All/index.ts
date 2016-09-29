@@ -3,11 +3,12 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/SearchForPersonsAndGroups_All.md' : 'Content/websdk/docs/SearchForPersonsAndGroups_All.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
-    function reset () {
+    function reset() {
         (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
         (<HTMLElement>content.querySelector('.contacts')).style.display = 'none';
     }
@@ -17,21 +18,18 @@
         reset();
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
         const application = window.framework.application;
-        window.framework.reportStatus('Retrieving all Contacts...', window.framework.status.info);
-        // @snippet
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Retrieving all contacts...';
         const persons = application.personsAndGroupsManager.all.persons;
         persons.get().then(contacts => {
             contactsDiv.style.display = 'block';
             window.framework.populateContacts(contacts, contactsDiv);
-            window.framework.reportStatus('Retrieved all Contacts', window.framework.status.success);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Retrieved all contacts';
         }, error => {
-            window.framework.reportError(error);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         });
-
-        // persons.subscribe();
-        // persons.added(function (person) {
-        //  handle persons here
-        // });
-        // @end_snippet
     });
 })();

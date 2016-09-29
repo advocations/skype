@@ -9,17 +9,17 @@
         window.console.log('Your browser does not support sessionStorage and will not work with OAuth login');
     }
 
-    function createXHR () {
+    function createXHR() {
         if (window.XMLHttpRequest) {
             return new XMLHttpRequest();
         } else {
-            return new ActiveXObject("MSXML2.XMLHTTP.3.0"); 
+            return new ActiveXObject("MSXML2.XMLHTTP.3.0");
         }
     }
 
-    function createFramework () {
+    function createFramework() {
         var statusQueue = [];
-        function processStatus () {
+        function processStatus() {
             var item = statusQueue[0];
             // var message = document.querySelector('.notification3 > .notification3-message');
 
@@ -65,7 +65,7 @@
             }, 2000, item);
         }
 
-        function pushStatus (status, type, callback) {
+        function pushStatus(status, type, callback) {
             statusQueue.push({
                 status: status,
                 type: type,
@@ -160,10 +160,17 @@
                     var cellDivRight = document.createElement('div');
                     cellDivRight.className = 'table-cell';
                     rowDiv.appendChild(cellDivRight);
+                    var statusImg = document.createElement('img');
+                    statusImg.src = getStatusPath(contact.status());
+                    cellDivRight.appendChild(statusImg);
                     var nameDiv = document.createElement('div');
                     nameDiv.className = 'name';
                     nameDiv.innerHTML = contact.displayName();
                     cellDivRight.appendChild(nameDiv);
+                    var noteDiv = document.createElement('div');
+                    noteDiv.className = 'name';
+                    noteDiv.innerHTML = contact.note.text();
+                    cellDivRight.appendChild(noteDiv);
                 }
             },
             populateGroups: function (groups, container) {
@@ -203,7 +210,36 @@
                     cellDiv.appendChild(cellContentDiv);
                 }
             },
-            addMessage: function(item, container) {
+            addContactCardDetail: function (header, value, container) {
+                if (value) {
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'mui-row';
+                    const colLeftDiv = document.createElement('div');
+                    colLeftDiv.className = 'mui-col-md-3';
+                    colLeftDiv.style.fontWeight = 'bold';
+                    colLeftDiv.innerHTML = header;
+                    const colRightDiv = document.createElement('div');
+                    colRightDiv.className = 'mui-col-md-9';
+                    colRightDiv.style.fontStyle = 'italic';
+                    colRightDiv.style.wordWrap = 'break-word';
+                    colRightDiv.innerHTML = value;
+                    rowDiv.appendChild(colLeftDiv);
+                    rowDiv.appendChild(colRightDiv);
+                    container.appendChild(rowDiv);
+                }
+            },
+            createContactCard: function (contact, container) {
+                const contactCardDiv = document.createElement('div');
+                contactCardDiv.className = 'contactCard table';
+                container.appendChild(document.createElement('br'));
+                container.appendChild(contactCardDiv);
+                contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
+                contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
+                contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
+                contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
+                contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
+            },
+            addMessage: function (item, container) {
                 var div = document.createElement('div');
                 div.className = 'item';
                 container.appendChild(div);
@@ -284,7 +320,27 @@
         }
     }
 
-    function populateSidebar () {
+    function getStatusPath(value) {
+        const path = window.framework.getContentLocation() + 'images/samples/status/';
+
+        switch (value) {
+            case 'Online':
+                return path + 'available.png';
+            case 'Away':
+            case 'BeRightBack':
+            case 'IdleOnline':
+                return path + 'away.png';
+            case 'Busy':
+            case 'IdleBusy':
+                return path + 'busy.png';
+            case 'DoNotDisturb':
+                return path + 'do-not-disturb.png';
+            default:
+                return path + 'unknown.png';
+        }
+    }
+
+    function populateSidebar() {
         // load config file to get data used for samples
         var request = createXHR();
         request.onreadystatechange = function () {
@@ -309,7 +365,7 @@
         request.send();
     }
 
-    function processConfig (data) {
+    function processConfig(data) {
         var config = JSON.parse(data);
         var sidebar = document.querySelector('.sidebar');
         var div = document.createElement('div');
@@ -325,7 +381,7 @@
         sidebar.appendChild(div);
     }
 
-    function addSamples (category, list) {
+    function addSamples(category, list) {
         var li = document.createElement('li');
         var div = document.createElement('div');
         var ol = document.createElement('ol');
@@ -346,6 +402,9 @@
 
         window.framework.addEventListener(div, 'click', function (e) {
             document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+            }
             var ol;
             if (e.target.innerHTML === ' (Preview)') {
                 ol = e.target.parentElement.parentElement.children[1];
@@ -365,7 +424,7 @@
         }
     }
 
-    function addSample (item, list) {
+    function addSample(item, list) {
         var element = document.createElement('li');
         var anchor = document.createElement('a');
         var itemUrl = window.framework.getContentLocation() + item.location;
@@ -374,6 +433,9 @@
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
             document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+            }
             if (prevSelectedItem) {
                 prevSelectedItem.removeAttribute('style');
             }
@@ -421,7 +483,7 @@
         list.appendChild(element);
     }
 
-    function populateSample (location, container, type) {
+    function populateSample(location, container, type) {
         var request = createXHR();
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
@@ -470,7 +532,7 @@
         request.send();
     }
 
-    function parseScript (script, type) {
+    function parseScript(script, type) {
         var snippets = [];
         var lines = script.split('\r\n');
         var indexes = [];
@@ -511,7 +573,7 @@
         return snippets;
     }
 
-    function populateSnippets (snippets, content) {
+    function populateSnippets(snippets, content) {
         if (snippets.length !== 0) {
             var divs = content.querySelectorAll('.snippet');
             var index = 0;
@@ -525,7 +587,7 @@
         }
     }
 
-    function hideAllExcept (selector, obj) {
+    function hideAllExcept(selector, obj) {
         var items = document.querySelectorAll(selector);
         for (var i = 0; i < items.length; i++) {
             if (items[i] === obj) {
@@ -556,7 +618,7 @@
         }, 1000, photo);
     }
 
-    function initializeSkype () {
+    function initializeSkype() {
         Skype.initialize({
             apiKey: config.apiKeyCC
         }, function (api) {
@@ -566,13 +628,10 @@
                 if (window.framework.auth.error) {
                     var error = window.framework.auth.error_description;
                     error = decodeURIComponent(error.replace(/\+/g, '%20'));
-                    // window.framework.reportStatus('Error during OAuth sign-in: ' + error, window.framework.status.info);
                     document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Error during OAuth sign-in: " + error;
                 } else {
-                    // document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
                     document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Detected OAuth credentials, signing-in...";
                     document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
-                    // window.framework.reportStatus('Detected OAuth credentials, signing-in...', window.framework.status.info);
                     window.framework.application = window.framework.api.UIApplicationInstance;
                     window.framework.application.signInManager.signIn({
                         version: config.version,
@@ -581,9 +640,6 @@
                         cors: true,
                         redirect_uri: location.href + location_config.token + '/token.html'
                     }).then(function () {
-                        // window.framework.reportStatus('Signed In', window.framework.status.success);
-                        // document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-                        // document.getElementsByClassName('notification3')[0].style.display = 'none';
                         document.getElementsByClassName('before-signin')[0].style.display = 'none';
                         document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
                         document.getElementsByClassName('after-signin')[0].style.display = 'block';

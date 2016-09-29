@@ -51,7 +51,9 @@ interface Framework {
     populateGroups: (groups: jCafe.Group[]|jCafe.SearchResult<jCafe.Group>[], container: HTMLElement) => void,
     addDetail: (container: HTMLElement, value: string, valueClass: string, header?: string) => void,
     addMessage: (item: string, container: HTMLElement) => void,
-    createVideoContainer: (container: HTMLElement, size: string, person: jCafe.Participant) => HTMLElement
+    createVideoContainer: (container: HTMLElement, size: string, person: jCafe.Participant) => HTMLElement,
+    addContactCardDetail: (header, value, container) => void,
+    createContactCard: (contact, container) => void
 }
 
 interface Window {

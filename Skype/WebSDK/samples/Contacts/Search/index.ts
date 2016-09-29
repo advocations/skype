@@ -3,13 +3,14 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/SearchForPersonsAndGroups.md' : 'Content/websdk/docs/SearchForPersonsAndGroups.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
 
-    function reset () {
+    function reset() {
         (<HTMLInputElement>content.querySelector('.query')).value = '';
         (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
         (<HTMLElement>content.querySelector('.contacts')).style.display = 'none';
@@ -20,7 +21,9 @@
         const query = (<HTMLInputElement>content.querySelector('.query')).value;
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
         const application = window.framework.application;
-        window.framework.reportStatus('Searching for Contacts...', window.framework.status.info);
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Searching for contact...';
         // @snippet
         const search = application.personsAndGroupsManager.createPersonSearchQuery();
         search.text(query);
@@ -31,12 +34,15 @@
             if (contacts.length !== 0) {
                 contactsDiv.style.display = 'block';
                 window.framework.populateContacts(search.results(), contactsDiv);
-                window.framework.reportStatus('Contacts Found', window.framework.status.success);
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact Found';
             } else {
-                window.framework.reportError('No contacts found, try a different search');
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact not found. Please check the spelling or try a different search.';
             }
         }, error => {
-            window.framework.reportError(error, reset);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         });
         // @end_snippet
     });
