@@ -4,6 +4,9 @@
 
     const content = window.framework.findContentDiv();
 
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/SearchForPersonsAndGroups.md' : 'Content/websdk/docs/SearchForPersonsAndGroups.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
 
     function reset () {

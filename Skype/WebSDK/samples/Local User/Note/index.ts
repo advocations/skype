@@ -4,6 +4,9 @@
 
     const content = window.framework.findContentDiv();
 
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/LocalUser_Note.md' : 'Content/websdk/docs/LocalUser_Note.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.message'));
 
     function reset () {

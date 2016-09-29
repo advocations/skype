@@ -1,5 +1,5 @@
 
-# Authentication using WebTicket
+# Authentication using Windows Auth
 
  _**Applies to:** Skype for Business 2015_
 

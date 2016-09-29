@@ -4,6 +4,11 @@
 
     const content = window.framework.findContentDiv();
 
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/AzureAD.md' : 'Content/websdk/docs/AzureAD.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
+    var tt = content.querySelector('zero-md');
+
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.client_id'));
 
     (<HTMLInputElement>content.querySelector('.reply_url')).value = window.location.href.replace('#', '');
@@ -14,6 +19,8 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.signin'), 'click', () => {
+        (<HTMLElement>document.getElementsByClassName('content')[0]).style.display = 'none';
+        (<HTMLElement>document.getElementsByClassName('azuread-signin')[0]).style.display = 'block';
         var client_id = (<HTMLInputElement>content.querySelector('.client_id')).value;
         // @snippet
         window.sessionStorage.setItem('client_id', client_id);

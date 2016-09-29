@@ -1,7 +1,8 @@
 (function () {
     'use strict';
 
-    var client_id;
+    var client_id, prevSelectedItem;
+
     if (window.sessionStorage) {
         client_id = window.sessionStorage.getItem('client_id');
     } else {
@@ -20,17 +21,17 @@
         var statusQueue = [];
         function processStatus () {
             var item = statusQueue[0];
-            var message = document.querySelector('.notification3 > .notification3-message');
+            // var message = document.querySelector('.notification3 > .notification3-message');
 
-            message.innerHTML = item.status;
-            message.className += ' fading';
+            // message.innerHTML = item.status;
+            // message.className += ' fading';
 
             window.setTimeout(function (item) {
                 var status = item.status;
                 var type = item.type;
                 var callback = item.callback;
 
-                message.className = message.className.replace(' fading', '');
+                // message.className = message.className.replace(' fading', '');
 
                 if (type !== window.framework.status.info) {
                     var content = window.framework.findContentDiv();
@@ -334,6 +335,7 @@
         list.appendChild(li);
 
         div.innerHTML = category.name;
+        div.style.fontSize = window.framework.getContentLocation() === '' ? '1.2em' : '1.6em'; // Font discrepancy on the hosted site
 
         // add preview to category
         if (category.preview) {
@@ -343,6 +345,7 @@
         }
 
         window.framework.addEventListener(div, 'click', function (e) {
+            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
             var ol;
             if (e.target.innerHTML === ' (Preview)') {
                 ol = e.target.parentElement.parentElement.children[1];
@@ -370,6 +373,14 @@
         anchor.href = '#';
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
+            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+            if (prevSelectedItem) {
+                prevSelectedItem.removeAttribute('style');
+            }
+            prevSelectedItem = e.target;
+            e.target.style.fontSize = '1.5em';
+            e.target.style.fontWeight = 'bold';
+            e.target.style.textDecoration = 'none';
             // hide the landing if it's still visible
             var landing = document.querySelector('.landing');
             if (landing.style.display !== 'none') {
@@ -387,9 +398,9 @@
             }
 
             // cleanup the notification if we are leaving the sample
-            var message = document.querySelector('.notification3 > .notification3-message');
-            message.innerHTML = '';
-            message.className = 'notification3-message';
+            // var message = document.querySelector('.notification3 > .notification3-message');
+            // message.innerHTML = '';
+            // message.className = 'notification3-message';
 
             if (!content) {
                 populateSample(src, '.content', '.html');
@@ -555,9 +566,13 @@
                 if (window.framework.auth.error) {
                     var error = window.framework.auth.error_description;
                     error = decodeURIComponent(error.replace(/\+/g, '%20'));
-                    window.framework.reportStatus('Error during OAuth sign-in: ' + error, window.framework.status.info);
+                    // window.framework.reportStatus('Error during OAuth sign-in: ' + error, window.framework.status.info);
+                    document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Error during OAuth sign-in: " + error;
                 } else {
-                    window.framework.reportStatus('Detected OAuth credentials, signing-in...', window.framework.status.info);
+                    // document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
+                    document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Detected OAuth credentials, signing-in...";
+                    document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
+                    // window.framework.reportStatus('Detected OAuth credentials, signing-in...', window.framework.status.info);
                     window.framework.application = window.framework.api.UIApplicationInstance;
                     window.framework.application.signInManager.signIn({
                         version: config.version,
@@ -566,7 +581,12 @@
                         cors: true,
                         redirect_uri: location.href + location_config.token + '/token.html'
                     }).then(function () {
-                        window.framework.reportStatus('Signed In', window.framework.status.success);
+                        // window.framework.reportStatus('Signed In', window.framework.status.success);
+                        // document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+                        // document.getElementsByClassName('notification3')[0].style.display = 'none';
+                        document.getElementsByClassName('before-signin')[0].style.display = 'none';
+                        document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+                        document.getElementsByClassName('after-signin')[0].style.display = 'block';
                         updateAuthenticationList();
                     });
                 }

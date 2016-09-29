@@ -4,6 +4,9 @@
 
     const content = window.framework.findContentDiv();
 
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/SearchForPersonsAndGroups_All.md' : 'Content/websdk/docs/SearchForPersonsAndGroups_All.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     function reset () {
         (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
         (<HTMLElement>content.querySelector('.contacts')).style.display = 'none';

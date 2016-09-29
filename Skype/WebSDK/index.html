@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Samples Framework</title>
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="styles.css" />
-        <link rel="stylesheet" type="text/css" href="local.css" />
-        <link rel="import" href="//cdn.rawgit.com/zerodevx/zero-md/v0.2.0/build/zero-md.html" />
-        <link href="//cdn.muicss.com/mui-0.8.1/css/mui.min.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div class="header">
-            <img src="images/samples/skype-developer-logo.png">
-        </div>
-        <!-- content_body -->
-        <div class="sidebar"></div>
-        <div class="center">
-            <div class="notification3">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samples Framework</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="local.css" />
+    <link rel="import" href="//cdn.rawgit.com/zerodevx/zero-md/v0.2.0/build/zero-md.html" />
+    <link href="//cdn.muicss.com/mui-0.8.1/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" text="css" />
+</head>
+
+<body>
+    <div class="header">
+        <img src="images/samples/skype-developer-logo.png">
+    </div>
+    <!-- content_body -->
+    <div class="sidebar"></div>
+    <div class="center">
+        <!--<div class="notification3">
                 <div class="notification3-message"></div>
-            </div>
-            <div class="landing">
-                <h2>Welcome to the Skype Web SDK Interactive Samples</h2>
-                <p>To get started, select an authentication option on the left.</p>
-            </div>
-            <div class="content"></div>
+            </div>-->
+        <div class="landing">
+            <h2>Welcome to the Skype Web SDK Interactive Samples</h2>
+            <p class="before-signin">To get started, select an authentication option on the left.</p>
+            <p class="after-signin">
+                <i class="fa fa-check-square" aria-hidden="true" style="font-size:1.5em;color:#03A43E;"></i> You've successfully
+                signed in. You can now play with any of the interactive samples from the sidebar.
+            </p>
         </div>
-        <script type="text/javascript" src="samples/config.js"></script>
-        <script type="text/javascript" src="samples/location_config.js"></script>
-        <script type="text/javascript" src="//swx.cdn.skype.com/shared/v/1.1.23.0/SkypeBootstrap.min.js"></script>
-        <script src="//cdn.rawgit.com/webcomponents/webcomponentsjs/v0.7.15/webcomponents-lite.min.js"></script>
-        <script src="//cdn.muicss.com/mui-0.8.1/js/mui.min.js"></script>
-        <script type="text/javascript" src="index.js"></script>
-        <!-- end_content_body -->
-    </body>
+        <div class="azuread-signin">
+            <p>
+                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                <text></text>
+            </p>
+        </div>
+        <div class="content"></div>
+    </div>
+    <script type="text/javascript" src="samples/config.js"></script>
+    <script type="text/javascript" src="samples/location_config.js"></script>
+    <script type="text/javascript" src="//swx.cdn.skype.com/shared/v/1.1.23.0/SkypeBootstrap.min.js"></script>
+    <script src="//cdn.rawgit.com/webcomponents/webcomponentsjs/v0.7.15/webcomponents-lite.min.js"></script>
+    <script src="//cdn.muicss.com/mui-0.8.1/js/mui.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <!-- end_content_body -->
+</body>
+
 </html>

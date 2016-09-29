@@ -1,17 +1,34 @@
 <div class="step">
-    <div class="description">
-        <zero-md file="../../../docs/LocalUser_Status.md">
-            <div class="md-html"></div>
-        </zero-md>
-    </div>
-    <div class="controls">
-        <select>
-            <option>Online</option>
-            <option>Away</option>
-            <option value="BeRightBack">BeRightBack</option>
-            <option>Busy</option>
-            <option value="DoNotDisturb">Do Not Disturb</option>
-        </select>
-        <div class="button set">Set</div>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                 <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div class="mui-dropdown">
+                        <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">
+                            Select Status
+                            <span class="mui-caret"></span>
+                        </button>
+                        <ul class="mui-dropdown__menu">
+                            <li class="online"><a href="#">Online</a></li>
+                            <li class="away"><a href="#">Away</a></li>
+                            <li class="brb"><a href="#">Be Right Back</a></li>
+                            <li class="dnb"><a href="#">Do Not Disturb</a></li>
+                        </ul>
+                    </div>
+                    <div class="mui-textfield">
+                        <input type="text" class="message medium selectedstatus" readonly="true" placeholder="Unknown">
+                        <label>Selected Status</label>
+                    </div>
+                    <button class="mui-btn mui-btn--raised mui-btn--primary set">Set</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

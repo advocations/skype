@@ -1,29 +1,25 @@
 <div class="step">
-    <div class="description">
-        <zero-md file="../../../docs/Password.md">
-            <div class="md-html"></div>
-        </zero-md>
-    </div>
-    <div class="controls table">
-        <div class="table-row">
-            <div class="table-cell">
-                <label>Login</label>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                 <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
             </div>
-            <div class="table-cell">
-                <input type="text" class="username" placeholder="user@domain.com" data-enter-bind="signin">
-            </div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">
-                <label>Password</label>
-            </div>
-            <div class="table-cell">
-                <input type="password" class="password" placeholder="********" data-enter-bind="signin">
-            </div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell">
-                <div class="button signin">Sign-in</div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div class="mui-textfield">
+                        <input type="text" class="username" placeholder="user@domain.com" data-enter-bind="signin">
+                        <label>Username</label>
+                    </div>
+                    <div class="mui-textfield">
+                        <input type="password" class="password" placeholder="********" data-enter-bind="signin">
+                        <label>Password</label>
+                    </div>
+                    <button class="mui-btn mui-btn--raised mui-btn--primary signin">Sign-In</button>
+                </div>
             </div>
         </div>
     </div>
