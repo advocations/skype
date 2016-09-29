@@ -62,3 +62,6 @@ build/WinSCP.exe
 build/winscp.ini
 build/WinSCPnet.dll
 build/deploy.log
+
+location_config.js
+config.js

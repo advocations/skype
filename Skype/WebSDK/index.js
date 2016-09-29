@@ -432,6 +432,7 @@
         anchor.href = '#';
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
+            e.preventDefault();
             document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
             for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
                 document.getElementsByClassName('notification-bar')[i].style.display = 'none';
@@ -652,7 +653,12 @@
         });
     }
 
+    function autoAuthenticate() {
+
+    }
+
     createFramework();
     populateSidebar();
     initializeSkype();
+    autoAuthenticate();
 })();
