@@ -256,6 +256,8 @@
                     var img = document.createElement('img');
                     var imgUrl = window.framework.getContentLocation() + 'images/samples/default.png';
                     img.src = imgUrl;
+                    img.style.height = '3em';
+                    img.style.width = '3em';
                     leftCellDiv.appendChild(img);
                     var leftMiddleCellDiv = document.createElement('div');
                     leftMiddleCellDiv.className = 'table-cell';

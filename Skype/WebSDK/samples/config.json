@@ -209,6 +209,16 @@
                                          }
                                      ],
                            "preview":  true
+                       },
+                       {
+                           "name":  "Conversation History",
+                           "items":  [
+                                         {
+                                             "name":  "Single",
+                                             "location":  "samples/Conversation History/Single"
+                                         }
+                                     ],
+                           "preview":  false
                        }
                    ]
 }

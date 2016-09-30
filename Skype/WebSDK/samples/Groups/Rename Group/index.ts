@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RenameGroup.md' : 'Content/websdk/docs/Groups_RenameGroup.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const groups = {};
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.groupName'));
@@ -37,12 +42,16 @@
         const groupName = (<HTMLInputElement>content.querySelector('.groupName')).value;
         const group = groups[groupOption.value];
         const application = window.framework.application;
-        window.framework.reportStatus('Renaming Group...', window.framework.status.info);
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Renaming group...';
         // @snippet
         group.name.set(groupName).then(() => {
-            window.framework.reportStatus('Group Renamed', window.framework.status.success);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Group renamed';
         }, error => {
-            window.framework.reportError(error);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         }).then(reset);
         // @end_snippet
     });
