@@ -66,3 +66,4 @@ build/deploy.log
 websdk.cshtml
 samples/location_config.js
 samples/config.js
+samples/config.json
