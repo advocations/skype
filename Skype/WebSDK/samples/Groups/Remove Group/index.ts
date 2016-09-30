@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RemoveContact.md' : 'Content/websdk/docs/Groups_RemoveContact.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const groups = {};
 
     window.framework.application.personsAndGroupsManager.all.groups.subscribe();
@@ -33,13 +38,15 @@
         const groupOption = <HTMLOptionElement>content.querySelector('.groupsSelect option:checked');
         const group = groups[groupOption.value];
         const application = window.framework.application;
-        window.framework.reportStatus('Removing Group...', window.framework.status.info);
-        // @snippet
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Removing group...';
         application.personsAndGroupsManager.all.groups.remove(group).then(() => {
-            window.framework.reportStatus('Group Removed', window.framework.status.success);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Group removed';
         }, error => {
-            window.framework.reportError(error);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         }).then(reset);
-        // @end_snippet
     });
 })();

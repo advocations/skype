@@ -256,6 +256,8 @@
                     var img = document.createElement('img');
                     var imgUrl = window.framework.getContentLocation() + 'images/samples/default.png';
                     img.src = imgUrl;
+                    img.style.height = '3em';
+                    img.style.width = '3em';
                     leftCellDiv.appendChild(img);
                     var leftMiddleCellDiv = document.createElement('div');
                     leftMiddleCellDiv.className = 'table-cell';
@@ -345,7 +347,7 @@
         var request = createXHR();
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
-                if (request.status === 200 && request.getResponseHeader('content-type') === 'application/json') {
+                if (request.status === 200) {
                     processConfig(request.responseText);
 
                     // hack open the sidebar on authentication

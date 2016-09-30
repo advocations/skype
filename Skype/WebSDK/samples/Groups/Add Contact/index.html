@@ -1,19 +1,33 @@
 <div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Bootstrap Skype Web SDK</li>
-            <li>Sign-In</li>
-        </ol>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div class="mui-textfield">
+                        <select class="groupsSelect"></select>
+                        <label>Selected Group</label>
+                    </div>
+                    <div class="mui-textfield">
+                        <input type="text" class="id" placeholder="sip:user@domain.com" data-enter-bind="add">
+                        <label>User</label>
+                    </div>
+                    <button class="mui-btn mui-btn--raised mui-btn--primary add">Add</button>
+                    <div class="notification-bar">
+                        <br/>
+                        <p>
+                            <i class="fa fa-info-circle"></i>
+                            <text></text>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="description">
-        <h3>Select a group and provide a SIP URI to add a contact to that group.</h3>
-        <p>A group object exposes a persons collection which allows us to add a contact, by SIP URI, to that group.  We get access to potential groups by subscribing to the groups collection of the all property found on the personsAndGroupsManager object and adding an event listener for the added event.  In some cases a name property may not be readily available so we can listen to the changed event of the name property to be certain we have the value.</p>
-    </div>
-    <div class="controls">
-        <select class="groupsSelect"></select>
-        <input type="text" class="id" placeholder="sip:user@domain.com" data-enter-bind="add">
-        <div class="button add">Add</div>
-    </div>
-    <div class="snippet"></div>
 </div>

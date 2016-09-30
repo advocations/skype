@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RemoveContact.md' : 'Content/websdk/docs/Groups_RemoveContact.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const persons = {};
 
     window.framework.application.personsAndGroupsManager.all.persons.subscribe();
@@ -32,13 +37,15 @@
         var personOption = <HTMLOptionElement>content.querySelector('.personsSelect option:checked');
         var person = persons[personOption.value];
         var application = window.framework.application;
-        window.framework.reportStatus('Removing Contact...', window.framework.status.info);
-        // @snippet
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Removing contact...';
         application.personsAndGroupsManager.all.persons.remove(person).then(() => {
-            window.framework.reportStatus('Contact Removed', window.framework.status.success);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact removed';
         }, error => {
-            window.framework.reportError(error);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         }).then(reset);
-        // @end_snippet
     });
 })();
