@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_AddGroup.md' : 'Content/websdk/docs/Groups_AddGroup.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -18,18 +18,15 @@
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const groupName = (<HTMLInputElement>content.querySelector('.groupName')).value;
         const application = window.framework.application;
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Adding group...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Adding group...');
         // @snippet
         const group = application.personsAndGroupsManager.createGroup();
         group.name(groupName);
         application.personsAndGroupsManager.all.groups.add(group).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Group added';
+            window.framework.updateNotification('fa fa-thumbs-up', 'Group added');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
         // @end_snippet
     });

@@ -33,7 +33,7 @@
     }
 
     function reset(bySample: Boolean) {
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+        window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
         
         // remove any outstanding event listeners
@@ -65,48 +65,36 @@
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const conversationsManager = window.framework.application.conversationsManager;
         conversation = conversationsManager.getConversation(id);
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        window.framework.showNotificationBar();
 
         listeners.push(conversation.selfParticipant.chat.state.when('Connected', () => {
-            const notificationElement = document.createElement('p');
-            notificationElement.innerHTML = '<i class="fa fa-thumbs-up"></i> <text> Connected to Chat </text>';
-            content.querySelector('.notification-bar').appendChild(notificationElement);
+            window.framework.addNotification('fa fa-thumbs-up', 'Connected to Chat');
         }));
         listeners.push(conversation.participants.added(person => {
-            const notificationElement = document.createElement('p');
-            notificationElement.innerHTML = '<i class="fa fa-thumbs-up"></i> <text>' + person.displayName() + ' has joined the conversation </text>';
-            content.querySelector('.notification-bar').appendChild(notificationElement);
+            window.framework.addNotification('fa fa-thumbs-up', person.displayName() + ' has joined the conversation');
         }));
         listeners.push(conversation.chatService.messages.added(item => {
             window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
         }));
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                const notificationElement = document.createElement('p');
-                notificationElement.innerHTML = '<i class="fa fa-info-circle"></i> <text> Conversation ended </text>';
-                content.querySelector('.notification-bar').appendChild(notificationElement);
+                window.framework.addNotification('fa fa-info-circle', 'Conversation ended');
                 reset(true);
             }
         }));
-        const notificationElement = document.createElement('p');
-        notificationElement.innerHTML = '<i class="fa fa-info-circle"></i> <text> Events subscribed </text>';
-        content.querySelector('.notification-bar').appendChild(notificationElement);
+        window.framework.addNotification('fa fa-info-circle', 'Events subscribed');
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
     });
 
     window.framework.addEventListener(content.querySelector('.send'), 'click', () => {
         const message = <HTMLInputElement>content.querySelector('.messageToSend');
-        const notificationElement = document.createElement('p');
-        notificationElement.innerHTML = '<i class="fa fa-info-circle"></i> <text> Sending invitation... </text>';
-        content.querySelector('.notification-bar').appendChild(notificationElement);
+        window.framework.addNotification('fa fa-info-circle', 'Sending invitation...');
         conversation.chatService.sendMessage(message.value).then(() => {
             message.value = '';
             (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'block';
         }, error => {
-            const notificationElement = document.createElement('p');
-            notificationElement.innerHTML = '<i class="fa fa-thumbs-up"></i> <text>' + error + '</text>';
-            content.querySelector('.notification-bar').appendChild(notificationElement);
+            window.framework.addNotification('fa fa-thumbs-down', error);
         });
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
@@ -120,20 +108,14 @@
     });
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-        const notificationElement = document.createElement('p');
-        notificationElement.innerHTML = '<i class="fa fa-info-circle"></i> <text> Ending conversation... </text>';
-        content.querySelector('.notification-bar').appendChild(notificationElement);
+        window.framework.addNotification('fa fa-info-circle', 'Ending conversation...');
         conversation.leave().then(() => {
-            const notificationElement = document.createElement('p');
-            notificationElement.innerHTML = '<i class="fa fa-thumbs-up"></i> <text> Conversation ended </text>';
-            content.querySelector('.notification-bar').appendChild(notificationElement);
+            window.framework.addNotification('fa fa-thumbs-up', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
             (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'none';
         }, error => {
-            const notificationElement = document.createElement('p');
-            notificationElement.innerHTML = '<i class="fa fa-thumbs-up"></i> <text>' + error + '</text>';
-            content.querySelector('.notification-bar').appendChild(notificationElement);
+            window.framework.addNotification('fa fa-thumbs-down', error);
         }).then(function () {
             reset(true);
         });

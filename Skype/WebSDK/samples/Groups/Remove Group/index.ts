@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RemoveContact.md' : 'Content/websdk/docs/Groups_RemoveContact.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -38,15 +38,12 @@
         const groupOption = <HTMLOptionElement>content.querySelector('.groupsSelect option:checked');
         const group = groups[groupOption.value];
         const application = window.framework.application;
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Removing group...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Removing group...');
         application.personsAndGroupsManager.all.groups.remove(group).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Group removed';
+            window.framework.updateNotification('fa fa-thumbs-up', 'Group removed');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
     });
 })();

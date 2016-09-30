@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups.md' : 'Content/websdk/docs/Groups.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -21,9 +21,8 @@
         const query = (<HTMLInputElement>content.querySelector('.query')).value;
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Searching for groups...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Searching for groups...');
         // @snippet
         const search = application.personsAndGroupsManager.createGroupSearchQuery();
         search.text(query);
@@ -34,15 +33,12 @@
             if (groups.length !== 0) {
                 groupsDiv.style.display = 'block';
                 window.framework.populateGroups(search.results(), groupsDiv);
-                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Groups Found';
+                window.framework.updateNotification('fa fa-thumbs-up', 'Group found');
             } else {
-                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'No groups found. Please check the spelling or try a different search.';
+                window.framework.updateNotification('fa fa-thumbs-down', 'No groups found. Please check the spelling or try a different search.');
             }
         }, function (error) {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         });
         // @end_snippet
     });

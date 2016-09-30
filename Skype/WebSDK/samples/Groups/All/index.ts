@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_All.md' : 'Content/websdk/docs/Groups_All.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -18,18 +18,15 @@
         reset();
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Retrieving all groups...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Retrieving all groups...');
         const groups = application.personsAndGroupsManager.all.groups;
         groups.get().then(groups => {
             groupsDiv.style.display = 'block';
             window.framework.populateGroups(groups, groupsDiv);
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Retrieved all groups';
+            window.framework.updateNotification('fa fa-thumbs-up', 'Retrieved all groups');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         });
     });
 })();

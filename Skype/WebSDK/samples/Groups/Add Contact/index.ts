@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_AddContact.md' : 'Content/websdk/docs/Groups_AddContact.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -35,22 +35,18 @@
 
     function reset() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
-        // (<HTMLSelectElement>content.querySelector('.groupsSelect')).selectedIndex = 0;
     }
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const group = groups[(<HTMLOptionElement>content.querySelector('.groupsSelect option:checked')).value];
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Adding contact...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Adding contact...');
         group.persons.add(id).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact added';
+            window.framework.updateNotification('fa fa-thumbs-up', 'Contact added');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
     });
 })();
