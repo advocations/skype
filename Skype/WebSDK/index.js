@@ -366,7 +366,7 @@
         var request = createXHR();
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
-                if (request.status === 200 && request.getResponseHeader('content-type') === 'application/json') {
+                if (request.status === 200) {
                     processConfig(request.responseText);
 
                     // hack open the sidebar on authentication
