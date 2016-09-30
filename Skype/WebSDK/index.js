@@ -117,6 +117,25 @@
             reportStatus: function (status, type, callback) {
                 pushStatus(status, type, callback);
             },
+            addNotification: function (iconType, text) {
+                var content = window.framework.findContentDiv();
+                const notificationElement = document.createElement('p');
+                notificationElement.innerHTML = '<i class="' + iconType + '"></i> <text> ' + text + ' </text>';
+                content.querySelector('.notification-bar').appendChild(notificationElement);
+            },
+            updateNotification: function (iconType, text) {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = iconType;
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = text;
+            },
+            showNotificationBar: function () {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').style.display = 'block';
+            },
+            hideNotificationBar: function () {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').style.display = 'none';
+            },
             reportError: function (error, callback) {
                 var message = error;
                 if (error.message) {

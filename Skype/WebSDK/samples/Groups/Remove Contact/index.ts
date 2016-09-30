@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RemoveContact.md' : 'Content/websdk/docs/Groups_RemoveContact.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
@@ -37,15 +37,12 @@
         var personOption = <HTMLOptionElement>content.querySelector('.personsSelect option:checked');
         var person = persons[personOption.value];
         var application = window.framework.application;
-        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Removing contact...';
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Removing contact...');
         application.personsAndGroupsManager.all.persons.remove(person).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact removed';
+            window.framework.updateNotification('fa fa-thumbs-up', 'Contact removed');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
     });
 })();

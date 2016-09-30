@@ -53,7 +53,11 @@ interface Framework {
     addMessage: (item: string, container: HTMLElement) => void,
     createVideoContainer: (container: HTMLElement, size: string, person: jCafe.Participant) => HTMLElement,
     addContactCardDetail: (header, value, container) => void,
-    createContactCard: (contact, container) => void
+    createContactCard: (contact, container) => void,
+    addNotification: (iconType, text) => void,
+    updateNotification: (iconType, text) => void,
+    showNotificationBar: () => void,
+    hideNotificationBar: () => void
 }
 
 interface Window {
