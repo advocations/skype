@@ -19,15 +19,12 @@
         const location = (<HTMLInputElement>content.querySelector('.location')).value;
         const application = window.framework.application;
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Changing Location...';
+        window.framework.updateNotification('info', 'Changing Location...');
         const mePerson = application.personsAndGroupsManager.mePerson;
         mePerson.location.set(location).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Location Changed';
+            window.framework.updateNotification('success', 'Location Changed');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 })();

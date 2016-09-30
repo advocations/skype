@@ -68,33 +68,33 @@
         window.framework.showNotificationBar();
 
         listeners.push(conversation.selfParticipant.chat.state.when('Connected', () => {
-            window.framework.addNotification('fa fa-thumbs-up', 'Connected to Chat');
+            window.framework.addNotification('success', 'Connected to Chat');
         }));
         listeners.push(conversation.participants.added(person => {
-            window.framework.addNotification('fa fa-thumbs-up', person.displayName() + ' has joined the conversation');
+            window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
         }));
         listeners.push(conversation.chatService.messages.added(item => {
             window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
         }));
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.addNotification('fa fa-info-circle', 'Conversation ended');
+                window.framework.addNotification('info', 'Conversation ended');
                 reset(true);
             }
         }));
-        window.framework.addNotification('fa fa-info-circle', 'Events subscribed');
+        window.framework.addNotification('info', 'Events subscribed');
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
     });
 
     window.framework.addEventListener(content.querySelector('.send'), 'click', () => {
         const message = <HTMLInputElement>content.querySelector('.messageToSend');
-        window.framework.addNotification('fa fa-info-circle', 'Sending invitation...');
+        window.framework.addNotification('info', 'Sending invitation...');
         conversation.chatService.sendMessage(message.value).then(() => {
             message.value = '';
             (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'block';
         }, error => {
-            window.framework.addNotification('fa fa-thumbs-down', error);
+            window.framework.addNotification('error', error);
         });
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
@@ -108,14 +108,14 @@
     });
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-        window.framework.addNotification('fa fa-info-circle', 'Ending conversation...');
+        window.framework.addNotification('info', 'Ending conversation...');
         conversation.leave().then(() => {
-            window.framework.addNotification('fa fa-thumbs-up', 'Conversation ended');
+            window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
             (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'none';
         }, error => {
-            window.framework.addNotification('fa fa-thumbs-down', error);
+            window.framework.addNotification('error', error);
         }).then(function () {
             reset(true);
         });

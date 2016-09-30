@@ -60,7 +60,7 @@ declare var mui: any;
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
-        window.framework.addNotification('fa fa-info-circle', 'Waiting for invitation...');
+        window.framework.addNotification('info', 'Waiting for invitation...');
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
             listeners.push(conversation.chatService.accept.enabled.when(true, () => {
@@ -78,22 +78,22 @@ declare var mui: any;
                 if (result) {
                     conversation.chatService.accept();
                     listeners.push(conversation.participants.added(person => {
-                        window.framework.addNotification('fa fa-thumbs-up', person.displayName() + ' has joined the conversation');
+                        window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
                     }));
                     listeners.push(conversation.chatService.messages.added(item => {
                         window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
                     }));
-                    window.framework.addNotification('fa fa-info-circle', 'Invitation Accepted');
+                    window.framework.addNotification('info', 'Invitation Accepted');
                     (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
                     (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
                 } else {
                     conversation.chatService.reject();
-                    window.framework.addNotification('fa fa-thumbs-down', 'Invitation Rejected');
+                    window.framework.addNotification('error', 'Invitation Rejected');
                 }
             }));
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                    window.framework.addNotification('fa fa-info-circle', 'Conversation ended');
+                    window.framework.addNotification('info', 'Conversation ended');
                     reset(true);
                 }
             }));
@@ -109,14 +109,14 @@ declare var mui: any;
     });
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-        window.framework.addNotification('fa fa-info-circle', 'Ending conversation...');
+        window.framework.addNotification('info', 'Ending conversation...');
         conversation.leave().then(() => {
-            window.framework.addNotification('fa fa-thumbs-down', 'Conversation ended');
+            window.framework.addNotification('error', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
             (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
         }, error => {
-            window.framework.addNotification('fa fa-thumbs-down', error);
+            window.framework.addNotification('error', error);
         }).then(function () {
             reset(true);
         });

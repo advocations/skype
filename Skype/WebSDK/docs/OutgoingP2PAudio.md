@@ -1,5 +1,5 @@
 
-# P2P Audio Call
+# Outgoing P2P Call
 
  _**Applies to:** Skype for Business 2015_
 
@@ -30,7 +30,7 @@ conversation.state.changed(function (newValue, reason, oldValue) {
 
 |||
 |--------------|------------------------------------------|
-| *Disconnected*| ...When no call is in progress              |
+| *Created* | ...When conversation was created
 | *Connecting*    | ...When establishing a connection           |
 | *Connected* | ...When the call was successfully connected |
 
@@ -48,6 +48,15 @@ conversation.selfParticipant.audio.state.when('Connected', function () {
 **Note:** `.when(value, callback)` Lets you subscribe to an observable and only triggers the callback when the observable changes its value to the value specified.
 For Example: `state.when('Connected', callback)` will execute the `callback` when the value of state changes to "Connected".
 
+## Participants in Conversation
+You can subscribe to the `participants` collection on the `conversation` object to be notified when new perticipants enter the conversation.
+
+```javascript
+conversation.participants.added(function (participant) {
+    // ...
+});
+```
+
 ## Complete Code Sample
 Here is the code combined:
 
@@ -58,6 +67,9 @@ conversation.selfParticipant.audio.state.when('Connected', function () {
 });
 conversation.state.changed(function (newValue, reason, oldValue) {
     console.log('Conversation state changed from', oldValue, 'to', newValue);
+});
+conversation.participants.added(function (participant) {
+    console.log('Participant:', participant.displayName(), 'has been added to the conversation')
 });
 conversation.audioService.start().then(function() {
     console.log('The call has been started successfully');

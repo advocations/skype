@@ -18,15 +18,12 @@
     window.framework.addEventListener(content.querySelector('.set'), 'click', () => {
         const application = window.framework.application;
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Changing Status...';
+        window.framework.updateNotification('info', 'Changing Status...');
         const mePerson = application.personsAndGroupsManager.mePerson;
         mePerson.status.set(status).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Status Changed';
+            window.framework.updateNotification('success', 'Status Changed');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 

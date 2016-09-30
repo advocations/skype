@@ -43,12 +43,12 @@
         const group = groups[groupOption.value];
         const application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Renaming group...');
+        window.framework.updateNotification('info', 'Renaming group...');
         // @snippet
         group.name.set(groupName).then(() => {
-            window.framework.updateNotification('fa fa-thumbs-up', 'Group renamed');
+            window.framework.updateNotification('success', 'Group renamed');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         }).then(reset);
         // @end_snippet
     });

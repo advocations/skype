@@ -62,11 +62,16 @@
         const id = (<HTMLInputElement>content.querySelector('.sip')).value;
         const conversationsManager = window.framework.application.conversationsManager;
 
-        window.framework.reportStatus('Sending Invitation...', window.framework.status.info);
+        if (!id) {
+            window.framework.showNotificationBar();
+            window.framework.updateNotification('error', 'SIP Address is not specified');
+            return;
+        }
+
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            window.framework.reportStatus('Connected to Audio', window.framework.status.success);
+            console.log('Connected to audio call');
         }));
 
         listeners.push(conversation.participants.added(person => {
@@ -74,9 +79,10 @@
         }));
 
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
+            console.log('Conversation state changed from', oldValue, 'to', newValue);
+
             if (newValue === 'Connected') {
                 callButton.innerHTML = 'End Call';
-                callButton.disabled = false;
                 inCall = true;
             }
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
@@ -85,20 +91,23 @@
             }
         }));
 
-        callButton.innerHTML = 'Connecting Call ...';
-        callButton.disabled = true;
-        conversation.audioService.start().then(null, error => {
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('info', 'Sending call invitation ...');
+        conversation.audioService.start().then(function () {
+            window.framework.updateNotification('success', 'Remote party accepted invitation. Call is connected.');
+        }, error => {
             window.framework.reportError(error, reset);
+            window.framework.updateNotification('error', error && error.message);
         });
     }
 
     function endCall() {
-        window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
+        window.framework.updateNotification('info', 'Ending conversation ...');
 
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.updateNotification('success', 'Conversation ended.');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });

@@ -12,7 +12,7 @@ When the accept command is enabled we can choose to either accept the invitation
 
 After the conversation and chat modality are established messages events will be triggered when either the remote party or the local send a message.  When finished click the end button to terminate the conversation.
 
-### Send a message
+### Receive a message
 
 1. Listen for incoming conversations 
 

@@ -19,15 +19,12 @@
         const message = (<HTMLInputElement>content.querySelector('.message')).value;
         const application = window.framework.application;
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Changing Note...';
+        window.framework.updateNotification('info', 'Changing Note...');
         const mePerson = application.personsAndGroupsManager.mePerson;
         mePerson.note.text.set(message).then(() => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Note Changed';
+            window.framework.updateNotification('success', 'Note Changed');
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 })();
