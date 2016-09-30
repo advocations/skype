@@ -117,6 +117,25 @@
             reportStatus: function (status, type, callback) {
                 pushStatus(status, type, callback);
             },
+            addNotification: function (iconType, text) {
+                var content = window.framework.findContentDiv();
+                const notificationElement = document.createElement('p');
+                notificationElement.innerHTML = '<i class="' + iconType + '"></i> <text> ' + text + ' </text>';
+                content.querySelector('.notification-bar').appendChild(notificationElement);
+            },
+            updateNotification: function (iconType, text) {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = iconType;
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = text;
+            },
+            showNotificationBar: function () {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').style.display = 'block';
+            },
+            hideNotificationBar: function () {
+                var content = window.framework.findContentDiv();
+                content.querySelector('.notification-bar').style.display = 'none';
+            },
             reportError: function (error, callback) {
                 var message = error;
                 if (error.message) {
@@ -256,6 +275,8 @@
                     var img = document.createElement('img');
                     var imgUrl = window.framework.getContentLocation() + 'images/samples/default.png';
                     img.src = imgUrl;
+                    img.style.height = '3em';
+                    img.style.width = '3em';
                     leftCellDiv.appendChild(img);
                     var leftMiddleCellDiv = document.createElement('div');
                     leftMiddleCellDiv.className = 'table-cell';
@@ -315,7 +336,7 @@
             }
 
             if (window.history && window.history.replaceState) {
-                window.history.replaceState({}, document.title, '');
+                //window.history.replaceState({}, document.title, '');
             }
         }
     }
@@ -345,7 +366,7 @@
         var request = createXHR();
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
-                if (request.status === 200 && request.getResponseHeader('content-type') === 'application/json') {
+                if (request.status === 200) {
                     processConfig(request.responseText);
 
                     // hack open the sidebar on authentication
@@ -432,6 +453,7 @@
         anchor.href = '#';
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
+            e.preventDefault();
             document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
             for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
                 document.getElementsByClassName('notification-bar')[i].style.display = 'none';
@@ -620,7 +642,8 @@
 
     function initializeSkype() {
         Skype.initialize({
-            apiKey: config.apiKeyCC
+            apiKey: config.apiKeyCC,
+            supportsAudio: true
         }, function (api) {
             window.framework.api = api;
 
@@ -652,7 +675,12 @@
         });
     }
 
+    function autoAuthenticate() {
+
+    }
+
     createFramework();
     populateSidebar();
     initializeSkype();
+    autoAuthenticate();
 })();

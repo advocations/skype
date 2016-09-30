@@ -1,5 +1,6 @@
 ﻿param (
-    [switch]$Online = $false
+    [switch]$Online = $false,
+    [switch]$Watch = $false
 )
 
 Set-StrictMode -Version Latest
@@ -28,3 +29,8 @@ if ($Online)
 }
 
 Write-Host "Finished Building Samples"
+
+if ($Watch) {
+    Write-Host "--- Watching for files changes ---"
+    node $tsc -w -p $path
+}

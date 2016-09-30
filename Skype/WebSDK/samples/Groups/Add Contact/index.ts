@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    window.framework.hideNotificationBar();
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_AddContact.md' : 'Content/websdk/docs/Groups_AddContact.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const groups = {};
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
@@ -17,31 +22,31 @@
                 option.innerHTML = value;
                 content.querySelector('.groupsSelect').appendChild(option);
                 groups[value] = group;
+
             }
         });
     });
+
     window.framework.application.personsAndGroupsManager.all.groups.removed(group => {
         delete groups[group.name()];
         const option = content.querySelector('.groupsSelect option[value="' + group.name() + '"]');
         content.querySelector('.groupsSelect').removeChild(option);
     });
 
-    function reset () {
+    function reset() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
-        (<HTMLSelectElement>content.querySelector('.groupsSelect')).selectedIndex = 0;
     }
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const group = groups[(<HTMLOptionElement>content.querySelector('.groupsSelect option:checked')).value];
-        window.framework.reportStatus('Adding Contact...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Adding contact...');
         group.persons.add(id).then(() => {
-            window.framework.reportStatus('Contact Added', window.framework.status.success);
+            window.framework.updateNotification('fa fa-thumbs-up', 'Contact added');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
-        // @end_snippet
     });
 })();

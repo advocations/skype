@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    window.framework.hideNotificationBar();
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RenameGroup.md' : 'Content/websdk/docs/Groups_RenameGroup.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const groups = {};
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.groupName'));
@@ -37,12 +42,13 @@
         const groupName = (<HTMLInputElement>content.querySelector('.groupName')).value;
         const group = groups[groupOption.value];
         const application = window.framework.application;
-        window.framework.reportStatus('Renaming Group...', window.framework.status.info);
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Renaming group...');
         // @snippet
         group.name.set(groupName).then(() => {
-            window.framework.reportStatus('Group Renamed', window.framework.status.success);
+            window.framework.updateNotification('fa fa-thumbs-up', 'Group renamed');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
         // @end_snippet
     });

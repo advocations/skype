@@ -3,8 +3,12 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    window.framework.hideNotificationBar();
 
-    function reset () {
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_All.md' : 'Content/websdk/docs/Groups_All.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
+    function reset() {
         (<HTMLElement>content.querySelector('.groups')).innerHTML = '';
         (<HTMLElement>content.querySelector('.groups')).style.display = 'none';
     }
@@ -14,21 +18,15 @@
         reset();
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
-        window.framework.reportStatus('Retrieving all Groups...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Retrieving all groups...');
         const groups = application.personsAndGroupsManager.all.groups;
         groups.get().then(groups => {
             groupsDiv.style.display = 'block';
             window.framework.populateGroups(groups, groupsDiv);
-            window.framework.reportStatus('Retrieved all Groups', window.framework.status.success);
+            window.framework.updateNotification('fa fa-thumbs-up', 'Retrieved all groups');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         });
-
-        // groups.subscribe();
-        // groups.added(function (group) {
-        //  handle groups here
-        // });
-        // @end_snippet
     });
 })();

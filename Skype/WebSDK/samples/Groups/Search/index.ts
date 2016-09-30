@@ -3,6 +3,10 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    window.framework.hideNotificationBar();
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups.md' : 'Content/websdk/docs/Groups.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
 
@@ -17,7 +21,8 @@
         const query = (<HTMLInputElement>content.querySelector('.query')).value;
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
-        window.framework.reportStatus('Searching for Groups...', window.framework.status.info);
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Searching for groups...');
         // @snippet
         const search = application.personsAndGroupsManager.createGroupSearchQuery();
         search.text(query);
@@ -28,12 +33,12 @@
             if (groups.length !== 0) {
                 groupsDiv.style.display = 'block';
                 window.framework.populateGroups(search.results(), groupsDiv);
-                window.framework.reportStatus('Groups Found', window.framework.status.success);
+                window.framework.updateNotification('fa fa-thumbs-up', 'Group found');
             } else {
-                window.framework.reportError('No groups found, try a different search');
+                window.framework.updateNotification('fa fa-thumbs-down', 'No groups found. Please check the spelling or try a different search.');
             }
         }, function (error) {
-            window.framework.reportError(error, reset);
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         });
         // @end_snippet
     });

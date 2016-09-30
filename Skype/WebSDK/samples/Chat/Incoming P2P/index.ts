@@ -1,19 +1,24 @@
 /// <reference path="../../../framework.d.ts" />
+declare var mui: any;
 (function () {
     'use strict';
-
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Chat_IncomingP2P.md' : 'Content/websdk/docs/Chat_IncomingP2P.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     var conversation;
     var listeners = [];
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.messageToSend'));
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.messageToSend')).value = '';
         (<HTMLElement>content.querySelector('.messages')).innerHTML = '';
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -23,15 +28,17 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -52,53 +59,73 @@
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Waiting for Invitation...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.addNotification('fa fa-info-circle', 'Waiting for invitation...');
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
-
             listeners.push(conversation.chatService.accept.enabled.when(true, () => {
+                // todo
+                // // initialize modal element
+                // var modalEl = document.createElement('div');
+                // modalEl.style.width = '400px';
+                // modalEl.style.height = '300px';
+                // modalEl.style.margin = '100px auto';
+                // modalEl.style.backgroundColor = '#fff';
+
+                // // show modal
+                // mui.overlay('on', modalEl);
                 const result = confirm('Accept incoming Chat invitation?');
                 if (result) {
                     conversation.chatService.accept();
-
                     listeners.push(conversation.participants.added(person => {
-                        window.console.log(person.displayName() + ' has joined the conversation');
+                        window.framework.addNotification('fa fa-thumbs-up', person.displayName() + ' has joined the conversation');
                     }));
                     listeners.push(conversation.chatService.messages.added(item => {
                         window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
                     }));
-                    window.framework.reportStatus('Invitation Accepted', window.framework.status.success);
+                    window.framework.addNotification('fa fa-info-circle', 'Invitation Accepted');
+                    (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+                    (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
                 } else {
                     conversation.chatService.reject();
-                    window.framework.reportStatus('Invitation Rejected', window.framework.status.reset);
+                    window.framework.addNotification('fa fa-thumbs-down', 'Invitation Rejected');
                 }
             }));
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                    window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                    window.framework.addNotification('fa fa-info-circle', 'Conversation ended');
                     reset(true);
                 }
             }));
         }));
-        // @end_snippet
     });
+
     window.framework.addEventListener(content.querySelector('.send'), 'click', () => {
         const message = <HTMLInputElement>content.querySelector('.messageToSend');
         conversation.chatService.sendMessage(message.value).then(() => {
             message.value = '';
+            (<HTMLElement>content.querySelector('#bimessages')).style.display = 'block';
         });
     });
+
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-        window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+        window.framework.addNotification('fa fa-info-circle', 'Ending conversation...');
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.addNotification('fa fa-thumbs-down', 'Conversation ended');
+            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+            (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
         }, error => {
-            window.framework.reportError(error);
+            window.framework.addNotification('fa fa-thumbs-down', error);
         }).then(function () {
             reset(true);
         });
-        // @end_snippet
+    });
+
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
     });
 })();

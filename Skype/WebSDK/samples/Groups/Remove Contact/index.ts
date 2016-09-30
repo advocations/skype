@@ -3,6 +3,11 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    window.framework.hideNotificationBar();
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_RemoveContact.md' : 'Content/websdk/docs/Groups_RemoveContact.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     const persons = {};
 
     window.framework.application.personsAndGroupsManager.all.persons.subscribe();
@@ -32,13 +37,12 @@
         var personOption = <HTMLOptionElement>content.querySelector('.personsSelect option:checked');
         var person = persons[personOption.value];
         var application = window.framework.application;
-        window.framework.reportStatus('Removing Contact...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('fa fa-info-circle', 'Removing contact...');
         application.personsAndGroupsManager.all.persons.remove(person).then(() => {
-            window.framework.reportStatus('Contact Removed', window.framework.status.success);
+            window.framework.updateNotification('fa fa-thumbs-up', 'Contact removed');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('fa fa-thumbs-down', error);
         }).then(reset);
-        // @end_snippet
     });
 })();

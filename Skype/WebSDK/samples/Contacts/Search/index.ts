@@ -24,7 +24,6 @@
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
         content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
         content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Searching for contact...';
-        // @snippet
         const search = application.personsAndGroupsManager.createPersonSearchQuery();
         search.text(query);
         search.limit(5);
@@ -44,6 +43,5 @@
             content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
                 content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         });
-        // @end_snippet
     });
 })();
