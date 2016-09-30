@@ -63,5 +63,6 @@ build/winscp.ini
 build/WinSCPnet.dll
 build/deploy.log
 
+websdk.cshtml
 samples/location_config.js
 samples/config.js
