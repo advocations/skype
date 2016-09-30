@@ -315,7 +315,7 @@
             }
 
             if (window.history && window.history.replaceState) {
-                window.history.replaceState({}, document.title, '');
+                //window.history.replaceState({}, document.title, '');
             }
         }
     }
@@ -621,7 +621,8 @@
 
     function initializeSkype() {
         Skype.initialize({
-            apiKey: config.apiKeyCC
+            apiKey: config.apiKeyCC,
+            supportsAudio: true
         }, function (api) {
             window.framework.api = api;
 
