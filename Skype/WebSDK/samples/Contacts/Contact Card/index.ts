@@ -22,8 +22,13 @@
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
         const application = window.framework.application;
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
-        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
-        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Searching for contact...';
+        window.framework.updateNotification('info', 'Searching for contact...');
+
+        if (!query) {
+            window.framework.updateNotification('error', 'Please enter a user');
+            return false;
+        }
+
         const search = application.personsAndGroupsManager.createPersonSearchQuery();
         search.text(query);
         search.limit(1);
@@ -34,15 +39,12 @@
                 contactsDiv.style.display = 'block';
                 window.framework.populateContacts(search.results(), contactsDiv);
                 window.framework.createContactCard(search.results()[0].result, <HTMLElement>contactsDiv.querySelector('.contact'));
-                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
-                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact Found';
+                window.framework.updateNotification('success', 'Contact Found');
             } else {
-                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Contact not found. Please check the spelling or try a different search.';
+                window.framework.updateNotification('error', 'Contact not found. Please check the spelling or try a different search.');
             }
         }, error => {
-            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
-            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
+            window.framework.updateNotification('error', error);
         });
     });
 })();

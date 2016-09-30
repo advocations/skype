@@ -39,11 +39,11 @@
         const group = groups[groupOption.value];
         const application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Removing group...');
+        window.framework.updateNotification('info', 'Removing group...');
         application.personsAndGroupsManager.all.groups.remove(group).then(() => {
-            window.framework.updateNotification('fa fa-thumbs-up', 'Group removed');
+            window.framework.updateNotification('success', 'Group removed');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 })();

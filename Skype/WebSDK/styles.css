@@ -452,7 +452,27 @@
   color: #000000;
 }
 
-.notification-bar > p > i {
+.notification-bar {
+  margin: 10px 0px
+}
+
+.notification-bar i {
   font-size:1.5em;
   color:#12A5F4;
+}
+
+.notification-bar.error {
+  color: #B71C1C;
+}
+
+.notification-bar.success {
+  color: #1B5E20;
+}
+
+.notification-bar.error i {
+  color: #E53935;
+}
+
+.notification-bar.success i {
+  color: #4CAF50;
 }

@@ -38,11 +38,11 @@
         var person = persons[personOption.value];
         var application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Removing contact...');
+        window.framework.updateNotification('info', 'Removing contact...');
         application.personsAndGroupsManager.all.persons.remove(person).then(() => {
-            window.framework.updateNotification('fa fa-thumbs-up', 'Contact removed');
+            window.framework.updateNotification('success', 'Contact removed');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 })();

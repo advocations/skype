@@ -22,7 +22,13 @@
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Searching for groups...');
+        window.framework.updateNotification('info', 'Searching for groups...');
+
+        if (!query) {
+            window.framework.updateNotification('error', 'Please enter a group name');
+            return false;
+        }
+
         // @snippet
         const search = application.personsAndGroupsManager.createGroupSearchQuery();
         search.text(query);
@@ -33,12 +39,12 @@
             if (groups.length !== 0) {
                 groupsDiv.style.display = 'block';
                 window.framework.populateGroups(search.results(), groupsDiv);
-                window.framework.updateNotification('fa fa-thumbs-up', 'Group found');
+                window.framework.updateNotification('success', 'Group found');
             } else {
-                window.framework.updateNotification('fa fa-thumbs-down', 'No groups found. Please check the spelling or try a different search.');
+                window.framework.updateNotification('error', 'No groups found. Please check the spelling or try a different search.');
             }
         }, function (error) {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         });
         // @end_snippet
     });

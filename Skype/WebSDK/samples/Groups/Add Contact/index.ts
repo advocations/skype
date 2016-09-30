@@ -42,11 +42,11 @@
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const group = groups[(<HTMLOptionElement>content.querySelector('.groupsSelect option:checked')).value];
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Adding contact...');
+        window.framework.updateNotification('info', 'Adding contact...');
         group.persons.add(id).then(() => {
-            window.framework.updateNotification('fa fa-thumbs-up', 'Contact added');
+            window.framework.updateNotification('success', 'Contact added');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         }).then(reset);
     });
 })();

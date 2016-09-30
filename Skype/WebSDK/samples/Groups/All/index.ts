@@ -19,14 +19,14 @@
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Retrieving all groups...');
+        window.framework.updateNotification('info', 'Retrieving all groups...');
         const groups = application.personsAndGroupsManager.all.groups;
         groups.get().then(groups => {
             groupsDiv.style.display = 'block';
             window.framework.populateGroups(groups, groupsDiv);
-            window.framework.updateNotification('fa fa-thumbs-up', 'Retrieved all groups');
+            window.framework.updateNotification('success', 'Retrieved all groups');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         });
     });
 })();

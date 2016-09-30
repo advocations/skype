@@ -124,9 +124,29 @@
                 content.querySelector('.notification-bar').appendChild(notificationElement);
             },
             updateNotification: function (iconType, text) {
-                var content = window.framework.findContentDiv();
-                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = iconType;
-                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = text;
+                var content = window.framework.findContentDiv(),
+                    notificationBar = content.querySelector('.notification-bar'),
+                    notificationBarClass = 'notification-bar',
+                    iconClass = '',
+                    notificationStatus = '';
+
+                switch (iconType) {
+                    case 'info':
+                        iconClass = 'fa fa-info-circle';
+                        break;
+                    case 'error':
+                        iconClass = 'fa fa-thumbs-down';
+                        notificationStatus = ' error';
+                        break;
+                    case 'success':
+                        iconClass = 'fa fa-thumbs-up';
+                        notificationStatus = ' success';
+                        break;
+                }
+
+                notificationBar.getElementsByTagName('i')[0].className = iconClass;
+                notificationBar.className = notificationBarClass + notificationStatus;
+                notificationBar.querySelector('.message').innerHTML = text;
             },
             showNotificationBar: function () {
                 var content = window.framework.findContentDiv();

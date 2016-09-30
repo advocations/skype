@@ -62,7 +62,6 @@
         const id = (<HTMLInputElement>content.querySelector('.sip')).value;
         const conversationsManager = window.framework.application.conversationsManager;
 
-        window.framework.reportStatus('Sending Invitation...', window.framework.status.info);
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
@@ -89,6 +88,9 @@
         callButton.disabled = true;
         conversation.audioService.start().then(null, error => {
             window.framework.reportError(error, reset);
+
+            window.framework.showNotificationBar();
+            window.framework.updateNotification('error', 'Starting call failed. Check console for error.');
         });
     }
 

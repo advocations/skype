@@ -19,14 +19,14 @@
         const groupName = (<HTMLInputElement>content.querySelector('.groupName')).value;
         const application = window.framework.application;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('fa fa-info-circle', 'Adding group...');
+        window.framework.updateNotification('info', 'Adding group...');
         // @snippet
         const group = application.personsAndGroupsManager.createGroup();
         group.name(groupName);
         application.personsAndGroupsManager.all.groups.add(group).then(() => {
-            window.framework.updateNotification('fa fa-thumbs-up', 'Group added');
+            window.framework.updateNotification('success', 'Group added');
         }, error => {
-            window.framework.updateNotification('fa fa-thumbs-down', error);
+            window.framework.updateNotification('error', error);
         }).then(reset);
         // @end_snippet
     });

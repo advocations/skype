@@ -1,5 +1,5 @@
 
-# P2P Audio Call
+# Outgoing P2P Call
 
  _**Applies to:** Skype for Business 2015_
 
