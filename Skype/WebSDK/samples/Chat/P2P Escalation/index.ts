@@ -3,7 +3,7 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+    window.framework.hideNotificationBar();
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Chat_P2PEscalation.md' : 'Content/websdk/docs/Chat_P2PEscalation.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
