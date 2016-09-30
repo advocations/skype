@@ -3,6 +3,10 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups_AddGroup.md' : 'Content/websdk/docs/Groups_AddGroup.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.groupName'));
 
@@ -14,14 +18,18 @@
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const groupName = (<HTMLInputElement>content.querySelector('.groupName')).value;
         const application = window.framework.application;
-        window.framework.reportStatus('Adding Group...', window.framework.status.info);
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Adding group...';
         // @snippet
         const group = application.personsAndGroupsManager.createGroup();
         group.name(groupName);
         application.personsAndGroupsManager.all.groups.add(group).then(() => {
-            window.framework.reportStatus('Group Added', window.framework.status.success);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Group added';
         }, error => {
-            window.framework.reportError(error);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         }).then(reset);
         // @end_snippet
     });

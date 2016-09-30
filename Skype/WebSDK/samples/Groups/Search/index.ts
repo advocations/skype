@@ -3,6 +3,10 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Groups.md' : 'Content/websdk/docs/Groups.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
 
@@ -17,7 +21,9 @@
         const query = (<HTMLInputElement>content.querySelector('.query')).value;
         const groupsDiv = <HTMLElement>content.querySelector('.groups');
         const application = window.framework.application;
-        window.framework.reportStatus('Searching for Groups...', window.framework.status.info);
+        (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-info-circle';
+        content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Searching for groups...';
         // @snippet
         const search = application.personsAndGroupsManager.createGroupSearchQuery();
         search.text(query);
@@ -28,12 +34,15 @@
             if (groups.length !== 0) {
                 groupsDiv.style.display = 'block';
                 window.framework.populateGroups(search.results(), groupsDiv);
-                window.framework.reportStatus('Groups Found', window.framework.status.success);
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-up';
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'Groups Found';
             } else {
-                window.framework.reportError('No groups found, try a different search');
+                content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+                content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = 'No groups found. Please check the spelling or try a different search.';
             }
         }, function (error) {
-            window.framework.reportError(error, reset);
+            content.querySelector('.notification-bar').getElementsByTagName('i')[0].className = 'fa fa-thumbs-down';
+            content.querySelector('.notification-bar').getElementsByTagName('p')[0].getElementsByTagName('text')[0].innerHTML = error;
         });
         // @end_snippet
     });

@@ -1,18 +1,29 @@
 <div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Bootstrap Skype Web SDK</li>
-            <li>Sign-In</li>
-        </ol>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div class="mui-textfield">
+                        <select class="groupsSelect"></select>
+                        <label>Selected Group</label>
+                    </div>
+                    <button class="mui-btn mui-btn--raised mui-btn--primary remove">Remove</button>
+                    <div class="notification-bar">
+                        <br/>
+                        <p>
+                            <i class="fa fa-info-circle"></i>
+                            <text></text>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="description">
-        <h3>Select a group to remove that group.</h3>
-        <p>The personAndGroupsManager object exposes a group, all, which contains all persons and all groups.  Using this property we can get access to the groups collection call remove providing a group object or name and have that group removed from the user.  In this example we populate a select list containing groups that can be removed.  When the group is successfully removed a removed event will be emitted on the groups collection.</p>
-    </div>
-    <div class="controls">
-        <select class="groupsSelect"></select>
-        <div class="button remove">Remove</div>
-    </div>
-    <div class="snippet"></div>
 </div>
