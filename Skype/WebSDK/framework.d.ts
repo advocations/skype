@@ -57,7 +57,11 @@ interface Framework {
     addNotification: (iconType, text) => void,
     updateNotification: (iconType, text) => void,
     showNotificationBar: () => void,
-    hideNotificationBar: () => void
+    hideNotificationBar: () => void,
+    acceptIncomingChat: () => void,
+    rejectIncomingChat: () => void,
+    popupResponse: string,
+    showModal: () => void
 }
 
 interface Window {

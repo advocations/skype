@@ -78,6 +78,28 @@
         }
 
         window.framework = {
+            popupResponse: 'undefined',
+            showModal: function () {
+                const modalEl = document.createElement('div');
+                modalEl.style.width = '25em';
+                modalEl.style.height = '20em';
+                modalEl.style.margin = '10em auto';
+                modalEl.style.backgroundColor = '#fff';
+                modalEl.style.textAlign = 'center';
+                const div = document.createElement('div');
+                div.style.display = 'inline-block';
+                const yesBtn = document.createElement('span');
+                yesBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.framework.acceptIncomingChat()">YES</button>';
+                const noBtn = document.createElement('span');
+                noBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--danger" onclick="window.framework.rejectIncomingChat()">NO</button>';
+                const text = document.createElement('p');
+                text.innerHTML = 'Accept incoming chat invitation?';
+                text.className = 'mui--text-title';
+                div.appendChild(text); div.appendChild(yesBtn); div.appendChild(noBtn);
+                div.innerHTML = '<br/><br/><br/>' + div.innerHTML;
+                modalEl.appendChild(div);
+                mui.overlay('on', modalEl);
+            },
             addEventListener: function (element, event, callback) {
                 if (element.addEventListener) {
                     element.addEventListener(event, callback);
@@ -117,10 +139,32 @@
             reportStatus: function (status, type, callback) {
                 pushStatus(status, type, callback);
             },
+            acceptIncomingChat: function () {
+                window.framework.popupResponse = 'yes';
+                mui.overlay('off');
+            },
+            rejectIncomingChat: function () {
+                window.framework.popupResponse = 'no';
+                mui.overlay('off');
+            },
             addNotification: function (iconType, text) {
-                var content = window.framework.findContentDiv();
-                const notificationElement = document.createElement('p');
-                notificationElement.innerHTML = '<i class="' + iconType + '"></i> <text> ' + text + ' </text>';
+                var content = window.framework.findContentDiv(),
+                    notificationElement = document.createElement('p'),
+                    iconClass = '';
+
+                switch (iconType) {
+                    case 'info':
+                        iconClass = 'fa fa-info-circle';
+                        break;
+                    case 'error':
+                        iconClass = 'fa fa-thumbs-down';
+                        break;
+                    case 'success':
+                        iconClass = 'fa fa-thumbs-up';
+                        break;
+                }
+
+                notificationElement.innerHTML = '<i class="' + iconClass + '"></i> <text> ' + text + ' </text>';
                 content.querySelector('.notification-bar').appendChild(notificationElement);
             },
             updateNotification: function (iconType, text) {

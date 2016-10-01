@@ -64,32 +64,31 @@ declare var mui: any;
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
             listeners.push(conversation.chatService.accept.enabled.when(true, () => {
-                // todo
-                // // initialize modal element
-                // var modalEl = document.createElement('div');
-                // modalEl.style.width = '400px';
-                // modalEl.style.height = '300px';
-                // modalEl.style.margin = '100px auto';
-                // modalEl.style.backgroundColor = '#fff';
-
-                // // show modal
-                // mui.overlay('on', modalEl);
-                const result = confirm('Accept incoming Chat invitation?');
-                if (result) {
-                    conversation.chatService.accept();
-                    listeners.push(conversation.participants.added(person => {
-                        window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
-                    }));
-                    listeners.push(conversation.chatService.messages.added(item => {
-                        window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
-                    }));
-                    window.framework.addNotification('info', 'Invitation Accepted');
-                    (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
-                    (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
-                } else {
-                    conversation.chatService.reject();
-                    window.framework.addNotification('error', 'Invitation Rejected');
+                window.framework.showModal();
+                const checkPopupResponse = () => {
+                    if (window.framework.popupResponse === 'undefined') {
+                        setTimeout(checkPopupResponse, 100);
+                    } else {
+                        if (window.framework.popupResponse === 'yes') {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.chatService.accept();
+                            listeners.push(conversation.participants.added(person => {
+                                window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
+                            }));
+                            listeners.push(conversation.chatService.messages.added(item => {
+                                window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
+                            }));
+                            window.framework.addNotification('info', 'Invitation Accepted');
+                            (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+                            (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
+                        } else {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.chatService.reject();
+                            window.framework.addNotification('error', 'Invitation Rejected');
+                        }
+                    }
                 }
+                checkPopupResponse();
             }));
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {

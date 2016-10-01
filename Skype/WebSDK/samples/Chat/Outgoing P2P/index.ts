@@ -35,7 +35,7 @@
     function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
-        
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
@@ -61,6 +61,7 @@
     }
 
     window.framework.registerNavigation(reset);
+
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const conversationsManager = window.framework.application.conversationsManager;
