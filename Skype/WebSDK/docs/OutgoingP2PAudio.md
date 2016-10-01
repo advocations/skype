@@ -33,6 +33,7 @@ conversation.state.changed(function (newValue, reason, oldValue) {
 | *Created* | ...When conversation was created
 | *Connecting*    | ...When establishing a connection           |
 | *Connected* | ...When the call was successfully connected |
+| *Disconnected* | ...When the conversation got disconnected |
 
 ## Self Participant Call state
 The `selfParticiapant` property on the `conversation` object gives us access to the `audio` modallity which 
@@ -69,7 +70,7 @@ conversation.state.changed(function (newValue, reason, oldValue) {
     console.log('Conversation state changed from', oldValue, 'to', newValue);
 });
 conversation.participants.added(function (participant) {
-    console.log('Participant:', participant.displayName(), 'has been added to the conversation')
+    console.log('Participant:', participant.displayName(), 'has been added to the conversation');
 });
 conversation.audioService.start().then(function() {
     console.log('The call has been started successfully');
