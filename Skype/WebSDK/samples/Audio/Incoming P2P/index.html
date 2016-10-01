@@ -1,43 +1,24 @@
 <div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Bootstrap Skype Web SDK</li>
-            <li>Sign-In</li>
-        </ol>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <button class="mui-btn mui-btn--raised mui-btn--primary registerListeners">Listen for incoming invites</button>
+                    <div class="notification-bar">
+                        <i class="fa fa-info-circle"></i>
+                        <span class="message"></span>
+                    </div>
+                    <div class="mui-divider"></div>
+                    <div class="contacts"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="permissions">
-        <h2>Permissions</h2>
-        <p>For Skype for Business Online application, you will need the following permission(s):</p>
-        <ul>
-            <li>
-                <span>Real time conversation invites</span>
-            </li>
-        </ul>
-    </div>
-    <div class="description">
-        <h3>Add event listeners and wait for an invitation.</h3>
-        <p>The application object exposes a conversationsManager object that exposes a conversations collection which we can attach an event listener for added to be notified when new invitations for conversations arrive.  When a conversation is added we can add an event listener for when the audioService object accept command is enabled which means that this conversation would be for audio.  We also should listen for when we disconnect from the conversation.</p>
-        </p>When the accept command is enabled we can choose to either accept the invitation or reject via respective commands and in this example it is handled via confirm(...).  In the case of accepting the invitation, we should add event listeners for added participants.</p>
-    </div>
-    <div class="controls">
-        <div class="button add">Add</div>
-    </div>
-    <div class="snippet"></div>
-</div>
-<div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Invitation accepted</li>
-        </ol>
-    </div>
-    <div class="description">
-        <h3>Send and receive audio.</h3>
-        <p>After the conversation and audio modality are established we can begin communicating with the remote party.  When finished click the end button to terminate the conversation.</p>
-    </div>
-    <div class="controls">
-        <div class="button end">End</div>
-    </div>
-    <div class="snippet"></div>
 </div>

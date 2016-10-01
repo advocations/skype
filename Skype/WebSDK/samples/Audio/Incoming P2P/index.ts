@@ -3,10 +3,17 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
-    var conversation;
-    var listeners = [];
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    function cleanupConversation () {
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/IncomingP2PAudio.md' : 'Content/websdk/docs/IncomingP2PAudio.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
+    var conversation;
+    var listeners = [],
+        button = <HTMLInputElement>content.querySelector('.registerListeners'),
+        inCall = false;
+
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -16,15 +23,18 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        window.framework.updateNotification('success', 'Conversation Ended');
+        inCall = false;
+        button.innerHTML = 'Listen for incoming invites';
+
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
             } else {
@@ -38,47 +48,57 @@
         }
     }
 
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
+    function registerInviteListener() {
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Waiting for Invitation...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('info', 'Waiting for Invitation...');
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
 
             listeners.push(conversation.audioService.accept.enabled.when(true, () => {
-                const result = confirm('Accept incoming Audio invitation?');
-                if (result) {
+                if (confirm('Accept incoming Audio invitation?')) {
                     conversation.audioService.accept();
 
-                    listeners.push(conversation.participants.added(person => {
-                        window.console.log(person.displayName() + ' has joined the conversation');
+                    listeners.push(conversation.participants.added(participant => {
+                        console.log('Participant:', participant.displayName(), 'has been added to the conversation');
                     }));
-                    window.framework.reportStatus('Invitation Accepted', window.framework.status.success);
+
+                    window.framework.updateNotification('success', 'Invitation Accepted');
+                    button.innerHTML = 'End Call'
+                    inCall = true;
                 } else {
                     conversation.audioService.reject();
-                    window.framework.reportStatus('Invitation Rejected', window.framework.status.reset);
+                    window.framework.updateNotification('success', 'Invitation Rejected');
                 }
             }));
+
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
+                console.log('Conversation state changed from', oldValue, 'to', newValue);
+
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                     window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
                     reset(true);
                 }
             }));
         }));
-        // @end_snippet
-    });
-    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+    }
+
+    function endCall() {
+        window.framework.updateNotification('info', 'Ending conversation ...');
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });
-        // @end_snippet
+    }
+
+    window.framework.registerNavigation(reset);
+    window.framework.addEventListener(content.querySelector('.registerListeners'), 'click', () => {
+        if (inCall) {
+            return endCall();
+        }
+
+        registerInviteListener();
     });
 })();
