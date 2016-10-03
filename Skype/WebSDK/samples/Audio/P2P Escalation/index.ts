@@ -3,18 +3,21 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/P2PEscalation.md' : 'Content/websdk/docs/P2PEscalation.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     var conversation;
-    var listeners = [];
+    var listeners = [],
+        inCall = false,
+        participantAdded = false,
+        callButton = <HTMLInputElement>content.querySelector('.call');
 
-    window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
-    window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id2'));
-
-    function cleanUI () {
-        (<HTMLInputElement>content.querySelector('.id')).value = '';
-        (<HTMLInputElement>content.querySelector('.id2')).value = '';
+    function cleanUI() {
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -24,15 +27,18 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        inCall = false;
+        participantAdded = false;
+        callButton.innerHTML = 'Start Audio Call'
+
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -50,53 +56,85 @@
         }
     }
 
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+    function makeCall() {
+        const id = (<HTMLInputElement>content.querySelector('.sip')).value;
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Sending Invitation...', window.framework.status.info);
-        // @snippet
+
+        if (!id) {
+            window.framework.showNotificationBar();
+            window.framework.updateNotification('error', 'SIP Address is not specified');
+            return;
+        }
+
+        window.framework.showNotificationBar();
+        window.framework.updateNotification('info', 'Sending Invitation');
+
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            window.framework.reportStatus('Connected to Audio', window.framework.status.success);
+            window.framework.updateNotification('success', 'Connected to Audio');
+            inCall = true;
+            callButton.innerHTML = 'Add participant';
         }));
+
         listeners.push(conversation.participants.added(person => {
             window.console.log(person.displayName() + ' has joined the conversation');
         }));
+
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                window.framework.updateNotification('success', 'Conversation Ended');
                 reset(true);
             }
         }));
 
         conversation.audioService.start().then(null, error => {
             window.framework.reportError(error, reset);
+            window.framework.updateNotification('error', error & error.message);
         });
-        // @end_snippet
-    });
-    window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id2')).value;
-        window.framework.reportStatus('Adding Participant...', window.framework.status.info);
-        // @snippet
+    }
+
+    function addParticipant() {
+        const id = (<HTMLInputElement>content.querySelector('.sip')).value;
+
+        if (!id) {
+            window.framework.showNotificationBar();
+            window.framework.updateNotification('error', 'SIP Address is not specified');
+            return;
+        }
+
+        window.framework.updateNotification('info', 'Adding Participant...');
         conversation.participants.add(id).then(() => {
-            window.framework.reportStatus('Participant Added', window.framework.status.success);
+            window.framework.updateNotification('success', 'Participant Added.');
+            participantAdded = true;
+            callButton.innerHTML = 'End Call';
         }, error => {
             window.framework.reportError(error, reset);
+            window.framework.updateNotification('error', error && error.message);
         });
-        // @end_snippet
-    });
-    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+    }
+
+    function endCall() {
+        window.framework.updateNotification('info', 'Ending Conversation ...');
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.updateNotification('success', 'Conversation Ended');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.updateNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });
-        // @end_snippet
+    }
+
+    window.framework.registerNavigation(reset);
+    window.framework.addEventListener(callButton, 'click', () => {
+        if (!inCall) {
+            return makeCall();
+        }
+
+        if (!participantAdded) {
+            return addParticipant();
+        }
+
+        endCall();
     });
 })();
