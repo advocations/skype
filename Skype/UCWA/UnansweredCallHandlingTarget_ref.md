@@ -1,15 +1,12 @@
 
-# UnansweredCallHandlingTarget 
+# UnansweredCallHandlingTarget
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents the target of unanswered calls.
-
-
+            Represents the target of unanswered calls.
+            
 ## Members
-
-
 
 
 

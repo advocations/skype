@@ -1,17 +1,15 @@
-
-# participantApplicationSharing 
-
+# participantApplicationSharing
 
  _**Applies to:** Skype for Business 2015_
 
 
-Represents whether a participant is using the application sharing modality in a conversation. 
+            Represents whether a participant is using the application sharing modality in a conversation.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -21,213 +19,197 @@ For more on web links, see [Web links](WebLinks.md).
 |title|The source id for the application sharing media of this participant, if available. This is useful for configuring the media stack.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-This resource helps the application track when a participant joins or leaves this modality. 
-
+This resource helps the application track when a participant joins or leaves this modality.
 
 ### Properties
 
-None
 
+
+|**Name**|**Description**|
+|:-----|:-----|
+|applicationSharingDirection|The direction of the participant's application sharing ([MediaDirectionType](MediaDirectionType_ref.md)): SendReceive,SendOnly,ReceiveOnly, or Inactive.|
+|applicationSharingSourceId|The source identifier of the participant's application sharing.|
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
 |participant|Represents a remote participant in a [conversation](conversation_ref.md).|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
+|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|
+
 ## Events
-<a name="sectionSection2"> </a>
+<a name="sectionSection2"></a>
 
-
-
-
-### added
-
-
+### Added
 
 
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participantApplicationSharing|High|conversation|Indicates that a participant is now using the application sharing modality.|
-|participantApplicationSharing|High|conversation|Indicates that the user is now using the application sharing modality.|
+|participantApplicationSharing|High|conversation|Indicates that a participant is now using the application sharing modality.</p><p></p>|
+|participantApplicationSharing|High|conversation|Indicates that the user is now using the application sharing modality.</p><p></p>|
 Sample of returned event data.
-
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
-
-
-```
-
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "participantApplicationSharing",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "in" : {
- "rel" : "localParticipant",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
- },
- "type" : "added"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "participantApplicationSharing",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing"
+          },
+          "in" : {
+            "rel" : "localParticipant",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/onlineMeeting/295"
+          },
+          "type" : "added"
+        }
+      ]
+    }
+  ]
 }
-					
-```
 
 
-### updated
-
-
+### Updated
 
 
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participantApplicationSharing|High|conversation|Indicates that a participant's application sharing modality has changed.|
-|participantApplicationSharing|High|conversation|Indicates that the user's application sharing modality has changed.|
+|participantApplicationSharing|High|conversation|Indicates that a participant's application sharing modality has changed.</p><p></p>|
+|participantApplicationSharing|High|conversation|Indicates that the user's application sharing modality has changed.</p><p></p>|
 Sample of returned event data.
-
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
-
-
-```
-
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "participantApplicationSharing",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "in" : {
- "rel" : "localParticipant",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
- },
- "type" : "updated"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "participantApplicationSharing",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing"
+          },
+          "in" : {
+            "rel" : "localParticipant",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/onlineMeeting/295"
+          },
+          "type" : "updated"
+        }
+      ]
+    }
+  ]
 }
-					
-```
 
 
-### deleted
-
-
+### Deleted
 
 
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|participantApplicationSharing|High|conversation|Indicates that a participant is no longer using the application sharing modality.|
-|participantApplicationSharing|High|conversation|Indicates that the user is no longer using the application sharing modality.|
+|participantApplicationSharing|High|conversation|Indicates that a participant is no longer using the application sharing modality.</p><p></p>|
+|participantApplicationSharing|High|conversation|Indicates that the user is no longer using the application sharing modality.</p><p></p>|
 Sample of returned event data.
-
-
-
-
-```
-
+This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
 {
- "_links" : {
- "self" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
- },
- "next" : {
- "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
- }
- },
- "sender" : [
- {
- "rel" : "conversation",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802",
- "events" : [
- {
- "link" : {
- "rel" : "participantApplicationSharing",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "in" : {
- "rel" : "localParticipant",
- "href" : "https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/onlineMeeting/665"
- },
- "type" : "deleted"
- }
- ]
- }
- ]
+  "_links" : {
+    "self" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+    },
+    "next" : {
+      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+    }
+  },
+  "sender" : [
+    {
+      "rel" : "conversation",
+      "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137",
+      "events" : [
+        {
+          "link" : {
+            "rel" : "participantApplicationSharing",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing"
+          },
+          "in" : {
+            "rel" : "localParticipant",
+            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/onlineMeeting/295"
+          },
+          "type" : "deleted"
+        }
+      ]
+    }
+  ]
 }
-					
-```
 
 
 ## Operations
-<a name="sectionSection3"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of the application sharing modality for a participant.
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
@@ -235,6 +217,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -244,71 +227,72 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
-```
 
- Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing HTTP/1.1
- Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
- Host: fe1.contoso.com
- Accept: application/json
- 
-									
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/json
+
 ```
 
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
- HTTP/1.1 200 OK
- Content-Type: application/json
- Content-Length: 265
- {
- "rel" : "participantApplicationSharing",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "participant" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 352
+{
+  "rel" : "participantApplicationSharing",
+  "applicationSharingDirection" : "Unknown",
+  "applicationSharingSourceId" : "1234567",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing"
+    },
+    "participant" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196"
+    }
+  }
 }
-									
 ```
 
 
 #### XML Request
 
 
-```
 
- Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing HTTP/1.1
- Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
- Host: fe1.contoso.com
- Accept: application/xml
- 
-									
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing HTTP/1.1
+Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
+Host: fe1.contoso.com
+Accept: application/xml
+
 ```
 
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
- HTTP/1.1 200 OK
- Content-Type: application/xml
- Content-Length: 422
- <?xml version="1.0" encoding="utf-8"?>
-<resource rel="participantApplicationSharing" href="//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="participant" href="//v1/applications/833/communication/conversations/802/participants/575" />
- <property name="rel">participantApplicationSharing</property>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 555
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="participantApplicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="participant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196" />
+  <property name="rel">participantApplicationSharing</property>
+  <property name="applicationSharingDirection">Unknown</property>
+  <property name="applicationSharingSourceId">1234567</property>
 </resource>
-									
 ```
+
 

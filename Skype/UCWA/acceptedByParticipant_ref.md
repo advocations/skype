@@ -1,15 +1,16 @@
-
-# acceptedByParticipant 
-
+# acceptedByParticipant
 
  _**Applies to:** Skype for Business 2015_
- 
-Represents the remote participant who accepted the invitation of the user. 
+
+
+            Represents the remote participant who accepted the invitation of the user.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
+
 
 |**Name**|**Description**|
 |:-----|:-----|
@@ -17,29 +18,32 @@ For more on web links, see [Web links](WebLinks.md).
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-This resource is present at the time an outgoing invitation successfully completes. The resource usually contains a [contact](contact_ref.md) that can be compared to the [to](to_ref.md) in the same invitation to see if the intended destination and the recipient match.
-
+This resource is present at the time an outgoing invitation successfully completes.The resource usually contains a [contact](contact_ref.md) that can be compared to the [to](to_ref.md) in the same invitation to see if the intended destination and the recipient match.
 
 ### Properties
+
+
 
 |**Name**|**Description**|
 |:-----|:-----|
 |anonymous|Whether the participant is anonymous.|
+|inLobby|Whether the participant is in the lobby.|
+|local|Whether the participant is local.The local participant is the same as the user.|
 |name|The participant's display name.|
 |organizer|Whether the participant is an organizer.An organizer can never be locked out of her own meeting.|
 |otherPhoneNumber|The participant's Other Phone.|
-|role|The participant's role (Role), such as Attendee or Leader.|
-|sourceNetwork|The participant's source network (SourceNetwork), such as SameEnterprise or PublicCloud (for example, a Skype contact).|
+|role|The participant's role ([Role](Role_ref.md)), such as Attendee or Leader.|
+|sourceNetwork|The participant's source network ([SourceNetwork](SourceNetwork_ref.md)), such as SameEnterprise or PublicCloud (for example, a Skype contact).|
 |uri|The participant's URI.|
 |workPhoneNumber|The participant's Phone URI.|
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
@@ -57,32 +61,47 @@ This resource can have the following relationships.
 |participantPanoramicVideo|Represents whether a participant is using the panoramic video modality in a conversation.|
 |participantVideo|Represents whether a participant is using the main video modality in a conversation.|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
+|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|
+
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of the remote participant who accepted the invitation of the user.
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
@@ -90,6 +109,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -99,125 +119,132 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
-```
 
-Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/634 HTTP/1.1
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/667 HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/json
 
-									
 ```
 
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
- HTTP/1.1 200 OK
- Content-Type: application/json
- Content-Length: 1544
- {
- "rel" : "acceptedByParticipant",
- "anonymous" : true,
- "name" : "Joe Smith",
- "organizer" : true,
- "otherPhoneNumber" : "tel:+14251111111",
- "role" : "Attendee",
- "sourceNetwork" : "SameEnterprise",
- "uri" : "sip:john@contoso.com",
- "workPhoneNumber" : "tel:+14251111111",
- "_links" : {
- "self" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/634"
- },
- "contact" : {
- "href" : "//v1/applications/833/people/166"
- },
- "contactPhoto" : {
- "href" : "//v1/applications/833/people/166/contactPhoto"
- },
- "contactPresence" : {
- "href" : "//v1/applications/833/people/166/contactPresence"
- },
- "conversation" : {
- "href" : "//v1/applications/833/communication/conversations/802"
- },
- "eject" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/eject"
- },
- "me" : {
- "href" : "//v1/applications/833/me"
- },
- "participantApplicationSharing" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing"
- },
- "participantAudio" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantAudio"
- },
- "participantDataCollaboration" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration"
- },
- "participantMessaging" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantMessaging"
- },
- "participantPanoramicVideo" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo"
- },
- "participantVideo" : {
- "href" : "//v1/applications/833/communication/conversations/802/participants/575/participantVideo"
- }
- }
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 1624
+{
+  "rel" : "acceptedByParticipant",
+  "anonymous" : true,
+  "inLobby" : true,
+  "local" : true,
+  "name" : "Joe Smith",
+  "organizer" : true,
+  "otherPhoneNumber" : "tel:+14251111111",
+  "role" : "Attendee",
+  "sourceNetwork" : "SameEnterprise",
+  "uri" : "sip:john@contoso.com",
+  "workPhoneNumber" : "tel:+14251111111",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/667"
+    },
+    "contact" : {
+      "href" : "/ucwa/v1/applications/192/people/282"
+    },
+    "contactPhoto" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPhoto"
+    },
+    "contactPresence" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPresence"
+    },
+    "conversation" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137"
+    },
+    "eject" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/eject"
+    },
+    "me" : {
+      "href" : "/ucwa/v1/applications/192/me"
+    },
+    "participantApplicationSharing" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing"
+    },
+    "participantAudio" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio"
+    },
+    "participantDataCollaboration" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantDataCollaboration"
+    },
+    "participantMessaging" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantMessaging"
+    },
+    "participantPanoramicVideo" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantPanoramicVideo"
+    },
+    "participantVideo" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantVideo"
+    }
+  }
 }
-									
 ```
 
 
 #### XML Request
 
 
+
+
 ```
-Get https://fe1.contoso.com:443//v1/applications/833/communication/conversations/802/participants/634 HTTP/1.1
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/667 HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/xml
-									
+
 ```
+
+
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
- HTTP/1.1 200 OK
- Content-Type: application/xml
- Content-Length: 1969
- <?xml version="1.0" encoding="utf-8"?>
- <resource rel="acceptedByParticipant" href="//v1/applications/833/communication/conversations/802/participants/634" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
- <link rel="contact" href="//v1/applications/833/people/166" />
- <link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
- <link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
- <link rel="conversation" href="//v1/applications/833/communication/conversations/802" />
- <link rel="eject" href="//v1/applications/833/communication/conversations/802/participants/575/eject" />
- <link rel="me" href="//v1/applications/833/me" />
- <link rel="participantApplicationSharing" href="//v1/applications/833/communication/conversations/802/participants/575/participantApplicationSharing" />
- <link rel="participantAudio" href="//v1/applications/833/communication/conversations/802/participants/575/participantAudio" />
- <link rel="participantDataCollaboration" href="//v1/applications/833/communication/conversations/802/participants/575/participantDataCollaboration" />
- <link rel="participantMessaging" href="//v1/applications/833/communication/conversations/802/participants/575/participantMessaging" />
- <link rel="participantPanoramicVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantPanoramicVideo" />
- <link rel="participantVideo" href="//v1/applications/833/communication/conversations/802/participants/575/participantVideo" />
- <property name="rel">acceptedByParticipant</property>
- <property name="anonymous">True</property>
- <property name="name">Joe Smith</property>
- <property name="organizer">True</property>
- <property name="otherPhoneNumber">tel:+14251111111</property>
- <property name="role">Attendee</property>
- <property name="sourceNetwork">SameEnterprise</property>
- <property name="uri">sip:john@contoso.com</property>
- <property name="workPhoneNumber">tel:+14251111111</property>
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 2099
+<?xml version="1.0" encoding="utf-8"?>
+<resource rel="acceptedByParticipant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/667" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
+  <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />
+  <link rel="contactPresence" href="/ucwa/v1/applications/192/people/282/contactPresence" />
+  <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />
+  <link rel="eject" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/eject" />
+  <link rel="me" href="/ucwa/v1/applications/192/me" />
+  <link rel="participantApplicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing" />
+  <link rel="participantAudio" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio" />
+  <link rel="participantDataCollaboration" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantDataCollaboration" />
+  <link rel="participantMessaging" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantMessaging" />
+  <link rel="participantPanoramicVideo" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantPanoramicVideo" />
+  <link rel="participantVideo" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantVideo" />
+  <property name="rel">acceptedByParticipant</property>
+  <property name="anonymous">True</property>
+  <property name="inLobby">True</property>
+  <property name="local">True</property>
+  <property name="name">Joe Smith</property>
+  <property name="organizer">True</property>
+  <property name="otherPhoneNumber">tel:+14251111111</property>
+  <property name="role">Attendee</property>
+  <property name="sourceNetwork">SameEnterprise</property>
+  <property name="uri">sip:john@contoso.com</property>
+  <property name="workPhoneNumber">tel:+14251111111</property>
 </resource>
-									
 ```
+
 

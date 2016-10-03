@@ -1,15 +1,12 @@
 
-# ConversationModalityType 
+# ConversationModalityType
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents modality types that can be active in the conversation.
-
-
+            Represents modality types that can be active in the conversation.
+            
 ## Members
-
-
 
 
 
@@ -19,4 +16,5 @@ Represents modality types that can be active in the conversation.
 |Audio|Audio.|
 |DataCollaboration|Data collaboration.|
 |Messaging|Instant messaging.|
+|PanoramicVideo|Panoramic video.|
 |Video|Video.|
