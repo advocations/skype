@@ -1,5 +1,26 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 10/4/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.62.45 | 10/4/16 |1.61.68 
+| Skype Web SDK Preview    | 0.4.306  |  10/4/16| 0.4.300
+| Conversation Control Production | 1.61.68   |   10/4/16|1.60.72
+| Skype Web SDK Production| 0.4.300 |  10/4/16 |  0.4.293  |
+
+The latest preview release includes a fix to accepting video calls with audio only in 
+Microsoft Edge, a fix for receiving ‘Meet Now’ invites on applications that don’t support AV, 
+and a fix for joining conferences anonymously in an ‘on prem’ topology.
+
+**Bugs fixed in the new public preview build:**
+
+-	Accepting incoming video call with only audio briefly broadcasts video
+-	'Meet Now' invitations come as group call instead of group IM in platforms
+    which don't support audio
+-	Use /autodiscover/xframe/xframe.html in the 'on prem' join URL discovery
+
+---
 ## Skype Web SDK Version Update 9/27/16
 
 | Product        | New Version           | Last Updated  |Previous Version
