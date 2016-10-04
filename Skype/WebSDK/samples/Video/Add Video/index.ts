@@ -86,6 +86,11 @@
         }));
         conversation.audioService.start().then(null, error => {
             window.framework.addNotification('error', error);
+            if (error.code && error.code == 'PluginNotInstalled') {
+                window.framework.addNotification('info', 'You can install the plugin from:');
+                window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
+                window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
+            }
         });
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
@@ -122,6 +127,11 @@
         }));
         conversation.videoService.start(null, error => {
             window.framework.addNotification('error', error);
+            if (error.code && error.code == 'PluginNotInstalled') {
+                window.framework.addNotification('info', 'You can install the plugin from:');
+                window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
+                window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
+            }
         });
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'block';

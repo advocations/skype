@@ -96,8 +96,12 @@
         conversation.audioService.start().then(function () {
             window.framework.updateNotification('success', 'Remote party accepted invitation. Call is connected.');
         }, error => {
-            window.framework.reportError(error, reset);
             window.framework.updateNotification('error', error && error.message);
+            if (error.code && error.code == 'PluginNotInstalled') {
+                window.framework.addNotification('info', 'You can install the plugin from:');
+                window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
+                window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
+            }
         });
     }
 

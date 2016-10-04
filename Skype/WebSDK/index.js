@@ -274,7 +274,7 @@
                     if (contact.type && contact.type() == 'Phone') {
                         populateSingleContact(contact);
                     } else {
-                        contact.status.get().then(() => {
+                        contact.status.get().then(function () {
                             populateSingleContact(contact);
                         });
                     }
@@ -338,7 +338,7 @@
                 }
             },
             createContactCard: function (contact, container) {
-                contact.company.get().then(() => {
+                contact.company.get().then(function () {
                     var contactCardDiv = document.createElement('div');
                     contactCardDiv.className = 'contactCard table';
                     container.appendChild(document.createElement('br'));
@@ -735,7 +735,8 @@
     function initializeSkype() {
         Skype.initialize({
             apiKey: config.apiKeyCC,
-            supportsAudio: true
+            supportsAudio: true,
+            supportsVideo: true
         }, function (api) {
             window.framework.api = api;
 

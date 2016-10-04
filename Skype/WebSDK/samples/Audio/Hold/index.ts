@@ -34,6 +34,9 @@
     }
 
     function reset (bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
@@ -65,15 +68,16 @@
     function startCall () {
         const id = (<HTMLInputElement>content.querySelector('.sip')).value;
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Sending Invitation...', window.framework.status.info);
+        window.framework.showNotificationBar();
+        window.framework.addNotification('info', 'Sending invitation...');
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            window.framework.reportStatus('Connected to Audio', window.framework.status.success);
+            window.framework.addNotification('success', 'Connected to audio');
         }));
 
         listeners.push(conversation.participants.added(person => {
-            window.console.log(person.displayName() + ' has joined the conversation');
+            window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
         }));
 
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
@@ -84,7 +88,7 @@
                 holdButton.style.display = 'block';
             }
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                window.framework.addNotification('info', 'Conversation Ended');
                 reset(true);
             }
         }));
@@ -92,7 +96,12 @@
         callButton.innerHTML = 'Connecting Call ...';
         callButton.disabled = true;
         conversation.audioService.start().then(null, error => {
-            window.framework.reportError(error, reset);
+            window.framework.addNotification('error', error);
+            if (error.code && error.code == 'PluginNotInstalled') {
+                window.framework.addNotification('info', 'You can install the plugin from:');
+                window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
+                window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
+            }
         });
     }
 
@@ -102,22 +111,24 @@
 
         const onHold = audio.isOnHold();
         if (!onHold) {
-            window.framework.reportStatus('Putting Call on Hold...', window.framework.status.info);
+            window.framework.addNotification('info', 'Putting call on hold');
 
             audio.isOnHold.set(true).then(() => {
-                window.framework.reportStatus('Call on Hold', window.framework.status.success);
+                window.framework.addNotification('success', 'Call on hold');
                 holdButton.innerHTML = 'Resume Audio Call';
             }, error => {
-                window.framework.reportError(error, reset);
+                window.framework.addNotification('error', error);
+                reset(false);
             });
         } else {
-            window.framework.reportStatus('Resuming Call...', window.framework.status.info);
+            window.framework.addNotification('info', 'Resuming call...');
             
             audio.isOnHold.set(false).then(() => {
                 window.framework.reportStatus('Call Resumed', window.framework.status.success);
                 holdButton.innerHTML = 'Hold Audio Call';                
             }, error => {
-                window.framework.reportError(error, reset);
+                window.framework.addNotification('error', error);
+                reset(false);
             });
         }
     }
@@ -126,9 +137,9 @@
        window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
 
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.addNotification('success', 'Conversation ended');
         }, error => {
-            window.framework.reportError(error);
+            window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
