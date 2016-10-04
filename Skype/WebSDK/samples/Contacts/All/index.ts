@@ -23,8 +23,17 @@
         const persons = application.personsAndGroupsManager.all.persons;
         persons.get().then(contacts => {
             contactsDiv.style.display = 'block';
+            window.framework.processingStatus = 'processing';
             window.framework.populateContacts(contacts, contactsDiv);
-            window.framework.updateNotification('success', 'Retrieved all contacts');
+            const checkProcessingStatus = () => {
+                if (window.framework.processingStatus === 'processing') {
+                    setTimeout(checkProcessingStatus, 100);
+                } else {
+                    window.framework.processingStatus = 'undefined';
+                    window.framework.updateNotification('success', 'Retrieved all contacts');
+                }
+            }
+            checkProcessingStatus();
         }, error => {
             window.framework.updateNotification('error', error);
         });

@@ -79,7 +79,8 @@
 
         window.framework = {
             popupResponse: 'undefined',
-            showModal: function () {
+            processingStatus: 'undefined',
+            showModal: function (modalText) {
                 const modalEl = document.createElement('div');
                 modalEl.style.width = '25em';
                 modalEl.style.height = '20em';
@@ -93,7 +94,7 @@
                 const noBtn = document.createElement('span');
                 noBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--danger" onclick="window.framework.rejectIncomingChat()">NO</button>';
                 const text = document.createElement('p');
-                text.innerHTML = 'Accept incoming chat invitation?';
+                text.innerHTML = modalText;
                 text.className = 'mui--text-title';
                 div.appendChild(text); div.appendChild(yesBtn); div.appendChild(noBtn);
                 div.innerHTML = '<br/><br/><br/>' + div.innerHTML;
@@ -154,17 +155,17 @@
 
                 switch (iconType) {
                     case 'info':
-                        iconClass = 'fa fa-info-circle';
+                        iconClass = 'fa fa-info-circle info-notification';
                         break;
                     case 'error':
-                        iconClass = 'fa fa-thumbs-down';
+                        iconClass = 'fa fa-thumbs-down error-notification';
                         break;
                     case 'success':
-                        iconClass = 'fa fa-thumbs-up';
+                        iconClass = 'fa fa-thumbs-up success-notification';
                         break;
                 }
 
-                notificationElement.innerHTML = '<i class="' + iconClass + '"></i> <text> ' + text + ' </text>';
+                notificationElement.innerHTML = '<span class="' + iconClass + '"></span> <text> ' + text + ' </text>';
                 content.querySelector('.notification-bar').appendChild(notificationElement);
             },
             updateNotification: function (iconType, text) {
@@ -177,6 +178,7 @@
                 switch (iconType) {
                     case 'info':
                         iconClass = 'fa fa-info-circle';
+                        notificationStatus = ' info';
                         break;
                     case 'error':
                         iconClass = 'fa fa-thumbs-down';
@@ -188,7 +190,7 @@
                         break;
                 }
 
-                notificationBar.getElementsByTagName('i')[0].className = iconClass;
+                notificationBar.getElementsByTagName('span')[0].className = iconClass;
                 notificationBar.className = notificationBarClass + notificationStatus;
                 notificationBar.querySelector('.message').innerHTML = text;
             },
@@ -215,8 +217,9 @@
             },
             navigationCallbacks: {},
             populateContacts: function (contacts, container) {
-                for (var i = 0; i < contacts.length; i++) {
-                    var contact = contacts[i].result ? contacts[i].result : contacts[i];
+                var content = window.framework.findContentDiv();
+
+                function populateSingleContact(contact) {
                     var contactDiv = document.createElement('div');
                     contactDiv.className = 'contact';
                     container.appendChild(contactDiv);
@@ -236,7 +239,7 @@
                         if (img.naturalWidth === 0 || img.naturalHeight === 0) {
                             var imgUrl = window.framework.getContentLocation();
                             imgUrl += 'images/samples/default.png';
-                            img.src = imgUrl
+                            img.src = imgUrl;
                         }
                     }, 1000, img);
                     cellDivLeft.appendChild(img);
@@ -249,12 +252,35 @@
                     var nameDiv = document.createElement('div');
                     nameDiv.className = 'name';
                     nameDiv.innerHTML = contact.displayName();
-                    cellDivRight.appendChild(nameDiv);
+                    contact.displayName() && cellDivRight.appendChild(nameDiv);
                     var noteDiv = document.createElement('div');
                     noteDiv.className = 'name';
                     noteDiv.innerHTML = contact.note.text();
-                    cellDivRight.appendChild(noteDiv);
+                    contact.note.text() && cellDivRight.appendChild(noteDiv);
+                    processing = false;
                 }
+
+                function loopOverAllContacts() {
+                    if (processing) {
+                        return;
+                    }
+
+                    processing = true; i++;
+                    if (i == contacts.length) {
+                        clearInterval(loopOverAllContacts);
+                        window.framework.processingStatus = 'complete';
+                    }
+                    var contact = contacts[i].result ? contacts[i].result : contacts[i];
+                    if (contact.type() == 'Phone') {
+                        populateSingleContact(contact);
+                    } else {
+                        contact.status.get().then(() => {
+                            populateSingleContact(contact);
+                        });
+                    }
+                }
+                var processing = false, i = -1;
+                setInterval(loopOverAllContacts, 10);
             },
             populateGroups: function (groups, container) {
                 for (var i = 0; i < groups.length; i++) {
@@ -295,13 +321,13 @@
             },
             addContactCardDetail: function (header, value, container) {
                 if (value) {
-                    const rowDiv = document.createElement('div');
+                    var rowDiv = document.createElement('div');
                     rowDiv.className = 'mui-row';
-                    const colLeftDiv = document.createElement('div');
+                    var colLeftDiv = document.createElement('div');
                     colLeftDiv.className = 'mui-col-md-3';
                     colLeftDiv.style.fontWeight = 'bold';
                     colLeftDiv.innerHTML = header;
-                    const colRightDiv = document.createElement('div');
+                    var colRightDiv = document.createElement('div');
                     colRightDiv.className = 'mui-col-md-9';
                     colRightDiv.style.fontStyle = 'italic';
                     colRightDiv.style.wordWrap = 'break-word';
@@ -312,15 +338,17 @@
                 }
             },
             createContactCard: function (contact, container) {
-                const contactCardDiv = document.createElement('div');
-                contactCardDiv.className = 'contactCard table';
-                container.appendChild(document.createElement('br'));
-                container.appendChild(contactCardDiv);
-                contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
-                contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
-                contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
-                contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
-                contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
+                contact.company.get().then(() => {
+                    var contactCardDiv = document.createElement('div');
+                    contactCardDiv.className = 'contactCard table';
+                    container.appendChild(document.createElement('br'));
+                    container.appendChild(contactCardDiv);
+                    contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
+                    contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
+                    contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
+                    contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
+                    contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
+                });
             },
             addMessage: function (item, container) {
                 var div = document.createElement('div');
@@ -367,25 +395,25 @@
                 timeDiv.innerHTML = item.timestamp().toLocaleTimeString();
                 rightCellDiv.appendChild(timeDiv);
                 container.scrollTop = container.scrollHeight;
-            },
-            createVideoContainer: function (container, size, person) {
-                var name = person.displayName();
-                var div = container.querySelector('div div.name[data-name="' + name + '"]');
-                if (!div) {
-                    div = document.createElement('div');
-                    div.className = size;
-                    container.appendChild(div);
-                    var nameDiv = document.createElement('div');
-                    nameDiv.className = 'name';
-                    nameDiv.setAttribute('data-name', name);
-                    nameDiv.innerHTML = name;
-                    div.appendChild(nameDiv);
-                } else {
-                    div = null;
-                }
-
-                return div;
             }
+            // createVideoContainer: function (container, size, person) {
+            //     var name = person.displayName();
+            //     var div = container.querySelector('div div.name[data-name="' + name + '"]');
+            //     if (!div) {
+            //         div = document.createElement('div');
+            //         div.className = size;
+            //         container.appendChild(div);
+            //         var nameDiv = document.createElement('div');
+            //         nameDiv.className = 'name';
+            //         nameDiv.setAttribute('data-name', name);
+            //         nameDiv.innerHTML = name;
+            //         div.appendChild(nameDiv);
+            //     } else {
+            //         div = null;
+            //     }
+
+            //     return div;
+            // }
         };
 
         // check for hash containing access_token

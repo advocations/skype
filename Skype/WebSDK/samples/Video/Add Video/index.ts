@@ -3,17 +3,25 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Video_AddVideo.md' : 'Content/websdk/docs/Video_AddVideo.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     var conversation;
     var listeners = [];
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
-        (<HTMLElement>content.querySelector('.videoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.selfVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.remoteVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -23,15 +31,17 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -53,62 +63,89 @@
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Sending Invitation...', window.framework.status.info);
-        // @snippet
         conversation = conversationsManager.getConversation(id);
+        window.framework.showNotificationBar();
+        window.framework.addNotification('info', 'Sending invitation...');
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            window.framework.reportStatus('Connected to Audio', window.framework.status.success);
+            window.framework.addNotification('success', 'Connected to audio');
         }));
         listeners.push(conversation.participants.added(person => {
-            window.console.log(person.displayName() + ' has joined the conversation');
+            window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
         }));
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                window.framework.addNotification('info', 'Conversation ended');
+                (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+                (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+                (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+                (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
                 reset(true);
             }
         }));
-
         conversation.audioService.start().then(null, error => {
-            window.framework.reportError(error, reset);
+            window.framework.addNotification('error', error);
         });
-        // @end_snippet
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
     });
+
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
-        // @snippet
-        function setupContainer (person: jCafe.Participant, size: string) {
-            const div = window.framework.createVideoContainer(<HTMLElement>content.querySelector('.videoContainer'), size, person);
+        window.framework.addNotification('info', 'Adding video...');
+
+        function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
             person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(div);
+            person.video.channels(0).stream.source.sink.container(videoDiv);
         }
 
         listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
-            setupContainer(conversation.selfParticipant, 'small');
-
-            window.framework.reportStatus('Connected to Video', window.framework.status.success);
+            window.framework.addNotification('info', 'Showing self video...');
+            (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
+            setupContainer(conversation.selfParticipant, 'small', <HTMLElement>content.querySelector('.selfVideoContainer'));
+            window.framework.addNotification('success', 'Connected to video');
         }));
         listeners.push(conversation.participants.added(person => {
             listeners.push(person.video.state.when('Connected', () => {
-                setupContainer(person, 'large');
+                (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer'));
+
+                listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
+                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                    window.framework.addNotification('info', person.displayName() + ' started streaming their video');
+                }));
+                listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
+                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                    window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
+                }));
             }));
         }));
-
         conversation.videoService.start(null, error => {
-            window.framework.reportError(error, reset);
+            window.framework.addNotification('error', error);
         });
-        // @end_snippet
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
     });
+
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+        window.framework.addNotification('info', 'Ending conversation...');
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.addNotification('success', 'Conversation ended');
+            (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
         }, error => {
-            window.framework.reportError(error);
+            window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
-        // @end_snippet
+    });
+
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
     });
 })();

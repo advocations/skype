@@ -22,6 +22,7 @@
         contactsDiv.innerHTML = '';
         window.framework.populateContacts(mePersonArray, contactsDiv);
         window.framework.createContactCard(mePerson, <HTMLElement>contactsDiv.querySelector('.contact'));
+        window.framework.createContactCard(mePerson, <HTMLElement>content.querySelector('.contactcard'));
         window.framework.updateNotification('success', 'Dashboard Loaded');
     });
 })();

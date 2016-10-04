@@ -456,9 +456,8 @@
   margin: 10px 0px
 }
 
-.notification-bar i {
+.notification-bar span {
   font-size:1.5em;
-  color:#12A5F4;
 }
 
 .notification-bar.error {
@@ -469,10 +468,17 @@
   color: #1B5E20;
 }
 
-.notification-bar.error i {
+.info-notification,
+.notification-bar.info span {
+  color:#12A5F4;
+}
+
+.error-notification,
+.notification-bar.error span {
   color: #E53935;
 }
 
-.notification-bar.success i {
+.success-notification,
+.notification-bar.success span {
   color: #4CAF50;
 }

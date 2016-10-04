@@ -3,14 +3,22 @@
     'use strict';
 
     const content = window.framework.findContentDiv();
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Video_IncomingP2P.md' : 'Content/websdk/docs/Video_IncomingP2P.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
     var conversation;
     var listeners = [];
 
-    function cleanUI () {
-        (<HTMLElement>content.querySelector('.videoContainer')).innerHTML = '';
+    function cleanUI() {
+        (<HTMLElement>content.querySelector('.selfVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.remoteVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -20,15 +28,17 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -49,57 +59,90 @@
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.reportStatus('Waiting for Invitation...', window.framework.status.info);
-        // @snippet
+        window.framework.showNotificationBar();
+        window.framework.addNotification('info', 'Waiting for invitation...');
+
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
-
-            function setupContainer (person: jCafe.Participant, size: string) {
-                const div = window.framework.createVideoContainer(<HTMLElement>content.querySelector('.videoContainer'), size, person);
+            function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
                 person.video.channels(0).stream.source.sink.format('Stretch');
-                person.video.channels(0).stream.source.sink.container(div);
+                person.video.channels(0).stream.source.sink.container(videoDiv);
             }
-
             listeners.push(conversation.videoService.accept.enabled.when(true, () => {
-                const result = confirm('Accept incoming Video invitation?');
-                if (result) {
-                    conversation.videoService.accept();
+                window.framework.showModal('Accept incoming video invitation?');
+                const checkPopupResponse = () => {
+                    if (window.framework.popupResponse === 'undefined') {
+                        setTimeout(checkPopupResponse, 100);
+                    } else {
+                        if (window.framework.popupResponse === 'yes') {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.videoService.accept();
+                            listeners.push(conversation.participants.added(person => {
+                                window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
-                    listeners.push(conversation.participants.added(person => {
-                        window.console.log(person.displayName() + ' has joined the conversation');
+                                listeners.push(person.video.state.when('Connected', () => {
+                                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                                    setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer'));
 
-                        listeners.push(person.video.state.when('Connected', () => {
-                            setupContainer(person, 'large');
-                        }));
-                    }));
-                    window.framework.reportStatus('Invitation Accepted', window.framework.status.success);
-                } else {
-                    conversation.videoService.reject();
-                    window.framework.reportStatus('Invitation Rejected', window.framework.status.reset);
+                                    listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
+                                        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                                        window.framework.addNotification('info', person.displayName() + ' started streaming their video');
+                                    }));
+                                    listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
+                                        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                                        window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
+                                    }));
+                                }));
+                            }));
+                            window.framework.addNotification('success', 'Invitation accepted');
+                        } else {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.videoService.reject();
+                            window.framework.addNotification('error', 'Invitation rejected');
+                            reset(false);
+                        }
+                    }
                 }
+                checkPopupResponse();
             }));
             listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
-                setupContainer(conversation.selfParticipant, 'small');
+                (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
+                setupContainer(conversation.selfParticipant, 'small', <HTMLElement>content.querySelector('.selfVideoContainer'));
+                window.framework.addNotification('success', 'Connected to video');
             }));
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                    window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                    window.framework.addNotification('info', 'Conversation ended');
+                    (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+                    (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                    (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
                     reset(true);
                 }
             }));
         }));
-        // @end_snippet
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
     });
+
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+        window.framework.addNotification('info', 'Ending conversation...');
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.addNotification('success', 'Conversation ended');
+            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
         }, error => {
-            window.framework.reportError(error);
+            window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
-        // @end_snippet
+    });
+
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
     });
 })();

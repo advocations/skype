@@ -38,7 +38,7 @@
             if (contacts.length !== 0) {
                 contactsDiv.style.display = 'block';
                 window.framework.populateContacts(search.results(), contactsDiv);
-                window.framework.createContactCard(search.results()[0].result, <HTMLElement>contactsDiv.querySelector('.contact'));
+                window.framework.createContactCard(search.results()[0].result, <HTMLElement>content.querySelector('.contactcard'));
                 window.framework.updateNotification('success', 'Contact Found');
             } else {
                 window.framework.updateNotification('error', 'Contact not found. Please check the spelling or try a different search.');

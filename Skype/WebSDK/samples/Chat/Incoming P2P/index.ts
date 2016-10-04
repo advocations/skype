@@ -64,7 +64,7 @@ declare var mui: any;
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
             listeners.push(conversation.chatService.accept.enabled.when(true, () => {
-                window.framework.showModal();
+                window.framework.showModal('Accept incoming chat invitation?');
                 const checkPopupResponse = () => {
                     if (window.framework.popupResponse === 'undefined') {
                         setTimeout(checkPopupResponse, 100);

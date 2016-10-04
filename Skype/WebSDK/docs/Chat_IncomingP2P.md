@@ -21,6 +21,7 @@ After the conversation and chat modality are established messages events will be
     listeners.push(conversationsManager.conversations.added(function (conv) {
         conversation = conv;
         listeners.push(conversation.chatService.accept.enabled.when(true, function () {
+            // showModal('Accept incoming chat invitation?');
             if (USER_ACCEPT_INCOMING_CHAT) {
                 conversation.chatService.accept();
                 listeners.push(conversation.participants.added(function (person) {

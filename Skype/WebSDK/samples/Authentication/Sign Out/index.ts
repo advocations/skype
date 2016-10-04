@@ -31,7 +31,7 @@
             (document.getElementsByClassName('before-signin')[0] as any).style.display = 'block';
             (document.getElementsByClassName('after-signin')[0] as any).style.display = 'none';
             document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "You've successfully signed out";
-            document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('i')[0].style.display = 'none';
+            document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('span')[0].style.display = 'none';
             (<HTMLElement>document.getElementsByClassName('content')[0]).style.display = 'block';
             updateAuthenticationList();
         }, error => {
