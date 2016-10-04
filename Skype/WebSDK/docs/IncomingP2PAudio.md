@@ -57,6 +57,17 @@ conversation.participants.added(function (participant) {
 });
 ```
 
+## Ending a Call
+To end the call, simply leave the conversation
+
+```javascript
+conversation.leave().then(function () {
+    // successfully left the conversation
+}, function (error) {
+    // error
+});
+```
+
 ## Complete Code Sample
 Here is the code combined:
 
