@@ -95,7 +95,7 @@ The following example shows the parameters that are required when signing in to 
 
 
 ```js
-app.signinManager.signIn({
+app.signInManager.signIn({
      "client_id": "...",  // GUID obtained from Azure app registration.
      "origins": [ "https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root" ],
      "cors": true, 
