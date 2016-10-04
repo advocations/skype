@@ -271,7 +271,7 @@
                         window.framework.processingStatus = 'complete';
                     }
                     var contact = contacts[i].result ? contacts[i].result : contacts[i];
-                    if (contact.type() == 'Phone') {
+                    if (contact.type && contact.type() == 'Phone') {
                         populateSingleContact(contact);
                     } else {
                         contact.status.get().then(() => {
@@ -324,11 +324,11 @@
                     var rowDiv = document.createElement('div');
                     rowDiv.className = 'mui-row';
                     var colLeftDiv = document.createElement('div');
-                    colLeftDiv.className = 'mui-col-md-3';
+                    colLeftDiv.className = 'mui-col-md-6';
                     colLeftDiv.style.fontWeight = 'bold';
                     colLeftDiv.innerHTML = header;
                     var colRightDiv = document.createElement('div');
-                    colRightDiv.className = 'mui-col-md-9';
+                    colRightDiv.className = 'mui-col-md-6';
                     colRightDiv.style.fontStyle = 'italic';
                     colRightDiv.style.wordWrap = 'break-word';
                     colRightDiv.innerHTML = value;
