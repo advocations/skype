@@ -80,7 +80,7 @@ collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSD
     When the state of the channel is changed to 'Notified', an invitation to talk has been received. To show the [Conversation Control](ConversationControl.md), 
     call the  **renderConversation** method on the **UIApplicationInstance**.
 
-    >note: The default conversation modality is chat. If you want the conversation audio or vidio modality to be enabled when the conversation control
+    >note: The default conversation modality is chat. If you want the conversation audio or video modality to be enabled when the conversation control
     is rendered, then add the modalities to the second argument of renderConversation. If you prefer to wait to show the modalities until a caller adds them, then
     omit the modalities from the initial state object. 
     
