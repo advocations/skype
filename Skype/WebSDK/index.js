@@ -21,17 +21,11 @@
         var statusQueue = [];
         function processStatus() {
             var item = statusQueue[0];
-            // var message = document.querySelector('.notification3 > .notification3-message');
-
-            // message.innerHTML = item.status;
-            // message.className += ' fading';
 
             window.setTimeout(function (item) {
                 var status = item.status;
                 var type = item.type;
                 var callback = item.callback;
-
-                // message.className = message.className.replace(' fading', '');
 
                 if (type !== window.framework.status.info) {
                     var content = window.framework.findContentDiv();
@@ -269,6 +263,7 @@
                     if (i == contacts.length) {
                         clearInterval(loopOverAllContacts);
                         window.framework.processingStatus = 'complete';
+                        return;
                     }
                     var contact = contacts[i].result ? contacts[i].result : contacts[i];
                     if (contact.type && contact.type() == 'Phone') {
@@ -343,10 +338,11 @@
                     contactCardDiv.className = 'contactCard table';
                     container.appendChild(document.createElement('br'));
                     container.appendChild(contactCardDiv);
-                    contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
+                    contact.displayName() && window.framework.addContactCardDetail('Name', contact.displayName(), contactCardDiv);
                     contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
-                    contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
+                    contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
                     contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
+                    contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
                     contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
                 });
             },
@@ -546,17 +542,6 @@
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
             e.preventDefault();
-            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
-                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
-            }
-            if (prevSelectedItem) {
-                prevSelectedItem.removeAttribute('style');
-            }
-            prevSelectedItem = e.target;
-            e.target.style.fontSize = '1.5em';
-            e.target.style.fontWeight = 'bold';
-            e.target.style.textDecoration = 'none';
             // hide the landing if it's still visible
             var landing = document.querySelector('.landing');
             if (landing.style.display !== 'none') {
@@ -573,10 +558,24 @@
                 }
             }
 
-            // cleanup the notification if we are leaving the sample
-            // var message = document.querySelector('.notification3 > .notification3-message');
-            // message.innerHTML = '';
-            // message.className = 'notification3-message';
+            // clean up any stray UI on previous samples 
+            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+            for (var i = 0; i < document.getElementsByClassName('contacts').length; i++) {
+                document.getElementsByClassName('contacts')[i].innerHTML = '';
+            }
+            for (var i = 0; i < document.getElementsByClassName('contactcard').length; i++) {
+                document.getElementsByClassName('contactcard')[i].innerHTML = '';
+            }
+            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+            }
+            if (prevSelectedItem) {
+                prevSelectedItem.removeAttribute('style');
+            }
+            prevSelectedItem = e.target;
+            e.target.style.fontSize = '1.5em';
+            e.target.style.fontWeight = 'bold';
+            e.target.style.textDecoration = 'none';
 
             if (!content) {
                 populateSample(src, '.content', '.html');

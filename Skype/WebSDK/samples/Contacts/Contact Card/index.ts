@@ -13,11 +13,14 @@
     function reset() {
         (<HTMLInputElement>content.querySelector('.query')).value = '';
         (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.contactcard')).innerHTML = '';
         (<HTMLElement>content.querySelector('.contacts')).style.display = 'none';
     }
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.search'), 'click', () => {
+        (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.contactcard')).innerHTML = '';
         const query = (<HTMLInputElement>content.querySelector('.query')).value;
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
         const application = window.framework.application;

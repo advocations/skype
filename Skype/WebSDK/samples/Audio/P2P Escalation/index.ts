@@ -28,6 +28,9 @@
     }
 
     function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
@@ -59,31 +62,29 @@
     function makeCall() {
         const id = (<HTMLInputElement>content.querySelector('.sip')).value;
         const conversationsManager = window.framework.application.conversationsManager;
+        window.framework.showNotificationBar();
 
         if (!id) {
-            window.framework.showNotificationBar();
-            window.framework.updateNotification('error', 'SIP Address is not specified');
+            window.framework.addNotification('error', 'SIP Address is not specified');
             return;
         }
-
-        window.framework.showNotificationBar();
-        window.framework.updateNotification('info', 'Sending Invitation');
-
+        
+        window.framework.addNotification('info', 'Sending Invitation');
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            window.framework.updateNotification('success', 'Connected to Audio');
+            window.framework.addNotification('success', 'Connected to Audio');
             inCall = true;
             callButton.innerHTML = 'Add participant';
         }));
 
         listeners.push(conversation.participants.added(person => {
-            window.console.log(person.displayName() + ' has joined the conversation');
+            window.framework.addNotification('info', person.displayName() + ' has joined the conversation');
         }));
 
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.updateNotification('success', 'Conversation Ended');
+                window.framework.addNotification('info', 'Conversation Ended');
                 reset(true);
             }
         }));
@@ -102,28 +103,26 @@
         const id = (<HTMLInputElement>content.querySelector('.sip')).value;
 
         if (!id) {
-            window.framework.showNotificationBar();
-            window.framework.updateNotification('error', 'SIP Address is not specified');
+            window.framework.addNotification('error', 'SIP Address is not specified');
             return;
         }
 
-        window.framework.updateNotification('info', 'Adding Participant...');
+        window.framework.addNotification('info', 'Adding Participant...');
         conversation.participants.add(id).then(() => {
-            window.framework.updateNotification('success', 'Participant Added.');
+            window.framework.addNotification('success', 'Participant Added.');
             participantAdded = true;
             callButton.innerHTML = 'End Call';
         }, error => {
-            window.framework.reportError(error, reset);
-            window.framework.updateNotification('error', error && error.message);
+            window.framework.addNotification('error', error && error.message);
         });
     }
 
     function endCall() {
-        window.framework.updateNotification('info', 'Ending Conversation ...');
+        window.framework.addNotification('info', 'Ending Conversation ...');
         conversation.leave().then(() => {
-            window.framework.updateNotification('success', 'Conversation Ended');
+            window.framework.addNotification('success', 'Conversation Ended');
         }, error => {
-            window.framework.updateNotification('error', error && error.message);
+            window.framework.addNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });

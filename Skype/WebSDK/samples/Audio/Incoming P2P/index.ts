@@ -24,15 +24,17 @@
     }
 
     function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        window.framework.updateNotification('success', 'Conversation Ended');
         inCall = false;
-        button.innerHTML = 'Listen for incoming invites';
+        button.innerHTML = 'Start Listening';
 
         if (conversation) {
             if (bySample) {
@@ -51,32 +53,42 @@
     function registerInviteListener() {
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
-        window.framework.updateNotification('info', 'Waiting for Invitation...');
+        window.framework.addNotification('info', 'Waiting for invitation...');
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
 
             listeners.push(conversation.audioService.accept.enabled.when(true, () => {
-                if (confirm('Accept incoming Audio invitation?')) {
-                    conversation.audioService.accept();
+                window.framework.showModal('Accept incoming audio invitation?');
+                const checkPopupResponse = () => {
+                    if (window.framework.popupResponse === 'undefined') {
+                        setTimeout(checkPopupResponse, 100);
+                    } else {
+                        if (window.framework.popupResponse === 'yes') {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.audioService.accept();
 
-                    listeners.push(conversation.participants.added(participant => {
-                        console.log('Participant:', participant.displayName(), 'has been added to the conversation');
-                    }));
+                            listeners.push(conversation.participants.added(participant => {
+                                window.framework.addNotification('info', participant.displayName() + 'has been added to the conversation');
+                            }));
 
-                    window.framework.updateNotification('success', 'Invitation Accepted');
-                    button.innerHTML = 'End Call'
-                    inCall = true;
-                } else {
-                    conversation.audioService.reject();
-                    window.framework.updateNotification('success', 'Invitation Rejected');
+                            window.framework.addNotification('success', 'Invitation Accepted');
+                            button.innerHTML = 'End Call'
+                            inCall = true;
+                        } else {
+                            window.framework.popupResponse = 'undefined';
+                            conversation.audioService.reject();
+                            window.framework.addNotification('info', 'Invitation Rejected');
+                        }
+                    }
                 }
+                checkPopupResponse();
             }));
 
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
-                console.log('Conversation state changed from', oldValue, 'to', newValue);
+                oldValue && newValue && window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
 
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                    window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                    window.framework.addNotification('info', 'Conversation ended');
                     reset(true);
                 }
             }));
@@ -84,10 +96,10 @@
     }
 
     function endCall() {
-        window.framework.updateNotification('info', 'Ending conversation ...');
+        window.framework.addNotification('info', 'Ending conversation ...');
         conversation.leave().then(() => {
         }, error => {
-            window.framework.updateNotification('error', error && error.message);
+            window.framework.addNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });
