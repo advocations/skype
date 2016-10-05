@@ -1,38 +1,41 @@
 <div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Bootstrap Skype Web SDK</li>
-            <li>Sign-In</li>
-        </ol>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div id="step1" class="step1" style="display:block">
+                        <div class="mui-textfield1">
+                            <input type="text" class="sip1" placeholder="sip:user1@domain.com" data-enter-bind="search">
+                            <label>SIP Address 1</label>
+                        </div>
+                        <div class="mui-textfield2">
+                            <input type="text" class="sip2" placeholder="sip:user2@domain.com" data-enter-bind="search">
+                            <label>SIP Address 2</label>
+                        </div>
+                        <button class="mui-btn mui-btn--raised mui-btn--primary call">Start Chat Conversation</button>
+                    </div>
+                    <div id="step2" class="step2" style="display:none">
+                        <button class="mui-btn mui-btn--raised mui-btn--primary endCall">End Conversation</button>
+                    </div>
+                    <div id="step3" class="step3" style="display:none">
+                        <button class="mui-btn mui-btn--raised mui-btn--accent restart">Restart Sample</button>
+                    </div>
+                    <div class="mui-divider"></div>
+                    <div class="notification-bar">
+                        <span class="fa fa-info-circle"></span>
+                        <span class="message"></span>
+                    </div>
+                    <div class="mui-divider"></div>
+                    <div class="conversationContainer"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="description">
-        <h3>Provide SIP URIs to create a group chat conversation with the Conversation Control.</h3>
-        <p>The Conversation Control provides a method, renderConversation(...) that takes a container element and configuration options and creates a visual control similar to a client chat window.</p>
-        <p>The configuration options include specifying modalities and a list of participants to invite.</p>
-    </div>
-    <div class="controls">
-        <input type="text" class="id" placeholder="sip:user@domain.com" data-enter-bind="call">
-        <input type="text" class="id2" placeholder="sip:user@domain.com" data-enter-bind="call">
-        <div class="button call">Call</div>
-    </div>
-    <div class="snippet"></div>
-</div>
-<div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Conversation Control created</li>
-        </ol>
-    </div>
-    <div class="description">
-        <h3>Send a message to invite participant(s).</h3>
-        <p>The Conversation Control handles sending invitations to invite participant(s) to the conversation.  It also provides the ability to add additional participant(s).</p>
-        <p>When finished click the end button to terminate the conversation.</p>
-    </div>
-    <div class="conversationContainer"></div>
-    <div class="controls">
-        <div class="button end">End</div>
-    </div>
-    <div class="snippet"></div>
 </div>
