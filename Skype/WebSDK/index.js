@@ -269,6 +269,7 @@
                     if (i == contacts.length) {
                         clearInterval(loopOverAllContacts);
                         window.framework.processingStatus = 'complete';
+                        return;
                     }
                     var contact = contacts[i].result ? contacts[i].result : contacts[i];
                     if (contact.type && contact.type() == 'Phone') {
@@ -546,17 +547,6 @@
         anchor.innerHTML = item.name;
         window.framework.addEventListener(anchor, 'click', function (e) {
             e.preventDefault();
-            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
-                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
-            }
-            if (prevSelectedItem) {
-                prevSelectedItem.removeAttribute('style');
-            }
-            prevSelectedItem = e.target;
-            e.target.style.fontSize = '1.5em';
-            e.target.style.fontWeight = 'bold';
-            e.target.style.textDecoration = 'none';
             // hide the landing if it's still visible
             var landing = document.querySelector('.landing');
             if (landing.style.display !== 'none') {
@@ -577,6 +567,18 @@
             // var message = document.querySelector('.notification3 > .notification3-message');
             // message.innerHTML = '';
             // message.className = 'notification3-message';
+
+            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+            }
+            if (prevSelectedItem) {
+                prevSelectedItem.removeAttribute('style');
+            }
+            prevSelectedItem = e.target;
+            e.target.style.fontSize = '1.5em';
+            e.target.style.fontWeight = 'bold';
+            e.target.style.textDecoration = 'none';
 
             if (!content) {
                 populateSample(src, '.content', '.html');
@@ -777,3 +779,6 @@
     initializeSkype();
     autoAuthenticate();
 })();
+
+
+

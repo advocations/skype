@@ -23,6 +23,11 @@ $cshtml += '<link rel="stylesheet" type="text/css" href="~/Content/websdk/styles
 $cshtml += [Environment]::NewLine
 $cshtml += '<link rel="stylesheet" type="text/css" href="~/Content/websdk/online.css" />'
 $cshtml += [Environment]::NewLine
+$cshtml += '<link rel="import" href="lib/zero-md/build/zero-md.html" />'
+$cshtml += [Environment]::NewLine
+$cshtml += '<link rel="stylesheet" type="text/css" href="node_modules/muicss/dist/css/mui.min.css" />'
+$cshtml += [Environment]::NewLine
+$cshtml += '<link rel="stylesheet" text="css" href="node_modules/font-awesome/css/font-awesome.min.css" />'
 
 #operate on the middle section as that is where the content exists
 $body = $split[1].Replace("samples/", "~/Content/websdk/samples/").Replace("index.js", "~/Content/websdk/index.js")

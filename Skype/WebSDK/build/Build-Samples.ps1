@@ -26,6 +26,10 @@ if ($Online)
 {
     #create cshtml
     & (Join-Path $PSScriptRoot .\Build-CSHTML.ps1)
+
+    #add license info
+    $content = gc ..\samples\license.txt -Raw
+    $content + (gc ..\index.js | Out-String) | sc ..\index.js
 }
 
 Write-Host "Finished Building Samples"
