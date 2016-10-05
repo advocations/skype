@@ -7,8 +7,6 @@
     const vm = {
         start: content.querySelector('#start'),
         stop: content.querySelector('#stop'),
-        accept: content.querySelector('#accept'),
-        decline: content.querySelector('#decline'),
         transfer: content.querySelector('#transfer'),
         sipuri: content.querySelector('#to') as HTMLInputElement,
         transferto: content.querySelector('#transfer-to') as HTMLInputElement,

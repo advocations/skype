@@ -32,6 +32,9 @@
     }
 
     function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
@@ -64,37 +67,37 @@
 
         if (!id) {
             window.framework.showNotificationBar();
-            window.framework.updateNotification('error', 'SIP Address is not specified');
+            window.framework.addNotification('error', 'SIP Address is not specified');
             return;
         }
 
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
-            console.log('Connected to audio call');
+            window.framework.addNotification('success', 'Connected to audio call');
         }));
 
         listeners.push(conversation.participants.added(person => {
-            window.console.log(person.displayName() + ' has joined the conversation');
+            window.framework.addNotification('info', person.displayName() + ' has joined the conversation');
         }));
 
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
-            console.log('Conversation state changed from', oldValue, 'to', newValue);
+            oldValue && newValue && window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
 
             if (newValue === 'Connected') {
                 callButton.innerHTML = 'End Call';
                 inCall = true;
             }
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+                window.framework.addNotification('info', 'Conversation Ended');
                 reset(true);
             }
         }));
 
         window.framework.showNotificationBar();
-        window.framework.updateNotification('info', 'Sending call invitation ...');
+        window.framework.addNotification('info', 'Sending call invitation ...');
         conversation.audioService.start().then(function () {
-            window.framework.updateNotification('success', 'Remote party accepted invitation. Call is connected.');
+            window.framework.addNotification('success', 'Remote party accepted invitation. Call is connected.');
         }, error => {
             window.framework.updateNotification('error', error && error.message);
             if (error.code && error.code == 'PluginNotInstalled') {
@@ -109,9 +112,9 @@
         window.framework.updateNotification('info', 'Ending conversation ...');
 
         conversation.leave().then(() => {
-            window.framework.updateNotification('success', 'Conversation ended.');
+            window.framework.addNotification('success', 'Conversation ended.');
         }, error => {
-            window.framework.updateNotification('error', error && error.message);
+            window.framework.addNotification('error', error && error.message);
         }).then(() => {
             reset(true);
         });
