@@ -15,11 +15,13 @@
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip1'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip2'));
+    (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
     function cleanUI () {
         (<HTMLInputElement>content.querySelector('.sip1')).value = '';
         (<HTMLInputElement>content.querySelector('.sip2')).value = '';
         (<HTMLElement>content.querySelector('.conversationContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
         callButton.innerHTML = 'Start Conversation';
         callButton.disabled = false;
@@ -91,6 +93,7 @@
         const div = document.createElement('div');
         var control = <HTMLElement>content.querySelector('.conversationContainer');
         control.appendChild(div);
+        (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'block';
         
         window.framework.api.renderConversation(div, {
             modalities: ['Chat'],
@@ -136,6 +139,7 @@
 
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended.');
+            allowRestart();
         }, error => {
             window.framework.addNotification('error', error && error.message);
         });
