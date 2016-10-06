@@ -75,19 +75,19 @@
             popupResponse: 'undefined',
             processingStatus: 'undefined',
             showModal: function (modalText) {
-                const modalEl = document.createElement('div');
+                var modalEl = document.createElement('div');
                 modalEl.style.width = '25em';
                 modalEl.style.height = '20em';
                 modalEl.style.margin = '10em auto';
                 modalEl.style.backgroundColor = '#fff';
                 modalEl.style.textAlign = 'center';
-                const div = document.createElement('div');
+                var div = document.createElement('div');
                 div.style.display = 'inline-block';
-                const yesBtn = document.createElement('span');
+                var yesBtn = document.createElement('span');
                 yesBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.framework.acceptIncomingChat()">YES</button>';
-                const noBtn = document.createElement('span');
+                var noBtn = document.createElement('span');
                 noBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--danger" onclick="window.framework.rejectIncomingChat()">NO</button>';
-                const text = document.createElement('p');
+                var text = document.createElement('p');
                 text.innerHTML = modalText;
                 text.className = 'mui--text-title';
                 div.appendChild(text); div.appendChild(yesBtn); div.appendChild(noBtn);
@@ -430,7 +430,7 @@
     }
 
     function getStatusPath(value) {
-        const path = window.framework.getContentLocation() + 'images/samples/status/';
+        var path = window.framework.getContentLocation() + 'images/samples/status/';
 
         switch (value) {
             case 'Online':
