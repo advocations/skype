@@ -109,7 +109,7 @@
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
 
-                if (newValue === 'Connected') {
+                if (newValue === 'Connected' || newValue === 'Conferenced') {
                     enableInCall();
                 }
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {

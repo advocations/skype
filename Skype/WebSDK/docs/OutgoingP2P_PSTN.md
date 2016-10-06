@@ -1,15 +1,16 @@
 
-# Outgoing P2P Call
+# Outgoing PSTN Call
 
  _**Applies to:** Skype for Business 2015_
-
 
 ## Starting a Call
 
 In order to make an audio call we need to:
 * create a conversation
 ```javascript
-var conversation = application.conversationsManager.getConversation('sip:xxx');
+var conversation = application.conversationsManager.getConversation('sip:XXXX');
+OR
+var conversation = application.conversationsManager.getConversation('tel:+XXXX');
 ```
 * start the audio call
 ```javascript
@@ -73,7 +74,9 @@ conversation.leave().then(function () {
 Here is the code combined:
 
 ```javascript
-var conversation = application.conversationsManager.getConversation('sip:xxx');
+var conversation = application.conversationsManager.getConversation('sip:XXXX');
+OR
+var conversation = application.conversationsManager.getConversation('tel:+XXXX');
 conversation.selfParticipant.audio.state.when('Connected', function () {
     console.log('Connected to audio call');
 });
