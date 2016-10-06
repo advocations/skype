@@ -1,4 +1,4 @@
-/// <reference path="../../../framework.d.ts" />
+/// <reference path="../framework.d.ts" />
 (function () {
     'use strict';
 
