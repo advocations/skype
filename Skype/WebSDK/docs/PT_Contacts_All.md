@@ -1,5 +1,5 @@
 
-# Search for persons and distribution groups - Retrieve All Contacts
+# Retrieve All Contacts
 
 
  _**Applies to:** Skype for Business 2015_

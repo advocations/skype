@@ -1,5 +1,5 @@
 
-# Search for persons and distribution groups - Display Contact Card
+# Display Contact Card
 
 
  _**Applies to:** Skype for Business 2015_

@@ -24,6 +24,6 @@ declare module jCafe {
          * downloaded by the client.
          * This method can be used for scrolling through conversation history 
          */
-        getMoreActivityItems: Command<(count: number) => Promise<void>>;
+        getMoreActivityItems: Command<(count?: number) => Promise<void>>;
     }
 }

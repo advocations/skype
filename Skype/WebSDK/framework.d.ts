@@ -63,7 +63,10 @@ interface Framework {
     popupResponse: string,
     processingStatus: string,
     showModal: (modalText: string) => void,
-    updateAuthenticationList: () => void
+    updateAuthenticationList: () => void,
+    invokeHistory: (convNum: number) => void,
+    convs: any;
+    convNum: number;    
 }
 
 interface Window {

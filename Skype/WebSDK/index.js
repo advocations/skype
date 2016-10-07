@@ -74,6 +74,8 @@
         window.framework = {
             popupResponse: 'undefined',
             processingStatus: 'undefined',
+            convs: {},
+            convNum: 0,
             showModal: function (modalText) {
                 var modalEl = document.createElement('div');
                 modalEl.style.width = '25em';
@@ -94,6 +96,10 @@
                 div.innerHTML = '<br/><br/><br/>' + div.innerHTML;
                 modalEl.appendChild(div);
                 mui.overlay('on', modalEl);
+            },
+            invokeHistory: function (convNum) {
+                window.framework.addNotification('info', 'Trying to fetch conversation logs...');
+                window.framework.convs[convNum].historyService.getMoreActivityItems();
             },
             addEventListener: function (element, event, callback) {
                 if (element.addEventListener) {
