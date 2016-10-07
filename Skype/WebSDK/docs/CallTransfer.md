@@ -1,5 +1,9 @@
 # Transferring audio calls in the SDK
 
+ _**Applies to:** Skype for Business 2015_
+
+ _**Prerequisites:** To use Call Transfer, user needs a valid Office 365 Enterprise E5 license with PSTN calling set up_
+
 ## Simple call transfer
 
 An ongoing audio call can be transferred to a SIP URI:

@@ -62,7 +62,8 @@ interface Framework {
     rejectIncomingChat: () => void,
     popupResponse: string,
     processingStatus: string,
-    showModal: (modalText: string) => void
+    showModal: (modalText: string) => void,
+    updateAuthenticationList: () => void
 }
 
 interface Window {

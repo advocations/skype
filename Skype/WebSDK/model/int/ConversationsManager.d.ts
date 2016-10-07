@@ -10,7 +10,7 @@ declare module jCafe {
          *  Conversations already received by previous calls will not be received again.
          *  Command will be disabled when there are no more conversation on server available. 
          */
-        getMoreConversations: Command<(count: number) => Promise<void>>;
+        getMoreConversations: Command<(count?: number) => Promise<void>>;
 
         unreadConversationsCount: Property<number>;
     }

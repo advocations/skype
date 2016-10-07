@@ -18,18 +18,21 @@
         const version = config.version;
         const domain = (<HTMLInputElement>content.querySelector('.domain')).value;
         const api = window.framework.api;
-        window.framework.reportStatus('Signing In...', window.framework.status.info);
-        // @snippet
+        document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Verifying credentials & Signing-in...";
+        (<HTMLElement>document.getElementsByClassName('before-signin-wa')[0]).style.display = 'none';
+        (<HTMLElement>document.getElementsByClassName('azuread-signin')[0]).style.display = 'block';
         const application = api.UIApplicationInstance;
         application.signInManager.signIn({
             version: version,
             domain: domain
         }).then(() => {
-            window.framework.reportStatus('Signed In', window.framework.status.success);
+            (<HTMLInputElement>document.getElementsByClassName('azuread-signin')[0]).style.display = 'none';
+            (<HTMLInputElement>document.getElementsByClassName('after-signin-wa')[0]).style.display = 'block';
+            window.framework.updateAuthenticationList();
         }, error => {
-            window.framework.reportError(error);
+            (<HTMLInputElement>document.getElementsByClassName('azuread-signin')[0]).style.display = 'none';
+            (<HTMLInputElement>document.getElementsByClassName('after-signin-error-wa')[0]).style.display = 'block';
         }).then(reset);
-        // @end_snippet
         window.framework.application = application;
     });
 })();

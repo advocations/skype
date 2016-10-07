@@ -2,6 +2,8 @@
 # Phone Audio Call
 
  _**Applies to:** Skype for Business 2015_
+ 
+ _**Prerequisites:** To use Phone Audio, user needs a valid Office 365 Enterprise E5 license with PSTN calling set up_
 
 ## Starting a Phone Audio Call
 

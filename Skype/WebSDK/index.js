@@ -394,388 +394,388 @@
                 timeDiv.innerHTML = item.timestamp().toLocaleTimeString();
                 rightCellDiv.appendChild(timeDiv);
                 container.scrollTop = container.scrollHeight;
-            }
-            // createVideoContainer: function (container, size, person) {
-            //     var name = person.displayName();
-            //     var div = container.querySelector('div div.name[data-name="' + name + '"]');
-            //     if (!div) {
-            //         div = document.createElement('div');
-            //         div.className = size;
-            //         container.appendChild(div);
-            //         var nameDiv = document.createElement('div');
-            //         nameDiv.className = 'name';
-            //         nameDiv.setAttribute('data-name', name);
-            //         nameDiv.innerHTML = name;
-            //         div.appendChild(nameDiv);
-            //     } else {
-            //         div = null;
-            //     }
+            },
+            updateAuthenticationList: function () {
+            var sidebar = document.getElementsByClassName('sidebar')[0];
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].style.display = 'none';
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].style.display = 'none';
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[2].style.display = 'none';
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.display = 'none';
+            var name = document.createElement('div');
+            name.appendChild(document.createTextNode('Signed in as: ' + window.framework.application.personsAndGroupsManager.mePerson.displayName()));
+            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(name);
+            var photo = document.createElement('img');
+            photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
+            window.setTimeout(function (photo) {
+                // if the photo isn't set revert back to a default
+                if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
+                    photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
+                }
+                sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(photo);
+            }, 1000, photo);
+        }
+        // createVideoContainer: function (container, size, person) {
+        //     var name = person.displayName();
+        //     var div = container.querySelector('div div.name[data-name="' + name + '"]');
+        //     if (!div) {
+        //         div = document.createElement('div');
+        //         div.className = size;
+        //         container.appendChild(div);
+        //         var nameDiv = document.createElement('div');
+        //         nameDiv.className = 'name';
+        //         nameDiv.setAttribute('data-name', name);
+        //         nameDiv.innerHTML = name;
+        //         div.appendChild(nameDiv);
+        //     } else {
+        //         div = null;
+        //     }
 
-            //     return div;
-            // }
-        };
+        //     return div;
+        // }
+    };
 
-        // check for hash containing access_token
-        var index = location.href.indexOf('#');
-        if (index !== -1 && location.href.length > index + 1) {
-            window.framework.auth = {};
-            var hash = location.href.slice(index + 1);
-            var items = hash.split('&');
-            for (var i = 0; i < items.length; i++) {
-                var parts = items[i].split('=');
-                window.framework.auth[parts[0]] = parts[1];
-            }
+    // check for hash containing access_token
+    var index = location.href.indexOf('#');
+    if (index !== -1 && location.href.length > index + 1) {
+        window.framework.auth = {};
+        var hash = location.href.slice(index + 1);
+        var items = hash.split('&');
+        for (var i = 0; i < items.length; i++) {
+            var parts = items[i].split('=');
+            window.framework.auth[parts[0]] = parts[1];
+        }
 
-            if (window.history && window.history.replaceState) {
-                //window.history.replaceState({}, document.title, '');
-            }
+        if (window.history && window.history.replaceState) {
+            //window.history.replaceState({}, document.title, '');
         }
     }
+}
 
     function getStatusPath(value) {
-        var path = window.framework.getContentLocation() + 'images/samples/status/';
+    var path = window.framework.getContentLocation() + 'images/samples/status/';
 
-        switch (value) {
-            case 'Online':
-                return path + 'available.png';
-            case 'Away':
-            case 'BeRightBack':
-            case 'IdleOnline':
-                return path + 'away.png';
-            case 'Busy':
-            case 'IdleBusy':
-                return path + 'busy.png';
-            case 'DoNotDisturb':
-                return path + 'do-not-disturb.png';
-            default:
-                return path + 'unknown.png';
-        }
+    switch (value) {
+        case 'Online':
+            return path + 'available.png';
+        case 'Away':
+        case 'BeRightBack':
+        case 'IdleOnline':
+            return path + 'away.png';
+        case 'Busy':
+        case 'IdleBusy':
+            return path + 'busy.png';
+        case 'DoNotDisturb':
+            return path + 'do-not-disturb.png';
+        default:
+            return path + 'unknown.png';
     }
+}
 
-    function populateSidebar() {
-        // load config file to get data used for samples
-        var request = createXHR();
-        request.onreadystatechange = function () {
-            if (request.readyState === 4) {
-                if (request.status === 200) {
-                    processConfig(request.responseText);
+function populateSidebar() {
+    // load config file to get data used for samples
+    var request = createXHR();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                processConfig(request.responseText);
 
-                    // hack open the sidebar on authentication
-                    var auth = document.querySelector('.sidebar > div > ul > li > div');
-                    if (auth) {
-                        auth.click();
-                    }
-                } else {
-                    // TODO: we probably need to navigate to an error page...
-                    window.console.log('Encountered error requesting configuration...');
+                // hack open the sidebar on authentication
+                var auth = document.querySelector('.sidebar > div > ul > li > div');
+                if (auth) {
+                    auth.click();
                 }
-            }
-        };
-
-        var configUrl = window.framework.getContentLocation() + 'samples/config.json';
-        request.open('get', configUrl);
-        request.send();
-    }
-
-    function processConfig(data) {
-        var config = JSON.parse(data);
-        var sidebar = document.querySelector('.sidebar');
-        var div = document.createElement('div');
-        var ul = document.createElement('ul');
-
-        if (config) {
-            for (var i = 0; i < config.categories.length; i++) {
-                addSamples(config.categories[i], ul);
+            } else {
+                // TODO: we probably need to navigate to an error page...
+                window.console.log('Encountered error requesting configuration...');
             }
         }
+    };
 
-        div.appendChild(ul);
-        sidebar.appendChild(div);
-    }
+    var configUrl = window.framework.getContentLocation() + 'samples/config.json';
+    request.open('get', configUrl);
+    request.send();
+}
 
-    function addSamples(category, list) {
-        var li = document.createElement('li');
-        var div = document.createElement('div');
-        var ol = document.createElement('ol');
+function processConfig(data) {
+    var config = JSON.parse(data);
+    var sidebar = document.querySelector('.sidebar');
+    var div = document.createElement('div');
+    var ul = document.createElement('ul');
 
-        li.appendChild(div);
-        li.appendChild(ol);
-        list.appendChild(li);
-
-        div.innerHTML = category.name;
-        div.style.fontSize = window.framework.getContentLocation() === '' ? '1.2em' : '1.6em'; // Font discrepancy on the hosted site
-
-        // add preview to category
-        if (category.preview) {
-            var span = document.createElement('span');
-            span.innerHTML = ' (Preview)';
-            div.appendChild(span);
-        }
-
-        window.framework.addEventListener(div, 'click', function (e) {
-            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
-                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
-            }
-            var ol;
-            if (e.target.innerHTML === ' (Preview)') {
-                ol = e.target.parentElement.parentElement.children[1];
-            } else {
-                ol = e.target.parentElement.children[1];
-            }
-
-            if (ol.style.display === '' || ol.style.display === 'none') {
-                ol.style.display = 'block';
-            } else {
-                ol.style.display = 'none';
-            }
-        });
-
-        for (var i = 0; i < category.items.length; i++) {
-            addSample(category.items[i], ol);
+    if (config) {
+        for (var i = 0; i < config.categories.length; i++) {
+            addSamples(config.categories[i], ul);
         }
     }
 
-    function addSample(item, list) {
-        var element = document.createElement('li');
-        var anchor = document.createElement('a');
-        var itemUrl = window.framework.getContentLocation() + item.location;
-        anchor.setAttribute('data-location', itemUrl);
-        anchor.href = '#';
-        anchor.innerHTML = item.name;
-        window.framework.addEventListener(anchor, 'click', function (e) {
-            e.preventDefault();
-            // hide the landing if it's still visible
-            var landing = document.querySelector('.landing');
-            if (landing.style.display !== 'none') {
-                landing.style.display = 'none';
-            }
+    div.appendChild(ul);
+    sidebar.appendChild(div);
+}
 
-            var src = e.target.getAttribute('data-location');
-            var content = document.querySelector('.content > div[data-location="' + src + '"]');
-            if (window.framework.findContentDiv()) {
-                var location = window.framework.findContentDiv().getAttribute('data-location');
-                if (window.framework.navigationCallbacks[location] && window.framework.navigationCallbacks[location]() === false) {
-                    // if the callback returns true we should prevent content navigation
-                    return;
-                }
-            }
+function addSamples(category, list) {
+    var li = document.createElement('li');
+    var div = document.createElement('div');
+    var ol = document.createElement('ol');
 
-            // clean up any stray UI on previous samples 
-            document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-            for (var i = 0; i < document.getElementsByClassName('contacts').length; i++) {
-                document.getElementsByClassName('contacts')[i].innerHTML = '';
-            }
-            for (var i = 0; i < document.getElementsByClassName('contactcard').length; i++) {
-                document.getElementsByClassName('contactcard')[i].innerHTML = '';
-            }
-            for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
-                document.getElementsByClassName('notification-bar')[i].style.display = 'none';
-            }
-            if (prevSelectedItem) {
-                prevSelectedItem.removeAttribute('style');
-            }
-            prevSelectedItem = e.target;
-            e.target.style.fontSize = '1.5em';
-            e.target.style.fontWeight = 'bold';
-            e.target.style.textDecoration = 'none';
+    li.appendChild(div);
+    li.appendChild(ol);
+    list.appendChild(li);
 
-            if (!content) {
-                populateSample(src, '.content', '.html');
-            } else {
-                var oldContent = window.framework.findContentDiv();
-                var activeStep = oldContent.querySelector('.step.activeStep');
-                var firstStep = oldContent.querySelector('.step');
-                if (activeStep !== firstStep) {
-                    activeStep.className = activeStep.className.replace('activeStep', 'hidden');
-                    firstStep.className = firstStep.className.replace('hidden', 'activeStep');
-                }
+    div.innerHTML = category.name;
+    div.style.fontSize = window.framework.getContentLocation() === '' ? '1.2em' : '1.6em'; // Font discrepancy on the hosted site
 
-                hideAllExcept('.content > div', content);
-            }
-        });
-
-        element.appendChild(anchor);
-        list.appendChild(element);
+    // add preview to category
+    if (category.preview) {
+        var span = document.createElement('span');
+        span.innerHTML = ' (Preview)';
+        div.appendChild(span);
     }
 
-    function populateSample(location, container, type) {
-        var request = createXHR();
-        request.onreadystatechange = function () {
-            if (request.readyState === 4) {
-                if (request.status === 200) {
-                    if (type === '.js') {
-                        var data = parseScript(request.responseText.replace(/</g, "&lt;").replace(/>/g, "&gt;"), 'ignore');
+    window.framework.addEventListener(div, 'click', function (e) {
+        document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+        for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+            document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+        }
+        var ol;
+        if (e.target.innerHTML === ' (Preview)') {
+            ol = e.target.parentElement.parentElement.children[1];
+        } else {
+            ol = e.target.parentElement.children[1];
+        }
 
-                        if (!document.querySelector('script[src="' + location + '/index' + '.js"]')) {
-                            populateSnippets(data, document.querySelector('.content > div[data-location="' + location + '"]'));
+        if (ol.style.display === '' || ol.style.display === 'none') {
+            ol.style.display = 'block';
+        } else {
+            ol.style.display = 'none';
+        }
+    });
 
-                            var script = document.createElement('script');
-                            script.type = 'text/javascript';
-                            script.src = location + '/index' + type;
-                            document.body.appendChild(script);
-                        } else {
-                            window.console.log('script already added...');
-                        }
+    for (var i = 0; i < category.items.length; i++) {
+        addSample(category.items[i], ol);
+    }
+}
+
+function addSample(item, list) {
+    var element = document.createElement('li');
+    var anchor = document.createElement('a');
+    var itemUrl = window.framework.getContentLocation() + item.location;
+    anchor.setAttribute('data-location', itemUrl);
+    anchor.href = '#';
+    anchor.innerHTML = item.name;
+    window.framework.addEventListener(anchor, 'click', function (e) {
+        e.preventDefault();
+        // hide the landing if it's still visible
+        var landing = document.querySelector('.landing');
+        if (landing.style.display !== 'none') {
+            landing.style.display = 'none';
+        }
+
+        var src = e.target.getAttribute('data-location');
+        var content = document.querySelector('.content > div[data-location="' + src + '"]');
+        if (window.framework.findContentDiv()) {
+            var location = window.framework.findContentDiv().getAttribute('data-location');
+            if (window.framework.navigationCallbacks[location] && window.framework.navigationCallbacks[location]() === false) {
+                // if the callback returns true we should prevent content navigation
+                return;
+            }
+        }
+
+        // clean up any stray UI on previous samples 
+        document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+        for (var i = 0; i < document.getElementsByClassName('contacts').length; i++) {
+            document.getElementsByClassName('contacts')[i].innerHTML = '';
+        }
+        for (var i = 0; i < document.getElementsByClassName('contactcard').length; i++) {
+            document.getElementsByClassName('contactcard')[i].innerHTML = '';
+        }
+        for (var i = 0; i < document.getElementsByClassName('notification-bar').length; i++) {
+            document.getElementsByClassName('notification-bar')[i].style.display = 'none';
+        }
+        if (prevSelectedItem) {
+            prevSelectedItem.removeAttribute('style');
+        }
+        prevSelectedItem = e.target;
+        e.target.style.fontSize = '1.5em';
+        e.target.style.fontWeight = 'bold';
+        e.target.style.textDecoration = 'none';
+
+        if (!content) {
+            populateSample(src, '.content', '.html');
+        } else {
+            var oldContent = window.framework.findContentDiv();
+            var activeStep = oldContent.querySelector('.step.activeStep');
+            var firstStep = oldContent.querySelector('.step');
+            if (activeStep !== firstStep) {
+                activeStep.className = activeStep.className.replace('activeStep', 'hidden');
+                firstStep.className = firstStep.className.replace('hidden', 'activeStep');
+            }
+
+            hideAllExcept('.content > div', content);
+        }
+    });
+
+    element.appendChild(anchor);
+    list.appendChild(element);
+}
+
+function populateSample(location, container, type) {
+    var request = createXHR();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                if (type === '.js') {
+                    var data = parseScript(request.responseText.replace(/</g, "&lt;").replace(/>/g, "&gt;"), 'ignore');
+
+                    if (!document.querySelector('script[src="' + location + '/index' + '.js"]')) {
+                        populateSnippets(data, document.querySelector('.content > div[data-location="' + location + '"]'));
+
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = location + '/index' + type;
+                        document.body.appendChild(script);
                     } else {
-                        var element = document.querySelector(container);
-                        var div = document.createElement('div');
-                        div.setAttribute('data-location', location);
-                        div.innerHTML = request.responseText;
-
-                        // search div and hide other steps~
-                        var items = div.querySelectorAll('.step');
-                        for (var i = 0; i < items.length; i++) {
-                            if (items[i] === div.querySelector('.step:first-child')) {
-                                items[i].className += ' activeStep';
-                            } else {
-                                items[i].className += ' hidden';
-                            }
-                        }
-
-                        // now that Html is loaded we can safely load the related JS
-                        populateSample(location, null, '.js');
-                        element.appendChild(div);
-                        hideAllExcept(container + ' > div', div);
+                        window.console.log('script already added...');
                     }
                 } else {
-                    // TODO: we probably need to display an error for this sample...
-                    window.console.log('Encountered error requesting sample...');
+                    var element = document.querySelector(container);
+                    var div = document.createElement('div');
+                    div.setAttribute('data-location', location);
+                    div.innerHTML = request.responseText;
+
+                    // search div and hide other steps~
+                    var items = div.querySelectorAll('.step');
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i] === div.querySelector('.step:first-child')) {
+                            items[i].className += ' activeStep';
+                        } else {
+                            items[i].className += ' hidden';
+                        }
+                    }
+
+                    // now that Html is loaded we can safely load the related JS
+                    populateSample(location, null, '.js');
+                    element.appendChild(div);
+                    hideAllExcept(container + ' > div', div);
                 }
+            } else {
+                // TODO: we probably need to display an error for this sample...
+                window.console.log('Encountered error requesting sample...');
             }
-        };
-        request.open('get', location + '/index' + type);
-        request.send();
+        }
+    };
+    request.open('get', location + '/index' + type);
+    request.send();
+}
+
+function parseScript(script, type) {
+    var snippets = [];
+    var lines = script.split('\r\n');
+    var indexes = [];
+    var index = 0;
+
+    for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('// @' + type) !== -1) {
+            indexes.push({
+                start: i
+            });
+        } else if (lines[i].indexOf('// @end_' + type) !== -1) {
+            indexes[index++].end = i;
+        }
     }
 
-    function parseScript(script, type) {
-        var snippets = [];
-        var lines = script.split('\r\n');
-        var indexes = [];
+    for (var i = indexes.length - 1; i >= 0; i--) {
+        if (type === 'snippet') {
+            var snippet = lines.slice(indexes[i].start + 1, indexes[i].end);
+            var firstNonWhitespace = lines[indexes[i].start].search(/\S/);
+            for (var j = 0; j < snippet.length; j++) {
+                snippet[j] = snippet[j].slice(firstNonWhitespace);
+            }
+            lines.splice(indexes[i].start, 1);
+            lines.splice(indexes[i].end - 1, 1);
+            snippets.push(snippet.join('\r\n'));
+        } else if (type === 'ignore') {
+            lines.splice(indexes[i].start, indexes[i].end - indexes[i].start + 1);
+        }
+    }
+
+    if (type === 'ignore') {
+        return parseScript(lines.join('\r\n'), 'snippet');
+    }
+    else if (snippets.length !== 0) {
+        snippets.reverse();
+    }
+
+    return snippets;
+}
+
+function populateSnippets(snippets, content) {
+    if (snippets.length !== 0) {
+        var divs = content.querySelectorAll('.snippet');
         var index = 0;
 
-        for (var i = 0; i < lines.length; i++) {
-            if (lines[i].indexOf('// @' + type) !== -1) {
-                indexes.push({
-                    start: i
-                });
-            } else if (lines[i].indexOf('// @end_' + type) !== -1) {
-                indexes[index++].end = i;
-            }
-        }
-
-        for (var i = indexes.length - 1; i >= 0; i--) {
-            if (type === 'snippet') {
-                var snippet = lines.slice(indexes[i].start + 1, indexes[i].end);
-                var firstNonWhitespace = lines[indexes[i].start].search(/\S/);
-                for (var j = 0; j < snippet.length; j++) {
-                    snippet[j] = snippet[j].slice(firstNonWhitespace);
-                }
-                lines.splice(indexes[i].start, 1);
-                lines.splice(indexes[i].end - 1, 1);
-                snippets.push(snippet.join('\r\n'));
-            } else if (type === 'ignore') {
-                lines.splice(indexes[i].start, indexes[i].end - indexes[i].start + 1);
-            }
-        }
-
-        if (type === 'ignore') {
-            return parseScript(lines.join('\r\n'), 'snippet');
-        }
-        else if (snippets.length !== 0) {
-            snippets.reverse();
-        }
-
-        return snippets;
-    }
-
-    function populateSnippets(snippets, content) {
-        if (snippets.length !== 0) {
-            var divs = content.querySelectorAll('.snippet');
-            var index = 0;
-
-            for (var i = 0; i < divs.length; i++) {
-                var pre = document.createElement('pre');
-                pre.innerHTML = snippets[index];
-                divs[i].appendChild(pre);
-                index++;
-            }
+        for (var i = 0; i < divs.length; i++) {
+            var pre = document.createElement('pre');
+            pre.innerHTML = snippets[index];
+            divs[i].appendChild(pre);
+            index++;
         }
     }
+}
 
-    function hideAllExcept(selector, obj) {
-        var items = document.querySelectorAll(selector);
-        for (var i = 0; i < items.length; i++) {
-            if (items[i] === obj) {
-                items[i].style.display = '';
+function hideAllExcept(selector, obj) {
+    var items = document.querySelectorAll(selector);
+    for (var i = 0; i < items.length; i++) {
+        if (items[i] === obj) {
+            items[i].style.display = '';
+        } else {
+            items[i].style.display = 'none';
+        }
+    }
+}
+
+function initializeSkype() {
+    Skype.initialize({
+        apiKey: config.apiKeyCC,
+        supportsAudio: true,
+        supportsVideo: true,
+        convLogSettings: true
+    }, function (api) {
+        window.framework.api = api;
+
+        if (client_id && window.framework.auth) {
+            if (window.framework.auth.error) {
+                var error = window.framework.auth.error_description;
+                error = decodeURIComponent(error.replace(/\+/g, '%20'));
+                document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Error during OAuth sign-in: " + error;
             } else {
-                items[i].style.display = 'none';
+                document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Detected OAuth credentials, signing-in...";
+                document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
+                window.framework.application = window.framework.api.UIApplicationInstance;
+                window.framework.application.signInManager.signIn({
+                    version: config.version,
+                    client_id: client_id,
+                    origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
+                    cors: true,
+                    redirect_uri: location.href + location_config.token + '/token.html'
+                }).then(function () {
+                    document.getElementsByClassName('before-signin')[0].style.display = 'none';
+                    document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
+                    document.getElementsByClassName('after-signin')[0].style.display = 'block';
+                    window.framework.updateAuthenticationList();
+                });
             }
         }
-    }
+    }, function (err) {
+        alert('Error initializing Skype Web SDK: ' + err);
+    });
+}
 
-    function updateAuthenticationList() {
-        var sidebar = document.getElementsByClassName('sidebar')[0];
-        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].style.display = 'none';
-        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].style.display = 'none';
-        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[2].style.display = 'none';
-        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.display = 'none';
-        var name = document.createElement('div');
-        name.appendChild(document.createTextNode('Signed in as: ' + window.framework.application.personsAndGroupsManager.mePerson.displayName()));
-        sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(name);
-        var photo = document.createElement('img');
-        photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
-        window.setTimeout(function (photo) {
-            // if the photo isn't set revert back to a default
-            if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
-                photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
-            }
-            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(photo);
-        }, 1000, photo);
-    }
+function autoAuthenticate() {
 
-    function initializeSkype() {
-        Skype.initialize({
-            apiKey: config.apiKeyCC,
-            supportsAudio: true,
-            supportsVideo: true
-        }, function (api) {
-            window.framework.api = api;
+}
 
-            if (client_id && window.framework.auth) {
-                if (window.framework.auth.error) {
-                    var error = window.framework.auth.error_description;
-                    error = decodeURIComponent(error.replace(/\+/g, '%20'));
-                    document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Error during OAuth sign-in: " + error;
-                } else {
-                    document.getElementsByClassName('azuread-signin')[0].getElementsByTagName('text')[0].innerHTML = "Detected OAuth credentials, signing-in...";
-                    document.getElementsByClassName('azuread-signin')[0].style.display = 'block';
-                    window.framework.application = window.framework.api.UIApplicationInstance;
-                    window.framework.application.signInManager.signIn({
-                        version: config.version,
-                        client_id: client_id,
-                        origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
-                        cors: true,
-                        redirect_uri: location.href + location_config.token + '/token.html'
-                    }).then(function () {
-                        document.getElementsByClassName('before-signin')[0].style.display = 'none';
-                        document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
-                        document.getElementsByClassName('after-signin')[0].style.display = 'block';
-                        updateAuthenticationList();
-                    });
-                }
-            }
-        }, function (err) {
-            alert('Error initializing Skype Web SDK: ' + err);
-        });
-    }
-
-    function autoAuthenticate() {
-
-    }
-
-    createFramework();
-    populateSidebar();
-    initializeSkype();
-    autoAuthenticate();
+createFramework();
+populateSidebar();
+initializeSkype();
+autoAuthenticate();
 })();
