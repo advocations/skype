@@ -140,7 +140,6 @@
 
         // Options for renderConversation
         var options: any = {}
-        var modalities = [];
 
         if (conv.isGroupConversation()) {
             options.conversationId = conv.uri();

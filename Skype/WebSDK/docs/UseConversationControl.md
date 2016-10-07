@@ -35,11 +35,11 @@ join an IM conversation.
 <a name="setup"> </a>
 ## Add the Conversation Control to a webpage
 
-The steps in this section initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click 
+The below sections walk through the process to initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click 
 event handler for starting a new IM conversation.
 
-
-### Initialize the Skype Web SDK API endpoint.
+---
+## Initialize the Skype Web SDK API endpoint.
 
 - Declare a structure to hold the API keys
     
@@ -69,7 +69,7 @@ Skype.initialize({ apiKey: config.apiKeyCC }, function (api) {
 <a name='incoming-call'> </a>
 ## Render Conversation Control on incoming call
 
-- Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the 
+Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the 
 collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html).
 
 
@@ -79,53 +79,60 @@ app.conversationsManager.conversations.added(function (conversation) {
 });
 ```
 
-- Inside of the previous callback method, add a callback for changes in the audio channel state of the added conversation.
+Inside of the previous callback method, add a callback to detect when one of the modalities in the conversation becomes `'Notified'`.
 
-When the state of the channel is changed to 'Notified', an invitation to talk has been received. To show the [Conversation Control](ConversationControl.md), 
-call the  **renderConversation** method on the **UIApplicationInstance**.
+When the state of the channel is changed to `'Notified'`, an invitation to has been received. To show the [Conversation Control](ConversationControl.md), 
+call the  **renderConversation** method of the `api` object passed as a parameter to the callback of the **initialize** function.
 
->note: The default conversation modality is chat. If you want the conversation audio or video modality to be enabled when the Conversation Control
-is rendered, then add the modalities to the second argument of renderConversation. If you prefer to wait to show the modalities until a caller adds them, then
-omit the modalities from the initial state object. 
+>note: There is a known issue where adding modalities other than 'Chat' to the 'modalities' array in the second argument
+of **renderConversation** causes the Conversation Control to fail to be rendered. Audio and video can still be started later
+so it is advised to only pass the array `['Chat']` as the value of the modalities property on the object passed as the
+second argument of **renderConversation**.
 
+To render an incoming p2p conversation, invoke **renderConversation** with the sip uri of the sole participant as the only
+element of the `participants` array. To render an incoming group conversation, invoke **renderConversation** with the uri of
+the incoming group conversation passed as the `conversationId` property in the second parameter of **renderConversation**.
 
 ``` js
-// Add modalities if a/v call is to be started when the control is initially 
-// rendered. Otherwise omit them and by default Converstion Control is initiated 
-// in Chat mode with AV buttons enabled for the user to click and initiate AV call
+app.conversationsManager.conversations.added(function (conversation) {
+    var options = {};
 
-// If no modalities are specified, the default behavior is to launch Conversation 
-// Control with Chat and buttons to initiate AV call
+    if (conversation.isGroupConversation()) {
+        options.conversationId = conversation.uri();
+    }
+    else {
+        var participants = [];
+        participants.push(conversation.participants(0).person.id());
+        options.participants = participants;
+    }
+    options.modalities = ['Chat'];
 
-var state = {
-    participants: ['alexd@contoso.com'],
-    modalities: ['Chat','Audio','Video'] 
-};
+    api.renderConversation('#content', options).then(function (conversation) {
+        // Resolved promise when conversation is correctly rendered
+        console.log('Conversation rendered successfully', conversation);
 
-api.renderConversation('#content', state).then(function (conversation) {
-    // Resolved promise when conversation is correctly rendered
-    console.log('Conversation rendered successfully', conversation);
+        // Get notified when Conversation Control receives an incoming call
+        conversation.selfParticipant.audio.state.changed(function (newValue, reason, oldValue) {
+        // 'Notified' indicates that there is an incoming call
+            if (newValue === 'Notified') {
+                if (confirm("Would you like to accept this incoming call?")) {
+                    setTimeout(function() {
+                        // This accepts an incoming call with audio
+                        conversation.audioService.accept();
 
-    // Get notified when Conversation Control receives an incoming call
-    conversation.selfParticipant.audio.state.changed(function (newValue, reason, oldValue) {
-    // 'Notified' indicates that there is an incoming call
-        if (newValue === 'Notified') {
-            if (confirm("Would you like to accept this incoming call?")) {
-                setTimeout(function() {
-                    // This accepts an incoming call with audio
-                    conversation.audioService.accept();
-
-                    // To accept an incoming call with video enabled call
-                    // conversation.videoService.accept()
-                }, 0);
-            } else {
-                // Reject the incoming call
-                conversation.audioService.reject();
+                        // To accept an incoming call with video enabled call
+                        // conversation.videoService.accept()
+                    }, 0);
+                } else {
+                    // Reject the incoming call
+                    conversation.audioService.reject();
+                }
             }
-        }
+        });
+
+        // Add additional listeners for other modalities (Chat, Video)
     });
-});
-            
+});       
 ```
 
 ---
@@ -140,7 +147,7 @@ When the user clicks a button called 'callButton', the code takes the following 
 
 - Takes the sip addresses specified in the text inputs sip1 and sip2 and...
     
-- Creates a container to host the [Conversation Control](ConversationControl.md)and adds it as a child of an element called 'conversationContainer.'
+- Creates a container to host the [Conversation Control](ConversationControl.md) and adds it as a child of an element called 'conversationContainer.'
     
 - Renders the [Conversation Control](ConversationControl.md) in the new container by calling **renderConversation** and passing the hosting container, desired chat modality, and the array of invitee SIP addresses.
     
@@ -170,11 +177,10 @@ control.appendChild(div);
 api.renderConversation(div, {
     modalities: ['Chat'],
     participants: participants
-}).then(function (conv) {
+}).then(function (conversation) {
     // Conversation Control was rendered successfully
-    conversation = conv;
 
-    // Add additional listeners for changes to conversation state here
+    // Add additional listeners for changes to conversation state here (see below section)
 
     conversation.chatService.start().then(function () {
         // chatService started successfully
@@ -185,6 +191,8 @@ api.renderConversation(div, {
     // error rendering Conversation Control
 });
 ```
+
+### Observing state changes within the conversation
 
 Once the conversation is rendered, you can also add a number of listeners to observe changes
 in the state of the conversation, the states of individual modalities, and participants joining and leaving.
@@ -228,6 +236,9 @@ collection in the model.
 ``` js
 var newParticipants[];
 // Add new participant 'sip' addresses to 'newParticipants'
+// newParticipants.push(document.querySelector('.sip1').value);
+// newParticipants.push(document.querySelector('.sip2').value);
+// ...
 
 var newDiv = document.createElement('div');
 var control = document.querySelector('.conversationContainer');
