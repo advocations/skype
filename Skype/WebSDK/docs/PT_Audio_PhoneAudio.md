@@ -1,20 +1,18 @@
 
-# Outgoing PSTN Call
+# Phone Audio Call
 
  _**Applies to:** Skype for Business 2015_
 
-## Starting a Call
+## Starting a Phone Audio Call
 
-In order to make an audio call we need to:
+In order to make a phone audio call we need to:
 * create a conversation
 ```javascript
 var conversation = application.conversationsManager.getConversation('sip:XXXX');
-OR
-var conversation = application.conversationsManager.getConversation('tel:+XXXX');
 ```
-* start the audio call
+* start the audio call with the user, specifying the phone # where we want to connect the phone audio from
 ```javascript
-conversation.audioService.start();
+conversation.phoneAudioService.start({ teluri: 'tel:+1XXXX' });
 ```
 
 ## Conversation Call State
@@ -37,12 +35,11 @@ conversation.state.changed(function (newValue, reason, oldValue) {
 | *Disconnected* | ...When the conversation got disconnected |
 
 ## Self Participant Call state
-The `selfParticipant` property on the `conversation` object gives us access to the `audio` modallity which 
-allows us to observe the call state as a participant in the conversation.
-For example: if the state changes to `"Connected"` it means we have successfully connected to the audio call.
+The `state` property on the `phoneAudioService` allows us to observe the call state.
+For example: if the state changes to `"Connected"` it means we have successfully connected to the phone audio call.
 
 ```javascript
-conversation.selfParticipant.audio.state.when('Connected', function () {
+conversation.phoneAudioService.state.when('Connected', function () {
     //...
 });
 ```
@@ -75,20 +72,18 @@ Here is the code combined:
 
 ```javascript
 var conversation = application.conversationsManager.getConversation('sip:XXXX');
-OR
-var conversation = application.conversationsManager.getConversation('tel:+XXXX');
-conversation.selfParticipant.audio.state.when('Connected', function () {
-    console.log('Connected to audio call');
+conversation.phoneAudioService.state.when('Connected', function () {
+    // connected to phone audio
 });
 conversation.state.changed(function (newValue, reason, oldValue) {
-    console.log('Conversation state changed from', oldValue, 'to', newValue);
+    // Conversation state changed from oldValue to newValue
 });
 conversation.participants.added(function (participant) {
-    console.log('Participant:', participant.displayName(), 'has been added to the conversation');
+    // participant.displayName() has been added to the conversation
 });
-conversation.audioService.start().then(function() {
-    console.log('The call has been started successfully');
+conversation.phoneAudioService.start({teluri: 'tel:+1XXXX'}).then(function() {
+    // successfully started call
 }, function (error) {
-    console.log('An error occured starting the call', error);
+    // handle error
 });
 ```
