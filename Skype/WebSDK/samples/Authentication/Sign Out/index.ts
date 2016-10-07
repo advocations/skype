@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/SignOut.md' : 'Content/websdk/docs/SignOut.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_Authentication_SignOut.md' : 'Content/websdk/docs/PT_Authentication_SignOut.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     const updateAuthenticationList = () => {

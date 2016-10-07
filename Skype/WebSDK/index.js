@@ -157,6 +157,9 @@
                     case 'success':
                         iconClass = 'fa fa-thumbs-up success-notification';
                         break;
+                    case 'alert':
+                        iconClass = 'fa fa-exclamation-circle error-notification';
+                        break;
                 }
 
                 notificationElement.innerHTML = '<span class="' + iconClass + '"></span> <text> ' + text + ' </text>';

@@ -64,7 +64,7 @@
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const conversationsManager = window.framework.application.conversationsManager;
-        
+
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending Invitation...');
 
@@ -75,6 +75,10 @@
         }));
         listeners.push(conversation.participants.added(person => {
             window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
+        }));
+        listeners.push(conversation.participants.removed(person => {
+            window.framework.addNotification('info', person.displayName() + ' has left the conversation');
+            conversation.participants.size() === 0 && window.framework.addNotification('alert', 'You are the only one in this conversation. You can end this conversation and start a new one.');
         }));
         listeners.push(conversation.chatService.messages.added(item => {
             window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));

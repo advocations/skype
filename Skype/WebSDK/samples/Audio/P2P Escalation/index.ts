@@ -68,7 +68,7 @@
             window.framework.addNotification('error', 'SIP Address is not specified');
             return;
         }
-        
+
         window.framework.addNotification('info', 'Sending Invitation');
         conversation = conversationsManager.getConversation(id);
 
@@ -80,6 +80,11 @@
 
         listeners.push(conversation.participants.added(person => {
             window.framework.addNotification('info', person.displayName() + ' has joined the conversation');
+        }));
+
+        listeners.push(conversation.participants.removed(person => {
+            window.framework.addNotification('info', person.displayName() + ' has left the conversation');
+            conversation.participants.size() === 0 && window.framework.addNotification('alert', 'You are the only one in this conversation. You can end this conversation and start a new one.');
         }));
 
         listeners.push(conversation.state.changed((newValue, reason, oldValue) => {

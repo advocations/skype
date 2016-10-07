@@ -13,10 +13,10 @@ We can make use of the mePerson object exposed by personsAndGroupsManager and fr
 ```js
 var mePerson = application.personsAndGroupsManager.mePerson;
 mePerson.note.text.set(message).then(function () {
-    window.framework.reportStatus('Note Changed', window.framework.status.success);
+    // note changed succesfully 
 }, function (error) {
-    window.framework.reportError(error);
-}).then(reset);
+    // handle error
+});
 ```
 
 #### Other resources
