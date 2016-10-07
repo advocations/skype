@@ -10,14 +10,14 @@ Group objects have a name property that can be set triggering a rename operation
 
 ```js
 var groupOption = content.querySelector('.groupsSelect option:checked');
-var groupName = content.querySelector('.groupName').value;
+var groupName = (content.querySelector('.groupName')).value;
 var group = groups[groupOption.value];
 var application = window.framework.application;
-group.name.set(groupName).then(function () {
+group.name.set(groupName).then(() => {
     // group renamed successfully
-}, function (error) {
+}, error => {
     // handle error
-}).then(reset);
+    });
 ```
 
 ## Additional resources

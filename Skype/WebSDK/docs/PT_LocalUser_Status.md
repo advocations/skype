@@ -13,10 +13,10 @@ We can make use of the mePerson object exposed by personsAndGroupsManager and fr
 ```js
 var mePerson = application.personsAndGroupsManager.mePerson;
 mePerson.status.set(status).then(function () {
-    window.framework.reportStatus('Status Changed', window.framework.status.success);
+    // status changed succesfully 
 }, function (error) {
-    window.framework.reportError(error);
-}).then(reset);
+    // handle rrror
+});
 ```
 
 #### Other resources

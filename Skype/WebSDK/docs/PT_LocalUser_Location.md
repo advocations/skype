@@ -13,10 +13,10 @@ We can make use of the mePerson object exposed by personsAndGroupsManager and fr
 ```js
 var mePerson = application.personsAndGroupsManager.mePerson;
 mePerson.location.set(location).then(function () {
-    window.framework.reportStatus('Location Changed', window.framework.status.success);
+    // location changed succesfully 
 }, function (error) {
-    window.framework.reportError(error);
-}).then(reset);
+    // handle error
+});
 ```
 
 #### Other resources

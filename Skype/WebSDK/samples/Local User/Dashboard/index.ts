@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/LocalUser.md' : 'Content/websdk/docs/LocalUser.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_LocalUser_Dashboard.md' : 'Content/websdk/docs/PT_LocalUser_Dashboard.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     function reset () {
