@@ -15,14 +15,14 @@
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id2'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.messageToSend'));
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
         (<HTMLInputElement>content.querySelector('.id2')).value = '';
         (<HTMLInputElement>content.querySelector('.messageToSend')).value = '';
         (<HTMLElement>content.querySelector('.messages')).innerHTML = '';
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -32,7 +32,7 @@
         }
     }
 
-    function reset (bySample : Boolean) {
+    function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
 
@@ -42,8 +42,7 @@
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -66,10 +65,10 @@
         const conversationsManager = window.framework.application.conversationsManager;
         const id = (<HTMLInputElement>content.querySelector('.id')).value;
         const id2 = (<HTMLInputElement>content.querySelector('.id2')).value;
-        
+
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Inviting participants...');
-        
+
         conversation = conversationsManager.createConversation();
 
         listeners.push(conversation.selfParticipant.chat.state.when('Connected', () => {
@@ -77,6 +76,10 @@
         }));
         listeners.push(conversation.participants.added(person => {
             window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
+        }));
+        listeners.push(conversation.participants.removed(person => {
+            window.framework.addNotification('info', person.displayName() + ' has left the conversation');
+            conversation.participants.size() === 0 && window.framework.addNotification('alert', 'You are the only one in this conversation. You can end this conversation and start a new one.');
         }));
         listeners.push(conversation.chatService.messages.added(item => {
             window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));

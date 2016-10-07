@@ -34,8 +34,6 @@
 ##### [Property Model](WebSDK/docs/PropertyModel.md)
 ##### [Developing for Skype for Business Server](WebSDK/docs/DevelopForSkypeforBusiness.md)
 ##### [Developing Web SDK applications for Skype for Business Online](WebSDK/docs/DevelopWebSDKappsForSfBOnline.md)
-
-// AJ START
 #### [Programming Tasks](WebSDK/docs/ProgrammingTasks.md)
 ##### [Authentication](WebSDK/docs/PT_Authentication.md)
 ###### [Azure AD](WebSDK/docs/PT_Authentication_AzureAD.md)
@@ -60,9 +58,6 @@
 ###### [Remove Group](WebSDK/docs/PT_Groups_RemoveGroup.md)
 ###### [Rename Contact](WebSDK/docs/PT_Groups_RenameGroup.md)
 ###### [Search](WebSDK/docs/PT_Groups_Search.md)
-
-// AJ END
-
 ####  [Release Notes](WebSDK/docs/ReleaseNotes.md)
 ##### [Skype Web SDK Version Update Notifications](WebSDK/docs/SkypeWebSDKVersionUpdateNotifications.md)
 #### [CONTRIBUTING](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md)
