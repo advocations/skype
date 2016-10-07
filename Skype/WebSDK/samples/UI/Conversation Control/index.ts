@@ -28,6 +28,8 @@
 
         callButton.innerHTML = 'Start Conversation';
         callButton.disabled = false;
+        listenButton.innerHTML = 'Listen for incoming invitation';
+        listenButton.disabled = false;
     }
 
     function cleanupConversations() {
@@ -109,6 +111,8 @@
             return;
 
         listeningForIncoming = true;
+        listenButton.disabled = true;
+        listenButton.innerHTML= 'Listening...';
 
         // Render incoming call with Conversation control
         listeners.push(app.conversationsManager.conversations.added((conv) => {
@@ -168,20 +172,21 @@
         (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'block';
         
         window.framework.api.renderConversation(div, options).then(conv => {
+            renderedConversations.push(conv);
 
             listeners.push(conv.selfParticipant.chat.state.when('Connected', () => {
                 window.framework.addNotification('success', 'Connected to Chat');
             }));
 
-            listeners.push(conv.participants.added(person => {
-                window.framework.addNotification('info', person.displayName() + ' has joined the conversation');
+            listeners.push(conv.participants.added(p => {
+                window.framework.addNotification('info', p.person.displayName() + ' has joined the conversation');
             }));
 
             listeners.push(conv.state.changed((newValue, reason, oldValue) => {
                 window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
 
                 if (newValue === 'Connected' || newValue === 'Conferenced') {
-                    enableInCall();
+                    enableInCall(conv);
                 }
                 if (newValue === 'Disconnected' && (
                         oldValue === 'Connected' || oldValue === 'Connecting' ||
@@ -224,7 +229,7 @@
         }
     }
 
-    function endCall() {
+    function endCall(conversation) {
         window.framework.addNotification('info', 'Ending conversation ...');
 
         conversation.leave().then(() => {
@@ -242,11 +247,11 @@
         window.framework.addEventListener(resetButton, 'click', reset);
     }
 
-    function enableInCall() {
+    function enableInCall(conv) {
         const endCallButton = <HTMLInputElement>content.querySelector('.endCall');        
         gotoStep(2);
 
-        window.framework.addEventListener(endCallButton, 'click', endCall);        
+        window.framework.addEventListener(endCallButton, 'click', () => endCall(conv));        
     }
 
     function gotoStep(n) {
