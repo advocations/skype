@@ -16,7 +16,7 @@ interface RenderConversationArgs {
 interface API {
     application: { new (args?): jCafe.Application };
     UIApplicationInstance: jCafe.Application;
-    renderConversation(container: string | HTMLElement, args: RenderConversationArgs): jCafe.Promise<void>;
+    renderConversation(container: string | HTMLElement, args: RenderConversationArgs): jCafe.Promise<jCafe.Conversation>;
 }
 
 interface status {
