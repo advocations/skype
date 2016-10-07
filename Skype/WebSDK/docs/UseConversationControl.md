@@ -4,28 +4,35 @@
  _**Applies to:** Skype for Business_
 
  **In this article**  
-[Add the Conversation Control to a webpage](#sectionSection0)  
-[The complete code listing](#sectionSection1)  
-[Additional resources](#additional-resources)  
+- [Add the Conversation Control to a webpage](#setup)
+- [Render the Conversation Control on an incoming call](#incoming-call)
+- [Render the Conversation Control on an outgoing call](#outgoing-call)
+- [Render multiple Conversation Controls on a page](#multiple-cc)
+- [Additional resources](#additional-resources)
 
+The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and
+presentation layer that encapsulates IM and A/V conversations in one object. Use it when you want Skype
+Web SDK to draw the conversation UI for you. It can be implemented in your webpage with as few as three
+Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations,
+you will need to add an event handler for changes in the self participant chat channel.
 
-The Skype Web SDK [Conversation Control](ConversationControl.md) object contains the logic and presentation layer that encapsulates IM and A/V dialogs in one object. Use it when you want Skype Web SDK to draw the conversation UI for you. It is implemented in your webpage with as few as three Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations, you will need to add an event handler for changes in the self participant chat channel.
+To learn about the capabilities of the Conversation Control for each version of the SDK, see
+[Skype Web SDK Production Use Capabilities](APIProductKeys.md).
 
-To learn about the capabilities of the conversation control for each version of the SDK, see [Skype Web SDK Production Use Capabilities](APIProductKeys.md).
-
-Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The Microsoft Edge browser is shown in this example, but you can use 
-any other supported browser.
+Figure 1 shows the [Conversation Control](ConversationControl.md) in action. The Microsoft Edge
+browser is shown in this example, but you can use any other supported browser.
 
 **Figure 1. The Skype Web Conversation Control**
 
 
-![Skype Web SDK Conversation control](../images/8144ea64-e3f3-4880-9eb6-7e332fab9d4e.PNG)
+![Skype Web SDK Conversation Control](../images/8144ea64-e3f3-4880-9eb6-7e332fab9d4e.PNG)
 
 This topic takes you through the steps to add a [Conversation Control](ConversationControl.md) to you web app. Upon completion of these tasks, 
 your app will let a user sign in to Skype for Business on premise, initiate a new IM conversation with one or more people, and accept invitations to 
 join an IM conversation.
 
-<a name="sectionSection0"> </a>
+---
+<a name="setup"> </a>
 ## Add the Conversation Control to a webpage
 
 The steps in this section initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click 
@@ -34,13 +41,12 @@ event handler for starting a new IM conversation.
 
 ### Initialize the Skype Web SDK API endpoint.
 
-
 - Declare a structure to hold the API keys
     
 >**Important**  The API key values shown in this example are the literal values that you must use in your application. If you use any other strings, 
-your application will not initialize the API endpoint.Change the value of the  `version` key to uniquely identify your app. See [Skype Web SDK Production Use Capabilities](APIProductKeys.md) for a list of supported API keys.
+your application will not initialize the API endpoint.Change the value of the `version` key to uniquely identify your app. See [Skype Web SDK Production Use Capabilities](APIProductKeys.md) for a list of supported API keys.
 
-```js
+``` js
 var config = {
     version: '<my App>/1.0.0', 
     apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255', // SDK 
@@ -52,22 +58,22 @@ var config = {
 - Initialize the API endpoint and get the  **UIApplicationInstance** that provides the [Conversation Control](ConversationControl.md).
 
 
-```js
+``` js
 Skype.initialize({ apiKey: config.apiKeyCC }, function (api) {
     app = api.UIApplicationInstance;
-    //... 
-
+    //...
+});
 ```
 
-
-### Render conversation control on incoming call
-
+---
+<a name='incoming-call'> </a>
+## Render Conversation Control on incoming call
 
 - Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the 
 collection on the [ConversationsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html).
 
 
-```js
+``` js
 app.conversationsManager.conversations.added(function (conversation) {
     //...
 });
@@ -78,16 +84,15 @@ app.conversationsManager.conversations.added(function (conversation) {
 When the state of the channel is changed to 'Notified', an invitation to talk has been received. To show the [Conversation Control](ConversationControl.md), 
 call the  **renderConversation** method on the **UIApplicationInstance**.
 
->note: The default conversation modality is chat. If you want the conversation audio or video modality to be enabled when the conversation control
+>note: The default conversation modality is chat. If you want the conversation audio or video modality to be enabled when the Conversation Control
 is rendered, then add the modalities to the second argument of renderConversation. If you prefer to wait to show the modalities until a caller adds them, then
 omit the modalities from the initial state object. 
 
 
-```js
-
-//Add modalities if a/v call is to be started when the control is initially 
-//rendered. Otherwise omit them and by default Converstion Control is initiated 
-//in Chat mode with AV buttons enabled for the user to click and initiate AV call
+``` js
+// Add modalities if a/v call is to be started when the control is initially 
+// rendered. Otherwise omit them and by default Converstion Control is initiated 
+// in Chat mode with AV buttons enabled for the user to click and initiate AV call
 
 // If no modalities are specified, the default behavior is to launch Conversation 
 // Control with Chat and buttons to initiate AV call
@@ -101,7 +106,7 @@ api.renderConversation('#content', state).then(function (conversation) {
     // Resolved promise when conversation is correctly rendered
     console.log('Conversation rendered successfully', conversation);
 
-    // Get notified when conversation control receives an incoming call
+    // Get notified when Conversation Control receives an incoming call
     conversation.selfParticipant.audio.state.changed(function (newValue, reason, oldValue) {
     // 'Notified' indicates that there is an incoming call
         if (newValue === 'Notified') {
@@ -123,140 +128,120 @@ api.renderConversation('#content', state).then(function (conversation) {
             
 ```
 
-### Render conversation control on outgoing call
+---
+<a name="outgoing-call"> </a>
+## Render Conversation Control on outgoing call
 
-The following code example depends on a button that you add to your webpage. The id of the button is  `start-cv` for this example.
+The following sample shows you how to render a Conversation Control to represent an outgoing
+chat conversation with participants you specify. The sample depends on a couple text input
+HTML elements of classes 'sip1' and 'sip2' respectively. 
 
-When the user clicks the button, the code takes the following steps:
+When the user clicks a button called 'callButton', the code takes the following steps:
 
-
-- Prompts the user for a comma-delimited list of SIP addresses for invitees.
+- Takes the sip addresses specified in the text inputs sip1 and sip2 and...
     
-- Creates a container to host the [Conversation Control](ConversationControl.md)and appends it to a list of other conversations.
+- Creates a container to host the [Conversation Control](ConversationControl.md)and adds it as a child of an element called 'conversationContainer.'
     
 - Renders the [Conversation Control](ConversationControl.md) in the new container by calling **renderConversation** and passing the hosting container, desired chat modality, and the array of invitee SIP addresses.
     
 
-```js
-$('#start-cv').on('click', function () {
-    var input = prompt('SIP URIs of the participants:', 
-        'sip:example@example.com,sip:example2@example.com');
+``` js
+var conversationsManager = app.conversationsManager;
+var conversation;
+var id1 = document.querySelector('.sip1').value;
+var id2 = document.querySelector('.sip2').value;
+var participants = [];
 
-    if (!input)
-        return;
-        
-    var uris = input.split(',').map(function (s) { return s.trim(); });
-    console.log('participants:', uris);
-    var container = document.getElementById(input);
-    if (!container) {
-        container = document.createElement('div');
-        container.id = input;
-        document.querySelector('#conversations').appendChild(container);
-    }
-    var promise = api.renderConversation(container, {
-        //Start outgoing call with chat and audio
-        modalities: ['Chat','audio'],  
-        participants: uris
+if (id1 !== '') {
+    participants.push(id1);
+}
+if (id2 !== '') {
+    participants.push(id2);
+}
+if (!id1 && !id2) {
+    alert('error, must specify at least 1 SIP Address');
+    return;
+}
+
+var div = document.createElement('div');
+var control = document.querySelector('.conversationContainer');
+control.appendChild(div);
+
+api.renderConversation(div, {
+    modalities: ['Chat'],
+    participants: participants
+}).then(function (conv) {
+    // Conversation Control was rendered successfully
+    conversation = conv;
+
+    // Add additional listeners for changes to conversation state here
+
+    conversation.chatService.start().then(function () {
+        // chatService started successfully
+    }, function (error) {
+        // error starting chatService
     });
-    monitor('start conversation', promise);
+}, function (error) {
+    // error rendering Conversation Control
 });
 ```
 
-<a name="sectionSection1"> </a>
-## The complete code listing
+Once the conversation is rendered, you can also add a number of listeners to observe changes
+in the state of the conversation, the states of individual modalities, and participants joining and leaving.
+The sample code below shows how to add listeners for participants joining the conversation, and for
+changes in the conversation state. These listeners should be added inside the success callback of
+the '.then' function after renderConversation.
 
-The code in the previous sections is taken from the following JavaScript file.
+``` js
 
-```js
-var app;
-$(function () {
-    'use strict';
-    Skype.initialize({ apiKey: config.apiKeyCC }, function (api) {
-        app = api.UIApplicationInstance;
-        app.conversationsManager.conversations.added(function (conversation) {
+listeners.push(conversation.selfParticipant.chat.state.when('Connected', function () {
+    // chatService was connected successfully for the selfParticipant
+}));
 
-        //Add modalities if a/v call is to be started when the control is initially 
-        //rendered. Otherwise omit them and by default Converstion Control is initiated 
-        //in Chat mode with AV buttons enabled for the user to click and initiate AV call
-        
-        // If no modalities are specified, the default behavior is to launch Conversation 
-        // control with Chat and buttons to initiate AV call
-        
-        var state = {
-               participants: ['alexd@contoso.com'],
-               modalities: ['Chat','Audio','Video'] 
-        };
+listeners.push(conversation.participants.added(function (person) {
+    // Another participant has accepted an invitation and joined the conversation
+}));
 
-        api.renderConversation('#content', state).then(function (conversation) {
-           // Resolved promise when conversation is correctly rendered
-           console.log('Conversation rendered successfully', conversation);
-
-           // Get notified when conversation control receives an incoming call
-           conversation.selfParticipant.audio.state.changed(function (newValue, reason, oldValue) {
-           // 'Notified' indicates that there is an incoming call
-           if(newValue === 'Notified') {
-               if (confirm("Would you like to accept this incoming call?")) {
-                   setTimeout(function() {
-                       // This accepts an incoming call with audio
-                       conversation.audioService.accept();
-
-                       // To accept an incoming call with video enabled call
-                       // conversation.videoService.accept()
-                   }, 0);
-               } else {
-                   // Reject the incoming call
-                   conversation.audioService.reject();
-               }
-           }
-        });
-
-    });
-    $('#sign-in').on('click', function () {
-            var promise = app.signInManager.signIn({
-                version: config.version,
-                culture: 'en-us',
-                username: $('#username').val(),
-                password: $('#password').val()
-            });
-            monitor('sign in', promise);
-        });
-        $('#sign-out').on('click', function () {
-            var promise = app.signInManager.signOut();
-            monitor('sign out', promise);
-        });
-        $('#start-cv').on('click', function () {
-            var input = prompt('SIP URIs of the participants:', 'sip:example@example.com,sip:example2@example.com');
-            if (!input)
-                return;
-            var uris = input.split(',').map(function (s) { return s.trim(); });
-            console.log('participants:', uris);
-            var container = document.getElementById(input);
-            if (!container) {
-                container = document.createElement('div');
-                container.id = input;
-                document.querySelector('#conversations').appendChild(container);
-            }
-            var promise = api.renderConversation(container, {
-                modalities: ['Chat','audio'],
-                participants: uris
-            });
-            monitor('start conversation', promise);
-        });
-    });
-    function monitor(title, promise) {
-        console.log(title, 'started');
-        promise.then(function (res) {
-            console.log(title, 'succeeded', res);
-        }, function (err) {
-            console.log(title, 'failed', err &amp;&amp; err.stack || err);
-            alert(title + ' failed:' + err);
-        });
+listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+    window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
+    if (newValue === 'Connected' || newValue == 'Conferenced') {
+        // Call successfully connected
     }
-});
-
+    if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting' ||
+        oldValue === 'Conferenced' || oldValue === 'Conferencing')) {
+        // Call disconnected after being connected
+    }
+}));
 ```
 
+---
+<a name="multi-cc"> </a>
+## Render multiple Conversation Controls on a page
 
+Rendering multiple Conversation Controls in the same HTML page is very simple, and follows
+the same pattern as adding the first conversation. For each new conversation you want to render,
+you need to create a new `<div>` element to hold the new control, add it to the DOM, and pass it
+as a parameter to renderConversation, along with the list of participant SIP addresses. The newly
+created conversation will be rendered in the specified `<div>` and will be added to the conversations
+collection in the model.
+
+``` js
+var newParticipants[];
+// Add new participant 'sip' addresses to 'newParticipants'
+
+var newDiv = document.createElement('div');
+var control = document.querySelector('.conversationContainer');
+control.appendChild(div);
+
+api.renderConversation(div, {
+    modalities: ['Chat'],
+    participants: newParticipants
+}).then(
+    // Continue as in 'Render Conversation Control on outgoing call'
+);
+```
+
+---
 <a name="additional-resources"> </a>
 ## Additional resources
 
