@@ -9,7 +9,7 @@
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var app = window.framework.application, 
-        renderedConversations = [], // Represents **rendered** conversations, changed to 'renderedConversations'
+        renderedConversations = [], // Represents **rendered** conversations
         listeners = [],
         listeningForIncoming = false,
         callButton = <HTMLInputElement>content.querySelector('.call'),
@@ -30,21 +30,20 @@
         callButton.disabled = false;
         listenButton.innerHTML = 'Listen for incoming invitation';
         listenButton.disabled = false;
+
+        (<HTMLInputElement>content.querySelector('.endAllConvs')).style.display = 'none';
     }
 
     function cleanupConversations() {
         for (const rc of renderedConversations) {
             cleanupConversation(rc);
         }
+        renderedConversations = [];
     }
 
     function cleanupConversation (conversation) {
         if (conversation.state() !== 'Disconnected') {
-            conversation.leave().then(() => {
-                conversation = null;
-            });
-        } else {
-            conversation = null;
+            conversation.leave();
         }
     }
 
@@ -103,7 +102,7 @@
         createCC({
             participants: participants,
             modalities: ['Chat']
-        });
+        }, 'Outgoing');
     }
 
     function listenForIncoming () {
@@ -130,12 +129,17 @@
     }
 
     function startIncomingCall(conv) {
-        // TODO: Only allow start if not already in 'conversations'
-        // Add conv to 'conversations'
+        // Only allow start if not already in 'conversations'
+        for (const rc of renderedConversations) {
+            if (rc === conv)
+                return;
+        }
+
+        // Avoid rendering twice if both audio and chat are notified simultaneously
+        renderedConversations.push(conv);
 
         // Options for renderConversation
         var options: any = {}
-        var modalities = [];
 
         if (conv.isGroupConversation()) {
             options.conversationId = conv.uri();
@@ -144,22 +148,12 @@
             participants.push(conv.participants(0).person.id());
             options.participants = participants;
         }
-        
-        if (conv.selfParticipant.chat.state() == 'Notified') {
-            modalities.push('Chat');
-        }
-        // if (conv.selfParticipant.audio.state() == 'Notified') {
-        //     modalities.push('Audio');
-        // }
-        // if (conv.selfParticipant.video.state() == 'Notified') {
-        //     modalities.push('Video')
-        // }
 
-        options.modalities = modalities;
-        createCC(options);
+        options.modalities = ['Chat']; // TODO: adding audio or video causes renderConversation to fail
+        createCC(options, 'Incoming');
     }
 
-    function createCC(options) {
+    function createCC(options, direction) {
         window.framework.showNotificationBar();
 
         window.framework.addNotification('info', 'Creating Control...');
@@ -172,7 +166,8 @@
         (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'block';
         
         window.framework.api.renderConversation(div, options).then(conv => {
-            renderedConversations.push(conv);
+            if (direction === 'Outgoing')
+                renderedConversations.push(conv);
 
             listeners.push(conv.selfParticipant.chat.state.when('Connected', () => {
                 window.framework.addNotification('success', 'Connected to Chat');
@@ -192,15 +187,15 @@
                         oldValue === 'Connected' || oldValue === 'Connecting' ||
                         oldValue === 'Conferenced' || oldValue ==='Conferencing' )) {
                     window.framework.addNotification('info', 'Conversation disconnected');
-                    allowRestart();
+                    checkRestart();
                 }
             }));
 
-            // Decide whether to start or accept
-
             window.framework.addNotification('success', 'Control Created');
 
+            // Decide whether to start or accept
             startOrAcceptModalities(conv, options);
+
         }, error => {
             window.framework.addNotification('error', 'Failed to create conversation control');
         });
@@ -236,22 +231,30 @@
             window.framework.addNotification('success', 'Conversation ended.');
             allowRestart();
         }, error => {
-            window.framework.addNotification('error', 'End Conversation: ' + error && error.message);
+            window.framework.addNotification('error', 'End Conversation: ' + (error ? error.message : ''));
         });
+    }
+
+    function checkRestart() {
+        for (const rc of renderedConversations) {
+            if (rc.state() !== 'Disconnected')
+                return;
+        }
+        allowRestart();
     }
 
     function allowRestart() {
         const resetButton = <HTMLInputElement>content.querySelector('.restart');
-        gotoStep(3);
+        gotoStep(2);
 
         window.framework.addEventListener(resetButton, 'click', reset);
     }
 
     function enableInCall(conv) {
-        const endCallButton = <HTMLInputElement>content.querySelector('.endCall');        
-        gotoStep(2);
+        const endCallButton = <HTMLInputElement>content.querySelector('.endAllConvs');
+        endCallButton.style.display = 'block';       
 
-        window.framework.addEventListener(endCallButton, 'click', () => endCall(conv));        
+        window.framework.addEventListener(endCallButton, 'click', () => endCall(conv));
     }
 
     function gotoStep(n) {
