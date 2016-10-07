@@ -29,7 +29,7 @@
 
         callButton.innerHTML = 'Start Conversation';
         callButton.disabled = false;
-        listenButton.innerHTML = 'Listen for incoming invitation';
+        listenButton.innerHTML = 'Start Listening';
         listenButton.disabled = false;
 
         (<HTMLInputElement>content.querySelector('.endAllConvs')).style.display = 'none';

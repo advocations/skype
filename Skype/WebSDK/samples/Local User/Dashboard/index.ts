@@ -15,6 +15,8 @@
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.get'), 'click', () => {
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';
+        (<HTMLElement>content.querySelector('.contacts')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.contactcard')).innerHTML = '';
         const application = window.framework.application;
         const mePerson = application.personsAndGroupsManager.mePerson;
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
