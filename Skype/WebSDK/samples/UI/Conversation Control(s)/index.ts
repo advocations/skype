@@ -14,7 +14,8 @@
         listeningForIncoming = false,
         callButton = <HTMLInputElement>content.querySelector('.call'),
         listenButton = <HTMLInputElement>content.querySelector('.incoming'),
-        step = 1; // Keep track of what UI section to dislpay
+        step = 1, // Keep track of what UI section to dislpay
+        ccNumber = 1;
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip1'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip2'));
@@ -50,7 +51,7 @@
     function reset (bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>'
-
+        ccNumber = 1;
         gotoStep(1);
 
         // remove any outstanding event listeners
@@ -159,6 +160,8 @@
         window.framework.addNotification('info', 'Creating Control...');
         const div = document.createElement('div');
         var control = <HTMLElement>content.querySelector('.conversationContainer');
+        control.appendChild(document.createTextNode('Conversation Control #' + ccNumber));
+        ccNumber++;
         control.appendChild(div);
         const divider = document.createElement('div');
         divider.className = 'mui-divider';
