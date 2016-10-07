@@ -14,9 +14,9 @@ Copy-Item (Join-Path $path config.js) (Join-Path $path \samples\config.js) -Forc
 Write-Host "Finished Copying config.js"
 
 #tsc compile
-Write-Host "Compiling TS files"
+Write-Host "Compiling TS files" 
 $tsc = (Resolve-Path(Join-Path $PSScriptRoot ..\node_modules\typescript\lib\tsc.js))
-node $tsc -p $path
+node $tsc -p $path 
 Write-Host "Finished Compiling TS files"
 
 #process-samples
@@ -28,8 +28,8 @@ if ($Online)
     & (Join-Path $PSScriptRoot .\Build-CSHTML.ps1)
 
     #add license info
-    $content = gc ..\samples\license.txt -Raw
-    $content + (gc ..\index.js | Out-String) | sc ..\index.js
+    #$content = gc ..\samples\license.txt -Raw
+    #$content + (gc ..\index.js | Out-String) | sc ..\index.js
 }
 
 Write-Host "Finished Building Samples"

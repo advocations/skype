@@ -18,11 +18,13 @@
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip1'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip2'));
+    (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
     function cleanUI () {
         (<HTMLInputElement>content.querySelector('.sip1')).value = '';
         (<HTMLInputElement>content.querySelector('.sip2')).value = '';
         (<HTMLElement>content.querySelector('.conversationContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
         callButton.innerHTML = 'Start Conversation';
         callButton.disabled = false;
@@ -163,6 +165,7 @@
         const divider = document.createElement('div');
         divider.className = 'mui-divider';
         control.appendChild(divider);
+        (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'block';
         
         window.framework.api.renderConversation(div, options).then(conv => {
 
@@ -177,7 +180,7 @@
             listeners.push(conv.state.changed((newValue, reason, oldValue) => {
                 window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
 
-                if (newValue === 'Connected' || newValue == 'Conferenced') {
+                if (newValue === 'Connected' || newValue === 'Conferenced') {
                     enableInCall();
                 }
                 if (newValue === 'Disconnected' && (
@@ -226,6 +229,7 @@
 
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended.');
+            allowRestart();
         }, error => {
             window.framework.addNotification('error', 'End Conversation: ' + error && error.message);
         });

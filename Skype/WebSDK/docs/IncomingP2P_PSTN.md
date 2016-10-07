@@ -1,5 +1,5 @@
 
-# Incoming P2P Call
+# Incoming P2P/PSTN Call
 
  _**Applies to:** Skype for Business 2015_
 

@@ -5,13 +5,14 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/IncomingP2PAudio.md' : 'Content/websdk/docs/IncomingP2PAudio.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/IncomingP2P_PSTN.md' : 'Content/websdk/docs/IncomingP2P_PSTN.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation;
-    var listeners = [],
-        button = <HTMLInputElement>content.querySelector('.registerListeners'),
-        inCall = false;
+    var listeners = [];
+
+    function cleanUI() {
+    }
 
     function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
@@ -33,30 +34,32 @@
         }
         listeners = [];
 
-        inCall = false;
-        button.innerHTML = 'Start Listening';
-
         if (conversation) {
             if (bySample) {
                 cleanupConversation();
+                cleanUI();
             } else {
                 const result = window.confirm('Leaving this sample will end the conversation.  Do you really want to leave?');
                 if (result) {
                     cleanupConversation();
+                    cleanUI();
                 }
 
                 return result;
             }
+        } else {
+            cleanUI();
         }
     }
 
-    function registerInviteListener() {
+    window.framework.registerNavigation(reset);
+    window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Waiting for invitation...');
+
         listeners.push(conversationsManager.conversations.added(conv => {
             conversation = conv;
-
             listeners.push(conversation.audioService.accept.enabled.when(true, () => {
                 window.framework.showModal('Accept incoming audio invitation?');
                 const checkPopupResponse = () => {
@@ -66,51 +69,53 @@
                         if (window.framework.popupResponse === 'yes') {
                             window.framework.popupResponse = 'undefined';
                             conversation.audioService.accept();
-
-                            listeners.push(conversation.participants.added(participant => {
-                                window.framework.addNotification('info', participant.displayName() + 'has been added to the conversation');
+                            listeners.push(conversation.participants.added(person => {
+                                window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
                             }));
-
-                            window.framework.addNotification('success', 'Invitation Accepted');
-                            button.innerHTML = 'End Call'
-                            inCall = true;
+                            window.framework.addNotification('success', 'Invitation accepted');
                         } else {
                             window.framework.popupResponse = 'undefined';
                             conversation.audioService.reject();
-                            window.framework.addNotification('info', 'Invitation Rejected');
+                            window.framework.addNotification('error', 'Invitation rejected');
+                            reset(false);
                         }
                     }
                 }
                 checkPopupResponse();
             }));
-
+            listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
+                window.framework.addNotification('success', 'Connected to audio');
+            }));
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 oldValue && newValue && window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
-
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                     window.framework.addNotification('info', 'Conversation ended');
+                    (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+                    (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
                     reset(true);
                 }
             }));
         }));
-    }
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
+    });
 
-    function endCall() {
-        window.framework.addNotification('info', 'Ending conversation ...');
+    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
+        window.framework.addNotification('info', 'Ending conversation...');
         conversation.leave().then(() => {
+            window.framework.addNotification('success', 'Conversation ended');
+            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
         }, error => {
-            window.framework.addNotification('error', error && error.message);
+            window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
-    }
+    });
 
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.registerListeners'), 'click', () => {
-        if (inCall) {
-            return endCall();
-        }
-
-        registerInviteListener();
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
     });
 })();
