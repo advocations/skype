@@ -127,6 +127,38 @@ This is as simple as invoking the `leave` method:
 conversation.leave();
 ```
 
+### Sending context as part of conversation invites
+
+In certain scenarios your application may want to send some additional context as part of a conversation invite. For instance, if both the sender and recipient are applications written by you on top of the Skype Web SDK then the conversation initiator may want to indicate to the recipient that an incoming conversation be handled in some special way. This can be accomplished by passing contextual data as part of an invite:
+
+#### e.g. For the chat service:
+```js
+conversation.chatService.start({
+  .. other parameters
+  context: 'Some random data',
+  contextType: 'text/plain'
+});
+```
+#### e.g. For the audio service:
+```js
+conversation.audioService.start({
+  .. other parameters
+  context: { "key1": "value1" },
+  contextType: 'text/json'
+});
+```
+#### Description of the parameters:
+`context` : Strings, numbers, booleans or objects. Objects are JSON stringified before sending over the wire.\
+`contextType`: This is an optional parameter indicating to the recipient the mime.type of the context parameter. If contextType is unspecified then the SDK uses text/plain for primitive types or text/json for anything else.
+
+#### Obtaining the context on incoming conversations:
+The recipient can use the following approach to get the context and contextType sent by the sender.
+```js
+app.conversationsManager.conversations.added(function(conversation) {
+  var context = conversation.context();
+  var contextType = conversation.context && conversation.context.type();
+});
+```
     
 **Supported clients**
     
