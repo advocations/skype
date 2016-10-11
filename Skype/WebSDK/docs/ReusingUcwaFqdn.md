@@ -1,4 +1,4 @@
-# Resuing UCWA FQDN across signins
+# Reusing UCWA FQDN across signins
 
 The caller can get the rel=applications FQDN
 after sign-in is completed:
