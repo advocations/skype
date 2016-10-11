@@ -148,8 +148,8 @@ conversation.audioService.start({
 });
 ```
 #### Description of the parameters:
-`context` : Strings, numbers, booleans or objects. Objects are JSON stringified before sending over the wire.\
-`contextType`: This is an optional parameter indicating to the recipient the mime.type of the context parameter. If contextType is unspecified then the SDK uses text/plain for primitive types or text/json for anything else.
+* `context` : Strings, numbers, booleans or objects. Objects are JSON stringified before sending over the wire.
+* `contextType`: This is an optional parameter indicating to the recipient the mime.type of the context parameter. If contextType is unspecified then the SDK uses text/plain for primitive types or text/json for anything else.
 
 #### Obtaining the context on incoming conversations:
 The recipient can use the following approach to get the context and contextType sent by the sender.
