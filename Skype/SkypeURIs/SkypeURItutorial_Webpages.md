@@ -10,7 +10,7 @@ Skype provides two ways for using Skype URIs in your web pages:
 
 
 * [Skype Buttons](#buttons)
-* [Skype.ui JavaScript function](SkypeURItutorial_web pages.md)
+* [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md)
 
 Each of these approaches additionally determines whether a Skype client is installed, and takes the appropriate action.
 
