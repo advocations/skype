@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_Authentication_WindowsAuth.md' : 'Content/websdk/docs/PT_Authentication_WindowsAuth.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAuthWindowsAuth.md' : 'Content/websdk/docs/PTAuthWindowsAuth.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.domain'));

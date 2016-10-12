@@ -11,7 +11,7 @@ Once the call is established, we can add a participant to the conversation which
 
 In the case of a peer-to-peer, P2P, conversation the server will escalate it to a conference.
 
-```javascript
+```js
 conversation.participants.add('sip:xxx').then(function() {
     // participant added
 }, function (error) {
@@ -22,7 +22,7 @@ conversation.participants.add('sip:xxx').then(function() {
 ## Ending a Call
 To end the call, simply leave the conversation
 
-```javascript
+```js
 conversation.leave().then(function () {
     // successfully left the conversation
 }, function (error) {
@@ -33,7 +33,7 @@ conversation.leave().then(function () {
 ## Complete Code Sample
 Here is the complete code sample:
 
-```javascript
+```js
 var conversation = application.conversationsManager.getConversation('sip:xxx');
 conversation.selfParticipant.audio.state.when('Connected', function () {
     console.log('Connected to audio call');

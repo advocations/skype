@@ -8,11 +8,11 @@
 This section describes the different operations you can perform on the currently signed in user.
 
 
-- [Dashboard](PT_LocalUser_Dashboard.md)
+- [Dashboard](PTLocalUserDashboard.md)
     
-- [Location](PT_LocalUser_Location.md)
+- [Location](PTLocalUserLocation.md)
     
-- [Note](PT_LocalUser_Note.md)
+- [Note](PTLocalUserNote.md)
     
-- [Status](PT_LocalUser_Status.md)
+- [Status](PTLocalUserStatus.md)
 

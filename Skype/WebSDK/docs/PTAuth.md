@@ -8,12 +8,12 @@
 This section describes the different modes of authentication. Use one of the following ways to authenticate yourself and start using the Skype Web SDK:
 
 
-- [Azure AD](PT_Authentication_AzureAD.md)
+- [Azure AD](PTAuthAzureAD.md)
     
-- [Password](PT_Authentication_Password.md)
+- [Password](PTAuthPassword.md)
     
-- [Web Ticket](PT_Authentication_WebTicket.md)
+- [Web Ticket](PTAuthWebTicket.md)
     
-- [Windows Auth](PT_Authentication_WindowsAuth.md)
+- [Windows Auth](PTAuthWindowsAuth.md)
     
-- [Sign Out](PT_Authentication_SignOut.md)
+- [Sign Out](PTAuthSignOut.md)

@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_Authentication_Password.md' : 'Content/websdk/docs/PT_Authentication_Password.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAuthPassword.md' : 'Content/websdk/docs/PTAuthPassword.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.username'));

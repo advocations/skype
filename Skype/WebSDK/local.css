@@ -7,7 +7,7 @@ html, body {
   font-weight: lighter;
 }
 
-.center > .notification3 > .notification3-message {
+.center-content > .notification3 > .notification3-message {
   min-height: 1.3em;
 }
 

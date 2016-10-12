@@ -56,18 +56,18 @@
 /* end of sidebar styles */
 
 /* center styles */
-.center {
+.center-content {
   width: 84%;
   vertical-align: top;
   display: inline-block;
 }
 
-.center a {
+.center-content a {
   color: #0078ca;
   text-decoration: none;
 }
 
-.center a:hover {
+.center-content a:hover {
   color: #00588d;
   text-decoration: underline;
 }
@@ -256,7 +256,7 @@
   -o-animation: VisibilityFade 2s linear;
 }
 
-.center > .notification3 {
+center-content > .notification3 {
   margin: 0 0 12px 0;
   color: #fff;
   background-color: #00aff0;
@@ -266,7 +266,7 @@
   min-height: 1.3em;
 }
 
-.center > .notification3 > .notification3-message {
+center-content > .notification3 > .notification3-message {
   font-weight: 700;
   font-size: 1.3em;
 }

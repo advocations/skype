@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_Contacts_Search.md' : 'Content/websdk/docs/PT_Contacts_Search.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTContactsSearch.md' : 'Content/websdk/docs/PTContactsSearch.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.query'));
