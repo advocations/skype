@@ -117,9 +117,10 @@ var mc = app.devicesManager.mediaCapabilities;
 
 mc.isPluginInstalled.get().then(function(isInstalled) {
 	if (!isInstalled) {
-		Var pluginDownloadLinks = mc.pluginDownloadLinks();
-		Var msiLink = pluginDownloadLinks(‘msi’); // for Windows
-		Var macPkgLink = pluginDownloadLinks(‘pkg’); // for Mac
+		mc.pluginDownloadLinks.get().then(function(pluginDownloadLinks) {
+			Var msiLink = pluginDownloadLinks(‘msi’); // for Windows
+			Var macPkgLink = pluginDownloadLinks(‘pkg’); // for Mac
+		}
 	} else {
 		mc.installedVersion.get().then(function(version) {
 			console.log('Plugin version: ', version);
