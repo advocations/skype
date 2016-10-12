@@ -24,6 +24,7 @@
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -67,9 +68,10 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const conversationsManager = window.framework.application.conversationsManager;
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
-        const id2 = (<HTMLInputElement>content.querySelector('.id2')).value;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
+        const id2 = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id2')).value);
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Inviting participants...');
         conversation = conversationsManager.createConversation();
@@ -174,5 +176,6 @@
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     });
 })();

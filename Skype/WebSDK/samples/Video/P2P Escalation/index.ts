@@ -24,6 +24,8 @@
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -67,7 +69,8 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
@@ -87,15 +90,26 @@
                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
                 listeners.push(person.video.state.when('Connected', () => {
-                    if (Object.keys(videoMap).length === 1) {
-                        videoMap[person.displayName()] = 2;
-                        (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
-                        setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer2'));
-                    } else {
-                        videoMap[person.displayName()] = 1;
-                        (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
-                        setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer1'));
+                    if (!videoMap[person.displayName()]) {
+                        if (Object.keys(videoMap).length === 1 && videoMap[Object.keys(videoMap)[0]] === 1) {
+                            videoMap[person.displayName()] = 2;
+                            (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
+                            setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer2'));
+                        } else {
+                            videoMap[person.displayName()] = 1;
+                            (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                            setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer1'));
+                        }
                     }
+                    // if (Object.keys(videoMap).length === 1) {
+                    //     videoMap[person.displayName()] = 2;
+                    //     (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
+                    //     setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer2'));
+                    // } else {
+                    //     videoMap[person.displayName()] = 1;
+                    //     (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                    //     setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer1'));
+                    // }
                     if (conversation.isGroupConversation()) {
                         person.video.channels(0).isStarted(true);
                     }
@@ -155,7 +169,8 @@
     });
 
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id2')).value;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id2')).value);
         window.framework.addNotification('info', 'Adding participant');
         conversation.participants.add(id).then(() => {
             window.framework.addNotification('success', 'Participant added');
@@ -187,5 +202,7 @@
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
     });
 })();

@@ -14,12 +14,13 @@
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.tel'));
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
         (<HTMLInputElement>content.querySelector('.tel')).value = '';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     }
 
-    function cleanupConversation () {
+    function cleanupConversation() {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
@@ -29,7 +30,7 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
 
@@ -39,8 +40,7 @@
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -58,10 +58,24 @@
         }
     }
 
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+    }
+
+    function cleanRestart() {
+        conversation = null;
+        reset(true);
+        restart();
+    }
+
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
-        const teluri = (<HTMLInputElement>content.querySelector('.tel')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
+        const teluri = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.tel')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
@@ -85,7 +99,7 @@
             }
         }));
 
-        conversation.phoneAudioService.start({teluri: teluri}).then(() => {
+        conversation.phoneAudioService.start({ teluri: teluri }).then(() => {
             window.framework.addNotification('success', 'Phone audio service started');
         }, error => {
             window.framework.addNotification('error', error);
@@ -101,20 +115,20 @@
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
-        conversation.leave().then(() => {
+        conversation && conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
         }, error => {
             window.framework.addNotification('error', error);
+            cleanRestart();
         }).then(() => {
             reset(true);
         });
+        !conversation && cleanRestart();
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        restart();
     });
 })();

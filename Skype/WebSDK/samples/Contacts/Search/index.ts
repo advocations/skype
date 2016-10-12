@@ -18,7 +18,7 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.search'), 'click', () => {
-        const query = (<HTMLInputElement>content.querySelector('.query')).value;
+        const query = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.query')).value);
         const contactsDiv = <HTMLElement>content.querySelector('.contacts');
         const application = window.framework.application;
         (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'block';

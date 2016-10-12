@@ -20,6 +20,8 @@
         (<HTMLInputElement>content.querySelector('.messageToSend')).value = '';
         (<HTMLInputElement>content.querySelector('.messageToSend2')).value = '';
         (<HTMLElement>content.querySelector('.messages')).innerHTML = '';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.send')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -63,7 +65,8 @@
     window.framework.registerNavigation(reset);
 
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         conversation = conversationsManager.getConversation(id);
         window.framework.showNotificationBar();
@@ -89,6 +92,7 @@
     });
 
     window.framework.addEventListener(content.querySelector('.send'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.send')).disabled = true;
         const message = <HTMLInputElement>content.querySelector('.messageToSend');
         window.framework.addNotification('info', 'Sending invitation...');
         conversation.chatService.sendMessage(message.value).then(() => {
@@ -128,5 +132,7 @@
         (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
         (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.send')).disabled = false;
     });
 })();

@@ -19,6 +19,8 @@
         (<HTMLElement>content.querySelector('.remoteVideoContainer')).innerHTML = '';
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -61,7 +63,8 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         conversation = conversationsManager.getConversation(id);
         window.framework.showNotificationBar();
@@ -97,6 +100,7 @@
     });
 
     window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.add')).disabled = true;
         window.framework.addNotification('info', 'Adding video...');
 
         function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
@@ -157,5 +161,7 @@
         (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
     });
 })();

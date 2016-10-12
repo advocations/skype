@@ -20,7 +20,10 @@
         'Content/websdk/docs/CallTransfer.md');
 
     function cleanUI () {
-        
+        (<HTMLInputElement>vm.sipuri).value = '';
+        (<HTMLInputElement>vm.transferto).value = '';
+        (<HTMLInputElement>vm.start).disabled = false;
+        (<HTMLInputElement>vm.stop).disabled = false;
     }
 
     function cleanupConversation () {
@@ -62,12 +65,18 @@
         }
     }
 
+    function restart() {
+        conversation = null;
+        cleanUI();
+    }
+
     window.framework.registerNavigation(reset);
 
 
 
     window.framework.addEventListener(vm.start, 'click', () => {
-        const id = vm.sipuri.value;
+        (<HTMLInputElement>vm.start).disabled = true;
+        const id = window.framework.updateUserIdInput(vm.sipuri.value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
@@ -97,21 +106,29 @@
     });
 
     window.framework.addEventListener(vm.stop, 'click', () => {
+        (<HTMLInputElement>vm.stop).disabled = true;
        window.framework.addNotification('info', 'Ending conversation');
-        conversation.leave().then(() => {
+        conversation && conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
+            (<HTMLInputElement>vm.start).disabled = false;
+            (<HTMLInputElement>vm.transfer).disabled = false;
         }, error => {
             window.framework.addNotification('error', error);
+            restart();
         }).then(() => {
             reset(true);
         });
+        !conversation && restart();
     });
 
     window.framework.addEventListener(vm.transfer, 'click', () => {
-        const target = vm.transferto.value;
+        (<HTMLInputElement>vm.transfer).disabled = true;
+        const target = window.framework.updateUserIdInput(vm.transferto.value);
         window.framework.addNotification('info', 'Transferring the call...');
         conversation.audioService.transfer(target).then(() => {
             window.framework.addNotification('success', 'Call transferred');
+            (<HTMLInputElement>vm.start).disabled = false;
+            (<HTMLInputElement>vm.transfer).disabled = false;
         }, error => {
             window.framework.addNotification('error', error);
         });

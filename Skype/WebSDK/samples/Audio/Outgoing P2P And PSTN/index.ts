@@ -15,6 +15,7 @@
 
     function cleanUI () {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     }
 
     function cleanupConversation () {
@@ -58,7 +59,8 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
@@ -111,5 +113,6 @@
         (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     });
 })();

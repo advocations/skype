@@ -15,6 +15,9 @@
 
     function cleanUI() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.mute')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.unmute')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -57,8 +60,9 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const conversationsManager = window.framework.application.conversationsManager;
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
         conversation = conversationsManager.getConversation(id);
@@ -92,6 +96,7 @@
     });
 
     window.framework.addEventListener(content.querySelector('.mute'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.mute')).disabled = true;
         const participant = conversation.selfParticipant;
         window.framework.addNotification('info', 'Muting call...');
         const audio = participant.audio;
@@ -99,12 +104,14 @@
             window.framework.addNotification('success', 'Call muted');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+            (<HTMLInputElement>content.querySelector('.mute')).disabled = false;
         }, error => {
             window.framework.addNotification('error', error);
         });
     });
 
     window.framework.addEventListener(content.querySelector('.unmute'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.unmute')).disabled = true;
         const participant = conversation.selfParticipant;
         window.framework.addNotification('info', 'Unmuting call...');
         const audio = participant.audio;
@@ -112,6 +119,7 @@
             window.framework.addNotification('success', 'Call unmuted');
             (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
+            (<HTMLInputElement>content.querySelector('.unmute')).disabled = false;
         }, error => {
             window.framework.addNotification('error', error);
         });
@@ -136,5 +144,8 @@
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.mute')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.unmute')).disabled = false;
     });
 })();

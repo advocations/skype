@@ -5,7 +5,7 @@ declare var mui: any;
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_ConvHistory_Single.md' : 'Content/websdk/docs/PT_ConvHistory_Single.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_ConversationHistory_Single.md' : 'Content/websdk/docs/PT_ConversationHistory_Single.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation;
@@ -61,26 +61,55 @@ declare var mui: any;
         conversationsManager.getMoreConversations().then(() => {
             // console.log('done')
         });
-        window.framework.convNum = 0;
-        var i = 0;
-        listeners.push(conversationsManager.conversations.added(conv => {
-            window.framework.addNotification('success', 'Fetched conversation ' + (window.framework.convNum + 1));
-            const div = (<HTMLElement>content.querySelector('#step2'));
-            var conv1 = document.createElement('div');
-            var yesBtn = document.createElement('span');
-            window.framework.convs[window.framework.convNum] = conv;
-            yesBtn.innerHTML = '<button class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.framework.invokeHistory(' + i + ')">Get History</button> <br/> <div class="mui-divider"></div>';
-            var text = document.createElement('p');
-            window.framework.convNum++; i++;
-            text.innerHTML = 'Conversation ' + window.framework.convNum;
-            text.className = 'mui--text-title';
-            conv1.appendChild(text); conv1.appendChild(yesBtn);
-            div.appendChild(conv1);
-            listeners.push(conv.historyService.activityItems
-                .filter(item => item.type() === "TextMessage")
-                .added((msg: any) => {
-                    window.framework.addNotification('info', msg.sender.id() + ': ' + msg.text());
-                }));
+
+        let i: number = 0;
+        listeners.push(conversationsManager.conversations.added((conv: any) => {
+            listeners.push(conv.participants.added(participant => {
+                window.framework.addNotification('success', 'Fetched conversation ' + (i + 1));
+                window.framework.convs[conv.id()] = { conv: conv, id: i };
+                const div = (<HTMLElement>content.querySelector('#step2'));
+                const conv1 = document.createElement('div');
+                const getHistoryBtn = document.createElement('span');
+                getHistoryBtn.innerHTML = '<button id="btn' + i + '" class="mui-btn mui-btn--raised mui-btn--primary" onclick="window.framework.invokeHistory(\'' + conv.id() + '\')">Get History</button>';
+                const text = document.createElement('p');
+                text.innerHTML = '<u> Conversation ' + (i+1) + ': ' + conv.participants(0).person.displayName() + '</u>';
+                text.className = 'mui--text-title';
+                const convHistory = document.createElement('div');
+                convHistory.id = 'convHistory' + i; 
+                const terminatorElement = document.createElement('span');
+                terminatorElement.innerHTML = '<br/> <div class="mui-divider"></div> <br/>';
+                i++;
+                conv1.appendChild(text); conv1.appendChild(getHistoryBtn); conv1.appendChild(convHistory); conv1.appendChild(terminatorElement);
+                div.appendChild(conv1);
+                listeners.push(conv.historyService.activityItems
+                    .filter(item => item.type() === "TextMessage")
+                    .added((msg: any) => {
+                        const btnId: string = '#btn' + window.framework.convs[conv.id()].id;
+                        const convHistoryId: string = '#convHistory' + window.framework.convs[conv.id()].id;
+                        const convHistoryElement: HTMLInputElement = <HTMLInputElement>content.querySelector(convHistoryId);
+                        (<HTMLInputElement>content.querySelector(btnId)).style.visibility = 'hidden';
+                        var rowDiv = document.createElement('div');
+                        rowDiv.className = 'mui-row';
+                        var colLeftDiv = document.createElement('div');
+                        colLeftDiv.className = 'mui-col-md-2';
+                        if (msg.direction() == 'Incoming') {
+                            colLeftDiv.innerHTML = '<span class="fa fa-arrow-circle-right info-notification"></span>';
+                        } else {
+                            colLeftDiv.innerHTML = '<span class="fa fa-arrow-circle-left info-notification"></span>';
+                        }
+                        var colRightDiv = document.createElement('div');
+                        colRightDiv.className = 'mui-col-md-6';
+                        colRightDiv.style.wordWrap = 'break-word';
+                        colRightDiv.innerHTML = msg.text();
+                        var colTimeDiv = document.createElement('div');
+                        colRightDiv.className = 'mui-col-md-4';
+                        colTimeDiv.innerHTML = msg.timestamp().toLocaleString();
+                        rowDiv.appendChild(colLeftDiv);
+                        rowDiv.appendChild(colRightDiv);
+                        rowDiv.appendChild(colTimeDiv);
+                        convHistoryElement.appendChild(rowDiv);
+                    }));
+            }));
         }));
         (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
     });
@@ -91,7 +120,6 @@ declare var mui: any;
         (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
-        window.framework.convNum = 0;
         window.framework.convs = {};
     });
 })();

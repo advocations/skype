@@ -20,6 +20,7 @@
         (<HTMLInputElement>content.querySelector('.id2')).value = '';
         (<HTMLInputElement>content.querySelector('.messageToSend')).value = '';
         (<HTMLElement>content.querySelector('.messages')).innerHTML = '';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     }
 
     function cleanupConversation() {
@@ -62,9 +63,10 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const conversationsManager = window.framework.application.conversationsManager;
-        const id = (<HTMLInputElement>content.querySelector('.id')).value;
-        const id2 = (<HTMLInputElement>content.querySelector('.id2')).value;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
+        const id2 = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id2')).value);
 
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Inviting participants...');
@@ -128,5 +130,6 @@
         (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
         (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     });
 })();

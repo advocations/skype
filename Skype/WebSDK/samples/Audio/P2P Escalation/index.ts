@@ -15,6 +15,8 @@
         callButton = <HTMLInputElement>content.querySelector('.call');
 
     function cleanUI() {
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.sip')).value = '';
     }
 
     function cleanupConversation() {
@@ -60,7 +62,8 @@
     }
 
     function makeCall() {
-        const id = (<HTMLInputElement>content.querySelector('.sip')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
 
@@ -76,6 +79,8 @@
             window.framework.addNotification('success', 'Connected to Audio');
             inCall = true;
             callButton.innerHTML = 'Add participant';
+            (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+            (<HTMLInputElement>content.querySelector('.sip')).value = '';
         }));
 
         listeners.push(conversation.participants.added(person => {
@@ -105,7 +110,8 @@
     }
 
     function addParticipant() {
-        const id = (<HTMLInputElement>content.querySelector('.sip')).value;
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
 
         if (!id) {
             window.framework.addNotification('error', 'SIP Address is not specified');
@@ -117,6 +123,7 @@
             window.framework.addNotification('success', 'Participant Added.');
             participantAdded = true;
             callButton.innerHTML = 'End Call';
+            (<HTMLInputElement>content.querySelector('.call')).disabled = false;
         }, error => {
             window.framework.addNotification('error', error && error.message);
         });

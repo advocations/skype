@@ -12,22 +12,23 @@
                 <div class="mui-panel mui--z3">
                     <div id="step1" class="step1" style="display:block">
                         <div class="mui-textfield">
-                            <input type="text" class="sip1" placeholder="sip:user1@domain.com" data-enter-bind="search">
+                            <input type="text" class="sip1" placeholder="user@domain.com" data-enter-bind="search">
                             <label>User 1</label>
                         </div>
                         <div class="mui-textfield">
-                            <input type="text" class="sip2" placeholder="sip:user2@domain.com (optional)" data-enter-bind="search">
+                            <input type="text" class="sip2" placeholder="user@domain.com (optional)" data-enter-bind="search">
                             <label>User 2 (optional)</label>
                         </div>
-                        <button class="mui-btn mui-btn--raised mui-btn--primary call">Start Conversation</button>
+                        <button class="mui-btn mui-btn--raised mui-btn--primary call">Create Control</button>
                         <button class="mui-btn mui-btn--raised mui-btn--danger endAllConvs" style="display:none">End All Conversations</button>
-                        <br/><div class="mui-divider"></div><br/>
-                        <button class="mui-btn mui-btn--raised mui-btn--primary incoming">Start Listening</button>
+                        <br/>
+                        <!--<br/><div class="mui-divider"></div><br/>-->
+                        <!--<button class="mui-btn mui-btn--raised mui-btn--primary incoming">Start Listening</button>-->
                     </div>
                     <div id="step2" class="step2" style="display:none">
                         <button class="mui-btn mui-btn--raised mui-btn--accent restart">Restart Sample</button>
                     </div>
-                    <div class="mui-divider"></div>
+                    <!--<div class="mui-divider"></div>-->
                     <div id="conversationcontrol" class="mui--text-subhead" style="display:none"><b>Conversation Control(s)</b>
                     </div> <br/>
                     <div class="conversationContainer"></div>

@@ -8,12 +8,12 @@
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/UseConversationControl.md' : 'Content/websdk/docs/UseConversationControl.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
-    var app = window.framework.application, 
+    var app = window.framework.application,
         renderedConversations = [], // Represents **rendered** conversations
         listeners = [],
         listeningForIncoming = false,
         callButton = <HTMLInputElement>content.querySelector('.call'),
-        listenButton = <HTMLInputElement>content.querySelector('.incoming'),
+        // listenButton = <HTMLInputElement>content.querySelector('.incoming'),
         step = 1, // Keep track of what UI section to dislpay
         ccNumber = 1;
 
@@ -21,18 +21,20 @@
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.sip2'));
     (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.sip1')).value = '';
         (<HTMLInputElement>content.querySelector('.sip2')).value = '';
         (<HTMLElement>content.querySelector('.conversationContainer')).innerHTML = '';
         (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'none';
 
-        callButton.innerHTML = 'Start Conversation';
+        callButton.innerHTML = 'Create Control';
         callButton.disabled = false;
-        listenButton.innerHTML = 'Start Listening';
-        listenButton.disabled = false;
+        // listenButton.innerHTML = 'Start Listening';
+        // listenButton.disabled = false;
 
         (<HTMLInputElement>content.querySelector('.endAllConvs')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.sip1')).value = '';
+        (<HTMLInputElement>content.querySelector('.sip2')).value = '';
     }
 
     function cleanupConversations() {
@@ -42,13 +44,13 @@
         renderedConversations = [];
     }
 
-    function cleanupConversation (conversation) {
+    function cleanupConversation(conversation) {
         if (conversation.state() !== 'Disconnected') {
             conversation.leave();
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>'
         ccNumber = 1;
@@ -61,6 +63,10 @@
         listeners = [];
         listeningForIncoming = false;
 
+        cleanCCs(bySample);
+    }
+
+    function cleanCCs(bySample: Boolean) {
         if (renderedConversations.length > 0) {
             if (bySample) {
                 cleanupConversations();
@@ -79,11 +85,11 @@
         }
     }
 
-
-    function startOutgoingCall () {
+    function startOutgoingCall() {
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const conversationsManager = app.conversationsManager;
-        const id1 = (<HTMLInputElement>content.querySelector('.sip1')).value;
-        const id2 = (<HTMLInputElement>content.querySelector('.sip2')).value;
+        const id1 = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip1')).value);
+        const id2 = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip2')).value);
 
         var participants = [];
 
@@ -106,13 +112,13 @@
         }, 'Outgoing');
     }
 
-    function listenForIncoming () {
+    function listenForIncoming() {
         if (listeningForIncoming)
             return;
 
         listeningForIncoming = true;
-        listenButton.disabled = true;
-        listenButton.innerHTML= 'Listening...';
+        // listenButton.disabled = true;
+        // listenButton.innerHTML= 'Listening...';
 
         // Render incoming call with Conversation control
         listeners.push(app.conversationsManager.conversations.added((conv) => {
@@ -120,7 +126,7 @@
             var audioState = conv.selfParticipant.audio.state;
             if (chatState() != 'Notified' && audioState() != 'Notified') {
                 listeners.push(chatState.when('Notified', () => startIncomingCall(conv)));
-                listeners.push(audioState.when('Notified', () => startIncomingCall(conv)));            
+                listeners.push(audioState.when('Notified', () => startIncomingCall(conv)));
                 // This is probably a leftover disconnected conversation; don't render
                 // it yet, but listen in case the modalities become Notified again.
                 return;
@@ -167,7 +173,7 @@
         divider.className = 'mui-divider';
         control.appendChild(divider);
         (<HTMLElement>content.querySelector('#conversationcontrol')).style.display = 'block';
-        
+
         window.framework.api.renderConversation(div, options).then(conv => {
             if (direction === 'Outgoing')
                 renderedConversations.push(conv);
@@ -187,14 +193,16 @@
                     enableInCall(conv);
                 }
                 if (newValue === 'Disconnected' && (
-                        oldValue === 'Connected' || oldValue === 'Connecting' ||
-                        oldValue === 'Conferenced' || oldValue ==='Conferencing' )) {
+                    oldValue === 'Connected' || oldValue === 'Connecting' ||
+                    oldValue === 'Conferenced' || oldValue === 'Conferencing')) {
                     window.framework.addNotification('info', 'Conversation disconnected');
                     checkRestart();
                 }
             }));
 
             window.framework.addNotification('success', 'Control Created');
+            (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+            (<HTMLInputElement>content.querySelector('.sip1')).value = '';
 
             // Decide whether to start or accept
             startOrAcceptModalities(conv, options);
@@ -218,7 +226,7 @@
                 monitor(conv.audioService.accept(), 'audioService', 'accept');
         }
         else {
-            if (options.modalities.indexOf('Chat') >= 0) 
+            if (options.modalities.indexOf('Chat') >= 0)
                 monitor(conv.chatService.start(), 'chatService', 'start');
             if (options.modalities.indexOf('Video') >= 0)
                 monitor(conv.videoService.start(), 'videoService', 'start');
@@ -232,6 +240,7 @@
 
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended.');
+            cleanCCs(true);
             allowRestart();
         }, error => {
             window.framework.addNotification('error', 'End Conversation: ' + (error ? error.message : ''));
@@ -255,35 +264,35 @@
 
     function enableInCall(conv) {
         const endCallButton = <HTMLInputElement>content.querySelector('.endAllConvs');
-        endCallButton.style.display = 'block';       
+        endCallButton.style.display = 'block';
 
         window.framework.addEventListener(endCallButton, 'click', () => endCall(conv));
     }
 
     function gotoStep(n) {
-        console.log('step: ' + n);
+        // console.log('step: ' + n);
         disableStep(step);
         step = n;
         enableStep(step);
     }
 
     function enableStep(n) {
-        (<HTMLElement>content.querySelector('#step'+n)).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step' + n)).style.display = 'block';
     }
 
     function disableStep(n) {
-        (<HTMLElement>content.querySelector('#step'+n)).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step' + n)).style.display = 'none';
     }
 
     function monitor(dfd, service, method) {
         dfd.then(() => {
-                window.framework.addNotification('success', service + ' ' + method + 'ed successfully. Call connected');
-            }, error => {
-                window.framework.addNotification('error', service + ':' + method + ' - ' + (error ? error.message : 'unknown'));
-            });
+            window.framework.addNotification('success', service + ' ' + method + 'ed successfully. Call connected');
+        }, error => {
+            window.framework.addNotification('error', service + ':' + method + ' - ' + (error ? error.message : 'unknown'));
+        });
     }
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(callButton, 'click', startOutgoingCall);
-    window.framework.addEventListener(listenButton, 'click', listenForIncoming);
+    // window.framework.addEventListener(listenButton, 'click', listenForIncoming);
 })();

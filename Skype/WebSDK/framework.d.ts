@@ -64,9 +64,10 @@ interface Framework {
     processingStatus: string,
     showModal: (modalText: string) => void,
     updateAuthenticationList: () => void,
-    invokeHistory: (convNum: number) => void,
+    invokeHistory: (convId: number) => void,
     convs: any;
-    convNum: number;    
+    updateUserIdInput: (userId: string) => string,
+    updateUserIdOutput: (userId: string) => string
 }
 
 interface Window {

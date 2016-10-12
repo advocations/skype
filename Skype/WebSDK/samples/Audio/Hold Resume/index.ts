@@ -21,6 +21,7 @@
         holdButton.innerHTML = 'Hold Audio Call';
         holdButton.style.display = 'none';        
         callButton.disabled = false;
+        (<HTMLInputElement>content.querySelector('.sip')).value = '';
     }
 
     function cleanupConversation () {
@@ -66,7 +67,7 @@
 
 
     function startCall () {
-        const id = (<HTMLInputElement>content.querySelector('.sip')).value;
+        const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
