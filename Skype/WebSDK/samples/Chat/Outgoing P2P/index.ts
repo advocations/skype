@@ -25,7 +25,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -53,6 +53,7 @@
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -62,14 +63,29 @@
         }
     }
 
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.send')).disabled = false;
+    }
+
     window.framework.registerNavigation(reset);
 
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.id')).value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
         conversation = conversationsManager.getConversation(id);
-        window.framework.showNotificationBar();
 
         listeners.push(conversation.selfParticipant.chat.state.when('Connected', () => {
             window.framework.addNotification('success', 'Connected to Chat');
@@ -84,6 +100,7 @@
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                 window.framework.addNotification('info', 'Conversation ended');
                 reset(true);
+                restart();
             }
         }));
         window.framework.addNotification('info', 'Events subscribed');
@@ -114,6 +131,11 @@
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
@@ -127,12 +149,6 @@
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#outgoingmessages')).style.display = 'none';
-        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
-        (<HTMLInputElement>content.querySelector('.send')).disabled = false;
+        restart();
     });
 })();

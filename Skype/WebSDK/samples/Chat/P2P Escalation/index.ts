@@ -25,7 +25,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -62,15 +62,29 @@
         }
     }
 
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
+    }
+
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.id')).value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const conversationsManager = window.framework.application.conversationsManager;
 
-        window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending Invitation...');
-
         conversation = conversationsManager.getConversation(id);
 
         listeners.push(conversation.selfParticipant.chat.state.when('Connected', () => {
@@ -95,7 +109,7 @@
 
         conversation.chatService.start().then(null, error => {
             window.framework.addNotification('error', error);
-            reset(false);
+            reset(true);
         });
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
@@ -111,7 +125,7 @@
             (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
         }, error => {
             window.framework.addNotification('error', error);
-            reset(false);
+            reset(true);
         });
     });
 
@@ -125,6 +139,11 @@
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
@@ -138,12 +157,6 @@
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
-        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
-        (<HTMLInputElement>content.querySelector('.add')).disabled = false;
+        restart();
     });
 })();

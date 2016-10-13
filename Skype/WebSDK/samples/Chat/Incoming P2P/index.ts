@@ -19,7 +19,7 @@ declare var mui: any;
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -47,6 +47,7 @@ declare var mui: any;
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -54,6 +55,13 @@ declare var mui: any;
         } else {
             cleanUI();
         }
+    }
+
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
     }
 
     window.framework.registerNavigation(reset);
@@ -85,6 +93,8 @@ declare var mui: any;
                             window.framework.popupResponse = 'undefined';
                             conversation.chatService.reject();
                             window.framework.addNotification('error', 'Invitation Rejected');
+                            reset(true);
+                            restart();
                         }
                     }
                 }
@@ -109,6 +119,11 @@ declare var mui: any;
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('error', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
@@ -122,9 +137,6 @@ declare var mui: any;
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#bimessages')).style.display = 'none';
+        restart();
     });
 })();

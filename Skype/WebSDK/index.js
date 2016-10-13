@@ -71,6 +71,10 @@
             }
         }
 
+        // window.onerror = function (msg, url, line, col, error) {
+        //     console.log('error');
+        // };
+
         window.framework = {
             popupResponse: 'undefined',
             processingStatus: 'undefined',

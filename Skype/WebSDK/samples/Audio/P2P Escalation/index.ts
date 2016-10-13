@@ -20,7 +20,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -62,10 +62,15 @@
     }
 
     function makeCall() {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.sip')).value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.showNotificationBar();
 
         if (!id) {
             window.framework.addNotification('error', 'SIP Address is not specified');
@@ -110,6 +115,11 @@
     }
 
     function addParticipant() {
+        if (!(<HTMLInputElement>content.querySelector('.sip')).value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
 
@@ -131,6 +141,10 @@
 
     function endCall() {
         window.framework.addNotification('info', 'Ending Conversation ...');
+        if (!conversation) {
+            reset(true);
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation Ended');
         }, error => {

@@ -19,7 +19,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -47,6 +47,7 @@
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -54,6 +55,14 @@
         } else {
             cleanUI();
         }
+    }
+
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
     }
 
     window.framework.registerNavigation(reset);
@@ -99,7 +108,8 @@
                             window.framework.popupResponse = 'undefined';
                             conversation.videoService.reject();
                             window.framework.addNotification('error', 'Invitation rejected');
-                            reset(false);
+                            reset(true);
+                            restart();
                         }
                     }
                 }
@@ -127,6 +137,11 @@
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
@@ -139,10 +154,6 @@
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+        restart();
     });
 })();

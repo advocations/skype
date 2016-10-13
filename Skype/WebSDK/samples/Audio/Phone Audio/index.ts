@@ -21,7 +21,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -49,6 +49,7 @@
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -73,11 +74,16 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.id')).value || !(<HTMLInputElement>content.querySelector('.tel')).value) {
+            window.framework.addNotification('info', 'Please enter valid user ids and/or phone numbers');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const teluri = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.tel')).value);
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
         conversation = conversationsManager.getConversation(id);
 

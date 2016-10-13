@@ -28,7 +28,7 @@
     }
 
     function cleanupConversation() {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -57,6 +57,7 @@
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -66,13 +67,28 @@
         }
     }
 
+    function restart() {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+    }
+
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.id')).value || !(<HTMLInputElement>content.querySelector('.id2')).value) {
+            window.framework.addNotification('info', 'Please enter valid user ids');
+            return;
+        }
+
         (<HTMLInputElement>content.querySelector('.call')).disabled = true;
         const conversationsManager = window.framework.application.conversationsManager;
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id')).value);
         const id2 = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.id2')).value);
-        window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Inviting participants...');
         conversation = conversationsManager.createConversation();
 
@@ -150,7 +166,7 @@
                 window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
                 window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
             }
-            reset(false);
+            reset(true);
         });
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
@@ -158,6 +174,11 @@
 
     window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
         window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
             (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
@@ -170,12 +191,6 @@
     });
 
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
-        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+        restart();
     });
 })();

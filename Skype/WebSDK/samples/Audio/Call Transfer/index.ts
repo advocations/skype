@@ -23,11 +23,12 @@
         (<HTMLInputElement>vm.sipuri).value = '';
         (<HTMLInputElement>vm.transferto).value = '';
         (<HTMLInputElement>vm.start).disabled = false;
+        (<HTMLInputElement>vm.transfer).disabled = false;
         (<HTMLInputElement>vm.stop).disabled = false;
     }
 
     function cleanupConversation () {
-        if (conversation.state() !== 'Disconnected') {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -65,20 +66,19 @@
         }
     }
 
-    function restart() {
-        conversation = null;
-        cleanUI();
-    }
-
     window.framework.registerNavigation(reset);
 
-
-
     window.framework.addEventListener(vm.start, 'click', () => {
+        window.framework.showNotificationBar();
         (<HTMLInputElement>vm.start).disabled = true;
+
+        if (!vm.sipuri.value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
+
         const id = window.framework.updateUserIdInput(vm.sipuri.value);
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.showNotificationBar();
         window.framework.addNotification('info', 'Sending invitation...');
         conversation = conversationsManager.getConversation(id);
 
@@ -106,6 +106,7 @@
     });
 
     window.framework.addEventListener(vm.stop, 'click', () => {
+        window.framework.showNotificationBar();
         (<HTMLInputElement>vm.stop).disabled = true;
        window.framework.addNotification('info', 'Ending conversation');
         conversation && conversation.leave().then(() => {
@@ -114,14 +115,19 @@
             (<HTMLInputElement>vm.transfer).disabled = false;
         }, error => {
             window.framework.addNotification('error', error);
-            restart();
+            reset(true);
         }).then(() => {
             reset(true);
         });
-        !conversation && restart();
+        !conversation && reset(true);
     });
 
     window.framework.addEventListener(vm.transfer, 'click', () => {
+        window.framework.showNotificationBar();
+        if (!conversation) {
+            window.framework.addNotification('info', 'Start an audio conversation first and then transfer');
+            return;
+        }
         (<HTMLInputElement>vm.transfer).disabled = true;
         const target = window.framework.updateUserIdInput(vm.transferto.value);
         window.framework.addNotification('info', 'Transferring the call...');

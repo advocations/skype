@@ -7,7 +7,7 @@
 
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Audio_HoldResume.md' : 'Content/websdk/docs/Audio_HoldResume.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
-    
+
     var conversation,
         listeners = [],
         inCall = false,
@@ -16,25 +16,29 @@
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.call'));
 
-    function resetUI () {
+    function resetUI() {
         callButton.innerHTML = 'Start Audio Call';
         holdButton.innerHTML = 'Hold Audio Call';
-        holdButton.style.display = 'none';        
+        holdButton.style.display = 'none';
         callButton.disabled = false;
         (<HTMLInputElement>content.querySelector('.sip')).value = '';
     }
 
-    function cleanupConversation () {
-        if (conversation.state() !== 'Disconnected') {
-            conversation.leave().then(() => {
+    function cleanupConversation() {
+        if (conversation && conversation.state() !== 'Disconnected') {
+            if (conversation.leave.enabled()) {
+                conversation.leave().then(() => {
+                    conversation = null;
+                });
+            } else {
                 conversation = null;
-            });
+            }
         } else {
             conversation = null;
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
 
@@ -46,8 +50,7 @@
 
         inCall = false;
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 resetUI();
@@ -66,10 +69,19 @@
     }
 
 
-    function startCall () {
+    function startCall() {
+        window.framework.showNotificationBar();
+        if (callButton.innerHTML.indexOf('Restart') === 0) {
+            reset(true);
+            return;
+        }
+        if (!(<HTMLInputElement>content.querySelector('.sip')).value) {
+            window.framework.addNotification('info', 'Please enter a valid user id');
+            return;
+        }
         const id = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.sip')).value);
         const conversationsManager = window.framework.application.conversationsManager;
-        window.framework.showNotificationBar();
+        
         window.framework.addNotification('info', 'Sending invitation...');
         conversation = conversationsManager.getConversation(id);
 
@@ -94,6 +106,10 @@
             }
         }));
 
+        if (!conversation) {
+            window.framework.addNotification('info', 'Conversation could not be created. Check user id and try again.');
+            return;
+        }
         callButton.innerHTML = 'Connecting Call ...';
         callButton.disabled = true;
         conversation.audioService.start().then(null, error => {
@@ -103,10 +119,12 @@
                 window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
                 window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
             }
+            callButton.innerHTML = 'Restart';
+            callButton.disabled = false;
         });
     }
 
-    function holdResumeCall () {
+    function holdResumeCall() {
         const selfParticipant = conversation.selfParticipant;
         const audio = selfParticipant.audio;
 
@@ -119,24 +137,27 @@
                 holdButton.innerHTML = 'Resume Audio Call';
             }, error => {
                 window.framework.addNotification('error', error);
-                reset(false);
+                reset(true);
             });
         } else {
             window.framework.addNotification('info', 'Resuming call...');
-            
+
             audio.isOnHold.set(false).then(() => {
                 window.framework.addNotification('success', 'Call Resumed');
-                holdButton.innerHTML = 'Hold Audio Call';                
+                holdButton.innerHTML = 'Hold Audio Call';
             }, error => {
                 window.framework.addNotification('error', error);
-                reset(false);
+                reset(true);
             });
         }
     }
 
-    function endCall () {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-
+    function endCall() {
+        window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
+        if (!conversation) {
+            reset(true);
+            return;
+        }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
         }, error => {
