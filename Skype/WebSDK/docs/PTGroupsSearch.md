@@ -37,7 +37,7 @@ The groups collection on the  **application.PersonsAndGroupsManager.all.groups**
 
 **Figure 2. Group recursion to represent nested distribution groups**
 
-![SkypeWebSDK_GroupRecursionObjectmodel](,,/images/98268a50-4d6f-4969-be93-2c7a81fe57a8.png) 
+![SkypeWebSDK_GroupRecursionObjectmodel](../images/98268a50-4d6f-4969-be93-2c7a81fe57a8.png) 
 
 **Nested distribution group persons**: Instead of getting all persons and groups at all nesting levels with one operation, an application must get persons from the **group.persons** collection on distribution group objects at each nesting level. To get deeper nesting levels, an application gets groups from the **group.groups** collection of the current nesting level.
 
