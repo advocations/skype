@@ -25,7 +25,7 @@ browser is shown in this example, but you can use any other supported browser.
 **Figure 1. The Skype Web Conversation Control**
 
 
-![Skype Web SDK Conversation Control](Content/websdk/images/8144ea64-e3f3-4880-9eb6-7e332fab9d4e.PNG)
+![Skype Web SDK Conversation Control](../images/8144ea64-e3f3-4880-9eb6-7e332fab9d4e.PNG)
 
 This topic takes you through the steps to add a [Conversation Control](ConversationControl.md) to you web app. Upon completion of these tasks, 
 your app will let a user sign in to Skype for Business on premise, initiate a new IM conversation with one or more people, and accept invitations to 
