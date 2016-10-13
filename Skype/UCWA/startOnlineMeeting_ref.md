@@ -20,7 +20,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name = "sectionSection1"> </a>
 
-startOnlineMeeting allows an application to create and join an ad-hoc online meeting. Thisis particularly useful when a user invites a group of contacts to the meeting.
+startOnlineMeeting allows an application to create and join an ad-hoc online meeting. This is particularly useful when a user invites a group of contacts to the meeting.
 
 ### Properties
 
