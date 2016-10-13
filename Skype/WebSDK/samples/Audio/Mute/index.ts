@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_Audio_Mute.md' : 'Content/websdk/docs/PT_Audio_Mute.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAudioMute.md' : 'Content/websdk/docs/PTAudioMute.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation;

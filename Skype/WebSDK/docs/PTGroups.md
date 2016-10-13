@@ -8,6 +8,8 @@
 This section describes the different operations you can perform with the groups and contacts of the currently signed in user.
 
 
+- [Search](PTGroupsSearch.md)
+
 - [Add Contact](PTGroupsAddContact.md)
 
 - [Add Group](PTGroupsAddGroup.md)
@@ -19,7 +21,5 @@ This section describes the different operations you can perform with the groups 
 - [Remove Group](PTGroupsRemoveGroup.md)
 
 - [Rename Group](PTGroupsRenameGroup.md)
-
-- [Search](PTGroupsSearch.md)
 
 

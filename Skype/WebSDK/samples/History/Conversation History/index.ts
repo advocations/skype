@@ -5,7 +5,7 @@ declare var mui: any;
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PT_ConversationHistory_Single.md' : 'Content/websdk/docs/PT_ConversationHistory_Single.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTHistoryConversation.md' : 'Content/websdk/docs/PTHistoryConversation.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation;

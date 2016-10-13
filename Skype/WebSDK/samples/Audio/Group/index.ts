@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/Audio_Group.md' : 'Content/websdk/docs/Audio_Group.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAudioGroup.md' : 'Content/websdk/docs/PTAudioGroup.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation, listeners = [];

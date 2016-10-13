@@ -8,9 +8,9 @@
 This section describes the different operations you can perform on the contacts of the currently signed in user.
 
 
-- [All](PTContactsAll.md)
+- [Search](PTContactsSearch.md)
 
 - [Contact Card](PTContactsContactCard.md)
 
-- [Search](PTContactsSearch.md)
+- [All](PTContactsAll.md)
 

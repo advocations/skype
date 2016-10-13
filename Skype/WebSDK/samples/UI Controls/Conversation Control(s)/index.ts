@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/UseConversationControl.md' : 'Content/websdk/docs/UseConversationControl.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTUIControlsConversationControl.md' : 'Content/websdk/docs/PTUIControlsConversationControl.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var app = window.framework.application,

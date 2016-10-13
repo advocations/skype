@@ -16,8 +16,8 @@
     var listeners = [];
 
     content.querySelector('zero-md').setAttribute('file', !window.framework.getContentLocation() ?
-        '../../../docs/CallTransfer.md' :
-        'Content/websdk/docs/CallTransfer.md');
+        '../../../docs/PTAudioCallTransfer.md' :
+        'Content/websdk/docs/PTAudioCallTransfer.md');
 
     function cleanUI () {
         (<HTMLInputElement>vm.sipuri).value = '';
