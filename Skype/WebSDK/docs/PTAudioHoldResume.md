@@ -4,7 +4,7 @@ _**Applies to:** Skype for Business 2015_
 
 ## Starting an audio conversation
 
-For detailed instructions see, [Outgoing P2P Audio](OutgoingP2P_PSTN.md)
+For detailed instructions see, [Outgoing P2P Audio](PTAudioOutgoing.md)
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.
 

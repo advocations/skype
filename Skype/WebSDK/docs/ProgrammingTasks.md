@@ -8,41 +8,20 @@
 This section describes the key programming tasks for the Skype Web SDK:
 
 
-- [Retrieve the API entry point and sign in a user](GetAPIEntrySignIn.md)
+- [Authentication](PTAuth.md)
     
-- [Show a person's information](ShowPersonInfo.md)
+- [Local User](PTLocalUser.md)
     
-- [Search for persons and distribution groups](SearchForPersonsAndGroups.md)
+- [Contacts](PTContacts.md)
     
-- [Get a person and listen for availability](ListenForAvailability.md)
+- [Groups](PTGroups.md)
     
-- [Start a conversation](StartConversation.md)
+- [Chat](PTChat.md)
     
-- [Send and receive text in a conversation](SendReceiveText.md)
+- [Audio](PTAudio.md)
     
-- [Respond to a conversation invitation](RespondToInvitation.md)
+- [Video](PTVideo.md)
     
-- [Add participants to a conversation](AddParticipants.md)
+- [History](PTHistory.md)
 
-- [Schedule meetings](ScheduleMeeting.md)
-    
-- [Join an existing meeting](JoinMeeting.md)
-    
-- [Add or remove audio in a conversation](AddRemoveConversationAudio.md)
-    
-- [Add or remove video in a conversation](AddRemoveConversationVideo.md)
-    
-- [Join a meeting with video and display the video streams](JoinVideoMeetingDisplayVideo.md)
-    
-- [Join a meeting anonymously](AnonymousMeetingJoin.md)
-    
-- [Manage persons and groups](ManagePersonsAndGroups.md)
-    
-- [Manage devices](ManageDevices.md)
-    
-- [Save and restore a snapshot of the Application state](SaveRestoreSnapshot.md)
-    
-- [Switch between video streams across conversations](SwitchConversationVideoStreams.md)
-    
-- [Use the Skype Web Conversation Control in a webpage](UseConversationControl.md)
-    
+- [UI Controls](PTUIControls.md)
