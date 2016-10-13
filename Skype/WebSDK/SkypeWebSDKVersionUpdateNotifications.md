@@ -1,5 +1,21 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 10/12/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| -----:|----------:|
+| Conversation Control Preview     | 1.63.51 | 10/12/16 |1.62.45
+| Skype Web SDK Preview    | 0.4.312  |  10/12/16| 0.4.306
+| Conversation Control Production | 1.62.45  |   10/12/16| 1.61.68
+| Skype Web SDK Production| 0.4.306 |  10/12/16 |  0.4.300  |
+
+The latest preview release includes several small reliability improvements and fixes for unusual scenarios, but no major functional changes.
+
+**Bugs fixed in the new public preview build:**
+
+- Remove dependency on "MediaRelayAccessToken" to avoid issues where it cannot be found
+
+---
 ## Skype Web SDK Version Update 10/4/16
 
 | Product        | New Version           | Last Updated  |Previous Version
