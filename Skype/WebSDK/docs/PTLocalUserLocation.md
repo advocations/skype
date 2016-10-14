@@ -21,4 +21,4 @@ mePerson.location.set(location).then(function () {
 
 #### Other resources
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)
+<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a>

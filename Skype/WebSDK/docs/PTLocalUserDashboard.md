@@ -9,7 +9,7 @@
 
 ### Using the mePerson object
 
-The [MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object is retrieved through the **[application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html).[personsAndGroupsManager.mePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson)** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> object is retrieved through the **<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html" target="">application</a>.<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson" target="">personsAndGroupsManager.mePerson</a>** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -23,7 +23,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 });
 ```
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which can be set
+<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> properties which can be set
 
 
 |||
@@ -34,7 +34,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |status|Gets or sets the availability of the signed in user.|
 >**Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which are read-only
+<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> properties which are read-only
 
 
 |||
@@ -82,8 +82,8 @@ window.framework.createContactCard(mePerson, content.querySelector('.contactcard
 
 
 
-[Show a person's information](ShowPersonInfo.md)
+<a href="//msdnstage.redmond.corp.microsoft.com/en-us/skype/websdk/docs/ptcontactscontactcard?branch=ajkher/project-shakespeare" target="">Show a person's information</a>
 #### Other resources
 
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)
+<a href="//ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a>
