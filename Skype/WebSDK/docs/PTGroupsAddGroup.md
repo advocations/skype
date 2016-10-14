@@ -22,5 +22,5 @@ application.personsAndGroupsManager.all.groups.add(group).then(function () {
 
 ## Additional resources
 
-- <a href="https://msdnstage.redmond.corp.microsoft.com/en-us/skype/websdk/docs/ListenForAvailability?branch=ajkher/project-shakespeare" target="">Get a person and listen for availability</a>
+- <a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ListenForAvailability?branch=ajkher/project-shakespeare" target="">Get a person and listen for availability</a>
 

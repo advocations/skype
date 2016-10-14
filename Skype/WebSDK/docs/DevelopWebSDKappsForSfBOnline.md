@@ -195,9 +195,9 @@ Access the URL and authenticate using a tenant administrator credentials and acc
 ## Additional Resources
 <a name="bk_addresources"> </a>
 
-- [How to get an Azure Active Directory tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- [How to get an Azure Active Directory tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
     
-- [Managing Applications with Azure Active Directory (AD)](https://azure.microsoft.com/en-us/documentation/articles/active-directory-enable-sso-scenario/)
+- [Managing Applications with Azure Active Directory (AD)](https://azure.microsoft.com/documentation/articles/active-directory-enable-sso-scenario/)
     
 - [Registering Your Application in Azure AD](http://technet.microsoft.com/library/9e4d9905-a17c-458d-8cf5-d384f5bd65fd.aspx)
     

@@ -50,4 +50,4 @@ to create the meeting on the server.
   });
   ```
 
-4. [Join the online meeting](https://msdn.microsoft.com/en-us/skype/websdk/joinmeeting) by using the [conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) returned in the previous step.
+4. [Join the online meeting](https://msdn.microsoft.com/skype/websdk/joinmeeting) by using the [conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) returned in the previous step.
