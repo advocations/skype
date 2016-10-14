@@ -38,6 +38,10 @@ if ($Online)
         (Get-Content $file.PSPath) |
         Foreach-Object { $_ -replace "target=""", "target=_blank" } |
         Set-Content $file.PSPath
+
+        (Get-Content $file.PSPath) |
+        Foreach-Object { $_ -replace "../images/", "Content/websdk/images/" } |
+        Set-Content $file.PSPath
     }
 }
 
