@@ -16,8 +16,8 @@ After bootstrapping the Skype Web SDK we have access to an api object which expo
         username: username,
         password: password
     }).then(function () {
-        window.framework.reportStatus('Signed In', window.framework.status.success);
+        console.log('Signed in successfully.');
     }, function (error) {
-        window.framework.reportError(error);
+        console.log('Failed to sign in.');
     }).then(reset);
   ```
