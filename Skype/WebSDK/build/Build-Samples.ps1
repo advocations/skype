@@ -30,6 +30,15 @@ if ($Online)
     #add license info
     #$content = gc ..\samples\license.txt -Raw
     #$content + (gc ..\index.js | Out-String) | sc ..\index.js
+
+    # replace target on all links in MD files so that they open in a new tab
+    $mdFiles = Get-ChildItem "..\docs"
+    foreach ($file in $mdFiles)
+    {
+        (Get-Content $file.PSPath) |
+        Foreach-Object { $_ -replace "target=""", "target=_blank" } |
+        Set-Content $file.PSPath
+    }
 }
 
 Write-Host "Finished Building Samples"
