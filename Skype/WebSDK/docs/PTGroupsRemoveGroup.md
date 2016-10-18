@@ -29,4 +29,5 @@ application.personsAndGroupsManager.all.groups.remove(group).then(function () {
 
 ## Additional resources
 
-- [Get a person and listen for availability](ListenForAvailability.md)
+- <a href="https://msdnstage.redmond.corp.microsoft.com/en-us/skype/websdk/docs/ListenForAvailability?branch=ajkher/project-shakespeare" target="">Get a person and listen for availability</a>
+

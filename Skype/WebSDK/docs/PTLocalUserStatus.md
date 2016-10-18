@@ -21,5 +21,5 @@ mePerson.status.set(status).then(function () {
 
 #### Other resources
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)
-[Status](_https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.status.html)
+<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a>
+<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.status.html" target="">Status</a>
