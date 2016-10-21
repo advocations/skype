@@ -71,7 +71,6 @@ Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant
 
 
 
-
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |customContent|Custom contentExternalResource|No|
@@ -89,6 +88,10 @@ Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant
 |**Item**|**Description**|
 |:-----|:-----|
 |[messagingInvitation](MessagingInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
+
+#### Response body
+
+None
 
 #### Synchronous errors
 

@@ -142,6 +142,24 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
+					
+```
+
+
+### completed
+
+
+
+
+
+|**Resource**|**Priority**|**Sender**|**Reason**|
+|:-----|:-----|:-----|:-----|
+|messagingInvitation|High|communication|Delivered when the messaging invitation completes.|
+Sample of returned event data.
+
+This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
+
 
 
 ## Operations
