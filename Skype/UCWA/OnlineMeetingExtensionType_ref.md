@@ -1,15 +1,12 @@
 
-# OnlineMeetingExtensionType 
+# OnlineMeetingExtensionType
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-An enumeration that indicates the purpose of the associated OnlineMeetingExtension.
-
-
+            An enumeration that indicates the purpose of the associated OnlineMeetingExtension.
+            
 ## Members
-
-
 
 
 

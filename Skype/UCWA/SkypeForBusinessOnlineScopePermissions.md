@@ -32,4 +32,6 @@ The Skype for Business scope permissions are shown in the following table:
 |:-----|:-----|:-----|:-----|
 |Contacts.ReadWrite|Read and manage user contacts and groups|Allows the application to read and update user contacts and groups|Yes|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the application to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|Yes|
+|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|Yes|
 |Meetings.ReadWrite|Create online meetings|Allows the application to create Online meetings on-behalf of the signed-in user|Yes|
+|User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|Yes|
