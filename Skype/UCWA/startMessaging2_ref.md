@@ -69,8 +69,6 @@ Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant
 
 #### Request body
 
-
-
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
 |customContent|Custom contentExternalResource|No|
@@ -81,13 +79,6 @@ Starts a [messagingInvitation](messagingInvitation_ref.md) that adds the instant
 |threadId|The thread ID of the conversation.The maximum length is 250 characters. String|No|
 |to|The destination of this invitation. The input type is a SIP URI.String|No|
 
-#### Response body
-
-
-
-|**Item**|**Description**|
-|:-----|:-----|
-|[messagingInvitation](MessagingInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
 
 #### Response body
 
