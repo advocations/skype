@@ -20,3 +20,7 @@ It is advised to not be logged into multiple MSA accounts when testing out OAuth
     href += client_id + '&resource=https://webdir.online.lync.com&redirect_uri=' + window.location.href;
     window.location.href = href;
   ```
+
+## Related Resources
+- <a href="//azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/" target="">Integrating Applications with Azure Active Directory</a>
+- <a href="//azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/" target="">Active Directory Authentication Scenarios</a>
