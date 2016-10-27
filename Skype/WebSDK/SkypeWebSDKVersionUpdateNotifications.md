@@ -1,5 +1,28 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 10/25/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.65.51 | 10/25/16 |1.63.51
+| Skype Web SDK Preview    | 0.4.327 |  10/25/16| 0.4.312
+| Conversation Control Production | 1.64.47  | 10/25/16 | 1.63.51
+| Skype Web SDK Production| 0.4.325 |  10/25/16 | 0.4.312 |
+
+The latest preview release includes improvements to reliability on certain application failures,
+improvements to AV call reliability in Microsoft Edge, and a fix to correctly handle device changes in plugin-based AV calls.
+
+**Bugs fixed in the new public preview build:**
+
+- Send conversation subject along with audioService invitation
+- Retry on 483 “TooManyHops”
+- Retry on 409 “PGetReplaced” in certain cases
+- Cache UCWA FQDN to accelerate auto discovery
+- Ensure `application.devicesManager.mediaCapabilities.pluginDownloadLinks` returns a valid array of links
+- Add a console debugging command to quickly save all console output to a file
+- Correctly handle microphone and speaker changes during plugin-based AV calls
+
+---
 ## Skype Web SDK Version Update 10/19/16
 
 | Product        | New Version           | Last Updated  |Previous Version
@@ -15,6 +38,7 @@ There is no new preview version this week. There will be a new version next week
 
 No new preview release
 
+---
 ## Skype Web SDK Version Update 10/12/16
 
 | Product        | New Version           | Last Updated  |Previous Version
