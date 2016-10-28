@@ -8,11 +8,6 @@
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/ManageDevices.md' : 'Content/websdk/docs/ManageDevices.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
-    function reset() {
-        // (<HTMLElement>content.querySelector('.speakers')).innerHTML = '';
-        // (<HTMLElement>content.querySelector('.speakers')).style.display = 'none';
-    }
-
     function addDevice(device, id) {
         device.name.changed(value => {
             const option = document.createElement('option');
@@ -24,23 +19,10 @@
 
     function selectDevice(device, id) {
         if (device) {
-            // Should have been done by:
-            //      content.querySelector('#' + id + 'sSelect').value = device.name();
-            // but 'value' is undefined in the Node/Element interface in TypeScript/lib.d.ts.
-            // So we have to remove the option and insert it to the beginning to make it
-            // the selected device in the list.
             (<HTMLOptionElement>content.querySelector('#' + id + 'sSelect')).value = device.name();
             window.framework.updateNotification('info', id + ' loading done');
-            /*
-            const select = content.querySelector('#' + id + 'sSelect');
-            const option = select.removeChild(content.querySelector('#' + id + 'sSelect option[value="' + device.name() + '"]'));
-            select.insertBefore(option, select.firstChild);
-            window.framework.updateNotification('info', id + ' loading done');
-            */
         }
     }
-
-    // window.framework.registerNavigation(reset);
 
     window.framework.updateNotification('info', 'Retrieving device info...');
 
@@ -69,7 +51,6 @@
     });
 
     function setDevice(devices, device, option) {
-        // reset();
         const filteredDevices = devices.filter(d => d.name() == option);
         if (filteredDevices.size() > 0) {
             device.set(filteredDevices(0)).then(() => {

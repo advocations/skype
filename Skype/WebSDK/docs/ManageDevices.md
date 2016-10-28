@@ -27,7 +27,7 @@ client.devicesManager.microphones.subscribe();
 client.devicesManager.microphones.added(function (microphone) { … });
 client.devicesManager.microphones.removed(function (microphone) { … });
 
-client.devicesManager.subscribe();
+client.devicesManager.speakers.subscribe();
 client.devicesManager.speakers.added(function (speaker) { … });
 client.devicesManager.speakers.removed(function (speaker) { … });
 
@@ -45,24 +45,24 @@ The devicesManager object has three collections for available devices: cameras, 
 client.devicesManager.cameras.subscribe();
 
 console.log("Available cameras:");
-for(var i = 0; i < client.devicesManager.cameras.length; i++) {
-	var camera = client.devicesManager.cameras[i];
+for(var i = 0; i < client.devicesManager.cameras.size(); i++) {
+	var camera = client.devicesManager.cameras(i);
 	console.log(camera.name());
 }
 
 client.devicesManager.microphones.subscribe();
 
 console.log("Available microphones");
-for(var i = 0; i < client.devicesManager.microphones.length; i++) {
-	var microphone = client.devicesManager.microphones[i];
+for(var i = 0; i < client.devicesManager.microphones.size(); i++) {
+	var microphone = client.devicesManager.microphones(i);
 	console.log(microphone.name());
 }
 
 client.devicesManager.speakers.subscribe();
 
 console.log("Available speakers:");
-for(var i = 0; i < client.devicesManager.speakers.length; i++) {
-	var speakers = client.devicesManager.speakers[i];
+for(var i = 0; i < client.devicesManager.speakers.size(); i++) {
+	var speakers = client.devicesManager.speakers(i);
 	console.log(speaker.name());
 }
 
@@ -80,16 +80,19 @@ The devicesManager object has a reference to each currently selected device: sel
 client.devicesManager.selectedCamera.changed(function (newCamera) {
 	console.log("The selected camera is now " + newCamera.name());
 });
+var otherCamera = client.devicesManager.cameras(1);
 client.devicesManager.selectedCamera.set(otherCamera);
 
 client.devicesManager.selectedMicrophone.changed(function (newMicrophone) {
 	console.log("The selected microphone is now " + newMicrophone.name());
 });
+var otherMicrophone = client.devicesManager.microphones(1);
 client.devicesManager.selectedMicrophone.set(otherMicrophone);
 
 client.devicesManager.selectedSpeaker.changed(function (newSpeaker) {
 	console.log("The selected speaker is now " + newSpeaker.name());
 });
+var otherSpeaker = client.devicesManager.speakers(1);
 client.devicesManager.selectedSpeaker.set(otherSpeaker);
 
 ```
