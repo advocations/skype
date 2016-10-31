@@ -6,18 +6,24 @@
 
 ## Click to remove group
 
-The personAndGroupsManager object exposes a group, all, which contains all persons and all groups.  Using this property we can get access to the groups collection call remove providing a group object or name and have that group removed from the user.  In this example we populate a select list containing groups that can be removed.  When the group is successfully removed a removed event will be emitted on the groups collection.
+The **personAndGroupsManager** object exposes a group, **all**, which contains all persons and all groups.  In order to remove a group from a user's contacts, we call the **remove** method of this **groups** collection, and supply a group name or group object. In this example we populate an array called **addedGroups** containing groups that can be removed indexed by their names.  When the group is successfully removed a **removed** event will be emitted for the **groups** collection.
 
 ```js
-window.framework.addEventListener(content.querySelector('.remove'), 'click', function () {
-    var groupOption = content.querySelector('.groupsSelect option:checked');
-    var group = groups[groupOption.value];
-    var application = window.framework.application;
-    application.personsAndGroupsManager.all.groups.remove(group).then(function () {
-        // group successfully removed
-    }, function (error) {
-        // handle error
+application.personsAndGroupsManager.all.groups.subscribe();
+application.personsAndGroupsManager.all.groups.added(group => {
+    group.name.get();
+    group.name.changed(value => {
+        addedGroups[value] = group;
     });
+});
+
+var groupOption = content.querySelector('.groupsSelect option:checked');
+var group = addedGroups[groupOption.value];
+
+application.personsAndGroupsManager.all.groups.remove(group).then(function () {
+    // group successfully removed
+}, function (error) {
+    // handle error
 });
 ```
 

@@ -13,7 +13,6 @@ var application = window.framework.application;
 // Notify search in progress
 var persons = application.personsAndGroupsManager.all.persons;
 persons.get().then(function (contacts) {
-    window.framework.populateContacts(contacts, contactsDiv);
     // Notify search complete
 }, function (error) {
     // Notify search error

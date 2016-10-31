@@ -6,11 +6,11 @@
 
 ## Click to add contact
 
-A group object exposes a persons collection which allows us to add a contact, by SIP URI, to that group.  We get access to potential groups by subscribing to the groups collection of the all property found on the personsAndGroupsManager object and adding an event listener for the added event.  In some cases a name property may not be readily available so we can listen to the changed event of the name property to be certain we have the value.
+A group object exposes a persons collection which allows us to add a contact, by SIP URI, to that group.  We get access to potential groups by subscribing to the **groups** collection of the **all** property found on the **personsAndGroupsManager** object and adding an event listener for the **added** event.  In some cases a name property may not be readily available so we can listen to the **changed** event of the **name** property to be certain we have the value.
 
 ```js
-window.framework.application.personsAndGroupsManager.all.groups.subscribe();
-window.framework.application.personsAndGroupsManager.all.groups.added(function (group) {
+application.personsAndGroupsManager.all.groups.subscribe();
+application.personsAndGroupsManager.all.groups.added(function (group) {
     group.name.get();
     group.name.changed(function (value) {
         if (!groups[value] && group.type() !== 'Distribution') {

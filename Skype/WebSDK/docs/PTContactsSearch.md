@@ -1,20 +1,29 @@
 
-# Search for persons and distribution groups
+# Search for persons and groups
 
 
  _**Applies to:** Skype for Business 2015_
+
+**In this article**
+- [Persons and groups](#overview)
+- [Search for persons](#persons)
+- [Search for groups](#groups)
+
+<a name="overview"></a>
+### Persons and groups
 
 A Person represents a user. The <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html" target="">Person</a> object can be queried for information about a person, such as their availability to join a conversation. The <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html" target="">Person</a> object is passed to the conversation starting methods, such as the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html#getconversation" target="">ConversationsManager.getConversation</a> method, so that the conversation invitation is sent to the person represented by the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html" target="">Person</a> object.
 
 A <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html" target="">Group</a> can represent a distribution group, server-defined person set, or user-defined person set. If the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html" target="">Group</a> is a distribution group, it can also link to other distribution groups. Persons in a distribution group are represented by <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html" target="">Person</a> objects. The arguments for the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#creategroupsearchquery" target="">PersonsAndGroupsManager.createGroupSearchQuery</a> method include a partial or full name query and a numeric limit to the size of the result sets. Results include a collection of distribution groups. To find persons, use the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#createpersonsearchquery" target="">PersonsAndGroupsManager.createPersonSearchQuery</a> method.
 The following procedure assumes that a user has signed in before searching for persons and groups.
 
+<a name="persons"> </a>
 ### Search for persons
 
 
 1. Create a  **SearchQuery** for person search: **personsAndGroupsManager.createPersonSearchQuery**.
     
-2. Specify the search terms in the  **SearchQuery**.
+2. Specify the search terms and a limit to the number of possible results in the  **SearchQuery**.
     
 3. Execute the  **searchQuery.getMore** method and get the search **results** in the **onSuccess** method.
     
@@ -29,7 +38,7 @@ personSearchQuery.limit(50);
 personSearchQuery.getMore().then(null, function (results) {
     results.forEach(function (result) {
       var person = result.result;
-      window.framework.populateContacts(person, contactsDiv);
+      console.log('Person ', person.displayName());
       // success - Contact Found            
     }, 
     function (error) {
@@ -39,13 +48,13 @@ personSearchQuery.getMore().then(null, function (results) {
 
   ```
 
-
+<a name="groups"> </a>
 ### Search for groups
 
 
 1. Create a  **SearchQuery** for group search: **personsAndGroupsManager.createGroupSearchQuery**.
     
-2. Specify the search terms in the  **SearchQuery**.
+2. Specify the search terms a limit to the number of possible results in the  **SearchQuery**.
     
 3. Execute the  **searchQuery.getMore** method and get the search **results** in the **onSuccess** method.
     
