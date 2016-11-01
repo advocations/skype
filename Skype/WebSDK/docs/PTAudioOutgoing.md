@@ -6,13 +6,13 @@
 ## Starting a Call
 
 In order to make an audio call we need to:
-* create a conversation
+1. create a conversation
 ```js
 var conversation = application.conversationsManager.getConversation('sip:XXXX');
 OR
 var conversation = application.conversationsManager.getConversation('tel:+XXXX');
 ```
-* start the audio call
+2. start the audio call
 ```js
 conversation.audioService.start();
 ```

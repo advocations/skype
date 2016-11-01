@@ -1,3 +1,18 @@
+.SDKSamples,
+.SDKSamples p,
+.SDKSamples a,
+.SDKSamples li {
+  font-size: 16px;
+}
+
+.SDKSamples h1,
+.SDKSamples h2,
+.SDKSamples h3,
+.SDKSamples h4 {
+  font-family: "Segoe UI Light";
+}
+
+
 /* general element styles */
 [contenteditable="true"]:empty:not(:focus):before{
   content:attr(placeholder)

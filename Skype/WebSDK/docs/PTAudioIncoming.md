@@ -7,19 +7,19 @@
 
 When a remote user starts a call we will receive an invitation to join the call.
 In order to see the notification we need to:
-* Listen to the conversation collection for newly added conversations
+1. Listen to the conversation collection for newly added conversations
  ```js
 application.conversationsManager.conversations.added(function (conversation) {
     // ...
 });
 ```
-* For every added conversation we need to observer the `audioService.accept.enabled` command.
+2. For every added conversation we need to observer the `audioService.accept.enabled` command.
 ```js
 conversation.audioService.accept.enabled.when(true, function () {
     // ....
 })
 ```
-* When the command becomes available we have received a notification. We can now prompt the user to accept ot decline the invitation.
+3. When the command becomes available we have received a notification. We can now prompt the user to accept ot decline the invitation.
 When the user accepts, we execute `conversation.audioService.accept()`. When they reject `conversation.audioService.reject()` is executed.
 ```js
 if (confirm('Accept incoming Audio invitation?')) {
