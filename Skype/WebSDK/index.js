@@ -613,7 +613,7 @@
                 prevSelectedItem.removeAttribute('style');
             }
             prevSelectedItem = e.target;
-            e.target.style.fontSize = '1.5em';
+            e.target.style.fontSize = '15px';
             e.target.style.fontWeight = 'bold';
             e.target.style.textDecoration = 'none';
 
