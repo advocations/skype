@@ -5,8 +5,14 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/ManageDevices.md' : 'Content/websdk/docs/ManageDevices.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTDevicesManagerManageDevices.md' : 'Content/websdk/docs/PTDevicesManagerManageDevices.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
+    window.framework.showNotificationBar();
+
+    function reset(bySample: Boolean) {
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+    }
 
     function addDevice(device, id) {
         device.name.changed(value => {
@@ -20,11 +26,11 @@
     function selectDevice(device, id) {
         if (device) {
             (<HTMLOptionElement>content.querySelector('#' + id + 'sSelect')).value = device.name();
-            window.framework.updateNotification('info', id + ' loading done');
+            window.framework.addNotification('info', id + ' loading done');
         }
     }
 
-    window.framework.updateNotification('info', 'Retrieving device info...');
+    window.framework.addNotification('info', 'Retrieving device info...');
 
     const devicesManager = window.framework.application.devicesManager;
 
@@ -54,9 +60,9 @@
         const filteredDevices = devices.filter(d => d.name() == option);
         if (filteredDevices.size() > 0) {
             device.set(filteredDevices(0)).then(() => {
-                window.framework.updateNotification('success', 'Set selected device');
+                window.framework.addNotification('success', 'Set selected ' + filteredDevices(0).type() + ' to ' + filteredDevices(0).name());
             }).catch(error => {
-                window.framework.updateNotification('error', error);
+                window.framework.addNotification('error', error);
             });
         }
     }

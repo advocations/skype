@@ -797,5 +797,5 @@
     initializeSkype();
     autoAuthenticate();
 
-    document.querySelector('#wrapper').classList.add('SDKSamples');
+    document.querySelector('#wrapper') && document.querySelector('#wrapper').classList.add('SDKSamples');
 })();
