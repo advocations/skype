@@ -1,5 +1,5 @@
 
-# Search Groups
+# Groups Overview
 
 
  _**Applies to:** Skype for Business 2015_
