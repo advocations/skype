@@ -1,5 +1,21 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 11/1/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | Unchanged | 10/25/16 |1.65.51
+| Skype Web SDK Preview    | Unchanged |  10/25/16| 0.4.327
+| Conversation Control Production | Unchanged  | 10/25/16 | 1.64.47
+| Skype Web SDK Production| Unchanged |  10/25/16 | 0.4.325 |
+
+New builds will not be rolled out to preview or production this week because of the release of Microsoft Teams.
+
+**Bugs fixed in the new public preview build:**
+
+None
+
+---
 ## Skype Web SDK Version Update 10/25/16
 
 | Product        | New Version           | Last Updated  |Previous Version
