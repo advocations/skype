@@ -10,6 +10,8 @@
 - [Render multiple Conversation Controls on a page](#multiple-cc)
 - [Additional resources](#additional-resources)
 
+ >**Note**: The Audio and Video components of the conversation control are available as public preview.
+
 The Skype Web SDK <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> object contains the logic and
 presentation layer that encapsulates IM and A/V conversations in one object. Use it when you want Skype
 Web SDK to draw the conversation UI for you. It can be implemented in your webpage with as few as three
