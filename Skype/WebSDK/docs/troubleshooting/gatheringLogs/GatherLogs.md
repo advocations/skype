@@ -105,20 +105,21 @@ added here to 0.
 After enabling media logging in this way, restart Microsoft Edge, reproduce the failing scenario,
 close the the browser and run the following script:
 
-[PullEdgeLogs.ps1](utils\pullEdgeLogs-external.ps1) _**TODO: FIX THIS**_
+[PullEdgeLogs.ps1](..\..\..\utils\pullEdgeLogs-external.ps1) _**TODO: FIX THIS**_
 
 This will copy the 2 most recent media log files from the default location where Microsoft Edge ORTC
 media logs are written into a folder in the home directory of your machine. Copy the entire folder
 containing these logs and include it in the issue report.
 
-### Safari
-_**Coming Soon!**_
+### Safari _**TODO: FIX THIS**_
 
-### Chrome
-_**Coming Soon!**_
+Audio/Video support in Safari is provided by the Skype for Business Meetings Plugin, so the media
+logs are available in a tracing directory within the directory where the plugin is installed.
 
-### Firefox
-_**Coming Soon!**_
+### Other Browsers
+
+Once AV support expands to other browsers like Chrome and Firefox, we will add instructions on
+capturing media logs for these browsers.
 
 ---
 <a name="sdk-console"></a>
@@ -131,26 +132,39 @@ On a page with the Skype Web SDK loaded, open the developer console and enter th
 
 ``` js
 Skype.Web.Settings.timestamps = true;
+Skype.Web.Settings.saveConsole = true;
+```
+
+These statements will cause the output of all debugging statements to be saved to a circular
+buffer. The maximum size of the buffer is 4MB. If a new logging statement will cause
+the buffer to exceed its maximum size, logs will be removed from the beginning of the buffer
+to ensure that there is space for the new statement. So by default, the buffer will contain the
+most recent 4MB of debugging statements at any time after the `saveConsole` flag is turned on.
+
+After turning on logging, reproduce your issue, then run the following command in the developer
+console to download the contents of the log buffer:
+
+``` js
+Skype.Web.Utils.debug.saveConsole('<DESCRIPTIVE_FILE_NAME>');
+```
+
+Include the downloaded log file with your issue report.
+
+>**Note about Browser Compatibility:** The implementation of this feature is different across
+>different browsers and may not be supported in uncommon or older browsers. In **Safari**, after
+>typing this command, you have to click anywhere in the page, and a new tab should open
+>to a page that contains the text of the log buffer. You then need to manually save this page
+>as a text file.
+
+If you'd like to enable the debugging statements to be logged to the console in real-time as well
+as being saved in the buffer, you can do so with the following statements:
+
+``` js
 Skype.Web.Settings.logRequests = true;
 Skype.Web.Settings.logEvents = true;
 Skype.Web.Settings.logModel = true;
 Skype.Web.Settings.logMedia = true;
-Skype.Web.Settings.dbgBreak = true;
 ```
-
-These statements will turn on all the console logging available in the Skype Web SDK. After
-enabling these logs, without refreshing the page, reproduce the failing scenario. After this,
-save the console logs to a file and attach it to the bug report.
-
-In Chrome, you can do this by simply right clicking one of the messages in the console,
-clicking **'Save As'** and specifying a file name and location. The saved file should have the
-**.log** extension.
-
-In Internet Explorer and Microsoft Edge, right click in the console and click **Copy all**,
-then open notepad or another text editor, and paste the copied contents of the console inside.
-Then save that file with a **.log** extension.
-
-Include the copied console log with any issue report.
 
 ---
 <a name="other-logs"></a>
