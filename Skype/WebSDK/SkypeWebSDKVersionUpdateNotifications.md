@@ -1,5 +1,28 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 11/8/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.67.37 | 11/8/16 |1.65.51
+| Skype Web SDK Preview    | 0.4.341 |  11/8/16| 0.4.327
+| Conversation Control Production | 1.66.37  | 11/8/16 | 1.64.47
+| Skype Web SDK Production| 0.4.336 |  11/8/16 | 0.4.325 |
+
+The latest preview release includes improvements to Audio/Video reliability, 
+a fix to prevent PII from being collected inadvertently, and a fix for a bug
+where starting a group conversation with Skype for Business desktop clients
+sometimes resulted in an Audio/Video invitation instead.
+
+**Bugs fixed in the new public preview build:**
+
+- Replace usage of an internal Microsoft Edge media library method with the new public equivalent
+- Errors thrown should hash or strip out the Auth header to protect PII
+- Starting a group IM from SWX to multiple Skype for Business desktop client participants sometimes
+ starts a group audio call instead of a group IM conversation
+- Collect data when call ends due to missing devices
+
+---
 ## Skype Web SDK Version Update 11/1/16
 
 | Product        | New Version           | Last Updated  |Previous Version
