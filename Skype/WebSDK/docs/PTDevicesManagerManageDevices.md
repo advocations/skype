@@ -97,3 +97,40 @@ client.devicesManager.selectedSpeaker.set(otherSpeaker);
 
 ```
 
+## Testing for WebRTC/ORTC support
+
+Using the devicesManager object you can test whether the browser you are running on supports WebRTC or ORTC based media.
+
+
+```js
+
+// true indicates that the browser supports either WebRTC or ORTC
+var isBrowserMediaSupported = client.devicesManager.mediaCapabilities.isBrowserMediaSupported();
+
+```
+
+## Testing for installed plugins and retrieving plugin download links
+
+If your web application is running on a browser that does not support WebRTC or ORTC (e.g. Microsoft Internet Explorer) you can check to see if the user has installed the Skype for Business Web App Plug-in. Once you know this you can prompt the user to download the plugin using the plugin download links that the Web SDK provides you.
+
+
+```js
+
+var mc = app.devicesManager.mediaCapabilities;
+
+mc.isPluginInstalled.get().then(function(isInstalled) {
+	if (!isInstalled) {
+		mc.pluginDownloadLinks.get().then(function(pluginDownloadLinks) {
+			Var msiLink = pluginDownloadLinks(‘msi’); // for Windows
+			Var macPkgLink = pluginDownloadLinks(‘pkg’); // for Mac
+		}
+	} else {
+		mc.installedVersion.get().then(function(version) {
+			console.log('Plugin version: ', version);
+		});
+	}
+});
+
+
+```
+

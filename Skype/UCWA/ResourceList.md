@@ -23,25 +23,34 @@ The Microsoft Unified Communications Web API provides access to a variety of res
 ## General
 <a name="sectionSection1"> </a>
 
+- [anonApplications](anonApplications_ref.md)
 
 - [application](application_ref.md)
  
 - [applications](applications_ref.md)
  
 - [applications2](applications2_ref.md)
+
+- [BandwidthControlPolicy](BandwidthControlPolicy_ref.md)
  
 - [batch](batch_ref.md)
  
 - [communication](communication_ref.md)
  
+- [EnforcementPolicy](EnforcementPolicy_ref.md)
+
 - [events](events_ref.md)
  
+- [mediaPolicies](mediaPolicies_ref.md)
+
 - [people](people_ref.md)
  
 - [policies](policies_ref.md)
  
 - [reason](reason_ref.md)
  
+- [RequirementPolicy](RequirementPolicy_ref.md)
+
 
 ## People
 <a name="sectionSection2"> </a>
@@ -69,6 +78,12 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [defaultGroup](defaultGroup_ref.md)
  
+- [delegatesGroup](delegatesGroup_ref.md)
+
+- [delegator](delegator_ref.md)
+
+- [delegatorsGroup](delegatorsGroup_ref.md)
+
 - [distributionGroup](distributionGroup_ref.md)
  
 - [expandDistributionGroup](expandDistributionGroup_ref.md)
@@ -107,6 +122,8 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [myGroups2](myGroups2_ref.md)
  
+- [myOrganizationGroup](myOrganizationGroup_ref.md)
+
 - [myPrivacyRelationship](myPrivacyRelationship_ref.md)
  
 - [myPrivacyRelationships](myPrivacyRelationships_ref.md)
@@ -141,6 +158,7 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [subscribeToGroupPresence](subscribeToGroupPresence_ref.md)
  
+- [userAcknowledged](userAcknowledged_ref.md)
 
 ## Me
 <a name="sectionSection3"> </a>
@@ -155,6 +173,8 @@ The Microsoft Unified Communications Web API provides access to a variety of res
 - [location](location_ref.md)
  
 - [makeMeAvailable](makeMeAvailable_ref.md)
+
+- [makeMeAvailable2](makeMeAvailable2_ref.md)
  
 - [me](me_ref.md)
  
@@ -217,6 +237,8 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [organizer](organizer_ref.md)
  
+- [participants](participants_ref.md)
+
 - [phoneDialInInformation](phoneDialInInformation_ref.md)
  
 
@@ -230,32 +252,70 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [acceptedByParticipant](acceptedByParticipant_ref.md)
  
+- [acceptWithAnswer](acceptWithAnswer_ref.md)
+
+- [acceptWithPhoneAudio](acceptWithPhoneAudio_ref.md)
+
 - [addMessaging](addMessaging_ref.md)
  
 - [addParticipant](addParticipant_ref.md)
  
+- [addAudioVideo](addAudioVideo_ref.md)
+
+- [addAudio](addAudio_ref.md)
+
 - [addPhoneAudio](addPhoneAudio_ref.md)
+
+- [addVideo](addVideo_ref.md)
  
 - [admit](admit_ref.md)
  
+- [answer](answer_ref.md)
+
 - [applicationSharer](applicationSharer_ref.md)
  
 - [applicationSharing](applicationSharing_ref.md)
  
+- [applicationSharingRenegotiation](applicationSharingRenegotiation_ref.md)
+
 - [attendees](attendees_ref.md)
+
+- [AudioPreference](AudioPreference_ref.md)
  
 - [audioTranscript](audioTranscript_ref.md)
  
 - [audioVideo](audioVideo_ref.md)
  
+- [audioVideoInvitation](audioVideoInvitation_ref.md)
+
+- [audioVideoNegotiation](audioVideoNegotiation_ref.md)
+
+- [audioVideoPolicies](audioVideoPolicies_ref.md)
+
+- [audioVideoRenegotiation](audioVideoRenegotiation_ref.md)
+
+- [audioVideoSession](audioVideoSession_ref.md)
+
+- [audioVideoSessions](audioVideoSessions_ref.md)
+
+- [CallTerminationReason](CallTerminationReason_ref.md)
+
 - [cancel](cancel_ref.md)
  
 - [continueMessaging](continueMessaging_ref.md)
  
+- [continueAudioVideo](continueAudioVideo_ref.md)
+
+- [continueAudio](continueAudio_ref.md)
+
 - [continuePhoneAudio](continuePhoneAudio_ref.md)
+
+- [continueVideo](continueVideo_ref.md)
  
 - [conversation](conversation_ref.md)
  
+- [conversationExtensionResult](conversationExtensionResult_ref.md)
+
 - [conversationLogRecipient](conversationLogRecipient_ref.md)
  
 - [conversationLogTranscript](conversationLogTranscript_ref.md)
@@ -274,16 +334,24 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [derivedMessaging](derivedMessaging_ref.md)
  
+- [derivedAudioVideo](derivedAudioVideo_ref.md)
+
 - [derivedPhoneAudio](derivedPhoneAudio_ref.md)
  
 - [disableAudienceMuteLock](disableAudienceMuteLock_ref.md)
  
+- [dismiss](dismiss_ref.md)
+
 - [eject](eject_ref.md)
  
 - [enableAudienceMuteLock](enableAudienceMuteLock_ref.md)
  
 - [errorTranscript](errorTranscript_ref.md)
  
+- [escalateAudioVideo](escalateAudioVideo_ref.md)
+
+- [escalateAudio](escalateAudio_ref.md)
+
 - [failedDeliveryParticipant](failedDeliveryParticipant_ref.md)
  
 - [forwardedBy](forwardedBy_ref.md)
@@ -291,6 +359,10 @@ The Microsoft Unified Communications Web API provides access to a variety of res
 - [from](from_ref.md)
  
 - [holdPhoneAudio](holdPhoneAudio_ref.md)
+
+- [invitation](invitation_ref.md)
+
+- [invitations](invitations_ref.md)
  
 - [joinOnlineMeeting](joinOnlineMeeting_ref.md)
  
@@ -302,8 +374,16 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [markAsRead](markAsRead_ref.md)
  
+- [mediaDiagnostics](mediaDiagnostics_ref.md)
+
+- [mediaRelayAccessToken](mediaRelayAccessToken_ref.md)
+
+- [mediaRelay](mediaRelay_ref.md)
+
 - [message](message_ref.md)
  
+- [messages](messages_ref.md)
+
 - [messageTranscript](messageTranscript_ref.md)
  
 - [messaging](messaging_ref.md)
@@ -313,6 +393,8 @@ The Microsoft Unified Communications Web API provides access to a variety of res
 - [missedItems](missedItems_ref.md)
  
 - [muteAudio](muteAudio_ref.md)
+
+- [MuteStatus](MuteStatus_ref.md)
  
 - [muteVideo](muteVideo_ref.md)
  
@@ -342,14 +424,56 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [promote](promote_ref.md)
  
+- [publishCallQualityFeedback](publishCallQualityFeedback_ref.md)
+
+- [ReNegotiationDeclineReason](ReNegotiationDeclineReason_ref.md)
+
+- [RelayLocation](RelayLocation_ref.md)
+
+- [renegotiations](renegotiations_ref.md)
+
+- [replaceWithPhoneAudio](replaceWithPhoneAudio_ref.md)
+
+- [replacesAudioVideo](replacesAudioVideo_ref.md)
+
+- [replacesPhoneAudio](replacesPhoneAudio_ref.md)
+
+- [replayMessage](replayMessage_ref.md)
+
+- [reportMediaDiagnostics](reportMediaDiagnostics_ref.md)
+
 - [reject](reject_ref.md)
  
+- [resumeAudioVideo](resumeAudioVideo_ref.md)
+
+- [resumeAudio](resumeAudio_ref.md)
+
 - [resumePhoneAudio](resumePhoneAudio_Ref.md)
  
 - [sendMessage](sendMessage_ref.md)
+
+- [sendProvisionalAnswer](sendProvisionalAnswer_ref.md)
  
+- [session](session_ref.md)
+
+- [sessions](sessions_ref.md)
+
+- [SessionState](SessionState_ref.md)
+
 - [setIsTyping](setIsTyping_ref.md)
  
+- [startAudio2](startAudio2_ref.md)
+
+- [startAudioOnBehalfOfDelegator](startAudioOnBehalfOfDelegator_ref.md)
+
+- [startAudioVideo2](startAudioVideo2_ref.md)
+
+- [startAudioVideoOnBehalfOfDelegator](startAudioVideoOnBehalfOfDelegator_ref.md)
+
+- [startAudioVideo](startAudioVideo_ref.md)
+
+- [startAudio](startAudio_ref.md)
+
 - [startMessaging](startMessaging_ref.md)
  
 - [startMessaging2](startMessaging2_ref.md)
@@ -360,9 +484,19 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [startPhoneAudio2](startPhoneAudio2_ref.md)
  
+- [startPhoneAudioOnBehalfOfDelegator](startPhoneAudioOnBehalfOfDelegator_ref.md)
+
+- [startVideo](startVideo_ref.md)
+
 - [stopMessaging](stopMessaging_ref.md)
  
+- [stopAudioVideo](stopAudioVideo_ref.md)
+
+- [stopAudio](stopAudio_ref.md)
+
 - [stopPhoneAudio](stopPhoneAudio_ref.md)
+
+- [stopVideo](stopVideo_ref.md)
  
 - [to](to_ref.md)
  
@@ -374,5 +508,19 @@ The Microsoft Unified Communications Web API provides access to a variety of res
  
 - [unmuteVideo](unmuteVideo_ref.md)
  
+- [videoFreeze](videoFreeze_ref.md)
+
 - [videoLockedOnParticipant](videoLockedOnParticipant_ref.md)
+
+## E911
+<a name="sectionSection6"> </a>
  
+- [ClientNetworkType](ClientNetworkType_ref.md)
+
+- [LisQueryResultEnum](LisQueryResultEnum_ref.md)
+
+- [LocationRequiredEnum](LocationRequiredEnum_ref.md)
+
+- [reportMyNetwork](reportMyNetwork_ref.md)
+
+- [startEmergencyCall](startEmergencyCall_ref.md)

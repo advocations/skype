@@ -1,15 +1,12 @@
 
-# Availability 
+# Availability
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents a contact's availability values.
-
-
+            Represents a contact's availability values.    
+            
 ## Members
-
-
 
 
 

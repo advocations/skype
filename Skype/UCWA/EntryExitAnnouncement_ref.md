@@ -1,20 +1,19 @@
 
-# EntryExitAnnouncement 
+# EntryExitAnnouncement
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents the different states for attendance announcements in an online meeting.
+            Represents the different states for attendance announcements in an online meeting.
+            
 
-
-## Remarks
-
-When attendance announcements are enabled, the online meeting will announce the names of the participants who join the meeting through audio. An application should set this property to EntryExitAnnouncement.Enabled only if the online meeting supports modifying the attendance announcements status.
-
-
+            When attendance announcements are enabled, the online meeting will announce the names
+            of the participants who join the meeting through audio.
+            
+            An application should set this property to EntryExitAnnouncement.Enabled
+            only if the online meeting supports modifying the attendance announcements status. 
+            
 ## Members
-
-
 
 
 
@@ -22,4 +21,4 @@ When attendance announcements are enabled, the online meeting will announce the 
 |:-----|:-----|
 |Disabled|Attendance announcements are disabled.|
 |Enabled|Attendance announcements are enabled.|
-|Unsupported|The online meeting does not support modifying attendance announcements. Server versions prior to Microsoft Lync Server 2010 do not support the modification of attendance announcements.|
+|Unsupported|The online meeting does not support modifying attendance announcements.Server versions prior to Microsoft Lync Server 2010 do not supportthe modification of attendance announcements.|

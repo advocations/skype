@@ -1,15 +1,15 @@
-
 # conversationLogRecipient
 
+ _**Applies to:** Skype for Business 2015_
 
-Represents a recipient within a [conversationLog](conversationLog_ref.md). 
 
+            Represents a recipient within a [conversationLog](conversationLog_ref.md).
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -17,15 +17,7 @@ For more on web links, see [Web links](WebLinks.md).
 |rel|The resource that this link points to. In JSON, this is the outer container.|
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
-## Resource description
-<a name="sectionSection1"> </a>
-
-
-
-
 ### Properties
-
-
 
 
 
@@ -36,9 +28,9 @@ For more on web links, see [Web links](WebLinks.md).
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
@@ -47,32 +39,47 @@ This resource can have the following relationships.
 |contactPhoto|The photo of a contact.|
 |contactPresence|Represents a [contact](contact_ref.md)'s availability and activity.|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
+|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|
+
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of a recipient in [conversationLog](conversationLog_ref.md).
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
@@ -80,6 +87,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -89,8 +97,10 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
+
+
 ```
-Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/json
@@ -100,66 +110,67 @@ Accept: application/json
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 412
+Content-Length: 428
 {
-"rel" : "conversationLogRecipient",
-"displayName" : "samplevalue",
-"sipUri" : "samplevalue",
-"_links" : {
-"self" : {
-"href" : "//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient"
-},
-"contact" : {
-"href" : "//v1/applications/833/people/166"
-},
-"contactPhoto" : {
-"href" : "//v1/applications/833/people/166/contactPhoto"
-},
-"contactPresence" : {
-"href" : "//v1/applications/833/people/166/contactPresence"
+  "rel" : "conversationLogRecipient",
+  "displayName" : "samplevalue",
+  "sipUri" : "samplevalue",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogRecipient"
+    },
+    "contact" : {
+      "href" : "/ucwa/v1/applications/192/people/282"
+    },
+    "contactPhoto" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPhoto"
+    },
+    "contactPresence" : {
+      "href" : "/ucwa/v1/applications/192/people/282/contactPresence"
+    }
+  }
 }
-}
-}
-									
 ```
 
 
 #### XML Request
 
 
+
+
 ```
-Get https://fe1.contoso.com:443//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogRecipient HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/xml
-									
+
 ```
 
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 626
+Content-Length: 642
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="conversationLogRecipient" href="//v1/applications/833/communication/conversationLogs/conversationLog/conversationLogRecipient" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-<link rel="contact" href="//v1/applications/833/people/166" />
-<link rel="contactPhoto" href="//v1/applications/833/people/166/contactPhoto" />
-<link rel="contactPresence" href="//v1/applications/833/people/166/contactPresence" />
-<property name="rel">conversationLogRecipient</property>
-<property name="displayName">samplevalue</property>
-<property name="sipUri">samplevalue</property>
+<resource rel="conversationLogRecipient" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogRecipient" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
+  <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />
+  <link rel="contactPresence" href="/ucwa/v1/applications/192/people/282/contactPresence" />
+  <property name="rel">conversationLogRecipient</property>
+  <property name="displayName">samplevalue</property>
+  <property name="sipUri">samplevalue</property>
 </resource>
-									
 ```
+
 

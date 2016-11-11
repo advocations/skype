@@ -15,7 +15,7 @@ The steps shown here assume that you have already created an application and hav
  The sample shown here includes a request body with values for **sessionContext**, **to**, **operationID**, and other values. The "to" person is one of the contacts obtained in a previous step.
  
     ```
-    POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/102/communication/messagingInvitations HTTP/1.1
+    POST https://lyncweb.contoso.com/ucwa/oauth/v1/applications/102/communication/startmessaging HTTP/1.1
     Accept: application/json
     Content-Type: application/json
     Authorization: Bearer cwt=AAEB...buHc

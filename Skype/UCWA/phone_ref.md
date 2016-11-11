@@ -1,17 +1,15 @@
+# phone
 
-# phone 
+ _**Applies to:** Skype for Business 2015_
 
 
-_**Applies to:** Skype for Business 2015_
- 
-
-Represents one of the user's phone numbers. 
+            Represents one of the user's phone numbers.
+            
 
 ## Web Link
-<a name="sectionSection0"> </a>
+<a name = "sectionSection0"> </a>
 
 For more on web links, see [Web links](WebLinks.md).
-
 
 
 |**Name**|**Description**|
@@ -20,14 +18,11 @@ For more on web links, see [Web links](WebLinks.md).
 |href|The location of this resource on the server, and the target of an HTTP operation.|
 
 ## Resource description
-<a name="sectionSection1"> </a>
+<a name = "sectionSection1"> </a>
 
-These phone numbers can be used as targets for a user's incoming calls or made visible as part of the user's contact card. 
-
+These phone numbers can be used as targets for a user's incoming calls or made visible as part of the user's contact card.
 
 ### Properties
-
-
 
 
 
@@ -39,9 +34,9 @@ These phone numbers can be used as targets for a user's incoming calls or made v
 
 ### Links
 
+
+
 This resource can have the following relationships.
-
-
 
 |**Link**|**Description**|
 |:-----|:-----|
@@ -49,32 +44,46 @@ This resource can have the following relationships.
 |changeNumber|Changes or clears the number stored in the corresponding [phone](phone_ref.md) resource.|
 |changeVisibility|Changes the visibility of a phone number to other contacts.|
 
+### Azure Active Directory scopes for online applications
+
+
+
+The user must have at least one of these scopes for operations on the resource to be allowed.
+|**Scope**|**Permission**|**Description**|
+|:-----|:-----|:-----|
+|User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|
+
 ## Operations
-<a name="sectionSection2"> </a>
 
 
 
+<a name="sectionSection2"></a>
 
 ### GET
 
+
+
+
 Returns a representation of one of the user's phone numbers.
 
-
 #### Request body
+
+
 
 None
 
 
 #### Response body
 
-The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
+
+The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
 
+
+
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
-
-
 
 |**Error**|**Code**|**Subcode**|**Description**|
 |:-----|:-----|:-----|:-----|
@@ -83,6 +92,7 @@ The errors below (if any) are specific to this resource. Generic errors that can
 |Conflict|409|AlreadyExists|The already exists error.|
 |Conflict|409|TooManyGroups|The too many groups error.|
 |Conflict|409|None|Un-supported Service/Resource/API error.|
+|Gone|410|CannotRedirect|Cannot redirect since there is no back up pool configured.|
 
 #### Examples
 
@@ -92,85 +102,82 @@ The errors below (if any) are specific to this resource. Generic errors that can
 #### JSON Request
 
 
-```
 
-Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/me/phones/phone HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/json
-if-none-match: ebf356da-c8a5-4bd5-8401-7ad5a8df6cea
-
+if-none-match: a2b5cd48-3194-4c88-bccb-1e818facd0f8
 
 ```
 
 
 #### JSON Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
 HTTP/1.1 200 OK
-Etag: b00fb720-d8fa-4d80-bc5e-ea55eef1d863
+Etag: b947d843-ba20-4005-8edb-899e4082213e
 Content-Type: application/json
-Content-Length: 325
+Content-Length: 339
 {
-"rel" : "phone",
-"includeInContactCard" : false,
-"number" : " tel:+1425554321;ext=54321",
-"type" : "Work",
-"_links" : {
-"self" : {
-"href" : "//v1/applications/833/me/phones/phone"
-},
-"changeNumber" : {
-"href" : "//v1/applications/833/me/phones/phone/changeNumber"
-},
-"changeVisibility" : {
-"href" : "//v1/applications/833/me/phones/phone/changeVisibility"
+  "rel" : "phone",
+  "includeInContactCard" : false,
+  "number" : " tel:+1425554321;ext=54321",
+  "type" : " Other",
+  "_links" : {
+    "self" : {
+      "href" : "/ucwa/v1/applications/192/me/phones/phone"
+    },
+    "changeNumber" : {
+      "href" : "/ucwa/v1/applications/192/me/phones/phone/changeNumber"
+    },
+    "changeVisibility" : {
+      "href" : "/ucwa/v1/applications/192/me/phones/phone/changeVisibility"
+    }
+  }
 }
-}
-}
-
 ```
 
 
 #### XML Request
 
 
-```
 
-Get https://fe1.contoso.com:443//v1/applications/833/me/phones/phone HTTP/1.1
+
+```
+Get https://fe1.contoso.com:443/ucwa/v1/applications/192/me/phones/phone HTTP/1.1
 Authorization: Bearer cwt=PHNhbWw6QXNzZXJ0aW9uIHhtbG5...uZm8
 Host: fe1.contoso.com
 Accept: application/xml
-if-none-match: 91d20fdd-501a-49ca-befb-e030b187f5ec
-
+if-none-match: 7af1a48c-ebe6-4294-8e70-0e557174b625
 
 ```
 
 
 #### XML Response
 
+
+
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-
-
 ```
-
 HTTP/1.1 200 OK
-Etag: 1974d869-4dbe-4bba-95b0-1f69699a404d
+Etag: 84f1f208-a3c3-47c0-8682-c8d0ff0e9c20
 Content-Type: application/xml
-Content-Length: 538
+Content-Length: 550
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="phone" href="//v1/applications/833/me/phones/phone" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
-<link rel="changeNumber" href="//v1/applications/833/me/phones/phone/changeNumber" />
-<link rel="changeVisibility" href="//v1/applications/833/me/phones/phone/changeVisibility" />
-<property name="rel">phone</property>
-<property name="includeInContactCard">False</property>
-<property name="number"> tel:+1425554321;ext=54321</property>
-<property name="type"> Home</property>
+<resource rel="phone" href="/ucwa/v1/applications/192/me/phones/phone" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+  <link rel="changeNumber" href="/ucwa/v1/applications/192/me/phones/phone/changeNumber" />
+  <link rel="changeVisibility" href="/ucwa/v1/applications/192/me/phones/phone/changeVisibility" />
+  <property name="rel">phone</property>
+  <property name="includeInContactCard">False</property>
+  <property name="number"> tel:+1425554321;ext=54321</property>
+  <property name="type"> Home</property>
 </resource>
-
 ```
+
 
