@@ -24,7 +24,7 @@ After the conversation and video modality are established we can begin communica
 
   ```js
     var id = content.querySelector('.id').value;
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation(id);
 
     function setupContainer(person, size, videoDiv) {
@@ -37,7 +37,7 @@ After the conversation and video modality are established we can begin communica
         setupContainer(conversation.selfParticipant, 'small', content.querySelector('.selfVideoContainer'));
     }));
     listeners.push(conversation.participants.added(function (person) {
-        window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
+        console.log(person.displayName() + ' has joined the conversation');
         listeners.push(person.video.state.when('Connected', function () {
             // set up self video container
             setupContainer(person, 'large', content.querySelector('.remoteVideoContainer'));
