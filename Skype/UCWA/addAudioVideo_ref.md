@@ -72,7 +72,7 @@ Adds AudioVideo to a Conversation and starts a [audioVideoInvitation](audioVideo
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[audioVideoInvitation](AudioVideoInvitationResource_ref.md_ref.md)|Represents an audio-video invitation.|
+|[audioVideoInvitation](AudioVideoInvitationResource_ref.md)|Represents an audio-video invitation.|
 
 #### Synchronous errors
 

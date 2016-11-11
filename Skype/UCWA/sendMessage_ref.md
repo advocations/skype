@@ -82,7 +82,7 @@ Passes a plain text body to the server and starts a [message](message_ref.md) op
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[message](MessageResource_ref.md_ref.md)|Represents an instant message sent or received by the local participant.|
+|[message](MessageResource_ref.md)|Represents an instant message sent or received by the local participant.|
 
 #### Synchronous errors
 

@@ -81,7 +81,7 @@ Starts or refreshes the subscription to a user's contacts and groups.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[myContactsAndGroupsSubscription](ContactsAndGroupsSubscriptionResource_ref.md_ref.md)|Represents the subscription to a user's contacts and groups.|
+|[myContactsAndGroupsSubscription](ContactsAndGroupsSubscriptionResource_ref.md)|Represents the subscription to a user's contacts and groups.|
 
 #### Synchronous errors
 

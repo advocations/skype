@@ -276,7 +276,7 @@ Modifies an existing extension.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[onlineMeetingExtension](OnlineMeetingExtensionResource_ref.md_ref.md)|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
+|[onlineMeetingExtension](OnlineMeetingExtensionResource_ref.md)|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
 
 #### Synchronous errors
 

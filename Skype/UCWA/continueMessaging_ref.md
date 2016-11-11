@@ -68,7 +68,7 @@ Continues the instant messaging modality of a past [conversationLog](conversatio
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[messagingInvitation](MessagingInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
+|[messagingInvitation](MessagingInvitationResource_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
 
 #### Synchronous errors
 

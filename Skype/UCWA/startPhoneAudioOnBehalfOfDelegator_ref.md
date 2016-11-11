@@ -79,7 +79,7 @@ Starts a [phoneAudioInvitation](phoneAudioInvitation_ref.md) and creates a new c
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
+|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
 
 #### Synchronous errors
 
