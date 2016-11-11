@@ -196,7 +196,7 @@ Creates a new [onlineMeetingExtension](onlineMeetingExtension_ref.md) for the as
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[onlineMeetingExtension](OnlineMeetingExtensionResource_ref.md_ref.md)|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
+|[onlineMeetingExtension](OnlineMeetingExtensionResource_ref.md)|Represents custom data for the associated [onlineMeeting](onlineMeeting_ref.md) that can be used by an application.|
 
 #### Synchronous errors
 

@@ -75,7 +75,7 @@ Starts a AudioInvitation and creates a new conversation with a contact.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[audioVideoInvitation](AudioVideoInvitationResource_ref.md_ref.md)|Represents an audio-video invitation.|
+|[audioVideoInvitation](AudioVideoInvitationResource_ref.md)|Represents an audio-video invitation.|
 
 #### Synchronous errors
 

@@ -74,7 +74,7 @@ Starts an [onlineMeetingInvitation](onlineMeetingInvitation_ref.md) in the event
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[onlineMeetingInvitation](OnlineMeetingInvitationResource_ref.md_ref.md)|Represents an invitation to a new or existing [onlineMeeting](onlineMeeting_ref.md).|
+|[onlineMeetingInvitation](OnlineMeetingInvitationResource_ref.md)|Represents an invitation to a new or existing [onlineMeeting](onlineMeeting_ref.md).|
 
 #### Synchronous errors
 

@@ -60,7 +60,7 @@ This very first operation used to create an instance of the application resource
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[application](ApplicationResource_ref.md_ref.md)|Represents your real-time communication application.|
+|[application](ApplicationResource_ref.md)|Represents your real-time communication application.|
 
 #### Synchronous errors
 

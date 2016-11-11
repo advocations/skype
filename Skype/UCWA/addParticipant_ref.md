@@ -73,7 +73,7 @@ Starts a [participantInvitation](participantInvitation_ref.md) in the event chan
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[participantInvitation](ParticipantInvitationResource_ref.md_ref.md)|Represents an invitation to an existing [conversation](conversation_ref.md) for an additional participant.|
+|[participantInvitation](ParticipantInvitationResource_ref.md)|Represents an invitation to an existing [conversation](conversation_ref.md) for an additional participant.|
 
 #### Synchronous errors
 

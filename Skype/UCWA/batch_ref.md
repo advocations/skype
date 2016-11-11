@@ -73,7 +73,7 @@ None
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[batch](BatchingResource_ref.md_ref.md)|Initiates an operation that groups multiple, independent HTTP operations into a single HTTP request payload.|
+|[batch](BatchingResource_ref.md)|Initiates an operation that groups multiple, independent HTTP operations into a single HTTP request payload.|
 
 #### Synchronous errors
 

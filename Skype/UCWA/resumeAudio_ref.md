@@ -77,7 +77,7 @@ Renegotiates media for resuming audio.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[](ReNegotiationResource_ref.md_ref.md)|Represents a single re-negotiation entity of a session entity. The entity will only showup in the event channel. When a client wants to initiate a re-negotiation, it uses application/sdpinstead of CommunicationRequest to do so.|
+|[Renegotiation entity](ReNegotiationResource_ref.md)|Represents a single re-negotiation entity of a session entity. The entity will only showup in the event channel. When a client wants to initiate a re-negotiation, it uses application/sdpinstead of CommunicationRequest to do so.|
 
 #### Synchronous errors
 

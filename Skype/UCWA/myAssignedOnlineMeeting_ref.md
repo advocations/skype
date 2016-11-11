@@ -366,7 +366,7 @@ Updates a scheduled meeting on the user's calendar.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[myOnlineMeeting](OnlineMeetingResource_ref.md_ref.md)|Represents a scheduled meeting on the user's calendar.|
+|[myOnlineMeeting](OnlineMeetingResource_ref.md)|Represents a scheduled meeting on the user's calendar.|
 
 #### Synchronous errors
 

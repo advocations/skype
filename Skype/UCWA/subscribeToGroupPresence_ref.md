@@ -82,7 +82,7 @@ Creates a time-bound [presenceSubscription](presenceSubscription_ref.md) resourc
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[presenceSubscription](PresenceSubscriptionResource_ref.md_ref.md)|Represents the subscription to a user-defined set of contacts.|
+|[presenceSubscription](PresenceSubscriptionResource_ref.md)|Represents the subscription to a user-defined set of contacts.|
 
 #### Synchronous errors
 
