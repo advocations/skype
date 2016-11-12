@@ -42,7 +42,7 @@ conversation.state.changed(function (newValue, reason, oldValue) {
 });
 ```
 
-**Possible conversation states:**
+**Possible Conversation States:**
 
 |||
 |--------------|------------------------------------------|
@@ -62,7 +62,7 @@ conversation.participants.added(function (participant) {
 
 ## Ending an Audio Call
 
-There are 2 ways to end an Audio call: either stop the Audio modality by calling `conversation.audioService.stop()`
+There are 2 ways to end an audio call: either stop the audio modality by calling `conversation.audioService.stop()`
 or leave the conversation entirely by calling `conversation.leave()`. If a modality other than audio, such
 as chat, is active in the conversation, calling `conversation.leave()` will disconnect that as well and
 cause the `conversation.state()` to become `Disconnected`. If you want to hang up audio in a call but remain
