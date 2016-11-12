@@ -9,16 +9,23 @@
 With a Person object it is possible to retrieve additional information such as department, title, company, email addresses, phone numbers, and SIP URI among other information.  With this information we will build a simple contact card displaying additional information about a contact.  In this example we re-use logic from contact search and limit the results to a single contact and build a simple table containing the extra information.
 
 ```js
+function addContactCardDetail(item, value, cardContainer) {
+    const detailDiv = document.createElement('div');
+    detailDiv.innerHTML = item + ": " + value;
+    cardContainer.appendChild(document.createElement('br'));
+    cardContainer.appendChild(detailDiv);
+}
+
 function createContactCard(contact, container) {
     const contactCardDiv = document.createElement('div');
     contactCardDiv.className = 'contactCard table';
     container.appendChild(document.createElement('br'));
     container.appendChild(contactCardDiv);
-    contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
-    contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
-    contact.emails().length !== 0 && window.framework.addContactCardDetail('Email Address', contact.emails()[0].emailAddress(), contactCardDiv);
-    contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
-    contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone Number', contact.phoneNumbers()[0].displayString(), contactCardDiv);
+    contact.department() && addContactCardDetail('Department', contact.department(), contactCardDiv);
+    contact.company() && addContactCardDetail('Company', contact.company(), contactCardDiv);
+    contact.emails().length !== 0 && addContactCardDetail('Email Address', contact.emails()[0].emailAddress(), contactCardDiv);
+    contact.id() && addContactCardDetail('IM', contact.id(), contactCardDiv);
+    contact.phoneNumbers().length !== 0 && addContactCardDetail('Phone Number', contact.phoneNumbers()[0].displayString(), contactCardDiv);
 }
 
 function populateContacts(contacts, container) {
@@ -58,8 +65,8 @@ search.getMore().then(() => {
     const contacts = search.results();
     if (contacts.length !== 0) {
         contactsDiv.style.display = 'block';
-        window.framework.populateContacts(search.results(), contactsDiv);
-        window.framework.createContactCard(search.results()[0].result, content.querySelector('.contactcard'));
+        populateContacts(search.results(), contactsDiv);
+        createContactCard(search.results()[0].result, content.querySelector('.contactcard'));
         // succesfully found contact 
     } else {
         // handle error

@@ -1,7 +1,7 @@
 
 # Use the Skype Web Conversation Control in a webpage
 
- _**Applies to:** Skype for Business_
+ _**Applies to:** Skype for Business 2015_
 
  **In this article**  
 - [Add the Conversation Control to a webpage](#setup)
@@ -260,5 +260,4 @@ api.renderConversation(div, {
 
 - <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a>
 
-Supported browsers: Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
 
