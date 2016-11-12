@@ -7,8 +7,9 @@
 
 This section describes the different operations you can perform with the groups and contacts of the currently signed in user.
 
+- [Groups Overview](PTGroupsOverview.md)
 
-- [Search](PTGroupsSearch.md)
+- [Search](PTContactsSearch.md)
 
 - [Add Contact](PTGroupsAddContact.md)
 

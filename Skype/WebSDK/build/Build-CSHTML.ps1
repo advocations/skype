@@ -8,7 +8,7 @@ $cshtml = @"
 }
 
 <title>Skype for Business - Interactive Web SDK</title>
-<div id="wrapper">
+<div id="wrapper" class="SDKSamples">
 "@
 $path = (Resolve-Path (Join-Path $PSScriptRoot ..\))
 $html = Get-Content -Raw -Path (Join-Path $path "\index.html")

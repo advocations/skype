@@ -44,4 +44,4 @@ A collection of all available speakers is in [DevicesManager.speakers](https://u
 
 ## Additional resources
 
-- [Manage devices](ManageDevices.md)
+- [Manage devices](PTDevicesManagerManageDevices.md)

@@ -1,12 +1,12 @@
 
-# AudioTranscriptStatus 
+# AudioTranscriptStatus
 
 
-Represents the type of an audio transcript.
+_** Applies to: **Skype for Business 2015_
 
+            Represents the type of an audio transcript.
+            
 ## Members
-
-
 
 
 

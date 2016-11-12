@@ -7,19 +7,19 @@
 
 When a remote user starts a call we will receive an invitation to join the call.
 In order to see the notification we need to:
-* Listen to the conversation collection for newly added conversations
+1. Listen to the conversation collection for newly added conversations
  ```js
 application.conversationsManager.conversations.added(function (conversation) {
     // ...
 });
 ```
-* For every added conversation we need to observer the `audioService.accept.enabled` command.
+2. For every added conversation we need to observe the `audioService.accept.enabled` command.
 ```js
 conversation.audioService.accept.enabled.when(true, function () {
     // ....
 })
 ```
-* When the command becomes available we have received a notification. We can now prompt the user to accept ot decline the invitation.
+3. When the command becomes available we have received a notification. We can now prompt the user to accept ot decline the invitation.
 When the user accepts, we execute `conversation.audioService.accept()`. When they reject `conversation.audioService.reject()` is executed.
 ```js
 if (confirm('Accept incoming Audio invitation?')) {
@@ -29,9 +29,12 @@ if (confirm('Accept incoming Audio invitation?')) {
 }
 ```
 
-## Conversation Call State
-We can subscribe to the conversation call state to get information about the overall call status.
-For example: Is there an ongoing call in this conversation. This does not mean that we are connected to the call.
+## Conversation State
+We can subscribe to the conversation state to get information about the overall state of the conversation.
+If a conversation's state is `Connected`, it means that we are receiving live updates about state changes within the
+conversation, and will receive updates when the state of any active modality in the conversation changes, or
+when other participants connected to the conversation attempt to add or remove modalities. The conversation state
+being `Connected` does not mean that any particular modality is active.
 
 ```js
 conversation.state.changed(function (newValue, reason, oldValue) {
@@ -39,13 +42,13 @@ conversation.state.changed(function (newValue, reason, oldValue) {
 });
 ```
 
-**Possible call states:**
+**Possible Conversation States:**
 
 |||
 |--------------|------------------------------------------|
 | *Created* | ...When conversation was created
 | *Connecting*    | ...When establishing a connection           |
-| *Connected* | ...When the call was successfully connected |
+| *Connected* | ...When the conversation was successfully connected |
 | *Disconnected* | ...When the conversation got disconnected |
 
 ## Participants in Conversation
@@ -57,14 +60,27 @@ conversation.participants.added(function (participant) {
 });
 ```
 
-## Ending a Call
-To end the call, simply leave the conversation
+## Ending an Audio Call
+
+There are 2 ways to end an audio call: either stop the audio modality by calling `conversation.audioService.stop()`
+or leave the conversation entirely by calling `conversation.leave()`. If a modality other than audio, such
+as chat, is active in the conversation, calling `conversation.leave()` will disconnect that as well and
+cause the `conversation.state()` to become `Disconnected`. If you want to hang up audio in a call but remain
+connected to the conversation by chat, call `conversation.audioService.stop()`.
 
 ```js
 conversation.leave().then(function () {
     // successfully left the conversation
 }, function (error) {
     // error
+});
+
+// OR
+
+conversation.audioService.stop().then(function () {
+    // successfully stopped audio
+}, function (error) {
+    console.log("Failed to stop audio: " + error);
 });
 ```
 

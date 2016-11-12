@@ -8,11 +8,11 @@
 ## Starting a Phone Audio Call
 
 In order to make a phone audio call we need to:
-* create a conversation
+1. create a conversation
 ```js
 var conversation = application.conversationsManager.getConversation('sip:XXXX');
 ```
-* start the audio call with the user, specifying the phone # where we want to connect the phone audio from
+2. start the audio call with the user, specifying the phone # where we want to connect the phone audio from
 ```js
 conversation.phoneAudioService.start({ teluri: 'tel:+1XXXX' });
 ```

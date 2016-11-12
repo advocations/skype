@@ -19,7 +19,7 @@ After the conversation and video modality are established we can begin communica
 1. Listen for incoming video invitation, and accept/reject it based on user response 
 
   ```js
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     listeners.push(conversationsManager.conversations.added(function (conv) {
         conversation = conv;
         function setupContainer(person, size, videoDiv) {

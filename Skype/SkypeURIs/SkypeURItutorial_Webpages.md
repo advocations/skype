@@ -51,7 +51,7 @@ similar to Skype buttons, but provides additional formatting options and functio
 video, conference calls, and multi chats. **Skype.ui** will attempt to determine if a Skype client is installed, and 
 take appropriate action as required.
 
-The basic design pattern for adding Skype URIs to your web pages involves:
+dThe basic design pattern for adding Skype URIs to your web pages involves:
 
 
 * Importing the [skype-uri.js](http://www.skypeassets.com/i/scom/js/skype-uri.js) file from **http://www.skypeassets.com/i/scom/js/** into your web page.
@@ -61,7 +61,7 @@ The basic design pattern for adding Skype URIs to your web pages involves:
 For example, the following figure shows a code fragment that adds a Skype URI that initiates an audio call to the Skype 
 Echo/Sound Test Service:
 
-
+m
 **Figure 1. JavaScript code example**
 
 ![Code adding Skype URI to initiate audio call](images/SkypeUriJavaScriptCallouts.png)
@@ -71,7 +71,7 @@ Echo/Sound Test Service:
  Version 2.0, which you can view at [http://www.apache.org/licenses/](http://www.apache.org/licenses/).
 
 
-#### Image assets
+.#### Image assets
 
 Embedded Skype URIs use buttons for shifting focus to the Skype client, starting a call, and starting or rejoining a 
 chat. The button's associated link includes an **img** tag who's **src** attribute specifies the appropriate image asset.

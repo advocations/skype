@@ -1,15 +1,12 @@
 
-# OnlineMeetingRel 
+# OnlineMeetingRel
 
 
- _**Applies to:** Skype for Business 2015_
+_** Applies to: **Skype for Business 2015_
 
-Represents the link relationship that should be used to identify the default type of online meeting. The link is used when an online meeting is scheduled.
-
-
+            Represents the link relationship that should be used to identify the default type of online meeting. The link is used when an online meeting is scheduled.
+            
 ## Members
-
-
 
 
 

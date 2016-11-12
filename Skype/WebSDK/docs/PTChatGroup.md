@@ -6,7 +6,7 @@
 
 ## Starting a group conversation
 
-The application object exposes a conversationsManager object which we can use to create new group conversation by calling createConvresation().  After creation of the conversation object, it is helpful to setup a few event listeners for when we are connected to chat, added participants, added messages, and when we disconnect from the conversation.
+The application object exposes a conversationsManager object which we can use to create new group conversation by calling `createConversation()`.  After creation of the conversation object, it is helpful to setup a few event listeners for when we are connected to chat, added participants, added messages, and when we disconnect from the conversation.
 
 We can add participants to the conversation by calling add(...) providing a SIP URI on the participants collection of the conversation object.  We can use the chatService on the conversation object and call start() to initate the call.
 
@@ -17,7 +17,7 @@ After the conversation and chat modality are established messages events will be
 1. Invite participants to group conversation and start chat service
 
   ```js
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     var id = content.querySelector('.id').value;
     var id2 = content.querySelector('.id2').value;
     conversation = conversationsManager.createConversation();

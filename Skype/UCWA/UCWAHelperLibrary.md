@@ -29,5 +29,5 @@ The UCWA helper libraries are a set of reference libraries written in JavaScript
  
 - [Transport library](TransportLibrary.md)
  
-JavaScript samples are [available for download](http://go.microsoft.com/fwlink/?LinkId=279884).
+JavaScript samples are [available for download](http://go.microsoft.com/fwlink/?LinkId=313244).
 

@@ -49,40 +49,71 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |id|Gets the SIP URI of the signed in user.|
 
 ```js
+function addContactCardDetail(item, value, cardContainer) {
+    const detailDiv = document.createElement('div');
+    detailDiv.innerHTML = item + ": " + value;
+    cardContainer.appendChild(document.createElement('br'));
+    cardContainer.appendChild(detailDiv);
+}
+
 function createContactCard(contact, container) {
     contact.company.get().then(function () {
         var contactCardDiv = document.createElement('div');
         contactCardDiv.className = 'contactCard table';
         container.appendChild(document.createElement('br'));
         container.appendChild(contactCardDiv);
-        contact.displayName() && window.framework.addContactCardDetail('Name', contact.displayName(), contactCardDiv);
-        contact.company() && window.framework.addContactCardDetail('Company', contact.company(), contactCardDiv);
-        contact.department() && window.framework.addContactCardDetail('Department', contact.department(), contactCardDiv);
-        contact.id() && window.framework.addContactCardDetail('IM', contact.id(), contactCardDiv);
-        contact.emails().length !== 0 && window.framework.addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
-        contact.phoneNumbers().length !== 0 && window.framework.addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
+        contact.displayName() && addContactCardDetail('Name', contact.displayName(), contactCardDiv);
+        contact.company() && addContactCardDetail('Company', contact.company(), contactCardDiv);
+        contact.department() && addContactCardDetail('Department', contact.department(), contactCardDiv);
+        contact.id() && addContactCardDetail('IM', contact.id(), contactCardDiv);
+        contact.emails().length !== 0 && addContactCardDetail('Email', contact.emails()[0].emailAddress(), contactCardDiv);
+        contact.phoneNumbers().length !== 0 && addContactCardDetail('Phone', contact.phoneNumbers()[0].displayString(), contactCardDiv);
     });
 
-const application = window.framework.application;
+function populateContacts(contacts, container) {
+    var content = window.framework.findContentDiv();
+    function populateSingleContact(contact) {
+        // some of the properties you can access contact.displayName(), contact.note().text, contact.avatarUrl()
+        processing = false;
+    }
+    function loopOverAllContacts() {
+        if (processing) {
+            return;
+        }
+        processing = true; i++;
+        if (i == contacts.length) {
+            clearInterval(loopOverAllContacts);
+            return;
+        }
+        var contact = contacts[i].result ? contacts[i].result : contacts[i];
+        if (contact.type && contact.type() == 'Phone') {
+            populateSingleContact(contact);
+        } else {
+            // do an explict get on one property to fetch all properties
+            contact.status.get().then(function () {
+                populateSingleContact(contact);
+            });
+        }
+    }
+    var processing = false, i = -1;
+    setInterval(loopOverAllContacts, 10);
+}
+
 // retrieve local user details
 const mePerson = application.personsAndGroupsManager.mePerson;
 const contactsDiv = content.querySelector('.contacts');
 const mePersonArray = []; 
 mePersonArray.push(mePerson);
 contactsDiv.innerHTML = '';
-window.framework.populateContacts(mePersonArray, contactsDiv);
-window.framework.createContactCard(mePerson, contactsDiv.querySelector('.contact'));
-window.framework.createContactCard(mePerson, content.querySelector('.contactcard'));
+populateContacts(mePersonArray, contactsDiv);
+createContactCard(mePerson, contactsDiv.querySelector('.contact'));
 ```
-
-## See also
-
 
 #### Concepts
 
 
 
-<a href="//msdnstage.redmond.corp.microsoft.com/en-us/skype/websdk/docs/ptcontactscontactcard?branch=ajkher/project-shakespeare" target="">Show a person's information</a>
+<a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptcontactscontactcard?branch=ajkher/project-shakespeare" target="">Show a person's information</a>
 #### Other resources
 
 

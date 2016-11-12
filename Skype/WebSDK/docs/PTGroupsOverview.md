@@ -1,5 +1,5 @@
 
-# Search Groups
+# Groups Overview
 
 
  _**Applies to:** Skype for Business 2015_
@@ -65,12 +65,8 @@ Build a dynamic view of a user's person list with content from the Groups collec
     });
     ```
 
- **Supported clients**
-
-Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
-
 
 ## Additional resources
 
-<a href="https://msdnstage.redmond.corp.microsoft.com/en-us/skype/websdk/docs/ptcontactssearch?branch=ajkher/project-shakespeare" target="">Search for persons and distribution groups</a>
+<a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptcontactssearch?branch=ajkher/project-shakespeare" target="">Search for persons and distribution groups</a>
 
