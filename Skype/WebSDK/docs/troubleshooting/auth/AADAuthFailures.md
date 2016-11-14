@@ -36,7 +36,7 @@ AAD sign in page.
 
 View the full article on how to correct this **here**.
 
-### The client application has requested access to resource 'https://webdir.online.lync.com.' request has failed because the client has not specified this resource in its requiredResourceAccess list
+### The client application has requested access to resource 'https://webdir.online.lync.com.' This request has failed because the client has not specified this resource in its requiredResourceAccess list
 
 This error indicates that you have not configured your AAD app to be able to access the Skype for
 Business Online APIs.
