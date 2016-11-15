@@ -12,16 +12,15 @@ If this is not your issue, you can return to [this page](./AADAuthFailures.md) f
  
 ## The Issue
 
-You are providing an incorrect application ID when redirecting to AAD or when calling `signInManager.signIn`. You provide a redirect_uri in 2 places when using AAD auth to sign into the Skype Web SDK.
+You are providing an incorrect client ID when redirecting to AAD or when calling `signInManager.signIn`. You provide a client ID in 2 places when using AAD auth to sign into the Skype Web SDK:
 
-1. When initially redirecting to the AAD sign in page, you probably use code that looks like this to navigate to the URL of the sign in page. If instead of using your own client_id here, you are using a default one from the samples or another invalid ID, you will see this error.
+- When initially redirecting to the AAD sign in page, you probably use code that looks like this to navigate to the URL of the sign in page. If instead of using your own client_id here, you are using a default one from the samples or another invalid ID, you will see this error.
 ``` js
 var href = 'https://login.microsoftonline.com/common/oauth2/authorize?response_type=token&client_id=';
 href += client_id + '&resource=https://webdir.online.lync.com&redirect_uri=' + window.location.href;
 window.location.href = href;
 ```
-
-2. When performing the actual `signInManager.signIn`, you should specify a client\_id parameter. If you are using a default or incorrect value for the client\_id, you will see this error.
+- After entering your credentials in the AAD sign in page and being redirected back to your app page, when performing the actual `signInManager.signIn`, you should specify a client_id parameter. If you are using a default or incorrect value for the client_id, you will see this error.
 ``` js
 application.signInManager.signIn({
     version: config.version,
@@ -41,3 +40,9 @@ The client ID is created when you create an app registration for your web applic
 You can find your client ID in a couple different places as indicated in the image below.
 
 ![Finding your client ID in the Azure Portal](../../../images/troubleshooting/auth/AADAppRegistrationDetailsEmphasis.png)
+
+Use this client ID in both the places mentioned in the above section, and you should stop seeing this error.
+
+## Additional resources
+- [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
+- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)

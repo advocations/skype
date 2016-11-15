@@ -117,6 +117,7 @@ so it is highly recommended.
 ## Related Topics
 
 - [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)
+- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 
 ## External Resources
 
