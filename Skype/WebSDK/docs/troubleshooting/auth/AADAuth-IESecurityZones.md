@@ -44,6 +44,6 @@ It also may be possible to fix this by manually listing localhost as as in the "
 
 ## Related Topics:
 
-- [AAD Auth Failures](./AADAuthFailures.md)
-- [The reply address 'https://...' does not match the reply addresses configured for the application <...>](./AADAuth-ReplyURLs.md)
-
+- [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
+- [Configuring Reply URLs for your Skype Web SDK application](./AADAuth-ReplyURLs.md)
+- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)

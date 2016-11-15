@@ -43,6 +43,6 @@ You can find your client ID in a couple different places as indicated in the ima
 
 Use this client ID in both the places mentioned in the above section, and you should stop seeing this error.
 
-## Additional resources
+## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)

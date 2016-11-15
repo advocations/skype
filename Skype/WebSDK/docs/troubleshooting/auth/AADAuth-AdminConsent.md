@@ -14,7 +14,7 @@ If this is not your issue, you can return to [this page](./AADAuthFailures.md) f
 
 You are either trying to sign in with a non-administrator account in the tenant where you have registered your application before an admin has signed in and provided consent, or the admin revoked or denied permission for all users in the tenant and has not yet re-consented. 
 
-Alternatively, you may have incorrectly configured the permissions required by your app for accessing the Skype for Business Online API. If you believe this is the case, follow [this guide](./AADAuth-DelegatePermissions.md) instead.
+Alternatively, you may have incorrectly configured the permissions required by your app for accessing the Skype for Business Online API. If the steps in this guide don't work for you or you believe this is the case, follow [this guide](./AADAuth-DelegatePermissions.md) instead.
 
 ## The Solution
 
@@ -33,11 +33,12 @@ After removing consent by deleting the enterprise application in AAD or denying 
 
 If you navigated to this URL, after successfully signing in with an admin account for your tenant you should see an admin consent prompt like the one shown above.
 
-If none of the above works, you may have configured the permissions for your application correctly. Follow [this guide](./AADAuth-DelegatePermissions.md) for step-by-step instructions on how to specify permissions and what permissions to specify your app needs to access the Skype Web SDK APIs. In particular, ensure that you have checked _all_ of the **Delegated permissions** and _none_ of the **Application permissions** for the Skype for Business Online API.
+If none of the above works, you may have configured the permissions for your application incorrectly. Follow [this guide](./AADAuth-DelegatePermissions.md) for step-by-step instructions on how to specify permissions and what permissions to specify your app needs to access the Skype Web SDK APIs. In particular, ensure that you have checked _all_ of the **Delegated permissions** and _none_ of the **Application permissions** for the Skype for Business Online API.
 
 ## Related Topics
 
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
+- [Delegating Permissions for your Skype Web SDK Application](./AADAuth-DelegatePermissions.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 - [Assigning Administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles)
 

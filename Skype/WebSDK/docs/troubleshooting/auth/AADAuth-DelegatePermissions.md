@@ -37,7 +37,7 @@ You need to configure your application to access the SfB Online API by adding th
 
 > For more information on the difference between these types of permissions, see the section **Configuring a client application to access web APIs** in this article: [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications).
 
-## Additional resources
+## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 - [Giving a Web Access to a Web API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios#web-application-to-web-api)
