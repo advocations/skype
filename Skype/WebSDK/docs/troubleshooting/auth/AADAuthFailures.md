@@ -12,7 +12,7 @@ If your user is successfully redirected to the AAD sign in page, enters correct 
 
 This is roughly what the error screen should look like. Look for your specific error in the "Additional technical information" area indicated by the rectangle.
 
-![AAD sign in error](../../../images/troubleshooting/auth/AdditionalTechnicalInfo.png)
+![AAD sign in error](../../../images/troubleshooting/auth/AdditionalTechnicalInfo.PNG)
 
 Based on the type of error message you're seeing, choose the appropriate link below for specific instructions on how to fix that error message. You may have multiple errors, and after fixing one you might have to return here to fix another.
 

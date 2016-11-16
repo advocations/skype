@@ -6,7 +6,7 @@ _**Applies to:** Skype for Business 2015_
 
 If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this page is for you. The page should have this message: "Calling principal cannot  consent due to lack of permissions."
 
-![Tenant Admin has not provided consent for all users](../../../images/troubleshooting/auth/TenantAdminHasNotProvidedConsent.png)
+![Tenant Admin has not provided consent for all users](../../../images/troubleshooting/auth/TenantAdminHasNotProvidedConsent2.PNG)
 
 If this is not your issue, you can return to [this page](./AADAuthFailures.md) for a list of other potential issues.
 
@@ -22,7 +22,7 @@ When configuring the app through AAD to use the SfB online APIs, you must sign i
 
 If you have correctly configured the permissions required by your application, the first time you sign in as an administrator you should see a prompt that looks like this:
 
-![Admin consent prompt upon sign in](../../../images/troubleshooting/auth/ProvidingAdminConsentCensored.png)
+![Admin consent prompt upon sign in](../../../images/troubleshooting/auth/ProvidingAdminConsentCensored.PNG)
 
 Note the text at the bottom that reads "If you agree, this app will have access to the specified resources for all users in your organization. No one else will be prompted." If you don't see this text, follow the steps below to force the admin consent prompt to reappear.
 

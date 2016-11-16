@@ -6,7 +6,7 @@ _**Applies to:** Skype for Business 2015_
 
 If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this page is for you. The page should have this message: "The reply address 'https://...' does not match the reply addresses configured for the application <...>"
 
-![Reply URL incorrect or not configured in AAD](../../../images/troubleshooting/auth/ReplyURLIncorrect.png)
+![Reply URL incorrect or not configured in AAD](../../../images/troubleshooting/auth/ReplyURLIncorrect.PNG)
 
 If this is not your issue, you can return to [this page](./AADAuthFailures.md) for a list of other potential issues.
 
@@ -31,7 +31,7 @@ Note in the code above that we are using `window.location.href` as the value of 
 2. Navigate to Azure Active Directory in the left side bar > app registrations > your app > all settings > Reply URLS.
 3. Type the domain name where you're hosting your app (eg. **http://localhost** or **http://app.myapp.com**) and click "save".
 
-![Adding a Reply URL for your app in Azure AD](../../../images/troubleshooting/auth/ConfiguringReplyURLInAzure.png)
+![Adding a Reply URL for your app in Azure AD](../../../images/troubleshooting/auth/ConfiguringReplyURLInAzure.PNG)
 
 > **Note:** Protocol matters. AAD will treat **http://website.com** and **https://website.com** as different reply URLs. If you are still having an issue after following the steps above, check that the configured reply URL matches the protocol you're actually using.
 

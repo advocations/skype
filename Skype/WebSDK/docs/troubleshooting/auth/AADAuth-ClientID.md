@@ -6,7 +6,7 @@ _**Applies to:** Skype for Business 2015_
 
 If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this page is for you. The page should have this message: "Application with identifier  <...> was not found in the directory <...>."
 
-![Incorrect Client ID](../../../images/troubleshooting/auth/IncorrectClientID.png)
+![Incorrect Client ID](../../../images/troubleshooting/auth/IncorrectClientID.PNG)
 
 If this is not your issue, you can return to [this page](./AADAuthFailures.md) for a list of other potential issues.
  
@@ -39,7 +39,7 @@ The client ID is created when you create an app registration for your web applic
 
 You can find your client ID in a couple different places as indicated in the image below.
 
-![Finding your client ID in the Azure Portal](../../../images/troubleshooting/auth/AADAppRegistrationDetailsEmphasis.png)
+![Finding your client ID in the Azure Portal](../../../images/troubleshooting/auth/AADAppRegistrationDetailsEmphasis.PNG)
 
 Use this client ID in both the places mentioned in the above section, and you should stop seeing this error.
 
