@@ -2,10 +2,16 @@
 
 _**Applies to:** Skype for Business 2015_
 
+**In this article**
+- [Common AAD Sign in Error Messages](#error-messages)
+- [Other common AAD Authentication Failures](#other-failures)
+- [Internet-Explorer-Specific AAD Authentication Failures](#IE-specific)
+
 If you are developing an application with the Skype Web SDK and you are attempting to use Azure Active Directory to authenticate your users (such as by following this guide:  [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)) and you are experiencing some kind of error then this article is for you.
 
 Depending on the specific failure case you are experiencing while trying to authenticate to the Skype Web SDK, this article will attempt to provide specific guidance to fix your issue. 
 
+<a name="error-messages"></a>
 ## Common Error Messages
 
 If your user is successfully redirected to the AAD sign in page, enters correct credentials for a Skype for Business Online user, and hits an error page with the text "Sorry, but we're having trouble signing you in," there should be a small section in the bottom right of the page labeled "Additional technical information." This section provides a more specific error message to help figure exactly what is going wrong with your sign in attempt.
@@ -46,9 +52,10 @@ This error indicates that you still have to manually edit the application manife
 
 View the full article on how to correct this [**here**](./AADAuth-EnableImplicitOAuth.md).
 
+<a name="other-failures"></a>
 ## Other Common Failures
 
-Some failures are a little more difficult to detect because the app will simply seem to silently fail to sign in, rather than redirecting to an error page with a helpful error message. You might need to use a web debugging proxy such as Fiddler or Charles to identify what request is failing. The error message can sometimes be buried in an HTTP response that appears successful, such as in a response where the body is an HTML page with an error message hidden somewhere on the page.
+Some failures are a little more difficult to detect because the app will simply seem to silently fail to sign in, rather than redirecting to an error page with a helpful error message. You might need to use a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to identify what request is failing. The error message can sometimes be buried in an HTTP response that appears successful, such as in a response where the body is an HTML page with an error message hidden somewhere on the page.
 
 ### No CORS
 
@@ -66,6 +73,7 @@ application.signInManager.signIn({
 });
 ```
 
+<a name="IE-specific"></a>
 ### Internet Explorer-Specific Failures
 
 There are a couple failures that occur specifically on Internet Explorer. In both of these cases, the user will be redirected to the AAD sign-in page, seem to authenticate successfully, be redirected back, and then silently fail to sign in back on the app page. Use Fiddler or Charles to get a better clue of what the actual failure is, but here are a couple common ones.
@@ -80,14 +88,16 @@ View the full article on how to correct this [**here**](./AADAuth-IESecurityZone
 
 In Internet Explorer, the authentication token obtained when signing into AAD can sometimes be lost upon being redirected back to the original app page. Providing a valid placeholder html file in a subfolder of your main app directory can serve as a place for AAD to store and retrieve the OAuth token.
 
-View the full article on how to correct this [**here**](./AAdAuth-IECORSRedirectURI.md).
+View the full article on how to correct this [**here**](./AADAuth-IECORSRedirectURI.md).
 
 ---
 
+<a name="related-topics"></a>
 ## Related Topics
 
 - [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
+- [Gathering Fiddler Logs using the Skype Web SDK](../gatheringLogs/GatherLogs.md#other-logs)
 
 ## External Resources
 
