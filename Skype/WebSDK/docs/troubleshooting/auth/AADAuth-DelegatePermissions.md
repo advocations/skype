@@ -13,15 +13,15 @@ If this is not your issue, you can return to [this page](./AADAuthFailures.md) f
 
 ## The Issue
 
-You either did not configure permissions for the application to access the Skype for Business Online in AAD or did so incorrectly.
+You either did not configure permissions for the application to access the Skype for Business Online APIs in AAD or did so incorrectly.
 
 When registering your Skype Web SDK app in Azure AD, you need to indicate that your web application will require the user (or admin, in this case) to consent to the app accessing the Skype for Business Online APIs within the context of the particular authenticated user.
 
-More information about the Azure AD consent framework can be found in this article: [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications).
+You can find more information about the Azure AD consent framework in this article: [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications).
 
 ## The Solution
 
-You need to configure your application to access the SfB Online API by adding the API as one of the resources required by the application, and then indicating that your app needs all the delegated permissions. They all require admin consent, which means that the before any user can sign in, an admin must sign in and consent to all of these delegated permissions on behalf of all users in the tenant. Once the admin consents, the application will have all the specified delegated permissions in the context of whatever user is signed in.
+You need to configure your application to access the SfB Online API by adding the API as one of the resources required by the application, and then indicating that your app needs all the delegated permissions made available by the API. They all require admin consent, which means that the before any user can sign in, an admin must sign in and consent to all of these delegated permissions on behalf of all users in the tenant. Once the admin consents, the application will have all the specified delegated permissions in the context of whatever user is signed in.
 
 1. Sign into **portal.azure.com** with an account that is an administrator in your tenant. Using the left hand side-bar, navigate to Azure Active Directory > App Registrations > Your app > All settings.
 2. Under API Access, click "Required Permissions."
@@ -37,7 +37,12 @@ You need to configure your application to access the SfB Online API by adding th
 
 > For more information on the difference between these types of permissions, see the section **Configuring a client application to access web APIs** in this article: [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications).
 
+Once you accept this prompt, all users in the tenant should be able to sign in and should not have to individually consent to these permissions, since the tenant admin has already consented on their behalf.
+
+If you accidentally click "Cancel" rather than accept and find yourself no longer being prompted to provide admin consent, then you may have to force AAD to display the admin consent prompt again. There are instructions on how to do so in [this](./AADAuth-AdminConsent.md) article.
+
 ## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
+- [Forcing the Admin Consent Prompt for Required Resources to Appear](./AADAuth-AdminConsent.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 - [Giving a Web Access to a Web API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios#web-application-to-web-api)

@@ -37,8 +37,9 @@ If none of the above works, you may have configured the permissions for your app
 
 ## Related Topics
 
-- [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
-- [Delegating Permissions for your Skype Web SDK Application](./AADAuth-DelegatePermissions.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 - [Assigning Administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles)
+- [Delegating Permissions for your Skype Web SDK Application](./AADAuth-DelegatePermissions.md)
+- [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
+- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
+
 

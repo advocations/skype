@@ -35,7 +35,7 @@ application.signInManager.signIn({
 
 You need to provide a valid client ID when redirecting to AAD to sign in and then again when signing in with `signInManager.signIn`.
 
-The client ID is created when you create an app registration for your web application in Azure AD. You can find it again by signing in to **portal.azure.com**, finding Azure Active Directory on the side bar, clicking **App registrations**, then clicking on the app that you're trying to sign into the Skype Web SDK with.
+The client ID is created when you create an app registration for your web application in Azure AD. You can find it again by signing into **portal.azure.com**, finding Azure Active Directory on the side bar, clicking **App registrations**, then clicking on the app that you're trying to sign into the Skype Web SDK with.
 
 You can find your client ID in a couple different places as indicated in the image below.
 
