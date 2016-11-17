@@ -29,7 +29,6 @@ function createContactCard(contact, container) {
 }
 
 function populateContacts(contacts, container) {
-    var content = window.framework.findContentDiv();
     function populateSingleContact(contact) {
         // some of the properties you can access contact.displayName(), contact.note().text, contact.avatarUrl()
         processing = false;
@@ -57,6 +56,8 @@ function populateContacts(contacts, container) {
     setInterval(loopOverAllContacts, 10);
 }
 
+var content = document.querySelector('.content')
+
 const search = application.personsAndGroupsManager.createPersonSearchQuery();
 search.text('John Doe');
 search.limit(1);
@@ -67,7 +68,7 @@ search.getMore().then(() => {
         contactsDiv.style.display = 'block';
         populateContacts(search.results(), contactsDiv);
         createContactCard(search.results()[0].result, content.querySelector('.contactcard'));
-        // succesfully found contact 
+        // successfully found contact 
     } else {
         // handle error
     }

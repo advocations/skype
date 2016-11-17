@@ -19,8 +19,8 @@ After bootstrapping the Skype Web SDK we have access to an api object which expo
         },
         domain: domain
     }).then(function () {
-        window.framework.reportStatus('Signed In', window.framework.status.success);
+        console.log("Signed in");
     }, function (error) {
-        window.framework.reportError(error);
+        console.log("Error: couldn't sign in");
     }).then(reset);
   ```
