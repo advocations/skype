@@ -32,6 +32,7 @@ if ($Online)
     #$content + (gc ..\index.js | Out-String) | sc ..\index.js
 
     # replace target on all links in MD files so that they open in a new tab
+    Write-Host "Updating the links in MD files"
     $mdFiles = Get-ChildItem "..\docs"
     foreach ($file in $mdFiles)
     {

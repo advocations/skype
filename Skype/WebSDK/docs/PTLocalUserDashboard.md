@@ -114,7 +114,7 @@ createContactCard(mePerson, contactsDiv.querySelector('.contact'));
 
 
 
-<a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptcontactscontactcard?branch=ajkher/project-shakespeare" target="">Show a person's information</a>
+<a href="//msdn.microsoft.com/skype/websdk/docs/ptcontactscontactcard" target="">Show a person's information</a>
 #### Other resources
 
 

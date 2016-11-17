@@ -4,7 +4,7 @@ _**Applies to:** Skype for Business 2015_
 
 ## Starting an audio conversation
 
-For detailed instructions see, <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptaudiooutgoing?branch=ajkher/project-shakespeare" target="">Outgoing P2P Audio</a>
+For detailed instructions see, <a href="//msdn.microsoft.com/skype/websdk/docs/ptaudiooutgoing" target="">Outgoing P2P Audio</a>
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.
 
