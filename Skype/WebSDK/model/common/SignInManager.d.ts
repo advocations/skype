@@ -55,20 +55,6 @@ declare module jCafe {
          *              client.personsAndGroupsManager.mePerson.name());
          *     });
          *
-         * To skip the auto-discovery step specify URLs of rel=user and 
-         * rel=xframe UCWA resources:
-         *
-         *     sm.signIn({
-         *          domain: 'contoso.com',
-         *          root: {
-         *              user: 'https://lyncweb.company.com/.../user?originalDomain=company.com',
-         *              xframe: 'https://lyncweb.company.com/.../XFrame.html'
-         *          }
-         *     }).then(() => {
-         *          console.log('Signed in as ' + 
-         *              client.personsAndGroupsManager.mePerson.name());
-         *     });
-         *
          * To join an online meeting anonymously specify the meeting URI:
          *
          *     sm.signIn({
@@ -87,22 +73,6 @@ declare module jCafe {
          *             'https://webdir.tip.lync.com/AutoDiscover/AutoDiscoverservice.svc/root?originalDomain=contoso.com',
          *             'https://webdir.online.lync.com/AutoDiscover/AutoDiscoverservice.svc/root?originalDomain=contoso.com',
          *         ]
-         *     });
-         *
-         * To specify a custom authentication function specify the `auth` parameter:
-         *
-         *     sm.signIn({
-         *         root: {
-         *             user: 'https://lyncweb.company.com/.../user?originalDomain=company.com',
-         *             xframe: 'https://lyncweb.company.com/.../XFrame.html'
-         *         },
-         *         auth: (request, sendRequest) => {
-         *              // somehow get the token
-         *             request.headers["Authorization"] = "Bearer ey...Az";
-         *              // it returns a Promise, so the token could be 
-         *              // obtained asynchronously
-         *             return sendRequest(request); 
-         *         }
          *     });
          *
          * To connect to an existing app's event channel, specify id of that app:

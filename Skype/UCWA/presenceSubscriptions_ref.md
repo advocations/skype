@@ -213,7 +213,7 @@ Creates a new subscription to a user-defined set of contacts.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[presenceSubscription](PresenceSubscriptionResource_ref.md_ref.md)|Represents the subscription to a user-defined set of contacts.|
+|[presenceSubscription](PresenceSubscriptionResource_ref.md)|Represents the subscription to a user-defined set of contacts.|
 
 #### Synchronous errors
 

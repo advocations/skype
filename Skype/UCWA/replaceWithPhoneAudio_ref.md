@@ -68,7 +68,7 @@ Replaces audio with phone audio in a [conversation](conversation_ref.md) and sta
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
+|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
 
 #### Synchronous errors
 

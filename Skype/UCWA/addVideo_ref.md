@@ -71,7 +71,7 @@ Adds Video to a Conversation and starts a VideoInvitation.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[audioVideoInvitation](AudioVideoInvitationResource_ref.md_ref.md)|Represents an audio-video invitation.|
+|[audioVideoInvitation](AudioVideoInvitationResource_ref.md)|Represents an audio-video invitation.|
 
 #### Synchronous errors
 

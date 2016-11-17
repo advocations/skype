@@ -78,7 +78,7 @@ Starts audio negotiation by supplying offer. Creates [audioVideoInvitation](audi
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[audioVideoInvitation](AudioVideoInvitationResource_ref.md_ref.md)|Represents an audio-video invitation.|
+|[audioVideoInvitation](AudioVideoInvitationResource_ref.md)|Represents an audio-video invitation.|
 
 #### Synchronous errors
 

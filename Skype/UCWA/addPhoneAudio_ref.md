@@ -69,7 +69,7 @@ Adds audio to a [conversation](conversation_ref.md) through call-via-work and st
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
+|[phoneAudioInvitation](PhoneAudioInvitationResource_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
 
 #### Synchronous errors
 

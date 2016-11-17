@@ -246,7 +246,7 @@ Adds a contactUri to a particular group.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[myGroupMembership](MyGroupMembershipResourceVersionTwo_ref.md_ref.md)|Represents the version two of MyGroupMembershipResource (a [group](group_ref.md) membership of a single [contact](contact_ref.md))|
+|[myGroupMembership](MyGroupMembershipResourceVersionTwo_ref.md)|Represents the version two of MyGroupMembershipResource (a [group](group_ref.md) membership of a single [contact](contact_ref.md))|
 
 #### Synchronous errors
 

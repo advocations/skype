@@ -82,7 +82,7 @@ Report network changes.
 
 |**Item**|**Description**|
 |:-----|:-----|
-|[reportMyNetwork](ReportMyNetworkResource_ref.md_ref.md)|Represents the reportMyNetwork resource.|
+|[reportMyNetwork](ReportMyNetworkResource_ref.md)|Represents the reportMyNetwork resource.|
 
 #### Synchronous errors
 
