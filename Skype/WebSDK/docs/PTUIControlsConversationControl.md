@@ -213,7 +213,6 @@ listeners.push(conversation.participants.added(function (person) {
 }));
 
 listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
-    window.framework.addNotification('info', 'Conversation state changed from ' + oldValue + ' to ' + newValue);
     if (newValue === 'Connected' || newValue == 'Conferenced') {
         // Call successfully connected
     }

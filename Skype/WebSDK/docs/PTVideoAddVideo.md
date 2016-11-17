@@ -19,7 +19,7 @@ After the conversation and audio/video modality are established we can begin com
 
   ```js
     var id = content.querySelector('.id').value;
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation(id);
     listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
         // Connected to Audio

@@ -27,7 +27,7 @@ After the conversation and chat modality are established messages events will be
 
   ```js
     var id = content.querySelector('.id').value;
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation(id);
     listeners.push(conversation.selfParticipant.chat.state.when('Connected', function () {
         // Connected to chat

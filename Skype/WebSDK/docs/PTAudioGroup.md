@@ -18,7 +18,7 @@ After the conversation and audio modality are established we can begin communica
 1. Start group audio conversation, and track participant events 
 
   ```js
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     var id = content.querySelector('.id').value;
     var id2 = content.querySelector('.id2').value;
     conversation = conversationsManager.createConversation();

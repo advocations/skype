@@ -71,7 +71,6 @@ function createContactCard(contact, container) {
     });
 
 function populateContacts(contacts, container) {
-    var content = window.framework.findContentDiv();
     function populateSingleContact(contact) {
         // some of the properties you can access contact.displayName(), contact.note().text, contact.avatarUrl()
         processing = false;
@@ -98,6 +97,8 @@ function populateContacts(contacts, container) {
     var processing = false, i = -1;
     setInterval(loopOverAllContacts, 10);
 }
+
+var content = document.querySelector('.content')
 
 // retrieve local user details
 const mePerson = application.personsAndGroupsManager.mePerson;
