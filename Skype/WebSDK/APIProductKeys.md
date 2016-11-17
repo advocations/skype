@@ -1,5 +1,5 @@
 ---
-redirect_url: skype/WebSDK/docs/APIProductKeys
+redirect_url: /docs/APIProductKeys
 ---
 
 
