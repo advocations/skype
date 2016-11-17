@@ -12,16 +12,16 @@
 
  >**Note**: The Audio and Video components of the conversation control are available as public preview.
 
-The Skype Web SDK <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> object contains the logic and
+The Skype Web SDK <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a> object contains the logic and
 presentation layer that encapsulates IM and A/V conversations in one object. Use it when you want Skype
 Web SDK to draw the conversation UI for you. It can be implemented in your webpage with as few as three
 Skype Web SDK API calls. If you want the control to activate on incoming conversation invitations,
 you will need to add an event handler for changes in the self participant chat channel.
 
 To learn about the capabilities of the Conversation Control for each version of the SDK, see
-<a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/APIProductKeys?branch=ajkher/project-shakespeare" target="">Skype Web SDK Production Use Capabilities</a>.
+<a href="https://msdn.microsoft.com/skype/websdk/docs/APIProductKeys" target="">Skype Web SDK Production Use Capabilities</a>.
 
-Figure 1 shows the <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> in action. The Microsoft Edge
+Figure 1 shows the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a> in action. The Microsoft Edge
 browser is shown in this example, but you can use any other supported browser.
 
 **Figure 1. The Skype Web Conversation Control**
@@ -29,7 +29,7 @@ browser is shown in this example, but you can use any other supported browser.
 
 ![Skype Web SDK Conversation Control](../images/8144ea64-e3f3-4880-9eb6-7e332fab9d4e.PNG)
 
-This topic takes you through the steps to add a <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> to you web app. Upon completion of these tasks, 
+This topic takes you through the steps to add a <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a> to you web app. Upon completion of these tasks, 
 your app will let a user sign in to Skype for Business on premise, initiate a new IM conversation with one or more people, and accept invitations to 
 join an IM conversation.
 
@@ -46,7 +46,7 @@ event handler for starting a new IM conversation.
 - Declare a structure to hold the API keys
     
 >**Important**  The API key values shown in this example are the literal values that you must use in your application. If you use any other strings, 
-your application will not initialize the API endpoint.Change the value of the `version` key to uniquely identify your app. See <a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/APIProductKeys?branch=ajkher/project-shakespeare" target="">Skype Web SDK Production Use Capabilities</a> for a list of supported API keys.
+your application will not initialize the API endpoint.Change the value of the `version` key to uniquely identify your app. See <a href="https://msdn.microsoft.com/skype/websdk/docs/APIProductKeys" target="">Skype Web SDK Production Use Capabilities</a> for a list of supported API keys.
 
 ``` js
 var config = {
@@ -57,7 +57,7 @@ var config = {
 
 ```
 
-- Initialize the API endpoint and get the  **UIApplicationInstance** that provides the <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a>.
+- Initialize the API endpoint and get the  **UIApplicationInstance** that provides the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>.
 
 
 ``` js
@@ -83,7 +83,7 @@ app.conversationsManager.conversations.added(function (conversation) {
 
 Inside of the previous callback method, add a callback to detect when one of the modalities in the conversation becomes `'Notified'`.
 
-When the state of the channel is changed to `'Notified'`, an invitation to has been received. To show the <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a>, 
+When the state of the channel is changed to `'Notified'`, an invitation to has been received. To show the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>, 
 call the  **renderConversation** method of the `api` object passed as a parameter to the callback of the **initialize** function.
 
 >note: There is a known issue where adding modalities other than 'Chat' to the 'modalities' array in the second argument
@@ -149,9 +149,9 @@ When the user clicks a button called 'callButton', the code takes the following 
 
 - Takes the sip addresses specified in the text inputs sip1 and sip2 and...
     
-- Creates a container to host the <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> and adds it as a child of an element called 'conversationContainer.'
+- Creates a container to host the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a> and adds it as a child of an element called 'conversationContainer.'
     
-- Renders the <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a> in the new container by calling **renderConversation** and passing the hosting container, desired chat modality, and the array of invitee SIP addresses.
+- Renders the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a> in the new container by calling **renderConversation** and passing the hosting container, desired chat modality, and the array of invitee SIP addresses.
     
 
 ``` js
@@ -258,6 +258,6 @@ api.renderConversation(div, {
 <a name="additional-resources"> </a>
 ## Additional resources
 
-- <a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/conversationcontrol?branch=ajkher/project-shakespeare" target="">Conversation Control</a>
+- <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>
 
 

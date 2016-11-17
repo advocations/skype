@@ -68,5 +68,5 @@ Build a dynamic view of a user's person list with content from the Groups collec
 
 ## Additional resources
 
-<a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptcontactssearch?branch=ajkher/project-shakespeare" target="">Search for persons and distribution groups</a>
+<a href="https://msdn.microsoft.com/skype/websdk/docs/ptcontactssearch" target="">Search for persons and distribution groups</a>
 
