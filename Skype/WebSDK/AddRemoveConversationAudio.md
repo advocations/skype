@@ -1,7 +1,6 @@
 ---
-redirect_url: skype/WebSDK/docs/AddRemoveConversationAudio
+redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/AddRemoveConversationAudio
 ---
-
-
-# Do not edit this doc
+# do not edit
+This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/AddRemoveConversationAudio.md file.
 
