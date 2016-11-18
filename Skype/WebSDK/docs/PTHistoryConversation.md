@@ -118,7 +118,7 @@ With the `getMoreConversations` method. However this shouldn't be needed: UCWA s
 ## Sample
 
 ```js
-var conversationsManager = window.framework.application.conversationsManager;
+var conversationsManager = application.conversationsManager;
 conversationsManager.getMoreConversations().then(function () {
     // console.log('done')
 });

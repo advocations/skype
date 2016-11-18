@@ -80,5 +80,5 @@ groupSearchQuery.getMore().then(null, function (results) {
 
 ## Additional resources
 
-- <a href="https://msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ListenForAvailability?branch=ajkher/project-shakespeare" target="">Get a person and listen for availability</a>
+- <a href="https://msdn.microsoft.com/skype/websdk/docs/ListenForAvailability" target="">Get a person and listen for availability</a>
 

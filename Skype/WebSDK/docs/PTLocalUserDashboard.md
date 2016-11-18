@@ -71,7 +71,6 @@ function createContactCard(contact, container) {
     });
 
 function populateContacts(contacts, container) {
-    var content = window.framework.findContentDiv();
     function populateSingleContact(contact) {
         // some of the properties you can access contact.displayName(), contact.note().text, contact.avatarUrl()
         processing = false;
@@ -99,6 +98,8 @@ function populateContacts(contacts, container) {
     setInterval(loopOverAllContacts, 10);
 }
 
+var content = document.querySelector('.content')
+
 // retrieve local user details
 const mePerson = application.personsAndGroupsManager.mePerson;
 const contactsDiv = content.querySelector('.contacts');
@@ -113,7 +114,7 @@ createContactCard(mePerson, contactsDiv.querySelector('.contact'));
 
 
 
-<a href="//msdnstage.redmond.corp.microsoft.com/skype/websdk/docs/ptcontactscontactcard?branch=ajkher/project-shakespeare" target="">Show a person's information</a>
+<a href="//msdn.microsoft.com/skype/websdk/docs/ptcontactscontactcard" target="">Show a person's information</a>
 #### Other resources
 
 
