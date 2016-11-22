@@ -49,6 +49,8 @@ tst
 |Start and have P2P or meeting audio conversations with the signed in users   |X|-|
 |Invite more participant to a Skype for Business meeting Chat conversation, or to a P2P Chat conversation to escalate to meeting via the Skype Web SDK API |X|X|
 |Invite more participant to an Skype for Business meeting AV conversation, or to a P2P AV conversation to escalate to meeting |X|-|
+|Start and have PSTN audio conversations (outgoing PSTN calling) |X|-|
+|Accept and have PSTN audio conversations (incoming PSTN calling) |X|-|
 |Schedule a Skype for Business meeting. |X|X|
 |Join a Skype for Business meeting and start chat and/or audio service in the conversation. |X|-|
 |Join a Skype for Business meeting from a signed in user with audio and video. |X|-|
