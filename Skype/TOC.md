@@ -25,6 +25,8 @@
 ##### [Persons](WebSDK/docs/Persons.md)
 ##### [Devices](WebSDK/docs/Devices.md)
 
+##### [Api References](WebSDK/model/index.html)
+
 #### [Getting Started](WebSDK/docs/GettingStarted.md)
 ##### [Downloading and running samples](WebSDK/docs/DownloadRunSamples.md)
 ##### [Skype Web SDK API product keys](WebSDK/docs/APIProductKeys.md)
