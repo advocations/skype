@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -79,7 +80,7 @@
 					<pre><code> -   the contact list that includes all contacts
  -   a distribution <span class="hljs-keyword">group</span>
  <span class="hljs-title">-   a</span> relationship <span class="hljs-keyword">group</span> <span class="hljs-title">like</span> Colleagues, Workgroup, Blocked
- -   a user-created <span class="hljs-keyword">or</span> a server-created <span class="hljs-keyword">group</span> <span class="hljs-title">of</span> contacts
+ -   a user-created <span class="hljs-operator">or</span> a server-created <span class="hljs-keyword">group</span> <span class="hljs-title">of</span> contacts
 </code></pre><p>These sources are similar in a sense that they encapsulate a contact list,
 					but the access path to that list may differ:</p>
 					<pre><code>-<span class="ruby">    myContacts / contact[i]
@@ -175,7 +176,7 @@ thisGroup.groups.removed(<span class="hljs-function"><span class="hljs-params">(
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2068</li>
+							<li>Defined in s4b.sdk.d.ts:2073</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -200,8 +201,8 @@ thisGroup.groups.removed(<span class="hljs-function"><span class="hljs-params">(
 						</div>
 						<p>There are two predefined groups created by the server, with the
 						following names:</p>
-						<pre><code>   -<span class="ruby"> Other Contacts
-</span>   -<span class="ruby"> Pinned Contacts
+						<pre><code>   -<span class="ruby"> <span class="hljs-constant">Other</span> <span class="hljs-constant">Contacts</span>
+</span>   -<span class="ruby"> <span class="hljs-constant">Pinned</span> <span class="hljs-constant">Contacts</span>
 </span>     ("Pinned Contacts" corresponds to the "Favorites" group.)
 </code></pre><p>The setter of the name attribute can be used to rename the group, which
 							leads to a &quot;PUT&quot; request being sent to UCWA. This &quot;PUT&quot; request, upon
@@ -214,38 +215,38 @@ thisGroup.groups.removed(<span class="hljs-function"><span class="hljs-params">(
 						the &quot;group deleted&quot; event arrives).</p>
 						<p>Consider this example to rename a group:</p>
 						<pre><code><span class="hljs-comment">// assume getGroupByName returns the Group object by its name</span>
-var <span class="hljs-built_in">group</span> = getGroupByName(<span class="hljs-string">"oldName"</span>);
+<span class="hljs-built_in">var</span> <span class="hljs-keyword">group</span> = getGroupByName(<span class="hljs-string">"oldName"</span>);
 
-client.personsAndGroupsManager.all.groups.added(() =&gt; {
-    g.<span class="hljs-built_in">name</span>.get().<span class="hljs-keyword">then</span>((a) =&gt; {
+client<span class="hljs-built_in">.</span>personsAndGroupsManager<span class="hljs-built_in">.</span><span class="hljs-literal">all</span><span class="hljs-built_in">.</span>groups<span class="hljs-built_in">.</span>added(() =&gt; {
+    g<span class="hljs-built_in">.</span>name<span class="hljs-built_in">.</span>get()<span class="hljs-built_in">.</span>then((a) =&gt; {
         <span class="hljs-comment">// the new group with the new name has been created</span>
         <span class="hljs-comment">// update the reference if want to reuse it</span>
-        <span class="hljs-keyword">if</span> (a == <span class="hljs-string">"newGroup"</span>) <span class="hljs-built_in">group</span> = g;
+        <span class="hljs-keyword">if</span> (a == <span class="hljs-string">"newGroup"</span>) <span class="hljs-keyword">group</span> = g;
     });
 });
 
-client.personsAndGroupsManager.all.groups.removed((g) =&gt; {
-    g.<span class="hljs-built_in">name</span>.get().<span class="hljs-keyword">then</span>((a) =&gt; {
+client<span class="hljs-built_in">.</span>personsAndGroupsManager<span class="hljs-built_in">.</span><span class="hljs-literal">all</span><span class="hljs-built_in">.</span>groups<span class="hljs-built_in">.</span>removed((g) =&gt; {
+    g<span class="hljs-built_in">.</span>name<span class="hljs-built_in">.</span>get()<span class="hljs-built_in">.</span>then((a) =&gt; {
         <span class="hljs-comment">// the old group with the old name has been deleted</span>
         <span class="hljs-comment">// the old reference is no long valid if not updated yet</span>
         <span class="hljs-comment">// so renew it to point to the new group object</span>
-        <span class="hljs-keyword">if</span> (a == <span class="hljs-string">"oldGroup"</span>) <span class="hljs-built_in">group</span> = getGroupByName(<span class="hljs-string">"newName"</span>);
+        <span class="hljs-keyword">if</span> (a == <span class="hljs-string">"oldGroup"</span>) <span class="hljs-keyword">group</span> = getGroupByName(<span class="hljs-string">"newName"</span>);
     });
 });
 
-<span class="hljs-built_in">group</span>.<span class="hljs-built_in">name</span>.<span class="hljs-built_in">set</span>(<span class="hljs-string">"newName"</span>).<span class="hljs-keyword">then</span>((a) =&gt; {
+<span class="hljs-keyword">group</span><span class="hljs-built_in">.</span>name<span class="hljs-built_in">.</span><span class="hljs-built_in">set</span>(<span class="hljs-string">"newName"</span>)<span class="hljs-built_in">.</span>then((a) =&gt; {
     <span class="hljs-comment">// a should be the name "oldName" of the old group</span>
-    console.<span class="hljs-built_in">log</span>(a);
+    console<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(a);
 });
 
 <span class="hljs-comment">// at this moment, the group reference is likely still pointing</span>
 <span class="hljs-comment">// to the old group, with name "oldName"</span>
-console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">group</span>.<span class="hljs-built_in">name</span>());
+console<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(<span class="hljs-keyword">group</span><span class="hljs-built_in">.</span>name());
 <span class="hljs-comment">// ...</span>
 <span class="hljs-comment">// some moments later, after the "group added" event is received</span>
 <span class="hljs-comment">// the group reference has been updated to point to the new group</span>
 <span class="hljs-comment">// with name "newName"</span>
-console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">group</span>.<span class="hljs-built_in">name</span>());
+console<span class="hljs-built_in">.</span><span class="hljs-keyword">log</span>(<span class="hljs-keyword">group</span><span class="hljs-built_in">.</span>name());
 </code></pre>
 					</div>
 				</section>
@@ -308,7 +309,7 @@ group.persons.remove(person).<span class="hljs-keyword">then</span>(<span class=
 					<div class="tsd-signature tsd-kind-icon">relationship<wbr>Level<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/jcafe.html#groupprivacyrelationshiplevel" class="tsd-signature-type">GroupPrivacyRelationshipLevel</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2071</li>
+							<li>Defined in s4b.sdk.d.ts:2076</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

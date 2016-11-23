@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -116,17 +117,17 @@
 						<div class="lead">
 							<p>Here is a correct way to accept incoming IM invitations:</p>
 						</div>
-						<pre><code>client.conversationsManager.conversations.added(<span class="hljs-function"><span class="hljs-params">conversation</span> =&gt;</span> {
-    <span class="hljs-keyword">var</span> chat = conversation.chatService;
-    <span class="hljs-keyword">if</span> (chat.accept.enabled())
-        chat.accept();
-});
+						<pre><code><span class="hljs-component">client.conversationsManager.conversations.added(conversation =&gt; {
+    var chat = conversation<span class="hljs-string">.chatService</span>;
+    if (chat<span class="hljs-string">.accept.enabled())</span>
+        chat<span class="hljs-string">.accept()</span>;
+}</span>);
 </code></pre><p>The only way to remove a conversation from the collection is
 							to invoke the <code>remove</code> method which stops the conversation and
 						then removes it from the collection:</p>
-						<pre><code><span class="hljs-built_in">var</span> <span class="hljs-built_in">cv</span> = client.conversationsManager.conversations(<span class="hljs-number">5</span>);
-client.conversationsManager.conversations.<span class="hljs-built_in">remove</span>(<span class="hljs-built_in">cv</span>).<span class="hljs-built_in">catch</span>(err =&gt; {
-    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Failed to remove the conversation: "</span> + err);
+						<pre><code><span class="hljs-keyword">var</span> cv = client.conversationsManager.conversations(5);
+client.conversationsManager.conversations.remove(cv).catch(<span class="hljs-keyword">err</span> =&gt; {
+    console.<span class="hljs-literal">log</span>(<span class="hljs-string">"Failed to remove the conversation: "</span> + <span class="hljs-keyword">err</span>);
 });
 </code></pre><p>If the conversation gets stopped because it was terminated on the remote
 							side or because all participants left, the conversation
@@ -147,7 +148,7 @@ client.conversationsManager.conversations.<span class="hljs-built_in">remove</sp
 					<div class="tsd-signature tsd-kind-icon">is<wbr>History<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Property&lt;boolean&gt; &amp; { auto: Property&lt;boolean&gt;; }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2045</li>
+							<li>Defined in s4b.sdk.d.ts:2050</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,12 +188,12 @@ client.conversationsManager.conversations.<span class="hljs-built_in">remove</sp
 									one of the conversation services. If no participants are added,
 									the model represents a meeting that is joined by the local participant only.
 								This method adds the created conversation to the conversations collection.</p>
-								<pre><code>var conversation = app.conversationsManager.createConversation()<span class="hljs-comment">;</span>
-var remoteParty = conversation.createParticipant(remotePerson)<span class="hljs-comment">;</span>
-conversation.participants.add(remoteParty)<span class="hljs-comment">;</span>
-conversation.chatService.start().then(() =&gt; {
-    console.log(<span class="hljs-string">"chat started"</span>)<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+								<pre><code>var conversation = app.conversationsManager.createConversation();
+var remoteParty = conversation.createParticipant(remotePerson);
+conversation.participants.add(remoteParty);
+conversation.chatService.start().<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"chat started"</span>);
+});
 </code></pre>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="jcafe.conversation.html" class="tsd-signature-type">Conversation</a></h4>
@@ -209,7 +210,7 @@ conversation.chatService.start().then(() =&gt; {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in s4b.sdk.d.ts:2034</li>
+									<li>Defined in s4b.sdk.d.ts:2039</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -290,7 +291,7 @@ conversation.chatService.start().then(() =&gt; {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in s4b.sdk.d.ts:2028</li>
+									<li>Defined in s4b.sdk.d.ts:2033</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

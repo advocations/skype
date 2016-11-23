@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -206,7 +207,7 @@
      <span class="hljs-keyword">if</span> (cap.isBrowserMediaSupported() || cap.isPluginInstalled()) {
          actualAVCall();
      } <span class="hljs-keyword">else</span> {
-         cap.installedVersion.get().<span class="hljs-keyword">finally</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+         cap.installedVersion.<span class="hljs-keyword">get</span>().<span class="hljs-keyword">finally</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
              <span class="hljs-keyword">var</span> p = cap.isPluginInstalled;
              <span class="hljs-keyword">var</span> r = p.reason;
              <span class="hljs-keyword">if</span> (p()) {

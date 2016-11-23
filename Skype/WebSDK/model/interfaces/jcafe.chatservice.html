@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -208,9 +209,9 @@ input.onkeydown = <span class="hljs-function"><span class="hljs-params">()</span
   });
 </code></pre><p>  Accept invite and send message:</p>
 						<pre><code>  client.conversationsManager.conversations.added(conversation =&gt; {
-  <span class="hljs-keyword">if</span> (conversation.chatService.accept.enabled())
-        conversation.chatService.accept().<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-              conversation.chatService.sendMessage(<span class="hljs-string">'Got your invite'</span>);
+  <span class="hljs-keyword">if</span> (conversation.chatService.accept.enabled<span class="hljs-literal">()</span>)
+        conversation.chatService.accept<span class="hljs-literal">()</span>.<span class="hljs-keyword">then</span>(<span class="hljs-literal">()</span> =&gt; {
+              conversation.chatService.sendMessage(<span class="hljs-symbol">'Got</span> your invite');
         });
   });
 </code></pre>

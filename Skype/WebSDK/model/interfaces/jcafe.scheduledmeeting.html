@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -76,11 +77,11 @@
 							To schedule a meeting, set appropriate properties and
 						then get the meeting URI:</p>
 					</div>
-					<pre><code> <span class="hljs-selector-tag">app</span><span class="hljs-selector-class">.conversationsManager</span><span class="hljs-selector-class">.createMeeting</span>()
-     <span class="hljs-selector-class">.accessLevel</span>("<span class="hljs-selector-tag">Everyone</span>")
-     <span class="hljs-selector-class">.subject</span>("<span class="hljs-selector-tag">Test</span>")
-     <span class="hljs-selector-class">.expirationTime</span>(<span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Date</span> + 5 * 24 * 3600)
-     <span class="hljs-selector-class">.onlineMeetingUri</span><span class="hljs-selector-class">.get</span>();
+					<pre><code> <span class="hljs-tag">app</span><span class="hljs-class">.conversationsManager</span><span class="hljs-class">.createMeeting</span>()
+     <span class="hljs-class">.accessLevel</span>("<span class="hljs-tag">Everyone</span>")
+     <span class="hljs-class">.subject</span>("<span class="hljs-tag">Test</span>")
+     <span class="hljs-class">.expirationTime</span>(<span class="hljs-tag">new</span> <span class="hljs-tag">Date</span> + 5 * 24 * 3600)
+     <span class="hljs-class">.onlineMeetingUri</span><span class="hljs-class">.get</span>();
 </code></pre><p>Then the URI can be sent to attendees and they can join.</p>
 					<p>See also how to schedule online meetings with UCWA:
 					msdn.microsoft.com/en-us/library/office/dn356790.aspx</p>
@@ -128,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">access<wbr>Level<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2169</li>
+							<li>Defined in s4b.sdk.d.ts:2174</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -136,9 +137,9 @@
 							<p>Controls who is let into the meeting:</p>
 						</div>
 						<pre><code> Everyone
- Invited         Only users <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> attendees/leaders, all others are <span class="hljs-built_in">put</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> lobby.
- Locked          All users except <span class="hljs-keyword">the</span> organizer are <span class="hljs-built_in">put</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">the</span> lobby.
- SameEnterprise  Only users <span class="hljs-built_in">from</span> <span class="hljs-keyword">the</span> same enterprise, all others are <span class="hljs-built_in">put</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> lobby.
+ Invited         Only users <span class="hljs-operator">in</span> <span class="hljs-operator">the</span> attendees/leaders, all others are <span class="hljs-built_in">put</span> <span class="hljs-operator">in</span> <span class="hljs-operator">the</span> lobby.
+ Locked          All users except <span class="hljs-operator">the</span> organizer are <span class="hljs-built_in">put</span> <span class="hljs-keyword">into</span> <span class="hljs-operator">the</span> lobby.
+ SameEnterprise  Only users <span class="hljs-built_in">from</span> <span class="hljs-operator">the</span> same enterprise, all others are <span class="hljs-built_in">put</span> <span class="hljs-operator">in</span> <span class="hljs-operator">the</span> lobby.
 </code></pre>
 					</div>
 				</section>
@@ -148,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">attendees<span class="tsd-signature-symbol">:</span> <a href="jcafe.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2172</li>
+							<li>Defined in s4b.sdk.d.ts:2177</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -163,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">automatic<wbr>Leader<wbr>Assignment<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2198</li>
+							<li>Defined in s4b.sdk.d.ts:2203</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -183,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2178</li>
+							<li>Defined in s4b.sdk.d.ts:2183</li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">entry<wbr>Exit<wbr>Announcement<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2206</li>
+							<li>Defined in s4b.sdk.d.ts:2211</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">expiration<wbr>Time<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2187</li>
+							<li>Defined in s4b.sdk.d.ts:2192</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">join<wbr>Url<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2147</li>
+							<li>Defined in s4b.sdk.d.ts:2152</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -243,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">leaders<span class="tsd-signature-symbol">:</span> <a href="jcafe.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2175</li>
+							<li>Defined in s4b.sdk.d.ts:2180</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -258,7 +259,7 @@
 					<div class="tsd-signature tsd-kind-icon">lobby<wbr>Bypass<wbr>For<wbr>Phone<wbr>Users<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2209</li>
+							<li>Defined in s4b.sdk.d.ts:2214</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -273,7 +274,7 @@
 					<div class="tsd-signature tsd-kind-icon">online<wbr>Meeting<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2153</li>
+							<li>Defined in s4b.sdk.d.ts:2158</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,7 +290,7 @@
 					<div class="tsd-signature tsd-kind-icon">online<wbr>Meeting<wbr>Uri<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2144</li>
+							<li>Defined in s4b.sdk.d.ts:2149</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +300,7 @@
 					<div class="tsd-signature tsd-kind-icon">organizer<wbr>Uri<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2159</li>
+							<li>Defined in s4b.sdk.d.ts:2164</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -315,7 +316,7 @@
 					<div class="tsd-signature tsd-kind-icon">phone<wbr>User<wbr>Admission<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2217</li>
+							<li>Defined in s4b.sdk.d.ts:2222</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -332,7 +333,7 @@
 					<div class="tsd-signature tsd-kind-icon">subject<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2177</li>
+							<li>Defined in s4b.sdk.d.ts:2182</li>
 						</ul>
 					</aside>
 				</section>

@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -90,23 +91,23 @@
 						that value. For example for the
 						code snippet above where someone subscribes to the &quot;displayName&quot; property,
 					the Person model sends up to one HTTP request to load the resource:</p>
-					<pre><code> <span class="hljs-meta">GET</span> /contacts/<span class="hljs-number">126173</span>
+					<pre><code> <span class="hljs-preprocessor">GET</span> /contacts/<span class="hljs-number">126173</span>
 </code></pre><p>For more complicated properties, like &quot;status&quot;, it may be necessary
 						to send extra HTTP requests to create a presence subscription. So when
 					someone starts listening to the &quot;status&quot; property</p>
-					<pre><code> <span class="hljs-function"><span class="hljs-keyword">sub</span> = <span class="hljs-title">person1</span>.<span class="hljs-title">status</span>.<span class="hljs-title">subscribe</span></span>();
+					<pre><code> <span class="hljs-sub"><span class="hljs-keyword">sub</span> = person1.status.subscribe();</span>
  person1.status.changed(onPresenceChanged);
  function onPresenceChanged(presence) {
-     console.log(<span class="hljs-string">"the contact is "</span> + presence.availability);
+     console.<span class="hljs-keyword">log</span>(<span class="hljs-string">"the contact is "</span> + presence.availability);
  }
 </code></pre><p>the Person model sends a POST request to create a presence subscription
 						(in addition to all requests that are necessary to get the URL to which
 					that POST request can be sent):</p>
-					<pre><code> POST <span class="hljs-meta-keyword">/contacts/</span><span class="hljs-number">126173</span>/presencesubscriptions
+					<pre><code> POST /contacts/<span class="hljs-number">126173</span>/presencesubscriptions
 
  {<span class="hljs-string">"Uris"</span>:[<span class="hljs-string">"sip:johndoe@contoso.com"</span>], <span class="hljs-string">"Duration"</span>:<span class="hljs-string">"11"</span>}
 </code></pre><p>But after the view stops listening to the property</p>
-					<pre><code> <span class="hljs-function"><span class="hljs-keyword">sub</span>.<span class="hljs-title">dispose</span></span>();
+					<pre><code> <span class="hljs-sub"><span class="hljs-keyword">sub</span>.dispose();</span>
 </code></pre><p>the Person model sends a DELETE request to remove the presence subscription:</p>
 					<pre><code> <span class="hljs-keyword">DELETE</span> <span class="hljs-regexp">/contacts/</span><span class="hljs-number">126173</span><span class="hljs-regexp">/presencesubscriptions/</span><span class="hljs-number">2877816481</span>
 </code></pre><p>It is suggested to unsubscribe from Person models
@@ -224,11 +225,11 @@
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"audio not supported"</span>);
 </code></pre><p>Since capabilities is not a property itself, it can not
 						be subscribed to; but its sub-properties can be subscribed to:</p>
-						<pre><code> <span class="hljs-comment">// get capabilities object</span>
- <span class="hljs-keyword">var</span> modalities = person.capabilities;
- <span class="hljs-comment">// subscribe to changes of capabilities.audio</span>
+						<pre><code> <span class="hljs-regexp">//</span> get capabilities object
+ var modalities = person.capabilities;
+ <span class="hljs-regexp">//</span> subscribe to changes <span class="hljs-keyword">of</span> capabilities.audio
  modalities.audio.subscribe();
- modalities.audio.changed(<span class="hljs-function">(<span class="hljs-params">f</span>) =&gt;</span> {
+ modalities.audio.changed(<span class="hljs-function"><span class="hljs-params">(f)</span> =&gt;</span> {
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"audio modality is "</span> + f ?
          <span class="hljs-string">'supported'</span> : <span class="hljs-string">'not supported'</span>);
  });

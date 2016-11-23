@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -473,19 +474,19 @@
 								<pre><code> <span class="hljs-keyword">const</span> values = Collection();
  <span class="hljs-keyword">const</span> product = values.reduce((val, prop) =&gt; val ? val * prop() : <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
 
- <span class="hljs-keyword">const</span> x = Property(); x.<span class="hljs-keyword">set</span>(<span class="hljs-number">3</span>);
- <span class="hljs-keyword">const</span> y = Property(); y.<span class="hljs-keyword">set</span>(<span class="hljs-number">5</span>);
- <span class="hljs-keyword">const</span> z = Property(); z.<span class="hljs-keyword">set</span>(<span class="hljs-number">7</span>);
+ <span class="hljs-keyword">const</span> x = <span class="hljs-keyword">Property</span>(); x.<span class="hljs-keyword">set</span>(<span class="hljs-number">3</span>);
+ <span class="hljs-keyword">const</span> y = <span class="hljs-keyword">Property</span>(); y.<span class="hljs-keyword">set</span>(<span class="hljs-number">5</span>);
+ <span class="hljs-keyword">const</span> z = <span class="hljs-keyword">Property</span>(); z.<span class="hljs-keyword">set</span>(<span class="hljs-number">7</span>);
 
- values.<span class="hljs-keyword">add</span>(x); <span class="hljs-comment">// product() == 3</span>
- values.<span class="hljs-keyword">add</span>(y); <span class="hljs-comment">// product() == 3*5</span>
- values.<span class="hljs-keyword">add</span>(z); <span class="hljs-comment">// product() == 3*5*7</span>
+ values.add(x); <span class="hljs-comment">// product() == 3</span>
+ values.add(y); <span class="hljs-comment">// product() == 3*5</span>
+ values.add(z); <span class="hljs-comment">// product() == 3*5*7</span>
 
  y.<span class="hljs-keyword">set</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// product() == 0 and z is not even being observed</span>
  y.<span class="hljs-keyword">set</span>(<span class="hljs-number">11</span>); <span class="hljs-comment">// product() == 3*11*7 and z is being observed again</span>
 </code></pre><p>A possible application is computing the number of online users:</p>
-								<pre><code> <span class="hljs-keyword">const</span> nOnline = persons.reduce(<span class="hljs-function">(<span class="hljs-params">n, p</span>) =&gt;</span> n + (!!p.status() == <span class="hljs-string">"Online"</span>), <span class="hljs-number">0</span>);
- nOnline.changed(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> <span class="hljs-built_in">document</span>.title = n + <span class="hljs-string">" people online"</span>);
+								<pre><code> <span class="hljs-keyword">const</span> nOnline = persons.reduce((<span class="hljs-keyword">n</span>, p) =&gt; <span class="hljs-keyword">n</span> + (!!p.status() == <span class="hljs-string">"Online"</span>), 0);
+ nOnline.changed(<span class="hljs-keyword">n</span> =&gt; document.title = <span class="hljs-keyword">n</span> + <span class="hljs-string">" people online"</span>);
 </code></pre><p>This works as long as the computed value doesn&#39;t depend on some external source.</p>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>

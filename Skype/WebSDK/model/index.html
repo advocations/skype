@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ActiveSpeaker | Skype for Business Web SDK API Reference</title>
+	<title>Skype for Business Web SDK API Reference</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script src="assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Skype for Business Web SDK API Reference</a>
+					<a href="index.html" class="title">Skype for Business Web SDK API Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,117 +54,92 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
-				</li>
-				<li>
-					<a href="../modules/jcafe.html">jCafe</a>
-				</li>
-				<li>
-					<a href="jcafe.activespeaker.html">ActiveSpeaker</a>
+					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>Interface ActiveSpeaker</h1>
+			<h1> Skype for Business Web SDK API Reference</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p> Active (dominant) speaker in a multiparty call.</p>
-					</div>
-					<p> Some media platforms do not support simultaneous multiple remote-party video, but generate
-						a single video stream which switches between dominant speakers. This interface is the only
-					representation of remote participant video in group calls on such a platform.</p>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">ActiveSpeaker</span>
-					</li>
+			<div class="tsd-panel tsd-typography">
+				<h2 id="the-web-based-model-schema-enabling-a-shared-ui-between-skype-for-web-for">The web based model schema enabling a shared UI between Skype for Web for</h2>
+				<p>Consumer and Skype for Web for Business</p>
+				<h3 id="jcafe-schema-common">jCafe/schema/common</h3>
+				<p>Contains the API surface that is common to both jSkype and jLync.</p>
+				<ul>
+					<li>Any interfaces introduced in this folder will be a part of the public
+					jLync web SDK.</li>
+					<li>In future if there is a jSkype web SDK then this folder is a potential source
+					for generating documentation.</li>
+					<li>Only interfaces that are truly common to both jSkype and jLync should
+					go here.</li>
 				</ul>
-			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="jcafe.activespeaker.html#channel" class="tsd-kind-icon">channel</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="jcafe.activespeaker.html#participant" class="tsd-kind-icon">participant</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="channel" class="tsd-anchor"></a>
-					<h3>channel</h3>
-					<div class="tsd-signature tsd-kind-icon">channel<span class="tsd-signature-symbol">:</span> <a href="jcafe.videochannel.html" class="tsd-signature-type">VideoChannel</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in s4b.sdk.d.ts:1933</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A dedicated video channel which video stream carries the current active speaker video.
-							When the active speaker changes this channel switches to the new speaker video.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="participant" class="tsd-anchor"></a>
-					<h3>participant</h3>
-					<div class="tsd-signature tsd-kind-icon">participant<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><a href="jcafe.participant.html" class="tsd-signature-type">Participant</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in s4b.sdk.d.ts:1936</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A reference to the participant model of the current active speaker</p>
-						</div>
-					</div>
-				</section>
-			</section>
+				<h3 id="jcafe-schema-int">jCafe/schema/int</h3>
+				<p>Contains the API surface that is internally used by jSkype and (optionally)
+				jLync.</p>
+				<ul>
+					<li>This folder should contain interfaces
+						(or partial interfaces - see int/Participant.d.ts)
+						that are used by SWX and expected to be implemented by both jSkype and jLync,
+					but which are not to be exposed as part of the public SDK.</li>
+					<li>New interfaces that are in development stage in jSkype can be added here.</li>
+					<li>Note: jLync implements all interfaces provided here.</li>
+					<li>Once an interface in this folder is stable and fully implemented by both jSkype
+					and jLync then it can be promoted into the common folder.</li>
+				</ul>
+				<h3 id="jcafe-schema-s4b-sdk">jCafe/schema/s4b.sdk</h3>
+				<p>Contains any additions on top of the common folder that are required as part of
+				the jLync web SDK.</p>
+				<ul>
+					<li>This folder inherits content from the common folder.</li>
+					<li>The jLync web SDK documenation will be generated from this folder.</li>
+					<li>jLync implements the content from this folder.</li>
+					<li>The contents of this folder have no impact on jSkype, it is specific to
+					jLync and its SDK.</li>
+				</ul>
+				<h4 id="api-diagram">API diagram</h4>
+				<pre><code>                    schema/common
+                           ^
+                           |<span class="hljs-string">
+               --------------------------
+               ^                         ^
+               </span>|<span class="hljs-string">                         </span>|
+        schema/s4b.sdk                   |<span class="hljs-string">
+               ^                         </span>|
+               |<span class="hljs-string">                         </span>|
+        jSkype4Business ---------&gt; schema/int
+                                         ^
+                                         |<span class="hljs-string">
+                                         </span>|
+                                      jSkype
+</code></pre><h4 id="how-to-test-changes-made-to-the-schema">How to test changes made to the schema</h4>
+				<ul>
+					<li><p>Open command prompt and navigate to the schema folder</p>
+						<pre><code>  $ <span class="hljs-built_in">npm</span> i
+  $ <span class="hljs-built_in">npm</span> test
+</code></pre></li>
+					<li><p>Verify that the above commands complete successfully.</p>
+					</li>
+					<li>Documentation is generated in schema/docgen/S4B-Documentation</li>
+				</ul>
+			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module tsd-is-not-exported">
-						<a href="../modules/jcafe.html">j<wbr>Cafe</a>
+					<li class=" tsd-kind-module tsd-is-not-exported">
+						<a href="modules/jcafe.html">j<wbr>Cafe</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="jcafe.activespeaker.html" class="tsd-kind-icon">Active<wbr>Speaker</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="jcafe.activespeaker.html#channel" class="tsd-kind-icon">channel</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="jcafe.activespeaker.html#participant" class="tsd-kind-icon">participant</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
@@ -230,7 +205,7 @@
 	</div>
 </footer>
 <div class="overlay"></div>
-<script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

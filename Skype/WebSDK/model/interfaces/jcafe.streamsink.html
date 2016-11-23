@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -89,8 +90,8 @@
 						plugin object such that setting the display back to &quot;block&quot; will not bring the
 					video back.</p>
 					<p>It is worth noting the following equivalence:</p>
-					<pre><code> $(<span class="hljs-string">"#container1"</span>).<span class="hljs-keyword">hide</span>() equals $(<span class="hljs-string">"#container1"</span>).css(<span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>)
- $(<span class="hljs-string">"#container1"</span>).show() equals $(<span class="hljs-string">"#container1"</span>).css(<span class="hljs-string">'display'</span>, <span class="hljs-string">'block'</span>)
+					<pre><code> $(<span class="hljs-string">"#container1"</span>).<span class="hljs-function"><span class="hljs-title">hide</span><span class="hljs-params">()</span></span> equals $(<span class="hljs-string">"#container1"</span>).<span class="hljs-function"><span class="hljs-title">css</span><span class="hljs-params">(<span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>)</span></span>
+ $(<span class="hljs-string">"#container1"</span>).<span class="hljs-function"><span class="hljs-title">show</span><span class="hljs-params">()</span></span> equals $(<span class="hljs-string">"#container1"</span>).<span class="hljs-function"><span class="hljs-title">css</span><span class="hljs-params">(<span class="hljs-string">'display'</span>, <span class="hljs-string">'block'</span>)</span></span>
 </code></pre><p>It means using the jQuery &quot;hide()&quot; and &quot;show()&quot; functions will not achieve the
 					aforementioned toggle effect.</p>
 					<p>Similarly, attempting to detach the DOM element and then append it back might

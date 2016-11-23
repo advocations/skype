@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -85,15 +86,15 @@
 					</ul>
 					<p>Example:</p>
 					<p>Show video of participant A in <div id="renderWindow">:</p>
-					<pre><code><span class="hljs-selector-tag">pA</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.stream</span><span class="hljs-selector-class">.source</span><span class="hljs-selector-class">.sink</span><span class="hljs-selector-class">.container</span>(
+					<pre><code>pA.video.channels(<span class="hljs-number">0</span>).stream.source.sink.<span class="hljs-keyword">container</span>(
      document.getElementById(<span class="hljs-string">'renderWindow'</span>));
-<span class="hljs-selector-tag">pA</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.isStarted</span>(true);
+pA.video.channels(<span class="hljs-number">0</span>).isStarted(<span class="hljs-keyword">true</span>);
 </code></pre><p>Replace participant A&#39;s video with participant B&#39;s video:</p>
-					<pre><code><span class="hljs-selector-tag">pB</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.isStarted</span>(true);
-<span class="hljs-selector-tag">pA</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.stream</span><span class="hljs-selector-class">.source</span><span class="hljs-selector-class">.sink</span><span class="hljs-selector-class">.container</span>(null);
-<span class="hljs-selector-tag">pB</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.stream</span><span class="hljs-selector-class">.source</span><span class="hljs-selector-class">.sink</span><span class="hljs-selector-class">.container</span>(
+					<pre><code>pB.video.channels(<span class="hljs-number">0</span>).isStarted(<span class="hljs-keyword">true</span>);
+pA.video.channels(<span class="hljs-number">0</span>).stream.source.sink.<span class="hljs-keyword">container</span>(<span class="hljs-keyword">null</span>);
+pB.video.channels(<span class="hljs-number">0</span>).stream.source.sink.<span class="hljs-keyword">container</span>(
      document.getElementById(<span class="hljs-string">'renderWindow'</span>));
-<span class="hljs-selector-tag">pA</span><span class="hljs-selector-class">.video</span><span class="hljs-selector-class">.channels</span>(<span class="hljs-number">0</span>)<span class="hljs-selector-class">.isStarted</span>(false);
+pA.video.channels(<span class="hljs-number">0</span>).isStarted(<span class="hljs-keyword">false</span>);
 </code></pre>
 				</div>
 			</section>

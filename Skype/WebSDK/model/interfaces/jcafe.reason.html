@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -79,19 +80,19 @@
 					<p> An error handler needs to check the Code first, which is always
 						present, and then based on the code check the Reason which is present
 					for some complex errors:</p>
-					<pre><code> sendMessage(text).<span class="hljs-keyword">then</span>(<span class="hljs-literal">null</span>, <span class="hljs-function"><span class="hljs-params">(err)</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (err.code == <span class="hljs-string">"NotFound"</span>) {
-         <span class="hljs-keyword">if</span> (err.reason.code == <span class="hljs-string">"ReferenceError"</span>) {
-             <span class="hljs-regexp">//</span>...
+					<pre><code> <span class="hljs-tag">sendMessage</span>(text)<span class="hljs-class">.then</span>(null, (err) =&gt; {
+     <span class="hljs-tag">if</span> (err.code == <span class="hljs-string">"NotFound"</span>) {
+         <span class="hljs-tag">if</span> (err.reason.code == <span class="hljs-string">"ReferenceError"</span>) {
+             <span class="hljs-comment">//...</span>
          }
      }
  });
 </code></pre><p> Some error interfaces may inherit from this interface to add more
 						fields specific to the operation. For instance a RequestFailed error
 					may add a field called Response:</p>
-					<pre><code> sendMessage(text).<span class="hljs-keyword">then</span>(<span class="hljs-literal">null</span>, (<span class="hljs-built_in">err</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-built_in">err</span>.code == <span class="hljs-string">"RequestFailed"</span>) {
-         <span class="hljs-keyword">if</span> (<span class="hljs-built_in">err</span>.<span class="hljs-built_in">response</span>.status == <span class="hljs-number">404</span>) {
+					<pre><code> <span class="hljs-tag">sendMessage</span>(text)<span class="hljs-class">.then</span>(null, (err) =&gt; {
+     <span class="hljs-tag">if</span> (err.code == <span class="hljs-string">"RequestFailed"</span>) {
+         <span class="hljs-tag">if</span> (err.response.status == <span class="hljs-number">404</span>) {
              ...
          }
      }

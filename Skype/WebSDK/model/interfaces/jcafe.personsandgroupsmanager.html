@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -208,8 +209,8 @@
 									console.log(&quot;More results are available on the server&quot;);
 									else
 								console.log(&quot;No more results are available on the server&quot;);</p>
-								<pre><code>searchQuery.results().forEach(<span class="hljs-function"><span class="hljs-params">(r)</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"group:"</span>, r.result.name());
+								<pre><code>searchQuery.results().forEach((r) =&gt; {
+    console.log(<span class="hljs-string">"group:"</span>, r.<span class="hljs-literal">result</span>.name());
 });
 </code></pre><p>});</p>
 							</div>
@@ -244,8 +245,8 @@
 									console.log(&quot;More results are available on the server&quot;);
 									else
 								console.log(&quot;No more results are available on the server&quot;);</p>
-								<pre><code>searchQuery.results().forEach(<span class="hljs-function"><span class="hljs-params">(r)</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"person:"</span>, r.result.name());
+								<pre><code>searchQuery.results().forEach((r) =&gt; {
+    console.log(<span class="hljs-string">"person:"</span>, r.<span class="hljs-literal">result</span>.name());
 });
 </code></pre><p>});</p>
 							</div>

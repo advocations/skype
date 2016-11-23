@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -231,7 +232,7 @@
 						<div class="lead">
 							<p>The reason why the call has ended.</p>
 						</div>
-						<pre><code>  "Terminated"            // <span class="hljs-keyword">Call</span> has been normally <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span>
+						<pre><code>  "Terminated"            // <span class="hljs-operator"><span class="hljs-keyword">Call</span> has been normally <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span>
                              host <span class="hljs-keyword">or</span> either <span class="hljs-keyword">of</span> dialog partners.
   <span class="hljs-string">"FullSession"</span>           // <span class="hljs-keyword">Call</span> has already reached maximum <span class="hljs-built_in">number</span>
                              <span class="hljs-keyword">of</span> participant.
@@ -239,7 +240,7 @@
   <span class="hljs-string">"Refused"</span>               // <span class="hljs-keyword">Call</span> has been refused <span class="hljs-keyword">by</span> the other party
                              <span class="hljs-keyword">or</span> <span class="hljs-keyword">by</span> the infrastructure.
   <span class="hljs-string">"Missed"</span>                // <span class="hljs-keyword">Call</span> has <span class="hljs-keyword">not</span> been answered <span class="hljs-keyword">by</span> the other
-                             party <span class="hljs-keyword">and</span> timed out.
+                             party <span class="hljs-keyword">and</span> timed <span class="hljs-keyword">out</span>.
   <span class="hljs-string">"Dropped"</span>               // <span class="hljs-keyword">Call</span> has been dropped due <span class="hljs-keyword">to</span> <span class="hljs-keyword">connection</span>
                              <span class="hljs-keyword">or</span> network problem.
   <span class="hljs-string">"InvalidNumber"</span>         // Invalid PSTN <span class="hljs-built_in">number</span> has been called.
@@ -247,7 +248,7 @@
   <span class="hljs-string">"EmergencyCallDenied"</span>   // Emergency PSTN <span class="hljs-built_in">number</span> <span class="hljs-keyword">from</span> a country
                              that we <span class="hljs-keyword">do</span> <span class="hljs-keyword">not</span> support has been called.
   <span class="hljs-string">"VoiceMailFailed"</span>       // Either recording <span class="hljs-keyword">or</span> playback <span class="hljs-keyword">of</span> voicemail
-                             has failed.
+                             has <span class="hljs-keyword">failed</span>.
   <span class="hljs-string">"TransferFailed"</span>        // <span class="hljs-keyword">Call</span> could <span class="hljs-keyword">not</span> be transferred <span class="hljs-keyword">to</span> different
                              endpoint.
   <span class="hljs-string">"InsufficientFunds"</span>     // <span class="hljs-keyword">User</span> cannot place <span class="hljs-keyword">or</span> transfer the PSTN
@@ -256,7 +257,7 @@
   <span class="hljs-string">"Failed"</span>                // <span class="hljs-keyword">Call</span> <span class="hljs-keyword">failed</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">some</span> other reason.
   <span class="hljs-string">"MissingSpeaker"</span>        // <span class="hljs-keyword">Call</span> disconnected <span class="hljs-keyword">by</span> Corelib due <span class="hljs-keyword">to</span> <span class="hljs-keyword">no</span>
                              speaker connected
-  <span class="hljs-string">"OutOfBrowserCall"</span>       // <span class="hljs-keyword">In</span>-browser <span class="hljs-keyword">calling</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> supported
+  <span class="hljs-string">"OutOfBrowserCall"</span>       // <span class="hljs-keyword">In</span>-browser <span class="hljs-keyword">calling</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> supported</span>
 </code></pre>
 					</div>
 				</section>
@@ -287,7 +288,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="command" class="tsd-anchor"></a>
 					<h3>Command</h3>
-					<div class="tsd-signature tsd-kind-icon">Command<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Command&lt;Signature&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Command<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Signature &amp; { bind(that: any, ...args: any[]): ((...args: any[]) =&gt; any) &amp; any; enabled: Property...</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in s4b.sdk.d.ts:1600</li>
@@ -378,7 +379,7 @@
 					<div class="tsd-signature tsd-kind-icon">Group<wbr>Privacy<wbr>Relationship<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2064</li>
+							<li>Defined in s4b.sdk.d.ts:2069</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -411,13 +412,13 @@
 						<div class="lead">
 							<p>Group represents a few different group types.</p>
 						</div>
-						<pre><code>  <span class="hljs-string">"Root"</span>                  // Contains the list <span class="hljs-keyword">of</span> all persons <span class="hljs-keyword">and</span> groups.
-  <span class="hljs-string">"Custom"</span>                // A user-created group with a custom name.
-  <span class="hljs-string">"Others"</span>                // Persons that do <span class="hljs-keyword">not</span> belong to custom groups.
-  <span class="hljs-string">"Favorites"</span>             // Frequently contacted persons.
-  <span class="hljs-string">"Distribution"</span>          // Created by admins <span class="hljs-keyword">of</span> the organization
-                             <span class="hljs-keyword">and</span> contain persons <span class="hljs-keyword">and</span> other DGs.
-  <span class="hljs-string">"PrivacyRelationship"</span>   // One <span class="hljs-keyword">of</span> five privacy relationship groups.
+						<pre><code>  <span class="hljs-string">"Root"</span>                  // <span class="hljs-variable">Contains</span> the list <span class="hljs-keyword">of</span> all persons <span class="hljs-keyword">and</span> groups.
+  <span class="hljs-string">"Custom"</span>                // <span class="hljs-variable">A</span> user-created group with a custom name.
+  <span class="hljs-string">"Others"</span>                // <span class="hljs-variable">Persons</span> that do <span class="hljs-keyword">not</span> belong to custom groups.
+  <span class="hljs-string">"Favorites"</span>             // <span class="hljs-variable">Frequently</span> contacted persons.
+  <span class="hljs-string">"Distribution"</span>          // <span class="hljs-variable">Created</span> by admins <span class="hljs-keyword">of</span> the organization
+                             <span class="hljs-keyword">and</span> contain persons <span class="hljs-keyword">and</span> other <span class="hljs-variable">DGs</span>.
+  <span class="hljs-string">"PrivacyRelationship"</span>   // <span class="hljs-variable">One</span> <span class="hljs-keyword">of</span> five privacy relationship groups.
 </code></pre>
 					</div>
 				</section>
@@ -472,10 +473,10 @@
 							<p>Inactive and Active states reflect the media flow state of the started stream;
 							an inactive stream is usually a started stream without an attached renderer</p>
 						</div>
-						<pre><code>  <span class="hljs-symbol">'Started</span>'
-  <span class="hljs-symbol">'Active</span>'
-  <span class="hljs-symbol">'Inactive</span>'
-  <span class="hljs-symbol">'Stopped</span>'
+						<pre><code>  <span class="hljs-string">'Started'</span>
+  <span class="hljs-string">'Active'</span>
+  <span class="hljs-string">'Inactive'</span>
+  <span class="hljs-string">'Stopped'</span>
 </code></pre>
 					</div>
 				</section>
@@ -663,13 +664,13 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<pre><code> <span class="hljs-string">"Fit"</span>       <span class="hljs-comment"> // resize the video frame to fit the container window</span>
-                 <span class="hljs-keyword">without</span> changing <span class="hljs-keyword">the</span> frame aspect ratio;  this can
-                 cause <span class="hljs-keyword">black</span> bars around <span class="hljs-keyword">the</span> video (letterboxing)
+                 <span class="hljs-keyword">without</span> changing <span class="hljs-operator">the</span> frame aspect ratio;  this can
+                 cause <span class="hljs-keyword">black</span> bars around <span class="hljs-operator">the</span> video (letterboxing)
  <span class="hljs-string">"Crop"</span>      <span class="hljs-comment"> // crop the video frame to occupy the entire container</span>
-                 window <span class="hljs-keyword">without</span> changing <span class="hljs-keyword">the</span> frame aspect ratio
+                 window <span class="hljs-keyword">without</span> changing <span class="hljs-operator">the</span> frame aspect ratio
  <span class="hljs-string">"Stretch"</span>   <span class="hljs-comment"> // stretch the video frame to occupy the entire</span>
-                 container window; changes <span class="hljs-keyword">the</span> video frame aspect
-                 ratio potentially distorting <span class="hljs-keyword">the</span> image
+                 container window; changes <span class="hljs-operator">the</span> video frame aspect
+                 ratio potentially distorting <span class="hljs-operator">the</span> image
 </code></pre>
 						</div>
 					</div>
@@ -677,12 +678,20 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="videomode" class="tsd-anchor"></a>
 					<h3>Video<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">Video<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"ActiveSpeaker"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MultiView"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Both"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Video<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:1914</li>
+							<li>Defined in s4b.sdk.d.ts:1919</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<pre><code> <span class="hljs-string">'ActiveSpeaker'</span>
+ <span class="hljs-string">'MultiView'</span>
+ <span class="hljs-string">'Both'</span>
+</code></pre>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

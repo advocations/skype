@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -195,11 +196,11 @@
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"audio not supported"</span>);
 </code></pre><p>Since capabilities is not a property itself, it can not
 						be subscribed to; but its sub-properties can be subscribed to:</p>
-						<pre><code> <span class="hljs-comment">// get capabilities object</span>
- <span class="hljs-keyword">var</span> modalities = person.capabilities;
- <span class="hljs-comment">// subscribe to changes of capabilities.audio</span>
+						<pre><code> <span class="hljs-regexp">//</span> get capabilities object
+ var modalities = person.capabilities;
+ <span class="hljs-regexp">//</span> subscribe to changes <span class="hljs-keyword">of</span> capabilities.audio
  modalities.audio.subscribe();
- modalities.audio.changed(<span class="hljs-function">(<span class="hljs-params">f</span>) =&gt;</span> {
+ modalities.audio.changed(<span class="hljs-function"><span class="hljs-params">(f)</span> =&gt;</span> {
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"audio modality is "</span> + f ?
          <span class="hljs-string">'supported'</span> : <span class="hljs-string">'not supported'</span>);
  });
@@ -245,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <a href="jcafe.property.html" class="tsd-signature-type">Property</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:2102</li>
+							<li>Defined in s4b.sdk.d.ts:2107</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -327,7 +328,7 @@
 						<p>Inherited from <a href="jcafe.person.html">Person</a>.<a href="jcafe.person.html#location">location</a></p>
 						<ul>
 							<li>Defined in s4b.sdk.d.ts:1253</li>
-							<li>Defined in s4b.sdk.d.ts:2118</li>
+							<li>Defined in s4b.sdk.d.ts:2123</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -350,7 +351,7 @@
 						<p>Inherited from <a href="jcafe.person.html">Person</a>.<a href="jcafe.person.html#note">note</a></p>
 						<ul>
 							<li>Defined in s4b.sdk.d.ts:1244</li>
-							<li>Defined in s4b.sdk.d.ts:2108</li>
+							<li>Defined in s4b.sdk.d.ts:2113</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -400,7 +401,7 @@
 						<p>Inherited from <a href="jcafe.person.html">Person</a>.<a href="jcafe.person.html#status">status</a></p>
 						<ul>
 							<li>Defined in s4b.sdk.d.ts:1205</li>
-							<li>Defined in s4b.sdk.d.ts:2113</li>
+							<li>Defined in s4b.sdk.d.ts:2118</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
