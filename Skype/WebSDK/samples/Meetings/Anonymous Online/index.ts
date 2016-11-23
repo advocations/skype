@@ -8,7 +8,7 @@
     const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTMeetingsAnonJoinOnline.md' : 'Content/websdk/docs/PTMeetingsAnonJoinOnline.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
-    const app = window.framework.api.UIApplicationInstance;
+    var app;
     var conversation;
     var listeners = [];
 
@@ -78,21 +78,7 @@
         (<HTMLInputElement>content.querySelector('.join')).disabled = false;
     }
 
-    if (app.signInManager.state() == 'SignedIn') {
-        if (confirm('You must sign out of your existing session to anonymously join ' +
-                    'a meeting. Sign out now?'))
-            app.signInManager.signOut();
-        else {
-            window.framework.addNotification('error', 'Must refresh the page or allow sign ' +
-                'out in order to use this sample.');
-            (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
-        }
-    }
-
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.join'), 'click', () => {
+    function joinMeeting () {
         window.framework.showNotificationBar();
         if (!(<HTMLInputElement>content.querySelector('.anon_name')).value) {
             window.framework.addNotification('info', 'Please enter a name to use for joining the meeting anonymously');
@@ -100,7 +86,7 @@
         }
 
         (<HTMLInputElement>content.querySelector('.join')).disabled = true;
-        const name = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.anon_name')).value);
+        const name = (<HTMLInputElement>content.querySelector('.anon_name')).value;
         const conversationsManager = app.conversationsManager;
 
         window.framework.addNotification('info', 'Attempting to join conference anonymously');
@@ -180,9 +166,10 @@
             (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
             (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
         }
-    });
+    }
 
-    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
+    
+    function endConversation () {
         window.framework.addNotification('info', 'Ending conversation...');
         if (!conversation) {
             reset(true);
@@ -198,9 +185,26 @@
         }).then(() => {
             reset(true);
         });
-    });
+    }
 
-    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        restart();
-    });
+    if (window.framework.application && window.framework.application.signInManager.state() == 'SignedIn') {
+        if (confirm('You must sign out of your existing session to anonymously join ' +
+                    'a meeting. Sign out now?'))
+            window.framework.application.signInManager.signOut();
+        else {
+            window.framework.addNotification('error', 'Must refresh the page or allow sign ' +
+                'out in order to use this sample.');
+            (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+        }
+    }
+
+    app = window.framework.api.UIApplicationInstance;
+
+    window.framework.registerNavigation(reset);
+
+    window.framework.addEventListener(content.querySelector('.join'), 'click', joinMeeting);    
+    window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
 })();
