@@ -101,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">sign<wbr>In<span class="tsd-signature-symbol">:</span> <a href="../modules/jcafe.html#command" class="tsd-signature-type">Command</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:1802</li>
+							<li>Defined in s4b.sdk.d.ts:1805</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -136,6 +136,8 @@
 						<pre><code><span class="xml">sm.signIn(</span><span class="hljs-expression">{
     <span class="hljs-variable">client</span>_<span class="hljs-variable">id</span>: '123<span class="hljs-variable">-</span>456',
     <span class="hljs-variable">oauth</span>_<span class="hljs-variable">uri</span>: '<span class="hljs-variable">https</span>:/<span class="hljs-end-block">/login.windows-ppe.net</span><span class="hljs-end-block">/common</span><span class="hljs-end-block">/oauth</span>2<span class="hljs-end-block">/authorize</span>',
+    <span class="hljs-variable">cors</span>: <span class="hljs-variable">true</span>,
+    <span class="hljs-variable">redirect</span>_<span class="hljs-variable">uri</span>: '<span class="hljs-end-block">/an</span><span class="hljs-end-block">/empty</span><span class="hljs-end-block">/page.html</span>',
     <span class="hljs-variable">origins</span>: [
         '<span class="hljs-variable">https</span>:/<span class="hljs-end-block">/webdir.tip.lync.com</span><span class="hljs-end-block">/AutoDiscover</span><span class="hljs-end-block">/AutoDiscoverservice.svc</span><span class="hljs-end-block">/root</span>?<span class="hljs-variable">originalDomain</span>=<span class="hljs-variable">contoso.com</span>',
         '<span class="hljs-variable">https</span>:/<span class="hljs-end-block">/webdir.online.lync.com</span><span class="hljs-end-block">/AutoDiscover</span><span class="hljs-end-block">/AutoDiscoverservice.svc</span><span class="hljs-end-block">/root</span>?<span class="hljs-variable">originalDomain</span>=<span class="hljs-variable">contoso.com</span>',
@@ -151,9 +153,10 @@
 						<pre><code> sm.signIn({
      client_id: <span class="hljs-string">'123-456'</span>,
      origins: [ <span class="hljs-string">'https://webdir.online.lync.com/AutoDiscover/AutoDiscoverservice.svc/root'</span> ],
+     cors: <span class="hljs-literal">true</span>,
      get_oauth_token: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resource)</span> </span>{
-         <span class="hljs-comment">// You are responsible to retrieve a token for this resource</span>
-         <span class="hljs-comment">// Return the token that looks like below.</span>
+         <span class="hljs-comment">// Return a valid unexpired token for the specified resource if you already have one.</span>
+         <span class="hljs-comment">// Else, return a promise and resolve it once you have obtained a token.</span>
          <span class="hljs-keyword">return</span> <span class="hljs-string">'Bearer eyJ0e...'</span>;
      }
  });
@@ -166,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">sign<wbr>Out<span class="tsd-signature-symbol">:</span> <a href="../modules/jcafe.html#command" class="tsd-signature-type">Command</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in s4b.sdk.d.ts:1812</li>
+							<li>Defined in s4b.sdk.d.ts:1815</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
