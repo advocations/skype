@@ -47,4 +47,4 @@ Detaching the video container DOM element removes the element and can cause the 
 ## Additional resources
 
 
-[ParticipantVideo](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.participantvideo.html)
+[ParticipantVideo](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.participantvideo.html)

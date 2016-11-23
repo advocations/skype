@@ -9,7 +9,7 @@
 
 ### Using the mePerson object
 
-The [MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object is retrieved through the **[application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html).[personsAndGroupsManager.mePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson)** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The [MePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) object is retrieved through the **[application]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html).[personsAndGroupsManager.mePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html#meperson)** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -23,7 +23,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 });
 ```
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which can be set
+[MePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) properties which can be set
 
 
 |||
@@ -34,7 +34,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |status|Gets or sets the availability of the signed in user.|
 >**Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties which are read-only
+[MePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) properties which are read-only
 
 
 |||
@@ -75,4 +75,4 @@ location.innerHTML = mePerson.location();
 #### Other resources
 
 
-[MePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html)
+[MePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html)
