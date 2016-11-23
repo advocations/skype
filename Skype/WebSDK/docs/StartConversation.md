@@ -10,7 +10,7 @@ The following procedure assumes that the user is signed in and has a person to c
 ### Starting a peer-to-peer conversation
 
 
-1. Call the [ConversationsManager.getConversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html#getconversation) method, with a person for the only argument, to create a conversation object.
+1. Call the [ConversationsManager.getConversation](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversationsmanager.html#getconversation) method, with a person for the only argument, to create a conversation object.
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation. See the following topics to add modalities:
     
@@ -35,7 +35,7 @@ var conversation = conversationsManager.getConversation(person);
 ### Starting a multiparty conversation (ad-hoc meeting)
 
 
-1. Call the [ConversationsManager.createConversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html#createconversation) method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
+1. Call the [ConversationsManager.createConversation](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversationsmanager.html#createconversation) method, with no arguments, to create a multiparty conversation object. This conversation will be a multiparty conversation regardless of the number of participants in the conversation.
     
 2. Call the  **start** method on the desired modality to add the modality and start the conversation.
     

@@ -10,5 +10,5 @@ The Skype Web SDK documentation consists of the following sections:
 
 - [Skype Web SDK general reference](GeneralReference.md)
     
-- [Skype Web SDK API reference](https://aka.ms/sfbwebsdkref)
+- [Skype Web SDK API reference](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/modules/jcafe.html)
     

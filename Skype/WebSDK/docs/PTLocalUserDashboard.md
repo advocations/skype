@@ -9,7 +9,7 @@
 
 ### Using the mePerson object
 
-The <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> object is retrieved through the **<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html" target="">application</a>.<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson" target="">personsAndGroupsManager.mePerson</a>** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
+The <a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html" target="">MePerson</a> object is retrieved through the **<a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html" target="">application</a>.<a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html#meperson" target="">personsAndGroupsManager.mePerson</a>** property. For example, the following JavaScript code sample sets the availability of the signed in user to online.
 
 
 ```js
@@ -23,7 +23,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 });
 ```
 
-<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> properties which can be set
+<a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html" target="">MePerson</a> properties which can be set
 
 
 |||
@@ -34,7 +34,7 @@ app.personsAndGroupsManager.mePerson.status.set('Online').then(function () {
 |status|Gets or sets the availability of the signed in user.|
 >**Note:** When the above values contain special characters such as <, >, and they will be padded with zero width whitespace. This can cause equality operations to fail unexpectedly. One option for handling this situation is to filter out these special values so they are not used.
 
-<a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a> properties which are read-only
+<a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html" target="">MePerson</a> properties which are read-only
 
 
 |||
@@ -118,4 +118,4 @@ createContactCard(mePerson, contactsDiv.querySelector('.contact'));
 #### Other resources
 
 
-<a href="//ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html" target="">MePerson</a>
+<a href="//officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html" target="">MePerson</a>

@@ -10,7 +10,7 @@ A user can join an existing meeting with that meeting's URI.
 ### Joining an existing meeting
 
 
-1. Get an instance of the [Conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html). At this point the user still has not joined the conversation.
+1. Get an instance of the [Conversation](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversation.html). At this point the user still has not joined the conversation.
 
 
   ```js

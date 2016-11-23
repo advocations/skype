@@ -72,7 +72,7 @@ Skype.initialize({ apiKey: config.apiKeyCC }, function (api) {
 ## Render Conversation Control on incoming call
 
 Inside of the callback function passed into the  **initialize** method, add a callback to be invoked when a conversation is added to the 
-collection on the <a href="https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html" target="">ConversationsManager</a>.
+collection on the <a href="http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversationsmanager.html" target="">ConversationsManager</a>.
 
 
 ``` js
