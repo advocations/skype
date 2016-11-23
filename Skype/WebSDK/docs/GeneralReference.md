@@ -23,5 +23,5 @@ Skype Web SDK provides presence and chat services using new REST-based web servi
 
 ## Additional Resources
 
-- [Skype Web API Reference](https://aka.ms/sfbwebsdkref)
+- [Skype Web API Reference](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/modules/jcafe.html)
     

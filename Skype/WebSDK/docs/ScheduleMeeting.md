@@ -15,17 +15,17 @@ to the attendees so that they can join.
 ## Meeting properties
 All of the properties of an online meeting are optional. However, you should set the following properties:
 
-* [Subject](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#subject)
-* [Expiration time](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#expirationtime)
-* [Access level](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#accesslevel). The access level determines the set of people who can join the meeting. The [AccessLevel](../../ucwa/AccessLevel_ref.md) values are 
+* [Subject](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#subject)
+* [Expiration time](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#expirationtime)
+* [Access level](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#accesslevel). The access level determines the set of people who can join the meeting. The [AccessLevel](../../ucwa/AccessLevel_ref.md) values are 
 enumerated in the UCWA 2.0 SDK.
-* [Attendees](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#attendees). Set this property if the access level specified is 'Invited'
+* [Attendees](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#attendees). Set this property if the access level specified is 'Invited'
 
 ## Schedule the meeting
 
 The following steps schedule an online meeting with a subject and expiration time.
 
-1. Create a new online meeting and store the returned [scheduledMeeting](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html) object. 
+1. Create a new online meeting and store the returned [scheduledMeeting](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html) object. 
 This is still a client side operation and returns a model containing observable properties.
 
   ```js
@@ -41,7 +41,7 @@ This is still a client side operation and returns a model containing observable 
   meeting.expirationTime(new Date + 24 * 3600 * 5);
   ```
 
-3. Call the [get()](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#onlinemeetinguri) method on the [onlineMeetingUri](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.scheduledmeeting.html#onlinemeetinguri) 
+3. Call the [get()](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#onlinemeetinguri) method on the [onlineMeetingUri](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.scheduledmeeting.html#onlinemeetinguri) 
 to create the meeting on the server.
 
   ```js
@@ -50,4 +50,4 @@ to create the meeting on the server.
   });
   ```
 
-4. [Join the online meeting](https://msdn.microsoft.com/skype/websdk/joinmeeting) by using the [conversation](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversation.html) returned in the previous step.
+4. [Join the online meeting](https://msdn.microsoft.com/skype/websdk/joinmeeting) by using the [conversation](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversation.html) returned in the previous step.

@@ -4,6 +4,33 @@
 
 | Product        | New Version           | Last Updated  |Previous Version
 | ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.69.26 | 11/22/16 | 1.69.15
+| Skype Web SDK Preview    | 0.4.355 |  11/22/16 | 0.4.327
+| Conversation Control Production | unchanged  | 11/15/16 | 1.67.37
+| Skype Web SDK Production| unchanged |  11/15/16 | 0.4.341 |
+
+
+The latest preview release includes a number of improvements to telemetry
+including eliminating false failures and ensuring that all debugging information
+is present, a fix for the bug where one video container disappears in SWX upon
+escalating a P2P video call to group, a couple of improvements to signin reliability,
+and a security fix.
+
+**Bugs fixed in the new public preview build:**
+
+- Apply setWithCredentials on UCWA POSTs to fix 401 errors in CORS mode
+- saveConsole exposes potential null ref exception
+- Chat start invitation failed error with reason subcode Timeout has no response headers so cannot identify root cause
+- One video lost on escalate p2p video to group video
+- Retry sign in without snapshot on encountering a 410 Gone error during signin
+- Guard against possible XSS attack
+- Attempting to sign in after signin has failed will cause the signin promise to get resolved immediately with the previous failure
+
+---
+## Skype Web SDK Version Update 11/8/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
 | Conversation Control Preview     | 1.67.37 | 11/8/16 |1.65.51
 | Skype Web SDK Preview    | 0.4.341 |  11/8/16| 0.4.327
 | Conversation Control Production | 1.66.37  | 11/8/16 | 1.64.47

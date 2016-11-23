@@ -16,8 +16,8 @@ The following table lists the properties of the  **Conversation** object.
 ||||
 |:-----|:-----|:-----|
 |**Property**|**Description**|**Returns**|
-| _UIApplicationInstance_|Returns the instance of Skype Web SDK Application used by renderConversation API|[Application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html)|
-| _application_|Returns a class of Skype Web SDK application.|[Application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html)|
+| _UIApplicationInstance_|Returns the instance of Skype Web SDK Application used by renderConversation API|[Application]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html)|
+| _application_|Returns a class of Skype Web SDK application.|[Application]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html)|
 
 ### Methods
 
@@ -27,7 +27,7 @@ The following table lists the methods of the  **Conversation** object.
 ||||
 |:-----|:-----|:-----|
 |**Method**|**Description**|**Returns**|
-| _renderConversation_|Render a conversation in given context <br/>  **Parameters** <br/> - _container_  - (**String/DOMelement** ) Optional. A CSS selector or DOM element <br />- _state_  - **Object{}**  Optional. Object holding the optional parameters<br />- _participants_  - **Array**  Optional. Array of participants to start a conversation with.<br />- _conversationId_  - **String**  Optional.  Conversation ID to start conversation with. Can't be used together<br/> - _state.participants_.<br />- _modalities_  - **Modality[]**  Optional. Array of modalities to start with<br />|[Promise]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.promise.html)|
+| _renderConversation_|Render a conversation in given context <br/>  **Parameters** <br/> - _container_  - (**String/DOMelement** ) Optional. A CSS selector or DOM element <br />- _state_  - **Object{}**  Optional. Object holding the optional parameters<br />- _participants_  - **Array**  Optional. Array of participants to start a conversation with.<br />- _conversationId_  - **String**  Optional.  Conversation ID to start conversation with. Can't be used together<br/> - _state.participants_.<br />- _modalities_  - **Modality[]**  Optional. Array of modalities to start with<br />|[Promise]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.promise.html)|
 
 ### Examples
 

@@ -12,7 +12,7 @@
 [MePerson object](#sectionSection4)  
 
 
-The object model is shown in the following figure (Figure 1). Use the [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html) constructor and the **new** keyword to create an **Application** object of the [Skype.Web.Model](https://msdn.microsoft.com/library/office/dn962123(v=office.16).aspx)**.Application** type. **Application** is the only object with a constructor. All other objects are obtained according to figure below.
+The object model is shown in the following figure (Figure 1). Use the [Application](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html) constructor and the **new** keyword to create an **Application** object of the [Skype.Web.Model](https://msdn.microsoft.com/library/office/dn962123(v=office.16).aspx)**.Application** type. **Application** is the only object with a constructor. All other objects are obtained according to figure below.
 
 **Figure 1. Object Model**
 
@@ -52,27 +52,27 @@ app2.signIn({
 ## Application object
 <a name="sectionSection1"> </a>
 
-The [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html) object is created by calling the application constructor and is the entry point to the API. Use the **Application#signinManager** to get state change events and signed-in user presence. All operations in the SDK depend on the **Application** object and require that a user is signed in through this object. This object encapsulates a REST communication stack for the signed in user. The functions of this object include:
+The [Application](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html) object is created by calling the application constructor and is the entry point to the API. Use the **Application#signinManager** to get state change events and signed-in user presence. All operations in the SDK depend on the **Application** object and require that a user is signed in through this object. This object encapsulates a REST communication stack for the signed in user. The functions of this object include:
 
 - Sign a user in using OAUTH, NTLM, or basic authentication with **Application.SignInManager**
     
-- Sign a user out with [SignInManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.signinmanager.html) by using the **Application#signInManager** member.
+- Sign a user out with [SignInManager](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.signinmanager.html) by using the **Application#signInManager** member.
     
 - Get the current sign in state of the user.
     
-- Get a reference to the user's person list by reading the **Application#personAndGroups** member. The member references a [PersonAndGroupsManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html) object.
+- Get a reference to the user's person list by reading the **Application#personAndGroups** member. The member references a [PersonAndGroupsManager](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html) object.
     
-- Get a reference to the conversations that the user has joined by reading the **Application#conversationsManager** member. The member references a [ConversationsManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html) object.
+- Get a reference to the conversations that the user has joined by reading the **Application#conversationsManager** member. The member references a [ConversationsManager](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversationsmanager.html) object.
     
-- Get a reference to the available media devices by reading the **Application#devicesManager** member. The member references a [DevicesManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.devicesmanager.html) object.
+- Get a reference to the available media devices by reading the **Application#devicesManager** member. The member references a [DevicesManager](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.devicesmanager.html) object.
     
 
 ## Person list
 <a name="sectionSection2"> </a>
 
-Access the signed in user's person list by getting a  [Group](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html) object on **Application#personsAndGroupsManager.all**:
+Access the signed in user's person list by getting a  [Group](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.group.html) object on **Application#personsAndGroupsManager.all**:
 
-The **.mePerson** members provides a reference to the [MePerson](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object through [PersonAndGroupsManager](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html)**.mePerson**.  
+The **.mePerson** members provides a reference to the [MePerson](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) object through [PersonAndGroupsManager](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html)**.mePerson**.  
 
 The **.persons** collection contains all of the persons in the person list across all user defined and server defined groups. Contacts in the distribution groups are not in this collection. Use the **.persons** collection to get a **Person** out of the list. This collection is empty unless the application subscribes to it by calling **.subscribe** or fetches the list once with **.get**.
 
@@ -88,13 +88,13 @@ The **.groups** collection encapsulate the person groups that appear in the user
 ## Conversations
 <a name="sectionSection3"> </a>
 
-Access the conversations that the user is participating in by reading the [Application#conversationsManager.conversations](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.conversationsmanager.html#conversations) collection. If you register a callback for the **.added** event on the conversation collection, your application can accept incoming conversation invitations.
+Access the conversations that the user is participating in by reading the [Application#conversationsManager.conversations](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.conversationsmanager.html#conversations) collection. If you register a callback for the **.added** event on the conversation collection, your application can accept incoming conversation invitations.
 
 
 ## MePerson object
 <a name="sectionSection4"> </a>
 
-The signed in user is encapsulated by the [MePerson](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object obtained from the [PersonAndGroupsManager#mePerson]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#meperson) property. The [MePerson](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) object lets you read and write the following user properties:
+The signed in user is encapsulated by the [MePerson](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) object obtained from the [PersonAndGroupsManager#mePerson]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html#meperson) property. The [MePerson](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) object lets you read and write the following user properties:
 
 
 - User's current location 
@@ -103,7 +103,7 @@ The signed in user is encapsulated by the [MePerson](https://ucwa.skype.com/refe
     
 - User presence availability 
     
-The following [MePerson](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.meperson.html) properties are read-only:
+The following [MePerson](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.meperson.html) properties are read-only:
 
 
 - SIP URI

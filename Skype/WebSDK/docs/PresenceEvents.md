@@ -17,14 +17,14 @@ Skype Developer Platform for Web users get current presence for a Skype for Busi
 ## Getting user presence information
 <a name="sectionSection0"> </a>
 
-Before your code starts getting presence event notifications, it must get a [Person]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.person.html) object and "subscribe" to presence changes on the person. There are two ways to get a **Person** object:
+Before your code starts getting presence event notifications, it must get a [Person]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.person.html) object and "subscribe" to presence changes on the person. There are two ways to get a **Person** object:
 
 
-- Read the [PersonAndGroupsManager.all]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html#all) property and iterate the[Group.persons]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.group.html#persons) property to find the **Person** object you want presence for.
+- Read the [PersonAndGroupsManager.all]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html#all) property and iterate the[Group.persons]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.group.html#persons) property to find the **Person** object you want presence for.
     
-- Create a search query on the [PersonAndGroupsManager]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.personsandgroupsmanager.html) by calling the **createPersonSearchQuery** method. A[SearchQuery]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.searchquery.html) object is returned.
+- Create a search query on the [PersonAndGroupsManager]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.personsandgroupsmanager.html) by calling the **createPersonSearchQuery** method. A[SearchQuery]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.searchquery.html) object is returned.
     
-The following sample code is the  **onSuccess** argument of the[Promise]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.promise.html) returned by the[SearchQuery.getMore]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.searchquery.html#getmore) operation. It shows how to use JavaScript and the Skype Web SDK to get several presence elements for persons in the search results. The text of these presence values are appended to an HTML tag with the id "results".
+The following sample code is the  **onSuccess** argument of the[Promise]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.promise.html) returned by the[SearchQuery.getMore]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.searchquery.html#getmore) operation. It shows how to use JavaScript and the Skype Web SDK to get several presence elements for persons in the search results. The text of these presence values are appended to an HTML tag with the id "results".
 
 
 
@@ -131,7 +131,7 @@ Var subActivity = person.activity.subscribe(); // start the subscription
 ## Canceling a presence subscription
 <a name="sectionSection4"> </a>
 
-A subscription uses resources and generates both GET and POST requests. To avoid using resources and bandwidth unnecessarily, be sure to end a presence subscription before your application moves a person object out of scope. JavaScript does not have a concept of a finalizer or destructor, so the person object itself cannot determine when it is no longer needed. To end a subscription, call the  **dispose** function on each object returned by the[Property.subscribe]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.property.html#subscribe) method called for each subscription.
+A subscription uses resources and generates both GET and POST requests. To avoid using resources and bandwidth unnecessarily, be sure to end a presence subscription before your application moves a person object out of scope. JavaScript does not have a concept of a finalizer or destructor, so the person object itself cannot determine when it is no longer needed. To end a subscription, call the  **dispose** function on each object returned by the[Property.subscribe]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.property.html#subscribe) method called for each subscription.
 
 The following sample cancels a presence subscription by iterating an array of subscription objects and disposing of each in turn.
 
