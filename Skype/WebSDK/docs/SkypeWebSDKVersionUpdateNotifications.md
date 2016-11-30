@@ -1,11 +1,29 @@
 # Skype Web SDK Version Updates
 
-## Skype Web SDK Version Update 11/8/16
+## Skype Web SDK Version Update 11/29/16
 
 | Product        | New Version           | Last Updated  |Previous Version
 | ------------- |:-------------:| :-----:|:----------:|
-| Conversation Control Preview     | 1.69.26 | 11/22/16 | 1.69.15
-| Skype Web SDK Preview    | 0.4.355 |  11/22/16 | 0.4.327
+| Conversation Control Preview     | 1.70.42 | 11/29/16 | 1.70.4
+| Skype Web SDK Preview    | 0.4.361 |  11/29/16 | 0.4.356
+| Conversation Control Production | 1.70.4  | 11/29/16 | 1.67.37
+| Skype Web SDK Production| 0.4.356 |  11/29/16 | 0.4.341 |
+
+The latest preview release includes a minor correction to documentation and a small
+telemetry fix, but no major changes.
+
+**Bugs fixed in the new public preview build:**
+
+- Fix signInManager’s documentation
+- Telemetry update to determine number of unique searches
+
+---
+## Skype Web SDK Version Update 11/22/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.70.4 | 11/22/16 | 1.69.15
+| Skype Web SDK Preview    | 0.4.356 |  11/22/16 | 0.4.341
 | Conversation Control Production | unchanged  | 11/15/16 | 1.67.37
 | Skype Web SDK Production| unchanged |  11/15/16 | 0.4.341 |
 
