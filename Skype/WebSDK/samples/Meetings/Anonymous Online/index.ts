@@ -12,8 +12,9 @@
     var conversation;
     var listeners = [];
 
-    const discoverUrl = "/fake/url/";
-    const authToken = "Bearer psat=abcdefg";
+    var discoverUrl = "";
+    var authToken = "";
+    var meetingUrl = "";
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.anon_name'));
 
@@ -39,6 +40,10 @@
     function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
+        meetingUrl = "";
+        discoverUrl = "";
+        authToken = "";
 
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
@@ -70,18 +75,17 @@
     }
 
     function restart() {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        goToStep(1);
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
         (<HTMLInputElement>content.querySelector('.join')).disabled = false;
+        (<HTMLInputElement>content.querySelector('.getToken')).disabled = false;
     }
 
     function joinMeeting () {
-        window.framework.showNotificationBar();
         if (!(<HTMLInputElement>content.querySelector('.anon_name')).value) {
-            window.framework.addNotification('info', 'Please enter a name to use for joining the meeting anonymously');
+            window.framework.addNotification('info', 'Please enter a name to use ' + 
+                'for joining the meeting anonymously');
             return;
         }
 
@@ -90,7 +94,7 @@
         const conversationsManager = app.conversationsManager;
 
         window.framework.addNotification('info', 'Attempting to join conference anonymously');
-
+        
         app.signInManager.signIn({
             name: name,
             cors: true,
@@ -106,9 +110,13 @@
             // When joining a conference anonymously, sdk automatically creates
             // a conversation object to represent the conference being joined
             conversation = conversationsManager.conversations(0);
-
+            window.framework.addNotification('success',
+                'Successfully signed in with anonymous online meeting token');
             setUpListeners();
             startVideoService();
+        }).catch(err => {
+            window.framework.addNotification('error',
+                'Unable to join conference anonymously: ' + err);
         });
 
         function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
@@ -129,11 +137,12 @@
 
                 listeners.push(person.video.state.when('Connected', () => {
                     (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
-                    setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer'));
+                    setupContainer(person, 'large', createVideoContainer());
 
                     listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
                         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
                         window.framework.addNotification('info', person.displayName() + ' started streaming their video');
+                        person.video.channels(0).isStarted(true);
                     }));
                     listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
                         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
@@ -145,10 +154,9 @@
             listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
                 if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                     window.framework.addNotification('success', 'Conversation ended');
-                    (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
                     (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
                     (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
-                    (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+                    goToStep(4);
                     reset(true);
                 }
             }));
@@ -163,11 +171,9 @@
                     window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
                 }
             });
-            (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
+            goToStep(3);
         }
     }
-
     
     function endConversation () {
         window.framework.addNotification('info', 'Ending conversation...');
@@ -178,8 +184,7 @@
         }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
-            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+            goToStep(4);
         }, error => {
             window.framework.addNotification('error', error);
         }).then(() => {
@@ -194,9 +199,7 @@
         else {
             window.framework.addNotification('error', 'Must refresh the page or allow sign ' +
                 'out in order to use this sample.');
-            (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
+            goToStep(4);
         }
     }
 
@@ -207,4 +210,63 @@
     window.framework.addEventListener(content.querySelector('.join'), 'click', joinMeeting);    
     window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
     window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
+    window.framework.addEventListener(content.querySelector('.getToken'), 'click', getToken);
+
+    function getToken() {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.meeting_url')).value) {
+            window.framework.addNotification('info', 'Please enter a meeting_url to get an anonymous token for');
+            return;
+        }
+
+        (<HTMLInputElement>content.querySelector('.getToken')).disabled = true;
+        meetingUrl = (<HTMLInputElement>content.querySelector('.meeting_url')).value;
+
+        var allowedOrigins = window.location.href;
+        var serviceUrl = "https://ucapapp.cloudapp.net";
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                    window.console.log(request.responseText);
+                    window.framework.addNotification('success', 'Successfully got anonymous auth token');
+
+                    var response = JSON.parse(request.response);
+                    discoverUrl = response.DiscoverUri;
+                    authToken = "Bearer " + response.Token;
+
+                    goToStep(2);
+                } else {
+                    window.framework.addNotification('error', 'Unable to fetch anon token: ' +
+                        request.responseText);
+                }
+            }
+        };
+
+        var data = "ApplicationSessionId=AnonMeeting2" + 
+            "&AllowedOrigins=" + encodeURIComponent(allowedOrigins) +
+            "&MeetingUrl=" + encodeURIComponent(meetingUrl);
+
+        request.open('post', serviceUrl + "/getAnonTokenJob");
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send(data);
+    }
+
+    function createVideoContainer () {
+        var containersDiv = content.querySelector('.remoteVideoContainers');
+        var newContainer = document.createElement('div');
+        newContainer.className = 'remoteVideoContainer';
+        containersDiv.appendChild(newContainer);
+        return newContainer;
+    }
+
+    function goToStep(step) {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step' + step)).style.display = 'block';
+    }
+
 })();
