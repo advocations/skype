@@ -136,7 +136,6 @@
                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
                 listeners.push(person.video.state.when('Connected', () => {
-                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
                     setupContainer(person, 'large', createVideoContainer());
 
                     listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
@@ -147,6 +146,7 @@
                     listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
                         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
                         window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
+                        person.video.channels(0).isStarted(false);                        
                     }));
                 }));
             }));

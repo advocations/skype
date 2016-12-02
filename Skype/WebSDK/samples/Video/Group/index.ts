@@ -115,7 +115,6 @@
                         (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
                         setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer1'));
                     }
-                    person.video.channels(0).isStarted(true);
 
                     listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
                         const remoteVideo: number = videoMap[person.displayName()];
@@ -125,6 +124,7 @@
                         if (remoteVideo && remoteVideo === 2) {
                             (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
                         }
+                        person.video.channels(0).isStarted(true);
                         window.framework.addNotification('info', person.displayName() + ' started streaming their video');
                     }));
                     listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
@@ -135,6 +135,7 @@
                         if (remoteVideo && remoteVideo === 2) {
                             (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
                         }
+                        person.video.channels(0).isStarted(false);                        
                         window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
                     }));
                 }));
