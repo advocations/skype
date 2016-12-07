@@ -11,11 +11,11 @@ _**Applies to:** Skype for Business 2015_
 <a name="audience"></a>
 ## Who is this article for?
 
-If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this page is for you. The page should have this message: "The reply address 'https://...' does not match the reply addresses configured for the application <...>"
+If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this article is for you. The error page should have this message: "The reply address 'https://...' does not match the reply addresses configured for the application <...>"
 
 ![Reply URL incorrect or not configured in AAD](../../../images/troubleshooting/auth/ReplyURLIncorrect.PNG)
 
-If this is not your issue, you can return to [this page](./AADAuthFailures.md) for a list of other potential issues.
+If this is not your issue, you can return to [Troubleshooting Azure AD Authentication Failures for Skype Web SDK](./AADAuthFailures.md) for a list of other potential issues.
 
 <a name="issue"></a>
 ## The Issue
@@ -28,6 +28,7 @@ You either have not configured the URL where you're hosting your app as a valid 
 You need to configure the main domain name where you're hosting your app as a reply URL in the AAD registration for your app and pass it as the `redirect_uri` when redirecting to AAD to allow the user to sign in.
 
 You should be using code like this to redirect the user to enter her credentials to sign into Azure AD:
+
 ``` js
 var href = 'https://login.microsoftonline.com/common/oauth2/authorize?response_type=token&client_id=';
 href += client_id + '&resource=https://webdir.online.lync.com&redirect_uri=' + window.location.href;
@@ -45,6 +46,8 @@ Note in the code above that we are using `window.location.href` as the value of 
 > **Note:** Protocol matters. AAD will treat **http://website.com** and **https://website.com** as different reply URLs. If you are still having an issue after following the steps above, check that the configured reply URL matches the protocol you're actually using.
 
 > **Warning:** It is not recommended to have **localhost** configured as a reply URL for production apps. You should only use this for local development and testing, and remove it from the list of reply URLs once your app is hosted on a domain you own.
+
+---
 
 <a name="related-topics"></a>
 ## Related Topics
