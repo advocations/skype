@@ -1,5 +1,23 @@
 # Skype Web SDK Version Updates
 
+
+## Skype Web SDK Version Update 12/6/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.71.32 | 12/6/16 | 1.70.42
+| Skype Web SDK Preview    | 0.4.368 | 12/6/16 | 0.4.361
+| Conversation Control Production | 1.70.42  | 12/6/16 | 1.70.4
+| Skype Web SDK Production| 0.4.361 | 12/6/16 | 0.4.356 |
+
+The latest preview release includes a fix for a bug with emojis in chat messages
+on certain platforms.
+
+**Bugs fixed in the new public preview build:**
+
+- Set default character in case unparseable character is sent in chat message from certain platforms
+
+---
 ## Skype Web SDK Version Update 11/29/16
 
 | Product        | New Version           | Last Updated  |Previous Version
