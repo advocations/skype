@@ -12,7 +12,7 @@ meeting URL. No **Skype for Business** credentials are used to join the meeting.
 
   ```java
   Application mApplication = Application.getInstance(this);
-    ```
+   ```
   >Note: Be sure to select the Application object in the _com.microsoft.office.sfb.appsdk_ package!
    
 2. Start joining the meeting by calling _Application.joinMeetingAnonymously(String displayName, URI meetingUri)_   
@@ -20,15 +20,16 @@ meeting URL. No **Skype for Business** credentials are used to join the meeting.
   > Note: all of the SDK’s interfaces must be used only from the application main thread (main run loop).  Notifications are delivered in the same thread as well.  As a result, no synchronization around the SDK’s interfaces is required.  The SDK, however, may create threads for internal purposes.      
 
   ```java
-  conversation = mApplication
+  mConversation = mApplication
                     .joinMeetingAnonymously(
                             getString(R.string.userDisplayName), meetingURI);
   ```
   
-3.  Connect the conversation property callback to the **conversation** returned in the previous step.
+3.  Connect the conversation property callback to the **Conversation** object returned in the previous step.
 
   ```java
-      mConversation.addOnPropertyChangedCallback(new ConversationPropertyChangeListener()); 
+      mConversation.addOnPropertyChangedCallback(
+          new ConversationPropertyChangeListener()); 
   ```      
         
 4. When the state of the conversation changes to Conversation.State.ESTABLISHED, construct a ConversationHelper object. Pass the following objects:
@@ -101,11 +102,11 @@ meeting URL. No **Skype for Business** credentials are used to join the meeting.
             }
         }
     }
-      ```
+   ```
 
 7. Implement the **ConversationHelper.ConversationCallback** interface
 
-  ```java
+```java
   implements ConversationHelper.ConversationCallback
-    ```
+```
 
