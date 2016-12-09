@@ -1,13 +1,37 @@
 # Gathering Logs from a Skype for Business Desktop Client
 
-There are 2 types of logs available from the desktop client: **.UccApilog** files contain general usage information, and **.etl** files contain media-specific log information. For any bugs related to Audio/Video, please attach both log types if possible. For bugs not related to Audio/Video, the **.UccApilog** files should be sufficient.
+**In this article:**
+- [Logs available for the Skype for Business desktop client](#log-types)
+- [Collecting logs from a Skype for Business desktop client](#collecting-logs)
+
+If your failure scenario involves a Skype for Business desktop client as the remote endpoint in a chat conversation or AV call, then you should include the logs from the desktop client in your error report.
+
+You can attempt to view the desktop client logs on your own, but it may be hard for you to extract any useful meaning from them.
+
+<a href="log-types"></a>
+## Logs available for the Skype for Business desktop client
+
+There are 2 types of logs available from the desktop client:
+
+- **.UccApilog** files contain general client usage information
+- **.etl** files contain media-specific log information
+
+For any bugs related to Audio/Video, please attach both log types if possible. For bugs not related to Audio/Video, the **.UccApilog** files should be sufficient.
+
+<a href="collecting-logs"></a>
+## Collecting logs from a Skype for Business desktop client
 
 On a Windows machine, the logs for a Skype for business desktop client will be located in the following directory:
 
->**%LOCALAPPDATA%\Microsoft\Office\16.0\Lync\Tracing\Lync-UccApi-[[n]].UccApilog** where **[[n]]**
+>**%LOCALAPPDATA%\Microsoft\Office\16.0\Lync\Tracing** 
+
+The **.UccApilog** files will have names that look like this:
+>**Lync-UccApi-[[n]].UccApilog** where **[[n]]**
 should be replaced by a number 0-2.
 
-On a Mac Machine, the location is _**Coming Soon!**_
+The **.etl** media log files will have names that look like this:
+>**Lync-16.0.6965.5305-Office-x86ship-U.etl**
 
-After reproducing the issue and closing the client, navigate to this directory and select the log file with the most recent timestamp. This is the file you should submit with any bug report.
+On a Mac, the logs are in a similar directory within the root directory where the desktop client is installed.
 
+After reproducing the issue and closing the client, navigate to this directory and select the log file(s) with the most recent timestamp(s). This is the file you should submit with any bug report.
