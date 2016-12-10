@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTVideoP2PEscalation.md' : 'Content/websdk/docs/PTVideoP2PEscalation.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTVideoP2PEscalation.md' : 'Content/websdk/docs/PTVideoP2PEscalation.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation,
