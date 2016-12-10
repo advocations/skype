@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     window.framework.hideNotificationBar();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTChatGroup.md' : 'Content/websdk/docs/PTChatGroup.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTChatGroup.md' : 'Content/websdk/docs/PTChatGroup.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation;

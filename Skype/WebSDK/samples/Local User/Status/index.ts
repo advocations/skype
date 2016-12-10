@@ -7,7 +7,7 @@
 
     let status: string = '';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTLocalUserStatus.md' : 'Content/websdk/docs/PTLocalUserStatus.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTLocalUserStatus.md' : 'Content/websdk/docs/PTLocalUserStatus.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     function reset () {

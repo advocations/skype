@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAuthWebTicket.md' : 'Content/websdk/docs/PTAuthWebTicket.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTAuthWebTicket.md' : 'Content/websdk/docs/PTAuthWebTicket.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.webTicket'));
