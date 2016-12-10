@@ -11,6 +11,11 @@ Figure 1. The Skype for Business App SDK object model hierarchy
 
 The **Application** object is a root entity that provides access to all other entities and services in the SDK. Developers are expected to initialize the application before using other entities in the SDK.
 
+### AnonymousSession
+
+The **AnonymousSession** object encapsulates an anonymous user authentication session where the user joins a meeting without presenting Skype for Business credentials. The **AnonymousSession** object provides the 
+**Conversation** that encapsulates the anonymously joined meeting. 
+
 ### Conversation
 
 The **Conversation** object represents a communication between one or more participants and is controlled by a set of “services”.
