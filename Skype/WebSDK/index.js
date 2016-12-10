@@ -794,7 +794,7 @@
                         client_id: client_id,
                         origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
                         cors: true,
-                        redirect_uri: location.origin + location_config.content + 'token.html'
+                        redirect_uri: location.href + 'websdk/token.html'
                     }).then(function () {
                         document.getElementsByClassName('before-signin')[0].style.display = 'none';
                         document.getElementsByClassName('azuread-signin')[0].style.display = 'none';
