@@ -8,282 +8,515 @@ the best pattern for implementing video in your app.
 ## ConversationHelper class code list
 
 ```java
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- */
+package com.microsoft.office.sfb.healthcare;
 
-package com.microsoft.office.sfb.sfbdemo;
+import android.graphics.SurfaceTexture;
+import android.view.TextureView;
 
-import android.app.FragmentTransaction;
-import android.app.Fragment;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.microsoft.office.sfb.appsdk.Alert;
-import com.microsoft.office.sfb.appsdk.AlertObserver;
+import com.microsoft.media.MMVRSurfaceView;
+import com.microsoft.office.sfb.appsdk.Application;
+import com.microsoft.office.sfb.appsdk.AudioService;
+import com.microsoft.office.sfb.appsdk.Camera;
+import com.microsoft.office.sfb.appsdk.ChatService;
 import com.microsoft.office.sfb.appsdk.Conversation;
+import com.microsoft.office.sfb.appsdk.ConversationActivityItem;
 import com.microsoft.office.sfb.appsdk.DevicesManager;
+import com.microsoft.office.sfb.appsdk.HistoryService;
+import com.microsoft.office.sfb.appsdk.MessageActivityItem;
+import com.microsoft.office.sfb.appsdk.Observable;
+import com.microsoft.office.sfb.appsdk.ObservableList;
+import com.microsoft.office.sfb.appsdk.Participant;
+import com.microsoft.office.sfb.appsdk.ParticipantAudio;
+import com.microsoft.office.sfb.appsdk.ParticipantService;
+import com.microsoft.office.sfb.appsdk.ParticipantVideo;
 import com.microsoft.office.sfb.appsdk.SFBException;
 import com.microsoft.office.sfb.appsdk.Speaker;
+import com.microsoft.office.sfb.appsdk.VideoService;
+
+import java.net.URI;
+import java.util.List;
 
 /**
- * The Conversations Activity uses two fragments to provide Conversation & Chat functionality.
+ * This is a convenience class.  It simplifies interaction with the core Conversation interface
+ * and its children.
+ *
+ * It provides the following functionality:
+ * 1. An integrated callback interface for the most useful property change notifications,
+ *    removing the need to write verbose observer code.
+ * 2. Audio functionality to toggle mute and switch between loudspeaker and non-loudspeaker
+ *    endpoints.
+ * 3. Video functionality to start outgoing and incoming video and switch between cameras. 
  */
-public class ConversationsActivity extends AppCompatActivity implements ChatFragment.ChatFragmentInteractionListener{
+public class ConversationHelper {
 
     /**
-     * Chat fragment for IM.
+     * Callback interface for property and state change notifications.
      */
-    private ChatFragment chatFragment = null;
+    public interface ConversationCallback {
+        /**
+         * This method is called when the state of the conversation changes.
+         * E.g. On joining a meeting the conversation state changes from idle->establishing->established.
+         * @param newConversationState The new conversation state.
+         */
+        void onConversationStateChanged(Conversation.State newConversationState);
 
-    /**
-     * Participants Roster
-     */
-    private RosterFragment rosterFragment = null;
+        /**
+         * This method is called when the {@link ChatService#CAN_SEND_MESSAGE_PROPERTY_ID} changes.
+         * @param canSendMessage New value retrieved using {@link ChatService#canSendMessage()}
+         */
+        void onCanSendMessage(boolean canSendMessage);
 
-    /**
-     * Video Fragment.
-     */
-    private VideoFragment videoFragment = null;
+        /**
+         * This method is called when a new incoming IM ({@link MessageActivityItem}) is received.
+         * @param newMessage Incoming MessageActivityItem retrieved by listening to changes on the
+         *                   {@link HistoryService#getConversationActivityItems() Activity Item Collection}
+         */
+        void onMessageReceived(MessageActivityItem newMessage);
 
-    private Conversation currentConversation = null;
+        /**
+         * This method is called when the state of the self participant Audio state changes.
+         * @param newState The new state of Audio {@link com.microsoft.office.sfb.appsdk.ParticipantService.State}
+         *                 retrieved by calling {@link ParticipantAudio#getState()}
+         */
+        void onSelfAudioStateChanged(ParticipantService.State newState);
+
+        /**
+         * This method is called when the mute status of local participant changes.
+         * {@link ParticipantAudio#PARTICIPANT_SERVICE_STATE_PROPERTY_ID}
+         * @param newMuteStatus The new mute status retrieved calling {@link ParticipantAudio#isMuted()}
+         */
+        void onSelfAudioMuteChanged(boolean newMuteStatus);
+
+        /**
+         * This method is called when the state of {@link com.microsoft.office.sfb.appsdk.ConversationService#CAN_START_PROPERTY_ID}
+         * changes.
+         * @param newCanStart The new value retrieved by calling {@link VideoService#canStart()}
+         */
+        void onCanStartVideoServiceChanged(boolean newCanStart);
+
+        /**
+         * This method is called when the state of {@link VideoService#CAN_SET_PAUSED_PROPERTY_ID}
+         * changes.
+         * @param newCanSetPaused The new value retrieved by calling {@link VideoService#canSetPaused()}
+         */
+        void onCanSetPausedVideoServiceChanged(boolean newCanSetPaused);
+
+
+        /**
+         * This method is called when the state of {@link VideoService#CAN_SET_ACTIVE_CAMERA_PROPERTY_ID} changes.
+         * changes.
+         * @param newCanSetActiveCamera The new value retrieved by calling {@link VideoService#canSetActiveCamera()}
+         */
+        void onCanSetActiveCameraChanged(boolean newCanSetActiveCamera);
+    }
+
+    private Conversation conversation = null;
     private DevicesManager devicesManager = null;
-
-    boolean callStarted = true;
-    Speaker.Endpoint endpoint = null;
-
-    Button participantsButton = null;
-    Button videoButton = null;
-    LinearLayout conversationsToolbarLayout = null;
-    LinearLayout alertLayout = null;
-    ConversationAlertObserver conversationAlertObserver = null;
+    private AudioService audioService = null;
+    private VideoService videoService = null;
+    private ChatService chatService = null;
+    private HistoryService historyService = null;
 
     /**
-     * On creation, the activity loads the ConversationsList fragment.
-     *
-     * @param savedInstanceState
+     * Self participant
      */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conversations);
+    private Participant selfParticipant = null;
+    private ParticipantAudio selfParticipantAudio = null;
 
-        this.videoButton = (Button)findViewById(R.id.videoButtonId);
-        this.participantsButton = (Button)findViewById(R.id.participantsButtonId);
+    /**
+     * Self participant video preview control.
+     */
+    private TextureView videoPreviewView = null;
 
-        if (findViewById(R.id.fragment_container) != null) {
+    /**
+     * Remote participant video control.
+     */
+    private MMVRSurfaceView participantVideoView = null;
 
-            // For anonymous meeting join, there will only be a single conversation in the list.
-            //this.currentConversation = (com.microsoft.office.sfb.appsdk.Application.getInstance(
-            //        this.getApplicationContext()).getConversationsManager().getConversations()).get(0);
 
-            this.currentConversation = ((SFBDemoApplication)getApplication()).getAnonymousConversation();
-            this.conversationAlertObserver = new ConversationAlertObserver();
+    /**
+     * List of remote participants.
+     */
+    ObservableList<Participant> remoteParticipants = null;
+    Participant remoteParticipantLeader = null;
 
-            // Set callback for conversation level alerts.
-            this.currentConversation.setAlertCallback(this.conversationAlertObserver);
+    /**
+     * Callback passed in by the caller.
+     */
+    private ConversationCallback conversationCallback = null;
 
-            // Set callback for application level alerts.
-            com.microsoft.office.sfb.appsdk.Application.getInstance(
-                    this.getApplicationContext()).setAlertCallback(this.conversationAlertObserver);
+    private ObservableList.OnListChangedCallback listChangedCallback = null;
 
-            this.devicesManager = com.microsoft.office.sfb.appsdk.Application.getInstance(
-                    this.getApplicationContext()).getDevicesManager();
+    /**
+     * Callback handler class. This handles the property change notifications from SDK entities.
+     * It extends {@link Observable.OnPropertyChangedCallback}
+     */
+    private ConversationCallbackHandler conversationCallbackHandler = null;
 
-            this.endpoint = this.devicesManager.getSelectedSpeaker().getActiveEndpoint();
+    /**
+     * Constructor.
+     * @param conversation Conversation created by calling {@link Application#joinMeetingAnonymously(String, URI)}
+     * @param devicesManager DevicesManager instance {@link Application#getDevicesManager()}
+     * @param textureView Self video preview view.
+     * @param mmvrSurfaceView Remote participant video view.
+     * @param conversationCallback {@link ConversationCallback} object that should receive 
+     *        callbacks from this conversation helper.
+     */
+    public ConversationHelper(Conversation conversation,
+                              DevicesManager devicesManager,
+                              TextureView textureView,
+                              MMVRSurfaceView mmvrSurfaceView,
+                              ConversationCallback conversationCallback) {
 
-            // Create the chat fragment.
-            this.chatFragment = ChatFragment.newInstance(this.currentConversation);
 
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, this.chatFragment, null);
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        // Setup the callback and callback handler.
+        this.conversationCallback = conversationCallback;
+        this.conversationCallbackHandler = new ConversationCallbackHandler();
+        this.listChangedCallback = new MessageListCallbackHandler();
 
-            // Load the fragment.
-            fragmentTransaction.commit();
-        }
+        this.conversation = conversation;
+        this.conversation.addOnPropertyChangedCallback(this.conversationCallbackHandler);
+        this.devicesManager = devicesManager;
 
-        this.conversationsToolbarLayout = (LinearLayout)findViewById(R.id.conversationsToolbarId);
-        this.alertLayout = (LinearLayout)findViewById(R.id.alertViewId);
+        // Get the chat service and register for property change notifications.
+        this.chatService = conversation.getChatService();
+        this.chatService.addOnPropertyChangedCallback(this.conversationCallbackHandler);
 
+        // Get the audio service and register for property change notifications.
+        this.audioService = conversation.getAudioService();
+        this.audioService.addOnPropertyChangedCallback(this.conversationCallbackHandler);
+
+        // Get the video service and register for property change notifications.
+        this.videoService = conversation.getVideoService();
+        this.videoService.addOnPropertyChangedCallback(this.conversationCallbackHandler);
+
+        this.historyService = conversation.getHistoryService();
+        this.historyService.getConversationActivityItems().addOnListChangedCallback(this.listChangedCallback);
+
+        this.selfParticipant = conversation.getSelfParticipant();
+        this.selfParticipantAudio = this.selfParticipant.getParticipantAudio();
+        this.selfParticipantAudio.addOnPropertyChangedCallback(this.conversationCallbackHandler);
+
+        this.videoPreviewView = textureView;
+        this.videoPreviewView.setSurfaceTextureListener(new VideoPreviewSurfaceTextureListener());
+        this.participantVideoView = mmvrSurfaceView;
+        this.participantVideoView.setCallback(new VideoStreamSurfaceListener());
+
+        this.remoteParticipants = conversation.getRemoteParticipants();
     }
 
-    public void onParticipantsButtonClicked(android.view.View view) {
-        this.rosterFragment = RosterFragment.newInstance(this.currentConversation);
-
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-        // Hide the current fragment.
-        fragmentTransaction.hide(this.chatFragment);
-        fragmentTransaction.add(R.id.fragment_container, this.rosterFragment, null);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-        // Add transaction to back stack so that "back" button restores state.
-        fragmentTransaction.addToBackStack(null);
-
-        // Load the fragment.
-        fragmentTransaction.commit();
-
-        this.participantsButton = (Button)view;
-        participantsButton.setEnabled(false);
-
-        this.conversationsToolbarLayout.setVisibility(View.GONE);
-    }
-
-    public void onSpeakerButtonClicked(android.view.View view) {
-        switch(this.endpoint) {
+    /**
+     * Switch between Loudspeaker and Non-loudspeaker.
+     */
+    public void changeSpeakerEndpoint() {
+        Speaker.Endpoint endpoint = Speaker.Endpoint.LOUDSPEAKER;
+        Speaker currentSpeaker = this.devicesManager.getSelectedSpeaker();
+        switch(currentSpeaker.getActiveEndpoint()) {
             case LOUDSPEAKER:
-                this.devicesManager.getSelectedSpeaker().setActiveEndpoint(Speaker.Endpoint.NONLOUDSPEAKER);
-                ((Button)view).setText("Speaker On");
+                endpoint = Speaker.Endpoint.NONLOUDSPEAKER;
                 break;
             case NONLOUDSPEAKER:
-                this.devicesManager.getSelectedSpeaker().setActiveEndpoint(Speaker.Endpoint.LOUDSPEAKER);
-                ((Button)view).setText("Speaker Off");
+                endpoint = Speaker.Endpoint.LOUDSPEAKER;
                 break;
-            default:
         }
-        this.endpoint = this.devicesManager.getSelectedSpeaker().getActiveEndpoint();
+        currentSpeaker.setActiveEndpoint(endpoint);
     }
 
-    public void onAudioButtonClicked(android.view.View view) {
-        if (!this.callStarted) {
-            if (this.currentConversation.getAudioService().canStart()) {
-                try {
-                    this.currentConversation.getAudioService().start();
-                    ((Button)view).setText("End Call");
-                    this.callStarted = true;
-                } catch (SFBException e) {
-                    e.printStackTrace();
+    /**
+     * Toggle mute state.
+     */
+    public void toggleMute() {
+        // Get current mute state.
+        boolean selfMuteState = this.selfParticipantAudio.isMuted();
+        try {
+            this.selfParticipantAudio.setMuted(!selfMuteState);
+        } catch (SFBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Pause or un-pause video.
+     */
+    public void toggleVideoPaused() {
+        boolean videoPaused = this.videoService.getPaused();
+        try {
+            this.videoService.setPaused(!videoPaused);
+        } catch (SFBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Switch the camera by selecting from the list of available cameras.
+     */
+    public void changeActiveCamera() {
+        try {
+            Camera activeCamera = this.videoService.getActiveCamera();
+            List<Camera> availableCameras = devicesManager.getCameras();
+            int newCameraIndex = (availableCameras.indexOf(activeCamera) + 1) % availableCameras.size();
+            this.videoService.setActiveCamera(availableCameras.get(newCameraIndex));
+        } catch (SFBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Start outgoing video.
+     */
+    public void startOutgoingVideo() {
+        if (this.videoPreviewView.isAvailable()) {
+            surfaceTextureCreatedCallback(this.videoPreviewView.getSurfaceTexture());
+        }
+    }
+
+    /**
+     * Start incoming video.
+     */
+    public void startIncomingVideo() {
+        if (this.participantVideoView.isActivated()) {
+            videoStreamSurfaceCreatedCallback(this.participantVideoView);
+        }
+    }
+
+    /**
+     * Helper method to ensure that the video service is started and video is flowing.
+     */
+    public void ensureVideoIsStartedAndRunning() {
+        try {
+            // Check state of video service.
+            // If not started, start it.
+            if (this.videoService.canStart()) {
+                this.videoService.start();
+            } else {
+                // On joining the meeting the Video service is started by default if we have video
+                // Since the view is created later the video service is paused.
+                // Resume the service.
+                if (this.videoService.getPaused()) {
+                    if (this.videoService.canSetPaused()) {
+                        this.videoService.setPaused(false);
+                    }
                 }
             }
-        } else {
-            if (this.currentConversation.getAudioService().canStop()) {
-                try {
-                    this.currentConversation.getAudioService().stop();
-                    ((Button)view).setText("Call");
-                    this.callStarted = false;
-                } catch (SFBException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-    }
-
-    public void onDismissButtonClicked(android.view.View view) {
-        LinearLayout alertLayout = (LinearLayout)view.getParent();
-        alertLayout.setVisibility(View.GONE);
-    }
-
-    public void onVideoButtonClicked(android.view.View view) {
-        this.videoFragment = VideoFragment.newInstance(this.currentConversation, devicesManager);
-
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-        // Hide the current fragment.
-        fragmentTransaction.hide(this.chatFragment);
-        fragmentTransaction.add(R.id.fragment_container, this.videoFragment, null);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-        // Add transaction to back stack so that "back" button restores state.
-        fragmentTransaction.addToBackStack(null);
-
-        // Load the fragment.
-        fragmentTransaction.commit();
-
-        this.videoButton = (Button)view;
-        videoButton.setEnabled(false);
-
-        this.conversationsToolbarLayout.setVisibility(View.GONE);
-    }
-
-    /**
-     * onStart
-     */
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    /**
-     * onResume
-     */
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    /**
-     * onPause
-     */
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    /**
-     * onStop
-     */
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    /**
-     * onDestroy
-     */
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /**
-     * Process "back" button press.
-     */
-    @Override
-    public void onBackPressed() {
-        // If the chat fragment is loaded, pressing the back button pops the conversationsList fragment.
-        getFragmentManager().popBackStack();
-
-        int count = getFragmentManager().getBackStackEntryCount();
-
-        Fragment currentFragment = getFragmentManager().findFragmentById(R.id.fragment_container);
-        if (currentFragment instanceof RosterFragment || currentFragment instanceof VideoFragment) {
-            this.participantsButton.setEnabled(true);
-            this.videoButton.setEnabled(true);
-            this.conversationsToolbarLayout.setVisibility(View.VISIBLE);
-        }
-
-        // If you are on the first loaded fragment let the super class handle the back button event.
-        if (count == 0) {
-            super.onBackPressed();
+        } catch (SFBException e) {
+            e.printStackTrace();
         }
     }
 
     /**
-     * The ChatFragment calls this callback method for changes to report to the activity.
+     * For displaying the video preview, we need to tie the video stream to the TextureView control.
+     * This is achieved by registering a listener to the TextureView by passing in an instance of
+     * class below.
+     * Clients are expected to pass in the view once inflated from their activity / fragments.
      */
-    @Override
-    public void onChatFragmentInteraction() {
-        // Dummy method provided for demonstration
-    }
+    private class VideoPreviewSurfaceTextureListener implements  TextureView.SurfaceTextureListener {
 
-    public void showAlert(Alert alert) {
-        this.alertLayout.setVisibility(View.VISIBLE);
-        TextView alertTypeText = (TextView)this.alertLayout.findViewById(R.id.alertTextViewId);
-        alertTypeText.setText(alert.getAlertType().toString());
-    }
-
-    private class ConversationAlertObserver extends AlertObserver.OnAlertCallback {
+        /**
+         * This method is called when the view is available. We immediately register is with the
+         * {@link VideoService#showPreview(SurfaceTexture)} in the callback handler.
+         * @param surface
+         * @param width
+         * @param height
+         */
         @Override
-        public void onAlert(Alert alert) {
-            showAlert(alert);
+        public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+            surfaceTextureCreatedCallback(surface);
+        }
+
+        @Override
+        public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) { }
+
+        @Override
+        public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+            return true;
+        }
+
+        @Override
+        public void onSurfaceTextureUpdated(SurfaceTexture surface) { }
+    };
+
+    /**
+     * For displaying the remote participant video we need to tie the video stream to the MMVRSurfaceView
+     * control. This is achieved by registering a listener to the MMVRSurfaceView by passing in an instance of
+     * class below.
+     * Clients are expected to pass in the view once inflated from their activity / fragments.
+     */
+    private class VideoStreamSurfaceListener implements MMVRSurfaceView.MMVRCallback {
+
+        /**
+         * This method is called when the MMVRSurfaceView is created. We will tie in the video stream
+         * to the control by calling {@link ParticipantVideo#subscribe(MMVRSurfaceView)}
+         *
+         * @param mmvrSurfaceView
+         */
+        @Override
+        public void onSurfaceCreated(MMVRSurfaceView mmvrSurfaceView) {
+            videoStreamSurfaceCreatedCallback(mmvrSurfaceView);
+        }
+
+        @Override
+        public void onFrameRendered(MMVRSurfaceView mmvrSurfaceView) {
+        }
+
+        @Override
+        public void onRenderSizeChanged(MMVRSurfaceView mmvrSurfaceView, int i, int i1) {
         }
     }
+
+    /**
+     * Setup the Video preview.
+     * @param texture SurfaceTexture
+     */
+    private void surfaceTextureCreatedCallback(SurfaceTexture texture) {
+        try {
+            // Tie the video stream to the texture view control
+            videoService.showPreview(texture);
+
+            // Check state of video service.
+            // If not started, start it.
+            if (this.videoService.canStart()) {
+                this.videoService.start();
+            } else {
+                // On joining the meeting the Video service is started by default.
+                // Since the view is created later the video service is paused.
+                // Resume the service.
+                if (this.videoService.canSetPaused()) {
+                    this.videoService.setPaused(false);
+                }
+            }
+        } catch (SFBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Setup the remote participant video.
+     * @param mmvrSurfaceView MMVRSurfaceView
+     */
+    private void videoStreamSurfaceCreatedCallback(MMVRSurfaceView mmvrSurfaceView) {
+        this.participantVideoView = mmvrSurfaceView;
+        // Setup the video properties
+        this.participantVideoView.setAutoFitMode(MMVRSurfaceView.MMVRAutoFitMode_Crop);
+        // Render the video
+        this.participantVideoView.requestRender();
+        try {
+            this.remoteParticipants = conversation.getRemoteParticipants();
+            for (Participant participant : this.remoteParticipants) {
+                if (participant.getRole() == Participant.Role.LEADER) {
+                    this.remoteParticipantLeader = participant;
+                    ParticipantVideo participantVideo = this.remoteParticipantLeader.getParticipantVideo();
+                    participantVideo.subscribe(this.participantVideoView);
+                    break;
+                }
+            }
+
+        } catch (SFBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This callback handler class handles property change notifications from SDK entities.
+     * We have authored a single handler class that distinguishes who the sender was.
+     */
+    class ConversationCallbackHandler extends Observable.OnPropertyChangedCallback {
+        /**
+         * onProperty changed will be called by the Observable instance on a property change.
+         * @param sender     Observable instance.
+         * @param propertyId property that has changed.
+         * @see com.microsoft.office.sfb.appsdk.Observable.OnPropertyChangedCallback
+         */
+        @Override
+        public void onPropertyChanged(Observable sender, int propertyId) {
+
+            if (Conversation.class.isInstance(sender)) {
+                Conversation conversation = (Conversation)sender;
+                switch(propertyId) {
+                    case Conversation.STATE_PROPERTY_ID:
+                        Conversation.State newState = conversation.getState();
+                        conversationCallback.onConversationStateChanged(newState);
+                        break;
+                }
+            }
+
+            if (ChatService.class.isInstance(sender)) {
+                ChatService chatService = (ChatService)sender;
+                switch (propertyId) {
+                    case ChatService.CAN_SEND_MESSAGE_PROPERTY_ID:
+                        boolean canSendMessage = chatService.canSendMessage();
+                        conversationCallback.onCanSendMessage(canSendMessage);
+                        break;
+                }
+            }
+
+            if (ParticipantAudio.class.isInstance(sender)) {
+                ParticipantAudio selfParticipantAudio = (ParticipantAudio)sender;
+                switch (propertyId) {
+                    case ParticipantService.PARTICIPANT_SERVICE_STATE_PROPERTY_ID:
+                        conversationCallback.onSelfAudioStateChanged(selfParticipantAudio.getState());
+                        break;
+                    case ParticipantAudio.PARTICIPANT_IS_MUTED_PROPERTY_ID:
+                        conversationCallback.onSelfAudioMuteChanged(selfParticipantAudio.isMuted());
+                        break;
+                }
+            }
+
+            if (VideoService.class.isInstance(sender)) {
+                VideoService videoService = (VideoService)sender;
+                switch (propertyId) {
+                    case VideoService.CAN_START_PROPERTY_ID:
+                        conversationCallback.onCanStartVideoServiceChanged(videoService.canStart());
+                        break;
+                    case VideoService.CAN_SET_PAUSED_PROPERTY_ID:
+                        conversationCallback.onCanSetPausedVideoServiceChanged(videoService.canSetPaused());
+                        break;
+                    case VideoService.CAN_SET_ACTIVE_CAMERA_PROPERTY_ID:
+                        conversationCallback.onCanSetActiveCameraChanged(videoService.canSetActiveCamera());
+                        break;
+                }
+            }
+        }
+    }
+
+    /**
+     * This callback handler class handles change notifications on {@link ObservableList}
+     */
+    class MessageListCallbackHandler extends ObservableList.OnListChangedCallback {
+        @Override
+        public void onChanged(Object sender) { }
+
+        @Override
+        public void onItemRangeChanged(Object sender, int positionStart, int itemCount) {}
+
+        /**
+         * Called whenever items have been inserted into the list.
+         *
+         * @param sender        ObservableList instance
+         * @param positionStart starting index of the inserted items.
+         * @param itemCount     number of items that have changed
+         */
+        @Override
+        public void onItemRangeInserted(Object sender, int positionStart, int itemCount) {
+            ObservableList<?> messageList = (ObservableList<ConversationActivityItem>) sender;
+
+            // Is this a message activity item?
+            if (MessageActivityItem.class.isInstance(messageList.get(positionStart))) {
+                MessageActivityItem messageActivityItem = (MessageActivityItem)messageList.get(positionStart);
+
+                // Is this an incoming message?
+                if (messageActivityItem.getDirection() == MessageActivityItem.MessageDirection.INCOMING) {
+                    conversationCallback.onMessageReceived(messageActivityItem);
+                }
+            }
+        }
+
+        @Override
+        public void onItemRangeMoved(Object sender, int fromPosition, int toPosition, int itemCount) { }
+
+        @Override
+        public void onItemRangeRemoved(Object sender, int positionStart, int itemCount) { }
+    }
+
 }
 
 ```
