@@ -103,7 +103,7 @@ the top level application class.
 
 1. Change the defaultConfig structure in your module **build.gradle** file. Add `multiDexEnabled true` to the structure.
 
-   ```json
+   ```
        defaultConfig {
            applicationId 'com.microsoft.office.sfb.samples.healthcare'
            minSdkVersion 17
@@ -114,7 +114,7 @@ the top level application class.
        }
    ``` 
 1. Add a **dexOptions** structure to the module **build.gradle** file.
-   ```json
+   ```
        dexOptions {
         preDexLibraries=false
         jumboMode = true
