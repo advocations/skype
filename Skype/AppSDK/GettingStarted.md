@@ -91,10 +91,60 @@ The configuration steps are:
 
   ```
 
->Note: Subsequent versions of the SDK will eliminate any uneccesary permissions.
+>Note: Subsequent versions of the SDK will eliminate any unneccessary permissions.
   
   
-  
+## Configure your Android application as a MultiDex application
+The libraries that support the Android Skype for Business App SDK include a large number of methods. If the total number of methods in your application - including the App SDK methods - exceed 64,000, then you
+must configure your app as a [MultiDex](https://developer.android.com/studio/build/multidex.html) application. To enable a basic MultDex configuration, you will add options to your module **build.gradle** file and 
+the top level application class. 
+
+### MultiDex support in build.gradle
+
+1. Change the defaultConfig structure in your module **build.gradle** file. Add `multiDexEnabled true` to the structure.
+
+   ```json
+       defaultConfig {
+           applicationId 'com.microsoft.office.sfb.samples.healthcare'
+           minSdkVersion 17
+           targetSdkVersion 22
+           versionCode 2
+           versionName "2.1"
+           multiDexEnabled true
+       }
+   ``` 
+1. Add a **dexOptions** structure to the module **build.gradle** file.
+   ```json
+       dexOptions {
+        preDexLibraries=false
+        jumboMode = true
+        javaMaxHeapSize "4g"
+    }
+   ```
+### Extend your application class as a **MultiDexApplication**
+
+1. If your application does not have a class that extends the Application class, you must create one. Before you add an application class to your module, update 
+your **AndroidManifest.xml** `Application` node to include the attribute, `android:name="<YOUR PACKAGE NAME>.<YOUR APPLICATION CLASS NAME>">`
+
+1. Create or update your application class to extend **MultiDexApplication**. Be sure to override the **attachBaseContext** method.
+
+```java
+package com.microsoft.office.sfb.healthcare;
+
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
+
+
+public class SkypeApplication extends MultiDexApplication{
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+}
+```
+
 
 ## Next steps
 Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
