@@ -110,9 +110,9 @@ meeting URL. No **Skype for Business** credentials are used to join the meeting.
                  mParticipantVideoSurfaceView,
                  this);
    ```
-   >Note: The [The ConversationHelper class](./ConversationHelperCodeList.md) makes it possible to start a video conversation and
-   handle related events on the conversation, participants, and video streams. You don't have to use the **ConversationHelper**. If your 
-   application scenario has requirements that are not covered in this how to article, take the **ConversationHelper** as a starting point and modify or 
+   >Note: The [ConversationHelper class](./ConversationHelperCodeList.md) makes it possible to start a video conversation and
+   handle related events on the conversation, participants, and video streams with fewer lines of application code. You may not want to use the **ConversationHelper** if your 
+   application scenario has requirements that are not covered in this how to article. In that case, take the **ConversationHelper** as a starting point and modify or 
    extend it to suite your requirements.
 
 1. Start the incoming and outgoing meeting video.
