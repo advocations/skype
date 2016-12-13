@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     window.framework.hideNotificationBar();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTGroupsRemoveContact.md' : 'Content/websdk/docs/PTGroupsRemoveContact.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTGroupsRemoveContact.md' : 'Content/websdk/docs/PTGroupsRemoveContact.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     const persons = {};

@@ -63,16 +63,31 @@ foreach($item in $dir_categories)
 {
     $category = [Category]::new()
     $samples = [System.Collections.ArrayList]::new()
+    $tempSamples = [System.Collections.ArrayList]::new()
 
     #each directory under the top-level is a new samples for that category
+    #initialize samples array with the length of the category
+    foreach($dir in $item.GetDirectories())
+    {
+        $tempSamples.Add(-1) | Out-Null
+    }
     foreach($dir in $item.GetDirectories())
     {
         $sample = [Sample]::new();
         $sample.name = $dir.Name
         $sample.location = $dir.FullName.Replace($path, "samples").Replace("\", "/")
-        if (!(isPresent -target "ignore" -local_path $dir.FullName))
+        $sampleOrder = (getSampleOrder -target "order" -local_path $dir.FullName)
+        if ($sampleOrder -ne -1)
         {
-            $samples.Add($sample) | Out-Null
+            $tempSamples[$sampleOrder] = $sample
+        }
+    }
+
+    #strip of the unused samples to form the current samples collection
+    foreach($tempSample in $tempSamples)
+    {
+        if($tempSample -ne -1) {
+            $samples.Add($tempSample) | Out-Null
         }
     }
 
@@ -103,8 +118,7 @@ if ($Online)
 {
     $js =@"
 var location_config = {
-    content: '/Content/websdk/',
-    token: 'websdk'
+    content: '/Content/websdk/'
 };
 "@
     $js | Out-File (Join-Path $path \location_config.js)
@@ -114,8 +128,7 @@ else
 {
         $js =@"
 var location_config = {
-    content: '',
-    token: ''
+    content: '/'
 };
 "@
     $js | Out-File (Join-Path $path \location_config.js)
