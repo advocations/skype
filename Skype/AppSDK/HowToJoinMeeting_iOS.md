@@ -51,9 +51,9 @@ sfb.configurationManager.requireWifiForVideo = NO;
   sfb.configurationManager.requireWifiForVideo = false
   ```
  
- > Note: Please refer SfBApplication, SfBConfigurationManager, SfBVideoService, SfBDevicesManager and other classes in SkypeForBusiness framework to handle application level Skype configurations.
+ > Note: Please refer [SfBApplication](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html), [SfBConfigurationManager](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBConfigurationManager.html), [SfBVideoService](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBVideoService.html), [SfBDevicesManager](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBDevicesManager.html) and other classes in [SkypeForBusiness](https://ucwa.skype.com/reference/appSDK/IOS/) framework to handle application level Skype configurations.
 
-3. Start joining the meeting by calling _Application.joinMeetingAnonymously(String displayName, URI meetingUri)_. This function returns the new conversation instance that represents the meeting.  
+3. Start joining the meeting by calling [_Application.joinMeetingAnonymously(String displayName, URI meetingUri)_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html#//api/name/joinMeetingAnonymousWithUri:displayName:error:). This function returns the new conversation instance that represents the meeting.  
 
     **Objective C**
   ```Objectivec 
@@ -230,7 +230,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
 
 ## Error Handling
 
-SkypeForBusiness SDK API has both _SfBApplication_ and _SfBConversation_ level delegate method for handling possible errors or exceptions. The _SfBApplication_ alertDelegate handles global level concerns, while the _SfBConversation_ alertDelegate handles alerts specific to the conversation instance.
+[SkypeForBusiness](https://ucwa.skype.com/reference/appSDK/IOS/) SDK API has both [_SfBApplication_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html) and [_SfBConversation_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBConversation.html) level delegate method for handling possible errors or exceptions. The _SfBApplication_ alertDelegate handles global level concerns, while the _SfBConversation_ alertDelegate handles alerts specific to the conversation instance.
 
 The delegate method _didReceiveAlert_ is called when new alert appears in the context where alertDelegate is attached.
 
