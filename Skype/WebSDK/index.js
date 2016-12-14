@@ -251,7 +251,7 @@
                     var img = document.createElement('img');
 
                     var photoLoaded = false;
-                    contact.avatarUrl.get().then(() => {
+                    contact.avatarUrl.get().then(function () {
                         img.src = contact.avatarUrl();
                         photoLoaded = true;
                     });
@@ -435,7 +435,7 @@
                 sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(name);
                 var photo = document.createElement('img');
                 var photoLoaded = false;
-                window.framework.application.personsAndGroupsManager.mePerson.avatarUrl.get().then(() => {
+                window.framework.application.personsAndGroupsManager.mePerson.avatarUrl.get().then(function () {
                     photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
                     photoLoaded = true;
                 });

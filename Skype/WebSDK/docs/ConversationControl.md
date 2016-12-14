@@ -31,8 +31,14 @@ The following table lists the methods of the  **Conversation** object.
 
 ### Examples
 
-The following examples show the most common uses of the  **renderConversation** method.
+The following examples show the most common uses of the  **renderConversation** method. 
 
+>Note: The HTML container that contains the conversation control must have a width and height set. If width and height are
+set to zero, the conversation control does not display. 
+```html
+<div id="container" style="width:864px; height: 900px">
+</div>
+```
 
 #### Render conversation with self and no modalities enabled, and passing DOM element as container parameter.
 
