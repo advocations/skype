@@ -39,7 +39,7 @@ tst
 |Update Note and Presence for the signed in user. |X|X|
 |View the contact list of the signed in users. |X|X|
 |Search for persons or groups. |X|X|
-|Add/remove/Rename groups in the contact list.  |X|X|
+|Add/remove/Rename groups in the contact list. |X|X|
 |Add/remove distribution groups in the contact list.   |X|X|
 |Add/remove contacts to groups in the contact list.   |X|X|
 |Add/remove telephone contacts to groups in the contact list. |X|X|
