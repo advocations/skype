@@ -11,7 +11,7 @@ _**Applies to:** Skype for Business 2015_
 <a name="audience"></a>
 ## Who is this article for?
 
-If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this article is for you. The error page should have the message: "Application with identifier  <...> was not found in the directory <...>."
+If you are attempting to use the Azure AD authentication option to sign into the Skype for Business (SfB) Web SDK and you are seeing an AAD error page that looks like the following then this article is for you. The error page should have the message: "Application with identifier  <...> was not found in the directory <...>."
 
 ![Incorrect Client ID](../../../images/troubleshooting/auth/IncorrectClientID.PNG)
 
@@ -22,7 +22,7 @@ If this is not your issue, you can return to [Troubleshooting Azure AD Authentic
 
 You are providing an incorrect **client_id** when redirecting to AAD or when calling **signInManager.signIn**. You provide a **client_id** in two places when using AAD auth to sign into the Skype Web SDK:
 
-1. When initially redirecting to the AAD sign in page, you probably use similar code to navigate to the URL of the sign in page. If you are using a default client id from the samples or another invalid ID, you will see this error. Instead, using your own **client_id** here.
+1. When initially redirecting to the AAD sign in page, you probably use similar code to navigate to the URL of the sign in page. If you are using a default **client_id** from the samples or another invalid ID, you will see this error.
 
 ``` js
 var href = 'https://login.microsoftonline.com/common/oauth2/authorize?response_type=token&client_id=';

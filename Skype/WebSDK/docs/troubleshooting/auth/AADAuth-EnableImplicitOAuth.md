@@ -11,7 +11,7 @@ _**Applies to:** Skype for Business 2015_
 <a name="audience"></a>
 ## Who is this article for?
 
-If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK and you are seeing an AAD error page that looks like the following then this article is for you. The error page should have the message: "response_type 'token' is not enabled for the application."
+If you are attempting to use the Azure AD authentication option to sign into the Skype for Business (SfB) Web SDK and you are seeing an AAD error page that looks like the following then this article is for you. The error page should have the message: "response_type 'token' is not enabled for the application."
 
 ![Enable Implicit OAuth for AAD app](../../../images/troubleshooting/auth/TokenNotEnabled.PNG)
 
@@ -25,7 +25,7 @@ When creating your app registration in AAD, you need to manually edit the applic
 <a name="solution"></a>
 ## The Solution
 
-This issue is solved using the following steps.
+Follow these steps to solve this issue.
 
 1. Sign into **portal.azure.com** with an administrator account in your tenant.
 2. Navigate to **Azure Active Directory** in the left hand side bar > **App registrations** > **Your app**.

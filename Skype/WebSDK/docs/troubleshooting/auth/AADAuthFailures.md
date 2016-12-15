@@ -12,7 +12,7 @@ If you are developing an application with the Skype Web SDK and [authenticating 
 Depending on the specific failure case you are experiencing while trying to authenticate to the Skype Web SDK, this article provides specific guidance to fix your issue. 
 
 <a name="error-messages"></a>
-## Common AAD Sign in Error Messages
+## Common AAD Signin Error Messages
 
 If your user is redirected to the AAD sign in page, enters correct credentials for a Skype for Business Online user, and gets to an error page with the text "Sorry, but we're having trouble signing you in," there is a small section in the bottom right of the page labeled **Additional technical information**. This section provides a more specific error message to figure out exactly what is going wrong with the user's sign in attempt.
 
@@ -30,7 +30,7 @@ Read [AAD Auth Failures - Application with identifier <...> was not found in the
 ### [The client application has requested access to resource 'https://webdir.online.lync.com.' This request has failed because the client has not specified this resource in its requiredResourceAccess list](./AADAuth-DelegatePermissions.md)
 
 This error indicates that you have not configured your AAD app to be able to access the Skype for Business Online APIs.
-Read [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.'](./AADAuth-DelegatePermissions.md) to learn how to correct the error.
+Read [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.' This request has failed because the client has not specified this resource in its requiredResourceAccess list](./AADAuth-DelegatePermissions.md) to learn how to correct the error.
 
 ### [The reply address 'https://...' does not match the reply addresses configured for the application <...>](./AADAuth-ReplyURLs.md)
 
@@ -48,18 +48,18 @@ This error indicates that you still have to manually edit the application manife
 Read [AAD Auth Failures - Response type 'token' is not enabled for the application](./AADAuth-EnableImplicitOAuth.md) to learn how to correct the error.
 
 <a name="other-failures"></a>
-## Other common AAD Authentication Failures
+## Other Common AAD Authentication Failures
 
 Some failures are a little more difficult to detect because the app will silently fail to sign in instead of redirecting to an error page with a helpful error message. You might need to use a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to identify what request is failing. The error message can sometimes be buried in an HTTP response that appears successful, such as in a response where the body is an HTML page with an error message hidden somewhere on the page.
 
 ### No CORS
 
-If you attempt to call `signInManager.signIn` after being redirected back from the AAD signin page and fail to specify the `cors: true` option, the signin will fail silently with a **HTTP 403 Forbidden** response.
+If you attempt to call **signInManager.signIn** after being redirected back from the AAD signin page and fail to specify the **cors: true** option, the signin will fail silently with a **HTTP 403 Forbidden** response.
 
 The solution is to:
 
-- Add the `cors` parameter to your sign in options object 
-- Set the value of the `redirect_uri` parameter to a valid empty html file in an existing subfolder of your main app directory. 
+- Add the **cors** parameter to your sign in options object 
+- Set the value of the **redirect_uri** parameter to a valid empty html file in an existing subfolder of your main app directory. 
 
 >Note: In IE, this file may be necessary for passing the OAuth token back from AAD and forward when signing in to SfB online.
 
@@ -83,7 +83,7 @@ There are two failures that occur only on Internet Explorer. In both of these ca
 - Redirect back
 - Silently fail to sign in back on the app page. 
 
-Use Fiddler or Charles to get a better clue of what the actual failure is, but here are a couple common ones.
+Use [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to get a better clue of what the actual failure is, but here are a couple common ones.
 
 #### [Crossing security zone boundaries](./AADAuth-IESecurityZones.md)
 
