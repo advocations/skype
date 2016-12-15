@@ -24,7 +24,7 @@ Skype.initialize({
   apiKey: 'a42fcebd-5b43-4b89-a065-74450fb91255' // SDK preview
 }, api => {
   var app = new api.application;
-  app.signinManager.signIn(...).then(() => {
+  app.signInManager.signIn(...).then(() => {
     console.log("signed in as", app.personsAndGroupsManager.mePerson.displayName());
   }, err => {
     console.log("cannot sign in", err);
