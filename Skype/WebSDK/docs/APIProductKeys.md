@@ -67,8 +67,8 @@ tst
 - IE 10+ (Skype for Business Onprem)
 - IE 11 (Skype for Business Online)
 - Safari 8+
-- Firefox 40+ (non Audio Video functionality)
-- Chrome 43+ (non Audio Video functionality)
+- Firefox 40+ (non Audio/Video functionality)
+- Chrome 43+ (non Audio/Video functionality)
 - Microsoft Edge 
 
 ## Supported Server versions 
