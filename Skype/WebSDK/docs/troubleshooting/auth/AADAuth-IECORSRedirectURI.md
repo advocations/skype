@@ -11,7 +11,7 @@ _**Applies to:** Skype for Business 2015_
 <a name="audience"></a>
 ## Who is this article for?
 
-This article only applies to user error experiences where the browser in use is Internet Explorer (IE). 
+This article applies only to user error experiences where the browser in use is Internet Explorer (IE). 
 
 If you are using the Azure AD authentication option to sign into the Skype for Business (SfB) Web SDK in Internet Explorer, you are successfully authenticating to Azure AD and getting redirected back to your web application, and then your signin fails silently or hangs indefinitely, then this article is for you. 
 
