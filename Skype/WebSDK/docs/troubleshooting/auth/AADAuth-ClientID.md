@@ -24,23 +24,23 @@ You are providing an incorrect **client_id** when redirecting to AAD or when cal
 
 1. When initially redirecting to the AAD sign in page, you probably use similar code to navigate to the URL of the sign in page. If you are using a default **client_id** from the samples or another invalid ID, you will see this error.
 
-``` js
-var href = 'https://login.microsoftonline.com/common/oauth2/authorize?response_type=token&client_id=';
-href += client_id + '&resource=https://webdir.online.lync.com&redirect_uri=' + window.location.href;
-window.location.href = href;
-```
+   ``` js
+   var href = 'https://login.microsoftonline.com/common/oauth2/authorize?response_type=token&client_id=';
+   href += client_id + '&resource=https://webdir.online.lync.com&redirect_uri=' + window.location.href;
+   window.location.href = href;
+   ```
 
 2. After entering your credentials in the AAD sign in page and being redirected back to your app page, when performing **signInManager.signIn**, you should specify a **client_id** parameter. If you are using a default or incorrect value for the **client_id**, you will see this error.
 
-``` js
-application.signInManager.signIn({
-    version: config.version,
-    client_id: client_id, // **Must use your client ID from AAD configuration**
-    origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
-    cors: true,
-    redirect_uri: location.href + location_config.token + '/token.html'
-})
-```
+   ``` js
+   application.signInManager.signIn({
+       version: config.version,
+       client_id: client_id, // **Must use your client ID from AAD configuration**
+       origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
+       cors: true,
+       redirect_uri: location.href + location_config.token + '/token.html'
+   })
+   ```
 
 <a name="solution"></a>
 ## The Solution
