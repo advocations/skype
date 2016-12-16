@@ -32,7 +32,7 @@ Follow these steps to solve this issue.
 3. Click **Manifest** at the top of the pane describing your app.
 4. Change the value of the property **oauth2AllowImplicitFlow** to `true`. If the property is not present, add it and set its value to `true`.
 
-![Editing the application manifest](../../../images/troubleshooting/auth/AADEditManifest.PNG)
+   ![Editing the application manifest](../../../images/troubleshooting/auth/AADEditManifest.PNG)
 
 5. Click **Save** to save the modified manifest.
 
