@@ -65,6 +65,6 @@ If you accidentally click **Cancel** rather than **Accept** and find yourself no
 <a name="related-topics"></a>
 ## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
-- [Forcing the Admin Consent Prompt for Required Resources to Appear](./AADAuth-AdminConsent.md)
+- [AAD Auth Failures - Administrator has not provided consent to use SfB Web APIs](./AADAuth-AdminConsent.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
 - [Giving a Web Access to a Web API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios#web-application-to-web-api)
