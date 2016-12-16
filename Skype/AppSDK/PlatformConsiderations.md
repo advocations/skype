@@ -7,7 +7,7 @@ All of the SDK’s interfaces must be used only from the application main thread
 
 ### Supported OS and hardware versions
 
-The SDK works on iOS 8 and above, and on any iOS hardware model running these OS versions.
+The SDK works on iOS 9 and above, and on any iOS hardware model running these OS versions.
 Like all current iOS apps, it must be built using XCode7.
 The SDK is provided as an Objective C framework. It can be used transparently from Swift code by using a standard interoperability layer.
 
