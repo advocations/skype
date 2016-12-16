@@ -11,21 +11,23 @@ _**Applies to:** Skype for Business 2015_
 <a name="audience"></a>
 ## Who is this article for?
 
-If you are attempting to use the Azure AD authentication option to sign into the Skype for Business Web SDK in Internet Explorer, you are successfully authenticating to Azure AD and getting redirected back to your web application, and then your sign in fails silently or hangs indefinitely, then this might be your issue. If your sign in is also failing in browsers other than IE, this probably is not your issue, or in any case is not your only issue.
+This article only applies to user error experiences where the browser in use is Internet Explorer (IE). 
 
-If this is not your issue, you can return to [this page](./AADAuthFailures.md) for a list of other potential issues.
+If you are using the Azure AD authentication option to sign into the Skype for Business (SfB) Web SDK in Internet Explorer, you are successfully authenticating to Azure AD and getting redirected back to your web application, and then your signin fails silently or hangs indefinitely, then this article is for you. 
+
+If the previous failure description seems to match your user's experience but the user is not on IE then you should return to [Troubleshooting Azure AD Authentication Failures for Skype Web SDK](./AADAuthFailures.md) for a list of other potential issues.
 
 <a name="issue"></a>
 ## The Issue
 
-Generally when authenticating against Azure AD, you are redirected to the Azure AD sign in page, enter your credentials, and are redirected back to a page specified during the initial redirect to the AAD sign in page by the `redirect_uri` query parameter in the URL. However, now the URL of this page should include your obtained access token in the fragment of the URL. However, sometimes after authenticating against Azure AD in Internet Explorer this fragment is lost. Providing a valid empty html file where AAD can store and retrieve the token helps to mitigate this issue. This issue is intermittent even when present, so it might be difficult to detect.
+Generally when authenticating against Azure AD, you are redirected to the Azure AD sign in page, enter your credentials, and are redirected back to a page specified during the initial redirect to the AAD sign in page by the **redirect_uri** query parameter in the URL. Upon redirection, the URL of the redirect page includes an access token in the fragment of the URL. Sometimes after authenticating against Azure AD in Internet Explorer, this fragment is lost. Providing a valid empty html file where AAD can store and retrieve the token mitigates this issue. This issue is intermittent even when present, so it might be difficult to detect.
 
 <a name="solution"></a>
 ## The Solution
 
-If you don't specify a valid `redirect_uri` for CORS when making the call to `signInManager.signIn` after being redirected back to the main app page from AAD, it is possible for IE to lose the token provided by AAD, and if you don't specify a `redirect_uri` that points to an empty html file in a valid subfolder of your main app directory, when you attempt the actual signin the token will not be present and the signin will fail.
+If you don't specify a valid **redirect_uri** for CORS when making the call to **signInManager.signIn** after being redirected back to the main app page from AAD, IE can lose the token provided by AAD. If you don't specify a **redirect_uri** that points to an empty html file in a valid subfolder of your main app directory, when you attempt the actual signin the token will not be present and the signin will fail.
 
-The solution is to create an empty html file (eg. `token.html`) in a valid subfolder of your hosted main app folder, and provide the path to that as the value of the `redirect_uri` parameter in the call to `signInManager.signIn`. For example, if your app is in a folder called **myapp**, create an empty file named `token.html` in the **myapp** folder on your machine, and make this path the value of the `redirect_uri` parameter when signing in:
+The solution is to create an empty html file (eg. **token.html**) in a valid subfolder of your hosted main app folder, and provide the path to that as the value of the **redirect_uri** parameter in the call to **signInManager.signIn**. For example, if your app is in a folder called **myapp**, create an empty file named **token.html** in the **myapp** folder on your machine, and make this path the value of the **redirect_uri** parameter when signing in:
 
 ``` js
 application.signInManager.signIn({
@@ -37,9 +39,11 @@ application.signInManager.signIn({
 });
 ```
 
-In the above example, `location.href` is the URL of the page where you're calling `signInManager.signIn`, so as long as this page is an html file in the root **myapp** folder of your app and `token.html` is in the same folder or a subfolder of this root, it should prevent you from experiencing this issue.
+In the above example, **location.href** is the URL of the page where you're calling **signInManager.signIn**. As long as this page is an html file in the root **myapp** folder of your app and **token.html** is in the same folder or a subfolder of this root, it should prevent you from experiencing this issue.
 
-This failure is inconsistent, and you will not necessarily experience this failure all the time if you do not do this, but if you don't, signing into your app will be inconsistent in IE so it is highly recommended.
+This failure is inconsistent, and you will not necessarily experience this failure all the time if you do not do this, but if you don't, signing into your app will be inconsistent in IE so it is strongly recommended.
+
+---
 
 <a name="related-topics"></a>
 ## Related Topics

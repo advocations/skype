@@ -34,7 +34,18 @@
 ##### [Property Model](WebSDK/docs/PropertyModel.md)
 ##### [Developing for Skype for Business Server](WebSDK/docs/DevelopForSkypeforBusiness.md)
 ##### [Developing Web SDK applications for Skype for Business Online](WebSDK/docs/DevelopWebSDKappsForSfBOnline.md)
+##### [Troubleshooting Skype for Business Web SDK applications](WebSDK/docs/troubleshooting/troubleShooting.md)
+###### [Troubleshooting Azure AD Authentication Failures for Skype Web SDK](WebSDK/docs/troubleshooting/auth/AADAuthFailures.md)
+###### [AAD Auth Failures - Application with identifier <...> was not found in the directory <...>](WebSDK/docs/troubleshooting/auth/AADAuth-ClientID.md)
+###### [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.'](WebSDK/docs/troubleshooting/auth/AADAuth-DelegatePermissions.md)
+###### [AAD Auth Failures - The reply address 'https://...' does not match the reply addresses configured for the application <...>](WebSDK/docs/troubleshooting/auth/AADAuth-ReplyURLs.md)
+###### [AAD Auth Failures - Calling principal cannot consent due to lack of permissions](WebSDK/docs/troubleshooting/auth/AADAuth-AdminConsent.md)
+###### [AAD Auth Failures - Response_type 'token' is not enabled for the application](WebSDK/docs/troubleshooting/auth/AADAuth-EnableImplicitOAuth.md)
+###### [AAD Auth Failures - Crossing Security Zones in Internet Explorer](WebSDK/docs/troubleshooting/auth/AADAuth-IESecurityZones.md)
+###### [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer](WebSDK/docs/troubleshooting/auth/AAdAuth-IECORSRedirectURI.md)
+
 #### [Programming Tasks](WebSDK/docs/ProgrammingTasks.md)
+
 ##### [Authentication](WebSDK/docs/PTAuth.md)
 ###### [Azure AD](WebSDK/docs/PTAuthAzureAD.md)
 ###### [Password](WebSDK/docs/PTAuthPassword.md)
