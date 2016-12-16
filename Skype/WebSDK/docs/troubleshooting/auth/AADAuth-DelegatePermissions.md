@@ -1,7 +1,6 @@
-# AAD Auth Failures - Client access request failure - 'https://webdir.online.lync.com.' 
+# AAD Auth Failures - Client requesting resource not in requiredResourceAccess list
 
-The client application has requested access to resource 'https://webdir.online.lync.com.' Request has failed because the client has not specified this resource in its requiredResourceAccess list.
-
+_"The client application has requested access to resource 'https://webdir.online.lync.com.' request has failed because the client has not specified this resource in its requiredResourceAccess list."_
 
 _**Applies to:** Skype for Business 2015_
 

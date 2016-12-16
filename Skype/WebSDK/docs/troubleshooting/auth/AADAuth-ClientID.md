@@ -1,4 +1,6 @@
-# AAD Auth Failures - Application with identifier <...> was not found in the directory <...>
+# AAD Auth Failures - Providing incorrect client ID
+
+_"Application with identifier <...> was not found in the directory <...>"_
 
 _**Applies to:** Skype for Business 2015_
 

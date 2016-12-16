@@ -1,4 +1,4 @@
-# AAD Auth Failures - Crossing Security Zones in Internet Explorer
+# AAD Auth Failures - Crossing security zones in Internet Explorer
 
 _**Applies to:** Skype for Business 2015_
 

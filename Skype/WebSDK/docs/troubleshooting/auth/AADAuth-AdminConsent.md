@@ -1,4 +1,6 @@
-# AAD Auth Failures - Calling principal cannot consent due to lack of permissions
+# AAD Auth Failures - Administrator has not provided consent to use SfB Web APIs
+
+_"Calling principal cannot consent due to lack of permissions."_
 
 _**Applies to:** Skype for Business 2015_
 
@@ -22,7 +24,7 @@ If this is not your issue, return to [Troubleshooting Azure AD Authentication Fa
 ## The Issue
 
 You are either trying to sign in with a non-administrator account in the tenant where you have registered your application before an administrator has provided consent, or the administrator revoked consent or denied permission for all users in the tenant. 
-Alternatively, you may have incorrectly configured the permissions required by your app for accessing the Skype for Business Online API. If the steps in this guide don't work for you or this case describes your error, follow [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.'](./AADAuth-DelegatePermissions.md) instead.
+Alternatively, you may have incorrectly configured the permissions required by your app for accessing the Skype for Business Online API. If the steps in this guide don't work for you or this case describes your error, follow [AAD Auth Failures - Client requesting resource not in requiredResourceAccess list](./AADAuth-DelegatePermissions.md) instead.
 
 <a name="solution"></a>
 ## The Solution
@@ -44,7 +46,7 @@ After removing consent by deleting the enterprise application in AAD or denying 
 
 If you navigated to this URL, after successfully signing in with an administrator account for your tenant you should see an administrator consent prompt like the one shown above.
 
-If none of the above works, you may have configured the permissions for your application incorrectly. Follow [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.' Request has failed because the client has not specified this resource in its requiredResourceAccess list'](./AADAuth-DelegatePermissions.md) for step-by-step instructions on how to specify permissions and what permissions to specify your app needs to access the Skype Web SDK APIs. In particular, ensure that you have checked _all_ of the **Delegated permissions** and _none_ of the **Application permissions** for the Skype for Business Online API.
+If none of the above works, you may have configured the permissions for your application incorrectly. Follow [AAD Auth Failures - Client requesting resource not in requiredResourceAccess list](./AADAuth-DelegatePermissions.md) for step-by-step instructions on how to specify permissions and what permissions to specify your app needs to access the Skype Web SDK APIs. In particular, ensure that you have checked _all_ of the **Delegated permissions** and _none_ of the **Application permissions** for the Skype for Business Online API.
 
 ---
 

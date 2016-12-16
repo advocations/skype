@@ -1,4 +1,6 @@
-# AAD Auth Failures - Response type 'token' is not enabled for the application 
+# AAD Auth Failures - Implicit OAuth is not enabled for the application
+
+_"Response_type 'token' is not enabled for the application_"
 
 _**Applies to:** Skype for Business 2015_
 

@@ -37,7 +37,7 @@
 ##### [Troubleshooting Skype for Business Web SDK applications](WebSDK/docs/troubleshooting/troubleShooting.md)
 ###### [Troubleshooting Azure AD Authentication Failures for Skype Web SDK](WebSDK/docs/troubleshooting/auth/AADAuthFailures.md)
 ###### [AAD Auth Failures - Application with identifier <...> was not found in the directory <...>](WebSDK/docs/troubleshooting/auth/AADAuth-ClientID.md)
-###### [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.'](WebSDK/docs/troubleshooting/auth/AADAuth-DelegatePermissions.md)
+###### [AAD Auth Failures - Client requesting resource not in requiredResourceAccess list ](WebSDK/docs/troubleshooting/auth/AADAuth-DelegatePermissions.md)
 ###### [AAD Auth Failures - The reply address 'https://...' does not match the reply addresses configured for the application <...>](WebSDK/docs/troubleshooting/auth/AADAuth-ReplyURLs.md)
 ###### [AAD Auth Failures - Calling principal cannot consent due to lack of permissions](WebSDK/docs/troubleshooting/auth/AADAuth-AdminConsent.md)
 ###### [AAD Auth Failures - Response_type 'token' is not enabled for the application](WebSDK/docs/troubleshooting/auth/AADAuth-EnableImplicitOAuth.md)

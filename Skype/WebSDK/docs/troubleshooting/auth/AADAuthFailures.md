@@ -22,30 +22,30 @@ This is an example of the error page. Look for your specific error in the **Addi
 
 Based on the type of error message a user sees, choose from the following links for specific instructions to fix the error message. You could have multiple errors, and after fixing one you might have to return here to fix another.
 
-### [Application with identifier <...> was not found in the directory <...>](./AADAuth-ClientID.md)
+### Providing incorrect client ID
 
 This error indicates you have probably specified an incorrect **client_id** value when redirecting to the AAD sign in page.
-Read [AAD Auth Failures - Application with identifier <...> was not found in the directory <...>](./AADAuth-ClientID.md) to learn how to correct the error.
+Read [AAD Auth Failures - Providing incorrect client ID](./AADAuth-ClientID.md) to learn how to correct the error.
 
-### [The client application has requested access to resource 'https://webdir.online.lync.com.' This request has failed because the client has not specified this resource in its requiredResourceAccess list](./AADAuth-DelegatePermissions.md)
+### Client requesting resource not in requiredResourceAccess list 
 
 This error indicates that you have not configured your AAD app to be able to access the Skype for Business Online APIs.
-Read [AAD Auth Failures - The client application has requested access to resource 'https://webdir.online.lync.com.' This request has failed because the client has not specified this resource in its requiredResourceAccess list](./AADAuth-DelegatePermissions.md) to learn how to correct the error.
+Read [AAD Auth Failures - Client requesting resource not in requiredResourceAccess list ](./AADAuth-DelegatePermissions.md) to learn how to correct the error.
 
-### [The reply address 'https://...' does not match the reply addresses configured for the application <...>](./AADAuth-ReplyURLs.md)
+### Incorrectly configured reply URLs for application
 
 This error indicates that the redirect uri you specified when navigating to the AAD sign in page has not been configured as one of the valid "Reply URLs" for the app in AAD.
-Read [AAD Auth Failures - The reply address 'https://...' does not match the reply addresses configured for the application <...>](./AADAuth-ReplyURLs.md) to learn how to correct this.
+Read [AAD Auth Failures - Incorrectly configured reply URLs for application](./AADAuth-ReplyURLs.md) to learn how to correct this.
 
-### [Calling principal cannot consent due to lack of permissions](./AADAuth-AdminConsent.md)
+### Administrator has not provided consent to use SfB Web APIs
 
 This error indicates that the user attempting to sign in cannot consent to use some external resource that the AAD application configuration specifies it must consent to. This is most likely because an administrator in the tenant has to sign in first and grant permission on behalf of all non-administrator users in the tenant.
-Read [AAD Auth Failures - Calling principal cannot consent due to lack of permissions](./AADAuth-AdminConsent.md) to learn how to correct the error.
+Read [AAD Auth Failures - Administrator has not provided consent to use SfB Web APIs](./AADAuth-AdminConsent.md) to learn how to correct the error.
 
-### [Response_type 'token' is not enabled for the application](./AADAuth-EnableImplicitOAuth.md)
+### Implicit OAuth is not enabled for the application
 
 This error indicates that you still have to manually edit the application manifest in AAD to enable the implicit OAuth sign in flow.
-Read [AAD Auth Failures - Response type 'token' is not enabled for the application](./AADAuth-EnableImplicitOAuth.md) to learn how to correct the error.
+Read [AAD Auth Failures - Implicit OAuth is not enabled for the application](./AADAuth-EnableImplicitOAuth.md) to learn how to correct the error.
 
 <a name="other-failures"></a>
 ## Other Common AAD Authentication Failures
@@ -85,13 +85,13 @@ There are two failures that occur only on Internet Explorer. In both of these ca
 
 Use [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to get a better clue of what the actual failure is, but here are a couple common ones.
 
-#### [Crossing security zone boundaries](./AADAuth-IESecurityZones.md)
+#### Crossing security zone boundaries
 
 If you are hosting a web app temporarily on http://localhost, and your app is silently failing to sign in once redirected back, it may be because IE is blocking cookies from being transferred between internet "security zones." The trusted zone of "localhost" and the external AAD sign in page are in different security zones by default.
 
 Read [AAD Auth Failures - Crossing Security Zones in Internet Explorer](./AADAuth-IESecurityZones.md) to learn on how to correct the error.
 
-#### [Invalid CORS redirect URI](./AAdAuth-IECORSRedirectURI.md)
+#### Invalid CORS redirect URI
 
 In Internet Explorer, the authentication token obtained when signing into AAD can sometimes be lost upon being redirected back to the original app page. Providing a valid placeholder html file in a subfolder of your main app directory can serve as a place for AAD to store and retrieve the OAuth token.
 
