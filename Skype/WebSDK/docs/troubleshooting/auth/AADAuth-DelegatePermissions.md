@@ -36,17 +36,17 @@ Configure your application to access the SfB Online API by adding the API as one
 2. Navigate to **Azure Active Directory** in the left side bar > **App registrations** > **Your app** > **All settings**.
 3. Under **API Access**, click **Required Permissions**.
 
-![Finding Required Permissions Pane](../../../images/troubleshooting/auth/AADRequiredPermissionsPane.PNG)
+   ![Finding Required Permissions Pane](../../../images/troubleshooting/auth/AADRequiredPermissionsPane.PNG)
 
 4. At the top of this pane, click **Add**, then click **Select an API**.
 5. Search for **"Skype for Business Online"** (if you don't see results, try **"Microsoft.Lync"**).
 6. Click the API that matches the search and click **Select** at the bottom.
 
-![Add required permissions for an app](../../../images/troubleshooting/auth/AADAddAPIAccess.PNG)
+   ![Add required permissions for an app](../../../images/troubleshooting/auth/AADAddAPIAccess.PNG)
 
 7. Click all the check boxes next to permissions in the **Delegated Permissions** section and click **Select**. Don't click any of the check boxes under the **Application Permissions** section. Then click **Done** in the **Add API access** pane to the left.
 
-![Indicate delegated permissions for app](../../../images/troubleshooting/auth/AADAPIDelegatedPermissions.PNG)
+   ![Indicate delegated permissions for app](../../../images/troubleshooting/auth/AADAPIDelegatedPermissions.PNG)
 
 8. Now sign into your app with an administrator account and you should be prompted to consent to the delegated permissions you indicated would be required by your app on behalf of all users within your tenant.
 
