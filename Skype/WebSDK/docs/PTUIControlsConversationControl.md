@@ -37,7 +37,7 @@ join an IM conversation.
 <a name="setup"> </a>
 ## Add the Conversation Control to a webpage
 
-The below sections walk through the process to initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click 
+The following sections walk through the process to initialize the Skype Web SDK API endpoint, add state change event logic for conversation invitations, and a button click 
 event handler for starting a new IM conversation.
 
 ---
@@ -83,7 +83,7 @@ app.conversationsManager.conversations.added(function (conversation) {
 
 Inside of the previous callback method, add a callback to detect when one of the modalities in the conversation becomes `'Notified'`.
 
-When the state of the channel is changed to `'Notified'`, an invitation to has been received. To show the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>, 
+When the state of the channel is changed to `'Notified'`, an invitation has been received. To show the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>, 
 call the  **renderConversation** method of the `api` object passed as a parameter to the callback of the **initialize** function.
 
 >note: There is a known issue where adding modalities other than 'Chat' to the 'modalities' array in the second argument
