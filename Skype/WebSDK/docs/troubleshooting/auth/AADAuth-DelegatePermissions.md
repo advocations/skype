@@ -56,7 +56,7 @@ Configure your application to access the SfB Online API by adding the API as one
 
 Once you accept this prompt, all users in the tenant should be able to sign in and should not have to individually consent to these permissions, since the tenant admin has already consented on their behalf.
 
-If you accidentally click **Cancel** rather than **Accept** and find yourself no longer being prompted to provide admin consent, then you may have to [force AAD to display the admin consent prompt again](./AADAuth-AdminConsent.md#forcing-the-admin-consent-prompt-to-appear).
+If you accidentally click **Cancel** rather than **Accept** and find yourself no longer being prompted to provide admin consent, then you may have to [force AAD to display the admin consent prompt again](./AADAuth-AdminConsent.md).
 
 ---
 

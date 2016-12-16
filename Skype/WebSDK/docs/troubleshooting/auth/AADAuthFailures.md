@@ -104,7 +104,7 @@ Read [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer](./AADA
 
 - [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
-- [Gathering Fiddler Logs using the Skype Web SDK](../gatheringLogs/GatherLogs.md#other-logs)
+- [Gathering Fiddler Logs using the Skype Web SDK](../gatheringLogs/Logs-WebTraffic.md)
 
 ## External Resources
 
