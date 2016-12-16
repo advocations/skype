@@ -13,6 +13,7 @@ to leave issues for us if you find that your issue is not covered in these topic
 The following technical challenges are covered in this documentation:
 
 - Authentication: [Authentication failures overview](./auth/AADAuthFailures.md)
+- Gathering logs: [Gathering logs to troubleshoot issues and submit error reports](./gatheringLogs/GatherLogs.md)
 
 
 

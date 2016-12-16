@@ -5,13 +5,12 @@
 - [Collecting logs from a Skype for Business desktop client](#collecting-logs)
 
 If your failure scenario involves a Skype for Business desktop client as the remote endpoint in a chat conversation or AV call, then you should include the logs from the desktop client in your error report.
-
-You can attempt to view the desktop client logs on your own, but it may be hard for you to extract any useful meaning from them.
+You can view the desktop client logs on your own, but we haven't documented the logging format so you probably won't find resources to make sense of them.
 
 <a name="log-types"></a>
 ## Logs available for the Skype for Business desktop client
 
-There are 2 types of logs available from the desktop client:
+There are two types of logs available from the desktop client:
 
 - **.UccApilog** files contain general client usage information
 - **.etl** files contain media-specific log information

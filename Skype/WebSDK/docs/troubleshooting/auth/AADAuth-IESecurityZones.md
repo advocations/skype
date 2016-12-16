@@ -38,15 +38,15 @@ The recommended way to fix this is to modify your machine's **hosts** file to ma
 1. Open **Command Prompt** or another terminal in _administrator mode_.
 2. Enter the following command to go to the directory with the hosts file:
 
-`C:\> cd C:/windows/system32/drivers/etc`
+   ```C:\> cd C:/windows/system32/drivers/etc```
 
 3. Enter the following to open the hosts file in administrator mode in Notepad
 
-`C:\> notepad hosts`
+   ```C:\> notepad hosts```
 
 4. Add the following line to the bottom of the file to add an entry mapping **app.myapp.com** to the IP address of **localhost**:
 
-`127.0.0.1 		app.myapp.com`
+   ```127.0.0.1 		app.myapp.com```
 
 5. Save the file. If it prompts you to 'save as' rather than just 'save,' you probably did not open the file in administrator mode. You must be in administrator mode to modify the **hosts** file.
 
