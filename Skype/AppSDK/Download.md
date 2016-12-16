@@ -27,12 +27,12 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE PERPETUAL RIGHTS BELOW.
       - **Helper Code**. You may copy, distribute and modify the source code that is clearly labelled as “helper” code.
       - **UI assets**.  You may copy and distribute the included images and sounds as part of your application, so long as you use them to create a user interface for communications that precisely follows the standard Skype look-and-feel in accordance with guidelines provided by Microsoft. 
     
-      ii. **Sample Code**. You may modify, copy, and distribute the source and object code form of code marked as “sample.”
+    ii. **Sample Code**. You may modify, copy, and distribute the source and object code form of code marked as “sample.”
     
-      iii. **Third Party Distribution**.
+    iii. **Third Party Distribution**.
        - You may permit distributors of your applications to copy and distribute the Distributable Code as part of those applications.
     
-      iv. **Distribution Requirements. For any Distributable Code you distribute, you must**
+    iv. **Distribution Requirements. For any Distributable Code you distribute, you must**
 
       - add significant primary functionality to it in your applications;
       - acknowledge the use of ‘Skype’ or ‘Skype for Business’ technology in those parts of your user interface that offer communications enabled by this SDK
@@ -40,7 +40,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE PERPETUAL RIGHTS BELOW.
       - display your valid copyright notice on your applications; and
       - indemnify, defend, and hold harmless Microsoft from any claims, including attorneys’ fees, related to the distribution or use of your applications.
 
-      v. **Distribution Restrictions. You may not**
+    v. **Distribution Restrictions. You may not**
       -	alter any copyright, trademark or patent notice in the Distributable Code;
       -	use Microsoft’s trademarks or trade dress in your applications in a way that suggests your applications come from or are endorsed by Microsoft (except as specifically required in 2(b)(iv));
       -	include Distributable Code in malicious, deceptive or unlawful applications; or
