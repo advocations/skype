@@ -18,7 +18,7 @@ The SDK provides the following flags for enabling logging related to its differe
 - `Skype.Web.Settings.logModel`: Log information related to the state of the SDK model components
 - `Skype.Web.Settings.logMedia`: Log information related to AV calling
 
-To enable all possible logging, execute the following code snippet in the developer console:
+To enable all possible logging, run the following code snippet in the developer console:
 
 ``` js
 Skype.Web.Settings.timestamps = true;
