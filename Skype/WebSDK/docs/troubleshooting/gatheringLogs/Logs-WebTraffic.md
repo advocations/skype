@@ -11,7 +11,7 @@ Capturing the web traffic sent and received by your app can help make failures m
 
 > **Note:** If you're submitting a web trace as part of an error report, the SDK team would greatly prefer a Fiddler trace, unless Fiddler isn't supported by the platform on which your issue is occurring. 
 
-<a href="fiddler"></a>
+<a name="fiddler"></a>
 ## Capturing Web Traffic with Fiddler
 
 Fiddler is fully supported on Windows machines and has begun beta support for OS X. Download Fiddler here: 
@@ -31,7 +31,7 @@ This is how the Fiddler options window should look if you've properly configured
 
 ![Fiddler Options Window](../../../images/troubleshooting/gatheringLogs/FiddlerOptions.PNG)
 
-<a href="charles"></a>
+<a name="charles"></a>
 ## Capturing Web Traffic with Charles
 
 Charles is supported on Windows, Mac OS, and Linux. You can download a previous release or a trial version of the latest release for free, but will have to pay if you wish to continue using the latest release when the trial expires. Download Charles here:
@@ -47,7 +47,7 @@ After the download completes, follow these steps to configure Charles to start c
 5. Inspect the requests related to your web app, and pay special attention to requests with response statuses in the 400s and 500s (but note that some 401 responses are by design). 
 6. If you're capturing the web traffic to submit with an error report, or you'd like to revisit it later, go to **File > Save Session**, select an appropriate save location, name the trace, and click **save**.
 
-<a href="related-topics"></a>
+<a name="related-topics"></a>
 ## Related topics
 - [Proxy HTTPS Traffic with Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)
 - [Enable SSL Proxying with Charles](https://www.charlesproxy.com/documentation/proxying/ssl-proxying/)
