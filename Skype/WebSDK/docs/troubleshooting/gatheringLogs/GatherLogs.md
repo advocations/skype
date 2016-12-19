@@ -20,7 +20,7 @@ If you can't resolve your issue by looking at the logs on your own, this guide p
 
 Depending on the type of issue you're facing, there are different logs which may be relevant to you.
 
-For all issues regarding the SDK, the best place to start is with the [browser console logs](./Logs-Console.md). Another usefull source of logs is an [Internet traffic trace](./Logs-WebTraffic.md). You can get this trace by using a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/).
+For all issues regarding the SDK, the best place to start is with the [browser console logs](./Logs-Console.md). Another useful source of logs is an [Internet traffic trace](./Logs-WebTraffic.md). You can get this trace by using a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/).
 
 If you cannot resolve your issue by looking at either of these logs or reviewing the appropriate [reference documentation](../../GeneralReference.md), you should submit an error report.
 
@@ -43,7 +43,7 @@ If your failure scenario involves interaction between your Web SDK app and anoth
 ## Related Topics
 
 - [Gathering Console Logs from the Skype Web SDK or Conversation Control](./Logs-Console.md)
-- [Gathering Web Traffic Logs from the Skype Web SDK or Conversation Control](#Logs-WebTraffic.md)
+- [Gathering Web Traffic Logs from the Skype Web SDK or Conversation Control](./Logs-WebTraffic.md)
 - [Gathering Media Logs from the Skype Web SDK or Conversation Control](./Logs-Media.md)
 - [Gathering Logs from a Skype for Business Desktop Client](./Logs-DesktopClient.md)
 

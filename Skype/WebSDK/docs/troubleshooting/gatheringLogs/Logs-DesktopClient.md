@@ -5,7 +5,7 @@
 - [Collecting logs from a Skype for Business desktop client](#collecting-logs)
 
 If your failure scenario involves a Skype for Business desktop client as the remote endpoint in a chat conversation or AV call, then you should include the logs from the desktop client in your error report.
-You can view the desktop client logs on your own, but we haven't documented the logging format so you probably won't find resources to make sense of them.
+You can view the desktop client logs on your own, but we haven't documented the logging format so you probably won't find resources to make sense of them. Instead, collect the logs and submit them with your bug report. 
 
 <a name="log-types"></a>
 ## Logs available for the Skype for Business desktop client
