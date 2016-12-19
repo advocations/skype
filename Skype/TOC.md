@@ -43,7 +43,11 @@
 ###### [AAD Auth Failures - Implicit OAuth is not enabled for the application](WebSDK/docs/troubleshooting/auth/AADAuth-EnableImplicitOAuth.md)
 ###### [AAD Auth Failures - Crossing security zones in Internet Explorer](WebSDK/docs/troubleshooting/auth/AADAuth-IESecurityZones.md)
 ###### [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer](WebSDK/docs/troubleshooting/auth/AAdAuth-IECORSRedirectURI.md)
-
+##### [Gathering logs to troubleshoot issues and submit error reports](WebSDK/docs/troubleshooting/gatheringLogs/GatherLogs.md)
+###### [Gathering console logs from the Skype Web SDK or Conversation Control](WebSDK/docs/troubleshooting/gatheringLogs/Logs-Console.md)
+###### [Gathering web traffic logs from the Skype Web SDK or Conversation Control](WebSDK/docs/troubleshooting/gatheringLogs/Logs-WebTraffic.md)
+###### [Gathering media logs from the Skype Web SDK or Conversation Control](WebSDK/docs/troubleshooting/gatheringLogs/Logs-Media.md)
+###### [Gathering logs from a Skype for Business Desktop Client](WebSDK/docs/troubleshooting/gatheringLogs/Logs-DesktopClient.md)
 #### [Programming Tasks](WebSDK/docs/ProgrammingTasks.md)
 
 ##### [Authentication](WebSDK/docs/PTAuth.md)
