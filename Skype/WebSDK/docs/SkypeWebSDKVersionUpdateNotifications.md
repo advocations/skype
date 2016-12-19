@@ -1,5 +1,23 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 12/13/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.72.36 | 12/13/16 | 1.71.32
+| Skype Web SDK Preview    | 0.4.374 | 12/13/16 | 0.4.368
+| Conversation Control Production | 1.71.32  | 12/13/16 | 1.70.42
+| Skype Web SDK Production| 0.4.368 | 12/13/16 | 0.4.361 |
+
+The latest preview release fixes a bug where multiple AV renegotiations could
+conflict with each other.
+
+**Bugs fixed in the new public preview build:**
+
+- Microsoft Edge clients experience outgoing/incoming renegotiation
+conflicts when joining AV meetings 
+
+---
 
 ## Skype Web SDK Version Update 12/6/16
 
