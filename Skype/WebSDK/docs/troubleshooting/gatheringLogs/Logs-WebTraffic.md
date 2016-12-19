@@ -9,7 +9,7 @@
 
 Capturing the web traffic sent and received by your app can help make failures more obvious and easy to detect if your issue is due to a failing request to the server. This article provides instructions on how to use a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to capture a trace of your application's network activity. 
 
-> **Note:** If you're submitting a web trace as part of an error report, submit the web trace as a **Fiddler** or **Charles** trace. Exceptions are only made when **Fiddler** and **Charles** aren't supported by the platform where your issue is occurring. 
+> [!NOTE] If you're submitting a web trace as part of an error report, submit the web trace as a **Fiddler** or **Charles** trace. Exceptions are only made when **Fiddler** and **Charles** aren't supported by the platform where your issue is occurring. 
 
 <a name="fiddler"></a>
 ## Capturing Web Traffic with Fiddler
