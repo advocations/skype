@@ -35,6 +35,8 @@ Using Audio/Video in the Skype Web SDK in Microsoft Edge uses the Microsoft Edge
 
 On a Windows machine, you can do so by running this script:
 
+[!code-PowerShell[sample](../../../utils/EnableEdgeLogging.ps1)]
+
 ```PowerShell
 $regPath = "registry::hkcu\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\ORTC"
 
