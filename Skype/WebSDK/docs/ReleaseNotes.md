@@ -4,6 +4,7 @@
 
 - [Version Updates](SkypeWebSDKVersionUpdateNotifications.md)
 
+
 **Additional Resources**
 
 - [Preview and Production API Keys](APIProductKeys.md)
