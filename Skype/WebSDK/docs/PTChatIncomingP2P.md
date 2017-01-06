@@ -17,7 +17,7 @@ After the conversation and chat modality are established messages events will be
 1. Listen for incoming conversations 
 
   ```js
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     listeners.push(conversationsManager.conversations.added(function (conv) {
         conversation = conv;
         listeners.push(conversation.chatService.accept.enabled.when(true, function () {

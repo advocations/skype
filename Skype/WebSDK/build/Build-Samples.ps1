@@ -32,11 +32,17 @@ if ($Online)
     #$content + (gc ..\index.js | Out-String) | sc ..\index.js
 
     # replace target on all links in MD files so that they open in a new tab
+    Write-Host "Updating the links in MD files"
     $mdFiles = Get-ChildItem "..\docs"
+    $src = "target=`"`""
+    $dest = "target=`"_blank`""
     foreach ($file in $mdFiles)
     {
+        if ($file.baseName -eq 'LocalUser') {
+            continue
+        }
         (Get-Content $file.PSPath) |
-        Foreach-Object { $_ -replace "target=\`"\`"", "target=\`"_blank\`"" } |
+        Foreach-Object { $_ -replace $src, $dest } |
         Set-Content $file.PSPath
 
         (Get-Content $file.PSPath) |

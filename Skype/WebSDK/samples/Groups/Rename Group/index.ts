@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     window.framework.hideNotificationBar();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTGroupsRenameGroup.md' : 'Content/websdk/docs/PTGroupsRenameGroup.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTGroupsRenameGroup.md' : 'Content/websdk/docs/PTGroupsRenameGroup.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     const groups = {};

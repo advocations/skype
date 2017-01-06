@@ -5,7 +5,7 @@
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTLocalUserNote.md' : 'Content/websdk/docs/PTLocalUserNote.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTLocalUserNote.md' : 'Content/websdk/docs/PTLocalUserNote.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.message'));

@@ -1,5 +1,86 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 12/13/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.72.36 | 12/13/16 | 1.71.32
+| Skype Web SDK Preview    | 0.4.374 | 12/13/16 | 0.4.368
+| Conversation Control Production | 1.71.32  | 12/13/16 | 1.70.42
+| Skype Web SDK Production| 0.4.368 | 12/13/16 | 0.4.361 |
+
+The latest preview release fixes a bug where multiple AV renegotiations could
+conflict with each other.
+
+**Bugs fixed in the new public preview build:**
+
+- Microsoft Edge clients experience outgoing/incoming renegotiation
+conflicts when joining AV meetings 
+
+---
+
+## Skype Web SDK Version Update 12/6/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.71.32 | 12/6/16 | 1.70.42
+| Skype Web SDK Preview    | 0.4.368 | 12/6/16 | 0.4.361
+| Conversation Control Production | 1.70.42  | 12/6/16 | 1.70.4
+| Skype Web SDK Production| 0.4.361 | 12/6/16 | 0.4.356 |
+
+The latest preview release includes a fix for a bug with emojis in chat messages
+on certain platforms.
+
+**Bugs fixed in the new public preview build:**
+
+- Set default character in case unparseable character is sent in chat message from certain platforms
+
+---
+## Skype Web SDK Version Update 11/29/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.70.42 | 11/29/16 | 1.70.4
+| Skype Web SDK Preview    | 0.4.361 |  11/29/16 | 0.4.356
+| Conversation Control Production | 1.70.4  | 11/29/16 | 1.67.37
+| Skype Web SDK Production| 0.4.356 |  11/29/16 | 0.4.341 |
+
+The latest preview release includes a minor correction to documentation and a small
+telemetry fix, but no major changes.
+
+**Bugs fixed in the new public preview build:**
+
+- Fix signInManager’s documentation
+- Telemetry update to determine number of unique searches
+
+---
+## Skype Web SDK Version Update 11/22/16
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.70.4 | 11/22/16 | 1.69.15
+| Skype Web SDK Preview    | 0.4.356 |  11/22/16 | 0.4.341
+| Conversation Control Production | unchanged  | 11/15/16 | 1.67.37
+| Skype Web SDK Production| unchanged |  11/15/16 | 0.4.341 |
+
+
+The latest preview release includes a number of improvements to telemetry
+including eliminating false failures and ensuring that all debugging information
+is present, a fix for the bug where one video container disappears in SWX upon
+escalating a P2P video call to group, a couple of improvements to signin reliability,
+and a security fix.
+
+**Bugs fixed in the new public preview build:**
+
+- Apply setWithCredentials on UCWA POSTs to fix 401 errors in CORS mode
+- saveConsole exposes potential null ref exception
+- Chat start invitation failed error with reason subcode Timeout has no response headers so cannot identify root cause
+- One video lost on escalate p2p video to group video
+- Retry sign in without snapshot on encountering a 410 Gone error during signin
+- Guard against possible XSS attack
+- Attempting to sign in after signin has failed will cause the signin promise to get resolved immediately with the previous failure
+
+---
 ## Skype Web SDK Version Update 11/8/16
 
 | Product        | New Version           | Last Updated  |Previous Version

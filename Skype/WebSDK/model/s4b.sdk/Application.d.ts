@@ -1,5 +1,8 @@
 /// <reference path="../common/Application.d.ts"/>
 /// <reference path="Conversation.d.ts"/>
+/// <reference path="AudioService.d.ts"/>
+/// <reference path="PhoneAudio.d.ts"/>
+/// <reference path="ConversationExtension.d.ts"/>
 /// <reference path="ConversationsManager.d.ts"/>
 /// <reference path="ScheduledMeeting.d.ts"/>
 /// <reference path="Group.d.ts"/>

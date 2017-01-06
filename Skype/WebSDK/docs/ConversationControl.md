@@ -10,38 +10,46 @@ Conversation Control members consist of:
 
 ## Properties
 
-The following table lists the properties of the  **Conversation** object.
+The following table lists the properties of the  **Conversation Control** object.
 
 
 ||||
 |:-----|:-----|:-----|
 |**Property**|**Description**|**Returns**|
-| _UIApplicationInstance_|Returns the instance of Skype Web SDK Application used by renderConversation API|[Application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html)|
-| _application_|Returns a class of Skype Web SDK application.|[Application]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html)|
+| _UIApplicationInstance_|Returns the instance of Skype Web SDK Application used by renderConversation API|[Application]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html)|
 
 ### Methods
 
-The following table lists the methods of the  **Conversation** object.
+The following table lists the methods of the  **Conversation Control** object.
 
 
 ||||
 |:-----|:-----|:-----|
 |**Method**|**Description**|**Returns**|
-| _renderConversation_|Render a conversation in given context <br/>  **Parameters** <br/> - _container_  - (**String/DOMelement** ) Optional. A CSS selector or DOM element <br />- _state_  - **Object{}**  Optional. Object holding the optional parameters<br />- _participants_  - **Array**  Optional. Array of participants to start a conversation with.<br />- _conversationId_  - **String**  Optional.  Conversation ID to start conversation with. Can't be used together<br/> - _state.participants_.<br />- _modalities_  - **Modality[]**  Optional. Array of modalities to start with<br />|[Promise]( https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.promise.html)|
+| _renderConversation_|Render a conversation in given context <br/>  **Parameters** <br/> - _container_  - (**String/DOMelement** ) Mandatory. A CSS selector or DOM element <br />- _state_  - **Object**  Optional. Object holding the optional parameters<br />- _state.participants_  - **Array**  Optional. Array of participants to start a conversation with.<br />- _state.conversation_  - **Object**  Optional.  Conversation object to render.<br/>- _state.conversationId_  - **String**  Optional.  Id/Uri of the group conversation to render.<br/> Use only one of participants, conversation or conversationId.<br/>- _modalities_  - **Array**  Optional. Array of modalities to start.<br />|[Promise]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.promise.html)|
 
 ### Examples
 
-The following examples show the most common uses of the  **renderConversation** method.
+The following examples show the most common uses of the  **renderConversation** method. 
 
+>Note: The HTML container that contains the conversation control must have a width and height set. If width and height are
+set to zero, the conversation control does not display. 
+```html
+<div id="container" style="width:864px; height: 900px">
+</div>
+```
 
-#### Render conversation with self and no modalities enabled, and passing DOM element as container parameter.
+#### Render a new conversation with no modalities enabled, and passing DOM element as container parameter.
 
+After the control is rendered the user can then click on the Add participants button and add people to the conversation.
 
 ```js
 renderConversation(document.querySelector('#container'));
 ```
 
-#### Render a conversation with self and with Chat modality enabled
+#### Render a new conversation with Chat modality enabled
+
+After the control is rendered the user can then click on the Add participants button and add people to the conversation.
 
 ```js
 renderConversation('#container', {
@@ -87,7 +95,20 @@ renderConversation('#container', {
 ```
 
 
-#### Join and render an existing group conversation with Chat modality
+#### Join and render an existing group or P2P conversation with Chat modality using conversation object
+
+This will render an existing group or p2p conversation with using the conversation object.
+Do not include the participants array, otherwise it will create a new group conversation.
+
+```js
+renderConversation('#container', {
+     conversation: conversation,
+     modalities: ['Chat']
+});
+
+```
+
+#### Join and render an existing group conversation with Chat modality using conversationId
 
 This will find an existing group conversation with the given uri and render that conversation.
 Do not include the participants array, otherwise it will create a new group conversation.
@@ -103,9 +124,3 @@ renderConversation('#container', {
 });
 
 ```
-
-
-### Supported clients
-
-Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
-

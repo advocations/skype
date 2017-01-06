@@ -249,31 +249,40 @@
                     cellDivLeft.className = 'table-cell';
                     rowDiv.appendChild(cellDivLeft);
                     var img = document.createElement('img');
-                    img.src = contact.avatarUrl();
-                    window.setTimeout(function (img) {
-                        // if the photo isn't set revert back to a default
-                        if (img.naturalWidth === 0 || img.naturalHeight === 0) {
-                            var imgUrl = window.framework.getContentLocation();
-                            imgUrl += 'images/samples/default.png';
-                            img.src = imgUrl;
+
+                    var photoLoaded = false;
+                    contact.avatarUrl.get().then(function () {
+                        img.src = contact.avatarUrl();
+                        photoLoaded = true;
+                    });
+                    var checkPhotoLoaded = window.setInterval(function () {
+                        if (photoLoaded) {
+                            clearInterval(checkPhotoLoaded);
+                            window.setTimeout(function (img) {
+                                // if the photo isn't set revert back to a default
+                                if (img.naturalWidth === 0 || img.naturalHeight === 0) {
+                                    console.log('could not load user photo while popultating contact details');
+                                    img.src = window.framework.getContentLocation() + 'images/samples/default.png';
+                                }
+                                cellDivLeft.appendChild(img);
+                                var cellDivRight = document.createElement('div');
+                                cellDivRight.className = 'table-cell';
+                                rowDiv.appendChild(cellDivRight);
+                                var statusImg = document.createElement('img');
+                                statusImg.src = getStatusPath(contact.status());
+                                cellDivRight.appendChild(statusImg);
+                                var nameDiv = document.createElement('div');
+                                nameDiv.className = 'name';
+                                nameDiv.innerHTML = contact.displayName();
+                                contact.displayName() && cellDivRight.appendChild(nameDiv);
+                                var noteDiv = document.createElement('div');
+                                noteDiv.className = 'name';
+                                noteDiv.innerHTML = contact.note.text();
+                                contact.note.text() && cellDivRight.appendChild(noteDiv);
+                                processing = false;
+                            }, 1000, img);
                         }
-                    }, 1000, img);
-                    cellDivLeft.appendChild(img);
-                    var cellDivRight = document.createElement('div');
-                    cellDivRight.className = 'table-cell';
-                    rowDiv.appendChild(cellDivRight);
-                    var statusImg = document.createElement('img');
-                    statusImg.src = getStatusPath(contact.status());
-                    cellDivRight.appendChild(statusImg);
-                    var nameDiv = document.createElement('div');
-                    nameDiv.className = 'name';
-                    nameDiv.innerHTML = contact.displayName();
-                    contact.displayName() && cellDivRight.appendChild(nameDiv);
-                    var noteDiv = document.createElement('div');
-                    noteDiv.className = 'name';
-                    noteDiv.innerHTML = contact.note.text();
-                    contact.note.text() && cellDivRight.appendChild(noteDiv);
-                    processing = false;
+                    }, 500);
                 }
 
                 function loopOverAllContacts() {
@@ -369,6 +378,7 @@
                 });
             },
             addMessage: function (item, container) {
+                // todo: make this asynchronous to enable fetching of the user photos 
                 var div = document.createElement('div');
                 div.className = 'item';
                 container.appendChild(div);
@@ -424,14 +434,24 @@
                 name.appendChild(document.createTextNode('Signed in as: ' + window.framework.application.personsAndGroupsManager.mePerson.displayName()));
                 sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(name);
                 var photo = document.createElement('img');
-                photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
-                window.setTimeout(function (photo) {
-                    // if the photo isn't set revert back to a default
-                    if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
-                        photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
+                var photoLoaded = false;
+                window.framework.application.personsAndGroupsManager.mePerson.avatarUrl.get().then(function () {
+                    photo.src = window.framework.application.personsAndGroupsManager.mePerson.avatarUrl();
+                    photoLoaded = true;
+                });
+                var checkPhotoLoaded = window.setInterval(function () {
+                    if (photoLoaded) {
+                        clearInterval(checkPhotoLoaded);
+                        window.setTimeout(function (photo) {
+                            // if the photo isn't set revert back to a default
+                            if (photo.naturalWidth === 0 || photo.naturalHeight === 0) {
+                                console.log('could not load user photo');
+                                photo.src = window.framework.getContentLocation() + 'images/samples/default.png';
+                            }
+                            sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(photo);
+                        }, 1000, photo);
                     }
-                    sidebar.childNodes[0].childNodes[0].childNodes[0].childNodes[1].appendChild(photo);
-                }, 1000, photo);
+                }, 500);
             }
             // createVideoContainer: function (container, size, person) {
             //     var name = person.displayName();
@@ -774,7 +794,7 @@
                         client_id: client_id,
                         origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
                         cors: true,
-                        redirect_uri: location.href + location_config.token + '/token.html'
+                        redirect_uri: location.href + 'websdk/token.html'
                     }).then(function () {
                         document.getElementsByClassName('before-signin')[0].style.display = 'none';
                         document.getElementsByClassName('azuread-signin')[0].style.display = 'none';

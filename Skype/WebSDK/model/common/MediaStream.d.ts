@@ -1,5 +1,6 @@
 declare module jCafe {
-    /** Inactive and Active states reflect the media flow state of the started stream
+    /** Inactive and Active states reflect the media flow state of the started stream;
+     *  an inactive stream is usually a started stream without an attached renderer
      *
      *       'Started'
      *       'Active'

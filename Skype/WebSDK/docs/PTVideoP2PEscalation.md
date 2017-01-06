@@ -21,7 +21,7 @@ After the conversation and video modality are established we can begin communica
 
   ```js
     var id = content.querySelector('.id').value;
-    var conversationsManager = window.framework.application.conversationsManager;
+    var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation(id);
 
     function setupContainer(person, size, videoDiv) {

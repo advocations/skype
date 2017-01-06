@@ -4,7 +4,7 @@
 
     const content = window.framework.findContentDiv();
 
-    const mdFileUrl: string = window.framework.getContentLocation() === '' ? '../../../docs/PTAuthAzureAD.md' : 'Content/websdk/docs/PTAuthAzureAD.md';
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTAuthAzureAD.md' : 'Content/websdk/docs/PTAuthAzureAD.md';
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var tt = content.querySelector('zero-md');

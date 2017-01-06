@@ -5,9 +5,9 @@
  _**Applies to:** Skype for Business 2015_
 
 
-The [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html) object is created by invoking the **Application** class constructor with the **new** keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
+The [Application](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html) object is created by invoking the **Application** class constructor with the **new** keyword. This is the only SDK object that can be constructed in application logic. All other SDK types are accessed by reading properties or invoking functions on application.
 
-The [SignInManager.SignIn](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.signinmanager.html#signin) method and the [SignInManager.SignOut](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.signinmanager.html#signout) method are asynchronous and return a [Promise](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.promise.html) object. Use the **Promise#then** method to set operation success or failure callbacks.
+The [SignInManager.SignIn](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.signinmanager.html#signin) method and the [SignInManager.SignOut](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.signinmanager.html#signout) method are asynchronous and return a [Promise](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.promise.html) object. Use the **Promise#then** method to set operation success or failure callbacks.
 
 
  >**Note**: To enable audio/video functionality for IE 11 and Safari you need to install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers:  
@@ -44,7 +44,7 @@ Skype.initialize({ apiKey: config.apiKey }, function (api) {
 ```
 
 
-Call the [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html) constructor.
+Call the [Application](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html) constructor.
 
 ```js
 app = new Application;
@@ -63,7 +63,7 @@ app.signInManager.signIn ({
 });
 ```
 
->**Note:** If sign in fails or you call **signOut**, you must create a new [Application](https://ucwa.skype.com/reference/WebSDK/interfaces/_s4b_sdk_d_.jcafe.application.html) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
+>**Note:** If sign in fails or you call **signOut**, you must create a new [Application](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.application.html) object and make the new sign in attempt with that object. The original application object will not be able to attempt a new sign in operation.
 
 The following example uses the password grant authentication to sign a user in with a username and password.
 

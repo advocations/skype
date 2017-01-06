@@ -117,6 +117,18 @@ declare module jCafe {
          * object; otherwise, this collection will stay empty.
          */
         pluginDownloadLinks: Collection<string>;
+
+        /**
+         * Indicates whether the user has granted permission to the app to use the microphone.
+         * This is relevant only for pluginless scenarios. For plugin this just needs to return true.
+         */
+        isMicrophoneEnabled: Property<boolean>;
+
+        /**
+         * Indicates whether the user has granted permission to the app to use the camera.
+         * This is relevant only for pluginless scenarios. For plugin this just needs to return true.
+         */
+        isCameraEnabled: Property<boolean>;
     }
 
     /**

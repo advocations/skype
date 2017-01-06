@@ -72,11 +72,19 @@ declare module jCafe {
 
 
         /**
-         * Query this property to get remote participant video state
+         * The value of this property indicates whether or not a participant is
+         * attempting to stream video.
          *
-         * It may be used in gallery view to decide which participant can be 
-         * promoted to stage because they have video.
-         * For local participant it is equivalent to isStarted.
+         * It may be used in gallery view during group calls to decide which
+         * remote participant can be promoted to stage because they have video.
+         * 
+         * For a remote participant in a 1:1 call it indicates that the remote
+         * party has turned on video, but not necessarily that we are rendering the
+         * video. For instance, if the remote turns on video but we have not set
+         * a container for her video stream, no video will be rendered but this
+         * property will be true. The same is true for the local participant in
+         * both 1:1 and group calls.
+         *
          * This is a read-only property.
          */
         isVideoOn: Property<boolean>;
