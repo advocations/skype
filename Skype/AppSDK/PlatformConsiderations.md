@@ -42,6 +42,10 @@ DevicesManager audio interfaces are reduced on iOS. When headphones or a headset
 
 You must request access to the microphone and camera before calling any audio and video functions.
 
+### Local data
+
+The SDK stores some data in local files. Most of the data are not preserved across successive anonymous sessions. Still, some sensitive data, like chat messages, may be cached while session is running or until the next session is initiated. SDK uses the `NSFileProtectionCompleteUntilFirstUserAuthentication` flag on its files to ensure iOS encrypts them on disk. Note that files within backup images or copies made by application itself will not be protected.
+
  
 ## Android considerations
 
@@ -112,6 +116,10 @@ These methods are Observable properties so that clients can listen for state cha
 #### Data binding
 
 The Observable properties and collections intentionally have very similar interfaces to [the Android platform's new data binding support](https://developer.android.com/tools/data-binding/guide.html).  Subsequent versions of the SDK may transition to these official Android interfaces.
+
+### Local data
+
+The SDK stores some data in local files. SDK encrypts its main data file with a key stored in the system credentials store. Log files are not encrypted. No sensitive information is printed to log.
 
 
 
