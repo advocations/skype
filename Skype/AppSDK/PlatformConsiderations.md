@@ -40,7 +40,24 @@ DevicesManager audio interfaces are reduced on iOS. When headphones or a headset
 
 ### Permissions and security
 
-You must request access to the microphone and camera before calling any audio and video functions.
+SDK requires access to microphone, camera, and contacts in order to function properly. Add the following (use appropriate messages) to the application’s Info.plist:
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Access to the camera is required for making video calls.</string>
+<key>NSContactsUsageDescription</key>
+<string>Access to your address book is required for making calls to contacts.</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Access to the microphone is required for making calls.</string>
+```
+
+You must configure the `AVAudioSession` before attempting to use audio:
+```swift
+let audioSession = AVAudioSession.sharedInstance()
+try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: [.AllowBluetooth, .MixWithOthers, .DuckOthers])
+try audioSession.setMode(AVAudioSessionModeVoiceChat)
+```
+
+To allow continuing an audio call while application is in background, you should enable Audio and VoIP background modes in the application capabilities settings.
 
 ### Local data
 
