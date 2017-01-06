@@ -70,7 +70,6 @@ var config = {
 var Application
 
 Skype.initialize({ apiKey: config.apiKey }, function (api) {
-        window.skypeWebAppCtor = api.application;
         window.skypeWebApp = new api.application();
         //Make sign in table appear
         $(".menu #sign-in").click();
