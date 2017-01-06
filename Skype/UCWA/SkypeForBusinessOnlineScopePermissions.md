@@ -35,3 +35,5 @@ The Skype for Business scope permissions are shown in the following table:
 |Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|Yes|
 |Meetings.ReadWrite|Create online meetings|Allows the application to create Online meetings on-behalf of the signed-in user|Yes|
 |User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|Yes|
+
+>Note: The adminstrator of a tenant where your service application is registered must accept permission requests on behalf of users before the service application can be used. To learn about the tenant admin consent flow, read [Tenant Administrator Consent Flow](https://msdn.microsoft.com/en-us/skype/websdk/docs/developwebsdkappsforsfbonline#tenant-administrator-consent-flow)
