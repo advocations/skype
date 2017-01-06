@@ -27,13 +27,33 @@ If you cannot resolve your issue by looking at either of these logs or reviewing
 <a name="logs-for-report"></a>
 ## How can I submit an error report?
 
-Any issues reported to the Skype Web SDK team should include the [browser console logs](./Logs-Console.md), a [web traffic trace](./Logs-WebTraffic.md), and the following information:
+If you would like to submit an error report to the Skype Web SDK team, you must include the [browser console logs](./Logs-Console.md), a [web traffic trace](./Logs-WebTraffic.md), and the following information:
 
 - Client topology type (onprem/online)
 - Host domain name (eg. "app.contoso.com")
 - AAD Client ID if online topology using OAuth through AAD
 - ECS API key (used to select the appropriate 'flavor' of the Web SDK or Conversation Control)
 - SDK version - find this by executing `Skype.Web.version` in the browser console
+
+In addition, you must provide a valid **version** parameter when calling **signInManager.signIn** of the form **\<your-app-name\>/\<version-number\>**, and a valid, unique-per-session **correlationIds.sessionId** upon calling **Skype.initialize**. When you experience a failure, look up the **sessionId** of your current session and submit that with your bug report. This will allow us to locate telemetry related to your specific failing session. For example, your code should include these snippets for initializing and signing into the SDK:
+
+``` js
+Skype.initialize({ 
+    apiKey: '...',
+    correlationIds: {
+        sessionId: '<unique-session-id>', // Necessary for troubleshooting requests, should be unique per session
+    }}, function (api) {
+        app = new api.application();
+
+        // Perform additional authentication steps ...
+
+        app.signInManager.signIn({
+            // other auth-specific parameters ...
+            version: '<your-app-name>/<version-number>' // Necessary for troubleshooting requests; identifies your application in our telemetry
+        });
+    }
+);
+```
 
 If your issue involves AV calling and you could not resolve the issue by looking at any of the logs mentioned in the previous section, then you should also include the [appropriate media logs](./Logs-Media.md) with your error report.
 
