@@ -46,11 +46,6 @@ The groups collection on the  **application.PersonsAndGroupsManager.all.groups**
 
 Build a dynamic view of a user's person list with content from the Groups collection. A group in Skype Web SDK is a read-only object. You can get the name and URI of a person group along with the persons and groups that it contains. You can register a listener callback method to react to changes in the membership of a person group. The listener lets you keep the person list view current. Although a user cannot change the membership of a person group using a Skype Web SDK app, she can change the group by using the native client.
 
- **Supported clients**
-
-Internet Explorer 10 and later, Safari 8 and later, FireFox 40 and later, and Chrome 43 and later.
-
-
 ## See also
 
 
