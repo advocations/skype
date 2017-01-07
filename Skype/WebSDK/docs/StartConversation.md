@@ -44,7 +44,7 @@ The following example creates a peer-to-peer conversation.
 
 
 ```js
-// create a conversation model
+// create a multiparty conversation model
 var conversation = conversationsManager.createConversation();
 // start modality
 
