@@ -36,11 +36,11 @@ You are providing an incorrect **client_id** when redirecting to AAD or when cal
 
    ``` js
    application.signInManager.signIn({
-       version: config.version,
+       version: "<your-app-name>/<version-number>",
        client_id: client_id, // **Must use your client ID from AAD configuration**
        origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
        cors: true,
-       redirect_uri: location.href + location_config.token + '/token.html'
+       redirect_uri: 'path/to/subfolder/emptypage.html'
    })
    ```
 

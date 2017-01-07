@@ -5,8 +5,8 @@
 - [Capturing Web Traffic with Charles](#charles)
 - [Related Topics](#related-topics)
 
-> [!WARNING] 
-_**Do not post any web traffic traces** containing decrypted HTTPS traffic to **StackOverflow** or another public forum_. Doing so may expose your password or other private credentials to malicious agents.
+> [!WARNING]
+> **About web traffic traces:** When submitting web traffic traces with an error report, you will need to turn HTTPS decryption on, but this carries the risk that your decrypted passwords and other sensitive information may be included in the trace. Before posting such traces on a public forum such as **StackOverflow** or **GitHub**, make sure to search the trace for any passwords or sensitive text strings and delete records containing them.
 
 Capturing the web traffic sent and received by your app can help make failures more obvious and easy to detect if your issue is due to a failing request to the server. This article provides instructions on how to use a web debugging proxy such as [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to capture a trace of your application's network activity. 
 

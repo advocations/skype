@@ -71,24 +71,14 @@ If you attempt to call **signInManager.signIn** after being redirected back from
 The solution is to:
 
 - Add the **cors** parameter to your sign in options object 
-- Set the value of the **redirect_uri** parameter to a valid empty html file in an existing subfolder of your main app directory. 
+- Set the value of the **redirect_uri** parameter to a valid empty html file in an existing subfolder of your main app directory, eg: "path/to/subfolder/emptypage.html"
 
->Note: In IE, this file may be necessary for passing the OAuth token back from AAD and forward when signing in to SfB online.
+>Note: In Internet Explorer and Microsoft Edge, this file may be necessary for passing the OAuth token back from AAD and forward when signing in to SfB online.
 
-``` js
-application.signInManager.signIn({
-    version: config.version,
-    client_id: client_id,
-    origins: ["https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root"],
-    cors: true, // Must specify this
-    redirect_uri: location.href + '/token.html' // This must the path to a valid empty HTML file
-});
-```
+<a name="MS-specific"></a>
+### AAD Authentication Failures in Internet Explorer and Microsoft Edge
 
-<a name="IE-specific"></a>
-### Internet-Explorer-Specific AAD Authentication Failures
-
-There are two failures that occur only on Internet Explorer. In both of these cases, the user experiences the following:
+There are two failures that occur only on Internet Explorer and Microsoft Edge. In both of these cases, the user experiences the following:
 
 - The user is redirected to the AAD sign-in page
 - Appear to authenticate successfully
@@ -97,17 +87,17 @@ There are two failures that occur only on Internet Explorer. In both of these ca
 
 Use [Fiddler](http://www.telerik.com/fiddler) or [Charles](https://www.charlesproxy.com/) to get a better clue of what the actual failure is, but here are a couple common ones.
 
-#### Crossing security zones in Internet Explorer
+#### Crossing security zones in Internet Explorer and Microsoft Edge
 
-If you are hosting a web app temporarily on **http://localhost**, and your app is silently failing to sign in once redirected back, it may be because IE is blocking cookies from being transferred between internet "security zones." The trusted zone of **localhost** and the external AAD sign in page are in different security zones by default.
+If you are hosting a web app temporarily on **http://localhost**, and your app is silently failing to sign in once redirected back, it may be because the browser is blocking cookies from being transferred between internet "security zones." The trusted zone of **localhost** and the external AAD sign in page are in different security zones by default.
 
-Read [AAD Auth Failures - Crossing security zones in Internet Explorer](./AADAuth-IESecurityZones.md) to learn on how to correct the error.
+Read [AAD Auth Failures - Crossing security zones in Internet Explorer and Microsoft Edge](./AADAuth-IESecurityZones.md) to learn on how to correct the error.
 
-#### Invalid CORS redirect URI in Internet Explorer
+#### Invalid CORS redirect URI in Internet Explorer and Microsoft Edge
 
-In Internet Explorer, the authentication token obtained when signing into AAD can sometimes be lost upon being redirected back to the original app page. Providing a valid placeholder html file in a subfolder of your main app directory can serve as a place for AAD to store and retrieve the OAuth token.
+In Internet Explorer and Microsoft Edge, the authentication token obtained when signing into AAD can sometimes be lost upon being redirected back to the original app page. Providing a valid placeholder html file in a subfolder of your main app directory can serve as a place for AAD to store and retrieve the OAuth token.
 
-Read [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer](./AADAuth-IECORSRedirectURI.md) to learn how to correct the error.
+Read [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer and Microsoft Edge](./AADAuth-IECORSRedirectURI.md) to learn how to correct the error.
 
 ---
 

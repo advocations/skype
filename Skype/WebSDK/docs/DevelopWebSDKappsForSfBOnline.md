@@ -173,9 +173,9 @@ When you have the application object, you sign a user into Skype for Business On
 app.signInManager.signIn({
     client_id: client_id,
     cors: true,
-    redirect_uri: '/an//empty/page/for/ie.html',
+    redirect_uri: '/an/empty/page/for/ie.html',
     origins: [ "https://webdir.online.lync.com/autodiscover/autodiscoverservice.svc/root" ],
-    version: '<YourAppName>/1.0.0.0' // Necessary for troubleshooting requests; identifies your application in our telemetry
+    version: '<your-app-name>/<version-number>' // Necessary for troubleshooting requests; identifies your application in our telemetry
 });
 ```
 
@@ -201,7 +201,6 @@ https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token
 	&client_id= ...
 	&redirect_uri=https://app.contoso.com/
 	&response_mode=form_post
-	&nonce=...
 	&resource=https://webdir.online.lync.com
 	&prompt=admin_consent
 ```
@@ -216,4 +215,8 @@ Access the URL and authenticate using a tenant administrator credentials and acc
 - [Managing Applications with Azure Active Directory (AD)](https://azure.microsoft.com/documentation/articles/active-directory-enable-sso-scenario/)
     
 - [Registering Your Application in Azure AD](http://technet.microsoft.com/library/9e4d9905-a17c-458d-8cf5-d384f5bd65fd.aspx)
+
+- [Integrating Applications with Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/)
+
+- [Active Directory Authentication Scenarios](http://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/)
     
