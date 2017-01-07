@@ -73,16 +73,6 @@ conv.chatService.sendMessage("Hi");
 
 In this case the created participant object will use the given person object that may have all the properties filled with data. When starting the conversation, the SDK will do a `p.id.get()` to get the SIP URI, which will be a noop if the SIP URI was already available.
 
-About the same result can be achieved with the `createConversation` method which creates an empty conversation object.
-
-```js
-conv = app.conversationsManager.createConversation();
-conv.participants.add("sip:johndoe@contoso.com"); // can use a Person object here
-conv.chatService.sendMessage("Hi");
-```
-
-In this case a new 1:1 conversation is created even if there was already a 1:1 conversation with this participant.
-
 After a 1:1 conversation is started, more participants can be added to turn the peer-to-peer conversation into a multi-party one:
 
 ```js

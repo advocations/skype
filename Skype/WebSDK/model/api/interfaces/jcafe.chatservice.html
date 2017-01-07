@@ -201,7 +201,7 @@ input.onkeydown = <span class="hljs-function"><span class="hljs-params">()</span
 								the supported format.
 							This API can be used to continue a disconnected conversation.</p>
 						</div>
-						<p>  Starting a conversation and sending a message:</p>
+						<p>  Starting a multiparty conversation and sending a message:</p>
 						<pre><code>  var conversation = app.conversationsManager.createConversation();
   var remoteParty = conversation.createParticipant(remotePerson);
   conversation.chatService.start().<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {

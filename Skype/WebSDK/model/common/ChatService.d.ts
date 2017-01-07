@@ -37,7 +37,7 @@ declare module jCafe {
          *    the supported format.
          *    This API can be used to continue a disconnected conversation. 
          *
-         *   Starting a conversation and sending a message:
+         *   Starting a multiparty conversation and sending a message:
          *
          *       var conversation = app.conversationsManager.createConversation();
          *       var remoteParty = conversation.createParticipant(remotePerson);
