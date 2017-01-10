@@ -38,27 +38,6 @@ Some methods may be unavailable at certain times and their availability is chang
 
 DevicesManager audio interfaces are reduced on iOS. When headphones or a headset is connected, microphone and speaker are implicitly rerouted. The only configurable option is the speaker endpoint, which can be switched between loudspeaker (which is the phone’s own loudspeaker no matter what devices are connected) and non-loudspeaker (which is an external device or the phone’s internal speaker).
 
-### Permissions and security
-
-SDK requires access to microphone, camera, and contacts in order to function properly. Add the following (use appropriate messages) to the application’s Info.plist:
-```xml
-<key>NSCameraUsageDescription</key>
-<string>Access to the camera is required for making video calls.</string>
-<key>NSContactsUsageDescription</key>
-<string>Access to your address book is required for making calls to contacts.</string>
-<key>NSMicrophoneUsageDescription</key>
-<string>Access to the microphone is required for making calls.</string>
-```
-
-You must configure the `AVAudioSession` before attempting to use audio:
-```swift
-let audioSession = AVAudioSession.sharedInstance()
-try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: [.AllowBluetooth, .MixWithOthers, .DuckOthers])
-try audioSession.setMode(AVAudioSessionModeVoiceChat)
-```
-
-To allow continuing an audio call while application is in background, you should enable Audio and VoIP background modes in the application capabilities settings.
-
 ### Local data
 
 The SDK stores some data in local files. Most of the data are not preserved across successive anonymous sessions. Still, some sensitive data, like chat messages, may be cached while session is running or until the next session is initiated. SDK uses the `NSFileProtectionCompleteUntilFirstUserAuthentication` flag on its files to ensure iOS encrypts them on disk. Note that files within backup images or copies made by application itself will not be protected.
