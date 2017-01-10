@@ -223,7 +223,7 @@
         meetingUrl = (<HTMLInputElement>content.querySelector('.meeting_url')).value;
 
         var allowedOrigins = window.location.href;
-        var serviceUrl = "https://ucapapp.cloudapp.net";
+        var serviceUrl = "http://webrtctest.cloudapp.net";
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
