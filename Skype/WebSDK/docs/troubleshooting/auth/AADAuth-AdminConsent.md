@@ -42,12 +42,15 @@ Note the text at the bottom that reads _"If you agree, this app will have access
 
 There are a couple ways in which you can delete or deny admin consent for your app to use the SfB online APIs:
 
-1. You deleted the enterprise application by going to **portal.azure.com** > **Azure Active Directory** > **Enterprise Applications** > **\<your-app\>** > **Delete**
+1. You deleted the enterprise application by going to **portal.azure.com** > **Azure Active Directory** > **Enterprise Applications** > **Your app** > **Delete**
 2. You denied admin consent when the prompt first appeared by clicking **Cancel** rather than **Accept**
 
 If you previously did either of these things, you need manually force AAD to prompt you to re-consent by navigating to this URL (replacing _YOUR\_CLIENT\_ID_ and _YOUR\_APP\_URL_ with the appropriate values) and signing in with an admin account: 
 
-`https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_APP_URL&response_mode=form_post&resource=https://webdir.online.lync.com&prompt=admin_consent`
+
+``` text
+https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_APP_URL&response_mode=form_post&resource=https://webdir.online.lync.com&prompt=admin_consent
+```
 
 If you navigated to this URL, after successfully signing in with an administrator account for your tenant you should see an administrator consent prompt like the one shown above.
 

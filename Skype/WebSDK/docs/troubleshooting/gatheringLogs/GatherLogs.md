@@ -7,8 +7,8 @@
 - [Who is this article for?](#audience)
 - [What logs will help me troubleshoot my issue?](#logs-for-self)
 - [How can I submit an error report?](#logs-for-report)
-- [Related Topics](#related-topics)
-- [External Resources](#external-resources)
+- [Related topics](#related-topics)
+- [External resources](#external-resources)
 
 <a name="audience"></a>
 ## Who is this article for?
@@ -72,7 +72,7 @@ If your failure scenario involves interaction between your Web SDK app and anoth
 Once you have all this information, you can either open an **issue** on [our GitHub page](https://github.com/OfficeDev/skype-docs/issues), or [ask a question on StackOverflow](http://stackoverflow.com/questions/tagged/skypedeveloper) - just make sure to tag your question with the **skypedeveloper** tag.
 
 <a name="related-topics"></a>
-## Related Topics
+## Related topics
 
 - [Gathering Console Logs from the Skype Web SDK or Conversation Control](./Logs-Console.md)
 - [Gathering Web Traffic Logs from the Skype Web SDK or Conversation Control](./Logs-WebTraffic.md)
@@ -80,7 +80,7 @@ Once you have all this information, you can either open an **issue** on [our Git
 - [Gathering Logs from a Skype for Business Desktop Client](./Logs-DesktopClient.md)
 
 <a name="external-resources"></a>
-## External Resources
+## External resources
 
 - [Skype Web SDK GitHub page](https://github.com/OfficeDev/skype-docs/issues)
 - [Skype Web SDK on StackOverflow](http://stackoverflow.com/questions/tagged/skypedeveloper)
