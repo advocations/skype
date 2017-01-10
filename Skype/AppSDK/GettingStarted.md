@@ -30,6 +30,24 @@ The configuration steps are:
   To add text chat feature in your application, you can refer _ChatHandler_ helper class in our [iOS sample apps](https://github.com/OfficeDev/skype-ios-app-sdk-samples). _ChantHandler_ class works similar to _conversation helper _ class and can be used to facilitate text chat integration.
 3. Make sure _Enable Bitcode_ option is set to NO in your iOS project . In the Project Navigator, select your project, go to the Editor pane, select Project -> Build Settings -> select All tab -> Build Options -> Enable Bitcode = NO
 
+4. **Add description of required permissions** to the application’s Info.plist (use appropriate messages):
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Access to the camera is required for making video calls.</string>
+<key>NSContactsUsageDescription</key>
+<string>Access to your address book is required for making calls to contacts.</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Access to the microphone is required for making calls.</string>
+```
+
+5. **Configure AVAudioSession** before attempting to use audio:
+```swift
+let audioSession = AVAudioSession.sharedInstance()
+try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: [.AllowBluetooth, .MixWithOthers, .DuckOthers])
+try audioSession.setMode(AVAudioSessionModeVoiceChat)
+```
+
+6. **Configure background modes** to allow continuing an audio call while application is in background. Add Audio and VoIP.
 
 #### Android
 
