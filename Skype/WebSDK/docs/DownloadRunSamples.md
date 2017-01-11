@@ -16,22 +16,23 @@ The Microsoft Skype Web SDK includes a set of web application samples that allow
 ## Downloading and setting up the samples
 <a name="sectionSection0"> </a>
 
-You can run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation.
+You can run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation or [Skype for Business Online](DevelopWebSDKappsForSfBOnline.md).
 
 
 1. Download the samples files. The Microsoft Skype Web SDK samples are available on github in our GitHub [Skype Web SDK Samples](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK) directory.
     
-2. Copy the samples files to a local folder on your computer such as C:\Websites\SkypeWebSDKSamples.
+2. Copy the samples files to a local folder on your computer such as C:\websites\skype-docs.
 
-3. Go to the '..\Skype\WebSDK' folder on your computer, and run 'npm install'. 
+3. Go to the 'C:\websites\skype-docs\Skype\WebSDK' folder on your computer, and run 'npm install'. 
 
-4. Go to the '..\Skype\WebSDK\build' folder on your computer, and run 'Build-Samples.ps1'. (You can run 'Build-Samples.ps1 -watch' for live compilation)
+4. Go to the 'C:\websites\skype-docs\Skype\WebSDK\build' folder on your computer, and run 'Build-Samples.ps1'. (You can run 'Build-Samples.ps1 -watch' for live compilation)
 
-5. Start the project with IIS or your favorite web server, with '..\Skype\WebSDK' as the root of your project.
+5. Start the project with IIS or your favorite web server, with 'C:\websites\skype-docs\Skype\WebSDK' as the root of your project.
    
 6. Instructions to start project with IIS:
  - To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
- - From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
+ - From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the 'C:\websites\skype-docs\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
+
 
 7. Open your browser in private mode and go to http://localhost. You should see the "Skype Web SDK Interactive Samples" website.
     
