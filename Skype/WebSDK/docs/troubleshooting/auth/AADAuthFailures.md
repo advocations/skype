@@ -5,7 +5,7 @@ _**Applies to:** Skype for Business 2015_
 **In this article**
 - [Common AAD Sign in Error Messages](#error-messages)
 - [Other common AAD Authentication Failures](#other-failures)
-- [Internet-Explorer-Specific AAD Authentication Failures](#IE-specific)
+- [ AAD Authentication Failures in Internet Explorer and Microsoft Edge](#MS-specific)
 - [Related Topics](#related-topics)
 - [External Resources](#external-resources)
 
@@ -73,7 +73,8 @@ The solution is to:
 - Add the **cors** parameter to your sign in options object 
 - Set the value of the **redirect_uri** parameter to a valid empty html file in an existing subfolder of your main app directory, eg: "path/to/subfolder/emptypage.html"
 
->Note: In Internet Explorer and Microsoft Edge, this file may be necessary for passing the OAuth token back from AAD and forward when signing in to SfB online.
+> [!NOTE]
+> In Internet Explorer and Microsoft Edge, this file may be necessary for passing the OAuth token back from AAD and forward when signing in to SfB online.
 
 <a name="MS-specific"></a>
 ### AAD Authentication Failures in Internet Explorer and Microsoft Edge
@@ -106,7 +107,7 @@ Read [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer and Mic
 
 - [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)
 - [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-integrating-applications)
-- [Gathering Fiddler Logs using the Skype Web SDK](../gatheringLogs/Logs-WebTraffic.md)
+- [Gathering Web Traffic Logs using the Skype Web SDK](../gatheringLogs/Logs-WebTraffic.md)
 
 <a name="external-resources"></a>
 ## External Resources

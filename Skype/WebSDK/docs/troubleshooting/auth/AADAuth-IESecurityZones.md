@@ -50,7 +50,8 @@ If this error is occurring during development, the recommended way to fix this i
 
  If you've done this correctly, you should now be able to open a browser, navigate to **http://app.myapp.com** and see the same page you were hosting before on **localhost** because the domain name **app.myapp.com** is being resolved to the same IP address as **localhost**. However now when you try to sign in, your browser should treat **app.myapp.com** as though it is in the "internet" security zone where the AAD sign in page is located, rather than in the "intranet" security zone where **localhost** is. You will also have to add the new dummy url to your list of valid reply URLs in the app registration in AAD. For instructions on how to do that, see [AAD Auth Failures - Incorrectly configured reply URLs for application](./AADAuth-ReplyURLs.md). If you have done all this correctly your signin should complete successfully.
 
-> **Note:** Modifying the **hosts** file is a significant operation and could have an impact on other programs or services. We recommend that you undo this change after testing and deploying your app.
+> [!WARNING]
+> Modifying the **hosts** file is a significant operation and could have an impact on other programs or services. We recommend that you only use this solution during development and undo this change after testing and deploying your app.
 
 <a name="prod-solution"></a>
 ## Crossing Security Zones in Production

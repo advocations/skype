@@ -1,9 +1,9 @@
 # Gathering Web Traffic Traces from the Skype Web SDK or Conversation Control
 
 **In this article:**
-- [Capturing Web Traffic with Fiddler](#fiddler)
-- [Capturing Web Traffic with Charles](#charles)
-- [Related Topics](#related-topics)
+- [Capturing web traffic with Fiddler](#fiddler)
+- [Capturing web traffic with Charles](#charles)
+- [External resources](#external-resources)
 
 > [!WARNING]
 > **About web traffic traces:** When submitting web traffic traces with an error report, you will need to turn HTTPS decryption on, but this carries the risk that your decrypted passwords and other sensitive information may be included in the trace. Before posting such traces on a public forum such as **StackOverflow** or **GitHub**, make sure to search the trace for any passwords or sensitive text strings and delete records containing them.
@@ -14,7 +14,7 @@ Capturing the web traffic sent and received by your app can help make failures m
 If you're submitting a web trace as part of an error report, submit the web trace as a **Fiddler** or **Charles** trace. Exceptions are only made when **Fiddler** and **Charles** aren't supported by the platform where your issue is occurring. 
 
 <a name="fiddler"></a>
-## Capturing Web Traffic with Fiddler
+## Capturing web traffic with Fiddler
 
 Fiddler is fully supported on Windows machines and has begun beta support for OS X. Download Fiddler here: 
 
@@ -34,7 +34,7 @@ This is how the Fiddler options window should look if you've properly configured
 ![Fiddler Options Window](../../../images/troubleshooting/gatheringLogs/FiddlerOptions.PNG)
 
 <a name="charles"></a>
-## Capturing Web Traffic with Charles
+## Capturing web traffic with Charles
 
 Charles is supported on Windows, Mac OS, and Linux. You can download a previous release or a trial version of the latest release for free, but will have to pay if you wish to continue using the latest release when the trial expires. Download Charles here:
 
@@ -49,7 +49,7 @@ After the download completes, follow these steps to configure Charles to start c
 5. Inspect the requests related to your web app, and pay special attention to requests with response statuses in the 400s and 500s (but note that some 401 responses are by design). 
 6. If you're capturing the web traffic to submit with an error report, or you'd like to revisit it later, go to **File > Save Session**, select an appropriate save location, name the trace, and click **save**.
 
-<a name="related-topics"></a>
-## Related topics
+<a name="external-resources"></a>
+## External resources
 - [Proxy HTTPS Traffic with Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)
 - [Enable SSL Proxying with Charles](https://www.charlesproxy.com/documentation/proxying/ssl-proxying/)

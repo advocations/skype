@@ -45,9 +45,11 @@ Note in the code above that we are using **window.location.href** as the value o
 
 ![Adding a Reply URL for your app in Azure AD](../../../images/troubleshooting/auth/ConfiguringReplyURLInAzure.PNG)
 
-> **Note:** Protocol matters. AAD will treat **http://website.com** and **https://website.com** as different reply URLs. If you are still having an issue after following the steps above, check that the configured reply URL matches the protocol you're actually using.
+> [!NOTE]
+> Protocol matters. AAD will treat **http://website.com** and **https://website.com** as different reply URLs. If you are still having an issue after following the steps above, check that the configured reply URL matches the protocol you're actually using.
 
-> **Warning:** We do not recommend that production apps leave **localhost** configured as a reply URL. You should only use this for local development and testing, and remove it from the list of reply URLs once your app is hosted on a domain you own.
+> [!WARNING]
+> We do not recommend that production apps leave **localhost** configured as a reply URL. You should only use this for local development and testing, and remove it from the list of reply URLs once your app is hosted on a domain you own.
 
 ---
 

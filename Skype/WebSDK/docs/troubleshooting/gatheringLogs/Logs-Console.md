@@ -12,7 +12,7 @@ Console logs are invaluable for troubleshooting any issue related to the Skype W
 
 The SDK provides the following flags for enabling logging related to its different components. You can set any or all of these flags to `true` to enable logging related to that component.
 
-- `Skype.Web.Settings.timestamps`: Prepend a timestamp to all log statements (useful in browsers that don't natively support timestamps with console logs natively)
+- `Skype.Web.Settings.timestamps`: Prepend a timestamp to all log statements (useful in browsers that don't natively support timestamps with console logs)
 - `Skype.Web.Settings.logRequests`: Log text representations of all requests to and responses from the server
 - `Skype.Web.Settings.logEvents`: Log all UCWA events received by the app from the server
 - `Skype.Web.Settings.logModel`: Log information related to the state of the SDK model components
@@ -48,5 +48,6 @@ Skype.Web.Utils.debug.saveConsole('<DESCRIPTIVE_FILE_NAME>');
 
 Include the downloaded log file with your issue report.
 
->**Note about browser compatibility:** The implementation of this feature is different across different browsers and may not be supported in uncommon or older browsers. In **Safari**, after typing this command, you have to click anywhere in the page, and a new tab should open to a page that contains the text of the log buffer. You then need to manually save this page as a text file.
+> [!NOTE]
+> **About browser compatibility:** The implementation of this feature is different across different browsers and may not be supported in uncommon or older browsers. In **Safari**, after typing this command, you have to click anywhere in the page, and a new tab should open to a page that contains the text of the log buffer. You then need to manually save this page as a text file.
 
