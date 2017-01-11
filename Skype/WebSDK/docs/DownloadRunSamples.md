@@ -16,30 +16,32 @@ The Microsoft Skype Web SDK includes a set of web application samples that allow
 ## Downloading and setting up the samples
 <a name="sectionSection0"> </a>
 
-You can either run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation, or you can use the developer sandbox provided on the Metio.net server. The following instructions apply to setting up and using the samples against the Metio.net sandbox:
+You can run the Microsoft Skype Web SDK samples against your private Skype for Business Server 2015 installation.
 
 
-1. Download the samples files. The Microsoft Skype Web SDK samples are available on github in our GitHub [Skype Web SDK Samples](https://github.com/OfficeDev/skype-web-sdk-samples) directory.
+1. Download the samples files. The Microsoft Skype Web SDK samples are available on github in our GitHub [Skype Web SDK Samples](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK) directory.
     
 2. Copy the samples files to a local folder on your computer such as C:\Websites\SkypeWebSDKSamples.
+
+3. Go to the '..\Skype\WebSDK' folder on your computer, and run 'npm install'. 
+
+4. Go to the '..\Skype\WebSDK\build' folder on your computer, and run 'Build-Samples.ps1'. (You can run 'Build-Samples.ps1 -watch' for live compilation)
+
+5. Start the project with IIS or your favorite web server, with '..\Skype\WebSDK' as the root of your project.
+   
+6. Instructions to start project with IIS:
+ 6.1. To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
+ 6.2. From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
+
+7. Open your browser in private mode and go to http://localhost. You should see the "Skype Web SDK Interactive Samples" website.
     
-3. Make sure that IIS is installed. To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**.
-    
-4. From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the folder to which you copied the samples files. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.
-    
-5. Open your browser and go to http://localhost. You should see the "Skype Web SDK Samples Preview" website. (You might need to refresh your browser.)
-    
-6. Click  **Sign In**, select  **Developer Sandbox**, and use these credentials:
-    
-    Domain: metio.net
-    
-    Token: (Enter an OAuth token from [UCWA: Interactive Demo](https://ucwa.skype.com/login/explore). Copy the entire token including the word 'Bearer'.)
+8. Sign in using any one of the authentication modes from under the **Authentication** section on the left side menu, to start running the Samples. 
     
 
 ## Samples in the download package
 <a name="sectionSection1"> </a>
 
-The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Samples](https://github.com/OfficeDev/skype-web-sdk-samples).
+The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Samples](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK).
 
 
  >**Note**  To enable audio/video functionality, clients must install the Skype for Business Web App Plug-in. It is available for Windows and Mac computers from the following download locations:
@@ -50,19 +52,16 @@ The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Sa
 |||
 |:-----|:-----|
 |**Sample**|**Description**|
-|Sign in|Demonstrates how to retrieve the API entry point and sign in.|
-|Self|Demonstrates how to get information about the currently signed in user. Allows the user to change note, location, and presence state.|
-|Search|Demonstrates how to search for contacts and distribution groups and display the search results.|
-|Contact|Demonstrates how to find a contact by name, email, phone number or other attribute and display it on the screen. |
-|Groups|This sample demonstrates how to retrieve the contact list, as well as the list of groups and relationships.|
-|Person Group Manager|Demonstrates group and person management functionalities, such as: * Creating a new user-defined group in the group list* Deleting a user-defined group from the group list* Renaming a user defined group * Adding a Distribution Group to the group list* Removing a Distribution Group from the group list* Adding a person to the person list* Removing a person from the person list|
-|Chat Service|Demonstrates how to send Instant Messages.|
-|Audio/Video|Demonstrates how to use audio/video along with messaging in an existing conversation|
-|Device Manager|Demonstrates how to perform device management for audio and video devices.|
-|Conference|Demonstrates multiparty messaging and audio/video.|
-|Conversation Control|Demonstrates the use of the Skype Conversation Control UI.|
-|Join Meeting|Demonstrates how to join a conference anonymously with a conference URI.|
-|Sign out|Demonstrates signing out the current user.|
+|Authentication|Demonstrates the different modes of authentication. Allows the user to sign in using any of these modes, as well as to sign out.|
+|Local User|Demonstrates the different operations one can perform on the currently signed in user. Allows the user to change note, location, and presence state.|
+|Contacts|Demonstrates the different operations one can perform on the contacts of the currently signed in user. Allows the user to search for contacts and distribution groups.|
+|Groups|Demonstrates the different operations one can perform on the groups and contacts of the currently signed in user. Allows the user to search, add and remove groups, as well as adding or removing a contact from a group.|
+|Chat|Demonstrates the different operations one can perform on chat conversations. Allows the user to start, accept, or escalate a P2P chat, as well as start a group chat.|
+|Audio|Demonstrates the different operations one can perform on audio conversations. Allows the user to start or accept P2P or PSTN conversations, as well as start group audio conversations or escalate P2P audio. Allows the user to also hold, resume, and mute conversations. Allows the user to perform Phone Audio and Call Transfer as well.|
+|Video|Demonstrates the different operations one can perform on video conversations. Allows the user to start, accept, or escalate a P2P video conversations, as well as start a group video conversation. Allows the user to also add video to an existing audio conversation.|
+|History|Demonstartes the different operations one can perform with the history service. Allows the user to retrieve conversations and chat history for each conversation.|
+|UI Controls|Demonstartes the use of Skype Conversation Control UI. Allows the user to create multiple conversation controls.|
+|Device Manager|Demonstrates the different operations one can perform with the devicesManager API. Allows the user to set selected speaker, microphone and camera.|
 
 ## Additional Resources
 <a name="bk_addresources"> </a>
@@ -72,5 +71,5 @@ The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Sa
     
 - [UCWA: Code](https://ucwa.skype.com/code)
     
-- [UCWA: Interactive Demo](https://ucwa.skype.com/login/explore)
+- [UCWA: Interactive Samples](https://ucwa.skype.com/websdk)
     

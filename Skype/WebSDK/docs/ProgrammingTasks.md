@@ -25,3 +25,5 @@ This section describes the key programming tasks for the Skype Web SDK:
 - [History](PTHistory.md)
 
 - [UI Controls](PTUIControls.md)
+
+- [Devices Manager](PTDevicesManager.md)

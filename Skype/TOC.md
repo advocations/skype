@@ -98,6 +98,8 @@
 ###### [Conversation History](WebSDK/docs/PTHistoryConversation.md)
 ##### [UI Controls](WebSDK/docs/PTUIControls.md)
 ###### [Conversation Control(s)](WebSDK/docs/PTUIControlsConversationControl.md)
+##### [Devices Manager](WebSDK/docs/PTDevicesManager.md)
+###### [Manage Devices](WebSDK/docs/PTDevicesManagerManageDevices.md)
 ####  [Release Notes](WebSDK/docs/ReleaseNotes.md)
 ##### [Skype Web SDK Version Update Notifications](WebSDK/docs/SkypeWebSDKVersionUpdateNotifications.md)
 #### [CONTRIBUTING](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md)
