@@ -30,8 +30,8 @@ You can run the Microsoft Skype Web SDK samples against your private Skype for B
 5. Start the project with IIS or your favorite web server, with '..\Skype\WebSDK' as the root of your project.
    
 6. Instructions to start project with IIS:
-    6.1. To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
-    6.2. From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
+ - To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
+ - From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
 
 7. Open your browser in private mode and go to http://localhost. You should see the "Skype Web SDK Interactive Samples" website.
     
