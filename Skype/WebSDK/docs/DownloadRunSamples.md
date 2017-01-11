@@ -30,8 +30,8 @@ You can run the Microsoft Skype Web SDK samples against your private Skype for B
 5. Start the project with IIS or your favorite web server, with '..\Skype\WebSDK' as the root of your project.
    
 6. Instructions to start project with IIS:
- 6.1. To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
- 6.2. From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
+    6.1. To install IIS, go to  **Control Panel**, click  **Turn Windows features on and off**, then select  **IIS**
+    6.2. From  **Start**, run  **IIS Manager**. Right-click on  **Sites**, choose  **Add Website**, and add a new website called SkypeWebSDKSamples. Set the location to the '..\Skype\WebSDK' on your computer. Stop  **Default Web Site**, then start  **SkypeWebSDKSamples**.   
 
 7. Open your browser in private mode and go to http://localhost. You should see the "Skype Web SDK Interactive Samples" website.
     
@@ -61,7 +61,7 @@ The Microsoft Skype Web SDK samples are available on github at [Skype Web SDK Sa
 |Video|Demonstrates the different operations one can perform on video conversations. Allows the user to start, accept, or escalate a P2P video conversations, as well as start a group video conversation. Allows the user to also add video to an existing audio conversation.|
 |History|Demonstartes the different operations one can perform with the history service. Allows the user to retrieve conversations and chat history for each conversation.|
 |UI Controls|Demonstartes the use of Skype Conversation Control UI. Allows the user to create multiple conversation controls.|
-|Device Manager|Demonstrates the different operations one can perform with the devicesManager API. Allows the user to set selected speaker, microphone and camera.|
+|Devices Manager|Demonstrates the different operations one can perform with the devicesManager API. Allows the user to set selected speaker, microphone and camera.|
 
 ## Additional Resources
 <a name="bk_addresources"> </a>
