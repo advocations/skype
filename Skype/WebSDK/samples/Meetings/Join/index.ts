@@ -104,37 +104,56 @@
                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
                 listeners.push(person.video.state.when('Connected', () => {
-                    if (Object.keys(videoMap).length === 1) {
-                        videoMap[person.displayName()] = 2;
-                        (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
-                        setupContainer(person.video.channels(0), <HTMLElement>content.querySelector('.remoteVideoContainer2'));
-                    } else {
-                        videoMap[person.displayName()] = 1;
-                        (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
-                        setupContainer(person.video.channels(0), <HTMLElement>content.querySelector('.remoteVideoContainer1'));
-                    }
-                    person.video.channels(0).isStarted(true);
-
-                    listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
-                        const remoteVideo: number = videoMap[person.displayName()];
-                        if (remoteVideo && remoteVideo === 1) {
-                            (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
-                        }
-                        if (remoteVideo && remoteVideo === 2) {
+                    if (conversation.videoService.videoMode == 'MultiView') {
+                        if (Object.keys(videoMap).length === 1) {
+                            videoMap[person.displayName()] = 2;
                             (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
+                            setupContainer(person.video.channels(0), <HTMLElement>content.querySelector('.remoteVideoContainer2'));
+                        } else {
+                            videoMap[person.displayName()] = 1;
+                            (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                            setupContainer(person.video.channels(0), <HTMLElement>content.querySelector('.remoteVideoContainer1'));
                         }
-                        window.framework.addNotification('info', person.displayName() + ' started streaming their video');
-                    }));
-                    listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
-                        const remoteVideo: number = videoMap[person.displayName()];
-                        if (remoteVideo && remoteVideo === 1) {
+                        person.video.channels(0).isStarted(true);
+
+                        listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
+                            const remoteVideo: number = videoMap[person.displayName()];
+                            if (remoteVideo && remoteVideo === 1) {
+                                (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                            }
+                            if (remoteVideo && remoteVideo === 2) {
+                                (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'block';
+                            }
+                            window.framework.addNotification('info', person.displayName() + ' started streaming their video');
+                        }));
+                        listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
+                            const remoteVideo: number = videoMap[person.displayName()];
+                            if (remoteVideo && remoteVideo === 1) {
+                                (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
+                            }
+                            if (remoteVideo && remoteVideo === 2) {
+                                (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
+                            }
+                            window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
+                        }));
+                    } else {
+                        var activeSpeaker = conversation.videoService.activeSpeaker;
+                        (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                        setupContainer(activeSpeaker.channel, <HTMLElement>content.querySelector('.remoteVideoContainer1'));                        
+                        listeners.push(activeSpeaker.channel.isVideoOn.when(true, () => {
+                            (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'block';
+                            window.framework.addNotification('info', 'ActiveSpeaker video channel isVideoOn == true');
+                            activeSpeaker.channel.isStarted(true);
+                        }));
+                        listeners.push(activeSpeaker.channel.isVideoOn.when(false, () => {
                             (<HTMLElement>content.querySelector('#remotevideo1')).style.display = 'none';
-                        }
-                        if (remoteVideo && remoteVideo === 2) {
-                            (<HTMLElement>content.querySelector('#remotevideo2')).style.display = 'none';
-                        }
-                        window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
-                    }));
+                            window.framework.addNotification('info', 'ActiveSpeaker video channel isVideoOn == false');
+                            activeSpeaker.channel.isStarted(false);
+                        }));
+                        listeners.push(activeSpeaker.participant.changed(p => {
+                            window.framework.addNotification('info', 'ActiveSpeaker has changed to: ' + p.displayName());                            
+                        }));
+                    }
                 }));
             }));
             listeners.push(conversation.participants.removed(person => {
