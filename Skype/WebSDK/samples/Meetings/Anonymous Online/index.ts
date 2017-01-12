@@ -119,16 +119,16 @@
                 'Unable to join conference anonymously: ' + err);
         });
 
-        function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
-            person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(videoDiv);
+        function setupContainer(videoChannel: jCafe.VideoChannel, videoDiv: HTMLElement) {
+            videoChannel.stream.source.sink.format('Stretch');
+            videoChannel.stream.source.sink.container(videoDiv);
         }
 
         function setUpListeners () {
             listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
                 window.framework.addNotification('info', 'Showing self video...');
                 (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
-                setupContainer(conversation.selfParticipant, 'small', <HTMLElement>content.querySelector('.selfVideoContainer'));
+                setupContainer(conversation.selfParticipant.video.channels(0), <HTMLElement>content.querySelector('.selfVideoContainer'));
                 window.framework.addNotification('success', 'Connected to video');
             }));
 
@@ -136,18 +136,35 @@
                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
                 listeners.push(person.video.state.when('Connected', () => {
-                    setupContainer(person, 'large', createVideoContainer());
-
-                    listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
-                        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
-                        window.framework.addNotification('info', person.displayName() + ' started streaming their video');
-                        person.video.channels(0).isStarted(true);
-                    }));
-                    listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
-                        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
-                        window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
-                        person.video.channels(0).isStarted(false);                        
-                    }));
+                    if (conversation.videoService.videoMode == 'MultiView') {
+                        setupContainer(person, createVideoContainer());
+                        listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
+                            (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                            window.framework.addNotification('info', person.displayName() + ' started streaming their video');
+                            person.video.channels(0).isStarted(true);
+                        }));
+                        listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
+                            (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                            window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
+                            person.video.channels(0).isStarted(false);                        
+                        }));
+                    } else {
+                        var activeSpeaker = conversation.videoService.activeSpeaker;
+                        setupContainer(activeSpeaker.channel, createVideoContainer());                        
+                        listeners.push(activeSpeaker.channel.isVideoOn.when(true, () => {
+                            (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
+                            window.framework.addNotification('info', 'ActiveSpeaker video channel isVideoOn == true');
+                            activeSpeaker.channel.isStarted(true);
+                        }));
+                        listeners.push(activeSpeaker.channel.isVideoOn.when(false, () => {
+                            (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+                            window.framework.addNotification('info', 'ActiveSpeaker video channel isVideoOn == false');
+                            activeSpeaker.channel.isStarted(false);
+                        }));
+                        listeners.push(activeSpeaker.participant.changed(p => {
+                            window.framework.addNotification('info', 'ActiveSpeaker has changed to: ' + p.displayName());                            
+                        }));
+                    }
                 }));
             }));
 
