@@ -94,6 +94,7 @@
 ###### [Incoming P2P](WebSDK/docs/PTVideoIncomingP2P.md)
 ###### [P2P Escalation](WebSDK/docs/PTVideoP2PEscalation.md)
 ###### [Group](WebSDK/docs/PTVideoGroup.md)
+###### [Group in Google Chrome](PTVideoGroupGoogleChrome.md)
 ##### [History](WebSDK/docs/PTHistory.md)
 ###### [Conversation History](WebSDK/docs/PTHistoryConversation.md)
 ##### [UI Controls](WebSDK/docs/PTUIControls.md)
