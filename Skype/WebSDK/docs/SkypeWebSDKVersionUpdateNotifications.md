@@ -1,5 +1,27 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 1/10/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.77.8 | 1/10/17 | 1.72.36
+| Skype Web SDK Preview    | 0.4.385 | 1/10/17 | 0.4.374
+| Conversation Control Production | 1.72.36  | 1/10/17 | 1.71.32
+| Skype Web SDK Production| 0.4.374 | 1/10/17 | 0.4.368 |
+
+The latest preview release includes a number of fixes to AV call reliability, 
+updates the SDK to typescript 2, and fixes a bug where IMs sometimes change 
+order after being sent.
+
+**Bugs fixed in the new public preview build:**
+
+- Only one directional video in certain IE calls
+- Audio fails in Microsoft Edge if user mutes, leaves the call and rejoins it again
+- Simplify the timestamp logic to prevent reordering of IMs
+- video.channels(0).isStarted incorrectly failing in Microsoft Edge group video calls
+
+---
+
 ## Skype Web SDK Version Update 12/13/16
 
 | Product        | New Version           | Last Updated  |Previous Version
