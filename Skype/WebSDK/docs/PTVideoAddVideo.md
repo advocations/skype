@@ -4,6 +4,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
+> [!IMPORTANT]
+> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+
 ## Adding Video to an Audio Conversation
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.  After creation of the conversation object it is helpful to setup a few event listeners for when we are connected to audio, added participants, and when we disconnect from the conversation.  We can use the audioService on the conversation object and call start() to initate the call and send an invitation.
@@ -18,20 +21,21 @@ After the conversation and audio/video modality are established we can begin com
 1. Initiate an audio conversation with a person 
 
   ```js
-    var id = content.querySelector('.id').value;
     var conversationsManager = application.conversationsManager;
-    conversation = conversationsManager.getConversation(id);
-    listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
+
+    conversation = conversationsManager.getConversation('sip:xxx');
+    
+    conversation.selfParticipant.audio.state.when('Connected', function () {
         // Connected to Audio
-    }));
-    listeners.push(conversation.participants.added(function (person) {
+    });
+    conversation.participants.added(function (person) {
         // person.displayName() has joined the conversation
-    }));
-    listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+    });
+    conversation.state.changed(function (newValue, reason, oldValue) {
         if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
             // conversation ended
         }
-    }));
+    });
     conversation.audioService.start().then(null, function (error) {
         // handle error
     });
@@ -40,21 +44,19 @@ After the conversation and audio/video modality are established we can begin com
 2. Add Video
 
   ```js
-    function setupContainer(person, size, videoDiv) {
-        person.video.channels(0).stream.source.sink.format('Stretch');
-        person.video.channels(0).stream.source.sink.container(videoDiv);
-    }
-    listeners.push(conversation.selfParticipant.video.state.when('Connected', function () {
+    conversation.selfParticipant.video.state.when('Connected', function () {
         // set up self video container
-        setupContainer(conversation.selfParticipant, 'small', content.querySelector('.selfVideoContainer'));
+        person.video.channels(0).stream.source.sink.format('Stretch');
+        person.video.channels(0).stream.source.sink.container(/* DOM node such as a DIV */);
         // connected to video
-    }));
-    listeners.push(conversation.participants.added(function (person) {
-        listeners.push(person.video.state.when('Connected', function () {
+    });
+    conversation.participants.added(function (person) {
+        person.video.state.when('Connected', function () {
             // set up remote video container
-            setupContainer(person, 'large', content.querySelector('.remoteVideoContainer'));
-        }));
-    }));
+            person.video.channels(0).stream.source.sink.format('Stretch');
+            person.video.channels(0).stream.source.sink.container(/* DOM node such as a DIV */);
+        });
+    });
     conversation.videoService.start(null, function (error) {
         // handle error
     });

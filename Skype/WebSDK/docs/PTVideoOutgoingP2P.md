@@ -4,6 +4,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
+> [!IMPORTANT]
+> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+
 ## Starting an outgoing P2P Video Conversation
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.  After creation of the conversation object it is helpful to setup a few event listeners.
@@ -23,32 +26,29 @@ After the conversation and video modality are established we can begin communica
 1. Initiate a video conversation with a person, and set up associated listeners 
 
   ```js
-    var id = content.querySelector('.id').value;
     var conversationsManager = application.conversationsManager;
-    conversation = conversationsManager.getConversation(id);
+    conversation = conversationsManager.getConversation('sip:xxx');
 
-    function setupContainer(person, size, videoDiv) {
-        person.video.channels(0).stream.source.sink.format('Stretch');
-        person.video.channels(0).stream.source.sink.container(videoDiv);
-    }
-
-    listeners.push(conversation.selfParticipant.video.state.when('Connected', function () {
+    conversation.selfParticipant.video.state.when('Connected', function () {
         // set up self video container
-        setupContainer(conversation.selfParticipant, 'small', content.querySelector('.selfVideoContainer'));
-    }));
-    listeners.push(conversation.participants.added(function (person) {
+        conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+    });
+    conversation.participants.added(function (person) {
         console.log(person.displayName() + ' has joined the conversation');
-        listeners.push(person.video.state.when('Connected', function () {
-            // set up self video container
-            setupContainer(person, 'large', content.querySelector('.remoteVideoContainer'));
-        }));
-    }));
 
-    listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+        person.video.state.when('Connected', function () {
+            // set up self video container
+            person.video.channels(0).stream.source.sink.format('Stretch');
+            person.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+        });
+    });
+
+    conversation.state.changed(function (newValue, reason, oldValue) {
         if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
             // conversation ended
         }
-    }));
+    });
     conversation.videoService.start().then(null, function (error) {
         // handle error
     });

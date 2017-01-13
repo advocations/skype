@@ -3,6 +3,9 @@
 
  _**Applies to:** Skype for Business 2015_
 
+> [!IMPORTANT]
+> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+
 ## Listening for incoming call notifications
 
 When a remote user starts a call we will receive an invitation to join the call.

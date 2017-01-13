@@ -18,3 +18,5 @@ This section describes the different operations you can perform on video convers
 
 - [Group](PTVideoGroup.md)
 
+- [Group in Google Chrome](PTVideoGroupGoogleChrome.md)
+

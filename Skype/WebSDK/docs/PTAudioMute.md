@@ -19,19 +19,18 @@ After the conversation and audio modality are established we can begin communica
 
 ``` js
 var conversationsManager = application.conversationsManager;
-var id = content.querySelector('.id').value;
-conversation = conversationsManager.getConversation(id);
-listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
+conversation = conversationsManager.getConversation('sip:xxx');
+conversation.selfParticipant.audio.state.when('Connected', function () {
     // connected to audio
-}));
-listeners.push(conversation.participants.added(function (person) {
+});
+conversation.participants.added(function (person) {
     // person.displayName() has joined the conversation
-}));
-listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+});
+conversation.state.changed(function (newValue, reason, oldValue) {
     if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
         // conversation ended
     }
-}));
+});
 conversation.audioService.start().then(null, function (error) {
     // handle error
 });
@@ -40,9 +39,7 @@ conversation.audioService.start().then(null, function (error) {
 2. Mute an audio call
 
 ``` js
-var participant = conversation.selfParticipant;
-var audio = participant.audio;
-audio.isMuted.set(true).then(function () {
+conversation.selfParticipant.audio.isMuted.set(true).then(function () {
     // successfully muted call
 }, function (error) {
     // handle error
@@ -51,9 +48,7 @@ audio.isMuted.set(true).then(function () {
 3. Unute an audio call
 
 ```js
-var participant = conversation.selfParticipant;
-var audio = participant.audio;
-audio.isMuted.set(false).then(function () {
+conversation.selfParticipant.audio.isMuted.set(false).then(function () {
     // successfully unmuted call
 }, function (error) {
     // handle error
