@@ -4,8 +4,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-> [!IMPORTANT]
-> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
 
 ## Receiving a video invitation
 
@@ -21,7 +20,7 @@ After the conversation and video modality are established we can begin communica
 
 1. Listen for incoming video invitation, and accept/reject it based on user response 
 
-  ```js
+    ```js
     var conversationsManager = application.conversationsManager;
     conversationsManager.conversations.added(function (conversation) {
         conversation.videoService.accept.enabled.when(true, function () {
@@ -33,7 +32,7 @@ After the conversation and video modality are established we can begin communica
                     person.video.state.when('Connected', function () {
                         // set up remote video container
                         person.video.channels(0).stream.source.sink.format('Stretch');
-                        person.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+                        person.video.channels(0).stream.source.sink.container(/* DOM node */);
                     });
                 });
             }
@@ -45,7 +44,7 @@ After the conversation and video modality are established we can begin communica
         conversation.selfParticipant.video.state.when('Connected', function () {
             // set up remote video container
             conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
-            conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+            conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
         });
 
         conversation.state.changed(function (newValue, reason, oldValue) {
@@ -54,16 +53,16 @@ After the conversation and video modality are established we can begin communica
             }
         });
     });
-  ```
+    ```
 
 2. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
-        // conversation ended
+    // conversation ended
     }, function (error) {
-        // handle error
+    // handle error
     }).then(function () {
-        // clean up operations
+    // clean up operations
     });
-  ```
+    ```

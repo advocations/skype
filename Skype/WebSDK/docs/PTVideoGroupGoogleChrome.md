@@ -1,38 +1,54 @@
 
 # Audio/Video in Google Chrome
 
-
-
  _**Applies to:** Skype for Business 2015_
 
-At the moment we only support one incoming video channel in Google Chrome. 
-To still render video of multiple participants in a conversation we have introduced the **Active Speaker** API.
+The Skype Web SDK differentiates rendering of group videos for different browsers:
+* Google Chrome
+* and all other browsers
 
-Through the API the video of the currently speaking participant is sent over the one available channel.
+## Google Chrome
 
-## Active Speaker API
+In Google Chrome, due to technical limitations, the video streams of the remote participants are transported over one channel. This 
+channel is accessible through the **Active Speaker API**.
 
-### How fo I know when to use the Active Speaker API?
+The channel always containes the video of the currently speaking participant. This updates automatically 
+when the currently speaking participant changes.
+
+### Active Speaker API
+
+#### How fo I know when to use the Active Speaker API?
+The API is automatically initialised when loading the SDK in Google Chrome.
+You can detect this by checking the value of `videoService.videoMode()`.
+
 ```js
-    var conversation = application.conversationsManager.createConversation();
-    if (conversation.videoService.videoMode() === 'ActiveSpeaker') {
-        // use the Active Speaker API
+var conversation = application.conversationsManager.createConversation();
+if (conversation.videoService.videoMode() === 'ActiveSpeaker') {
+    // use the Active Speaker API
+}
+```
+
+#### How do I render the Active Speaker Channel?
+```js
+// set up listener to detect if someone is actively speaking
+conversation.videoService.activeSpeaker.participant.changed(function (participant) {
+    // participant.displayName() is speaking
+
+    // lets render the video if the currently speaking participant is not myself
+    if (participant !== conversation.selfParticipant) {
+        var channel = conversation.videoService.activeSpeaker.channel;
+
+        // add listener to turn video on/off
+        channel.isVideoOn.changed(function (isVideoOn) {
+            channel.source.sink.container(/* DOM node */);
+            channel.isStarted(isVideoOn);
+        });
     }
+});
 ```
+## All Other Browsers
 
-### How do I render the Active Speaker Channel?
-```js
-    // set up listener to detect if someone is actively speaking
-    conversation.videoService.activeSpeaker.participant.changed(function (participant) {
-        // participant.displayName() is speaking
+In all other browsers one channel per participant is available to transport the video which means
+that multiple remote videos can be displayed at the same time.
 
-        // lets render the video if the currently speaking participant is not myself
-        if (participant !== conversation.selfParticipant) {
-            var channel = conversation.videoService.activeSpeaker.channel;
-            channel.source.sink.container(/* DOM element such as DIV*/);
-            channel.isStarted(true);
-        }
-    });
-```
-
-When the active speaker changes, the video will update to display the stream of the currently speaking person.
+Please refer to [Group Video](PTVideoGroup.md) for more details.

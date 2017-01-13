@@ -4,8 +4,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-> [!IMPORTANT]
-> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
 
 ## Starting an outgoing P2P Video Conversation
 
@@ -25,38 +24,38 @@ After the conversation and video modality are established we can begin communica
 
 1. Initiate a video conversation with a person, and set up associated listeners 
 
-  ```js
+    ```js
     var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation('sip:xxx');
 
     conversation.selfParticipant.video.state.when('Connected', function () {
-        // set up self video container
-        conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
-        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+    // set up self video container
+    conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+    conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
     });
     conversation.participants.added(function (person) {
-        console.log(person.displayName() + ' has joined the conversation');
+    // person.displayName() has joined the conversation
 
-        person.video.state.when('Connected', function () {
-            // set up self video container
-            person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
-        });
+    person.video.state.when('Connected', function () {
+        // set up self video container
+        person.video.channels(0).stream.source.sink.format('Stretch');
+        person.video.channels(0).stream.source.sink.container(/* DOM node */);
+    });
     });
 
     conversation.state.changed(function (newValue, reason, oldValue) {
-        if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-            // conversation ended
-        }
+    if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
+        // conversation ended
+    }
     });
     conversation.videoService.start().then(null, function (error) {
-        // handle error
+    // handle error
     });
-  ```
+    ```
 
 2. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
         // conversation ended
     }, function (error) {
@@ -64,4 +63,4 @@ After the conversation and video modality are established we can begin communica
     }).then(function () {
         // clean up operations
     });
-  ```
+    ```

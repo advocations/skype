@@ -4,8 +4,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-> [!IMPORTANT]
-> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
 
 ## Escalating a P2P video conversation
 
@@ -22,21 +21,21 @@ After the conversation and video modality are established we can begin communica
 
 1. Start a P2P video conversation, and set up associated listeners 
 
-  ```js
+    ```js
     var conversationsManager = application.conversationsManager;
     conversation = conversationsManager.getConversation('sip:xxx');
 
     conversation.selfParticipant.video.state.when('Connected', function () {
         // set up local video container
         conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
-        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
 
         conversation.participants.added(function (person) {
             // person.displayName() has joined the conversation
             person.video.state.when('Connected', function () {
                 // set up remote video container
                 person.video.channels(0).stream.source.sink.format('Stretch');
-                person.video.channels(0).stream.source.sink.container(/* DOM node such as DIV */);
+                person.video.channels(0).stream.source.sink.container(/* DOM node */);
 
                 if (conversation.isGroupConversation()) {
                     person.video.channels(0).isStarted(true);
@@ -53,7 +52,7 @@ After the conversation and video modality are established we can begin communica
     conversation.videoService.start().then(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 2. **Advanced**: Track remote participant video state
 
@@ -62,9 +61,9 @@ After the conversation and video modality are established we can begin communica
         // person.displayName() started streaming their video
     });
     person.video.channels(0).isVideoOn.when(false, function () {
-       // person.displayName() stopped streaming their video
+        // person.displayName() stopped streaming their video
     });
-  ```
+    ```
 
 3. Add another person to escalate the P2P video conversation to a group video conversation
 
@@ -78,7 +77,7 @@ After the conversation and video modality are established we can begin communica
 
 4. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
         // conversation ended
     }, function (error) {
@@ -86,4 +85,4 @@ After the conversation and video modality are established we can begin communica
     }).then(function () {
         // clean up operations
     });
-  ```
+    ```

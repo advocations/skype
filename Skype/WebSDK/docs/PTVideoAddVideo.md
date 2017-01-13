@@ -4,8 +4,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-> [!IMPORTANT]
-> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
 
 ## Adding Video to an Audio Conversation
 
@@ -20,11 +19,11 @@ After the conversation and audio/video modality are established we can begin com
 
 1. Initiate an audio conversation with a person 
 
-  ```js
+    ```js
     var conversationsManager = application.conversationsManager;
 
     conversation = conversationsManager.getConversation('sip:xxx');
-    
+
     conversation.selfParticipant.audio.state.when('Connected', function () {
         // Connected to Audio
     });
@@ -39,32 +38,32 @@ After the conversation and audio/video modality are established we can begin com
     conversation.audioService.start().then(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 2. Add Video
 
-  ```js
+    ```js
     conversation.selfParticipant.video.state.when('Connected', function () {
         // set up self video container
-        person.video.channels(0).stream.source.sink.format('Stretch');
-        person.video.channels(0).stream.source.sink.container(/* DOM node such as a DIV */);
+        conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
         // connected to video
     });
     conversation.participants.added(function (person) {
         person.video.state.when('Connected', function () {
             // set up remote video container
             person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(/* DOM node such as a DIV */);
+            person.video.channels(0).stream.source.sink.container(/* DOM node */);
         });
     });
     conversation.videoService.start(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 3. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
         // conversation ended
     }, function (error) {
@@ -72,4 +71,4 @@ After the conversation and audio/video modality are established we can begin com
     }).then(function () {
         // clean up operations
     });
-  ```
+    ```

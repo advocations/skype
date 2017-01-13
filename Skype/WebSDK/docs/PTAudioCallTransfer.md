@@ -3,7 +3,7 @@
  _**Applies to:** Skype for Business 2015_
 
 > [!IMPORTANT]
-> This feature is not supported in **Google Chrome** at this point.
+> This feature is not supported in **Google Chrome**.
 
  _**Prerequisites:** To use Call Transfer, user needs a valid Office 365 Enterprise E5 license with PSTN calling set up_
 

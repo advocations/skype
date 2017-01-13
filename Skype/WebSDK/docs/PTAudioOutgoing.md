@@ -3,8 +3,7 @@
 
  _**Applies to:** Skype for Business 2015_
 
-> [!IMPORTANT]
-> Meetings with one remote participant (P2P/1:1) are not supported in **Google Chrome** at this point.
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
 
 ## Starting a Call
 
@@ -13,15 +12,15 @@ In order to make an audio call we need to:
 1. create a conversation
 
     ```js
-        var conversation = application.conversationsManager.getConversation('sip:XXXX');
-        // or
-        var conversation = application.conversationsManager.getConversation('tel:+XXXX');
+    var conversation = application.conversationsManager.getConversation('sip:XXXX');
+    // or
+    var conversation = application.conversationsManager.getConversation('tel:+XXXX');
     ```
 
 2. start the audio modality in the conversation
 
     ```js
-        conversation.audioService.start();
+    conversation.audioService.start();
     ```
 
 ## Conversation State
