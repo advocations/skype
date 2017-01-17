@@ -1,12 +1,8 @@
-/// <reference path="../../../framework.d.ts" />
 (function () {
     'use strict';
 
     const content = window.framework.findContentDiv();
     (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
-
-    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTMeetingsAnonJoinOnline.md' : 'Content/websdk/docs/PTMeetingsAnonJoinOnline.md';
-    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var app;
     var conversation;
@@ -82,9 +78,9 @@
         (<HTMLInputElement>content.querySelector('.getToken')).disabled = false;
     }
 
-    function joinMeeting () {
+    function joinMeeting() {
         if (!(<HTMLInputElement>content.querySelector('.anon_name')).value) {
-            window.framework.addNotification('info', 'Please enter a name to use ' + 
+            window.framework.addNotification('info', 'Please enter a name to use ' +
                 'for joining the meeting anonymously');
             return;
         }
@@ -94,7 +90,7 @@
         const conversationsManager = app.conversationsManager;
 
         window.framework.addNotification('info', 'Attempting to join conference anonymously');
-        
+
         app.signInManager.signIn({
             name: name,
             cors: true,
@@ -103,7 +99,7 @@
                 // Send token with all requests except for the GET /discover
                 if (req.url != discoverUrl)
                     req.headers['Authorization'] = authToken;
-                
+
                 return send(req);
             }
         }).then(() => {
@@ -124,7 +120,7 @@
             videoChannel.stream.source.sink.container(videoDiv);
         }
 
-        function setUpListeners () {
+        function setUpListeners() {
             listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
                 window.framework.addNotification('info', 'Showing self video...');
                 (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
@@ -147,11 +143,11 @@
                             listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
                                 (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
                                 window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
-                                person.video.channels(0).isStarted(false);                        
+                                person.video.channels(0).isStarted(false);
                             }));
                         }));
                     }));
-                } 
+                }
                 // In activeSpeaker mode, set up one container for activeSpeaker channel, and call
                 // isStarted(true/false) when channel.isVideoOn() becomes true/false
                 else {
@@ -168,7 +164,7 @@
                         activeSpeaker.channel.isStarted(false);
                     }));
                     listeners.push(activeSpeaker.participant.changed(p => {
-                        window.framework.addNotification('info', 'ActiveSpeaker has changed to: ' + p.displayName());                            
+                        window.framework.addNotification('info', 'ActiveSpeaker has changed to: ' + p.displayName());
                     }));
                 }
             }));
@@ -184,7 +180,7 @@
             }));
         }
 
-        function startVideoService () {
+        function startVideoService() {
             conversation.videoService.start().then(null, error => {
                 window.framework.addNotification('error', error);
                 if (error.code && error.code == 'PluginNotInstalled') {
@@ -196,8 +192,8 @@
             goToStep(3);
         }
     }
-    
-    function endConversation () {
+
+    function endConversation() {
         window.framework.addNotification('info', 'Ending conversation...');
         if (!conversation) {
             reset(true);
@@ -216,7 +212,7 @@
 
     if (window.framework.application && window.framework.application.signInManager.state() == 'SignedIn') {
         if (confirm('You must sign out of your existing session to anonymously join ' +
-                    'a meeting. Sign out now?'))
+            'a meeting. Sign out now?'))
             window.framework.application.signInManager.signOut();
         else {
             window.framework.addNotification('error', 'Must refresh the page or allow sign ' +
@@ -225,14 +221,26 @@
         }
     }
 
-    app = window.framework.api.UIApplicationInstance;
+    function waitForInitialization() {
+        if (!window.framework.api) {
+            window.setTimeout(waitForInitialization, 1000);
+        } else {
+            initialize();
+        }
+    }
 
-    window.framework.registerNavigation(reset);
+    function initialize() {
 
-    window.framework.addEventListener(content.querySelector('.join'), 'click', joinMeeting);    
-    window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
-    window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
-    window.framework.addEventListener(content.querySelector('.getToken'), 'click', getToken);
+        app = window.framework.api.UIApplicationInstance;
+
+        window.framework.registerNavigation(reset);
+
+        window.framework.addEventListener(content.querySelector('.join'), 'click', joinMeeting);
+        window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
+        window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
+        window.framework.addEventListener(content.querySelector('.getToken'), 'click', getToken);
+
+    }
 
     function getToken() {
         window.framework.showNotificationBar();
@@ -266,7 +274,7 @@
             }
         };
 
-        var data = "ApplicationSessionId=AnonMeeting2" + 
+        var data = "ApplicationSessionId=AnonMeeting2" +
             "&AllowedOrigins=" + encodeURIComponent(allowedOrigins) +
             "&MeetingUrl=" + encodeURIComponent(meetingUrl);
 
@@ -275,7 +283,7 @@
         request.send(data);
     }
 
-    function createVideoContainer () {
+    function createVideoContainer() {
         var containersDiv = content.querySelector('.remoteVideoContainers');
         var newContainer = document.createElement('div');
         newContainer.className = 'remoteVideoContainer';
@@ -290,5 +298,7 @@
         (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
         (<HTMLElement>content.querySelector('#step' + step)).style.display = 'block';
     }
+
+    waitForInitialization();
 
 })();
