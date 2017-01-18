@@ -133,7 +133,7 @@
 
                 // In multiview, listen for added participants, set up a container for each,
                 // set up listeners to call isStarted(true/false) when isVideoOn() becomes true/false
-                if (conversation.videoService.videoMode == 'MultiView') {
+                if (conversation.videoService.videoMode() == 'MultiView') {
                     listeners.push(conversation.participants.added(person => {
                         window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
@@ -154,7 +154,7 @@
                 } 
                 // In activeSpeaker mode, set up one container for activeSpeaker channel, and call
                 // isStarted(true/false) when channel.isVideoOn() becomes true/false
-                else {
+                else if(conversation.videoService.videoMode() == 'ActiveSpeaker') {
                     var activeSpeaker = conversation.videoService.activeSpeaker;
                     setupContainer(activeSpeaker.channel, createVideoContainer());
                     listeners.push(activeSpeaker.channel.isVideoOn.when(true, () => {

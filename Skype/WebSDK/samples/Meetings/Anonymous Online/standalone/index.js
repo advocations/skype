@@ -141,8 +141,11 @@
 
                     // the .participant object changes when the active speaker changes
                     activeSpeaker.participant.changed(function (newValue, reason, oldValue) {
-                        console.log('The ActiveSpeaker has changed. Old ActiveSpeaker:', oldValue && oldValue.displayName(), 'New ActiveSpeaker:', newValue.displayName());
-                        displayName(document.querySelector('.remote'), newValue);
+                        console.log('The ActiveSpeaker has changed. Old ActiveSpeaker:', oldValue && oldValue.displayName(), 'New ActiveSpeaker:', newValue && newValue.displayName());
+
+                        if (newValue) {
+                            displayName(document.querySelector('.remote'), newValue);
+                        }
                     });
                 }
             });
@@ -191,13 +194,17 @@
     //-----------------------------------------------------------------------
     //UI helper functions
     function displayStep(step) {
-        document.querySelectorAll('.step').forEach(function (node, index) {
+        var nodes = document.querySelectorAll('.step');
+
+        for (var i = 0; i < nodes.length; ++i) {
+            var node = nodes[i];
+            
             node.style.display = 'none';
 
-            if (index === step) {
+            if (i === step) {
                 node.style.display = 'block';
             }
-        });
+        }
     }
 
     function registerUIListeners() {
