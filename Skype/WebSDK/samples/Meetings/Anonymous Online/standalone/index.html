@@ -1,60 +1,48 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/local.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/local.css">
 </head>
 
 <body>
+	<div class="controls">
+		<h1>WebRTC - Anonymous Join Sample</h1>
+
+		<div class="step0 step">
+			Initializing Skype...
+		</div>
+		<form class="step1 step" name="step1">
+			<label>
+				Online meeting url: <input name="meetingUrl">
+				</label>
+			<input type="submit" value="Get Token">
+		</form>
+		<form class="step2 step" name="step2">
+			<strong>Auth token aquired!</strong>
+			<label>
+			Guest name: <input name="name">
+			</label>
+			<input type="submit" value="Join meeting with A/V">
+		</form>
+		<form class="step3 step" name="step3">
+			<input type="submit" value="End meeting">
+		</form>
+	</div>
 	<div class="content">
-		<div class="step">
-			<div class="mui-container-fluid">
-				<div class="mui-row">
-					<div class="mui-col-md-8">
-						<div class="mui--text-display2">Preview</div>
-						<br/>
-						<div class="mui-panel mui--z3">
-							<div id="step1" style="display:block">
-								<div class="mui-textfield">
-									<input type="text" class="meeting_url" placeholder="https://meet.resources.lync.com/NOAMmeetings/bl20r02meet1760/JHBSIQBT">
-									<label>Online Meeting URL</label>
-								</div>
-								<button class="mui-btn mui-btn--raised mui-btn--primary getToken">Get Token</button>
-							</div>
-							<div id="step2" style="display:none">
-								<div class="mui-textfield">
-									<input type="text" class="anon_name" placeholder="John Doe" data-enter-bind="join">
-									<label>Guest Name</label>
-								</div>
-								<button class="mui-btn mui-btn--raised mui-btn--primary join">Join Meeting with AV</button>
-							</div>
-							<div id="step3" style="display:none">
-								<div class="mui--text-subhead" id="selfvideo" style="display:none"> <b> Self Video </b> </div>
-								<div class="selfVideoContainer" id="selfVideoContainer"></div>
-								<div class="mui--text-subhead" id="remotevideo" style="display:none"> <b> Remote Video </b> </div>
-								<div class="remoteVideoContainers" id="remoteVideoContainers"></div>
-								<button class="mui-btn mui-btn--raised mui-btn--danger end">End Conversation</button>
-							</div>
-							<div id="step4" class="step4" style="display: none">
-								<button class="mui-btn mui-btn--raised mui-btn--accent restart">Restart Sample</button>
-							</div>
-							<div class="mui-divider"></div>
-							<div class="notification-bar">
-								<br/>
-								<div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div class="participant self">
+			<h2>Self participant</h2>
+			<div class="video"></div>
+			<div class="displayName"><strong>Name:</strong> <span class="detail"></span></div>
+		</div>
+
+		<div class="participant remote">
+			<h2>Remote participant</h2>
+			<div class="video"></div>
+			<div class="displayName"><strong>Name:</strong> <span class="detail"></span></div>
 		</div>
 	</div>
 
-    <script src="config.js"></script>
-    <script type="text/javascript" src="//swx.cdn.skype.com/shared/v/1.2.30/SkypeBootstrap.min.js"></script>
-    <script src="framework.js"></script>
+	<script type="text/javascript" src="//swx.cdn.skype.com/shared/v/1.2.30/SkypeBootstrap.min.js"></script>
 	<script src="index.js"></script>
 </body>
 

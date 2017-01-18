@@ -1,31 +1,50 @@
 /* These styles are intended for local hosting only  */
-html, body {
+html, body, form {
   margin: 0;
-  padding: 0 2%;
-  height: 98%;
-  font-family: "Segoe UI Light", "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-  font-weight: lighter;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.center-content > .notification3 > .notification3-message {
-  min-height: 1.3em;
+.controls {
+  width: 100%;
+  height: 100px;
+  background-color: lightgray;
+  padding: 10px;
+  border-bottom: 1px solid black;
 }
 
-pre {
-    background-color: #eee;
-    font-size: 14px;
-    padding: 10px;
-    margin: 0 0 20px 0;
-    border: 0;
-    white-space: pre-wrap;
+.controls h1 {
+  font-size: 20px;
 }
 
-/* header styles */
-.header {
-  margin: 2% 0;
+.step0, .step1, .step2, .step3 {
+  display: none;
 }
 
-.header img {
-  width: 30%;
+.participant {
+  margin: 20px 20px 0 0;
+  width: 400px;
+  height: 300px;
+  background-color: lightyellow;
+  display: none; 
 }
-/* end of header styles */
+
+.participant h2 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+.participant .video {
+  width: 100%;
+  height: 200px;
+  background-color: yellow;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.participant.remote {
+  background-color: lightgreen;
+}
+
+.participant.remote .video {
+  background-color: green;
+}
