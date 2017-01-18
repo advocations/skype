@@ -8,7 +8,7 @@
 You must have the API for Preview Features (“enablePreviewFeatures”) set to the default of “false” (disabled) as a condition to the license to use this general availability version of the Skype for Business App SDK.   
 
 ##Supported Server versions - Preview Use for development and testing
-- Skype for Business App SDK can be used with Skype for Business Server 2015 RTM - CU3 with the enablepreviewfeatures flag for development and testing.  
+- Skype for Business App SDK can be used with Skype for Business Server 2015 CU3 with the enablepreviewfeatures flag for development and testing.  
 - Skype for Business App SDK can be used with Skype for Business Online with the enablepreviewfeatures flag for development and testing. 
   - Please read Preview use License Terms for Skype for Business App SDK. Link to Preview license in MSDN
 
