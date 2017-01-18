@@ -12,12 +12,13 @@ You must have the API for Preview Features (“enablePreviewFeatures”) set to 
 - Skype for Business App SDK can be used with Skype for Business Online with the enablepreviewfeatures flag for development and testing. 
   - Please read Preview use License Terms for Skype for Business App SDK. Link to Preview license in MSDN
 
-[!Note]You may enable the API for Preview Features (set to “true”) only in the Preview Version of the Skype for Business App SDK available subject to the software license terms for such preview version, which are different from the software license terms for this general availability version.   Note that such preview version software license terms include limitations on development and testing of applications only for pilot or evaluation purposes and not for commercial distribution, with distribution to not more than 100 users. 
+[!Note]
+You may enable the API for Preview Features (set to “true”) only in the Preview Version of the Skype for Business App SDK available subject to the software license terms for such preview version, which are different from the software license terms for this general availability version.   Note that such preview version software license terms include limitations on development and testing of applications only for pilot or evaluation purposes and not for commercial distribution, with distribution to not more than 100 users. 
 
 ##MPEG LA distribution license
 
 - H.264 AVC Video License Required. The code licensed as “Distributable Code” in this SDK uses H.264 AVC video, which requires that you obtain a distribution license from MPEG LA.  You must not distribute any application that includes this Distributable Code and is capable of rendering local or remote video until you obtain this video license.  Go to [http://www.mpegla.com](http://www.mpegla.com) to obtain such license.
 
-##Download SDK packages (Download.md)
+##[Download SDK packages](Download.md)
 
 
