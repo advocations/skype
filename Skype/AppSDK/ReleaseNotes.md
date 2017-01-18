@@ -2,7 +2,7 @@
 
 ##Supported Server versions - Production Use
 - Skype for Business App SDK must be used with [Skype for Business Server 2015 Cumulative Update 4 – November 2016 Release](https://www.microsoft.com/en-us/download/details.aspx?id=47690) or later for Production apps
-  -  Please read Production Use [Terms of service](TermsOfService.md)  for Skype for Business App SDK.
+  -  Please read [Production Use License Terms](TermsOfService.md)  for Skype for Business App SDK.
 
 >[!Note]
 You must have the API for Preview Features (“enablePreviewFeatures”) set to the default of “false” (disabled) as a condition to the license to use this general availability version of the Skype for Business App SDK.   
