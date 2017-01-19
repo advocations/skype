@@ -13,7 +13,7 @@
         listeners = [],
         listeningForIncoming = false,
         callButton = <HTMLInputElement>content.querySelector('.call'),
-        // listenButton = <HTMLInputElement>content.querySelector('.incoming'),
+        listenButton = <HTMLInputElement>content.querySelector('.incoming'),
         step = 1, // Keep track of what UI section to dislpay
         ccNumber = 1;
 
@@ -117,8 +117,8 @@
             return;
 
         listeningForIncoming = true;
-        // listenButton.disabled = true;
-        // listenButton.innerHTML= 'Listening...';
+        listenButton.disabled = true;
+        //listenButton.innerHTML= 'Listening...';
 
         // Render incoming call with Conversation control
         listeners.push(app.conversationsManager.conversations.added((conv) => {
@@ -198,6 +198,16 @@
                     window.framework.addNotification('info', 'Conversation disconnected');
                     checkRestart();
                 }
+            }));
+
+            listeners.push(conv.selfParticipant.video.state.when('Notified', () => {
+                window.framework.addNotification('success', 'Video notified');
+                conv.videoService.accept();
+            }));
+
+            listeners.push(conv.selfParticipant.audio.state.when('Notified', () => {
+                window.framework.addNotification('success', 'Audio notified');
+                conv.audioService.accept();
             }));
 
             window.framework.addNotification('success', 'Control Created');
@@ -294,5 +304,5 @@
 
     window.framework.registerNavigation(reset);
     window.framework.addEventListener(callButton, 'click', startOutgoingCall);
-    // window.framework.addEventListener(listenButton, 'click', listenForIncoming);
+    window.framework.addEventListener(listenButton, 'click', listenForIncoming);
 })();
