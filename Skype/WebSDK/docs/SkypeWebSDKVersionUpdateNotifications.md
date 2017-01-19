@@ -1,5 +1,25 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 1/18/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.78.19 | 1/18/17 | 1.77.8
+| Skype Web SDK Preview    | 0.4.394 | 1/18/17 | 0.4.385
+| Conversation Control Production | unchanged  | 1/18/17 | 1.72.36 
+| Skype Web SDK Production| 0.4.385 | 1/18/17 | 0.4.374 |
+
+The latest preview release includes improvements to AV call reliability, and
+fixes a rare case where the application can be spontaneously signed out.
+
+**Bugs fixed in the new public preview build:**
+
+- There should not be a missed call notification when call answered on SFB
+- IE group call - Remote video just keeps spinning
+- Ensure we stream own video when joining a video meeting
+
+---
+
 ## Skype Web SDK Version Update 1/10/17
 
 | Product        | New Version           | Last Updated  |Previous Version
