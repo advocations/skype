@@ -19,26 +19,24 @@ After the conversation and audio modality are established we can begin communica
 
   ```js
     var conversationsManager = application.conversationsManager;
-    var id = content.querySelector('.id').value;
-    var id2 = content.querySelector('.id2').value;
     conversation = conversationsManager.createConversation();
 
-    listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
-        listeners.push(conversation.participants.added(function (person) {
-            listeners.push(person.audio.state.when('Connected', function () {
+    conversation.selfParticipant.audio.state.when('Connected', function () {
+        conversation.participants.added(function (person) {
+            person.audio.state.when('Connected', function () {
 				// Conversation established
-            }));
-        }));
-    }));
+            });
+        });
+    });
 
-    listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+    conversation.state.changed(function (newValue, reason, oldValue) {
         if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
             // Conversation ended
         }
-    }));
+    });
 
-    conversation.participants.add(id);
-    conversation.participants.add(id2);
+    conversation.participants.add('sip:xxx');
+    conversation.participants.add('sip:yyy');
     conversation.audioService.start().then(null, function (error) {
         // handle error
     });
@@ -47,12 +45,12 @@ After the conversation and audio modality are established we can begin communica
 2. **Advanced**: Track remote participant audio mute state
 
     ```js
-    listeners.push(person.audio.isMuted.when(true, function () {
+    person.audio.isMuted.when(true, function () {
         // person.displayName() muted their audio
-    }));
-    listeners.push(person.audio.isMuted.when(false, function () {
+    });
+    person.audio.isMuted.when(false, function () {
        // person.displayName() unmuted their audio
-    }));
+    });
   ```
 
 3. End the conversation

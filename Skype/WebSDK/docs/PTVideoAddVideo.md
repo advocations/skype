@@ -4,6 +4,8 @@
 
  _**Applies to:** Skype for Business 2015_
 
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
+
 ## Adding Video to an Audio Conversation
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.  After creation of the conversation object it is helpful to setup a few event listeners for when we are connected to audio, added participants, and when we disconnect from the conversation.  We can use the audioService on the conversation object and call start() to initate the call and send an invitation.
@@ -17,52 +19,51 @@ After the conversation and audio/video modality are established we can begin com
 
 1. Initiate an audio conversation with a person 
 
-  ```js
-    var id = content.querySelector('.id').value;
+    ```js
     var conversationsManager = application.conversationsManager;
-    conversation = conversationsManager.getConversation(id);
-    listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
+
+    conversation = conversationsManager.getConversation('sip:xxx');
+
+    conversation.selfParticipant.audio.state.when('Connected', function () {
         // Connected to Audio
-    }));
-    listeners.push(conversation.participants.added(function (person) {
+    });
+    conversation.participants.added(function (person) {
         // person.displayName() has joined the conversation
-    }));
-    listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+    });
+    conversation.state.changed(function (newValue, reason, oldValue) {
         if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
             // conversation ended
         }
-    }));
+    });
     conversation.audioService.start().then(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 2. Add Video
 
-  ```js
-    function setupContainer(person, size, videoDiv) {
-        person.video.channels(0).stream.source.sink.format('Stretch');
-        person.video.channels(0).stream.source.sink.container(videoDiv);
-    }
-    listeners.push(conversation.selfParticipant.video.state.when('Connected', function () {
+    ```js
+    conversation.selfParticipant.video.state.when('Connected', function () {
         // set up self video container
-        setupContainer(conversation.selfParticipant, 'small', content.querySelector('.selfVideoContainer'));
+        conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
         // connected to video
-    }));
-    listeners.push(conversation.participants.added(function (person) {
-        listeners.push(person.video.state.when('Connected', function () {
+    });
+    conversation.participants.added(function (person) {
+        person.video.state.when('Connected', function () {
             // set up remote video container
-            setupContainer(person, 'large', content.querySelector('.remoteVideoContainer'));
-        }));
-    }));
+            person.video.channels(0).stream.source.sink.format('Stretch');
+            person.video.channels(0).stream.source.sink.container(/* DOM node */);
+        });
+    });
     conversation.videoService.start(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 3. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
         // conversation ended
     }, function (error) {
@@ -70,4 +71,4 @@ After the conversation and audio/video modality are established we can begin com
     }).then(function () {
         // clean up operations
     });
-  ```
+    ```

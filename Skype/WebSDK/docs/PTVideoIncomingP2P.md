@@ -4,6 +4,8 @@
 
  _**Applies to:** Skype for Business 2015_
 
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
+
 ## Receiving a video invitation
 
 The application object exposes a conversationsManager object that exposes a conversations collection which we can attach an event listener for added to be notified when new invitations for conversations arrive.  When a conversation is added we can add an event listener for when the videoService object accept command is enabled which means that this conversation would be for video.  We also should listen for when participants are connected to video and when we disconnect from the conversation.
@@ -18,51 +20,49 @@ After the conversation and video modality are established we can begin communica
 
 1. Listen for incoming video invitation, and accept/reject it based on user response 
 
-  ```js
+    ```js
     var conversationsManager = application.conversationsManager;
-    listeners.push(conversationsManager.conversations.added(function (conv) {
-        conversation = conv;
-        function setupContainer(person, size, videoDiv) {
-            person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(videoDiv);
-        }
-        listeners.push(conversation.videoService.accept.enabled.when(true, function () {
-            // showModal('Accept incoming video invitation?');
-            if (USER_ACCEPT_INCOMING_VIDEO) {
+    conversationsManager.conversations.added(function (conversation) {
+        conversation.videoService.accept.enabled.when(true, function () {
+            if (showModal('Accept incoming video invitation?')) {
                 conversation.videoService.accept();
-                listeners.push(conversation.participants.added(function (person) {
+
+                conversation.participants.added(function (person) {
                     // person.displayName() has joined the conversation
-                    listeners.push(person.video.state.when('Connected', function () {
+                    person.video.state.when('Connected', function () {
                         // set up remote video container
-                        setupContainer(person, 'large', content.querySelector('.remoteVideoContainer'));
-                    }));
-                }));
+                        person.video.channels(0).stream.source.sink.format('Stretch');
+                        person.video.channels(0).stream.source.sink.container(/* DOM node */);
+                    });
+                });
             }
             else {
                 conversation.videoService.reject();
             }
-        }));
+        });
 
-        listeners.push(conversation.selfParticipant.video.state.when('Connected', function () {
+        conversation.selfParticipant.video.state.when('Connected', function () {
             // set up remote video container
-            setupContainer(conversation.selfParticipant, 'small', content.querySelector('.selfVideoContainer'));
-        }));
+            conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+            conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
+        });
 
-        listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+        conversation.state.changed(function (newValue, reason, oldValue) {
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                 // conversation ended
             }
-        }));
-  ```
+        });
+    });
+    ```
 
 2. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
-        // conversation ended
+    // conversation ended
     }, function (error) {
-        // handle error
+    // handle error
     }).then(function () {
-        // clean up operations
+    // clean up operations
     });
-  ```
+    ```
