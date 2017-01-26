@@ -122,6 +122,49 @@
 #### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
+###    [Trusted Application API Overview](ucap/Trusted_Application_API/Overview.md)
+#### [Enabling communications services for the cloud](ucap/Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
+
+#####  [Key Scenarios](ucap/Trusted_Application_API/keyscenarios.md)
+#####  [Key programming concepts](ucap/Trusted_Application_API/NewConcepts.md)
+######  [Webhooks (Events)](ucap/Trusted_Application_API/Webhooks.md)
+
+#####  [Key terms](ucap/Trusted_Application_API/KeyTerms.md)
+#####  [Trusted Application API permissions](ucap/Trusted_Application_API/Application_Permissions.md)
+
+
+
+#####  [Developing Trusted Application API applications for Skype for Business Online](ucap/Trusted_Application_API/DevelopingApplicationsforSFBOnline.md)
+###### [Registration in Azure Active Directory](ucap/Trusted_Application_API/RegistrationInAzureActiveDirectory.md)
+###### [Azure Active Directory - Service to Service calls using Client Credentials](ucap/Trusted_Application_API/AADS2S.md)
+###### [Tenant Admin Consent](ucap/Trusted_Application_API/TenantAdminConsent.md)
+###### [Set up a Trusted Application Endpoint](ucap/Trusted_Application_API/TrustedApplicationEndpoint.md)
+###### [Registering a Trusted Application in Skype for Business Online](ucap/Trusted_Application_API/SfBRegistration.md)
+###### [Discovery for Service Applications](ucap/Trusted_Application_API/DiscoveryForServiceApplications.md)
+###### [Authentication and Authorization](ucap/Trusted_Application_API/AuthenticationAndAuthorization.md)
+
+
+######  [Trusted Application API PSTN communication](ucap/Trusted_Application_API/PSTN.md)
+
+######  [Notifications: Service Application initiated chat conversations](ucap/Trusted_Application_API/ApplicationCallFlow.md)
+####### [Simple messaging call flow](ucap/Trusted_Application_API/MessagingCallFlow.md)
+
+######  [Customer Care: Client initiated chat conversations](ucap/Trusted_Application_API/CustomerChatCallFlow.md)
+
+####### [Bootstrap chat widget](ucap/Trusted_Application_API/BootstrapChatWidget.md)
+####### [Discovery by chat client](ucap/Trusted_Application_API/DiscoveryChatClient.md)
+####### [Cross Origin Requests (CORS) from browser based chat clients](ucap/Trusted_Application_API/CORChatClient.md)
+####### [Customer Care: Anonymous Chat call flow](ucap/Trusted_Application_API/CallFlow1.md)
+####### [Implementing a Chat Client with the Skype Web SDK](ucap/Trusted_Application_API/ImplementingChatClientWithSkypeWebSDK.md)
+
+###### [Anonymous Meeting Join](ucap/Trusted_Application_API/AnonymousMeetingJoin.md)
+####### [Anonymous Meeting Scheduling](ucap/Trusted_Application_API/AnonymousMeetingSchedule.md)
+####### [Implementing an Anonymous Client with the Skype **Web** SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeWebSDK.md)
+####### [Implementing an Anonymous Client with the Skype **App** SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Anonymous Meeting Join Common Errors](ucap/Trusted_Application_API/AnonymousMeetingCommonErrors.md)
+
+#### [Trusted Application API reference](ucap/Trusted_Application_API/ReferenceLibrary.md)
+
 
 ### [Unified Communications Web API (UCWA)](UCWA/UnifiedCommunicationsWebAPI2_0.md)
 #### [UCWA 2.0 general reference](UCWA/UCWA2_0GeneralReference.md)
