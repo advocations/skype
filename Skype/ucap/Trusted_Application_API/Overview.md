@@ -45,7 +45,7 @@ To show the power of the Trusted Application API, it may also be used for the fo
 
 ## Additional Background for Developers
 
-Learning how to use the Trusted Application API is simpler if you are familiar with RESTful programming concepts and real-time communications with Skype for Business.  The following topics give you the information you need to get familiar with these API concepts. 
+Learning how to use the Trusted Application API is simpler if you are familiar with RESTful programming concepts and real-time communications with Skype for Business.  The following topics give you the information you need to get familiar with these API concepts.
 
 - [The Unified Communications Web API (UCWA)](https://ucwa.skype.com)
 - [Key programming concepts - UCWA](https://ucwa.skype.com/documentation/key-programming-concepts)
