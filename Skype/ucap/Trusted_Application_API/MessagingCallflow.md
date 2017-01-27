@@ -186,7 +186,7 @@ The call flow is as follows:
     "status": "Success",
     "_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
     ```
-![call flow](./images/MessagingCallFlowsAppSendsMessage2.jpg)
+![call flow](./images/MessagingCallFlowsAppsendsmessage2.jpg)
 
 ## SFB online user terminates the conversation
  
