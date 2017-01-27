@@ -156,8 +156,8 @@
 
 ###### [Anonymous Meeting Join](ucap/Trusted_Application_API/AnonymousMeetingJoin.md)
 ####### [Anonymous Meeting Scheduling](ucap/Trusted_Application_API/AnonymousMeetingSchedule.md)
-####### [Implementing an Anonymous Client with the Skype **Web** SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeWebSDK.md)
-####### [Implementing an Anonymous Client with the Skype **App** SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Implementing an Anonymous Client with the Skype Web SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeWebSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK](ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeAppSDK.md)
 ####### [Anonymous Meeting Join Common Errors](ucap/Trusted_Application_API/AnonymousMeetingCommonErrors.md)
 
 #### [Trusted Application API reference](ucap/Trusted_Application_API/ReferenceLibrary.md)
