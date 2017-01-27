@@ -7,7 +7,7 @@ The popular browsers implement the cross origin resource sharing (CORS) spec def
  
 The Trusted Application API requires the list of websites from which the browser based chat clients can send cross origin requests. This list of web origins are sent to Trusted Application as a request parameter **allowedOrigins** when requesting the Anonymous Applications Token. The web origins value can be a semicolon separated list.
  
-The following example creates an anonymous application token by sending a POST request to **ms:rtc:saas:anonApplicationTokens**
+The following example creates an anonymous application token by sending a POST request to [**ms:rtc:saas:anonApplicationTokens**](http://trustedapplicationapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationTokens.html)
  
 ```http
 Post /platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com
@@ -20,11 +20,7 @@ Content-Length : 143
     "allowedOrigins": "https://contoso.com"
 }
 ``` 
- 
-http://trustedapplicationapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationTokens.html
-http://trustedapplicationapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationToken.html
- 
- 
+  
 When the chat client later uses this token from one of the websites mentioned in the **allowedOrigins** request parameter, the Trusted Application API will respond with the required CORS headers.
  
 ## Next step
