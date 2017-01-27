@@ -130,7 +130,7 @@ The call flow is as follows:
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/3?endpointId=sip:helpdesk@contoso.com"}                   
     "status": "Success","_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
     ```
-![call flow](./images/MessagingCallFlowsAppSendsmessage1.jpg)
+![call flow](./images/MessagingCallFlowsAppSendsMessage1.jpg)
 
 ## SFB online user sends a html message
 
