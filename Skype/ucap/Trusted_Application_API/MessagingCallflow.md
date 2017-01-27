@@ -6,7 +6,7 @@ the actions of the users at either end of the conversation. The callflow in this
 messaging conversation rather than a well defined sequence of steps after initializing and getting capabilities.
 
 
-The call flow is as follows -
+The call flow is as follows:
 
 ## Initialize the API
    
