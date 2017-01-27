@@ -122,7 +122,7 @@
 #### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
-###    [Trusted Application API Overview](ucap/Trusted_Application_API/Overview.md)
+### [Trusted Application API Overview](ucap/Trusted_Application_API/Overview.md)
 #### [Enabling communications services for the cloud](ucap/Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
 
 #####  [Key Scenarios](ucap/Trusted_Application_API/keyscenarios.md)
@@ -132,8 +132,6 @@
 #####  [Key terms](ucap/Trusted_Application_API/KeyTerms.md)
 #####  [Trusted Application API permissions](ucap/Trusted_Application_API/Application_Permissions.md)
 
-
-
 #####  [Developing Trusted Application API applications for Skype for Business Online](ucap/Trusted_Application_API/DevelopingApplicationsforSFBOnline.md)
 ###### [Registration in Azure Active Directory](ucap/Trusted_Application_API/RegistrationInAzureActiveDirectory.md)
 ###### [Azure Active Directory - Service to Service calls using Client Credentials](ucap/Trusted_Application_API/AADS2S.md)
@@ -142,7 +140,6 @@
 ###### [Registering a Trusted Application in Skype for Business Online](ucap/Trusted_Application_API/SfBRegistration.md)
 ###### [Discovery for Service Applications](ucap/Trusted_Application_API/DiscoveryForServiceApplications.md)
 ###### [Authentication and Authorization](ucap/Trusted_Application_API/AuthenticationAndAuthorization.md)
-
 
 ######  [Trusted Application API PSTN communication](ucap/Trusted_Application_API/PSTN.md)
 
@@ -164,7 +161,6 @@
 ####### [Anonymous Meeting Join Common Errors](ucap/Trusted_Application_API/AnonymousMeetingCommonErrors.md)
 
 #### [Trusted Application API reference](ucap/Trusted_Application_API/ReferenceLibrary.md)
-
 
 ### [Unified Communications Web API (UCWA)](UCWA/UnifiedCommunicationsWebAPI2_0.md)
 #### [UCWA 2.0 general reference](UCWA/UCWA2_0GeneralReference.md)
