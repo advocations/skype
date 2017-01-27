@@ -25,7 +25,7 @@ The call flow is as follows:
     
 1. **Get the capabilities**
        
-   a. We send a GET request with Trusted Applications API link received from the previous discovery Request.
+   a. We send a **GET** request with Trusted Applications API link received from the previous discovery Request.
     **This GET request must be authenticated with a valid OAuth token.**
     
     ```
@@ -34,7 +34,7 @@ The call flow is as follows:
      
     >Note: A request without a valid OAuth token will return '401 Unauthorized response'.
 
-   b. Capabilities GET Request with a valid OAuth token.
+   b. Capabilities **GET** Request with a valid OAuth token.
     ```
     https://ring2noammeetings.resources.lync.com/platformService/v1/applications
     Authorization: Bearer XXXX
@@ -53,7 +53,7 @@ The call flow is as follows:
 
 1. **The Service Application (SA) sends a messaging invitation --> Trusted Application API forwards it --> SfB online User**
 
-   a. Message invitation - We send POST request using SFB Online user's sip URI. Also, specifying operation ID to track this conversation and custom callback url for this conversation
+   a. Message invitation - We send **POST** request using SFB Online user's sip URI. Also, specifying operation ID to track this conversation and custom callback url for this conversation
     ```
     Post /platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com
     {"operationId":"1000",
