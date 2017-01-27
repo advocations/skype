@@ -14,5 +14,5 @@ Skype for Business App SDK Release Candidate Update - Release Notes
 
 ## Download SDK 
 
-We provide native libraries for the Android and iOS mobile platforms. The [Download SDK packages](Download.md) article gives you links to the mobile platforms that we support. Am SDK package includes the native libraries, supporting help files,
+We provide native libraries for the Android and iOS mobile platforms. The [Download SDK packages](Download.md) article gives you links to the mobile platforms that we support. An SDK package includes the native libraries, supporting help files,
  and licensing agreements.
