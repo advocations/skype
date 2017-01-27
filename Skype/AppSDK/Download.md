@@ -7,7 +7,7 @@ The SDK libraries for the iOS and Android SDKs can be downloaded from the **Micr
 - [iOS](http://aka.ms/sfbAppSDKDownload_ios)
 - [Android](http://aka.ms/sfbAppSDKDownload_android) 
 
-## Additional information
+## Important information
 
 ### Release notes
 
