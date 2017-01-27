@@ -2,9 +2,8 @@
 
 Thank you for your interest in Skype for Business developer documentation!
 
-## Unified Communications Applications Platform (UCAP) documentation
-The markdown documents in this repository project are the source of the UCAP documentation available to the TAP program
-now and upon public preview release, the Microsoft developer site at msdn.microsoft.com/skype.
+## Trusted Application API documentation
+The markdown documents in this repository project are the source of the Trusted Application API documentation available to the public preview release, the Microsoft developer site at msdn.microsoft.com/skype.
 ## Create a pull request to contribute your changes back into master
 Pull requests are the way to move changes from a topic branch back into the master branch.
 
