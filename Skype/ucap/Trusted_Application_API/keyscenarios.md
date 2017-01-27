@@ -9,10 +9,10 @@ In general, Trusted Application scenarios can be grouped into 2 main categories:
 
 ## Common Scenarios:
 
-Notifications
+- Notifications
 
-Customer Care: Anonymous Customer Web Chat with an Agent
+- Customer Care: Anonymous Customer Web Chat with an Agent
 
-Remote Advisor: Anonymous Meeting Join
+- Remote Advisor: Anonymous Meeting Join
 
-Voice Scenarios: Custom IVR
+- Voice Scenarios: Custom IVR
