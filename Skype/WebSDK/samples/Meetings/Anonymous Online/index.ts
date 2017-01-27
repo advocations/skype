@@ -234,16 +234,6 @@
     window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
     window.framework.addEventListener(content.querySelector('.getToken'), 'click', getToken);
 
-    function guid() {
-        function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-        }
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-            s4() + '-' + s4() + s4() + s4();
-    }
-
     function getToken() {
         window.framework.showNotificationBar();
         if (!(<HTMLInputElement>content.querySelector('.meeting_url')).value) {
@@ -276,7 +266,7 @@
             }
         };
 
-        var data = "ApplicationSessionId=" + guid() +
+        var data = "ApplicationSessionId=" + window.framework.utils.guid() +
             "&AllowedOrigins=" + encodeURIComponent(allowedOrigins) +
             "&MeetingUrl=" + encodeURIComponent(meetingUrl);
 
