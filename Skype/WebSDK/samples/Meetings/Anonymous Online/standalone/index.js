@@ -37,7 +37,18 @@
         evt.preventDefault();
         console.log('Fetching auth token from meeting url:', meetingUrl);
 
-        data = 'ApplicationSessionId=AnonMeeting2' +
+        function guid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                s4() + '-' + s4() + s4() + s4();
+        }
+
+        var sessionId = guid();
+        data = 'ApplicationSessionId=' + sessionId +
             '&AllowedOrigins=' + encodeURIComponent(window.location.href) +
             '&MeetingUrl=' + encodeURIComponent(meetingUrl);
 
