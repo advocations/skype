@@ -10,7 +10,7 @@ The call flow is as follows:
 
 ## Initialize the API
    
- 1. **Discovery**
+1. **Discovery**
     
     a. The Service Application also known as SaaS application(SA) discovers the location of the Trusted Application API (API).
     
@@ -23,7 +23,7 @@ The call flow is as follows:
     200 OK, "ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}    
     ```
     
-1. **Get the capabilities**
+2. **Get the capabilities**
        
    a. We send a **GET** request with Trusted Applications API link received from the previous discovery Request.
     **This GET request must be authenticated with a valid OAuth token.**
@@ -74,7 +74,7 @@ The call flow is as follows:
     ```
     > Note: SFB online user can be using any client (sip, mobile, web client, etc.)
  
-1. **SFB online user joins the conversation**
+2. **SFB online user joins the conversation**
 
    a. The Trusted Application API informs the Service Application (SA) via a **callback** that SFB online user has joined the conversation.
     
@@ -110,7 +110,7 @@ The call flow is as follows:
     /v1/applications/1627259584/communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/typing?endpointId=sip:helpdesk@contoso.com
     ```
     
-1. The Service Application send message to the Trusted Application API in the conversation, setting an operationid for context. Further, the Trusted Application API forwards it to the SFB online user.
+2. The Service Application send message to the Trusted Application API in the conversation, setting an operationid for context. Further, the Trusted Application API forwards it to the SFB online user.
 
    a. POST send message request
     ```
@@ -148,7 +148,7 @@ The call flow is as follows:
     "type": "added"
     ```
  
-1. The Trusted Application API sends a message sent state change to the Service Application via **callback** indicating the participant has sent a message, and the message body itself.
+2. The Trusted Application API sends a message sent state change to the Service Application via **callback** indicating the participant has sent a message, and the message body itself.
    - CallBack 
  
     ```
@@ -169,7 +169,7 @@ The call flow is as follows:
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/typing?endpointId=sip:helpdesk@contoso.com
     ```
 
-1.  The Service Application(SA) sends the message in the conversation, setting an **operationid** for the context to the Trusted Application API, which forwards it to the SFB online user.
+2.  The Service Application(SA) sends the message in the conversation, setting an **operationid** for the context to the Trusted Application API, which forwards it to the SFB online user.
     b. Send message POST request
     ```
     Post /platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
