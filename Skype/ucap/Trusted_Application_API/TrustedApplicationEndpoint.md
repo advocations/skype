@@ -16,34 +16,34 @@ More information about PowerShell cmdlets usage can be found in [Using Windows P
 - **New-CsOnlineApplicationEndpoint** - It creates a new application endpoint.
 
 
-| | Parameters     | Required | Type   | Description                                       |
-|-| ---------------|:---------|:------:| -------------------------------------------------:|
-| | Name           | Required | String | Friendly name for Application endpoint.            |
-| | ApplicationId  | Required | Guid   | Unique application Id that this endpoint will use. |
-| | Uri            | Required | String |    The SipUri for the Endpoint. |
-| | CallbackUri    | Required | String |    The Callback Uri.             |
-| | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
+ | Parameters     | Required | Type   | Description                                       |
+ | ---------------|:---------|:------:| -------------------------------------------------:|
+ | Name           | Required | String | Friendly name for Application endpoint.            |
+ | ApplicationId  | Required | Guid   | Unique application Id that this endpoint will use. |
+ | Uri            | Required | String |    The SipUri for the Endpoint. |
+ | CallbackUri    | Required | String |    The Callback Uri.             |
+ | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
  
 - **Get-CsOnlineApplicationEndpoint** - It is used to fetch the application endpoints for the tenants.
 
-| | Parameters     | Required | Type   | Description                                       |
-|-| ---------------|:---------|:------:| -------------------------------------------------:|
-| | Uri           | Required | String | The SipUri for the Endpoint.        |
+ | Parameters     | Required | Type   | Description                                       |
+ | ---------------|:---------|:------:| -------------------------------------------------:|
+ | Uri           | Required | String | The SipUri for the Endpoint.        |
 
 - **Set-CsOnlineApplicationEndpoint** - It is used to update the application endpoint.
 
-| | Parameters     | Required | Type   | Description                                       |
-|-| ---------------|:---------|:------:| -------------------------------------------------:|
-| | Uri            | Required | String | The SipUri for the Endpoint.        |
-| | CallbackUri    | Optional | String | The Callback Uri.         |
-| | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
+ | Parameters     | Required | Type   | Description                                       |
+ | ---------------|:---------|:------:| -------------------------------------------------:|
+ | Uri            | Required | String | The SipUri for the Endpoint.        |
+ | CallbackUri    | Optional | String | The Callback Uri.         |
+ | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
 - **Remove-CsOnlineApplicationEndpoint** - It is used to remove the application endpoint.
 
-| | Parameters     | Required | Type   | Description                                       |
-|-| ---------------|:---------|:------:| -------------------------------------------------:|
-| | Uri            | Required | String | The SipUri for the Endpoint.        |
+ | Parameters     | Required | Type   | Description                                       |
+ | ---------------|:---------|:------:| -------------------------------------------------:|
+ | Uri            | Required | String | The SipUri for the Endpoint.        |
 
 >Note: For PSTN, Assign the **service numbers** to the trusted application endpoint using _New-CsOnlineApplicationEndpoint PhoneNumber_ parameter. PhoneNumber is not required.
  
