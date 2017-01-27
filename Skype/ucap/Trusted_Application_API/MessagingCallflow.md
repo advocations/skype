@@ -177,7 +177,7 @@ The call flow is as follows:
     Content-Type : text/html; charset=utf-8 Content-Length : 55 
     <html><p>Message 2 from <i>1</i> to <b>2</b></p></html>
      ```
-    c. The Service Application is informed via a **callback**  that the message was successfully delivered .
+3. The Service Application is informed via a **callback**  that the message was successfully delivered .
     
     ```
     Post https://litware.com/callback
@@ -186,7 +186,7 @@ The call flow is as follows:
     "status": "Success",
     "_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
     ```
-![call flow](./images/MessagingCallFlowsAppSendsmessage2.jpg)
+![call flow](./images/MessagingCallFlowsAppSendsMessage2.jpg)
 
 ## SFB online user terminates the conversation
  
