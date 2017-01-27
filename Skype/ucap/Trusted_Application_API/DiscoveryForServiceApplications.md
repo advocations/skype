@@ -11,7 +11,7 @@ This discover request does not need authentication.
 
  
 
-Example:
+## Example
 
 Running a `GET` request on **https://noammeetings.resources.lync.com/platformservice/discover** returns a json response with the following link. The link is the starting point for all operations by Service Applications on the API
 
