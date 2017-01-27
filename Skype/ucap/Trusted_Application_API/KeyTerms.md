@@ -1,6 +1,6 @@
 # Definition of Key Terms
 
- ## Platform Service
+## Platform Service
  
 The Skype for Business Platform Service is a web services layer built on top of the core Skype for Business infrastructure and is exposed to developers in the form of 'user' and 'application' APIs. 
  
@@ -8,12 +8,12 @@ The User API is known as the Unified Communication Web (UCWA) API. It allows dev
  
 The Trusted Application API allows developers to build Service Applications (SA) that drive scenarios such as **Customer care**, **Smart virtual agents**, **Business process automation**, **Communication extensions** and more.
  
- ##  The Trusted Application API Library Reference Documentation
+##  The Trusted Application API Library Reference Documentation
  
  [Trusted Application API](Trusted_Application_API_GeneralReference.md)
  
    
- ##  Trusted Application Endpoint
+##  Trusted Application Endpoint
  
  A Trusted Application API Endpoint is a specific instance of a 3rd party application running in the context of a single tenant.  Registration of a Trusted Application API Endpoint is the responsibility of a Tenant Administrator. When registering an endpoint, a Tenant Admin must assign the following values:
  
