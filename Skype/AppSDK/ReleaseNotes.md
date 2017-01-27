@@ -1,4 +1,5 @@
-# Skype for Business App SDK Release Candidate Update - Release Notes 
+# Release Notes
+Skype for Business App SDK Release Candidate Update - Release Notes
 
 ## Release Notes
 - Mute State - The local participants mute state and API to change the it are exposed on the AudioService.
@@ -13,4 +14,5 @@
 
 ## Download SDK 
 
-We provide native libraries for the Android and iOS mobile platforms. To [Download SDK packages](Download.md)
+We provide native libraries for the Android and iOS mobile platforms. The [Download SDK packages](Download.md) article gives you links to the mobile platforms that we support. Am SDK package includes the native libraries, supporting help files,
+ and licensing agreements.
