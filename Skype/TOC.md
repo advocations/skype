@@ -117,9 +117,10 @@
 ##### [API Overview](AppSDK/APIoverview.md)
 ##### [Platform considerations](AppSDK/PlatformConsiderations.md)
 ##### [Versioning](AppSDK/Versioning.md)
+#### [Release Notes](AppSDK/ReleaseNotes.md)
 #### [Download](AppSDK/Download.md)
 #### [Samples](AppSDK/Samples.md)
-#### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
+##### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
 
