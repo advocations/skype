@@ -11,7 +11,7 @@ client-request-id : ResExp/fb793a9d-78b4-4c21-a2e5-c7a9482b0140
 Origin : http://contoso.com
 ```
  
-200 OK
+**200 OK**
  
 ```JSON 
 {
