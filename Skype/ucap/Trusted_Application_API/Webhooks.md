@@ -5,7 +5,6 @@ But for Service applications (SA), the way to get events from the Trusted Applic
  
 The event structure, syntax is similar to the UCWA event structure.
  
- 
 1. When a tenant specific application endpoint is registered with Skype for Business (sfb) Online, a default web hook callback url is registered for the SA, which can be unique for that tenant application endpoint.
   For example:
   If litware.com was the SA developer, a tenant application endpoint for IM modality for contoso tenant can be `helpdesk@contoso.com`, and can have a default url as `https://litware.com/callback`
@@ -108,7 +107,7 @@ The oauth token would have values like the following, and will be signed by AAD.
 * **tid** is the tenant id for contoso
 * **iss** is the token issuer, which is AAD's url
  
-The listener interface on the url can validate the oauth token, checking whether AAD indeed issued and signed the token. We recommend you check whether audience matches your AppID uri before accepting the callback request
+The listener interface on the url can validate the oauth token, checking whether AAD indeed issued and signed the token. We recommend you check whether audience matches your AppID uri before accepting the callback request.
  
 ### Additional information
 
