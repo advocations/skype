@@ -1,6 +1,6 @@
 # Authentication and Authorization
 
- The application does a `GET` on the **ms:rtc:saas:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link
+ The application does a `GET` on the **ms:rtc:saas:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link.
 
 The following snippet is an example of such a GET.
 ```
