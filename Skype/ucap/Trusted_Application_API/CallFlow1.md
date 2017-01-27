@@ -1,7 +1,6 @@
 # Customer Chat care call flow
-
  
-The call flow is as follows -
+The call flow is as follows:
  
 1. The Service Application (SA) discovers the location of the Trusted Application API (API)
 2. The SA gets the capabilities,
@@ -38,6 +37,7 @@ Being familiar with the UCWA concepts greatly simplifies understanding the Trust
  
 The detailed call flow is shown in the diagram below. Each of the capability related APIs, related callbacks are modeled on the UCWA capabilities and callback structure. Please refer to the [UCWA API reference](https://msdn.microsoft.com/en-us/skype/ucwa/ucwa2_0apireference) to get detailed description
 about these  calls.
+
 ## Next step
 The callflow describes the customer care chat scenario from the perspective of a service application. To see how client side logic is implemented, get the [Web SDK chat sample](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK/samples/Chat) or review the following topic.
 - [Implementing a Chat Client with the Skype Web SDK](ImplementingChatClientWithSkypeWebSDK.md)
