@@ -47,17 +47,17 @@ More information about PowerShell cmdlets usage can be found in [Using Windows P
 
 >Note: For PSTN, Assign the **service numbers** to the trusted application endpoint using _New-CsOnlineApplicationEndpoint PhoneNumber_ parameter. PhoneNumber is not required.
  
-## Detailed Explanation of Parameters:
+## Detailed Explanation of Parameters
 
-- **ApplicationId** The Azure ApplicationID/ClientID from the Azure portal registration steps.
+- **ApplicationId**: The Azure ApplicationID/ClientID from the Azure portal registration steps.
 
-- **Name** A friendly name of your application within Skype for Business Online.
+- **Name**: A friendly name of your application within Skype for Business Online.
 
-- **Tenant** The Tenant ID of the tenant where you are registering a trusted application endpoint.
+- **Tenant**: The Tenant ID of the tenant where you are registering a trusted application endpoint.
 
-- **Uri** Sip Uri that identifies the tenant specific endpoint for the application. This must be a unique URI that does not conflict with an existing user in the tenant. Requests sent to this endpoint will trigger the Trusted Application API sending an event to the application, indicating that someone has sent a request. Eg. helpdesk@contoso.com
+- **Uri**: Sip Uri that identifies the tenant specific endpoint for the application. This must be a unique URI that does not conflict with an existing user in the tenant. Requests sent to this endpoint will trigger the Trusted Application API sending an event to the application, indicating that someone has sent a request. Eg. helpdesk@contoso.com
 
-- **CallbackURI** Callback URI for your application.  The Trusted Application API will POST events to this callback.  Please see Events/Webhooks section.
+- **CallbackURI**: Callback URI for your application.  The Trusted Application API will POST events to this callback.  Please see Events/Webhooks section.
  
  
 ### Example
