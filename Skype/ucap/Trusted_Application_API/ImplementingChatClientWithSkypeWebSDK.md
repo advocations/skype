@@ -3,7 +3,6 @@
 An anonymous chat client can be implemented using either UCWA or Web SDK:
  
 - Sign in to the Web SDK using the Anonymous Token and Discover URL in your sign-in parameters.
-Anonymous Sign in 
 
 ## A simple chat client implementation
 The following examples show you how to sign an anonymous user into a Skype for Business tenant, get the chat history of a conversation, and then send a message.
