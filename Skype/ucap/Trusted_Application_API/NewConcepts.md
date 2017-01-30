@@ -1,4 +1,4 @@
-# Key Programming Concepts
+# Key programming concepts
 
 Trusted Application is modelled on the general principles, capabilities, API style, and API concepts of the Skype for Business [Unified Communications Web API (UCWA)](https://ucwa.skype.com). The [UCWA Key Programming Concepts](https://ucwa.skype.com/documentation/key-programming-concepts) gives you 
 detailed information about RESTful programming concepts. You should be familiar with these UCWA concepts to greatly simplify learning the Trusted Application API.
@@ -94,7 +94,7 @@ http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_acceptAndBridge.htm
 
 ## Callback Url:
 
-See here for more details: [Webhooks](./Webhooks.md)
+Callback functionality is implemented using [Webhooks](./Webhooks.md). 
 
 
 ## Audio Video:
@@ -140,5 +140,7 @@ When coding with the Trusted Application , you should keep the following tips in
 
 >Capabilities enabled for a Service Application, depend on the Application Permissions that your Service Application selected for Skype for Business Online in the Azure management portal.
 
- 
+## In this section
+
+- [Webhooks](./Webhooks.md) 
 

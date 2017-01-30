@@ -1,4 +1,4 @@
-# Definition of Key Terms
+# Definition of key terms
 
 ## Platform Service
  

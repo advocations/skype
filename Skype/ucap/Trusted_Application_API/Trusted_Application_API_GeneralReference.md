@@ -44,6 +44,13 @@ For illustration purposes, the Trusted Application API may also be used for the 
 
 ![Architecture](images/Overview_Architecture.png)
 
+## In this section
+
+- [Key scenarios](./keyscenarios.md)
+- [Key programming concepts](./NewConcepts.md)
+- [Definition of key terms](./KeyTerms.md)
+- [Application permissions](./Application_Permissions.md)
+
 ## Additional Background for Developers
  
 Prior knowledge and understanding of the following APIs from the Skype Developer Platform greatly simplifies understanding of the Trusted Application API.
