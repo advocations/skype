@@ -15,7 +15,14 @@ For security and billing reasons, granting an application the permissions to acc
 
 The Trusted Application API allows you to write SFB Online applications that act as a service endpoint and do not require a user context or identity.  The most common scenarios are applications that schedule or manage on-demand meetings like a contact center type application, that can create on demand meetings to handle customer calls and add customer service representatives to the meeting, voice based call answering and routing bots.
 
-**Example solutions:**
+## Trusted Application architecture
+
+The following diagram shows how the Trusted Application API is positioned as a middle tier Software as a Service component in Skype for Business Online. 
+
+![Architecture](images/Overview_Architecture.png)
+
+
+## Example solutions
 
 Attendant console, Customer engagement / Contact Center, Recording, Compliance, Bots, Meeting Management, Click-to-chat, Click-to-call, and Value Add solutions
  
@@ -40,9 +47,6 @@ For illustration purposes, the Trusted Application API may also be used for the 
  
  
 
-## Architecture Diagram
-
-![Architecture](images/Overview_Architecture.png)
 
 ## In this section
 

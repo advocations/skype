@@ -1,4 +1,4 @@
-# Trusted Application API Overview
+# Trusted Application API
 
 The Trusted Application API is a Rest API that enables developers to build Skype for Business Online back-end communications services for the cloud.
 
