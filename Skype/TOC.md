@@ -132,14 +132,14 @@
 #####  [Key terms](ucap/Trusted_Application_API/KeyTerms.md)
 #####  [Trusted Application API permissions](ucap/Trusted_Application_API/Application_Permissions.md)
 
-#####  [Developing Trusted Application API applications for Skype for Business Online](ucap/Trusted_Application_API/DevelopingApplicationsforSFBOnline.md)
-###### [Registration in Azure Active Directory](ucap/Trusted_Application_API/RegistrationInAzureActiveDirectory.md)
-###### [Azure Active Directory - Service to Service calls using Client Credentials](ucap/Trusted_Application_API/AADS2S.md)
-###### [Tenant Admin Consent](ucap/Trusted_Application_API/TenantAdminConsent.md)
-###### [Set up a Trusted Application Endpoint](ucap/Trusted_Application_API/TrustedApplicationEndpoint.md)
-###### [Registering a Trusted Application in Skype for Business Online](ucap/Trusted_Application_API/SfBRegistration.md)
-###### [Discovery for Service Applications](ucap/Trusted_Application_API/DiscoveryForServiceApplications.md)
-###### [Authentication and Authorization](ucap/Trusted_Application_API/AuthenticationAndAuthorization.md)
+####  [Developing Trusted Application API applications for Skype for Business Online](ucap/Trusted_Application_API/DevelopingApplicationsforSFBOnline.md)
+##### [Registration in Azure Active Directory](ucap/Trusted_Application_API/RegistrationInAzureActiveDirectory.md)
+##### [Azure Active Directory - Service to Service calls using Client Credentials](ucap/Trusted_Application_API/AADS2S.md)
+##### [Tenant Admin Consent](ucap/Trusted_Application_API/TenantAdminConsent.md)
+##### [Set up a Trusted Application Endpoint](ucap/Trusted_Application_API/TrustedApplicationEndpoint.md)
+##### [Registering a Trusted Application in Skype for Business Online](ucap/Trusted_Application_API/SfBRegistration.md)
+##### [Discovery for Service Applications](ucap/Trusted_Application_API/DiscoveryForServiceApplications.md)
+##### [Authentication and Authorization](ucap/Trusted_Application_API/AuthenticationAndAuthorization.md)
 
 ######  [Trusted Application API PSTN communication](ucap/Trusted_Application_API/PSTN.md)
 

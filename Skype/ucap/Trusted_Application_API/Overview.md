@@ -10,18 +10,18 @@ Key use cases for the Trusted Application API include:
 
 - Write SFB Online applications as service endpoints that don't need need a user context or identity. Common service endpoint scenarios include: 
 
-  - Schedule or manage on-demand meetings like a contact center application.
-  - Create on demand meetings to handle customer calls and add customer service representatives to the meeting.
-  - Voice based call answering and routing bots.
-  - Business-to-consumer Remote Advisor functionality like Telehealth appointments or Banking consults
-  
-- Attendant console
-- Recording
-- Compliance
-- Meeting Management
-- Click-to-chat
-- Click-to-call
-- Value Add solutions
+  - **Meeting Management:** 
+     - Schedule or manage on-demand meetings like a contact center application.
+     - Create on demand meetings to handle customer calls and add customer service representatives to the meeting.
+  - **Attendant console:** 
+     - Voice based call answering and routing bots.
+  - **Value Add solutions:**
+     - Business-to-consumer Remote Advisor functionality like Telehealth appointments or Banking consults
+     - Recording
+     - Compliance
+  - **Customer care:**
+     - Click-to-chat
+     - Click-to-call
 
 Other such applications include but are not limited to:
  
@@ -42,6 +42,10 @@ To show the power of the Trusted Application API, it may also be used for the fo
   - Coaching scenarios and broadcasting in a conference.
 - Pop or insert calls in a call pit.
 - Use large amounts of computation-intensive real time resources for Voice/Video playback, recording, speech synthesis or recognition.
+
+## In this section
+
+- [Enabling communications services for the cloud](ucap/Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
 
 ## Additional Background for Developers
 
