@@ -45,7 +45,7 @@ To show the power of the Trusted Application API, it may also be used for the fo
 
 ## In this section
 
-- [Enabling communications services for the cloud](ucap/Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
+- [Enabling communications services for the cloud](./Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
 
 ## Additional Background for Developers
 
