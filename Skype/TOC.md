@@ -122,7 +122,7 @@
 #### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
-### [Trusted Application API Overview](ucap/Trusted_Application_API/Overview.md)
+### [Trusted Application API](ucap/Trusted_Application_API/Overview.md)
 #### [Enabling communications services for the cloud](ucap/Trusted_Application_API/Trusted_Application_API_GeneralReference.md)
 
 #####  [Key Scenarios](ucap/Trusted_Application_API/keyscenarios.md)
