@@ -10,7 +10,7 @@ This discover request does not need authentication.
 
 ## An example
 
-Running a `GET` request on **https://noammeetings.resources.lync.com/platformservice/discover** returns a json response that contains a link to the starting point for all operations by Service Applications on the API
+Running a `GET` request on **https://noammeetings.resources.lync.com/platformservice/discover** returns a json response that contains a link to the starting point for all operations by Service Applications on the API.
 
 For example: 
 
