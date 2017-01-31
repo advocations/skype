@@ -4,12 +4,12 @@ The Trusted Application API is our vision of an extensible Skype for Business On
 
 Built on the Skype for Business Online Platform, the Trusted Application API lets a developer build immersive, smart, and interactive communication experiences and trusted services.
 
-## From on-premise to online service
+## Evolution from on-premise server API to online service API
 
 The Trusted Application API marks an evolution of the on-premises Unified Communications Managed API (UCMA) middle tier platform to a normalized and service-oriented architecture. Fundamentally, the core Platform Service that exposes the Trusted Application API shares the same compute and storage resources across multiple applications, tenants, and domains. It helps reduce operational costs and makes scaling easier as demand grows. At the same time, it guarantees to its service consumers and end users that communication resources and tenant/domain-specific application data are properly isolated to mitigate any security risks that would stem from untrusted tenants and applications.
  
 ## Authentication and security
- 
+
 The Skype for Business Online Platform Service exposes Trusted Application RESTful APIs that require both:
  
 - Domain-level authorization by System or Tenant Administrators to be exercised,
@@ -21,7 +21,10 @@ The Trusted Application API allows you to write SFB Online applications that act
 
 ## Trusted Application architecture
 
-The following diagram shows how the Trusted Application API is positioned as a middle tier Software as a Service component in Skype for Business Online. 
+The following diagram shows how the Trusted Application API is positioned as a middle tier Software as a Service component in Skype for Business Online. A 3rd party Service App can
+add value to an enterprise Skype for Business solution by providing a simple RESTful interface between a mobile client and the Trusted Application endpoint. For example, a Service App helper
+method can handle authentication token fetching and discovery services for a mobile client. It can call Trusted Application APIs to create new meetings and then return meeting join Urls to 
+mobile clients that will join the meetings.
 
 ![Architecture](images/Overview_Architecture.png)
 
