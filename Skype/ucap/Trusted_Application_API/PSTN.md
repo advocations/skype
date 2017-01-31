@@ -83,7 +83,7 @@ The application specifies either the **to** input property (the address of the t
 
 ### Inbound callflow
 
-![PublicCallFlowInbound](images/PublicCallFlow-inbound.jpg)
+![PublicCallFlowInbound](images/PublicCallFlow-Inbound.jpg)
 
 ### Outbound callflow
 
