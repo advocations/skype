@@ -16,13 +16,13 @@ cases when the application can become spontaneously signed out.
 
 **Bugs fixed in the new public preview build:**
 
- - Not able to restart video in a 3 user call escalated from IM -> Audio -> video
+ - Not able to restart video in a 3 user call escalated from IM -> audio -> video
  - Black self video is seen on Mac when we turn video off and on in a P2P video call
  - Set participant.audio.isSpeaking in WebRTC meetings
  - No toast/notification when a participant adds audio to a group IM conversation
  - Disconnect call sound always comes in conversation control after user accepts a
    video invitation
- - Adding video to IM fails on IE (Call from IE to Edge)
+ - Adding video to IM fails on IE (Call from IE to Microsoft Edge)
  - Settings.logHttp now enables a console warning when Property.set is invoked twice 
    concurrently
  - Manually set videoStream._isFlowing to account for auto-unloading of plugin in Safari
