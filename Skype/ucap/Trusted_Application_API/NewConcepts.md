@@ -9,7 +9,7 @@ This topic introduces the following new Trusted Application API concepts:
 ## Discovery for Service Applications
 
 The discovery flow that Service Applications (SA) built on the Trusted Application API use is different from the UCWA autodiscover flow. A Service Application uses a standard URL for discovery - **https://noammeetings.resources.lync.com/platformservice/discover**.
-A GET on this url returns a **ms:rtc:saas:applications** resource, which is the starting point for the Service Application scenarios.
+A GET on this url returns a **ms:rtc:saas:applications(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_applications.html)** resource, which is the starting point for the Service Application scenarios.
 
 You can learn more about the Trusted Application API discovery flow at [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
@@ -17,14 +17,14 @@ You can learn more about the Trusted Application API discovery flow at [Discover
 
 Anonymous clients follow a different discovery flow. The anonymous client discovery flow starts when the client requests a discovery link from an SA. The SA requests the link using the Trusted Application API. The API response is returned to the client as an [**ms:rtc:saas:discover**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html) link. 
 
-The anonymous client issues a GET on the discovery link and an **anonApplications** resource is returned. This resource is the starting point for all anonymous clients scenarios.
+The anonymous client issues a GET on the discovery link and an **[anonApplications](http://trustedappapi.azurewebsites.net/Resources/anonApplications.html)** resource is returned. This resource is the starting point for all anonymous clients scenarios.
 
 You can get the details of how an SA gets the  anonApplications resource from the API: [Discovery by chat client](./DiscoveryChatClient.md)
 
 
 
 ## Anonymous Application Tokens:
-An SA gets an Anonymous Applications Token and a discover link (**ms:rtc:saas:discover**) and shares these objects with an anonymous client so that the client can send chat invitations and messages.
+An SA gets an Anonymous Applications Token and a discover link ([**ms:rtc:saas:discover**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)) and shares these objects with an anonymous client so that the client can send chat invitations and messages.
 The anonymous client uses the following pattern to send messages:
 
 1. Follows the discover link supplied by the SA.
@@ -36,7 +36,7 @@ The anonymous client uses the following pattern to send messages:
 
 ## Adhoc Meeting:
 
-An adhoc meeting is also known as an "on demand meeting". It is a temporarily generated meeting with a limited expiration.  You can create an adhoc meeting by a POST on **ms:rtc:saas:adhocMeetings**. 
+An adhoc meeting is also known as an "on demand meeting". It is a temporarily generated meeting with a limited expiration.  You can create an adhoc meeting by a POST on [**ms:rtc:saas:adhocMeetings**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_adhocMeetings.html). 
 The [**ms:rtc:saas:adhocMeetings**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_adhocMeetings.html) resource is returned when you do a GET on the url returned after the Discovery step.
 
 Default expiration time: 8 hours.  
@@ -44,9 +44,9 @@ Default expiration time: 8 hours.
 
 ## Start Adhoc Meeting:
 
-When a SA wants to create an adhoc (aka on demand) meeting and join it as a trusted participant who has full access to all info pertaining to the meeting, it can POST on this resource [ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html. This avoids a two-step process of creating and then joining a meeting.
+When a SA wants to create an adhoc (aka on demand) meeting and join it as a trusted participant who has full access to all info pertaining to the meeting, it can POST on this resource [**ms:rtc:saas:adhocMeetings**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_adhocMeetings.html). This avoids a two-step process of creating and then joining a meeting.
 
-This link is available on the ms:rtc:saas:messagingInvitation event to allow creating and joining an adhoc meeting, and later bridging the messaging leg into a conference.
+This link is available on the [**ms:rtc:saas:messagingInvitation**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_messagingInvitation.html) event to allow creating and joining an adhoc meeting, and later bridging the messaging leg into a conference.
 
 
 
@@ -102,19 +102,19 @@ service application. Trusted Application API allows the application to interact 
 When an application accepts incoming audio video call or makes outbound calls, it must specify **mediaHost** as "Remote"
 in the HTTP input body to access Trusted Application API IVR capability. 
 
-The **ms:rtc:saas:audiovideo** resource implements the signaling connection with the remote participant for the audio video call. The actual audio and video media is exchanged on an instance of **ms:rtc:saas:audioVideoFlow**, which is created at the time call is established.
-The **ms:rtc:startAudioVideo** allows the application to create a new conversation with the specified contact with audio/video modality.
+The **[ms:rtc:saas:audiovideo](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideo.html)** resource implements the signaling connection with the remote participant for the audio video call. The actual audio and video media is exchanged on an instance of **ms:rtc:saas:audioVideoFlow(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)**, which is created at the time call is established.
+The **[ms:rtc:startAudioVideo]()**TODO allows the application to create a new conversation with the specified contact with audio/video modality.
 
 ## Audio Video Flow:
 
-Audio Video flow is the media connection between an SA endpoint and a remote participant. The **ms:rtc:saas:audioVideoFlow** resource exposes the media capabilities and 
-plays a pre-recorded prompt **ms:rtc:saas:playPrompt** or recognize an incoming DTMF or tone events **ms:rtc:saas:tone**. 
+Audio Video flow is the media connection between an SA endpoint and a remote participant. The **ms:rtc:saas:audioVideoFlow(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)** resource exposes the media capabilities and 
+plays a pre-recorded prompt **[ms:rtc:saas:playPrompt](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_playPrompt.html)** or recognize an incoming DTMF or tone events **[ms:rtc:saas:tone](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_tone.html)**. 
 These operation capabilities are made available to the application only after a successful media negotiation, 
 when the state of the flow is **Connected**.
 
 ## Transfer Audio Video Call:
 
-**ms:rtc:saas:transfer** is the capability to transfer an ongoing audio video call. Trusted Application API supports both attended
+**[ms:rtc:saas:transfer](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_transfer.html)** is the capability to transfer an ongoing audio video call. Trusted Application API supports both attended
 transfer and supervised transfer. For the attended and supervised transfer concept please refer to 
 [UCMA documentation](https://msdn.microsoft.com/en-us/library/office/hh347347.aspx). The application needs to specify either the "to" input property 
 (the address of the transfer target) or the "replacesCallContext" input property (the call to be replaced as the result of the transfer) in the transfer request body, 
