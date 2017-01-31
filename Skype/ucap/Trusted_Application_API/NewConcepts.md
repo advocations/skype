@@ -8,7 +8,7 @@ This topic introduces the following new Trusted Application API concepts:
 
 ## Discovery for Service Applications
 
-The discovery flow that Service Applications (SA) built on the Trusted Application API use is different from the UCWA autodiscover flow. A Service Application uses a standard URL for discovery - **https://noammeetings.resources.lync.com/platformservice/discover**.
+The discovery flow that Service Applications (SA) built on the Trusted Application API use is different from the UCWA autodiscover flow. A Service Application uses a standard URL for discovery - https://noammeetings.resources.lync.com/platformservice/discover.
 A GET on this url returns a **[ms:rtc:saas:applications](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_applications.html)** resource, which is the starting point for the Service Application scenarios.
 
 You can learn more about the Trusted Application API discovery flow at [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
