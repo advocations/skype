@@ -48,6 +48,6 @@ The following topics expand on the customer chat scenario callflows.
 - [Bootstrap chat widget](BootstrapChatWidget.md)
 - [Discovery by chat client](DiscoveryChatClient.md)
 - [Cross Origin Requests from browser based chat clients](CORChatClient.md)
-- [Customer Chat care call flow](CallFlow1.md)
+- [Customer Chat care call flow](ChatCallflowDetail.md)
 - [Implementing a Chat Client with the Skype Web SDK](ImplementingChatClientWithSkypeWebSDK.md)
  

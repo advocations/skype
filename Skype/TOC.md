@@ -151,7 +151,7 @@
 ####### [Bootstrap chat widget](ucap/Trusted_Application_API/BootstrapChatWidget.md)
 ####### [Discovery by chat client](ucap/Trusted_Application_API/DiscoveryChatClient.md)
 ####### [Cross Origin Requests (CORS) from browser based chat clients](ucap/Trusted_Application_API/CORChatClient.md)
-####### [Customer Care: Anonymous Chat call flow](ucap/Trusted_Application_API/CallFlow1.md)
+####### [Customer Care: Anonymous Chat call flow](ucap/Trusted_Application_API/ChatCallflowDetail.md)
 ####### [Implementing a Chat Client with the Skype Web SDK](ucap/Trusted_Application_API/ImplementingChatClientWithSkypeWebSDK.md)
 
 ###### [Anonymous Meeting Join](ucap/Trusted_Application_API/AnonymousMeetingJoin.md)
