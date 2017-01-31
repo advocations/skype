@@ -9,7 +9,7 @@ This topic introduces the following new Trusted Application API concepts:
 ## Discovery for Service Applications
 
 The discovery flow that Service Applications (SA) built on the Trusted Application API use is different from the UCWA autodiscover flow. A Service Application uses a standard URL for discovery - **https://noammeetings.resources.lync.com/platformservice/discover**.
-A GET on this url returns a **ms:rtc:saas:applications(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_applications.html)** resource, which is the starting point for the Service Application scenarios.
+A GET on this url returns a **[ms:rtc:saas:applications](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_applications.html)** resource, which is the starting point for the Service Application scenarios.
 
 You can learn more about the Trusted Application API discovery flow at [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
@@ -102,12 +102,12 @@ service application. Trusted Application API allows the application to interact 
 When an application accepts incoming audio video call or makes outbound calls, it must specify **mediaHost** as "Remote"
 in the HTTP input body to access Trusted Application API IVR capability. 
 
-The **[ms:rtc:saas:audiovideo](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideo.html)** resource implements the signaling connection with the remote participant for the audio video call. The actual audio and video media is exchanged on an instance of **ms:rtc:saas:audioVideoFlow(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)**, which is created at the time call is established.
+The **[ms:rtc:saas:audiovideo](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideo.html)** resource implements the signaling connection with the remote participant for the audio video call. The actual audio and video media is exchanged on an instance of **[ms:rtc:saas:audioVideoFlow](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)**, which is created at the time call is established.
 The **[ms:rtc:saas:startAudioVideo](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAudioVideo.html)** allows the application to create a new conversation with the specified contact with audio/video modality.
 
 ## Audio Video Flow:
 
-Audio Video flow is the media connection between an SA endpoint and a remote participant. The **ms:rtc:saas:audioVideoFlow(http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)** resource exposes the media capabilities and 
+Audio Video flow is the media connection between an SA endpoint and a remote participant. The **[ms:rtc:saas:audioVideoFlow](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html)** resource exposes the media capabilities and 
 plays a pre-recorded prompt **[ms:rtc:saas:playPrompt](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_playPrompt.html)** or recognize an incoming DTMF or tone events **[ms:rtc:saas:tone](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_tone.html)**. 
 These operation capabilities are made available to the application only after a successful media negotiation, 
 when the state of the flow is **Connected**.
