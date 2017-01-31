@@ -62,9 +62,10 @@ Whenever the API raises a web hook event, the API gets an oauth token from AAD, 
 The SA is expected to validate this token before accepting the callback request
  
  
-`Post https://litware.com/calback/customContext=xxx`
+```
+Post https://litware.com/calback/customContext=xxx
  
-```HTTP
+HTTP
 X-MS-Correlation-Id : 3953004368
 client-request-id : e9168689-37ac-472e-b02a-c9977c8023a0
 Authorization : Bearer XXX
@@ -75,8 +76,7 @@ Content-Length : 6797
 {
     "_links": {
         "self": {
-…
-…
+        
 ```
  
 The oauth token would have values like the following, and will be signed by AAD.
