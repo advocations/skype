@@ -3,8 +3,12 @@
 The Trusted Application API is our vision of an extensible Skype for Business Online Cloud that meets your demand for powerful, back-end features.  The API aims to provide developer opportunities similar to Skype for Business Server's Unified Communications Managed API (UCMA)...in the cloud. The API enables a cloud-first approach and additional powerful features that aren't available to on-premises Skype for Business Server customers through UCMA.
 
 Built on the Skype for Business Online Platform, the Trusted Application API lets a developer build immersive, smart, and interactive communication experiences and trusted services.
- 
+
+## From on-premise to online service
+
 The Trusted Application API marks an evolution of the on-premises Unified Communications Managed API (UCMA) middle tier platform to a normalized and service-oriented architecture. Fundamentally, the core Platform Service that exposes the Trusted Application API shares the same compute and storage resources across multiple applications, tenants, and domains. It helps reduce operational costs and makes scaling easier as demand grows. At the same time, it guarantees to its service consumers and end users that communication resources and tenant/domain-specific application data are properly isolated to mitigate any security risks that would stem from untrusted tenants and applications.
+ 
+## Authentication and security
  
 The Skype for Business Online Platform Service exposes Trusted Application RESTful APIs that require both:
  
