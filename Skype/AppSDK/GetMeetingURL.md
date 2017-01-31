@@ -34,12 +34,13 @@ days so that you don't need to get a new meeting URL whenever you are testing yo
 ## In production
  
  To create new meetings on demand and send the new meeting URL to your mobile app, you'll 
- write a UCWA-based server application that makes server-to-server REST calls into a **Skype for Business** server
+ write a Trusted Application API-based server application that makes server-to-server REST calls into a **Skype for Business** server
  to create a meeting and get the meeting URL. You will need to write a client-side feature to
  communicate with your server application to initiate this transaction and get the
- returned meeting URL.
+ returned meeting URL. See [Implementing a Anonymous Client with the Skype App SDK](../ucap/Trusted_Application_API/ImplementingAnonymousClientWithSkypeAppSDK.md) to learn about adding client side features to an 
+ Android or iOS mobile device application.
  
- See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA and obtaining a "joinUrl".
+ See [Anonymous Meeting Scheduling](../ucap/Trusted_Application_API/AnonymousMeetingSchedule.md) to learn about scheduling a meeting using the Trusted Application API and obtaining a "joinUrl".
  
  
 ## Use the meeting URL in your app
