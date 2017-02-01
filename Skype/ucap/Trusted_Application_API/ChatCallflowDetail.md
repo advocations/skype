@@ -5,11 +5,16 @@ The call flow is as follows:
 1. The Service Application (SA) discovers the location of the Trusted Application API (API)
 2. The SA gets the capabilities,
 3. SA uses anonApplicationTokens resource to get a token and a **[ms:rtc:saas:discover](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)** link that can be shared with the anonymous chat client
+    
+    ![UCAP initiated callflow](images/UCAP Anon P2P_1.jpg)
+
 4. The chat client uses the **[ms:rtc:saas:discover](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)** link to get the anonApplications resource, which can be used to establish a ucwa session with the Trusted Application API
 5. The chat client establishes a ucwa session with the API and uses the token got from step 3, to authenticate itself.
 6. The chat client sends a messaging invitation to the helpdesk uri: sip:helpdesk@contoso.com
 7. The API sends a callback to the SA on receiving this messaging invitation, along with a link called  **[ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html)**, another called **[ms:rtc:saas:acceptAndBridge](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_acceptAndBridge.html)**.
- 
+   
+   ![UCAP initiated callflow](images/UCAP Anon P2P_2.jpg)
+
 8. SA sees that it received a support request and spins up an on demand meeting, using the link in the resource **[ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html)**. SA receives a callback event with conversation state as conferenced, along with an **[ms:rtc:saas:addParticipant](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_addParticipant.html)** link. This link is used to add participants to the meeting.
 9. SA then uses the **[ms:rtc:saas:acceptAndBridge](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_acceptAndBridge.html)** capability to bridge the incoming messaging invitation into the on demand meeting that it just created.
 10. SA receives a callback : **[ms:rtc:saas:conversationBridge](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_conversationBridge.html)** added event, meaning a new conversation bridge has been created. Calling a GET on this resource shows you another resource, which can be used to get or add bridge participants :**[ms:rtc:saas:bridgedParticipants](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_bridgedParticipants.html)**.
@@ -18,6 +23,9 @@ The call flow is as follows:
 12. The SA does a POST on the **[ms:rtc:saas:sendMessage](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_sendMessage.html)** token link with a welcome text and gets callbacks informing that the message has been successfully sent.
 13. The chat client receives the message in its event channel
 14. SA then proceeds to add one or more participants to the meeting, using POST on the link of the resource : **[ms:rtc:saas:addParticipant](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_addParticipant.html)**, got in step 8. These participants are the customer service representatives that will answer the chat support request, and are SFB online users.
+
+   ![UCAP initiated callflow](images/UCAP Anon P2P_3.jpg)
+
 15. The SA gets a callback when the SFB Online user joined the IM meeting.
 16. If the SFB Online user is sending an "Is Typing" notification, it will be conveyed to the chat client on its event channel
 17. SFB online user sends a message, it will be conveyed to the chat client on its event channel
@@ -26,7 +34,7 @@ The call flow is as follows:
 20. The chat client now closes the conversation
 21. API sends a callback to the SA, indicating the conversation has been deleted.
 22. The SA then sends a request to terminate the conference conversation with the Trusted Application API
- 
+   ![UCAP initiated callflow](images/UCAP Anon P2P_4.jpg)
  
 The way the API informs the SA of any event is via the callback url. In order for the SA to keep context when starting a new invitation or message, an operation id can be passed in. This id will be sent back in the callback event.
  
