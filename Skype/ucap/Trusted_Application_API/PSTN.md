@@ -37,21 +37,21 @@ Trusted Application supports interactive voice response (IVR) capability, where 
 
 The six Trusted Application resources described in this section give your app access to the A/V flow of a call.
 
-- **ms:rtc:saas:audiovideo** resource implements the signaling connection with the remote participant for the audio video call. 
+- [**ms:rtc:saas:audiovideo**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideo.html) resource implements the signaling connection with the remote participant for the audio video call. 
 
-- **ms:rtc:saas:audioVideoFlow** encapsulates the actual audio and video media of the call. It is exchanged on an instance of this resource. The resource is created at the time call is established.
+- [**ms:rtc:saas:audioVideoFlow**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html) encapsulates the actual audio and video media of the call. It is exchanged on an instance of this resource. The resource is created at the time call is established.
 
-- **ms:rtc:startAudioVideo**  allows the application to create a new conversation with the specified contact with audio/video modality.
+- [**ms:rtc:saas:startAudioVideo**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAudioVideo.html)  allows the application to create a new conversation with the specified contact with audio/video modality.
 
-- **ms:rtc:saas:audioVideoFlow** exposes media capabilities
-- **ms:rtc:saas:playPrompt** is a pre-recorded prompt which can be played.
-- **ms:rtc:saas:tone** is recognized an incoming DTMF or tone events. 
+- [**ms:rtc:saas:audioVideoFlow**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html) exposes media capabilities
+- [**ms:rtc:saas:playPrompt**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_playPrompt.html) is a pre-recorded prompt which can be played.
+- [**ms:rtc:saas:tone**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_tone.html) is recognized an incoming DTMF or tone events. 
 
 >Note: These operation capabilities are made available to the application only after a successful media negotiation, upon which the state of the flow will be Connected.
  
 ### Audio video call transfer support
 
-The **ms:rtc:saas:transfer** resource provides the capability to transfer the ongoing audio video call. Trusted Application supports **Attended Transfer** and **Supervised Transfer**. For more details please refer UCMA documentation: [Transferring a Call (UCMA 4.0 Core SDK)](https://msdn.microsoft.com/en-us/library/dn465979.aspx) .
+The [**ms:rtc:saas:transfer**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_transfer.html) resource provides the capability to transfer the ongoing audio video call. Trusted Application supports **Attended Transfer** and **Supervised Transfer**. For more details please refer UCMA documentation: [Transferring a Call (UCMA 4.0 Core SDK)](https://msdn.microsoft.com/en-us/library/dn465979.aspx) .
 
 The application specifies either the **to** input property (the address of the transfer target) or the **replacesCallContext** input property (the call to be replaced because of a transfer) in the transfer request body, to indicate whether this is an attended transfer request or supervised transfer request.
 			
@@ -83,7 +83,7 @@ The application specifies either the **to** input property (the address of the t
 
 ### Inbound callflow
 
-![PublicCallFlowInbound](images/PublicCallFlow-inbound.jpg)
+![PublicCallFlowInbound](images/PublicCallFlow-Inbound.jpg)
 
 ### Outbound callflow
 
