@@ -42,4 +42,4 @@ about these  calls.
 The callflow describes the customer care chat scenario from the perspective of a service application. To see how client side logic is implemented, get the [Web SDK chat sample](https://github.com/OfficeDev/skype-docs/tree/master/Skype/WebSDK/samples/Chat) or review the following topic.
 - [Implementing a Chat Client with the Skype Web SDK](ImplementingChatClientWithSkypeWebSDK.md)
 
-![UCAP initiated callflow](images/CallFlow1image001.png) 
+![Trusted Application API initiated callflow](images/CallFlow1image001.png) 
