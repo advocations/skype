@@ -524,3 +524,14 @@ select {
 	     -o-transition:0.3s ease all;
 	        transition:0.3s ease all;
 }
+
+.selfIcon {
+  margin: 2px;
+  font-size: 12px;
+}
+
+.selfvideo {
+  border-bottom: 1px rgba(0,0,0,.12);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
