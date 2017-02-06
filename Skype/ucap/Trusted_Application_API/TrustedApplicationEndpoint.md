@@ -21,7 +21,6 @@ More information about PowerShell cmdlets usage can be found in [Using Windows P
  | Name           | Required | String | Friendly name for Application endpoint.            |
  | ApplicationId  | Required | Guid   | Unique application Id that this endpoint will use. |
  | Uri            | Required | String |    The SipUri for the Endpoint. |
- | CallbackUri    | Required | String |    The Callback Uri.             |
  | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
  
@@ -36,7 +35,6 @@ More information about PowerShell cmdlets usage can be found in [Using Windows P
  | Parameters     | Required | Type   | Description                                       |
  | ---------------|:---------|:------:| -------------------------------------------------:|
  | Uri            | Required | String | The SipUri for the Endpoint.        |
- | CallbackUri    | Optional | String | The Callback Uri.         |
  | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
 - **Remove-CsOnlineApplicationEndpoint** - It is used to remove the application endpoint.
@@ -57,15 +55,13 @@ More information about PowerShell cmdlets usage can be found in [Using Windows P
 
 - **Uri**: Sip Uri that identifies the tenant specific endpoint for the application. This must be a unique URI that does not conflict with an existing user in the tenant. Requests sent to this endpoint will trigger the Trusted Application API sending an event to the application, indicating that someone has sent a request. Eg. helpdesk@contoso.com
 
-- **CallbackURI**: Callback URI for your application.  The Trusted Application API will POST events to this callback.  Please see Events/Webhooks section.
- 
- 
+
 ### Example
 
 The following PowerShell cmdlet creates a new application endpoint.
 
 ```PowerShell
-New-CsOnlineApplicationEndpoint -Uri "sip:sample@domain.com" -ApplicationId "44ff763b-5d1f-40ab-95bf-f31kc8757998" -CallbackUri "https://sampleapp/callback" -Name "SampleApp" -PhoneNumber "19841110909"
+New-CsOnlineApplicationEndpoint -Uri "sip:sample@domain.com" -ApplicationId "44ff763b-5d1f-40ab-95bf-f31kc8757998" -Name "SampleApp" -PhoneNumber "19841110909"
 ```
 
 ### Assigning a Phone Number to a Trusted Endpoint
