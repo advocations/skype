@@ -1,6 +1,15 @@
 # Customer chat care call flow
+
+This callflow consists of the following tasks:
+
+- Discovery and getting anonymous application token
+- Start an ad hoc meeting
+- Bridge Skype for Business Online user into meeting via the messaging modality
+- Agent joins meeting, sends messages, and leaves meeting
+
+
  
-## Call flow 
+## Discovery and getting anonymous application token 
 
 To start chat, the anonymous chat client pings the Service Application (SA), which further communicates with the Trusted Application API as follow: 
 
@@ -59,6 +68,9 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
 
     ![UCAP initiated callflow](images/UCAP Anon P2P_1.jpg)
 
+## Start an ad hoc meeting   
+    
+
 4. The anonymous chat client uses the **[ms:rtc:saas:discover](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)** link to get the anonApplications resource, which can be used to establish a ucwa session with the Trusted Application API
    
    **a. GET request on ms:rtc:saas:discover url to find "anonApplications" token**
@@ -102,6 +114,8 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
     "customContent": "href": "data:foo/foo,ThisIsARandomCustomContent"                              
     ```
    ![UCAP initiated callflow](images/UCAP Anon P2P_2.jpg)
+
+## Bridge Skype for Business Online user into meeting via the messaging modality
 
 8. The Service Application(SA) sees that it has received a support request and spins up an on-demand meeting, using the link in the resource **[ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html)**. 
     **a. Create and join the on-demand (adhoc) meeting**
@@ -191,6 +205,9 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
     **b. Trusted Application API sends join meeting request to the participant**
 
    ![UCAP initiated callflow](images/UCAP Anon P2P_3.jpg)
+
+
+## Agent joins meeting, sends messages, and leaves meeting 
 
 17. The Service Application gets a callback when the SFB Online user joined the IM meeting.
     
