@@ -15,9 +15,6 @@ UCWA or the Trusted Application API. Please refer [Anonymous Meeting Scheduling]
 2. Develop Trusted Application API Service Applications for Skype for Business Online. Please refer [ Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for more details.
 
 ## Sample code walkthrough
-The code in the following sample gets a meeting Url and anonymous token by using a Trusted Application API SaaS as specified in prerequisite 2.
-The sample code walkthrough shows you each step of the walkthrough for the iOS platform and the Android platform. We use the **Swift** language for iOS
-and the **Java** language for Android.
 
 ### 1. Get anonymous meeting URL from your Trusted Application API-based web service
 
@@ -63,7 +60,7 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://imbridge.cloudapp.
 **Android**
 
 
-The following code implements a helper **RESTUtility** and then uses it to make a call on the SaaS to create an ad-hoc meeting
+The following code implements the RESTUtility and then uses it to make a call on the SaaS to create an ad-hoc meeting
 and return meeting join Url. The **onResponse** callback method gets the meeting join Url and calls the **GetAnonymousToken** helper
 method, passing the join Url in the second parameter.
 
@@ -219,63 +216,12 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
 **Android**
 
 ```java
-
-private com.microsoft.office.sfb.appsdk.Application mApplication;
-
-    /**
-     * Connect to an existing Skype for Business meeting with the URI you get
-     * from a server-side UCWA-based web service.
-     */
-    private Conversation startToJoinMeeting(
-            Short onlineMeetingFlag
-            , String discoveryUrl
-            , String authToken
-            , String meetingUrl) {
-        Conversation conversation = null;
-        try {
-
-            mApplication = Application.getInstance(this.getBaseContext());
-            mApplication.getConfigurationManager().enablePreviewFeatures(
-                    PreferenceManager
-                            .getDefaultSharedPreferences(this)
-                            .getBoolean(getString(R.string.enablePreviewFeatures), false));
-            mApplication.getConfigurationManager().setRequireWiFiForAudio(true);
-            mApplication.getConfigurationManager().setRequireWiFiForVideo(true);
-            mApplication.getConfigurationManager().setMaxVideoChannelCount(
-                    Long.parseLong(PreferenceManager
-                            .getDefaultSharedPreferences(this)
-                            .getString(getString(R.string.maxVideoChannels), "5")));
-
-            if (onlineMeetingFlag == 0) {
-                mAnonymousSession = mApplication
-                        .joinMeetingAnonymously(
-                                getString(R.string.userDisplayName)
-                                , new URI(meetingUrl));
-
-            } else {
-                mAnonymousSession = mApplication
+mAnonymousSession = mApplication
                         .joinMeetingAnonymously(
                                 getString(R.string.userDisplayName)
                                 , new URL(discoveryUrl)
                                 , authToken);
-            }
-            conversation = mAnonymousSession.getConversation();
-        } catch (URISyntaxException ex) {
-            ex.printStackTrace();
-            Log.e("SkypeCall", "On premise meeting uri syntax error");
-        } catch (SFBException e) {
-            e.printStackTrace();
-            Log.e("SkypeCall", "exception on start to join meeting");
-        } catch (MalformedURLException e) {
-            Log.e("SkypeCall", "Online meeting url syntax error");
-            e.printStackTrace();
-        } catch (Exception e) {
-            Log.e("SkypeCall", "Exception");
-            e.printStackTrace();
-        }
-        return conversation;
-    }
-
+conversation = mAnonymousSession.getConversation();
 ```
 
 ### Supporting Android sample helper methods
