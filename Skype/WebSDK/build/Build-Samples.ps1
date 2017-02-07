@@ -33,7 +33,7 @@ if ($Online)
 
     # replace target on all links in MD files so that they open in a new tab
     Write-Host "Updating the links in MD files"
-    $mdFiles = Get-ChildItem "..\docs"
+    $mdFiles = Get-ChildItem -path "..\docs" -recurse -Include *.md
     $src = "target=`"`""
     $dest = "target=`"_blank`""
     foreach ($file in $mdFiles)
