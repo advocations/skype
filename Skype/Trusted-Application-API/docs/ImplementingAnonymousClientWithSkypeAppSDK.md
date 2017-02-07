@@ -160,10 +160,8 @@ private void GetAnonymousToken(RESTUtility.SaasAPIInterface apiInterface, String
             Call<GetTokenResult> callforBridge = apiInterface.getAnonymousToken(
                     bridgeRequest);
             callforBridge.enqueue(new Callback<GetTokenResult>() {
-                @SuppressLint("LongLogTag")
                 @Override
                 public void onResponse(Call<GetTokenResult> call, final Response<GetTokenResult> response) {
-                    Log.i("Succeeded in starting chat bridge", "");
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -203,6 +201,7 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
      * @note This method can be called repeatedly at any time. It automatically
      * disconnects any existing meetings.
      **/
+        do {
 
             let session = try sfb.joinMeetingAnonymousWithDiscoverUrl(NSURL(string: meetingUrl.text!)!, authToken: token!, displayName: displayName.text!)
             conversation = session.conversation
