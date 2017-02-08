@@ -46,6 +46,7 @@ To show the power of the **Trusted Application API**, it may also be used for th
 ## In this section
 
 - [Enabling communications services for the cloud](./Trusted_Application_API_GeneralReference.md)
+- [Developing Trusted Application API applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md)
 
 ## Additional Background for Developers
 
