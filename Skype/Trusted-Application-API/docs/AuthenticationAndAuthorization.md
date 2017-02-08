@@ -12,7 +12,7 @@ The client receives a 401 challenge in a response. The client responds to the au
  
 >Note: All endpoints other than the Discovery endpoint require authentication.
 
-Trusted Application API endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
+**Trusted Application API** endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
 
 ## Additional information
 

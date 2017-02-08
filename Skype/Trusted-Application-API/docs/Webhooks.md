@@ -1,14 +1,10 @@
 # Webhooks (Events)
 
 In UCWA, the clients had a pending GET parked on the server, it received any events from the UCWA server.
-But for Service applications (SA), the way to get events from the Trusted Application API is via web hook events.  Webhooks are HTTP callbacks that are usually triggered by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
+But for Service applications (SA), the way to get events from the **Trusted Application API** is via web hook events.  Webhooks are HTTP callbacks that are usually triggered by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
  
 The event structure, syntax is similar to the UCWA event structure.
  
-<<<<<<< HEAD
- 
-=======
->>>>>>> johnau/ucapdocs
 1. When a tenant specific application endpoint is registered with Skype for Business (sfb) Online, a default web hook callback url is registered for the SA, which can be unique for that tenant application endpoint.
   For example:
   If litware.com was the SA developer, a tenant application endpoint for IM modality for contoso tenant can be `helpdesk@contoso.com`, and can have a default url as `https://litware.com/callback`
@@ -17,16 +13,10 @@ The event structure, syntax is similar to the UCWA event structure.
 Using the previous example, if the SA was starting a new messaging invitation to an SFB online user in the contoso tenant, a custom url can be set in the `POST` on **messagingInvitation** request sent to the Trusted App API.
 The API would then raise web hook events on that url for all events related to that conversation.
  
-<<<<<<< HEAD
-`Post /platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com`
-
-```HTTP
-=======
 ```
 Post /platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com
 
 HTTP
->>>>>>> johnau/ucapdocs
 client-request-id : ResExp/ff7c92a5-9349-47e6-93d5-b44351205018
 Content-Type : multipart/related; boundary="805b28b2-04d8-4937-b38e-f4dcab9a4ea8"; type="application/json"
 Content-Length : 290
@@ -72,16 +62,10 @@ Whenever the API raises a web hook event, the API gets an oauth token from AAD, 
 The SA is expected to validate this token before accepting the callback request
  
  
-<<<<<<< HEAD
-`Post https://litware.com/calback/customContext=xxx`
- 
-```HTTP
-=======
 ```
 Post https://litware.com/calback/customContext=xxx
  
 HTTP
->>>>>>> johnau/ucapdocs
 X-MS-Correlation-Id : 3953004368
 client-request-id : e9168689-37ac-472e-b02a-c9977c8023a0
 Authorization : Bearer XXX
@@ -92,12 +76,6 @@ Content-Length : 6797
 {
     "_links": {
         "self": {
-<<<<<<< HEAD
-…
-…
-=======
-        
->>>>>>> johnau/ucapdocs
 ```
  
 The oauth token would have values like the following, and will be signed by AAD.
@@ -129,11 +107,7 @@ The oauth token would have values like the following, and will be signed by AAD.
 * **tid** is the tenant id for contoso
 * **iss** is the token issuer, which is AAD's url
  
-<<<<<<< HEAD
-The listener interface on the url can validate the oauth token, checking whether AAD indeed issued and signed the token. We recommend you check whether audience matches your AppID uri before accepting the callback request
-=======
 The listener interface on the url can validate the oauth token, checking whether AAD indeed issued and signed the token. We recommend you check whether audience matches your AppID uri before accepting the callback request.
->>>>>>> johnau/ucapdocs
  
 ### Additional information
 

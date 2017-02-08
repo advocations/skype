@@ -2,21 +2,12 @@
 
 Browser chat clients will send cross origin requests to endpoints returned to clients in discovery responses.
  
-<<<<<<< HEAD
-The popular browsers implement the cross origin resource sharing (CORS) spec defined at [w3.org](http://www.w3.org/TR/cors/). The spec defines the logic that allows or prohibits responses from UCAP API when those responses cross origins. When a response is allowed, it reachs the javascript client in the browser. Trusted Application (UCAP) API inserts a response header to signal browser CORS logic that the UCAP API accepts cross origin requests from a browser client.
+The popular browsers implement the cross origin resource sharing (CORS) spec defined at [w3.org](http://www.w3.org/TR/cors/). The spec defines the logic that allows or prohibits responses from **Trusted Application API** when those responses cross origins. When a response is allowed, it reachs the javascript client in the browser. **Trusted Application API** inserts a response header to signal browser CORS logic that the **Trusted Application API** accepts cross origin requests from a browser client.
  
  
-The UCAP API requires the list of websites from which the browser based chat clients can send cross origin requests. This list of web origins are sent to UCAP as a request parameter **allowedOrigins** when requesting the Anonymous Applications Token. The web origins value can be a semicolon separated list.
- 
-The following example creates an anonymous application token by sending a POST request to **ms:rtc:saas:anonApplicationTokens**
-=======
-The popular browsers implement the cross origin resource sharing (CORS) spec defined at [w3.org](http://www.w3.org/TR/cors/). The spec defines the logic that allows or prohibits responses from Trusted Application API when those responses cross origins. When a response is allowed, it reachs the javascript client in the browser. Trusted Application API inserts a response header to signal browser CORS logic that the Trusted Application API accepts cross origin requests from a browser client.
- 
- 
-The Trusted Application API requires the list of websites from which the browser based chat clients can send cross origin requests. This list of web origins are sent to Trusted Application as a request parameter **allowedOrigins** when requesting the Anonymous Applications Token. The web origins value can be a semicolon separated list.
+The **Trusted Application API** requires the list of websites from which the browser based chat clients can send cross origin requests. This list of web origins are sent to Trusted Application as a request parameter **allowedOrigins** when requesting the Anonymous Applications Token. The web origins value can be a semicolon separated list.
  
 The following example creates an anonymous application token by sending a POST request to [**ms:rtc:saas:anonApplicationTokens**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationTokens.html)
->>>>>>> johnau/ucapdocs
  
 ```http
 Post /platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com
@@ -29,17 +20,8 @@ Content-Length : 143
     "allowedOrigins": "https://contoso.com"
 }
 ``` 
-<<<<<<< HEAD
- 
-http://trustedapplicationapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationTokens.html
-http://trustedapplicationapi.azurewebsites.net/Resources/ms_rtc_saas_anonApplicationToken.html
- 
- 
-When the chat client later uses this token from one of the websites mentioned in the **allowedOrigins** request parameter, the UCAP API will respond with the required CORS headers.
-=======
   
-When the chat client later uses this token from one of the websites mentioned in the **allowedOrigins** request parameter, the Trusted Application API will respond with the required CORS headers.
->>>>>>> johnau/ucapdocs
+When the chat client later uses this token from one of the websites mentioned in the **allowedOrigins** request parameter, the **Trusted Application API** will respond with the required CORS headers.
  
 ## Next step
 Now that you're familiar with bootstrapping the client, discovering the application endpoint, and CORS support, you should review a complete client chat callflow.

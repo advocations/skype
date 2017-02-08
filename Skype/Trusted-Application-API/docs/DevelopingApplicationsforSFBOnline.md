@@ -1,13 +1,9 @@
 
-# Developing Trusted Application API applications for Skype for Business Online
+# Developing **Trusted Application API** applications for Skype for Business Online
 
-Learn how to develop Trusted Application API service applications.
+Learn how to develop **Trusted Application API** service applications.
 
-<<<<<<< HEAD
-Trusted Application (UCAP) API uses Azure Active Directory (Azure AD) to provide authentication services that your application can use to get the right to access a set of capabilities. To do this, you need to do the following:
-=======
-Trusted Application API uses Azure Active Directory (Azure AD) to provide authentication services that your application can use to get the right to access a set of capabilities. To do this, you need to do the following:
->>>>>>> johnau/ucapdocs
+**Trusted Application API** uses Azure Active Directory (Azure AD) to provide authentication services that your application can use to get the right to access a set of capabilities. To do this, you need to do the following:
 
 ## Getting started
 
@@ -24,18 +20,18 @@ for details.
 
    - Setting up the Trusted application endpoint has few additional steps. Please refer the [Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for more details. 
 
-7. Call the trusted application API. 
+7. Call the **Trusted Application API**. 
 
 ### Auto Discovery
-It is the act of finding the Trusted Application APIs home server using the discovery endpoint. This enables you to 
+It is the act of finding the **Trusted Application API**s home server using the discovery endpoint. This enables you to 
 connect to the API and use the exposed capabilities.
   
 >Note: For **PSTN or Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md). For Chat **Customer care applications**, please refer [Discovery by chat client](./DiscoveryChatClient.md)
 
 ### Authentication using client credentials
 All endpoints other than the Discovery endpoint require authentication.
-Trusted Application API endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
-This grants the permissions to the application  to access the Trusted Application API resource. Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md)
+**Trusted Application API** endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
+This grants the permissions to the application  to access the **Trusted Application API** resource. Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md)
 for more details.
 
 
@@ -51,9 +47,9 @@ for more details.
 
 
  
-The following topics also apply to the Trusted Application API Online service application workflow:
+The following topics also apply to the **Trusted Application API** Online service application workflow:
 
 - [Webhooks (Events)](./Webhooks.md)
 - [Call Flows](./CallFlows.md)
-- [Trusted Application API Reference Library](./ReferenceLibrary.md)
+- [**Trusted Application API** Reference Library](./ReferenceLibrary.md)
  

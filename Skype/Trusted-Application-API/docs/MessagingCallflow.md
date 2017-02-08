@@ -6,21 +6,13 @@ the actions of the users at either end of the conversation. The callflow in this
 messaging conversation rather than a well defined sequence of steps after initializing and getting capabilities.
 
 
-<<<<<<< HEAD
-The call flow is as follows -
-
-## Initialize the API
-   
- 1. **Discovery**
-=======
 The call flow is as follows:
 
 ## Initialize the API
    
 1. **Discovery**
->>>>>>> johnau/ucapdocs
     
-    a. The Service Application also known as SaaS application(SA) discovers the location of the Trusted Application API (API).
+    a. The Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
     
     ```
     GET https://noammeetings.resources.lync.com/platformservice/discover
@@ -31,15 +23,9 @@ The call flow is as follows:
     200 OK, "ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}    
     ```
     
-<<<<<<< HEAD
-1. **Get the capabilities**
-       
-   a. We send a GET request with Trusted Applications API link received from the previous discovery Request.
-=======
 2. **Get the capabilities**
        
    a. We send a **GET** request with Trusted Applications API link received from the previous discovery Request.
->>>>>>> johnau/ucapdocs
     **This GET request must be authenticated with a valid OAuth token.**
     
     ```
@@ -48,11 +34,7 @@ The call flow is as follows:
      
     >Note: A request without a valid OAuth token will return '401 Unauthorized response'.
 
-<<<<<<< HEAD
-   b. Capabilities GET Request with a valid OAuth token.
-=======
    b. Capabilities **GET** Request with a valid OAuth token.
->>>>>>> johnau/ucapdocs
     ```
     https://ring2noammeetings.resources.lync.com/platformService/v1/applications
     Authorization: Bearer XXXX
@@ -69,13 +51,9 @@ The call flow is as follows:
     
 ## The Service Application (SA) starts messaging to the SfB online User
 
-1. **The Service Application (SA) sends a messaging invitation --> Trusted Application API forwards it --> SfB online User**
+1. **The Service Application (SA) sends a messaging invitation --> **Trusted Application API** forwards it --> SfB online User**
 
-<<<<<<< HEAD
-   a. Message invitation - We send POST request using SFB Online user's sip URI. Also, specifying operation ID to track this conversation and custom callback url for this conversation
-=======
    a. Message invitation - We send **POST** request using SFB Online user's sip URI. Also, specifying operation ID to track this conversation and custom callback url for this conversation
->>>>>>> johnau/ucapdocs
     ```
     Post /platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com
     {"operationId":"1000",
@@ -84,7 +62,7 @@ The call flow is as follows:
     "callbackUrl":"https://litware.com/callback"} 
     ```
    b. Successful conversation creation returns '201 Response status'
-   c. The Trusted Application API informs the Service Application (SA) via a **callback** that a new conversation is created with messaging invitation details including operation ID for tracking. 
+   c. The **Trusted Application API** informs the Service Application (SA) via a **callback** that a new conversation is created with messaging invitation details including operation ID for tracking. 
     ```
     Post https://litware.com/callback
     "rel": "ms:rtc:saas:communication", 
@@ -96,13 +74,9 @@ The call flow is as follows:
     ```
     > Note: SFB online user can be using any client (sip, mobile, web client, etc.)
  
-<<<<<<< HEAD
-1. **SFB online user joins the conversation**
-=======
 2. **SFB online user joins the conversation**
->>>>>>> johnau/ucapdocs
 
-   a. The Trusted Application API informs the Service Application (SA) via a **callback** that SFB online user has joined the conversation.
+   a. The **Trusted Application API** informs the Service Application (SA) via a **callback** that SFB online user has joined the conversation.
     
     ```
     Post https://litware.com/callback
@@ -115,7 +89,7 @@ The call flow is as follows:
 
 ## SFB online user sends a plain text message
     
-1. The Trusted Application API informs the Service Application (SA) via a **callback** that the participant has sent a message, and the message body itself.
+1. The **Trusted Application API** informs the Service Application (SA) via a **callback** that the participant has sent a message, and the message body itself.
 
    a. CallBack 
     ```
@@ -136,11 +110,7 @@ The call flow is as follows:
     /v1/applications/1627259584/communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/typing?endpointId=sip:helpdesk@contoso.com
     ```
     
-<<<<<<< HEAD
-1. The Service Application send message to the Trusted Application API in the conversation, setting an operationid for context. Further, the Trusted Application API forwards it to the SFB online user.
-=======
-2. The Service Application send message to the Trusted Application API in the conversation, setting an operationid for context. Further, the Trusted Application API forwards it to the SFB online user.
->>>>>>> johnau/ucapdocs
+2. The Service Application send message to the **Trusted Application API** in the conversation, setting an operationid for context. Further, the **Trusted Application API** forwards it to the SFB online user.
 
    a. POST send message request
     ```
@@ -160,15 +130,11 @@ The call flow is as follows:
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/3?endpointId=sip:helpdesk@contoso.com"}                   
     "status": "Success","_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
     ```
-<<<<<<< HEAD
-![call flow](./images/MessagingCallFlowsAppSendsmessage1.jpg)
-=======
 ![call flow](./images/MessagingCallFlowsAppSendsMessage1.jpg)
->>>>>>> johnau/ucapdocs
 
 ## SFB online user sends a html message
 
-1. The Trusted Application API informs the Service Application via **callback** that SFB online user is typing.
+1. The **Trusted Application API** informs the Service Application via **callback** that SFB online user is typing.
    - CallBack
 
     ```
@@ -182,11 +148,7 @@ The call flow is as follows:
     "type": "added"
     ```
  
-<<<<<<< HEAD
-1. The Trusted Application API sends a message sent state change to the Service Application via **callback** indicating the participant has sent a message, and the message body itself.
-=======
-2. The Trusted Application API sends a message sent state change to the Service Application via **callback** indicating the participant has sent a message, and the message body itself.
->>>>>>> johnau/ucapdocs
+2. The **Trusted Application API** sends a message sent state change to the Service Application via **callback** indicating the participant has sent a message, and the message body itself.
    - CallBack 
  
     ```
@@ -207,11 +169,7 @@ The call flow is as follows:
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/typing?endpointId=sip:helpdesk@contoso.com
     ```
 
-<<<<<<< HEAD
-1.  The Service Application(SA) sends the message in the conversation, setting an **operationid** for the context to the Trusted Application API, which forwards it to the SFB online user.
-=======
-2.  The Service Application(SA) sends the message in the conversation, setting an **operationid** for the context to the Trusted Application API, which forwards it to the SFB online user.
->>>>>>> johnau/ucapdocs
+2.  The Service Application(SA) sends the message in the conversation, setting an **operationid** for the context to the **Trusted Application API**, which forwards it to the SFB online user.
     b. Send message POST request
     ```
     Post /platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
@@ -219,11 +177,7 @@ The call flow is as follows:
     Content-Type : text/html; charset=utf-8 Content-Length : 55 
     <html><p>Message 2 from <i>1</i> to <b>2</b></p></html>
      ```
-<<<<<<< HEAD
-    c. The Service Application is informed via a **callback**  that the message was successfully delivered .
-=======
 3. The Service Application is informed via a **callback**  that the message was successfully delivered .
->>>>>>> johnau/ucapdocs
     
     ```
     Post https://litware.com/callback
@@ -232,15 +186,11 @@ The call flow is as follows:
     "status": "Success",
     "_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
     ```
-<<<<<<< HEAD
-![call flow](./images/MessagingCallFlowsAppSendsmessage2.jpg)
-=======
 ![call flow](./images/MessagingCallFlowsAppsendsmessage2.jpg)
->>>>>>> johnau/ucapdocs
 
 ## SFB online user terminates the conversation
  
-1. The Trusted Application API informs the Service Application via **callback** that the conversation has no more participants, no more messaing and conversation has been deleted.
+1. The **Trusted Application API** informs the Service Application via **callback** that the conversation has no more participants, no more messaing and conversation has been deleted.
    a. CallBack
     ```
     Post https://litware.com/callback
@@ -251,10 +201,10 @@ The call flow is as follows:
     ```
 ![call flow](./images/MessagingCallFlowsEndConversation.jpg)
 
->Note: Trusted Application API informs the Service Application via **callback** url. In order for the Service Application to keep context when starting a new invitation or message, the service application should pass an operation id in the request. This id will be sent back in the callback event.
+>Note: **Trusted Application API** informs the Service Application via **callback** url. In order for the Service Application to keep context when starting a new invitation or message, the service application should pass an operation id in the request. This id will be sent back in the callback event.
  
 The general principles, capabilities, API style, API concepts are modeled to closely follow the previously released **UCWA** API. Please see this link for detailed info - [UCWA API reference](https://msdn.microsoft.com/en-us/skype/ucwa/ucwa2_0apireference)
-Being familiar with the UCWA concepts greatly simplifies understanding the Trusted Application APIs
+Being familiar with the UCWA concepts greatly simplifies understanding the **Trusted Application API**s
   
 The call flows are shown in the article diagrams. Each of the capability related APIs, related callbacks are modeled on the **UCWA** capabilities and callback structure. Please refer to the [UCWA API reference](https://msdn.microsoft.com/en-us/skype/ucwa/ucwa2_0apireference) to get detailed description about these  calls.
 

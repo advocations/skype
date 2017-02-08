@@ -1,48 +1,29 @@
 # Implementing a Anonymous Client with the Skype App SDK
 
-<<<<<<< HEAD
-This article will discuss the flow for _Anonymous Meeting Join_ involving the client-side functionality
-of the Skype App SDK. 
-
-The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,
-_Anonymous Meeting Join_ is supported through the Trusted Application API. The meeting's URL is passed to the Service Application, which talks to the Trusted 
-=======
 This article will discuss the flow for **Anonymous Meeting Join** involving the client-side functionality
 of the Skype App SDK. 
 
-The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the Trusted Application API. The meeting's URL is passed to the Service Application, which talks to the Trusted 
->>>>>>> johnau/ucapdocs
+The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the **Trusted Application API**. The meeting's URL is passed to the Service Application, which talks to the Trusted 
+
 Application API and enables anonymous users to join the online meeting.
 
 ## Prerequisites
 
-<<<<<<< HEAD
-1. Obtain a _meeting URL_ by scheduling an online meeting 
-=======
 1. Obtain a **meeting URL** by scheduling an online meeting 
->>>>>>> johnau/ucapdocs
-by using the Skype for Business Client or Outlook, or even programmatically using 
-UCWA or the Trusted Application API. Please refer [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for more details. 
 
-2. Develop Trusted Application API Service Applications for Skype for Business Online. Please refer [ Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for more details.
+by using the Skype for Business Client or Outlook, or even programmatically using 
+UCWA or the **Trusted Application API**. Please refer [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for more details. 
+
+2. Develop **Trusted Application API** Service Applications for Skype for Business Online. Please refer [ Developing **Trusted Application API** applications for Skype for Business Online](./AADS2S.md) for more details.
 
 ## Sample code walkthrough
 
-<<<<<<< HEAD
-#### 1. Get anonymous meeting URL from UCWA-based web service
-
-**iOS**
-```
-/* POST Request on "https://imbridge.cloudapp.net/GetAdhocMeetingJob".
- GetAdhocMeetingJob is the UCWA-based web service API that gets meeting URL.
-=======
-### 1. Get anonymous meeting URL from your Trusted Application API-based web service
+### 1. Get anonymous meeting URL from your **Trusted Application API**-based web service
 
 **iOS**
 ```Swift
 /* POST Request on "https://imbridge.cloudapp.net/GetAdhocMeetingJob".
- GetAdhocMeetingJob is the Trusted Application API-based web service API method that gets meeting URL.
->>>>>>> johnau/ucapdocs
+ GetAdhocMeetingJob is the **Trusted Application API**-based web service API method that gets meeting URL.
 */ 
 
 let request = NSMutableURLRequest(URL: NSURL(string: "https://imbridge.cloudapp.net/GetAdhocMeetingJob")!)
@@ -79,36 +60,6 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://imbridge.cloudapp.
 ```
 
 **Android**
-<<<<<<< HEAD
-```
-final RESTUtility.SaasAPIInterface apiInterface = rESTUtility.getSaaSClient();
-
-            String body = "Subject=adhocMeeting&Description=adhocMeeting&AccessLevel=";
-
-            RequestBody bridgeRequest = RequestBody.create(
-                    MediaType.parse("text/plain, */*; q=0.01"),
-                    body);
-
-
-            Call<GetMeetingURIResult> call = apiInterface.getAdhocMeeting(bridgeRequest);
-            call.enqueue(new Callback<GetMeetingURIResult>() {
-                @Override
-                public void onResponse(Call<GetMeetingURIResult> call, Response<GetMeetingURIResult> response) {
-                    if (null != response.body()) {
-                        try {
-
-                            if (response.body().JoinUrl != null){
-                                GetAnonymousToken(apiInterface, response.body().JoinUrl);
-                            } else {
-                                Snackbar.make(mRootView, "Meeting URI was not returned", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
-
-                            }
-
-```
-
-#### 2. Get anonymous application token
-=======
 
 
 The following code implements the RESTUtility and then uses it to make a call on the SaaS to create an ad-hoc meeting
@@ -150,17 +101,12 @@ call.enqueue(new Callback<GetMeetingURIResult>() {
 ```
 
 ### 2. Get anonymous application token
->>>>>>> johnau/ucapdocs
 
 When the user decides to join the meeting, it pings the Service Application with the meeting's url.
 The user gets the _anonymous application token_ and _Discovery UrI_ based on the _meeting URL_(should be in same tenant)
 
 **iOS**
-<<<<<<< HEAD
-```
-=======
 ```swift
->>>>>>> johnau/ucapdocs
 /* POST Request on "https://metiobank.cloudapp.net/GetAnonTokenJob".
  GetAnonTokenJob is the Service Application API that gets Token 
 and Discovery Uri with meetingUrl.
@@ -198,14 +144,11 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://metiobank.cloudapp
 ```
 
 **Android**
-<<<<<<< HEAD
-```
-=======
 
 The following code snippet uses the **RESTUtility APIInterface** to call the SaaS application 
 **GetAnonTokenJob** method.
+
 ```java
->>>>>>> johnau/ucapdocs
 private void GetAnonymousToken(RESTUtility.SaasAPIInterface apiInterface, String meetingUri) {
         try {
             String body = String.format(
@@ -220,15 +163,8 @@ private void GetAnonymousToken(RESTUtility.SaasAPIInterface apiInterface, String
             Call<GetTokenResult> callforBridge = apiInterface.getAnonymousToken(
                     bridgeRequest);
             callforBridge.enqueue(new Callback<GetTokenResult>() {
-<<<<<<< HEAD
-                @SuppressLint("LongLogTag")
                 @Override
                 public void onResponse(Call<GetTokenResult> call, final Response<GetTokenResult> response) {
-                    Log.i("Succeeded in starting chat bridge", "");
-=======
-                @Override
-                public void onResponse(Call<GetTokenResult> call, final Response<GetTokenResult> response) {
->>>>>>> johnau/ucapdocs
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -248,19 +184,11 @@ private void GetAnonymousToken(RESTUtility.SaasAPIInterface apiInterface, String
                 }
 
 ```
-<<<<<<< HEAD
-#### 3. Joins the meeting anonymously as a 'guest'
-Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Discovery URI from previous request as your sign-in parameters.
-
-**iOS**
-```
-=======
 ### 3. Joins the meeting anonymously as a 'guest'
 Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Discovery URI from previous request as your sign-in parameters.
 
 **iOS**
 ```swift
->>>>>>> johnau/ucapdocs
 
     /** Joins a meeting anonymously as a 'guest', without requiring sign-in to
      * a Skype for Business account
@@ -276,11 +204,7 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
      * @note This method can be called repeatedly at any time. It automatically
      * disconnects any existing meetings.
      **/
-<<<<<<< HEAD
-=======
         do {
->>>>>>> johnau/ucapdocs
-
             let session = try sfb.joinMeetingAnonymousWithDiscoverUrl(NSURL(string: meetingUrl.text!)!, authToken: token!, displayName: displayName.text!)
             conversation = session.conversation
             return true
@@ -291,12 +215,8 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
 
 ```
 **Android**
-<<<<<<< HEAD
-```
-=======
 
 ```java
->>>>>>> johnau/ucapdocs
 mAnonymousSession = mApplication
                         .joinMeetingAnonymously(
                                 getString(R.string.userDisplayName)
@@ -305,10 +225,6 @@ mAnonymousSession = mApplication
 conversation = mAnonymousSession.getConversation();
 ```
 
-<<<<<<< HEAD
-
-
-=======
 ### Supporting Android sample helper methods
 
 The Android implementation uses the **Square** __Retrofit 2.0__ library to form the RESTful https calls. The following code creates the REST apiInterface
@@ -449,4 +365,3 @@ public class RESTUtility {
 }
 
 ```
->>>>>>> johnau/ucapdocs
