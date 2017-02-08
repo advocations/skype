@@ -1,10 +1,10 @@
-# Trusted Application API PSTN communication
+# **Trusted Application API** PSTN communication
 
-Trusted Application API public switched telephone network (PSTN) lets you to establish audio/video communication between a service application (SA) endpoint and remote participant. Trusted Application API supports both incoming (to the SA endpoint) and outgoing audio video calls from the SA endpoint to the user. 
+**Trusted Application API** public switched telephone network (PSTN) lets you to establish audio/video communication between a service application (SA) endpoint and remote participant. **Trusted Application API** supports both incoming (to the SA endpoint) and outgoing audio video calls from the SA endpoint to the user. 
 
 ## Prerequisites:
  - Please make sure that you have completed all the registration process as described in
-   [Developing Trusted Application API applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md). Also, do not forget to set up the PSTN trusted 
+   [Developing **Trusted Application API** applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md). Also, do not forget to set up the PSTN trusted 
    application endpoint as described in [Trusted application endpoint](./TrustedApplicationEndpoint.md). 
    
    In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **PSTN call flow:** 
@@ -60,25 +60,25 @@ The application specifies either the **to** input property (the address of the t
 
 1. The PSTN caller calls the pre-registered service application (SA) endpoint's phone number.
 
-2. The PSTN call gets routed through the SfB Online to the Trusted Application API and it routes the call event to the pre-registered SA endpoint's callback listener.
+2. The PSTN call gets routed through the SfB Online to the **Trusted Application API** and it routes the call event to the pre-registered SA endpoint's callback listener.
 
 3. The SA accepts the call (the SA may also decide to decline the call). 
 		
-4. The Trusted Application API allocates a media bot for the call, negotiates media and sends success notifications to the SA endpoint's callback listener.
+4. The **Trusted Application API** allocates a media bot for the call, negotiates media and sends success notifications to the SA endpoint's callback listener.
 
-5. The SA receives call and media flow connected events and asks the Trusted Application API to play a pre-recorded prompt on the PSTN call.
+5. The SA receives call and media flow connected events and asks the **Trusted Application API** to play a pre-recorded prompt on the PSTN call.
 
 6.  For Example, The PSTN caller entered 1 on his keypad.
 
-7. The Trusted Application API sends tone received (value=1) event to SA endpoint's callback.
+7. The **Trusted Application API** sends tone received (value=1) event to SA endpoint's callback.
 
-8. The SA makes an outbound call to a SfB Online user (typically called an agent) through the Trusted Application API.
+8. The SA makes an outbound call to a SfB Online user (typically called an agent) through the **Trusted Application API**.
 
-9. The Trusted Application API sends call and media flow connected events for the agent's call to the SA endpoint's callback.
+9. The **Trusted Application API** sends call and media flow connected events for the agent's call to the SA endpoint's callback.
 
 10. The SA initiates a supervised transfer on the agent's call with the replacement context of the PSTN call. The agent receives the transfer request and will automatically calls the PSTN caller, asking him to replace the call leg with the SA (the original PSTN call from the caller to SA endpoint's phone number)
 
-11. Upon successful transfer, Trusted Application API sends the call termination events on both the agent's call and the PSTN  call to the SA endpoint.
+11. Upon successful transfer, **Trusted Application API** sends the call termination events on both the agent's call and the PSTN  call to the SA endpoint.
 		
 
 ### Inbound callflow

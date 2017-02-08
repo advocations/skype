@@ -1,11 +1,11 @@
 # Azure Active Directory - Service to Service calls using Client Credentials
 
 
-The Trusted Application API only accepts an AAD Oauth token issued to an application identity.  In order that your application gets such a token from AAD, you need to either upload your application's credentials ( a certificate ) to AAD, and use that certificate whenever you need an Oauth token, or use a client secret.
+The **Trusted Application API** only accepts an AAD Oauth token issued to an application identity.  In order that your application gets such a token from AAD, you need to either upload your application's credentials ( a certificate ) to AAD, and use that certificate whenever you need an Oauth token, or use a client secret.
  
 When challenged for authentication by Skype for Business Online service, your application must perform authentication against Azure AD to receive an Oauth token.
 
-Trusted Application API requires use of HTTPS and certificates for both AAD Service-to-service authentication and SSL.We require the use of publicly-signed certificates.  If needed, you should be able to create a record or CName to point your own custom domain to your cloudapp.net Azure cloud service.
+**Trusted Application API** requires use of HTTPS and certificates for both AAD Service-to-service authentication and SSL.We require the use of publicly-signed certificates.  If needed, you should be able to create a record or CName to point your own custom domain to your cloudapp.net Azure cloud service.
  
 For example, create a DNS CName `abc.contoso.com`, and that DNS CName points to trustedapp.cloudapp.net (This allows you to avoid creating a certificate with SN: trustedapp.cloudapp.net, but use a certificate with SN: abc.contoso.com)
  

@@ -1,7 +1,7 @@
 # Webhooks (Events)
 
 In UCWA, the clients had a pending GET parked on the server, it received any events from the UCWA server.
-But for Service applications (SA), the way to get events from the Trusted Application API is via web hook events.  Webhooks are HTTP callbacks that are usually triggered by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
+But for Service applications (SA), the way to get events from the **Trusted Application API** is via web hook events.  Webhooks are HTTP callbacks that are usually triggered by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
  
 The event structure, syntax is similar to the UCWA event structure.
  
@@ -76,7 +76,6 @@ Content-Length : 6797
 {
     "_links": {
         "self": {
-        
 ```
  
 The oauth token would have values like the following, and will be signed by AAD.

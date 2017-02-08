@@ -1,6 +1,6 @@
 # Discovery by chat client
 
-The [Bootstrap chat widget](BootstrapChatWidget.md) topic showed how to get the Trusted Application discovery link and anonymous application token. The token is used for any future authentication challenge.
+The [Bootstrap chat widget](BootstrapChatWidget.md) topic showed how to get the Trusted Application API discovery link and anonymous application token. The token is used for any future authentication challenge.
  
 In discovery, the client sends an HTTP GET request on the discover link and gets an **anonApplications** link in the response. This is the [ucwa applications resource](https://msdn.microsoft.com/en-us/skype/ucwa/applications_ref), where the client can create a Trusted Application and start sending messages to the chat support endpoint.
  
@@ -24,5 +24,5 @@ Origin : http://contoso.com
 }
 ``` 
 ## Next step
-Now that the browser client has the Trusted Application endpoint, it must insure that any cross origin requests are honored.
+Now that the browser client has the Trusted Application API endpoint, it must insure that any cross origin requests are honored.
 - [Cross Origin Requests from browser based chat clients](CORChatClient.md)

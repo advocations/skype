@@ -40,7 +40,7 @@ In order for a customer tenant to use your application (or for your own devlopme
    1. Register a tenant-specific Trusted Application Endpoint for your app using Skype for Business Admin Powershell. The [full instructions](./TrustedApplicationEndpoint.md) give you more information about this step.
 
 ## Register Tenant-specific Trusted Application endpoints with Skype for Business Online.
-A tenant administrator must explicitly grant consent to allow your application to access tenant data using the Trusted Application APIs. The consent process is a browser-based experience that requires the tenant admin to sign into the Azure AD consent UI and review the access permissions that your application is requesting, and then grant or deny the request. You need the following information to complete the endpoint registration.
+A tenant administrator must explicitly grant consent to allow your application to access tenant data using the **Trusted Application API**s. The consent process is a browser-based experience that requires the tenant admin to sign into the Azure AD consent UI and review the access permissions that your application is requesting, and then grant or deny the request. You need the following information to complete the endpoint registration.
 
 
 - **Application Id, AppID uri** from step 2 in the previous section.
@@ -49,9 +49,9 @@ A tenant administrator must explicitly grant consent to allow your application t
 
 - The **Tenant ID** of the tenant where you are registering a trusted application endpoint.
 
-- **Sip Uri** that identifies the tenant specific endpoint for the application. Requests sent to this endpoint will trigger the Trusted Application API sending an event to the application, indicating that someone has sent a request.
+- **Sip Uri** that identifies the tenant specific endpoint for the application. Requests sent to this endpoint will trigger the **Trusted Application API** sending an event to the application, indicating that someone has sent a request.
 
-- **Callback uri** for Trusted Application API, to POST events to the applications
+- **Callback uri** for **Trusted Application API**, to POST events to the applications
 
 ### Additional information
 Read about [Skype for Business Online Scope Permissions](https://msdn.microsoft.com/en-us/skype/ucwa/skypeforbusinessonlinescopepermissions) to learn more about permissions.  

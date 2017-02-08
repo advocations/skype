@@ -1,7 +1,7 @@
 # Customer care client initiated chat conversations
 
  
-When a client sends a request to the tenant's service application endpoint, the Trusted Application (Trusted Application) API starts the call flow by invoking the registered callback uri on the service application endpoint. 
+When a client sends a request to the tenant's service application endpoint, the **Trusted Application API** starts the call flow by invoking the registered callback uri on the service application endpoint. 
 
 >Note: The service application default callback url is set while [Registering a Trusted Application in Skype for Business Online](./SfBRegistration.md).
  
@@ -17,15 +17,14 @@ Contoso developers used the [Azure Active Directory](https://manage.windowsazure
 
 The administrator of the Contoso tenant needs to consent to the application. See  [Tenant Admin Consent](./TenantAdminConsent.md).
  
-With configuration complete, the Litware service application can send requests to  Trusted Application to use chat capabilities for this scenario in the tenant.
-
+With configuration complete, the Litware service application can send requests to the **Trusted Application API** to use chat capabilities for this scenario in the tenant.
 
 ### Callflow details
 
-- Litware chat widget loads in the Contoso page and sends an HTTP request to the Litware service application endpoint to get an authentication token. The token is inserted in requests from the Litware chat widget to the Trusted Application API
+- Litware chat widget loads in the Contoso page and sends an HTTP request to the Litware service application endpoint to get an authentication token. The token is inserted in requests from the Litware chat widget to the **Trusted Application API**
 - A Contoso page visitor clicks on the chat support link in the Litware widget. The widget sends a request to a Trusted Application endpoint. 
    >Note: Litware provisioned the chat widget with the Contoso's application endpoint which was registered during ["Registration in SFB Online"](./SfBRegistration.md)
-- On receiving a callback, the Litware SA creates an on demand meeting on the Trusted Application API. It adds customer support agents to the meeting to handle the visitor's chat request. The Trusted Application API bridges the visitor chat messages into the meeting.
+- On receiving a callback, the Litware SA creates an on demand meeting on the **Trusted Application API**. It adds customer support agents to the meeting to handle the visitor's chat request. The **Trusted Application API** bridges the visitor chat messages into the meeting.
 
    >Note: The API has a messaging filter feature, which can be used to allow/block messages from a customer support agent from being sent to the visitor, but still sent to the other customer support agents in the conference.
 - The meeting is terminated by the SA when the visitor has ended the session.

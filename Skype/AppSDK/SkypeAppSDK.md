@@ -1,9 +1,9 @@
 
-# Skype for Business App SDK preview
+# Skype for Business App SDK (Release Candidate)
 
  **Last modified:** April 23, 2016
 
- _**Applies to:** Skype for Business 2015_, _Skype for Business Online_
+ _**Applies to:** Skype for Business 2015 CU4_, _Skype for Business Online_
 
 The Skype for Business App SDK enables developers to seamlessly integrate messaging, audio, and video experiences into mobile and tablet applications.
 

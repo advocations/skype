@@ -4,7 +4,7 @@ This article will discuss the flow for _Anonymous Meeting Join_ involving the cl
 of the Skype Web SDK.  
 
 The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,
-_Anonymous Meeting Join_ is supported through the Trusted Application API. The meeting's URL is passed to the Service Application, which talks to the Trusted 
+_Anonymous Meeting Join_ is supported through the **Trusted Application API**. The meeting's URL is passed to the Service Application, which talks to the Trusted 
 Application API and enables anonymous users to join the online meeting.
 
 
@@ -13,9 +13,9 @@ Application API and enables anonymous users to join the online meeting.
 
 1. Obtain a _meeting URL_ by scheduling an online meeting 
 by using the Skype for Business Client or Outlook, or even programmatically using 
-UCWA or the Trusted Application API. Please read [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for details. 
+UCWA or the **Trusted Application API**. Please read [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for details. 
 
-2. Develop Trusted Application API Service Applications for Skype for Business Online. Please read [ Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for details.
+2. Develop **Trusted Application API** Service Applications for Skype for Business Online. Please read [ Developing **Trusted Application API** applications for Skype for Business Online](./AADS2S.md) for details.
 
 3. Bootstrap your web application to work with Skype Web SDK. Please read [Bootstrapping the application Section](https://msdn.microsoft.com/en-us/skype/websdk/docs/gettingstarted#sectionSection2) for details.
 

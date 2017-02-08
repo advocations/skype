@@ -1,5 +1,77 @@
 # Skype Web SDK Version Updates
 
+
+## Skype Web SDK Version Update 2/7/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.80.33 | 2/7/17 | 1.79.32
+| Skype Web SDK Preview    | 0.4.411 | 2/7/17 | 0.4.405
+| Conversation Control Production | 1.79.32 | 2/7/17 | 1.78.28
+| Skype Web SDK Production| 0.4.405 | 2/7/17 | 0.4.397 |
+
+The latest preview release includes a couple changes to make it easier for the
+Web SDK team to debug reported issues.
+
+**Bugs fixed in the new public preview build:**
+
+- Add X-Ms-SDK-Version and X-Ms-SDK-Session headers to every request
+
+---
+
+## Skype Web SDK Version Update 1/31/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.79.32 | 1/31/17 | 1.78.28
+| Skype Web SDK Preview    | 0.4.405 | 1/31/17 | 0.4.397
+| Conversation Control Production |  1.78.28 | 1/31/17 | 1.78.19 
+| Skype Web SDK Production| 0.4.397 | 1/31/17 | 0.4.394 |
+
+The latest preview release includes numerous fixes to AV call issues, particularly
+in group and p2p -> group escalation scenarios, and addresses some additional rare
+cases when the application can become spontaneously signed out.
+
+**Bugs fixed in the new public preview build:**
+
+- Not able to restart video in a 3 user call escalated from IM -> audio -> video
+- Black self video is seen on Mac when we turn video off and on in a P2P video call
+- Set participant.audio.isSpeaking in WebRTC meetings
+- No toast/notification when a participant adds audio to a group IM conversation
+- Disconnect call sound always comes in conversation control after user accepts a
+  video invitation
+- Adding video to IM fails on IE (Call from IE to Microsoft Edge)
+- Settings.logHttp now enables a console warning when Property.set is invoked twice 
+  concurrently
+- Manually set videoStream._isFlowing to account for auto-unloading of plugin in Safari
+- After stopping and restarting video in a meeting, other participant's video does 
+  not show until they toggle their video
+- Incoming video freezes in conversation control when a remote user escalates a 
+  P2P call to conference and then turns off video
+
+---
+
+## Skype Web SDK Version Update 1/24/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.78.28 | 1/24/17 | 1.78.19
+| Skype Web SDK Preview    | 0.4.397 | 1/24/17 | 0.4.394
+| Conversation Control Production |  1.78.19 | 1/24/17 | 1.72.36 
+| Skype Web SDK Production| 0.4.394 | 1/24/17 | 0.4.385 |
+
+The latest preview release includes an improvement to SDK telemetry and
+fixes a couple edge cases where an SDK application can become incorrectly signed out.
+
+**Bugs fixed in the new public preview build:**
+
+- Fix telemetry to show various error properties in some correct form
+  so querying later is easier
+- Fix multiple bugs which can cause application to spontaneously sign out in
+  rare cases
+
+---
+
 ## Skype Web SDK Version Update 1/18/17
 
 | Product        | New Version           | Last Updated  |Previous Version

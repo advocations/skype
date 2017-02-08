@@ -3,25 +3,27 @@
 This article will discuss the flow for **Anonymous Meeting Join** involving the client-side functionality
 of the Skype App SDK. 
 
-The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the Trusted Application API. The meeting's URL is passed to the Service Application, which talks to the Trusted 
+The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the **Trusted Application API**. The meeting's URL is passed to the Service Application, which talks to the Trusted 
+
 Application API and enables anonymous users to join the online meeting.
 
 ## Prerequisites
 
 1. Obtain a **meeting URL** by scheduling an online meeting 
-by using the Skype for Business Client or Outlook, or even programmatically using 
-UCWA or the Trusted Application API. Please refer [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for more details. 
 
-2. Develop Trusted Application API Service Applications for Skype for Business Online. Please refer [ Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for more details.
+by using the Skype for Business Client or Outlook, or even programmatically using 
+UCWA or the **Trusted Application API**. Please refer [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md) for more details. 
+
+2. Develop **Trusted Application API** Service Applications for Skype for Business Online. Please refer [ Developing **Trusted Application API** applications for Skype for Business Online](./AADS2S.md) for more details.
 
 ## Sample code walkthrough
 
-### 1. Get anonymous meeting URL from your Trusted Application API-based web service
+### 1. Get anonymous meeting URL from your **Trusted Application API**-based web service
 
 **iOS**
 ```Swift
 /* POST Request on "https://imbridge.cloudapp.net/GetAdhocMeetingJob".
- GetAdhocMeetingJob is the Trusted Application API-based web service API method that gets meeting URL.
+ GetAdhocMeetingJob is the **Trusted Application API**-based web service API method that gets meeting URL.
 */ 
 
 let request = NSMutableURLRequest(URL: NSURL(string: "https://imbridge.cloudapp.net/GetAdhocMeetingJob")!)
@@ -145,6 +147,7 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://metiobank.cloudapp
 
 The following code snippet uses the **RESTUtility APIInterface** to call the SaaS application 
 **GetAnonTokenJob** method.
+
 ```java
 private void GetAnonymousToken(RESTUtility.SaasAPIInterface apiInterface, String meetingUri) {
         try {
@@ -202,7 +205,6 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
      * disconnects any existing meetings.
      **/
         do {
-
             let session = try sfb.joinMeetingAnonymousWithDiscoverUrl(NSURL(string: meetingUrl.text!)!, authToken: token!, displayName: displayName.text!)
             conversation = session.conversation
             return true

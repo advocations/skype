@@ -17,6 +17,6 @@ The following application permissions are available to Skype for Business Online
 |Guest user join services (preview)|Allows the app create an on-demand Skype meeting and join guest users into Skype for Business services
 
  
->Note: that these capabilities are selected in the [AAD management portal](http://manage.windowsazure.com) during the Service Application's [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) and have [Tenant Admin Consent](./TenantAdminConsent.md), before they can be used for a tenant.
+>**Note:** that these capabilities are selected in the [AAD management portal](http://manage.windowsazure.com) during the Service Application's [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) and have [Tenant Admin Consent](./TenantAdminConsent.md), before they can be used for a tenant.
  
  

@@ -11,9 +11,9 @@ This callflow consists of the following tasks:
  
 ## Discovery and getting anonymous application token 
 
-To start chat, the anonymous chat client pings the Service Application (SA), which further communicates with the Trusted Application API as follow: 
+To start chat, the anonymous chat client pings the Service Application (SA), which further communicates with the **Trusted Application API** as follow: 
 
-1. The Service Application (SA) discovers the location of the Trusted Application API (API)
+1. The Service Application (SA) discovers the location of the **Trusted Application API**
 
     **a. Discovery Request**
     ```
@@ -66,12 +66,12 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
 
     **c. Send ms:rtc:saas:discover url and token to the anonymous chat client**
 
-    ![UCAP initiated callflow](images/UCAP Anon P2P_1.jpg)
+    ![UCAP initiated callflow](./images/UCAP Anon P2P_1.jpg)
 
 ## Start an ad hoc meeting   
     
 
-4. The anonymous chat client uses the **[ms:rtc:saas:discover](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)** link to get the anonApplications resource, which can be used to establish a ucwa session with the Trusted Application API
+4. The anonymous chat client uses the **[ms:rtc:saas:discover](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_discover.html)** link to get the anonApplications resource, which can be used to establish a ucwa session with the **Trusted Application API**
    
    **a. GET request on ms:rtc:saas:discover url to find "anonApplications" token**
    ```
@@ -100,7 +100,7 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
     
     Response - 201 Created
     ```
-7. The Trusted Application API sends a callback to the Service Application on receiving this messaging invitation, along with the two links: **[ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html)** and **[ms:rtc:saas:acceptAndBridge](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_acceptAndBridge.html)**.
+7. The **Trusted Application API** sends a callback to the Service Application on receiving this messaging invitation, along with the two links: **[ms:rtc:saas:startAdhocMeeting](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAdhocMeeting.html)** and **[ms:rtc:saas:acceptAndBridge](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_acceptAndBridge.html)**.
 
     **a. Callback to Service Application** - It indicates that a **[ms:rtc:saas:messagingInvitation](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_messagingInvitation.html)** was started. It has the options to start an on-demand meeting and a way to bridge the messaging invitation with the on-demand meeting.
     This also includes the custom content sent from the chat client.
@@ -202,7 +202,7 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
     "operationId": "addParticipantOperationId", "to": "sip:UcapUser5@contoso.com"
     ```
 
-    **b. Trusted Application API sends join meeting request to the participant**
+    **b. **Trusted Application API** sends join meeting request to the participant**
 
    ![UCAP initiated callflow](images/UCAP Anon P2P_3.jpg)
 
@@ -229,7 +229,7 @@ To start chat, the anonymous chat client pings the Service Application (SA), whi
 21. The chat client sends a message, it will be conveyed to all the SFB online users joined to the conference.
 22. The chat client now closes the conversation
 23. API sends a callback to the SA, indicating the conversation has been deleted.
-24. The Service Application then sends a request to terminate the conference conversation with the Trusted Application API
+24. The Service Application then sends a request to terminate the conference conversation with the **Trusted Application API**
    
    ![UCAP initiated callflow](images/UCAP Anon P2P_4.jpg)
  
@@ -237,7 +237,7 @@ The way the API informs the Service Application of any event is via the callback
  
 The general principles, capabilities, API style, API concepts are modeled to closely follow the already released UCWA API. Please see this link for detailed info - [UCWA API reference](https://msdn.microsoft.com/en-us/skype/ucwa/ucwa2_0apireference)
  
-Being familiar with the UCWA concepts greatly simplifies understanding the Trusted Application APIs
+Being familiar with the UCWA concepts greatly simplifies understanding the **Trusted Application API**s
  
  
 The detailed call flow is shown in the diagram below. Each of the capability related APIs, related callbacks are modeled on the UCWA capabilities and callback structure. Please refer to the [UCWA API reference](https://msdn.microsoft.com/en-us/skype/ucwa/ucwa2_0apireference) to get detailed description

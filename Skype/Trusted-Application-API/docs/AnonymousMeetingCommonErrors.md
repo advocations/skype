@@ -25,5 +25,3 @@
 ## Consent
 
   - Make sure the tenant admin consented to the application before trying to fetch the anonymous meeting join token.
-  
- 

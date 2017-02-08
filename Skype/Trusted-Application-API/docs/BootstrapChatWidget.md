@@ -4,7 +4,7 @@ When the chat widget provided by the Service Application (SA) starts up, it has 
 The SA sends HTTP requests to the Trusted Applications (Trusted Application) API anonymous token endpoint to get this information
  
  
-1. The SA runs the Trusted Application API Discovery, authentication and authorization steps to get the capabilities of Trusted Application.
+1. The SA runs the **Trusted Application API** Discovery, authentication and authorization steps to get the capabilities of Trusted Application.
 The call flows for this step are described earlier in these topics: 
    - [Discovery for Service Applications](DiscoveryForServiceApplications.md)
    - [Authentication and Authorization](./AuthenticationAndAuthorization.md)
