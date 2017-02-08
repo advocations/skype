@@ -47,7 +47,7 @@
         authToken = "";
 
         // remove remote video containers and reset mapping
-        const containerParentElt = document.getElementById('remoteVideoContainers');
+        const containerParentElt = content.querySelector('.remoteVideoContainers');
         Object.keys(remoteVidContainerMap).forEach(participantId => {
             containerParentElt.removeChild(remoteVidContainerMap[participantId]);
             delete remoteVidContainerMap[participantId];
@@ -149,7 +149,7 @@
         function disposeParticipantContainer(participant: jCafe.Participant) {
             const container = remoteVidContainerMap[participant.person.displayName()];
             if (container) {
-                var containerParentElt = document.getElementById('remoteVideoContainers');
+                var containerParentElt = content.querySelector('.remoteVideoContainers');
                 containerParentElt.removeChild(container);
                 delete remoteVidContainerMap[participant.person.displayName()];
             }
@@ -201,6 +201,8 @@
                 (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
                 setupContainer(conversation.selfParticipant.video.channels(0), <HTMLElement>content.querySelector('.selfVideoContainer'));
                 window.framework.addNotification('success', 'Connected to video');
+
+                registerControlElements(conversation);
 
                 // In multiview, listen for added participants, set up a container for each,
                 // set up listeners to call isStarted(true/false) when isVideoOn() becomes true/false
@@ -265,6 +267,97 @@
         });
     }
 
+    function registerControlElements(conversation) {
+        var audioControl = <HTMLElement>document.querySelector('.js-toggleSelfAudio'),
+            videoControl = <HTMLElement>document.querySelector('.js-toggleSelfVideo'),
+            holdControl = <HTMLElement>document.querySelector('.js-toggleSelfHold');
+
+        registerToggleAudio(audioControl);
+        registerToggleVideo(videoControl);
+        registerToggleHold(holdControl);
+
+        function registerToggleAudio(control) {
+            var muted = false,
+                pastTense,
+                action;
+
+            control.onclick = function () {
+                muted = !muted;
+                
+                if (!muted) {
+                    control.querySelector('.text').innerHTML = 'Turn Off';
+                    pastTense = 'Unmuted';
+                    action = 'Unmuting';
+                } else {
+                    control.querySelector('.text').innerHTML = 'Turn On';
+                    pastTense = 'Muted';
+                    action = 'Muting';
+                }
+
+                conversation.selfParticipant.audio.isMuted.set(muted).then(function () {
+                    window.framework.addNotification('success', pastTense + ' self');
+                }, function (error) {
+                    window.framework.addNotification('error', action + ' failed. See console.');
+                    console.error(action + ' self failed', error);
+                });
+            }
+        }
+
+        function registerToggleVideo(control) {
+            var isStarted = true,
+                pastTense,
+                action;
+
+            control.onclick = function () {
+                isStarted = !isStarted;
+                
+                if (!isStarted) {
+                    control.querySelector('.text').innerHTML = 'Turn On';
+                    pastTense = 'Turned off';
+                    action = 'Turning off';
+                } else {
+                    control.querySelector('.text').innerHTML = 'Turn Off';
+                    pastTense = 'Turned on';
+                    action = 'Turning on';
+                }
+
+                conversation.selfParticipant.video.channels(0).isStarted.set(isStarted).then(function () {
+                    window.framework.addNotification('success', pastTense + ' self video');
+                }, function (error) {
+                    window.framework.addNotification('error', action + ' self video failed. See console.');
+                    console.error(action + ' self video failed', error);
+                });
+            }
+        }
+
+        function registerToggleHold(control) {
+            var onHold = false,
+                pastTense,
+                action;
+
+            control.onclick = function () {
+                onHold = !onHold;
+                
+                if (onHold) {
+                    control.querySelector('.text').innerHTML = 'Resume';
+                    pastTense = 'Put call on hold';
+                    action = 'Putting call on hold';
+                } else {
+                    control.querySelector('.text').innerHTML = 'Hold';
+                    pastTense = 'Resumed call';
+                    action = 'Resuming call';
+                }
+
+                conversation.selfParticipant.audio.isOnHold.set(onHold).then(function () {
+                    window.framework.addNotification('success', pastTense);
+                }, function (error) {
+                    window.framework.addNotification('error', action + ' failed. See console.');
+                    console.error(action + ' failed', error);
+                });
+            }
+        }
+    }
+
     if (window.framework.application && window.framework.application.signInManager.state() == 'SignedIn') {
         if (confirm('You must sign out of your existing session to anonymously join ' +
                     'a meeting. Sign out now?'))
@@ -325,8 +418,6 @@
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         request.send(data);
     }
-
-
 
     function goToStep(step) {
         (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
