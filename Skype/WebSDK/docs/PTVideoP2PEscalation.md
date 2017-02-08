@@ -4,6 +4,8 @@
 
  _**Applies to:** Skype for Business 2015_
 
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
+
 ## Escalating a P2P video conversation
 
 The application object exposes a conversationsManager object which we can use to create new conversations by calling getConversation(...) and providing a SIP URI.  After creation of the conversation object it is helpful to setup a few event listeners for when we are connected to video, added participants, when participants are connected to video, and when we disconnect from the conversation.  We can use the videoService on the conversation object and call start() to initate the call and send an invitation.
@@ -19,66 +21,54 @@ After the conversation and video modality are established we can begin communica
 
 1. Start a P2P video conversation, and set up associated listeners 
 
-  ```js
-    var id = content.querySelector('.id').value;
+    ```js
     var conversationsManager = application.conversationsManager;
-    conversation = conversationsManager.getConversation(id);
+    conversation = conversationsManager.getConversation('sip:xxx');
 
-    function setupContainer(person, size, videoDiv) {
-        person.video.channels(0).stream.source.sink.format('Stretch');
-        person.video.channels(0).stream.source.sink.container(videoDiv);
-    }
-
-    listeners.push(conversation.selfParticipant.video.state.when('Connected', function () {
+    conversation.selfParticipant.video.state.when('Connected', function () {
         // set up local video container
-        setupContainer(conversation.selfParticipant, 'large', content.querySelector('.selfVideoContainer'));
+        conversation.selfParticipant.video.channels(0).stream.source.sink.format('Stretch');
+        conversation.selfParticipant.video.channels(0).stream.source.sink.container(/* DOM node */);
 
-        listeners.push(conversation.participants.added(function (person) {
+        conversation.participants.added(function (person) {
             // person.displayName() has joined the conversation
-            listeners.push(person.video.state.when('Connected', function () {
+            person.video.state.when('Connected', function () {
                 // set up remote video container
-                if (Object.keys(videoMap).length === 1) {
-                    videoMap[person.displayName()] = 2;
-                    setupContainer(person, 'large', content.querySelector('.remoteVideoContainer2'));
-                }
-                else {
-                    videoMap[person.displayName()] = 1;
-                    setupContainer(person, 'large', content.querySelector('.remoteVideoContainer1'));
-                }
+                person.video.channels(0).stream.source.sink.format('Stretch');
+                person.video.channels(0).stream.source.sink.container(/* DOM node */);
 
                 if (conversation.isGroupConversation()) {
                     person.video.channels(0).isStarted(true);
                 }
-            }));
-        }));
-    }));
+            });
+        });
+    });
 
-    listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+    conversation.state.changed(function (newValue, reason, oldValue) {
         if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
             // conversation ended
         }
-    }));
+    });
     conversation.videoService.start().then(null, function (error) {
         // handle error
     });
-  ```
+    ```
 
 2. **Advanced**: Track remote participant video state
 
     ```js
-    listeners.push(person.video.channels(0).isVideoOn.when(true, function () {
+    person.video.channels(0).isVideoOn.when(true, function () {
         // person.displayName() started streaming their video
-    }));
-    listeners.push(person.video.channels(0).isVideoOn.when(false, function () {
-       // person.displayName() stopped streaming their video
-    }));
-  ```
+    });
+    person.video.channels(0).isVideoOn.when(false, function () {
+        // person.displayName() stopped streaming their video
+    });
+    ```
 
 3. Add another person to escalate the P2P video conversation to a group video conversation
 
     ```js
-    var id = content.querySelector('.id2').value;
-    conversation.participants.add(id).then(function () {
+    conversation.participants.add('sip:xxx').then(function () {
         // participant successfully added
     }, function (error) {
         // handle error
@@ -87,7 +77,7 @@ After the conversation and video modality are established we can begin communica
 
 4. End the conversation
 
-  ```js
+    ```js
     conversation.leave().then(function () {
         // conversation ended
     }, function (error) {
@@ -95,4 +85,4 @@ After the conversation and video modality are established we can begin communica
     }).then(function () {
         // clean up operations
     });
-  ```
+    ```

@@ -3,6 +3,8 @@
 
  _**Applies to:** Skype for Business 2015_
 
+[!INCLUDE[ChromeWarning](includes/P2PChromeWarning.md)]
+
 
 ## Escalating a P2P Call to a Group Call
 

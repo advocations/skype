@@ -11,21 +11,21 @@ The application object exposes a conversationsManager object which we can use to
 Once you have a conversation, you can start audio by calling `conversation.audioservice.start()`.
 
 ```js
-    conversation = conversationsManager.getConversation(id);
-        listeners.push(conversation.selfParticipant.audio.state.when('Connected', function () {
+    conversation = conversationsManager.getConversation('sip:xxx');
+        conversation.selfParticipant.audio.state.when('Connected', function () {
             // Audio service connected
-        }));
-        listeners.push(conversation.participants.added(function (person) {
+        });
+        conversation.participants.added(function (person) {
             // Remote participant joined call
-        }));
-        listeners.push(conversation.state.changed(function (newValue, reason, oldValue) {
+        });
+        conversation.state.changed(function (newValue, reason, oldValue) {
             if (newValue === 'Connected') {
                 // Conversation connected
             }
             if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
                 // Conversation disconnected
             }
-        }));
+        });
         conversation.audioService.start().then(null, function (error) {
             // Error while starting audioService
         });

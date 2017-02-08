@@ -5,6 +5,9 @@
  
  _**Prerequisites:** To use Phone Audio, user needs a valid Office 365 Enterprise E5 license with PSTN calling set up_
 
+> [!IMPORTANT]
+> This feature is not supported in **Google Chrome**.
+
 ## Starting a Phone Audio Call
 
 In order to make a phone audio call we need to:

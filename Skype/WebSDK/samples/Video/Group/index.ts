@@ -102,6 +102,8 @@
             setupContainer(conversation.selfParticipant, 'large', <HTMLElement>content.querySelector('.selfVideoContainer'));
             window.framework.addNotification('success', 'Connected to video');
 
+            registerControlElements(conversation);
+
             listeners.push(conversation.participants.added(person => {
                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
 
@@ -194,4 +196,95 @@
     window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
         restart();
     });
+
+    function registerControlElements(conversation) {
+            var audioControl = <HTMLElement>document.querySelector('.js-toggleSelfAudio'),
+                videoControl = <HTMLElement>document.querySelector('.js-toggleSelfVideo'),
+                holdControl = <HTMLElement>document.querySelector('.js-toggleSelfHold');
+
+            registerToggleAudio(audioControl);
+            registerToggleVideo(videoControl);
+            registerToggleHold(holdControl);
+
+            function registerToggleAudio(control) {
+                var muted = false,
+                    pastTense,
+                    action;
+
+                control.onclick = function () {
+                    muted = !muted;
+                    
+                    if (!muted) {
+                        control.querySelector('.text').innerHTML = 'Turn Off';
+                        pastTense = 'Unmuted';
+                        action = 'Unmuting';
+                    } else {
+                        control.querySelector('.text').innerHTML = 'Turn On';
+                        pastTense = 'Muted';
+                        action = 'Muting';
+                    }
+
+                    conversation.selfParticipant.audio.isMuted.set(muted).then(function () {
+                        window.framework.addNotification('success', pastTense + ' self');
+                    }, function (error) {
+                        window.framework.addNotification('error', action + ' failed. See console.');
+                        console.error(action + ' self failed', error);
+                    });
+                }
+            }
+
+            function registerToggleVideo(control) {
+                var isStarted = true,
+                    pastTense,
+                    action;
+
+                control.onclick = function () {
+                    isStarted = !isStarted;
+                    
+                    if (!isStarted) {
+                        control.querySelector('.text').innerHTML = 'Turn On';
+                        pastTense = 'Turned off';
+                        action = 'Turning off';
+                    } else {
+                        control.querySelector('.text').innerHTML = 'Turn Off';
+                        pastTense = 'Turned on';
+                        action = 'Turning on';
+                    }
+
+                    conversation.selfParticipant.video.channels(0).isStarted.set(isStarted).then(function () {
+                        window.framework.addNotification('success', pastTense + ' self video');
+                    }, function (error) {
+                        window.framework.addNotification('error', action + ' self video failed. See console.');
+                        console.error(action + ' self video failed', error);
+                    });
+                }
+            }
+
+            function registerToggleHold(control) {
+                var onHold = false,
+                    pastTense,
+                    action;
+
+                control.onclick = function () {
+                    onHold = !onHold;
+                    
+                    if (onHold) {
+                        control.querySelector('.text').innerHTML = 'Resume';
+                        pastTense = 'Put call on hold';
+                        action = 'Putting call on hold';
+                    } else {
+                        control.querySelector('.text').innerHTML = 'Hold';
+                        pastTense = 'Resumed call';
+                        action = 'Resuming call';
+                    }
+
+                    conversation.selfParticipant.audio.isOnHold.set(onHold).then(function () {
+                        window.framework.addNotification('success', pastTense);
+                    }, function (error) {
+                        window.framework.addNotification('error', action + ' failed. See console.');
+                        console.error(action + ' failed', error);
+                    });
+                }
+            }
+        }
 })();
