@@ -67,7 +67,8 @@ interface Framework {
     invokeHistory: (convId: number) => void,
     convs: any;
     updateUserIdInput: (userId: string) => string,
-    updateUserIdOutput: (userId: string) => string
+    updateUserIdOutput: (userId: string) => string,
+    utils: { guid: () => string }
 }
 
 interface Window {
