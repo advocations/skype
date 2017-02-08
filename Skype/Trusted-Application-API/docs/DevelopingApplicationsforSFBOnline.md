@@ -3,7 +3,11 @@
 
 Learn how to develop Trusted Application API service applications.
 
+<<<<<<< HEAD
 Trusted Application (UCAP) API uses Azure Active Directory (Azure AD) to provide authentication services that your application can use to get the right to access a set of capabilities. To do this, you need to do the following:
+=======
+Trusted Application API uses Azure Active Directory (Azure AD) to provide authentication services that your application can use to get the right to access a set of capabilities. To do this, you need to do the following:
+>>>>>>> johnau/ucapdocs
 
 ## Getting started
 

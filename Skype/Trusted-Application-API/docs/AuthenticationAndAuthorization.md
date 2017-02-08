@@ -1,6 +1,6 @@
 # Authentication and Authorization
 
- The application does a `GET` on the **ms:rtc:saas:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link
+ The application does a `GET` on the **ms:rtc:saas:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link.
 
 The following snippet is an example of such a GET.
 ```
@@ -12,7 +12,7 @@ The client receives a 401 challenge in a response. The client responds to the au
  
 >Note: All endpoints other than the Discovery endpoint require authentication.
 
-Trusted Application (UCAP) API endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
+Trusted Application API endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
 
 ## Additional information
 
@@ -36,7 +36,7 @@ Authorization: Bearer <token from AAD>
  
 ### API request validation
 
-Each HTTP request sent by an UCAP client must contain an oauth token in the **Authorization** header. The API performs the following validity checks against the presented oath token:
+Each HTTP request sent by an Trusted Application client must contain an oauth token in the **Authorization** header. The API performs the following validity checks against the presented oath token:
 
 - The API uses the oauth token to identify the application that made the GET request.
 - The API gets the tenant id from the oauth token to associate the request with a tenant.
@@ -53,7 +53,7 @@ The following is an example of a json object sent in response to a matching appl
 {"href": "/platformservice/v1/applications/1627259584?endpointId=sip%3ahelpdesk%40contoso.com"}
 ```
 
-When the UCAP client sends a GET request on this new URL, The API returns the capabilities supported for that application endpoint.
+When the Trusted Application client sends a GET request on this new URL, The API returns the capabilities supported for that application endpoint.
 
 ```
  Get https://ring2noammeetings.resources.lync.com/platformService/v1/applications/1627259584?endpointId=sip:helpdesk%40contoso.com

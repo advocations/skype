@@ -1,16 +1,18 @@
 # Anonymous Meeting Join
 
-Anonymous Meeting Join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, Anonymous Meeting Join is supported through the Trusted Application API.  The flow for Anonymous Meeting Join involves using the Trusted Application API together with client-side functionality of either the Skype Web SDK, App SDK, or UCWA to join guest users into meetings.
+Anonymous meeting join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, anonymous meeting join is supported through the Trusted Application API.  The guest join meeting flow for anonymous meetings uses the Trusted Application API plus the client-side features of either the Skype Web SDK, App SDK, or UCWA.
 The anonymous user can join into Skype meetings by using a meeting's URI.
-An online meeting can be scheduled using the Skype for Business Client or Outlook, or even programmatically using UCWA or the Trusted Application API.  The meeting's URL is passed to the Service Application, which talks to the Trusted Application API and enables anonymous users to join the online meeting.
+An online meeting can be scheduled using the Skype for Business Client or Outlook, or even programmatically using UCWA or the Trusted Application API.  The meeting's URL is passed to the service application, which calls the Trusted Application endpoint and enables anonymous users to join the online meeting.
 
 ## Prerequisites:
 - Please read [Developing Trusted Application API applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) to learn how to develop Trusted Application API service applications for anonymous meeting join call flow.
-In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **Anonymous meeting join :** 
-    - Guest user join services (preview)
-    - Send/Receive Audio and Video (preview)
-    - Create on-demand Skype meetings (preview)
-    - Send/Receive Instant Messages (preview)
+In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **Anonymous meeting join** 
+
+### Required permissions
+- Guest user join services (preview)
+- Send/Receive Audio and Video (preview)
+- Create on-demand Skype meetings (preview)
+- Send/Receive Instant Messages (preview)
 
 ![alt text](./images/GuestMeetingJoinTenantConsent.png "image") 
 
@@ -115,5 +117,5 @@ In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirec
 ![alt text](./images/CallFlowAnonMeetingJoin.jpg "image")
 
 ## Related links
-### [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md)
+- [Anonymous Meeting Scheduling](./AnonymousMeetingSchedule.md)
 

@@ -1,6 +1,10 @@
 # Trusted Application API PSTN communication
 
+<<<<<<< HEAD
 Trusted Application (UCAP) API public switched telephone network (PSTN) lets you to establish audio/video communication between a service application (SA) endpoint and remote participant. UCAP API supports both incoming (to the SA endpoint) and outgoing audio video calls from the SA endpoint to the user. 
+=======
+Trusted Application API public switched telephone network (PSTN) lets you to establish audio/video communication between a service application (SA) endpoint and remote participant. Trusted Application API supports both incoming (to the SA endpoint) and outgoing audio video calls from the SA endpoint to the user. 
+>>>>>>> johnau/ucapdocs
 
 ## Prerequisites:
  - Please make sure that you have completed all the registration process as described in
@@ -11,15 +15,26 @@ Trusted Application (UCAP) API public switched telephone network (PSTN) lets you
     - Send/Receive PSTN (preview) 
     - Send/Receive Audio and Video (preview)
     
+<<<<<<< HEAD
     >Note: For this release, UCAP only supports incoming audio video call to the SA endpoint's registered PSTN number.
 
   
  ## Communication via UCAP PSTN (Audio/Video) 
+=======
+    >Note: For this release, Trusted Application only supports incoming audio video call to the SA endpoint's registered PSTN number.
+
+  
+ ## Communication via Trusted Application PSTN (Audio/Video) 
+>>>>>>> johnau/ucapdocs
 
 You should be familiar with the following concepts before adding PSTN capability to your service application. 
 
 ### Interactive voice response support
+<<<<<<< HEAD
 UCAP supports interactive voice response (IVR) capability, where the service application never directly interacts with the media. UCAP allocates a media bot remotely on behalf of the service application and allows the application to interact with the remote participant through functions exposed by UCAP, for example, It can play a prompt or recognize DTMF tone input via keypad.
+=======
+Trusted Application supports interactive voice response (IVR) capability, where the service application never directly interacts with the media. Trusted Application allocates a media bot remotely on behalf of the service application and allows the application to interact with the remote participant through functions exposed by Trusted Application, for example, It can play a prompt or recognize DTMF tone input via keypad.
+>>>>>>> johnau/ucapdocs
 
 ### Audio/Video call requirements
 
@@ -33,6 +48,7 @@ UCAP supports interactive voice response (IVR) capability, where the service app
 
 - For interactive voice response (IVR) calls, insert the **mediaHost** header in HTTP requests that initiate audio calls or accept incoming audio calls.  outbound call. The value of the header is "Remote" in the HTTP input body.
 
+<<<<<<< HEAD
 ### PSTN UCAP operational capabilities
 
 The six UCAP resources described in this section give your app access to the A/V flow of a call.
@@ -46,12 +62,31 @@ The six UCAP resources described in this section give your app access to the A/V
 - **ms:rtc:saas:audioVideoFlow** exposes media capabilities
 - **ms:rtc:saas:playPrompt** is a pre-recorded prompt which can be played.
 - **ms:rtc:saas:tone** is recognized an incoming DTMF or tone events. 
+=======
+### PSTN Trusted Application operational capabilities
+
+The six Trusted Application resources described in this section give your app access to the A/V flow of a call.
+
+- [**ms:rtc:saas:audiovideo**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideo.html) resource implements the signaling connection with the remote participant for the audio video call. 
+
+- [**ms:rtc:saas:audioVideoFlow**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html) encapsulates the actual audio and video media of the call. It is exchanged on an instance of this resource. The resource is created at the time call is established.
+
+- [**ms:rtc:saas:startAudioVideo**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_startAudioVideo.html)  allows the application to create a new conversation with the specified contact with audio/video modality.
+
+- [**ms:rtc:saas:audioVideoFlow**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_audioVideoFlow.html) exposes media capabilities
+- [**ms:rtc:saas:playPrompt**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_playPrompt.html) is a pre-recorded prompt which can be played.
+- [**ms:rtc:saas:tone**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_tone.html) is recognized an incoming DTMF or tone events. 
+>>>>>>> johnau/ucapdocs
 
 >Note: These operation capabilities are made available to the application only after a successful media negotiation, upon which the state of the flow will be Connected.
  
 ### Audio video call transfer support
 
+<<<<<<< HEAD
 The **ms:rtc:saas:transfer** resource provides the capability to transfer the ongoing audio video call. UCAP supports **Attended Transfer** and **Supervised Transfer**. For more details please refer UCMA documentation: [Transferring a Call (UCMA 4.0 Core SDK)](https://msdn.microsoft.com/en-us/library/dn465979.aspx) .
+=======
+The [**ms:rtc:saas:transfer**](http://trustedappapi.azurewebsites.net/Resources/ms_rtc_saas_transfer.html) resource provides the capability to transfer the ongoing audio video call. Trusted Application supports **Attended Transfer** and **Supervised Transfer**. For more details please refer UCMA documentation: [Transferring a Call (UCMA 4.0 Core SDK)](https://msdn.microsoft.com/en-us/library/dn465979.aspx) .
+>>>>>>> johnau/ucapdocs
 
 The application specifies either the **to** input property (the address of the transfer target) or the **replacesCallContext** input property (the call to be replaced because of a transfer) in the transfer request body, to indicate whether this is an attended transfer request or supervised transfer request.
 			
@@ -74,7 +109,11 @@ The application specifies either the **to** input property (the address of the t
 
 8. The SA makes an outbound call to a SfB Online user (typically called an agent) through the Trusted Application API.
 
+<<<<<<< HEAD
 9. The Trusted Application (UCAP) API sends call and media flow connected events for the agent's call to the SA endpoint's callback.
+=======
+9. The Trusted Application API sends call and media flow connected events for the agent's call to the SA endpoint's callback.
+>>>>>>> johnau/ucapdocs
 
 10. The SA initiates a supervised transfer on the agent's call with the replacement context of the PSTN call. The agent receives the transfer request and will automatically calls the PSTN caller, asking him to replace the call leg with the SA (the original PSTN call from the caller to SA endpoint's phone number)
 
@@ -83,7 +122,11 @@ The application specifies either the **to** input property (the address of the t
 
 ### Inbound callflow
 
+<<<<<<< HEAD
 ![PublicCallFlowInbound](images/PublicCallFlow-inbound.jpg)
+=======
+![PublicCallFlowInbound](images/PublicCallFlow-Inbound.jpg)
+>>>>>>> johnau/ucapdocs
 
 ### Outbound callflow
 

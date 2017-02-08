@@ -42,7 +42,7 @@ Here we will discuss a few ways to schedule an Anonymous meeting and get meeting
 
         200 OK,ms:rtc:saas:Communication":{"href":"ms:rtc:saas:adhocMeetings":{}}
         ```
-     3. **POST request to get meeting URL** 
+   3. **POST request to get meeting URL** 
 
         ```
         POST platformService/v1/applications/2855007785/adhocMeetings?endpointId=sip:ucapapp@metio.onmicrosoft.com

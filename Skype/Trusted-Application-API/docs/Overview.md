@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 # Trusted Application API Overview
+=======
+# Trusted Application API
+>>>>>>> johnau/ucapdocs
 
 The Trusted Application API is a Rest API that enables developers to build Skype for Business Online back-end communications services for the cloud.
 
@@ -11,6 +15,7 @@ Key use cases for the Trusted Application API include:
 
 - Write SFB Online applications as service endpoints that don't need need a user context or identity. Common service endpoint scenarios include: 
 
+<<<<<<< HEAD
   - Schedule or manage on-demand meetings like a contact center application.
   - Create on demand meetings to handle customer calls and add customer service representatives to the meeting.
   - Voice based call answering and routing bots.
@@ -23,6 +28,20 @@ Key use cases for the Trusted Application API include:
 - Click-to-chat
 - Click-to-call
 - Value Add solutions
+=======
+  - **Meeting Management:** 
+     - Schedule or manage on-demand meetings like a contact center application.
+     - Create on demand meetings to handle customer calls and add customer service representatives to the meeting.
+  - **Attendant console:** 
+     - Voice based call answering and routing bots.
+  - **Value Add solutions:**
+     - Business-to-consumer Remote Advisor functionality like Telehealth appointments or Banking consults
+     - Recording
+     - Compliance
+  - **Customer care:**
+     - Click-to-chat
+     - Click-to-call
+>>>>>>> johnau/ucapdocs
 
 Other such applications include but are not limited to:
  
@@ -44,9 +63,19 @@ To show the power of the Trusted Application API, it may also be used for the fo
 - Pop or insert calls in a call pit.
 - Use large amounts of computation-intensive real time resources for Voice/Video playback, recording, speech synthesis or recognition.
 
+<<<<<<< HEAD
 ## Additional Background for Developers
 
 Learning how to use the Trusted Application API is simpler if you are familiar with RESTful programming concepts and real-time communications with Skype for Business.  The following topics give you the information you need to get familiar with these API concepts. 
+=======
+## In this section
+
+- [Enabling communications services for the cloud](./Trusted_Application_API_GeneralReference.md)
+
+## Additional Background for Developers
+
+Learning how to use the Trusted Application API is simpler if you are familiar with RESTful programming concepts and real-time communications with Skype for Business.  The following topics give you the information you need to get familiar with these API concepts.
+>>>>>>> johnau/ucapdocs
 
 - [The Unified Communications Web API (UCWA)](https://ucwa.skype.com)
 - [Key programming concepts - UCWA](https://ucwa.skype.com/documentation/key-programming-concepts)

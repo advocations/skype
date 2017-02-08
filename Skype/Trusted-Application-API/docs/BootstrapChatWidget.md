@@ -1,10 +1,10 @@
 # Bootstrap chat widget
 
 When the chat widget provided by the Service Application (SA) starts up, it has to send an HTTP request to the SA backend to get a token and an endpoint to authenticate. After getting a token and authenticating, it sends messages directed to chat support.
-The SA sends HTTP requests to the Trusted Applications (UCAP) API anonymous token endpoint to get this information
+The SA sends HTTP requests to the Trusted Applications (Trusted Application) API anonymous token endpoint to get this information
  
  
-1. The SA runs the UCAP API Discovery, authentication and authorization steps to get the capabilities of UCAP.
+1. The SA runs the Trusted Application API Discovery, authentication and authorization steps to get the capabilities of Trusted Application.
 The call flows for this step are described earlier in these topics: 
    - [Discovery for Service Applications](DiscoveryForServiceApplications.md)
    - [Authentication and Authorization](./AuthenticationAndAuthorization.md)
@@ -103,7 +103,7 @@ The SA sends the info from the response, to the chat widget.
  
  
 ## Next step
-Now that the chat widget is bootstrapped and has the anonymous application token, it can get the UCAP application endpoint.
+Now that the chat widget is bootstrapped and has the anonymous application token, it can get the Trusted Application endpoint.
 - [Discovery by chat client](./DiscoveryChatClient.md) 
  
  
