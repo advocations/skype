@@ -127,6 +127,8 @@
                 'Unable to join conference anonymously: ' + err);
         });
 
+        const isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
+
         function setupContainer(videoChannel: jCafe.VideoChannel, videoDiv: HTMLElement) {
             videoChannel.stream.source.sink.format('Stretch');
             videoChannel.stream.source.sink.container(videoDiv);
@@ -190,7 +192,7 @@
                 
                 // In multiview, listen for added participants, set up a container for each,
                 // set up listeners to call isStarted(true/false) when isVideoOn() becomes true/false                                                       
-                if (conversation.videoService.videoMode() == 'MultiView') {
+                if (!isActiveSpeakerMode) {
                     createAndSetUpContainer(participant);
                     listeners.push(participant.video.channels(0).isVideoOn.changed((newState, reason, oldState) => {
                         handleIsVideoOnChangedMV(newState, oldState, participant);
@@ -198,7 +200,7 @@
                 }
             } else if (newState == "Disconnected" && oldState == "Connected") {
                 window.framework.addNotification('info', participant.person.displayName() + ' has disconnected their video');
-                if (conversation.videoService.videoMode == 'MultiView') {
+                if (!isActiveSpeakerMode) {
                     disposeParticipantContainer(participant);
                 }
             }
@@ -223,8 +225,9 @@
                 }));
             }));
             listeners.push(conversation.participants.removed(participant => {
-                disposeParticipantContainer(participant); // Does nothing in activeSpeaker mode
                 window.framework.addNotification('success', participant.person.displayName() + ' has left the conversation');
+                if (!isActiveSpeakerMode)
+                    disposeParticipantContainer(participant);
             }));
         }
 
@@ -240,7 +243,7 @@
 
                 // In activeSpeaker mode, set up one container for activeSpeaker channel, and call
                 // isStarted(true/false) when channel.isVideoOn() becomes true/false
-                if (conversation.videoService.videoMode() == 'ActiveSpeaker') {
+                if (isActiveSpeakerMode) {
                     var activeSpeaker = conversation.videoService.activeSpeaker;
                     setupContainer(activeSpeaker.channel, createVideoContainer("Active Speaker"));
                     listeners.push(activeSpeaker.channel.isVideoOn.changed(newState => {
