@@ -114,8 +114,8 @@ and Discovery Uri with meetingUrl.
 
 let request = NSMutableURLRequest(URL: NSURL(string: "https://metiobank.cloudapp.net/GetAnonTokenJob")!)
         request.HTTPMethod = "POST"
-        request.HTTPBody = "ApplicationSessionId=AnonMeeting&AllowedOrigins=http%3a%2f%2flocalhost%2f&MeetingUrl=https%3a%2f%2fmeet.lync.com%2fmetio%2fjohn%2fI3I1FKVN".dataUsingEncoding(NSUTF8StringEncoding)
-
+        let meetintURL = meetingUrl.text!;
+        request.HTTPBody = "ApplicationSessionId=AnonMeeting&AllowedOrigins=http%3a%2f%2flocalhost%2f&MeetingUrl=\(meetintURL)".dataUsingEncoding(NSUTF8StringEncoding)
         NSURLSession.sharedSession().dataTaskWithRequest(request) {
             (data: NSData?, response: NSURLResponse?, error: NSError?) in
             NSRunLoop.mainRunLoop().performBlock() {
@@ -125,7 +125,7 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://metiobank.cloudapp
                     }
 
                     let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: String]
-                    self.meetingUrl.text = json["DiscoverUri"]
+                    self.discoveryURI = json["DiscoverUri"]!
                     self.token = json["Token"]
                 } catch {
                     UIAlertView(title: "Getting Discover URL failed", message: "\(error)", delegate: nil, cancelButtonTitle: "OK").show()
@@ -204,14 +204,17 @@ Joins a meeting anonymously via Skype App SDK using the Anonymous Token and Disc
      * @note This method can be called repeatedly at any time. It automatically
      * disconnects any existing meetings.
      **/
-        do {
-            let session = try sfb.joinMeetingAnonymousWithDiscoverUrl(NSURL(string: meetingUrl.text!)!, authToken: token!, displayName: displayName.text!)
+     
+       do {
+            
+            let session = try sfb!.joinMeetingAnonymousWithDiscoverUrl(NSURL(string: self.discoveryURI!)!, authToken: self.token!, displayName: self.displayName.text!)
             conversation = session.conversation
             return true
         } catch {
-            UIAlertView(title: "Join failed", message: "\(error)", delegate: nil, cancelButtonTitle: "OK").show()
+            UIAlertView(title: "Joining online meeting failed. Try again later!", message: "\(error)", delegate: nil, cancelButtonTitle: "OK").show()
             return false
         }
+
 
 ```
 **Android**
