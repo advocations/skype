@@ -145,7 +145,8 @@
             const msg = newState ? ' started streaming their video' : ' stopped streaming their video';
             window.framework.addNotification('info', participant.person.displayName() + msg);
             showHideVideoContainer(newState, remoteVidContainerMap[participant.person.displayName()]);
-            participant.video.channels(0).isStarted(newState);
+            if (conversation.isGroupConversation())
+                participant.video.channels(0).isStarted(newState);
         }
 
         function handleIsVideoOnChangedAS(newState: boolean, activeSpeaker: jCafe.ActiveSpeaker) {
@@ -236,7 +237,7 @@
             conversation.participants.add(id);
             conversation.participants.add(id2);
             conversation.videoService.start().then(null, error => {
-                window.framework.addNotification('error', error);
+                window.framework.addNotification('error', JSON.stringify(error));
                 if (error.code && error.code == 'PluginNotInstalled') {
                     window.framework.addNotification('info', 'You can install the plugin from:');
                     window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
