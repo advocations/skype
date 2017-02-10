@@ -13,7 +13,6 @@
     var app;
     var conversation;
     var listeners = [];
-    const remoteVidContainerMap: { [displayName: string]: HTMLElement } = {};
 
     var discoverUrl = "";
     var authToken = "";
@@ -47,13 +46,6 @@
         meetingUrl = "";
         discoverUrl = "";
         authToken = "";
-
-        // remove remote video containers and reset mapping
-        const containerParentElt = content.querySelector('.remoteVideoContainers');
-        Object.keys(remoteVidContainerMap).forEach(participantId => {
-            containerParentElt.removeChild(remoteVidContainerMap[participantId]);
-            delete remoteVidContainerMap[participantId];
-        });
 
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {

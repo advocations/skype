@@ -12,8 +12,6 @@
     var conversation,
         listeners = [];
 
-    const remoteVidContainerMap: { [displayName: string]: HTMLElement } = {};
-
     var meetingUri;
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.uri'));
@@ -42,13 +40,6 @@
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
 
         meetingUri = "";
-        
-        // remove remote video containers and reset mapping
-        const containerParentElt = content.querySelector('.remoteVideoContainers');
-        Object.keys(remoteVidContainerMap).forEach(participantId => {
-            containerParentElt.removeChild(remoteVidContainerMap[participantId]);
-            delete remoteVidContainerMap[participantId];
-        });
 
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {

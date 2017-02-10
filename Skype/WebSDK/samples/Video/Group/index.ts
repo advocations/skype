@@ -10,8 +10,7 @@
     content.querySelector('zero-md').setAttribute('file', mdFileUrl);
 
     var conversation,
-        listeners = [],
-        remoteVidContainerMap = {};
+        listeners = [];
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id2'));
@@ -39,13 +38,6 @@
     function reset(bySample: Boolean) {
         window.framework.hideNotificationBar();
         content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
-
-        // remove remote video containers and reset mapping
-        const containerParentElt = content.querySelector('.remoteVideoContainers');
-        Object.keys(remoteVidContainerMap).forEach(participantId => {
-            containerParentElt.removeChild(remoteVidContainerMap[participantId]);
-            delete remoteVidContainerMap[participantId];
-        });
 
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
