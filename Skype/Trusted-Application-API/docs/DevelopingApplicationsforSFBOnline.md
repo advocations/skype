@@ -7,21 +7,36 @@ Learn how to develop **Trusted Application API** service applications.
 
 ## Getting started
 
-1. Register your application in Azure AD, from where you will get Client ID, App ID URI. Read [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md)
- for details.
+**1. Registration**
 
-2. Upload your application's credential certificate to AAD for authentication. Read [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md)
+Use the [quick registration tool](https://skypeappregistration.azurewebsites.net) for 
+registering Skype for Business Trusted Applications in Azure 
+and Skype for Business Online, that eliminates the need to 
+register an Application manually in Azure portal.
+
+<center><b>Or</b></center>
+ 
+You can also manually register your application in Azure AD, where you will get a Client ID and set an App ID URI . Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FRegistrationInAzureActiveDirectory.md&version=GBmaster&createIfNew=true&_a=contents) for details.
+ 
+>NOTE: Application registration takes 8 hours to complete.  Please wait 8 hours before continuing to register your Application Endpoint.
+ 
+**2. Register trusted application endpoints**
+ 
+Register trusted endpoints in a Skype for Business Online tenant using PowerShell. Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FTrustedApplicationEndpoint.md&version=GBmaster&createIfNew=true&_a=contents) for details.
+ 
+**3. Provide consent**
+
+When the application is registered in AAD, it is registered in the context of a tenant. When the same tenant wants to use the application, you do not need tenant consent.
+For a different tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
+
+ 
+**4. Authentication** 
+
+Authenticate using either Client Secret or Certificate to obtain an Oauth token. Read [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md)
 for details.
 
-3. Register your app in Skype for Business Online: Use the Client ID and App ID URI from Azure AD and register your Trusted Application with the Skype for Business Online service. Read [Registration in SFB Online](./SfBRegistration.md) for more details.
-
-4. Set up trusted endpoints and provide consent.  - When the application is registered in AAD, it is registered in the context of a tenant. When the same tenant wants to use the application, you do not need tenant consent.
- For a different tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
-
-   - Setting up the Trusted application endpoint has few additional steps. Please refer the [Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for more details. 
-
-7. Call the **Trusted Application API**. 
-
+**5. Call the Trusted Application API.**
+ 
 ### Auto Discovery
 It is the act of finding the **Trusted Application API**s home server using the discovery endpoint. This enables you to 
 connect to the API and use the exposed capabilities.
