@@ -65,14 +65,15 @@ The configuration steps are:
  
   ```gradle
   dependencies {
-      compile fileTree(dir: 'libs', include: ['*.jar'])
-      compile(name: "libucmp", ext: 'aar')
-      compile(name: "platform", ext: 'aar')
-      compile(name: "SkypeForBusiness", ext: 'aar')
-      compile(name: "TelemetryService", ext: 'aar')
-      compile(name: "ucmp-enums", ext: 'aar')
-      compile(name: "TelemetryClient2", ext: 'aar')
-      compile(name: "injector", ext: 'aar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: "SkypeForBusinessNative", ext: 'aar')
+    compile(name: "SkypeForBusinessPlatform", ext: 'aar')
+    compile(name: "SkypeForBusiness", ext: 'aar')
+    compile(name: "SkypeForBusinessTelemetryService", ext: 'aar')
+    compile(name: "SkypeForBusinessNativeEnums", ext: 'aar')
+    compile(name: "SkypeForBusinessTelemetryClient", ext: 'aar')
+    compile(name: "SkypeForBusinessInjector", ext: 'aar')
+    compile(name: "android-database-sqlcipher", ext: 'aar')
     
   }
 
@@ -80,36 +81,38 @@ The configuration steps are:
 4. **Add app permissions**: Add _uses-permission_ tags to the project **AndroidManifest.xml** file. 
 
   ```xml
-      <uses-permission android:name="android.permission.INTERNET" />
-      <uses-permission
-          android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-          tools:node="replace" />
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-      <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-      <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-      <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-      <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-      <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-      <uses-permission android:name="android.permission.VIBRATE" />
-      <uses-permission android:name="android.permission.CALL_PHONE" />
-      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-      <uses-permission android:name="android.permission.RECORD_AUDIO" />
-      <uses-permission android:name="android.permission.WAKE_LOCK" />
-      <uses-permission android:name="android.permission.BLUETOOTH" />
-      <uses-permission android:name="android.permission.CAMERA" />
-      <uses-permission android:name="android.permission.READ_CONTACTS" />
-      <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-      <uses-permission android:name="android.permission.READ_SYNC_STATS" />
-      <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-      <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-      <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-      <uses-permission android:name="android.permission.READ_LOGS" />
-      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-      <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:node="replace" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
   ```
 
