@@ -1,6 +1,6 @@
 /// <reference path="../../framework.d.ts" />
 // module Utils.Video {
-function videoUtils (conversation: jCafe.Conversation, content: HTMLElement, listeners: any[], 
+function VideoUtils (conversation: jCafe.Conversation, content: HTMLElement, listeners: any[], 
                         startStep: number, nSteps: number, reset: (boolean?) => void) {
     'use strict';
 
