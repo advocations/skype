@@ -13,3 +13,11 @@ service application that you need to create. Your SaaS app must perform the foll
    - Pass the meeting join URL to your client app
 2.  Receive a request from your client app to [get a discovery URI and an anonymous meeting join token](../Trusted-Application-API/docs/BootstrapChatWidget.md).
     - Pass the discovery URI and token to your client app
+
+The [Implementing a Anonymous Client with the Skype App SDK](../Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md) article in the **Trusted Application API** SDK documentation shows you how to get the meeting resources necessary to
+join an anonymous meeting.
+
+## Next steps
+
+- [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
+- [Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.MD)    
