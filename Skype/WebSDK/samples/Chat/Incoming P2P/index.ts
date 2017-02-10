@@ -79,6 +79,7 @@ declare var mui: any;
                     } else {
                         if (window.framework.popupResponse === 'yes') {
                             window.framework.popupResponse = 'undefined';
+                            window.framework.addNotification('info', 'Invitation Accepted');
                             conversation.chatService.accept();
                             listeners.push(conversation.participants.added(person => {
                                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
@@ -86,13 +87,12 @@ declare var mui: any;
                             listeners.push(conversation.chatService.messages.added(item => {
                                 window.framework.addMessage(item, <HTMLElement>content.querySelector('.messages'));
                             }));
-                            window.framework.addNotification('info', 'Invitation Accepted');
                             (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
                             (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
                         } else {
                             window.framework.popupResponse = 'undefined';
-                            conversation.chatService.reject();
                             window.framework.addNotification('error', 'Invitation Rejected');
+                            conversation.chatService.reject();
                             reset(true);
                             restart();
                         }

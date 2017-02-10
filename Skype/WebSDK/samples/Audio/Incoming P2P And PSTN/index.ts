@@ -75,15 +75,15 @@
                     } else {
                         if (window.framework.popupResponse === 'yes') {
                             window.framework.popupResponse = 'undefined';
+                            window.framework.addNotification('success', 'Invitation accepted');
                             conversation.audioService.accept();
                             listeners.push(conversation.participants.added(person => {
                                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
                             }));
-                            window.framework.addNotification('success', 'Invitation accepted');
                         } else {
                             window.framework.popupResponse = 'undefined';
-                            conversation.audioService.reject();
                             window.framework.addNotification('error', 'Invitation rejected');
+                            conversation.audioService.reject();
                             reset(true);
                             restart();
                         }
