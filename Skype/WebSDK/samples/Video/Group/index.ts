@@ -92,10 +92,10 @@
         window.framework.addNotification('info', 'Inviting participants...');
         conversation = conversationsManager.createConversation();
 
+        const isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
+
         setUpListeners();
         startVideoService();
-
-        const isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
 
         function setupContainer(videoChannel: jCafe.VideoChannel, videoDiv: HTMLElement) {
             videoChannel.stream.source.sink.format('Stretch');
@@ -117,7 +117,8 @@
         }
 
         function showHideVideoContainer(show: boolean, container: HTMLElement) {
-            container.style.display = show ? "block" : "none";
+            if (container)
+                container.style.display = show ? "block" : "none";
         }
 
         function createAndSetUpContainer(participant: jCafe.Participant) {
@@ -264,9 +265,9 @@
     }
 
     function registerControlElements(conversation) {
-        var audioControl = <HTMLElement>document.querySelector('.js-toggleSelfAudio'),
-            videoControl = <HTMLElement>document.querySelector('.js-toggleSelfVideo'),
-            holdControl = <HTMLElement>document.querySelector('.js-toggleSelfHold');
+        var audioControl = content.querySelector('.js-toggleSelfAudio'),
+            videoControl = content.querySelector('.js-toggleSelfVideo'),
+            holdControl = content.querySelector('.js-toggleSelfHold');
 
         registerToggleAudio(audioControl);
         registerToggleVideo(videoControl);
