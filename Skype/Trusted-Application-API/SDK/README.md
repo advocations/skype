@@ -4,7 +4,7 @@ Thank you for your interest in Skype for Business developer documentation!
 
 ## **Trusted Application SDK** documentation
 
-The markdown documents in this repository project are the source of the **Trusted Application API** documentation available to the public preview release, the Microsoft developer site at msdn.microsoft.com/skype.
+The markdown documents in this repository project are the source of the **Trusted Application SDK** documentation available to the public preview release, the Microsoft developer site at msdn.microsoft.com/skype.
 
 ## Contribute to the documentation
 
@@ -20,7 +20,7 @@ First time creating a pull request?  Learn [about pull requests](https://help.gi
 
 ## Documentation images
 
-The images in the **Trusted Application API** documentation are .png or .jpg images. They may not render with full fidelity in your browser. If you need to see more detail
+The images in the **Trusted Application SDK** documentation are .png or .jpg images. They may not render with full fidelity in your browser. If you need to see more detail
 in an image, right-click the image in your browser and download it to your computer. The original full size image is downloaded.
 
 # Next steps
