@@ -219,9 +219,10 @@
                         handleIsVideoOnChangedAS(newState, activeSpeaker);
                     }));
                     listeners.push(activeSpeaker.participant.changed(p => {
-                        window.framework.addNotification('info', "ActiveSpeaker has changed to: " + p.person.displayName());
+                        var displayName = p && p.person.displayName() || 'No Active Speaker';
+                        window.framework.addNotification('info', "ActiveSpeaker has changed to: " + displayName);
                         var videoLabelElement = content.querySelector('.remoteVideoLabel');
-                        videoLabelElement.innerHTML = p.person.displayName();
+                        videoLabelElement.innerHTML = displayName;
                     }));
                 } 
             }));

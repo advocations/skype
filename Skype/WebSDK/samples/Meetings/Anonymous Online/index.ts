@@ -100,6 +100,7 @@
         (<HTMLInputElement>content.querySelector('.join')).disabled = true;
         const name = (<HTMLInputElement>content.querySelector('.anon_name')).value;
         const conversationsManager = app.conversationsManager;
+        var isActiveSpeakerMode;
 
         window.framework.addNotification('info', 'Attempting to join conference anonymously');
         
@@ -118,6 +119,7 @@
             // When joining a conference anonymously, sdk automatically creates
             // a conversation object to represent the conference being joined
             conversation = conversationsManager.conversations(0);
+            isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
             window.framework.addNotification('success',
                 'Successfully signed in with anonymous online meeting token');
             setUpListeners();
@@ -126,8 +128,6 @@
             window.framework.addNotification('error',
                 'Unable to join conference anonymously: ' + err);
         });
-
-        const isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
 
         function setupContainer(videoChannel: jCafe.VideoChannel, videoDiv: HTMLElement) {
             videoChannel.stream.source.sink.format('Stretch');
@@ -251,9 +251,10 @@
                         handleIsVideoOnChangedAS(newState, activeSpeaker);
                     }));
                     listeners.push(activeSpeaker.participant.changed(p => {
-                        window.framework.addNotification('info', "ActiveSpeaker has changed to: " + p.person.displayName());
+                        var displayName = p && p.person.displayName() || 'No Active Speaker';
+                        window.framework.addNotification('info', "ActiveSpeaker has changed to: " + displayName);
                         var videoLabelElement = content.querySelector('.remoteVideoLabel');
-                        videoLabelElement.innerHTML = p.person.displayName();
+                        videoLabelElement.innerHTML = displayName;
                     }));
                 } 
             }));
