@@ -254,18 +254,7 @@ function VideoUtils (conversation: jCafe.Conversation, content: HTMLElement, lis
         (<HTMLElement>content.querySelector('#step' + step)).style.display = 'block';
     }
 
-    function initVidUtils() {
-        content = content;
-        conversation = conversation;
-        listeners = listeners;
-        isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
-        nSteps = nSteps;
-        startStep = startStep;
-        reset = reset;
-    }
-
     return {
-        initVidUtils: initVidUtils,
         setUpListeners: setUpListeners,
         startVideoService: startVideoService
     }
