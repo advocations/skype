@@ -162,6 +162,7 @@
 ####### [Implementing an Anonymous Client with the Skype App SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
 ####### [Anonymous Meeting Join Common Errors](Trusted-Application-API/docs/AnonymousMeetingCommonErrors.md)
 
+#### [Trusted Application API samples](Trusted-Application-API/docs/samples.md)
 #### [Trusted Application API reference](Trusted-Application-API/docs/ReferenceLibrary.md)
 
 ### [Unified Communications Web API (UCWA)](UCWA/UnifiedCommunicationsWebAPI2_0.md)
