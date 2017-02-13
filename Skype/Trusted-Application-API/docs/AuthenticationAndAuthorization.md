@@ -1,10 +1,10 @@
 # Authentication and Authorization
 
- The application does a `GET` on the **ms:rtc:saas:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link.
+ The application does a `GET` on the **service:applications** link returned by the [discover](DiscoveryChatClient.md) operation, after appending an application endpoint id to the value in the link.
 
 The following snippet is an example of such a GET.
 ```
-GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications?endpointId=sip:helpdesk@contoso.com
+GET https://api.skypeforbusiness.com/platformService/v1/applications?endpointId=sip:helpdesk@contoso.com
 ```
 
 The client receives a 401 challenge in a response. The client responds to the authentication challenge by sending an AAD oauth token along with the next request.
@@ -22,7 +22,7 @@ The client receives a 401 challenge in a response. The client responds to the au
 
  
 ## Authentication details
-The audience for the oauth token should be the base fqdn of the discover url: https://noammeetings.resources.lync.com
+The audience for the oauth token should be the base fqdn of the discover url: https://api.skypeforbusiness.com
 
  
 
@@ -30,7 +30,7 @@ The token is sent in the Authorization header, for example:
 
  
 ```
-GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications?endpointId=sip:helpdesk@contoso.com
+GET https://api.skypeforbusiness.com/platformService/v1/applications?endpointId=sip:helpdesk@contoso.com
 Authorization: Bearer <token from AAD>
 ```
  
@@ -47,7 +47,7 @@ Each HTTP request sent by an Trusted Application client must contain an oauth to
 #### Example 
 The following is an example of a json object sent in response to a matching application endpoint
 
-**ms:rtc:saas:application:** 
+**service:application:** 
 
 ```json
 {"href": "/platformservice/v1/applications/1627259584?endpointId=sip%3ahelpdesk%40contoso.com"}
@@ -56,7 +56,7 @@ The following is an example of a json object sent in response to a matching appl
 When the Trusted Application client sends a GET request on this new URL, The API returns the capabilities supported for that application endpoint.
 
 ```
- Get https://ring2noammeetings.resources.lync.com/platformService/v1/applications/1627259584?endpointId=sip:helpdesk%40contoso.com
+ Get https://api.skypeforbusiness.com/platformService/v1/applications/1627259584?endpointId=sip:helpdesk%40contoso.com
 ```
 The json payload of the response to the GET request is strucured as in the following example. 
 
@@ -69,19 +69,19 @@ The json payload of the response to the GET request is strucured as in the follo
         }
     },
     "_embedded": {
-        "ms:rtc:saas:communication": {
+        "service:communication": {
             "_links": {
                 "self": {
                     "href": "/platformservice/v1/applications/1627259584/communication?endpointId=sip:helpdesk@contoso.com"
                 },
-                "ms:rtc:saas:startMessaging": {
+                "service:startMessaging": {
                     "href": "/platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com"
                 }
             },
-            "rel": "ms:rtc:saas:communication",
+            "rel": "service:communication",
             "etag": "4294967295"
         }
     },
-    "rel": "ms:rtc:saas:application"
+    "rel": "service:application"
 }
 ```

@@ -17,12 +17,12 @@ Here we will discuss a few ways to schedule an Anonymous meeting and get meeting
     1. **Discovery**
         - Discover request - Your Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
         ```
-        GET https://noammeetings.resources.lync.com/platformservice/discover
+        GET https://api.skypeforbusiness.com/platformservice/discover
         ```
             
         - Discovery Response - returns the link to the Trusted Applications API.
         ```
-        200 OK, "ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}
+        200 OK, "service:applications":{"href":"https://api.skypeforbusiness.com/platformService/v1/applications"}
         ```
     2. **Get the capabilities**
        
@@ -31,16 +31,16 @@ Here we will discuss a few ways to schedule an Anonymous meeting and get meeting
         ```
         //Capabilities request without valid Oauth token gets '401 Unauthorized' response
 
-        GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+        GET https://api.skypeforbusiness.com/platformService/v1/applications
 
         //Capabilities request with valid Oauth token
 
-        GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+        GET https://api.skypeforbusiness.com/platformService/v1/applications
         Authorization: Bearer XXXX
 
         //Capabilities Response - Communication capability with embedded adhocMeetings.
 
-        200 OK,ms:rtc:saas:Communication":{"href":"ms:rtc:saas:adhocMeetings":{}}
+        200 OK,service:Communication":{"href":"service:adhocMeetings":{}}
         ```
    3. **POST request to get meeting URL** 
 

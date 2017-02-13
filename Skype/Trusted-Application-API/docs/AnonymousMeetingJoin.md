@@ -37,11 +37,11 @@ In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirec
             - Discover request - The Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
 
                  ```
-                GET https://noammeetings.resources.lync.com/platformservice/discover
+                GET https://api.skypeforbusiness.com/platformservice/discover
                 ```
             - Discovery Response - returns the link to the Trusted Applications API.
                 ```
-                200 OK, "ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}
+                200 OK, "service:applications":{"href":"https://api.skypeforbusiness.com/platformService/v1/applications"}
                 ```
         2. **Get the capabilities**
        
@@ -50,20 +50,20 @@ In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirec
                 ```
                     //Capabilities request without valid Oauth token gets '401 Unauthorized' response
             
-                    GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+                    GET https://api.skypeforbusiness.com/platformService/v1/applications
 
                     //Capabilities request with valid Oauth token
             
-                    GET https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+                    GET https://api.skypeforbusiness.com/platformService/v1/applications
                     Authorization: Bearer XXXX
 
                     //Capabilities Response - Anonymous application tokens capabilities.
 
-                    200 OK,ms:rtc:saas:anonApplicationTokens":{"href":"/platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com"}
+                    200 OK,service:anonApplicationTokens":{"href":"/platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com"}
                 ```
-        3. **Request for Token and ms:rtc:saas:discover links**
+        3. **Request for Token and service:discover links**
         
-            - Post on anonApplicationTokens link to get the "token" and "ms:rtc:saas:discover" links**
+            - Post on anonApplicationTokens link to get the "token" and "service:discover" links**
                 
                 ```
                     Post /platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com
@@ -71,18 +71,18 @@ In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirec
                 ```
             - Response - 200 OK with token and discovery link
                 ```
-                    "token":"psat=eyJ0eX...","expiryTime":"2016-06-27T01:42:13.094Z","ms:rtc:saas:discover":{"href":"https://noammeetings.resources.lync.com/platformService/discover?anonymousContext=psat%253deyJ0eX..."}
+                    "token":"psat=eyJ0eX...","expiryTime":"2016-06-27T01:42:13.094Z","service:discover":{"href":"https://api.skypeforbusiness.com/platformService/discover?anonymousContext=psat%253deyJ0eX..."}
                 ```
                 > Note: It is important to pass in a unique applicationSessionId parameter for every client that wants to join a meeting anonymously. This can be a Guid. 
    
     - The Service Application then passes the token and the discover url to the client that initially pinged it, in order to join the meeting anonymously.
         ```
-        send ms:rtc:saas:discover url and token
+        send service:discover url and token
         ```
 
 5. The client then does a GET on the discover url, to know the _'AnonApplications Endpoint'_ and the _'Conference ID'_. The anonApplications endpoint is the UCWA API endpoint to which the client has to connect.
     
-    - GET on ms:rtc:saas:discover url to find "anonApplications" resource and conference id
+    - GET on service:discover url to find "anonApplications" resource and conference id
         ```
          Get /platformservice/discover?anonymousContext=psat%253deyJ0e...
          Origin : https://litware.com

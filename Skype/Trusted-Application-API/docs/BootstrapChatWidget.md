@@ -18,39 +18,39 @@ The following example shows how the capabilities selected and consented earlier,
 "self": {
 "href": "/platformservice/v1/applications/1627259584?endpointId=sip%3ahelpdesk%40contoso.com"
 },
-"ms:rtc:saas:anonApplicationTokens": {
+"service:anonApplicationTokens": {
 "href": "/platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com"
 }
 },
 "_embedded": {
-"ms:rtc:saas:communication": {
+"service:communication": {
 "_links": {
 "self": {
 "href": "/platformservice/v1/applications/1627259584/communication?endpointId=sip:helpdesk@contoso.com"
 },
-"ms:rtc:saas:joinOnlineMeeting": {
+"service:joinOnlineMeeting": {
 "href": "/platformservice/v1/applications/1627259584/communication/onlineMeetingInvitations?endpointId=sip:helpdesk@contoso.com"
 },
-"ms:rtc:saas:inviteUserToMeeting": {
+"service:inviteUserToMeeting": {
 "href": "/platformservice/v1/applications/1627259584/communication/userMeetingInvitations?endpointId=sip:helpdesk@contoso.com"
 },
-"ms:rtc:saas:startMessaging": {
+"service:startMessaging": {
 "href": "/platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com"
 }
 },
-"rel": "ms:rtc:saas:communication",
+"rel": "service:communication",
 "etag": "4294967295"
 },
-"ms:rtc:saas:adhocMeetings": {
+"service:adhocMeetings": {
 "_links": {
 "self": {
 "href": "/platformservice/v1/applications/1627259584/adhocMeetings?endpointId=sip:helpdesk@contoso.com"
 }
 },
-"rel": "ms:rtc:saas:adhocMeetings"
+"rel": "service:adhocMeetings"
 }
 },
-"rel": "ms:rtc:saas:application"
+"rel": "service:application"
 }
  ```
  
@@ -79,11 +79,11 @@ Content-Length : 143
         "self": {
             "href": "https://ext.vdomain.com:4443/platformservice/v1/applications/1627259584/anonApplicationTokens?endpointId=sip:helpdesk@contoso.com"
         },
-        "ms:rtc:saas:discover": {
-            "href": "https://noammeetings.resources.lync.com/platformService/discover?anonymousContext=psat%253deyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5TSV9rVzg1cnFMTEN0VTE1dWlnQ2gxTlZfYyJ9.eyJuYmYiOjE0NjY5NjI5MzMsImV4cCI6MTQ2Njk5MTczMywicnV1Ijoic2lwOlVjYXBVc2VyMTNAdWNhcHRlbmFudC5jb20iLCJhc2kiOiJra2trIiwiYWV1Ijoic2lwOmhlbHBkZXNrQHVjYXB0ZW5hbnR0aGlyZHBhcnR5LmNvbSIsImFvIjoiaHR0cHM6Ly9jb250b3NvLmNvbTtodHRwczovL2xpdHdhcmUuY29tO2h0dHA6Ly93d3cubWljcm9zb2Z0c3RvcmUuY29tIn0.NDlu02-C1snxPHrdoHrext_rDhvRHL49KV2OB1kjin1aJbGsg9nqH6KhCAJ4cwqY1tk6LIydmHx5INV6Lp-8ftQuz6BiM23D0zEj9_j_HuiBpgKzP_BMwm2zrhIdZ6hDiWBI843wwJFmdEB6FbavuewHs_sGNHk3rwPnF_PtJpQ_5hptwN9usf9U7gR0EunXJyPKRtCIFodnztF6MWw9CqhCxPlb6g6EX_kFPr4Btx6X4ncacQAGRu3A-ja3cke_Dy0bDAHA3LK56XaEJwKpfPoDHr9Wc7-leBfkknH4XpkzdNjtWuMuqyTAQH3cLPsy-eW3DIP5RuFNW1-p-gwj5w"
+        "service:discover": {
+            "href": "https://api.skypeforbusiness.com/platformService/discover?anonymousContext=psat%253deyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5TSV9rVzg1cnFMTEN0VTE1dWlnQ2gxTlZfYyJ9.eyJuYmYiOjE0NjY5NjI5MzMsImV4cCI6MTQ2Njk5MTczMywicnV1Ijoic2lwOlVjYXBVc2VyMTNAdWNhcHRlbmFudC5jb20iLCJhc2kiOiJra2trIiwiYWV1Ijoic2lwOmhlbHBkZXNrQHVjYXB0ZW5hbnR0aGlyZHBhcnR5LmNvbSIsImFvIjoiaHR0cHM6Ly9jb250b3NvLmNvbTtodHRwczovL2xpdHdhcmUuY29tO2h0dHA6Ly93d3cubWljcm9zb2Z0c3RvcmUuY29tIn0.NDlu02-C1snxPHrdoHrext_rDhvRHL49KV2OB1kjin1aJbGsg9nqH6KhCAJ4cwqY1tk6LIydmHx5INV6Lp-8ftQuz6BiM23D0zEj9_j_HuiBpgKzP_BMwm2zrhIdZ6hDiWBI843wwJFmdEB6FbavuewHs_sGNHk3rwPnF_PtJpQ_5hptwN9usf9U7gR0EunXJyPKRtCIFodnztF6MWw9CqhCxPlb6g6EX_kFPr4Btx6X4ncacQAGRu3A-ja3cke_Dy0bDAHA3LK56XaEJwKpfPoDHr9Wc7-leBfkknH4XpkzdNjtWuMuqyTAQH3cLPsy-eW3DIP5RuFNW1-p-gwj5w"
         }
     },
-    "rel": "ms:rtc:saas:anonApplicationToken"
+    "rel": "service:anonApplicationToken"
 }
 ```
  
@@ -95,7 +95,7 @@ Content-Length : 143
 **Response:**
  
 - The **token** link has the authentication token that is sent back to the chat widget for the anonymous user for authentication.
-- **ms:rtc:saas:discover** link that chat client goes to first, to get the UCWA url to send the chat messages.
+- **service:discover** link that chat client goes to first, to get the UCWA url to send the chat messages.
  
  
  

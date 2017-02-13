@@ -5,5 +5,5 @@ This section contains the list of Platform resources and enumeration types that 
 
 ## In this section
 
-- [Resources](http://trustedappapi.azurewebsites.net/Reference/Resources.html)
+- [Resources](https://ucwa.skype.com/trustedapplicationapi/reference/Resources.html)
 - [Enumerations](http://trustedappapi.azurewebsites.net/Reference/Enums.html)

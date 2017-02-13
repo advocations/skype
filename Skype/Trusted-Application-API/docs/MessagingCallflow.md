@@ -15,12 +15,12 @@ The call flow is as follows:
     a. The Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
     
     ```
-    GET https://noammeetings.resources.lync.com/platformservice/discover
+    GET https://api.skypeforbusiness.com/platformservice/discover
     ```
     b. Discovery Response - returns the link to the Trusted Applications API.
 
     ```
-    200 OK, "ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}    
+    200 OK, "service:applications":{"href":"https://api.skypeforbusiness.com/platformService/v1/applications"}    
     ```
     
 2. **Get the capabilities**
@@ -29,14 +29,14 @@ The call flow is as follows:
     **This GET request must be authenticated with a valid OAuth token.**
     
     ```
-    GET  https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+    GET  https://api.skypeforbusiness.com/platformService/v1/applications
     ```
      
     >Note: A request without a valid OAuth token will return '401 Unauthorized response'.
 
    b. Capabilities **GET** Request with a valid OAuth token.
     ```
-    https://ring2noammeetings.resources.lync.com/platformService/v1/applications
+    https://api.skypeforbusiness.com/platformService/v1/applications
     Authorization: Bearer XXXX
     ```
    c. Capabilities Response - You receive SFB Online user's sip URI in response.
@@ -44,7 +44,7 @@ The call flow is as follows:
 
     ```
  
-    messaging capability:200 OK, "ms:rtc:saas:startMessaging": {
+    messaging capability:200 OK, "service:startMessaging": {
     "href": "/platformservice/v1/applications/1627259584/communication/messagingInvitations?endpointId=sip:helpdesk@contoso.com"} 
     ```
 ![call flow](./images/MessagingCallFlowsInitialize.jpg)
@@ -65,10 +65,10 @@ The call flow is as follows:
    c. The **Trusted Application API** informs the Service Application (SA) via a **callback** that a new conversation is created with messaging invitation details including operation ID for tracking. 
     ```
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:communication", 
+    "rel": "service:communication", 
     "href": "/platformservice/v1/applications/1627259584/communication?endpointId=sip:helpdesk@contoso.com"
-    "ms:rtc:saas:messagingInvitation": {"direction": "Outgoing","state": "Connecting","operationId": "1000","importance": "Normal","subject": "IME2EPlainTextWithIdentity",...
-     {"rel": "ms:rtc:saas:conversation","href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
+    "service:messagingInvitation": {"direction": "Outgoing","state": "Connecting","operationId": "1000","importance": "Normal","subject": "IME2EPlainTextWithIdentity",...
+     {"rel": "service:conversation","href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20?endpointId=sip:helpdesk@contoso.com"
     }
     ```
@@ -80,7 +80,7 @@ The call flow is as follows:
     
     ```
     Post https://litware.com/callback
-    ": { "rel": "ms:rtc:saas:participant", 
+    ": { "rel": "service:participant", 
     "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584/communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/participants/ucape2euser1@contoso.com?endpointId=sip:helpdesk@contoso.com",
     "title": UcapE2EUser1"}
     "type": "added"
@@ -94,7 +94,7 @@ The call flow is as follows:
    a. CallBack 
     ```
     Post https://litware.com/callback
-    {"rel": "ms:rtc:saas:message", "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
+    {"rel": "service:message", "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/2?endpointId=sip:helpdesk@contoso.com"}...
     "plainMessage": { "href": "data:text/plain;charset=utf-8,Message+1+from+2+to+1"}
     ```
@@ -125,10 +125,10 @@ The call flow is as follows:
    
     ``` 
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:message",
+    "rel": "service:message",
     "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/3?endpointId=sip:helpdesk@contoso.com"}                   
-    "status": "Success","_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
+    "status": "Success","_embedded": {"service:message": {"direction": "Outgoing",
     ```
 ![call flow](./images/MessagingCallFlowsAppSendsMessage1.jpg)
 
@@ -139,11 +139,11 @@ The call flow is as follows:
 
     ```
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:participant",  
+    "rel": "service:participant",  
     "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/participants/ucape2euser1@contoso.com?endpointId=sip:helpdesk@contoso.com", 
     "title": "UcapE2EUser1"}
-    "in": {"rel": "ms:rtc:saas:typingParticipants","href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03
+    "in": {"rel": "service:typingParticipants","href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03
     /v1/applications/1627259584/communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/typingParticipants?endpointId=sip:helpdesk@contoso.com"
     "type": "added"
     ```
@@ -153,7 +153,7 @@ The call flow is as follows:
  
     ```
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:message",
+    "rel": "service:message",
     "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/4?endpointId=sip:helpdesk@contoso.com"
     "htmlMessage": {"href": "data:text/html;charset=utf-8,%3cp%3eMessage+2+from+%3ci%3e2%3c%2fi%3e+to+%3cb%3e1%3c%2fb%3e%3c%2fp%3e"}}
@@ -181,10 +181,10 @@ The call flow is as follows:
     
     ```
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:message", "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
+    "rel": "service:message", "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20/messaging/messages/5?endpointId=sip:helpdesk@contoso.com"}                   
     "status": "Success",
-    "_embedded": {"ms:rtc:saas:message": {"direction": "Outgoing",
+    "_embedded": {"service:message": {"direction": "Outgoing",
     ```
 ![call flow](./images/MessagingCallFlowsAppsendsmessage2.jpg)
 
@@ -194,7 +194,7 @@ The call flow is as follows:
    a. CallBack
     ```
     Post https://litware.com/callback
-    "rel": "ms:rtc:saas:conversation", 
+    "rel": "service:conversation", 
     "href": "/platformservice/tgt-c39794177c465e6c922bd0737e01fd03/v1/applications/1627259584
     /communication/conversations/f503a6b3-8622-4d61-9f44-b0298a83de20?endpointId=sip:helpdesk@contoso.com"},
     "type": "deleted"

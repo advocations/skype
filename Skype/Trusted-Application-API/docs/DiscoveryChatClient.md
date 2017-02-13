@@ -20,7 +20,7 @@ Origin : http://contoso.com
             "href": "https://ext.vdomain.com:4443/ucwa/psanon/v1/applications"
         }
     },
-    "rel": "ms:rtc:saas:discover"
+    "rel": "service:discover"
 }
 ``` 
 ## Next step
