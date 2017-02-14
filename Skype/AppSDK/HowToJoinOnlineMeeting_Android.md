@@ -9,7 +9,7 @@ have created a Trused Application API-based service application that creates ad-
 request them.
 
 >[!NOTE]
-If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
+**For mobile apps that enabled preview features:** If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
 your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. A Trusted Application API service application is not needed to complete the scenario in this case. To learn
 how to use a meeting Url, read [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
 
