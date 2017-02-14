@@ -1,5 +1,35 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 2/14/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.81.43 | 2/14/17 | 1.80.33
+| Skype Web SDK Preview    | 0.4.417 | 2/14/17 | 0.4.411
+| Conversation Control Production | 1.80.33 | 2/14/17 | 1.79.32
+| Skype Web SDK Production| 0.4.411 | 2/14/17 | 0.4.405 |
+
+The latest preview release includes several fixes to improve the resilience of AV
+calling with the SDK in the case of unexpected failures, and fixes a rare case
+where the application will hang indefinitely while trying to sign in.
+
+**Bugs fixed in the new public preview build:**
+
+- Call does not end/disconnect call after losing network connection
+- Set container on the sourced stream instead of the source stream if available, 
+and distinguish stream of participant's video channels in conference call from 
+P2P/unitialized streams
+- makeMeAvailable should be done only on the current application
+- UCWA returns an application with a new id after 404 causing sdk to go into an 
+infinite loop of POST /applications
+- Recovering from a plugin crash and cleaning up for subsequent AV calls
+- Uninitialize devices manager when plugin manager becomes uninitialized
+- Add debugging information for infinite 404s that we see in Prod due to user uri
+changing and causing new application id
+- add Utils.debug.dumpDebugInfo function to dump small amount of identifying info
+to console
+
+---
 
 ## Skype Web SDK Version Update 2/7/17
 

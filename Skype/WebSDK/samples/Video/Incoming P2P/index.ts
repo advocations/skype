@@ -85,6 +85,7 @@
                     } else {
                         if (window.framework.popupResponse === 'yes') {
                             window.framework.popupResponse = 'undefined';
+                            window.framework.addNotification('success', 'Invitation accepted');
                             conversation.videoService.accept();
                             listeners.push(conversation.participants.added(person => {
                                 window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
@@ -103,11 +104,10 @@
                                     }));
                                 }));
                             }));
-                            window.framework.addNotification('success', 'Invitation accepted');
                         } else {
                             window.framework.popupResponse = 'undefined';
-                            conversation.videoService.reject();
                             window.framework.addNotification('error', 'Invitation rejected');
+                            conversation.videoService.reject();
                             reset(true);
                             restart();
                         }
