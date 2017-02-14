@@ -150,7 +150,7 @@ The following example creates an HTTP request body and then uses a helper interf
 The following code runs in the newly created **SkypeCall** activity. It calls **joinMeetingAnonymously**, gets an **AnonymousSession**, and then the **Conversation** that
 represents the adhoc meeting.
 
-[!NOTE]
+>[!NOTE]
 The sample code shows the use of the new **setEndUserAcceptedVideoLicense** api. This API must be called before a user can join video in a meeting. Once the api has been called, the user 
 is considered in acceptance of the third party video codec license that we use to support video. It is necessary that your app presents the terms of this license to the user before a meeting 
 is started. Subsequent meetings do not require the license acceptance.
