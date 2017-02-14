@@ -5,7 +5,7 @@ This article shows you how to enable the core  **Skype for Business** anonymous 
 
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
 your app is not enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. A meeting Url does not give you 
-meeting access in this scenario. Read [Use the App SDK and the Trusted Application API to join an Online meeting - Android]()
+meeting access in this scenario. Read [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md)
 
 After completing the steps in this article, your app can join a **Skype for Business** video meeting with a
 meeting URL. No **Skype for Business** credentials are used to join the meeting.
