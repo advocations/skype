@@ -5,7 +5,8 @@ This article shows you how to enable the core  **Skype for Business Online** ano
 
 >[!NOTE]
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
-your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. 
+your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. A Trusted Application API service application is not needed to complete the scenario in this case. To learn
+how to use a meeting Url, read [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
 
 After completing the steps in this article, your app can join a **Skype for Business Online** video meeting with discovery Url and anonymous meeting token. No **Skype for Business Online** credentials are used to join the meeting.
 
@@ -254,7 +255,7 @@ These license terms are an agreement between you and Microsoft Corporation (or o
 
 #### Join the meeting
 
-To join the meeting:
+The following code snippet sets configurable parameters for Skype for Business calls and then joins the anonymous meeting.
 
 ```java
     /**
@@ -267,21 +268,15 @@ To join the meeting:
             , String discoveryUrl
             , String authToken){
         try {
+
+            //Set meeting configuration parameters
             setMeetingConfiguration();
 
-            if (onlineMeetingFlag == 0) {
-                mAnonymousSession = mApplication
-                        .joinMeetingAnonymously(
-                                getString(R.string.userDisplayName)
-                                , new URI(meetingUrl));
-
-            } else {
-                mAnonymousSession = mApplication
-                        .joinMeetingAnonymously(
-                                getString(R.string.userDisplayName)
-                                , new URL(discoveryUrl)
-                                , authToken);
-            }
+            mAnonymousSession = mApplication
+                    .joinMeetingAnonymously(
+                            getString(R.string.userDisplayName)
+                            , new URL(discoveryUrl)
+                            , authToken);
             mConversation = mAnonymousSession.getConversation();
             if (mConversation != null)
                 mConversation.addOnPropertyChangedCallback(new ConversationPropertyChangeListener());
@@ -296,11 +291,172 @@ To join the meeting:
         } catch (MalformedURLException e) {
             Log.e("SkypeCall", "Online meeting url syntax error");
             e.printStackTrace();
+        }
+    }
+
+        /**
+     * Set up AV call configuration parameters from user preferences
+     */
+    private void setMeetingConfiguration(){
+        mApplication.getConfigurationManager().enablePreviewFeatures(
+                PreferenceManager
+                        .getDefaultSharedPreferences(this)
+                        .getBoolean(getString(R.string.enablePreviewFeatures), false));
+
+        mApplication.getConfigurationManager().setRequireWiFiForAudio(
+                PreferenceManager
+                        .getDefaultSharedPreferences(this)
+                        .getBoolean(getString(R.string.requireWifiForAudio), false));
+
+        mApplication.getConfigurationManager().setRequireWiFiForVideo(
+                PreferenceManager
+                        .getDefaultSharedPreferences(this)
+                        .getBoolean(getString(R.string.requireWifiForVideo), false));
+
+        mApplication.getConfigurationManager().setMaxVideoChannelCount(
+                Long.parseLong(PreferenceManager
+                        .getDefaultSharedPreferences(this)
+                        .getString(getString(R.string.maxVideoChannels), "5")));
+
+    }
+
+
+```
+
+#### Retrofit helper interface
+
+This example creates a constructor, loggin interceptor method, and interface to the service application REST api. The logging interceptor method injects HTTP headers into RESTful requests
+made by the mobile sample.
+
+```java
+/*
+ * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+ * See LICENSE in the project root for license information.
+ */
+package com.microsoft.office.sfb.healthcare;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
+
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
+
+public class RESTUtility {
+
+    private  SaasAPIInterface saaSAPIInterface;
+    private  String mBaseUrl;
+    private okhttp3.OkHttpClient mOkClient;
+    private Context mContext;
+
+    public RESTUtility(Context context, String baseUrl){
+        mContext = context;
+        mBaseUrl = baseUrl ;
+    }
+
+    @SuppressLint("LongLogTag")
+    private void buildLoggingInterceptor(){
+        try {
+            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            mOkClient = new okhttp3.OkHttpClient
+                    .Builder()
+                    .addInterceptor(new LoggingInterceptor())
+                    .addInterceptor(httpLoggingInterceptor)
+                    .build();
+
         } catch (Exception e) {
-            Log.e("SkypeCall", "Exception");
-            e.printStackTrace();
+            Log.e(
+                    "exception in RESTUtility: ",
+                    e.getLocalizedMessage().toString() );
         }
 
     }
+    @SuppressLint("LongLogTag")
+    public  SaasAPIInterface getSaaSClient() {
+        if (saaSAPIInterface == null) {
+
+            try {
+
+                if (mOkClient == null) {
+                    buildLoggingInterceptor();
+                }
+
+                Retrofit SaaSClient = new Retrofit.Builder()
+                        .baseUrl(mBaseUrl)
+                        .client(mOkClient)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                saaSAPIInterface = SaaSClient.create(SaasAPIInterface.class);
+
+            } catch (Exception e){
+                Log.e(
+                        "exception in RESTUtility: ",
+                        e.getLocalizedMessage().toString() );
+            }
+        }
+        return saaSAPIInterface;
+    }
+
+
+    public interface SaasAPIInterface {
+
+
+
+        @POST("/GetAnonTokenJob")
+        Call<GetTokenResult> getAnonymousToken(
+                @Body RequestBody body
+        );
+
+        @POST("/GetAdhocMeetingJob")
+        Call<GetMeetingURIResult> getAdhocMeeting(
+                @Body RequestBody body);
+
+    }
+
+    class LoggingInterceptor implements Interceptor {
+
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+
+
+            Request request = chain.request();
+            request = request.newBuilder()
+
+            .addHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8")
+            .addHeader("Accept","text/plain, */*; q=0.01")
+            .addHeader("Referer","https://sdksamplesucap.azurewebsites.net/")
+            .addHeader("Accept-Language","en-US,en;q=0.8,zh-Hans-CN;q=0.5,zh-Hans;q=0.3")
+            .addHeader("Origin","https://sdksamplesucap.azurewebsites.net")
+            .addHeader("Accept-Encoding","gzip, deflate")
+            .addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko")
+            .addHeader("Host",mContext.getString(R.string.SaasHostName))
+            .addHeader("Content-Length",
+                    String.valueOf(
+                            chain.request()
+                                    .body()
+                                    .contentLength()))
+            .addHeader("Connection","Keep-Alive")
+            .addHeader("Cache-Control","no-cache")
+                  .method(request.method(),request.body())
+            .build();
+
+
+            Response response = chain.proceed(request);
+            return response;
+        }
+    }
+
+}
 
 ```
