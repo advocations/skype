@@ -4,7 +4,9 @@ This article shows you how to enable the core  **Skype for Business Online** ano
 [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md). 
 
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
-your app is **not** enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. 
+your app is **not** enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. This article assumes that you 
+have created a Trused Application API-based service application that creates ad-hoc meetings, provides meeting join Urls, discovery Uris, and anonymous meeting tokens to mobile apps that 
+request them.
 
 >[!NOTE]
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
