@@ -3,6 +3,9 @@
 This article shows you how to enable the core  **Skype for Business Online** anonymous meeting join scenario in your Android app. iOS developers should read
 [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md). 
 
+If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
+your app is **not** enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. 
+
 >[!NOTE]
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
 your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. A Trusted Application API service application is not needed to complete the scenario in this case. To learn
