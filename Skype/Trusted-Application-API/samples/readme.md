@@ -1,4 +1,4 @@
-# Samples for Trusted Applpication API
+# Samples for Trusted Application API
 
 ## Console App 
 
