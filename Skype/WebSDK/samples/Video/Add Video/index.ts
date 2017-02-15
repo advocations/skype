@@ -1,4 +1,5 @@
 /// <reference path="../../../framework.d.ts" />
+/// <reference path="../../utils/video-utils.ts" />
 (function () {
     'use strict';
 
@@ -11,12 +12,14 @@
     var conversation;
     var listeners = [];
 
+    var vidUtils;
+
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.id'));
 
     function cleanUI() {
         (<HTMLInputElement>content.querySelector('.id')).value = '';
         (<HTMLElement>content.querySelector('.selfVideoContainer')).innerHTML = '';
-        (<HTMLElement>content.querySelector('.remoteVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.remoteVideoContainers')).innerHTML = '';
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
         (<HTMLInputElement>content.querySelector('.call')).disabled = false;
@@ -63,18 +66,14 @@
     }
 
     function restart() {
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'block';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        goToStep(1);
         (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
         (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
         (<HTMLInputElement>content.querySelector('.call')).disabled = false;
         (<HTMLInputElement>content.querySelector('.add')).disabled = false;
     }
 
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.call'), 'click', () => {
+    function startCall () {
         window.framework.showNotificationBar();
         if (!(<HTMLInputElement>content.querySelector('.id')).value) {
             window.framework.addNotification('info', 'Please enter a valid user id');
@@ -87,23 +86,14 @@
         conversation = conversationsManager.getConversation(id);
         window.framework.addNotification('info', 'Sending invitation...');
 
+        vidUtils = VideoUtils(conversation, content, listeners, 2, 4, reset);
+
+        vidUtils.setUpListeners();
+
         listeners.push(conversation.selfParticipant.audio.state.when('Connected', () => {
             window.framework.addNotification('success', 'Connected to audio');
         }));
-        listeners.push(conversation.participants.added(person => {
-            window.framework.addNotification('success', person.displayName() + ' has joined the conversation');
-        }));
-        listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
-            if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.addNotification('info', 'Conversation ended');
-                (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-                (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-                (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
-                (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
-                (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
-                reset(true);
-            }
-        }));
+
         conversation.audioService.start().then(null, error => {
             window.framework.addNotification('error', error);
             if (error.code && error.code == 'PluginNotInstalled') {
@@ -112,53 +102,17 @@
                 window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
             }
         });
-        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'block';
-    });
+        goToStep(2);
+    }
 
-    window.framework.addEventListener(content.querySelector('.add'), 'click', () => {
+    function addVideo () {
         (<HTMLInputElement>content.querySelector('.add')).disabled = true;
         window.framework.addNotification('info', 'Adding video...');
 
-        function setupContainer(person: jCafe.Participant, size: string, videoDiv: HTMLElement) {
-            person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(videoDiv);
-        }
+        vidUtils.startVideoService();
+    }
 
-        listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
-            window.framework.addNotification('info', 'Showing self video...');
-            (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'block';
-            setupContainer(conversation.selfParticipant, 'small', <HTMLElement>content.querySelector('.selfVideoContainer'));
-            window.framework.addNotification('success', 'Connected to video');
-        }));
-        listeners.push(conversation.participants.added(person => {
-            listeners.push(person.video.state.when('Connected', () => {
-                (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
-                setupContainer(person, 'large', <HTMLElement>content.querySelector('.remoteVideoContainer'));
-
-                listeners.push(person.video.channels(0).isVideoOn.when(true, () => {
-                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'block';
-                    window.framework.addNotification('info', person.displayName() + ' started streaming their video');
-                }));
-                listeners.push(person.video.channels(0).isVideoOn.when(false, () => {
-                    (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
-                    window.framework.addNotification('info', person.displayName() + ' stopped streaming their video');
-                }));
-            }));
-        }));
-        conversation.videoService.start(null, error => {
-            window.framework.addNotification('error', error);
-            if (error.code && error.code == 'PluginNotInstalled') {
-                window.framework.addNotification('info', 'You can install the plugin from:');
-                window.framework.addNotification('info', '(Windows) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeMeetingsApp.msi');
-                window.framework.addNotification('info', '(Mac) https://swx.cdn.skype.com/s4b-plugin/16.2.0.67/SkypeForBusinessPlugin.pkg');
-            }
-        });
-        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
-        (<HTMLElement>content.querySelector('#step3')).style.display = 'block';
-    });
-
-    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
+    function endConversation () {
         window.framework.addNotification('info', 'Ending conversation...');
         if (!conversation) {
             reset(true);
@@ -167,16 +121,26 @@
         }
         conversation.leave().then(() => {
             window.framework.addNotification('success', 'Conversation ended');
-            (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
-            (<HTMLElement>content.querySelector('#step4')).style.display = 'block';
+            goToStep(4)
         }, error => {
             window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
-    });
+    }
+    
+    window.framework.registerNavigation(reset);
 
-    window.framework.addEventListener(content.querySelector('.restart'), 'click', () => {
-        restart();
-    });
+    window.framework.addEventListener(content.querySelector('.call'), 'click', startCall);    
+    window.framework.addEventListener(content.querySelector('.add'), 'click', addVideo);    
+    window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
+
+    function goToStep(step) {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step4')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step' + step)).style.display = 'block';
+    }
 })();
