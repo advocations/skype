@@ -1,12 +1,23 @@
 # Anonymous Meeting Join
 
-Anonymous meeting join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, anonymous meeting join is supported through the **Trusted Application API**.  The guest join meeting flow for anonymous meetings uses the **Trusted Application API** plus the client-side features of either the Skype Web SDK, App SDK, or UCWA.
+Anonymous meeting join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, anonymous meeting join is supported through the **Trusted Application API**.  The guest join meeting flow for anonymous meetings can use the **Trusted Application API** plus the client-side features of either the Skype Web SDK, App SDK, or UCWA.
 The anonymous user can join into Skype meetings by using a meeting's URI.
 An online meeting can be scheduled using the Skype for Business Client or Outlook, or even programmatically using UCWA or the **Trusted Application API**.  The meeting's URL is passed to the service application, which calls the Trusted Application endpoint and enables anonymous users to join the online meeting.
 
+In most cases, use a meeting Url to join a meeting anonymously. Otherwise, you'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
+will call the service application to get these resources before joining a meeting. To learn more about this, see [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md) or
+[Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md).  The following table shows you what resources to use for your SfB deployment scenario.
+
+|Skype for Business topology|Enable preview features enabled|Enable preview features disabled|Meeting join resource|
+|:----|:----|:----|:----|
+|CU June 2016|Chat, AV|Chat only|Meeting Url|
+|CU December 2016|Chat, AV| Chat, AV|Meeting Url|
+|SfB Online|Chat, AV|n/a|Meeting Url|
+|SfB Online|n/a|Chat, AV|Discover Uri, Anon Token|
+
 ## Prerequisites:
 - Please read [Developing **Trusted Application API** applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) to learn how to develop **Trusted Application API** service applications for anonymous meeting join call flow.
-In ['Registering your application in Azure AD'](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **Anonymous meeting join** 
+In [Registering your application in Azure AD](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **Anonymous meeting join** 
 
 ### Required permissions
 - Guest user join services (preview)
