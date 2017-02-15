@@ -1,4 +1,5 @@
 /// <reference path="../../../framework.d.ts" />
+/// <reference path="../../utils/video-utils.ts" />
 (function () {
     'use strict';
 
