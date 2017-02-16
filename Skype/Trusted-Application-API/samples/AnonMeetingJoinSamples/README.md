@@ -13,21 +13,22 @@ The sample Web SDK application interacts with the Trusted Application sample and
 
 # Getting started
 ## Prerequisites
-1.	Create a Cloud Service from Azure and give it a name to reserve a *.cloudapp.net URL. Refer to [this link](https://azure.microsoft.com/en-us/documentation/services/cloud-services/) for details.
-2.	Register your application in Azure AD, where you will get a Client ID and set an App ID URI. Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FRegistrationInAzureActiveDirectory.md&version=GBmaster&createIfNew=true&_a=contents) for details.
-> You can use the [quick registration tool](https://skypeappregistration.azurewebsites.net) for registering Skype for Busines Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
-3.	Registration in Skype for Business Online: Use the Client ID and App ID URI from Azure AD and register your Trusted Application with Skype for Business Online.  Your application endpoint will also need to be registered within a Skype for Business Tenant. Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FSfBRegistration.md&version=GBmaster&createIfNew=true&_a=contents) for details.
-> You can use the [quick registration tool](https://skypeappregistration.azurewebsites.net) for registering Skype for Busines Trusted Applications in Azure and Skype for Business Online.  Application endpoint registration must still be done by the Tenant Admin. Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FSfBRegistration.md&version=GBmaster&createIfNew=true&_a=contents) for details. 
-4.	Deploy the the client (anonymous webpage) code contained in the `WebsiteSamples` folder to a web server (e.g. IIS on localhost, or Azure App Service to deploy to *.azurewebsites.net)
-5.	Download [Azure SDK v2.9](http://go.microsoft.com/fwlink/?LinkId=746481) or above.
+1.	Download [Azure SDK v2.9](http://go.microsoft.com/fwlink/?LinkId=746481) or above.
+2.	Create a Cloud Service from Azure and give it a name to reserve a *.cloudapp.net URL. Refer to [this link](https://azure.microsoft.com/en-us/documentation/services/cloud-services/) for details.
+3. Use the [quick registration tool](https://aka.ms/skypeappregistration) for registering Skype for Business Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
+
+Optionally, you can manually register your application in Azure Portal, where you will get a Client ID and set an App ID URI. Refer to [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) for details.
+4.	Register Trusted Endpoints in a Skype for Business Online tenant using PowerShell.   Refer to [Setting up a Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for details.
+5. Provide consent: When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
+6.	Deploy the the client (anonymous webpage) code contained in the `WebsiteSamples` folder to a web server (e.g. IIS on localhost, or Azure App Service to deploy to *.azurewebsites.net)
 
 ## Deployment
-Once you have satisfied the prerequisites, it is time to configure the agent source code and deploy it to the Azure Cloud Service created in step 3.
+Once you have satisfied the prerequisites, it is time to configure the Trusted Application source code and deploy it to the Azure Cloud Service created in step 3.
 
 If you plan on pointing a custom domain or subdomain to your `*.cloudapp.net` server, use that FQDN as your base URL. Otherwise, use `resourcename.cloudapp.net` as your base URL, as created in step 3.
 
 ### Trusted Application Agent
-1. Clone from `https://skypedevtap.visualstudio.com/Trusted%20Application%20API%20Samples/_git/Trusted%20Application%20API%20Samples`
+1. Clone code from the samples repo.
 2. Build the solution (NuGet packages will be restored)
 3. Edit the `ServiceConfiguration.Prod.cscfg` file, substituting `[parameters]` as follows:
     ```
