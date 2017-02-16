@@ -32,7 +32,7 @@ for details.
 It is the act of finding the **Trusted Application API**s home server using the discovery endpoint. This enables you to 
 connect to the API and use the exposed capabilities.
   
->Note: For **PSTN or Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md). For Chat **Customer care applications**, please refer [Discovery by chat client](./DiscoveryChatClient.md)
+>Note: For **Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
 ### Authentication using client credentials
 All endpoints other than the Discovery endpoint require authentication.
@@ -56,6 +56,5 @@ for more details.
 The following topics also apply to the **Trusted Application API** Online service application workflow:
 
 - [Webhooks (Events)](./Webhooks.md)
-- [Call Flows](./CallFlows.md)
 - [**Trusted Application API** Reference Library](./ReferenceLibrary.md)
  
