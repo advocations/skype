@@ -15,7 +15,7 @@ Skype for Business App SDK General Availability - Release Notes
 ## Skype for Business App SDK Licenses
 
 - SfB App SDK Release License.pdf – This document provides the Skype for Business App SDK Release License 
-- SfB App SDK Codec End User License Terms.pdf – This document provides the license terms that must be presented to the end user before receiving or initializing video call.
+- [SfB App SDK Codec End User License Terms](videoLicense.md) – This document provides the license terms that must be presented to the end user before receiving or initializing video call.
  
 ## Download SDK 
 
