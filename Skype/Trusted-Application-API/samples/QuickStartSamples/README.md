@@ -14,15 +14,15 @@ The Trusted Application QuickStart console app sample demonstrates:
 
 Use the [quick registration tool](https://aka.ms/skypeappregistration) for registering Skype for Business Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
 
-You can also manually register your application in Azure Portal, where you will get a Client ID and set an App ID URI. Refer to [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) for details.
+You can also manually register your application in Azure Portal, where you will get a Client ID and set an App ID URI. Refer to [Registration in Azure Active Directory](https://github.com/OfficeDev/skype-docs/blob/master/Skype/Trusted-Application-API/docs/RegistrationInAzureActiveDirectory.md) for details.
 
 **2. Register trusted application endpoints**
 
-Register Trusted Endpoints in a Skype for Business Online tenant using PowerShell.   Refer to [Setting up a Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for details.
+Register Trusted Endpoints in a Skype for Business Online tenant using PowerShell.   Refer to [Setting up a Trusted Application Endpoint](https://github.com/OfficeDev/skype-docs/blob/master/Skype/Trusted-Application-API/docs/TrustedApplicationEndpoint.md) for details.
 
 **3. Provide consent**
 
-When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
+When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](https://github.com/OfficeDev/skype-docs/blob/master/Skype/Trusted-Application-API/docs/TenantAdminConsent.md) for more details.
 
 **4. Clone samples** 
 
