@@ -19,7 +19,7 @@ Anonymous clients follow a different discovery flow. The anonymous client discov
 
 The anonymous client issues a GET on the discovery link and an **[anonApplications](https://ucwa.skype.com/trustedapplicationapi/Resources/anonApplications.html)** resource is returned. This resource is the starting point for all anonymous clients scenarios.
 
-You can get the details of how an SA gets the  anonApplications resource from the API: [Discovery by chat client](./DiscoveryChatClient.md)
+You can get the details of how an SA gets the **[anonApplications](https://ucwa.skype.com/trustedapplicationapi/Resources/anonApplications.html)** resource from the API: [Anonymous Meeting Join](./AnonymousMeetingJoin.md)
 
 
 
