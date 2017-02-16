@@ -36,7 +36,7 @@ In [Registering your application in Azure AD](./RegistrationInAzureActiveDirecto
     Request to join "https://meet.lync.com/contoso/testuser/1SD8D0WZ"
     ```
 
-4. The Service Application talks to the **Trusted Application API** using the discovery and authentication mechanism described [here](./MessagingCallFlow.md).
+4. The Service Application talks to the **Trusted Application API** using the discovery and authentication mechanism described [here](./AuthenticationAndAuthorization.md).
     
     - The Service Application gets an anonymous application token, and a discover url, when it passes in the meeting url to the AnonApplicationsToken endpoint of the **Trusted Application API**. The flow is as follow:
     
