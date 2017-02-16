@@ -6,8 +6,8 @@ An online meeting can be scheduled using the Skype for Business Client or Outloo
 
 You'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
 will call the service application to get these resources before joining a meeting. To learn more about this, see 
-- [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md)
-- [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md)
+- [Use the App SDK and the Trusted Application API to join an Online meeting - Android](../../AppSDK/HowToJoinOnlineMeeting_Android.md)
+- [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../../HowToJoinOnlineMeeting_iOS.md)
 - [Implementing a Anonymous Client with the Skype Web SDK](ImplementingAnonymousClientWithSkypeWebSDK.md)
 
 
