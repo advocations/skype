@@ -1,5 +1,5 @@
 # Release Notes
-Skype for Business App SDK Release Candidate Update - Release Notes
+Skype for Business App SDK General Availability - Release Notes
 
 - Mute State - The local participants mute state and API to change the it are exposed on the AudioService.
 - Meeting join API - The joinMeetingAnonymously API in the Application class is overloaded in this release to support future capabilities that will be available for Skype for Business Online.
