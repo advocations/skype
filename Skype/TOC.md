@@ -110,9 +110,12 @@
 ### [Skype for Business App SDK](AppSDK/SkypeAppSDK.md)
 #### [Overview: Embed B2C communications](AppSDK/EmbedSkypeB2Ccomms.md)
 #### [Getting started](AppSDK/GettingStarted.md)
-##### [Get a meeting URL](AppSDK/GetMeetingURL.md)
+##### [Get an on-premise meeting URL](AppSDK/GetMeetingURL.md)
+##### [Get meeting join resources for Skype for Business Online meetings](AppSDK/GetOnlineMeetingJoinResources.md)
 ##### [Use the SDK to join a meeting with an Android device](AppSDK/HowToJoinMeeting_Android.md)
+##### [Use the App SDK and the Trusted Application API to join an Online meeting - Android](AppSDK/HowToJoinOnlineMeeting_Android.md)
 ##### [Use the SDK to join a meeting with an iOS device](AppSDK/HowToJoinMeeting_iOS.md)
+##### [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](AppSDK/HowToJoinOnlineMeeting_iOS.md)
 #### [Orientation](AppSDK/Orientation.md)
 ##### [API Overview](AppSDK/APIoverview.md)
 ##### [Platform considerations](AppSDK/PlatformConsiderations.md)
@@ -123,6 +126,34 @@
 ##### [The ConversationHelper class](AppSDK/ConversationHelperCodeList.md)
 #### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
+### [Trusted Application API](Trusted-Application-API/docs/Overview.md)
+#### [Enabling communications services for the cloud](Trusted-Application-API/docs/Trusted_Application_API_GeneralReference.md)
+
+#####  [Key Scenarios](Trusted-Application-API/docs/keyscenarios.md)
+#####  [Key programming concepts](Trusted-Application-API/docs/NewConcepts.md)
+######  [Webhooks (Events)](Trusted-Application-API/docs/Webhooks.md)
+
+#####  [Key terms](Trusted-Application-API/docs/KeyTerms.md)
+#####  [Trusted Application API permissions](Trusted-Application-API/docs/Application_Permissions.md)
+
+####  [Developing Trusted Application API applications for Skype for Business Online](Trusted-Application-API/docs/DevelopingApplicationsforSFBOnline.md)
+##### [Registration in Azure Active Directory](Trusted-Application-API/docs/RegistrationInAzureActiveDirectory.md)
+##### [Azure Active Directory - Service to Service calls using Client Credentials](Trusted-Application-API/docs/AADS2S.md)
+##### [Tenant Admin Consent](Trusted-Application-API/docs/TenantAdminConsent.md)
+##### [Set up a Trusted Application Endpoint](Trusted-Application-API/docs/TrustedApplicationEndpoint.md)
+##### [Registering a Trusted Application in Skype for Business Online](Trusted-Application-API/docs/SfBRegistration.md)
+##### [Discovery for Service Applications](Trusted-Application-API/docs/DiscoveryForServiceApplications.md)
+##### [Authentication and Authorization](Trusted-Application-API/docs/AuthenticationAndAuthorization.md)
+
+
+###### [Anonymous Meeting Join](Trusted-Application-API/docs/AnonymousMeetingJoin.md)
+####### [Anonymous Meeting Scheduling](Trusted-Application-API/docs/AnonymousMeetingSchedule.md)
+####### [Implementing an Anonymous Client with the Skype Web SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeWebSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Anonymous Meeting Join Common Errors](Trusted-Application-API/docs/AnonymousMeetingCommonErrors.md)
+
+#### [Trusted Application API samples](Trusted-Application-API/docs/Samples.md)
+#### [Trusted Application API reference](Trusted-Application-API/docs/ReferenceLibrary.md)
 
 ### [Unified Communications Web API (UCWA)](UCWA/UnifiedCommunicationsWebAPI2_0.md)
 #### [UCWA 2.0 general reference](UCWA/UCWA2_0GeneralReference.md)

@@ -1,7 +1,13 @@
 # Use the SDK to join a meeting with an iOS device
 
-This article shows an iOS developer how to join the **Skype for Business meeting** using a [**meeting URL**](https://msdn.microsoft.com/en-us/skype/appsdk/getmeetingurl) and enable core **Skype for Business App SDK** features like Text chat, Audio/Video chat in your app. Android developers should read
-[Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md). 
+This article shows an iOS developer how to join the **Skype for Business meeting** using a [**meeting URL**](https://msdn.microsoft.com/en-us/skype/appsdk/getmeetingurl) and enable core **Skype for Business App SDK** features like Text chat, Audio/Video chat in your app. 
+Android developers should read [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md). 
+
+>[!NOTE]
+If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
+your app is not enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. A meeting Url does not give you 
+meeting access in this scenario. Read [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md)
+
 
  No **Skype for Business** credentials are used to join the meeting.
 

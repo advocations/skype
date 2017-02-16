@@ -1,47 +1,44 @@
 <div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Bootstrap Skype Web SDK</li>
-            <li>Sign-In</li>
-        </ol>
+    <div class="mui-container-fluid">
+        <div class="mui-row">
+            <div class="mui-col-md-8">
+                <zero-md file="">
+                    <div class="md-html"></div>
+                </zero-md>
+            </div>
+            <div class="mui-col-md-4">
+                <div class="mui--text-display2">Preview</div>
+                <br/>
+                <div class="mui-panel mui--z3">
+                    <div id="step1" style="display:block">
+                        <div class="mui-textfield">
+                            <input type="text" class="uri" placeholder="sip:BL20R02meet1760@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:JHBSIQBT" data-enter-bind="call">
+                            <label>Conference URI</label>
+                        </div>
+                        <button class="mui-btn mui-btn--raised mui-btn--primary call">Join Meeting with AV</button>
+                    </div>
+                    <div id="step2" style="display:none">
+                        <div class="mui--text-subhead selfvideo" id="selfvideo" style="display:none">
+                            <b> Self Video </b>
+							<div class="selfVideoContainer"></div>
+                            <a class="selfIcon js-toggleSelfAudio"><span class="fa fa-microphone"></span> <span class="text">Turn Off</span></a>
+							<a class="selfIcon js-toggleSelfVideo"><span class="fa fa-video-camera"></span> <span class="text">Turn Off</span></a>
+							<a class="selfIcon js-toggleSelfHold"><span class="fa fa-pause"></span> <span class="text">Hold</span></a>
+						</div>
+                        <div class="mui--text-subhead" id="remotevideo" style="display:none"> <b> Remote Video </b> </div>
+                        <div class="remoteVideoContainers" id="remoteVideoContainers"></div>
+                        <button class="mui-btn mui-btn--raised mui-btn--danger end">End Conversation</button>
+                    </div>
+                    <div id="step3" class="step3" style="display: none">
+                        <button class="mui-btn mui-btn--raised mui-btn--accent restart">Restart Sample</button>
+                    </div>
+                    <div class="mui-divider"></div>
+                    <div class="notification-bar">
+                        <br/>
+                        <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="permissions">
-        <h2>Permissions</h2>
-        <p>For Skype for Business Online application, you will need the following permission(s):</p>
-        <ul>
-            <li>
-                <span>Initiate Real time conversations and join meetings</span>
-            </li>
-        </ul>
-    </div>
-    <div class="description">
-        <h3>Provide a conference URI to join a meeting.</h3>
-        <p>The application object exposes a conversationsManager object which we can use to get meeting conversations by calling getConversationByUri(...) and providing an online meeting URI.  After creation of the conversation object, it is helpful to setup a few event listeners for added participants and when we disconnect from the conversation.  In this example we demonstrate connecting to video so we also need to know when we are connected to video as well as any added participants.<p>
-    </div>
-    <div class="controls">
-        <input type="text" class="uri medium" placeholder="sip:user@domain.com;gruu;opaque=app:conf:focus:id:........" data-enter-bind="join">
-        <div class="button join">Join</div>
-    </div>
-    <div class="snippet"></div>
-</div>
-<div class="step">
-    <div class="prereqs">
-        <h2>Prerequisites</h2>
-        <ol>
-            <li>Conversation created</li>
-            <li>Video connected</li>
-        </ol>
-    </div>
-    <div class="description">
-        <h3>Send and receive video.</h3>
-        <p>After the conversation and video modality are established we can begin communicating with the remote parties.  When finished click the end button to terminate the conversation.</p>
-    </div>
-    <div class="controls">
-        <div class="videoContainer"></div>
-    </div>
-    <div class="controls">
-        <div class="button end">End</div>
-    </div>
-    <div class="snippet"></div>
 </div>

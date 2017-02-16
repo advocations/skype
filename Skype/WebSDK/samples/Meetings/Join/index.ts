@@ -1,20 +1,32 @@
 /// <reference path="../../../framework.d.ts" />
+/// <reference path="../../utils/video-utils.ts" />
 (function () {
     'use strict';
 
     const content = window.framework.findContentDiv();
-    var conversation;
-    var listeners = [];
+    (<HTMLElement>content.querySelector('.notification-bar')).style.display = 'none';
+
+    const mdFileUrl: string = window.framework.getContentLocation() === '/' ? '../../../docs/PTMeetingsAuthJoin.md' : 'Content/websdk/docs/PTMeetingsAuthJoin.md';
+    content.querySelector('zero-md').setAttribute('file', mdFileUrl);
+
+    var conversation,
+        listeners = [];
+
+    var meetingUri;
 
     window.framework.bindInputToEnter(<HTMLInputElement>content.querySelector('.uri'));
 
-    function cleanUI () {
+    function cleanUI() {
         (<HTMLInputElement>content.querySelector('.uri')).value = '';
-        (<HTMLElement>content.querySelector('.videoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.selfVideoContainer')).innerHTML = '';
+        (<HTMLElement>content.querySelector('.remoteVideoContainers')).innerHTML = '';
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
     }
 
-    function cleanupConversation () {
-        if (conversation.state() !== 'Disconnected') {
+    function cleanupConversation() {
+        if (conversation && conversation.state() !== 'Disconnected') {
             conversation.leave().then(() => {
                 conversation = null;
             });
@@ -23,15 +35,19 @@
         }
     }
 
-    function reset (bySample: Boolean) {
+    function reset(bySample: Boolean) {
+        window.framework.hideNotificationBar();
+        content.querySelector('.notification-bar').innerHTML = '<br/> <div class="mui--text-subhead"><b>Events Timeline</b></div> <br/>';
+
+        meetingUri = "";
+
         // remove any outstanding event listeners
         for (var i = 0; i < listeners.length; i++) {
             listeners[i].dispose();
         }
         listeners = [];
 
-        if (conversation)
-        {
+        if (conversation) {
             if (bySample) {
                 cleanupConversation();
                 cleanUI();
@@ -40,6 +56,7 @@
                 if (result) {
                     cleanupConversation();
                     cleanUI();
+                    restart();
                 }
 
                 return result;
@@ -49,57 +66,63 @@
         }
     }
 
-    window.framework.registerNavigation(reset);
-    window.framework.addEventListener(content.querySelector('.join'), 'click', () => {
-        const conversationsManager = window.framework.application.conversationsManager;
-        const uri = (<HTMLInputElement>content.querySelector('.uri')).value;
-        window.framework.reportStatus('Joining Meeting...', window.framework.status.info);
-        // @snippet
-        conversation = conversationsManager.getConversationByUri(uri);
+    function restart() {
+        goToStep(1);
+        (<HTMLElement>content.querySelector('#selfvideo')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#remotevideo')).style.display = 'none';
+        (<HTMLInputElement>content.querySelector('.call')).disabled = false;
+    }
 
-        function setupContainer (person: jCafe.Participant, size: string) {
-            const div = window.framework.createVideoContainer(<HTMLElement>content.querySelector('.videoContainer'), size, person);
-            person.video.channels(0).stream.source.sink.format('Stretch');
-            person.video.channels(0).stream.source.sink.container(div);
+    function joinMeeting () {
+        window.framework.showNotificationBar();
+        if (!(<HTMLInputElement>content.querySelector('.uri')).value) {
+            window.framework.addNotification('info', 'Please enter valid conference URI to join');
+            return;
         }
 
-        listeners.push(conversation.selfParticipant.video.state.when('Connected', () => {
-            setupContainer(conversation.selfParticipant, 'large');
+        (<HTMLInputElement>content.querySelector('.call')).disabled = true;
+        const conversationsManager = window.framework.application.conversationsManager;
+        meetingUri = window.framework.updateUserIdInput((<HTMLInputElement>content.querySelector('.uri')).value);
+        window.framework.addNotification('info', 'Joining conference...');
 
-            window.framework.reportStatus('Connected to Video', window.framework.status.success);
+        conversation = conversationsManager.getConversationByUri(meetingUri);
 
-            listeners.push(conversation.participants.added(person => {
-                window.console.log(person.displayName() + ' has joined the conversation');
+        const isActiveSpeakerMode = conversation.videoService.videoMode() == 'ActiveSpeaker';
 
-                listeners.push(person.video.state.when('Connected', () => {
-                    setupContainer(person, 'large');
+        const vidUtils = VideoUtils(conversation, content, listeners, 1, 3, reset);
 
-                    person.video.channels(0).isStarted(true);
-                }));
-            }));
-        }));
-        listeners.push(conversation.state.changed((newValue, reason, oldValue) => {
-            if (newValue === 'Disconnected' && (oldValue === 'Connected' || oldValue === 'Connecting')) {
-                window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
-                reset(true);
-            }
-        }));
+        vidUtils.setUpListeners();
+        vidUtils.startVideoService();
+    }
 
-        conversation.videoService.start().then(null, error => {
-            window.framework.reportError(error, reset);
-        });
-        // @end_snippet
-    });
-    window.framework.addEventListener(content.querySelector('.end'), 'click', () => {
-       window.framework.reportStatus('Ending Conversation...', window.framework.status.info);
-        // @snippet
+    function endConversation () {
+        window.framework.addNotification('info', 'Ending conversation...');
+        if (!conversation) {
+            reset(true);
+            restart();
+            return;
+        }
         conversation.leave().then(() => {
-            window.framework.reportStatus('Conversation Ended', window.framework.status.reset);
+            window.framework.addNotification('success', 'Conversation ended');
+            goToStep(3);
         }, error => {
-            window.framework.reportError(error);
+            window.framework.addNotification('error', error);
         }).then(() => {
             reset(true);
         });
-        // @end_snippet
-    });
+    }
+
+    function goToStep(step) {
+        (<HTMLElement>content.querySelector('#step1')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step2')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step3')).style.display = 'none';
+        (<HTMLElement>content.querySelector('#step' + step)).style.display = 'block';
+    }
+
+    window.framework.registerNavigation(reset);
+
+    window.framework.addEventListener(content.querySelector('.call'), 'click', joinMeeting);    
+    window.framework.addEventListener(content.querySelector('.end'), 'click', endConversation);
+    window.framework.addEventListener(content.querySelector('.restart'), 'click', restart);
 })();
+

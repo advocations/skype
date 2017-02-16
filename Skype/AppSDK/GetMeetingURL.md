@@ -1,5 +1,10 @@
-# Get a Skype for Business meeting URL
+# Get a Skype for Business on-premise meeting URL
 If you have not written a server-side feature to schedule a meeting and return a new meeting URL, you can still get a meeting URL and develop against a live meeting. Users of your production app will rely on server logic to return a new meeting whenever they use the join meeting feature of the **App SDK**.
+
+>[!NOTE]
+Production apps must use the generally available App SDK binaries. However, if you are prototyping an app or previewing new features of the App SDK, then you
+can enable the preview features of the App SDK by calling the [enablePreviewFeatures](https://ucwa.skype.com/reference/appSDK/Android/com/microsoft/office/sfb/appsdk/ConfigurationManager.html#enablePreviewFeatures()) API method. Doing this allows you
+to use the tasks described in this article to join a meeting hosted in a Skype for Business Online server.
 
 
 ## While developing your app
@@ -31,15 +36,16 @@ days so that you don't need to get a new meeting URL whenever you are testing yo
  
  
  
-## In production
+## In production for Skype for Business Online
  
  To create new meetings on demand and send the new meeting URL to your mobile app, you'll 
- write a UCWA-based server application that makes server-to-server REST calls into a **Skype for Business** server
+ write a Trusted Application API-based server application that makes server-to-server REST calls into an Office 365 **Skype for Business Online** service
  to create a meeting and get the meeting URL. You will need to write a client-side feature to
  communicate with your server application to initiate this transaction and get the
- returned meeting URL.
+ returned meeting URL. See [Implementing a Anonymous Client with the Skype App SDK](../Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md) to learn about adding client side features to an 
+ Android or iOS mobile device application.
  
- See [Schedule a meeting](https://ucwa.skype.com/documentation/KeyTasks-OnlineMeeting-ScheduleMeeting ) to learn about scheduling a meeting using UCWA and obtaining a "joinUrl".
+ See [Anonymous Meeting Scheduling](../Trusted-Application-API/docs/AnonymousMeetingSchedule.md) to learn about scheduling a meeting using the Trusted Application API and obtaining a "joinUrl".
  
  
 ## Use the meeting URL in your app

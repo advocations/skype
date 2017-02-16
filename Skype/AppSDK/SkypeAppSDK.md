@@ -1,5 +1,5 @@
 
-# Skype for Business App SDK (Release Candidate)
+# Skype for Business App SDK
 
  **Last modified:** April 23, 2016
 
