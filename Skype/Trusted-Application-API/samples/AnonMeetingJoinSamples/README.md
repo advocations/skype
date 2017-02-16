@@ -15,12 +15,11 @@ The sample Web SDK application interacts with the Trusted Application sample and
 ## Prerequisites
 1.	Download [Azure SDK v2.9](http://go.microsoft.com/fwlink/?LinkId=746481) or above.
 2.	Create a Cloud Service from Azure and give it a name to reserve a *.cloudapp.net URL. Refer to [this link](https://azure.microsoft.com/en-us/documentation/services/cloud-services/) for details.
-3. Use the [quick registration tool](https://aka.ms/skypeappregistration) for registering Skype for Business Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
-
+3.  Use the [quick registration tool](https://aka.ms/skypeappregistration) for registering Skype for Business Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
 Optionally, you can manually register your application in Azure Portal, where you will get a Client ID and set an App ID URI. Refer to [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) for details.
 4.	Register Trusted Endpoints in a Skype for Business Online tenant using PowerShell.   Refer to [Setting up a Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for details.
-5. Provide consent: When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
-6.	Deploy the the client (anonymous webpage) code contained in the `WebsiteSamples` folder to a web server (e.g. IIS on localhost, or Azure App Service to deploy to *.azurewebsites.net)
+5.  Provide consent: When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
+6.  Deploy the the client (anonymous webpage) code contained in the `WebsiteSamples` folder to a web server (e.g. IIS on localhost, or Azure App Service to deploy to *.azurewebsites.net)
 
 ## Deployment
 Once you have satisfied the prerequisites, it is time to configure the Trusted Application source code and deploy it to the Azure Cloud Service created in step 3.
