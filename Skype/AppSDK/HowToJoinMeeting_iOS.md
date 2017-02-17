@@ -89,14 +89,14 @@ sfb.configurationManager.requireWifiForVideo = NO;
   ```      
   
   **Swift**
-```Swift
+  ```Swift
    self.conversationHelper = SfBConversationHelper(conversation: conversation,
                                                             delegate: self,
                                                             devicesManager: sfb.devicesManager,
                                                             outgoingVideoView: self.selfVideoView,
                                                             incomingVideoLayer: self.participantVideoView.layer as! CAEAGLLayer,
                                                             userInfo: [DisplayNameInfo:meetingDisplayName])
-```
+  ```
 5. Show video codec license
 
     As per the license terms, before you start video for the first time after install, you **must** prompt the user to accept the Microsoft end-user license (also included in the SDK).  
@@ -110,9 +110,9 @@ sfb.configurationManager.requireWifiForVideo = NO;
 
 6. Implement SfBConversationHelperDelegate methods to handle video service state changes.
 
-   **Objective C**
+ **Objective C**
    
-     ```Objectivec 
+ ```Objectivec 
       #pragma mark - Skype Delegates
     
     // At incoming video, unhide the participant video view
@@ -135,10 +135,10 @@ sfb.configurationManager.requireWifiForVideo = NO;
     - (void)conversationHelper:(SfBConversationHelper *)avHelper didSubscribeToVideo:(SfBParticipantVideo *)video {
         self.participantVideoView.hidden = NO; 
     }
-    ```   
+```   
     
-    **Swift**
-     ```swift
+**Swift**
+```swift
     // When it's ready, start the video service and show the outgoing video view.
     func conversationHelper(conversationHelper: SfBConversationHelper, videoService: SfBVideoService, didChangeCanStart canStart: Bool) {     
         if (canStart) {
@@ -189,7 +189,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
         }
     }
 
-     ```
+```
      
 7. To end the video meeting, monitor _canLeave_ property of a conversation to prevent leaving prematurely.
 
