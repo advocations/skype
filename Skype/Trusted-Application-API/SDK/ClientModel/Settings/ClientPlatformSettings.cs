@@ -13,9 +13,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         public string AADClientSecret { get; private set; }
 
-        public bool IsSandBoxEnv { get; private set; }
+        internal bool IsInternalPartner { get; set; }
 
-        public bool IsInternalPartner { get; private set; }
+        internal bool IsSandBoxEnv { get; set; }
 
         /// <summary>
         /// Custom callback url where SfB should deliver events related to conversations.
@@ -26,7 +26,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// when you registered your application with SfB. This affects events related to a conversation only;
         /// othere events, which are not part of a conversation, are still delivered to the registered callback url.
         /// </remarks>
-        public string CustomizedCallbackurl { get; private set; }
+        internal string CustomizedCallbackUrl { get; set; }
 
         public ClientPlatformSettings(Guid aadClientId, string appTokenCertThumbprint)
             :this(null, aadClientId, appTokenCertThumbprint,  null, false)
@@ -48,30 +48,49 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             AADClientSecret = clientSecret;
             IsInternalPartner = isInternalPartner;
         }
+    }
+}
 
-        //TODO: Open this method once sandbox Env is ready
-        private void EnableSandboxFeatures(bool isSandBoxEnv)
-        {
-            IsSandBoxEnv = isSandBoxEnv;
-        }
-
+/// <summary>
+/// We put all not official supported features (workarounds to help developers) in this namespace
+/// </summary>
+namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
+{
+    /// <summary>
+    /// Internal extensions for <see cref="ClientPlatformSettings"/>
+    /// </summary>
+    public static class ClientPlatformSettingsExtensions
+    {
         /// <summary>
         /// Sets custom callback url where SfB should deliver events related to conversations.
         /// </summary>
+        /// <param name="This"><see cref="ClientPlatformSettings"/> that needs to be updated</param>
+        /// <param name="callbackUri">Uri to be used for callback</param>
         /// <remarks>
         /// Typically, you don't need to set this. It is stored in SfB's application store for your application.
         /// You should set it only if you want events to be delivered on a uri different than what you specified
         /// when you registered your application with SfB. This affects events related to a conversation only;
         /// othere events, which are not part of a conversation, are still delivered to the registered callback url.
         /// </remarks>
-        public void SetCustomizedCallbackurl(Uri callbackUrl)
+        public static void SetCustomizedCallbackurl(this ClientPlatformSettings This, Uri callbackUri)
         {
-            if(!callbackUrl.IsAbsoluteUri)
+            if (!callbackUri.IsAbsoluteUri)
             {
-                throw new ArgumentException("Absolute uri is needed.", nameof(callbackUrl));
+                throw new ArgumentException("Absolute uri is needed.", nameof(callbackUri));
             }
 
-            CustomizedCallbackurl = callbackUrl.ToString();
+            This.CustomizedCallbackUrl = callbackUri.ToString();
+        }
+
+        public static void SetIsInternalPartner(this ClientPlatformSettings This, bool isInternalPartner)
+        {
+            This.IsInternalPartner = isInternalPartner;
+        }
+
+        // Make it public when sandbox is ready
+        internal static void SetIsSandboxEnv(this ClientPlatformSettings This, bool isSandboxEnv)
+        {
+            This.IsSandBoxEnv = isSandboxEnv;
         }
     }
 }

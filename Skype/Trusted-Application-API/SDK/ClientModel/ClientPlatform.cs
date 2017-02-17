@@ -43,7 +43,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_platformSettings.AADClientSecret; }
         }
 
-        public bool IsSandBoxEnv
+        internal bool IsSandBoxEnv
         {
             get { return m_platformSettings.IsSandBoxEnv; }
         }
@@ -51,19 +51,18 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Callback url where events related to a conversation will be delivered by SfB
         /// </summary>
-        public string CustomizedCallbackUrl
+        internal string CustomizedCallbackUrl
         {
-            get { return m_platformSettings.CustomizedCallbackurl; }
+            get { return m_platformSettings.CustomizedCallbackUrl; }
         }
 
-        public bool IsInternalPartner
+        internal bool IsInternalPartner
         {
             get { return m_platformSettings.IsInternalPartner; }
         }
 
 
         public X509Certificate2 AADAppCertificate { get; private set; }
-
 
         #endregion
 
@@ -105,5 +104,32 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         #endregion
+    }
+}
+
+/// <summary>
+/// We put all not official supported features (workarounds to help developers) in this namespace
+/// </summary>
+namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
+{
+    /// <summary>
+    /// Internal extensions for <see cref="ClientPlatform"/>
+    /// </summary>
+    public static class ClientPlatformExtensions
+    {
+        public static string GetCustomizedCallbackUrl(this ClientPlatform This)
+        {
+            return This.CustomizedCallbackUrl;
+        }
+
+        public static bool GetIsSandboxEnv(this ClientPlatform This)
+        {
+            return This.IsSandBoxEnv;
+        }
+
+        public static bool GetIsInternalPartner(this ClientPlatform This)
+        {
+            return This.IsInternalPartner;
+        }
     }
 }

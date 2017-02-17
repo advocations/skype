@@ -132,7 +132,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var callbackUrl = "https://example.com/customizedcallbackurl";
-            m_clientPlatformSettings.SetCustomizedCallbackurl(new Uri(callbackUrl));
+            m_clientPlatformSettings.CustomizedCallbackUrl = callbackUrl;
 
             var customizedCallbackUrlPassed = false;
 

@@ -132,7 +132,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             // Applications' parent is Discover in a prod environment but is ApplicationEndpoint for Sandbox applications
             ApplicationEndpoint applicationEndpoint = (applicationsParent is Discover ? (applicationsParent as Discover).Parent : applicationsParent) as ApplicationEndpoint;
 
-            return applicationEndpoint.ClientPlatform.CustomizedCallbackUrl;
+            var clientPlatform = applicationEndpoint.ClientPlatform as ClientPlatform;
+            return clientPlatform.CustomizedCallbackUrl;
         }
     }
 }

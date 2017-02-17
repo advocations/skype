@@ -298,15 +298,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         string AADClientSecret { get; }
 
         X509Certificate2 AADAppCertificate { get; }
-
-        bool IsInternalPartner { get; }
-
-        bool IsSandBoxEnv { get; }
-
-        /// <summary>
-        /// Callback url where events related to a conversation will be delivered by SfB
-        /// </summary>
-        string CustomizedCallbackUrl { get; }
     }
 
     #endregion
