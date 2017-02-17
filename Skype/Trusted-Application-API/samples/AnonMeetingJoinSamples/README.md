@@ -22,9 +22,9 @@ Optionally, you can manually register your application in Azure Portal, where yo
 6.  Deploy the the client (anonymous webpage) code contained in the `WebsiteSamples` folder to a web server (e.g. IIS on localhost, or Azure App Service to deploy to *.azurewebsites.net)
 
 ## Deployment
-Once you have satisfied the prerequisites, it is time to configure the Trusted Application source code and deploy it to the Azure Cloud Service created in step 3.
+Once you have satisfied the prerequisites, it is time to configure the Trusted Application source code and deploy it to the Azure Cloud Service created in step 2.
 
-If you plan on pointing a custom domain or subdomain to your `*.cloudapp.net` server, use that FQDN as your base URL. Otherwise, use `resourcename.cloudapp.net` as your base URL, as created in step 3.
+If you plan on pointing a custom domain or subdomain to your `*.cloudapp.net` server, use that FQDN as your base URL. Otherwise, use `resourcename.cloudapp.net` as your base URL, as created in step 2.
 
 ### Trusted Application Agent
 1. Clone code from the samples repo.
@@ -34,8 +34,8 @@ If you plan on pointing a custom domain or subdomain to your `*.cloudapp.net` se
  <ConfigurationSettings>
    <!-- Replace these with values relevant to your deployment -->
    <Setting name="AAD_ClientId" value="[Application Client ID from Step 2]"/>
-   <Setting name="AAD_ClientSecret" value="[Application Client secret from Step 2]" /> 
-   <Setting name="ApplicationEndpointId" value="sip:trustedEndpoint@tenantname.onmicrosoft.com" />  //Get from Prerequisite step 3 above      
+   <Setting name="AAD_ClientSecret" value="[Application Client secret from Step 3]" /> 
+   <Setting name="ApplicationEndpointId" value="sip:trustedEndpoint@tenantname.onmicrosoft.com" />  //Get from Prerequisite step 4 above      
    <Setting name="LogFullHttpRequestResponse" value="true" />  
  </ConfigurationSettings>
 
@@ -72,10 +72,12 @@ You need to adjust web.config on the Cloud Service to set `customError="off"` pe
 
 You may want to remote into the machine (see question above) and [enable IIS failed request tracing](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) to view the traceback details.
 
-**Q: I published to my Cloud Service but get a 401 error on the client samples**
+**Q: I published to my Cloud Service but get a 401 error on the client samples** 
 
 Verify the error description - if you see reference to Azure Storage or Azure Service Bus, you likely have provided an incorrect connection string in your service definition file. Proper connection strings can be obtained from the [Azure Portal](https://portal.azure.com). Ensure that there are no leading or trailing spaces in the provided connection string.
 
-**Q: Exception from Azure log like 'A job with ID ffbc8e5b8e644b2d83047155de10036e is already listening, please stop it before starting a new one **
+**Q: How to check the traffic message between my app and Platform Service and logs?**
 
-Delete current listening job by: DELETE https://[name].cloudapp.net/ListeningJob
+Attach debugger from the Cloud app your are using, open 'Output' window and you will see real time data going back and forth between you app and Trusted Applicatin API.
+
+
