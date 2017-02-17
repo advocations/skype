@@ -190,6 +190,7 @@ will call the service application to get these resources before joining a meetin
 
 * [Get a meeting URL](GetMeetingURL.md)
 * [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
+* [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md)
 * [Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.md)
 
 ## Additional resources
