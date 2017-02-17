@@ -38,26 +38,26 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
 ## How to get started
 1. In your code, initialize the **App SDK** application :
 
- **Objective C**
-   ```Objectivec 
-    SfBApplication *sfb = SfBApplication.sharedApplication;
+  **Objective C**
+    ```Objectivec 
+     SfBApplication *sfb = SfBApplication.sharedApplication;
+    ```
+  **Swift**
+   ```swift 
+    let sfb:SfBApplication? = SfBApplication.sharedApplication()
    ```
- **Swift**
-  ```swift 
-   let sfb:SfBApplication? = SfBApplication.sharedApplication()
-  ```
 2. You can handle application level Skype configurations like requireWifiForAudio, maxVideoChannels, requireWifiForVideo, setActiveCamera, get available cameras list  and other types of information that can impact the Skype session, for example, by default, video service will be disabled while not on Wi-Fi network. To allow video call on any network connection, we can configure requireWifiForVideo as follow:
 
- **Objective C**
-  ```Objectivec 
-sfb.configurationManager.requireWifiForVideo = NO;
-```
- **Swift**
-  ```swift 
-  sfb.configurationManager.requireWifiForVideo = false
-  ```
+  **Objective C**
+   ```Objectivec 
+    sfb.configurationManager.requireWifiForVideo = NO;
+   ```
+  **Swift**
+   ```swift 
+   sfb.configurationManager.requireWifiForVideo = false
+   ```
  
- > Note: Please refer [SfBApplication](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html), [SfBConfigurationManager](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBConfigurationManager.html), [SfBVideoService](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBVideoService.html), [SfBDevicesManager](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBDevicesManager.html) and other classes in [SkypeForBusiness](https://ucwa.skype.com/reference/appSDK/IOS/) framework to handle application level Skype configurations.
+  > Note: Please refer [SfBApplication](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html),  [SfBConfigurationManager](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBConfigurationManager.html),  [SfBVideoService](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBVideoService.html), [SfBDevicesManager]    (https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBDevicesManager.html) and other classes in [SkypeForBusiness] (https://ucwa.skype.com/reference/appSDK/IOS/) framework to handle application level Skype configurations.
 
 3. Start joining the meeting by calling [_Application.joinMeetingAnonymously(String displayName, URI meetingUri)_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html#//api/name/joinMeetingAnonymousWithUri:displayName:error:). This function returns the new conversation instance that represents the meeting.  
 
