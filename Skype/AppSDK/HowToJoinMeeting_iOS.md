@@ -61,17 +61,17 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
 
 3. Start joining the meeting by calling [_Application.joinMeetingAnonymously(String displayName, URI meetingUri)_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html#//api/name/joinMeetingAnonymousWithUri:displayName:error:). This function returns the new conversation instance that represents the meeting.  
 
-**Objective C**
-```Objectivec 
+ **Objective C**
+  ```Objectivec 
    SfBConversation *conversation = [sfb joinMeetingAnonymousWithUri:[NSURL URLWithString:meetingURLString]
                                         displayName:meetingDisplayName 
                                         error:&error];
-```
-**Swift**
-```Swift
-    let conversation: SfBConversation  = try sfb.joinMeetingAnonymousWithUri(NSURL(string:meetingURLString)!, displayName: meetingDisplayName)
-```
- > Note: all of the SDK’s interfaces must be used only from the application main thread (main run loop).  Notifications are delivered in the same thread as well.  As a result, no synchronization around the SDK’s interfaces is required.  The SDK, however, may create threads for internal purposes.      
+  ```
+ **Swift**
+  ```Swift
+   let conversation: SfBConversation  = try sfb.joinMeetingAnonymousWithUri(NSURL(string:meetingURLString)!, displayName:  meetingDisplayName)
+  ```
+  > Note: all of the SDK’s interfaces must be used only from the application main thread (main run loop).  Notifications are  delivered in the same thread as well.  As a result, no synchronization around the SDK’s interfaces is required.  The SDK,  however, may create threads for internal purposes.      
 
 4. Initialize the conversation helper with the conversation instance obtained in the previous step and delegate object that should receive callbacks from this conversation helper.  This will automatically start incoming and outgoing video. The delegate class must conform to _SfBConversationHelperDelegate_ protocol.
   
