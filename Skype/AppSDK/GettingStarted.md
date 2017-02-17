@@ -179,7 +179,7 @@ Now that you've configured your project to code against the **App SDK** API, lea
 
 In most cases, use a meeting Url to join a meeting anonymously. Otherwise, you'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
 will call the service application to get these resources before joining a meeting. To learn more about this, see [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md) or
-[Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md).  The following table shows you what resources to use for your SfB deployment scenario.
+[Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md).  The following table shows you what resources to use for your SfB deployment scenario.
 
 |Skype for Business topology|Enable preview features enabled|Enable preview features disabled|Meeting join resource|
 |:----|:----|:----|:----|
