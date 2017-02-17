@@ -11,7 +11,7 @@ meeting access in this scenario. Read [Use the App SDK and the Trusted Applicati
 
  No **Skype for Business** credentials are used to join the meeting.
 
-##Prerequisites
+## Prerequisites
  **Objective C**
  - **Import the SDK header file**: import the required header files.
 
@@ -26,7 +26,7 @@ meeting access in this scenario. Read [Use the App SDK and the Trusted Applicati
 
 - **Create Swift Bridging - Header file**: Create the bridging-header file and add the following import statement.
 
-      ```swift
+```swift
         //Add SfBConversationHelper classes for Audio/Video Chat
             #import "SfBConversationHelper.h"
 ```
@@ -39,13 +39,13 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
 1. In your code, initialize the **App SDK** application :
 
  **Objective C**
-  ```Objectivec 
-   SfBApplication *sfb = SfBApplication.sharedApplication;
+   ```Objectivec 
+    SfBApplication *sfb = SfBApplication.sharedApplication;
    ```
  **Swift**
   ```swift 
    let sfb:SfBApplication? = SfBApplication.sharedApplication()
-```
+  ```
 2. You can handle application level Skype configurations like requireWifiForAudio, maxVideoChannels, requireWifiForVideo, setActiveCamera, get available cameras list  and other types of information that can impact the Skype session, for example, by default, video service will be disabled while not on Wi-Fi network. To allow video call on any network connection, we can configure requireWifiForVideo as follow:
 
  **Objective C**
@@ -61,22 +61,22 @@ sfb.configurationManager.requireWifiForVideo = NO;
 
 3. Start joining the meeting by calling [_Application.joinMeetingAnonymously(String displayName, URI meetingUri)_](https://ucwa.skype.com/reference/appSDK/IOS/Classes/SfBApplication.html#//api/name/joinMeetingAnonymousWithUri:displayName:error:). This function returns the new conversation instance that represents the meeting.  
 
-    **Objective C**
-  ```Objectivec 
+**Objective C**
+```Objectivec 
    SfBConversation *conversation = [sfb joinMeetingAnonymousWithUri:[NSURL URLWithString:meetingURLString]
                                         displayName:meetingDisplayName 
                                         error:&error];
-  ```
-    **Swift**
-  ```Swift
-   let conversation: SfBConversation  = try sfb.joinMeetingAnonymousWithUri(NSURL(string:meetingURLString)!, displayName: meetingDisplayName)
-  ```
+```
+**Swift**
+```Swift
+    let conversation: SfBConversation  = try sfb.joinMeetingAnonymousWithUri(NSURL(string:meetingURLString)!, displayName: meetingDisplayName)
+```
  > Note: all of the SDK’s interfaces must be used only from the application main thread (main run loop).  Notifications are delivered in the same thread as well.  As a result, no synchronization around the SDK’s interfaces is required.  The SDK, however, may create threads for internal purposes.      
 
 4. Initialize the conversation helper with the conversation instance obtained in the previous step and delegate object that should receive callbacks from this conversation helper.  This will automatically start incoming and outgoing video. The delegate class must conform to _SfBConversationHelperDelegate_ protocol.
   
   **Objective C**
-     ```Objectivec 
+  ```Objectivec 
        if (conversation) {
        _conversationHelper = [[SfBConversationHelper alloc] initWithConversation:conversation
                                                      delegate:self
@@ -89,7 +89,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
   ```      
   
   **Swift**
-     ```Swift
+```Swift
    self.conversationHelper = SfBConversationHelper(conversation: conversation,
                                                             delegate: self,
                                                             devicesManager: sfb.devicesManager,
@@ -97,9 +97,18 @@ sfb.configurationManager.requireWifiForVideo = NO;
                                                             incomingVideoLayer: self.participantVideoView.layer as! CAEAGLLayer,
                                                             userInfo: [DisplayNameInfo:meetingDisplayName])
 ```
-  > Note: as per the license terms, before you start video for the first time after install, you must prompt the user to accept the Microsoft end-user license (also included in the SDK).  Subsequent versions of the SDK preview will include code to assist you in doing so.
-      
-5. Implement SfBConversationHelperDelegate methods to handle video service state changes.
+5. Show video codec license
+
+    As per the license terms, before you start video for the first time after install, you **must** prompt the user to accept the Microsoft end-user license (also included in the SDK).  
+    
+    This code snippet shows the use of the new Skype App SDK **"setEndUserAcceptedVideoLicense"** api. This is required to proceed with features that potentially use video codecs.
+    Until this method is called, any attempt to use those features will fail.
+    Once the api has been called, the user is considered in acceptance of the third party video codec license that we use to support video.  Subsequent meetings do not require the license acceptance.  
+
+    [!code-Swift [sample](VideoLicense_iOS.md)]
+    
+
+6. Implement SfBConversationHelperDelegate methods to handle video service state changes.
 
    **Objective C**
    
@@ -145,10 +154,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
             }
         }
     }
-    ```   
-    
-    **Swift**
-     ```swift
+   
      
      //MARK - Skype SfBConversationHelperDelegate methods
      
@@ -185,10 +191,10 @@ sfb.configurationManager.requireWifiForVideo = NO;
 
      ```
      
-6. To end the video meeting, monitor _canLeave_ property of a conversation to prevent leaving prematurely.
+7. To end the video meeting, monitor _canLeave_ property of a conversation to prevent leaving prematurely.
 
     **Objective C**
-     ```Objectivec 
+```Objectivec 
      //Add observer to _canLeave_ property
  if (conversation) {
         [conversation addObserver:self forKeyPath:@"canLeave" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
@@ -215,7 +221,7 @@ sfb.configurationManager.requireWifiForVideo = NO;
     }
  ```
     **Swift**
-     ```swift
+```swift
      // Add observer to _canLeave_ property
         conversation.addObserver(self, forKeyPath: "canLeave", options: [.Initial, .New] , context: nil)
         
