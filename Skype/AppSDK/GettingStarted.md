@@ -184,7 +184,7 @@ will call the service application to get these resources before joining a meetin
 |Skype for Business topology|Enable preview features enabled|Enable preview features disabled|Meeting join resource|
 |:----|:----|:----|:----|
 |CU June 2016|Chat, AV|Chat only|Meeting Url|
-|CU December 2016|Chat, AV| Chat, AV|Meeting Url|
+|CU November 2016|Chat, AV| Chat, AV|Meeting Url|
 |SfB Online|Chat, AV|n/a|Meeting Url|
 |SfB Online|n/a|Chat, AV|Discover Uri, Anon Token|
 
