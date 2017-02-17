@@ -110,9 +110,9 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
 
 6. Implement SfBConversationHelperDelegate methods to handle video service state changes.
 
- **Objective C**
+  **Objective C**
    
- ```Objectivec 
+   ```Objectivec 
       #pragma mark - Skype Delegates
     
     // At incoming video, unhide the participant video view
@@ -135,10 +135,10 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
     - (void)conversationHelper:(SfBConversationHelper *)avHelper didSubscribeToVideo:(SfBParticipantVideo *)video {
         self.participantVideoView.hidden = NO; 
     }
-```   
+  ```   
     
-**Swift**
-```swift
+ **Swift**
+  ```swift
     // When it's ready, start the video service and show the outgoing video view.
     func conversationHelper(conversationHelper: SfBConversationHelper, videoService: SfBVideoService, didChangeCanStart canStart: Bool) {     
         if (canStart) {
@@ -189,39 +189,39 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
         }
     }
 
-```
+  ```
      
 7. To end the video meeting, monitor _canLeave_ property of a conversation to prevent leaving prematurely.
 
     **Objective C**
-```Objectivec 
-     //Add observer to _canLeave_ property
- if (conversation) {
-        [conversation addObserver:self forKeyPath:@"canLeave" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
- }
- 
-    // Monitor canLeave property of a conversation to prevent leaving prematurely
-     
-      - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    
-       if ([keyPath isEqualToString:@"canLeave"]) {
-        self.endCallButton.enabled = _conversationHelper.conversation.canLeave;
-     }
-    }
-    
-    // Use SfBConversation class leave function to leave the conversation.
-    NSError *error = nil;
-    [_conversationHelper.conversation leave:&error];
-    
-    if (error) {
-        [self handleError:error];
-    }
-    else {
-        [_conversationHelper.conversation removeObserver:self forKeyPath:@"canLeave"];
-    }
- ```
-    **Swift**
-```swift
+      ```Objectivec 
+       //Add observer to _canLeave_ property
+   if (conversation) {
+          [conversation addObserver:self forKeyPath:@"canLeave" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+   }
+
+      // Monitor canLeave property of a conversation to prevent leaving prematurely
+
+        - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+
+         if ([keyPath isEqualToString:@"canLeave"]) {
+          self.endCallButton.enabled = _conversationHelper.conversation.canLeave;
+       }
+      }
+
+      // Use SfBConversation class leave function to leave the conversation.
+      NSError *error = nil;
+      [_conversationHelper.conversation leave:&error];
+
+      if (error) {
+          [self handleError:error];
+      }
+      else {
+          [_conversationHelper.conversation removeObserver:self forKeyPath:@"canLeave"];
+      }
+     ```
+   **Swift**
+     ```swift
      // Add observer to _canLeave_ property
         conversation.addObserver(self, forKeyPath: "canLeave", options: [.Initial, .New] , context: nil)
         
@@ -238,7 +238,7 @@ for the **Skype for Business** App SDK.  In particular, the following steps assu
             try self.conversationHelper?.conversation.leave()
             self.conversationHelper?.conversation.removeObserver(self, forKeyPath: "canLeave")
         }
-```
+   ```
 
 ## Error Handling
 
