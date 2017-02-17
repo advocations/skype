@@ -6,7 +6,7 @@ Please refer [Tenant Admin Consent](./TenantAdminConsent.md) for a tenant to con
 You can easily register **Trusted Application Endpoints** by using the PowerShell cmdlets.
 General information about PowerShell cmdlets usage can be found in [Using Windows PowerShell to manage Skype for Business Online](https://technet.microsoft.com/en-us/library/dn362831.aspx).  You will need to complete the following steps to run the admin PowerShell:
 
-1. [Downloading and installing the Skype for Business Online Connector module](https://technet.microsoft.com/en-us/library/dn362829(v=ocs.15%29)
+1. [Downloading and installing the Skype for Business Online Connector module](https://technet.microsoft.com/en-us/library/dn362829(v=ocs.15))
 2. [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
 
 ## Managing Trusted Application Endpoint With PowerShell
