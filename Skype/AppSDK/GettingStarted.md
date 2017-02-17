@@ -176,8 +176,21 @@ public class SkypeApplication extends MultiDexApplication{
 ## Next steps
 Now that you've configured your project to code against the **App SDK** API, learn how to get the URL of a **Skype for Business** meeting and then use the API to enable your mobile app to join the meeting:
 
+
+In most cases, use a meeting Url to join a meeting anonymously. Otherwise, you'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
+will call the service application to get these resources before joining a meeting. To learn more about this, see [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md) or
+[Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md).  The following table shows you what resources to use for your SfB deployment scenario.
+
+|Skype for Business topology|Enable preview features enabled|Enable preview features disabled|Meeting join resource|
+|:----|:----|:----|:----|
+|CU June 2016|Chat, AV|Chat only|Meeting Url|
+|CU December 2016|Chat, AV| Chat, AV|Meeting Url|
+|SfB Online|Chat, AV|n/a|Meeting Url|
+|SfB Online|n/a|Chat, AV|Discover Uri, Anon Token|
+
 * [Get a meeting URL](GetMeetingURL.md)
 * [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
+* [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md)
 * [Use the SDK to join a meeting with an iOS device](HowToJoinMeeting_iOS.md)
 
 ## Additional resources
