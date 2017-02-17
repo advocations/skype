@@ -46,21 +46,12 @@ namespace RemoteAdvisorSample
 
             //Prepare platform
 
-            //For all public developers
-            /*
+            //For all public developers          
             ClientPlatformSettings platformSettings = new ClientPlatformSettings(
             QuickSamplesConfig.AAD_ClientSecret,
              Guid.Parse(QuickSamplesConfig.AAD_ClientId),
               false
                 );
-
-            */
-
-            //For all TAP partners
-           
-            ClientPlatformSettings platformSettings = 
-                new ClientPlatformSettings(null, new Guid(QuickSamplesConfig.AAD_ClientId), null, false, QuickSamplesConfig.AAD_ClientSecret, true);
-            
 
             var platform = new ClientPlatform(platformSettings, logger);
 
