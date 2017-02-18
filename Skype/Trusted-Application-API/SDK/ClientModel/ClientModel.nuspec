@@ -16,5 +16,9 @@
     <releaseNotes>Please visit https://go.microsoft.com/fwlink/?linkid=841901 to view the release notes.</releaseNotes>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>Microsoft SfB SkypeforBusiness TrustedApplicationAPI</tags>
+    <dependencies>
+      <!-- 4.1.0 and 4.1.1 has a bug -->
+      <dependency id="System.Net.Http" version="(,4.1)" />
+    </dependencies>
   </metadata>
 </package>
