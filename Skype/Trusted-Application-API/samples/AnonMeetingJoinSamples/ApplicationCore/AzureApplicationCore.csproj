@@ -92,11 +92,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SfB.PlatformService.SDK.ClientModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease2\lib\net462\Microsoft.SfB.PlatformService.SDK.ClientModel.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease1\lib\net462\Microsoft.SfB.PlatformService.SDK.ClientModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SfB.PlatformService.SDK.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease2\lib\net462\Microsoft.SfB.PlatformService.SDK.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease1\lib\net462\Microsoft.SfB.PlatformService.SDK.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -158,8 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureBaseApplication\AzureBaseApplication.cs" />
-    <Compile Include="Azure\AzureDiagnosticLogger.cs" />
-    <Compile Include="Azure\AzureStorage.cs" />
     <Compile Include="IOCHelper.cs" />
     <Compile Include="Job\AdhocMeetingToken.cs" />
     <Compile Include="Job\AnonymousToken.cs" />
@@ -170,6 +168,7 @@
     <Compile Include="Job\JobHelper.cs" />
     <Compile Include="Job\PlatformServiceJobBase.cs" />
     <Compile Include="Job\PlatformServiceApplicationException.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

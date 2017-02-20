@@ -41,26 +41,54 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             this.ResourceUriFormat = resourcesUriFormat;
             this.CallbackUriFormat = callbackUriFormat;
 
-            var logger = IOCHelper.Resolve<IPlatformServiceLogger>();
+            var logger = IOCHelper.Resolve<ConsoleLogger>();
             logger.HttpRequestResponseNeedsToBeLogged = logFullHttpRequestResponse;
 
             ClientPlatformSettings platformSettings = null;
             if (!string.IsNullOrEmpty(appTokenCertThumbprint))
             {
+                //TAP partners use below code path:
+                platformSettings = new ClientPlatformSettings
+                    (
+                     null,
+                      Guid.Parse(aadClientId),
+                      appTokenCertThumbprint,
+                      isSandBoxEnvionment,
+                      null,
+                      true
+                    );
+
+
+                //public developers use below code path
+                /*
                 platformSettings = new ClientPlatformSettings(
                     Guid.Parse(aadClientId),
                     appTokenCertThumbprint,
-                    isSandBoxEnvionment
+                    isSandBoxEnvionment                
                     );
+                    */
             }
             else if (!string.IsNullOrEmpty(aadClientSecret))
             {
-                platformSettings = new ClientPlatformSettings(
-                    aadClientSecret,
-                     Guid.Parse(aadClientId),
-                      isSandBoxEnvionment
-                      );
+                //TAP partners use below code path:
+                platformSettings = new ClientPlatformSettings
+                    (
+                     null,
+                      Guid.Parse(aadClientId),
+                      null,
+                      isSandBoxEnvionment,
+                      aadClientSecret,
+                      true
+                    );
 
+                //public developers use below code path
+                /*
+                  platformSettings = new ClientPlatformSettings(
+                      aadClientSecret,
+                       Guid.Parse(aadClientId),                    
+                        isSandBoxEnvionment
+                        );
+                        */
             }
             else
             {
