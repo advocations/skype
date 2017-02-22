@@ -49,8 +49,7 @@ namespace RemoteAdvisorSample
             //For all public developers          
             ClientPlatformSettings platformSettings = new ClientPlatformSettings(
             QuickSamplesConfig.AAD_ClientSecret,
-             Guid.Parse(QuickSamplesConfig.AAD_ClientId),
-              false
+             Guid.Parse(QuickSamplesConfig.AAD_ClientId)            
                 );
 
             var platform = new ClientPlatform(platformSettings, logger);
@@ -85,9 +84,12 @@ namespace RemoteAdvisorSample
             }
            );
 
-
             logger.Information("Get anon token : " + anonToken.AuthToken);
             logger.Information("Get discover url for web SDK : " + anonToken.AnonymousApplicationsDiscover.Href);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            logger.Information("RemoteAdvisor sample completed successfully!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 
