@@ -25,6 +25,11 @@
       "Content": "AdhocMeeting.json"
     },
     {
+      "Uri": "https://webpoolbl20r04.infra.lync.com/platformservice/v1/applications/1393347000/communication/onlineMeetingInvitations?confUrl=sip:BL20R04meet1692@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:YOKMXY1C&endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
+      "Method": "POST",
+      "ResponseCode": "201"
+    },
+    {
       "Uri": "https://ring2noammeetings.resources.lync.com/platformservice/v1/applications/1393347000/anonApplicationTokens?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
       "Method": "POST",
       "ResponseCode": "201",

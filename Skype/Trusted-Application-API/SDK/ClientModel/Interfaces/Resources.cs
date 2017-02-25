@@ -116,18 +116,60 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// the user can sign in and join the meeting.
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
-        /// <param name="input">Specifyies properties for the required token.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
         /// <returns>A token that can be used by a user to join the specified meeting.</returns>
         Task<AnonymousApplicationTokenResource> GetAnonApplicationTokenAsync(LoggingContext loggingContext, AnonymousApplicationTokenInput input);
-        
-        
+
+
         /// <summary>
         /// Gets adhoc meeting tokens
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
-        /// <param name="input">Specifyies properties for the required token.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
         /// <returns>A adhoc meeting tokens.</returns>
-        Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input); 
+        [Obsolete("Please use CreateAdhocMeetingAsync instead")]
+        Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input);
+
+        /// <summary>
+        /// Creates an adhoc meeting.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
+        /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
+        Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingInput input);
+    }
+
+    #endregion
+
+    #region public interface IAdhocMeeting
+
+    /// <summary>
+    /// Represents a meeting
+    /// </summary>
+    public interface IAdhocMeeting : IPlatformResource<AdhocMeetingCapability>
+    {
+        /// <summary>
+        /// A HTTP url which can be given to users to join this meeting via Lync Web App
+        /// </summary>
+        string JoinUrl { get; }
+
+        /// <summary>
+        /// SIP uri of the meeting
+        /// </summary>
+        string OnlineMeetingUri { get; }
+
+        /// <summary>
+        /// Subject specified when the meeting was created
+        /// </summary>
+        string Subject { get; }
+
+        /// <summary>
+        /// Joins the adhoc meeting
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
+        Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext);
     }
 
     #endregion
@@ -260,6 +302,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         bool IsInternalPartner { get; }
 
         bool IsSandBoxEnv { get; }
+
+        /// <summary>
+        /// Callback url where events related to a conversation will be delivered by SfB
+        /// </summary>
+        string CustomizedCallbackUrl { get; }
     }
 
     #endregion

@@ -68,6 +68,14 @@
         GetAdhocMeetingResource
     }
 
+    /// <summary>
+    /// Capabilities exposed by <see cref="IAdhocMeeting"/>
+    /// </summary>
+    public enum AdhocMeetingCapability
+    {
+        JoinAdhocMeeting
+    }
+
     public enum CommunicationCapability
     {
         StartMessaging,

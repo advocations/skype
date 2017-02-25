@@ -48,6 +48,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_platformSettings.IsSandBoxEnv; }
         }
 
+        /// <summary>
+        /// Callback url where events related to a conversation will be delivered by SfB
+        /// </summary>
+        public string CustomizedCallbackUrl
+        {
+            get { return m_platformSettings.CustomizedCallbackurl; }
+        }
+
         public bool IsInternalPartner
         {
             get { return m_platformSettings.IsInternalPartner; }

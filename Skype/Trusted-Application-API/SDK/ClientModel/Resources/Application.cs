@@ -40,7 +40,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="resource"></param>
         /// <param name="baseUri"></param>
         /// <param name="resourceUri"></param>
-        internal Application(IRestfulClient restfulClient, ApplicationResource resource, Uri baseUri, Uri resourceUri, object parent)
+        internal Application(IRestfulClient restfulClient, ApplicationResource resource, Uri baseUri, Uri resourceUri, Applications parent)
                 : base(restfulClient, resource, baseUri, resourceUri, parent)
         {
         }
@@ -110,6 +110,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="loggingContext"></param>
         /// <param name="input"></param>
         /// <returns></returns>
+        [Obsolete("Please use CreateAdhocMeetingAsync instead")]
         public async Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input)
         {
             if (input == null)
@@ -144,6 +145,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return adhocMeetingResource;
+        }
+
+        /// <summary>
+        /// Creates an adhoc meeting.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
+        /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
+        public async Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingInput input)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            AdhocMeetingResource adhocMeetingResource = await GetAdhocMeetingResourceAsync(loggingContext, input).ConfigureAwait(false);
+            #pragma warning restore CS0618 // Type or member is obsolete
+
+            return new AdhocMeeting(RestfulClient, adhocMeetingResource, BaseUri, UriHelper.CreateAbsoluteUri(BaseUri, adhocMeetingResource.SelfUri), this);
         }
 
 

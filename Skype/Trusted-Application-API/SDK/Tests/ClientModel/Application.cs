@@ -189,13 +189,26 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        public async Task CreateAdhocMeetingShouldWork()
+        public async Task GetAdhocMeetingShouldWork()
         {
             // Given
             var input = new AdhocMeetingInput();
 
             // When
             AdhocMeetingResource meeting = await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+
+            // Then
+            Assert.IsNotNull(meeting);
+        }
+
+        [TestMethod]
+        public async Task CreateAdhocMeetingShouldWork()
+        {
+            // Given
+            var input = new AdhocMeetingInput();
+
+            // When
+            IAdhocMeeting meeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(meeting);
@@ -216,6 +229,20 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
+        public async Task CreateAdhocMeetingShouldMakeHttpRequest()
+        {
+            // Given
+            var input = new AdhocMeetingInput();
+            Assert.IsFalse(m_restfulClient.RequestsProcessed("POST " + DataUrls.AdhocMeeting));
+
+            // When
+            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AdhocMeeting), "HTTP request to create adhoc meeting wasn't sent out.");
+        }
+
+        [TestMethod]
         public async Task GetAdhocMeetingShouldWorkWithNullLoggingContext()
         {
             // Given
@@ -229,6 +256,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
+        public async Task CreateAdhocMeetingShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            var input = new AdhocMeetingInput();
+
+            // When
+            await m_application.CreateAdhocMeetingAsync(null, input).ConfigureAwait(false);
+
+            // Then
+            // No exception is thrown
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task GetAdhocMeetingShouldThrowOnNullInput()
         {
@@ -236,7 +276,21 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             AdhocMeetingInput input = null;
 
             // When
-            AdhocMeetingResource meeting = await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task CreateAdhocMeetingShouldThrowOnNullInput()
+        {
+            // Given
+            AdhocMeetingInput input = null;
+
+            // When
+            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -252,7 +306,23 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingInput();
 
             // When
-            AdhocMeetingResource meeting = await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task CreateAdhocMeetingShouldThrowIfAdhocMeetingResourceNotAvailable()
+        {
+            // Given
+            m_restfulClient.OverrideResponse(new Uri(DataUrls.Application), HttpMethod.Get, HttpStatusCode.OK, "Application_NoAdhocMeetings.json");
+            await m_application.RefreshAsync(m_loggingContext).ConfigureAwait(false);
+            var input = new AdhocMeetingInput();
+
+            // When
+            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -267,7 +337,22 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingInput();
 
             // When
-            AdhocMeetingResource meeting = await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.GetAdhocMeetingResourceAsync(m_loggingContext, input).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RemotePlatformServiceException))]
+        public async Task CreateAdhocMeetingShouldThrowIfServerResponseMalformed()
+        {
+            // Given
+            m_restfulClient.OverrideResponse(new Uri(DataUrls.AdhocMeeting), HttpMethod.Post, HttpStatusCode.OK, "AdhocMeeting_Malformed.json");
+            var input = new AdhocMeetingInput();
+
+            // When
+            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
 
             // Then
             // Exception is thrown

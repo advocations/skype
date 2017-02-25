@@ -91,6 +91,7 @@
     <Compile Include="HttpTransport\TokenProvider.cs" />
     <Compile Include="Interfaces\IInvitationWithConversation.cs" />
     <Compile Include="Interfaces\Resources.cs" />
+    <Compile Include="Resources\AdhocMeeting.cs" />
     <Compile Include="Resources\Application.cs" />
     <Compile Include="Resources\Applications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
