@@ -1,6 +1,3 @@
-﻿using Microsoft.Rtc.Internal.Platform.ResourceContract;
-using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
-using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using QuickSamplesCommon;
@@ -60,7 +57,7 @@ namespace RemoteAdvisorSample
 
 
             //Schedule meeting
-            var adhocMeeting =  await applicationEndpoint.Application.GetAdhocMeetingResourceAsync(loggingContext,
+            var adhocMeeting =  await applicationEndpoint.Application.CreateAdhocMeetingAsync(loggingContext,
                 new AdhocMeetingInput
                 {
                     AccessLevel = AccessLevel.Everyone,
