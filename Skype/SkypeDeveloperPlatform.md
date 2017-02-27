@@ -42,4 +42,4 @@ The table lists the supported SDKs and APIs for Skype for Business Server and Sk
 |[Lync Server 2013 SDK](https://msdn.microsoft.com/en-us/library/office/dn454964.aspx)|Yes|Yes|No|
 |[Lync (Client) 2013 SDK](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)|Yes|Yes|Yes|
 |[Lync Server 2013 Persistent Chat SDK](https://msdn.microsoft.com/en-us/library/office/dn454982.aspx)|Yes|Yes|No|
-|[Skype for Business Software Defined Networking (SDN) Interface 3.0](https://msdn.microsoft.com/en-us/library/office/dn785131\(v=office.16\).aspx)|Yes|Yes|No|
+|[Skype for Business Software Defined Networking (SDN) Interface 3.0](https://aka.ms/p7xn2x)|Yes|Yes|No|
