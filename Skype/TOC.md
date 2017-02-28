@@ -149,7 +149,8 @@
 ###### [Anonymous Meeting Join](Trusted-Application-API/docs/AnonymousMeetingJoin.md)
 ####### [Anonymous Meeting Scheduling](Trusted-Application-API/docs/AnonymousMeetingSchedule.md)
 ####### [Implementing an Anonymous Client with the Skype Web SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeWebSDK.md)
-####### [Implementing an Anonymous Client with the Skype App SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK - Android](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK - iOS](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK_iOS.md)
 ####### [Anonymous Meeting Join Common Errors](Trusted-Application-API/docs/AnonymousMeetingCommonErrors.md)
 
 #### [Trusted Application API samples](Trusted-Application-API/docs/Samples.md)

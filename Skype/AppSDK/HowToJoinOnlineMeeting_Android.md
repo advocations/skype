@@ -4,21 +4,17 @@ This article shows you how to enable the core  **Skype for Business Online** ano
 [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md). 
 
 If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
-your app is **not** enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. This article assumes that you 
-have created a Trused Application API-based service application that creates ad-hoc meetings, provides meeting join Urls, discovery Uris, and anonymous meeting tokens to mobile apps that 
+your app is **not** enabled for Skype for Business preview features, then your app must get a **discovery Url** and an **anonymous meeting token** to join. This workflow requires that you create and deploy a Trused Application API-based service application that creates ad-hoc meetings, provides meeting join Urls, discovery Uris, and anonymous meeting tokens to the mobile apps that 
 request them.
 
 >[!NOTE]
 **For mobile apps that enabled preview features:** If the anonymous meeting your app joins is hosted in a **Skype for Business Online** service and 
-your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. A Trusted Application API service application is not needed to complete the scenario in this case. To learn
-how to use a meeting Url, read [Use the SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
+your app is enabled for Skype for Business preview features, then your app can use a meeting Url to join. A Trused Application API-based service application is **not** needed to complete the scenario in this case. To learn
+how to use a meeting Url, read [Use the App SDK to join a meeting with an Android device](HowToJoinMeeting_Android.md)
 
-After completing the steps in this article, your app can join a **Skype for Business Online** video meeting with discovery Url and anonymous meeting token. No **Skype for Business Online** credentials are used to join the meeting.
+## Getting started
 
->[!NOTE]
-Be sure to read [Getting started with Skype App SDK development](GettingStarted.md) to learn how to configure your Android project for the **Skype for Business** App SDK.  In particular, the following steps assume you have added the _ConversationHelper_ class to your source to let you complete the scenario with a minimum of code. 
-
-## Create and deploy a Trusted Application API-based service Application
+### Create and deploy a Trusted Application API-based service Application
 
 The service application you create will give your mobile app access to the needed anonymous meeting join resources - discovery Url and anonymous meeting token. You'll use the RESTful Trusted Application API endpoint to schedule a meeting, get 
 the discovery Url and token. The rest of this article describes how to enable your Android app to call into such a service application. You can read more about the [Trusted Appplication API](../Trusted-Application-API/docs/Trusted_Application_API_GeneralReference.md) to learn
@@ -26,13 +22,15 @@ about all of the features of this Skype for Business service application api.
 
 We've published two service application [examples](https://github.com/OfficeDev/skype-docs/tree/johnau/ucapdocs/Skype/Trusted-Application-API/samples) in GitHub to get you started.
 
-## Add anonymous online meeting code to your mobile app
+### Add anonymous online meeting code to your mobile app
 
-The following example code is taken from our GitHub [Healthcare app sample](https://github.com/OfficeDev/skype-android-app-sdk-samples/tree/master/HealthcareApp). The example steps include:
+Please read [Implementing a Anonymous Client with the Skype App SDK - Android](https://github.com/OfficeDev/skype-docs/blob/johnau/ucapdocs/Skype/Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md) for the sample code. 
+The sample code is taken from our GitHub [Healthcare app sample](https://github.com/OfficeDev/skype-android-app-sdk-samples/tree/master/HealthcareApp). The example code steps include:
 
 - Call into a service application sample to get a join Url for a new ad-hoc meeting that is created by the service application
 - Use the join url to get an anonymous meeting token and a discovery Uri from the service application
 - Call the **joinMeetingAnonymously** method, passing the two resources from the previous step.
+- Show use of new Skype App SDK **setEndUserAcceptedVideoLicense** api that is required to proceed with features that potentially use video codecs.
 - Get a **Conversation** object from the asynchronously returned **AnonymousSession** object.
 
 The Android sample uses the **Retrofit 2** library from **Square** to make the RESTful calls into the service application. We've included the source code that sets up the REST adaptor so that
