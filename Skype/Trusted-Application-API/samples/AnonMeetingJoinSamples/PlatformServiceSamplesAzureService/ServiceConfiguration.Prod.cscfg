@@ -13,9 +13,9 @@
       <Setting name="CallbackUriFormat" value="https://base.url/callback?callbackContext={0}" />
       <Setting name="ResourcesUriFormat" value="https://base.url/resources/{0}" />
       <!-- Replace these with values relevant to your deployment -->                   
-     <Setting name="AAD_ClientId" value="df2adc63-3db1-46ab-ad85-2a29f6440c63" />
-      <Setting name="AAD_ClientSecret" value="QZDSAQJfulS++VVl3TB+UK19LbaL3orcVjua8VnHDAE=" />      
-      <Setting name="ApplicationEndpointId" value="sip:avstart2@metio.onmicrosoft.com" />
+     <Setting name="AAD_ClientId" value="GUID" />
+      <Setting name="AAD_ClientSecret" value="Secret key" />      
+      <Setting name="ApplicationEndpointId" value="Sip address" />
       <Setting name="LogFullHttpRequestResponse" value="true" />      
     </ConfigurationSettings>    
   </Role>
