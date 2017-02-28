@@ -47,20 +47,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             ClientPlatformSettings platformSettings = null;
             if (!string.IsNullOrEmpty(appTokenCertThumbprint))
             {
-                platformSettings = new ClientPlatformSettings(
-                    Guid.Parse(aadClientId),
-                    appTokenCertThumbprint,
-                    isSandBoxEnvionment
-                    );
+                platformSettings = new ClientPlatformSettings(Guid.Parse(aadClientId), appTokenCertThumbprint);
             }
             else if (!string.IsNullOrEmpty(aadClientSecret))
             {
-                platformSettings = new ClientPlatformSettings(
-                    aadClientSecret,
-                     Guid.Parse(aadClientId),
-                      isSandBoxEnvionment
-                      );
-
+                platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
             }
             else
             {
