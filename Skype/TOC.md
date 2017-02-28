@@ -149,7 +149,8 @@
 ###### [Anonymous Meeting Join](Trusted-Application-API/docs/AnonymousMeetingJoin.md)
 ####### [Anonymous Meeting Scheduling](Trusted-Application-API/docs/AnonymousMeetingSchedule.md)
 ####### [Implementing an Anonymous Client with the Skype Web SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeWebSDK.md)
-####### [Implementing an Anonymous Client with the Skype App SDK](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK - Android](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK.md)
+####### [Implementing an Anonymous Client with the Skype App SDK - iOS](Trusted-Application-API/docs/ImplementingAnonymousClientWithSkypeAppSDK_iOS.md)
 ####### [Anonymous Meeting Join Common Errors](Trusted-Application-API/docs/AnonymousMeetingCommonErrors.md)
 
 #### [Trusted Application API samples](Trusted-Application-API/docs/Samples.md)
@@ -465,7 +466,7 @@
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
 ### [Unified Communications Web API (UCWA)](https://msdn.microsoft.com/en-us/library/office/dn324971.aspx)
-### [Skype for Business SDN Interface](https://msdn.microsoft.com/en-us/library/office/dn785131.aspx)
+### [Skype for Business SDN Interface](https://aka.ms/p7xn2x)
 
 
 ## [Lync](https://msdn.microsoft.com/en-us/library/office/dn820099.aspx)

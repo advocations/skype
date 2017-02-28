@@ -43,7 +43,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
                 DiscoverUri,              
                 AADClientId,
                 AppTokenCertThumbprint,
-                false,
                 null,
                 TestHelper.IsInternalApp);
 
