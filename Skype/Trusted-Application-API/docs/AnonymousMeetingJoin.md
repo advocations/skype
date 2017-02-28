@@ -4,16 +4,11 @@ Anonymous meeting join is a powerful feature of the Skype Developer Platform tha
 The anonymous user can join into Skype meetings by using a meeting's URI.
 An online meeting can be scheduled using the Skype for Business Client or Outlook, or even programmatically using UCWA or the **Trusted Application API**.  The meeting's URL is passed to the service application, which calls the Trusted Application endpoint and enables anonymous users to join the online meeting.
 
-In most cases, use a meeting Url to join a meeting anonymously. Otherwise, you'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
-will call the service application to get these resources before joining a meeting. To learn more about this, see [Use the App SDK and the Trusted Application API to join an Online meeting - Android](HowToJoinOnlineMeeting_Android.md) or
-[Use the App SDK and the Trusted Application API to join an Online meeting - iOS](HowToJoinOnlineMeeting_iOS.md).  The following table shows you what resources to use for your SfB deployment scenario.
-
-|Skype for Business topology|Enable preview features enabled|Enable preview features disabled|Meeting join resource|
-|:----|:----|:----|:----|
-|CU June 2016|Chat, AV|Chat only|Meeting Url|
-|CU November 2016|Chat, AV| Chat, AV|Meeting Url|
-|SfB Online|Chat, AV|n/a|Meeting Url|
-|SfB Online|n/a|Chat, AV|Discover Uri, Anon Token|
+You'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app
+will call the service application to get these resources before joining a meeting. To learn more about this, see 
+- [Use the App SDK and the Trusted Application API to join an Online meeting - Android](../../AppSDK/HowToJoinOnlineMeeting_Android.md)
+- [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../../AppSDK/HowToJoinOnlineMeeting_iOS.md)
+- [Implementing a Anonymous Client with the Skype Web SDK](ImplementingAnonymousClientWithSkypeWebSDK.md)
 
 ## Prerequisites:
 - Please read [Developing **Trusted Application API** applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) to learn how to develop **Trusted Application API** service applications for anonymous meeting join call flow.
@@ -40,7 +35,7 @@ In [Registering your application in Azure AD](./RegistrationInAzureActiveDirecto
     Request to join "https://meet.lync.com/contoso/testuser/1SD8D0WZ"
     ```
 
-4. The Service Application talks to the **Trusted Application API** using the discovery and authentication mechanism described [here](./MessagingCallFlow.md).
+4. The Service Application talks to the **Trusted Application API** using the discovery and authentication mechanism described [here](./AuthenticationAndAuthorization.md).
     
     - The Service Application gets an anonymous application token, and a discover url, when it passes in the meeting url to the AnonApplicationsToken endpoint of the **Trusted Application API**. The flow is as follow:
     

@@ -145,18 +145,6 @@
 ##### [Discovery for Service Applications](Trusted-Application-API/docs/DiscoveryForServiceApplications.md)
 ##### [Authentication and Authorization](Trusted-Application-API/docs/AuthenticationAndAuthorization.md)
 
-######  [Trusted Application API PSTN communication](Trusted-Application-API/docs/PSTN.md)
-
-######  [Notifications: Service Application initiated chat conversations](Trusted-Application-API/docs/ApplicationCallFlow.md)
-####### [Simple messaging call flow](Trusted-Application-API/docs/MessagingCallFlow.md)
-
-######  [Customer Care: Client initiated chat conversations](Trusted-Application-API/docs/CustomerChatCallFlow.md)
-
-####### [Bootstrap chat widget](Trusted-Application-API/docs/BootstrapChatWidget.md)
-####### [Discovery by chat client](Trusted-Application-API/docs/DiscoveryChatClient.md)
-####### [Cross Origin Requests (CORS) from browser based chat clients](Trusted-Application-API/docs/CORChatClient.md)
-####### [Customer Care: Anonymous Chat call flow](Trusted-Application-API/docs/ChatCallflowDetail.md)
-####### [Implementing a Chat Client with the Skype Web SDK](Trusted-Application-API/docs/ImplementingChatClientWithSkypeWebSDK.md)
 
 ###### [Anonymous Meeting Join](Trusted-Application-API/docs/AnonymousMeetingJoin.md)
 ####### [Anonymous Meeting Scheduling](Trusted-Application-API/docs/AnonymousMeetingSchedule.md)
@@ -478,7 +466,7 @@
 ### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 ### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
 ### [Unified Communications Web API (UCWA)](https://msdn.microsoft.com/en-us/library/office/dn324971.aspx)
-### [Skype for Business SDN Interface](https://msdn.microsoft.com/en-us/library/office/dn785131.aspx)
+### [Skype for Business SDN Interface](https://aka.ms/p7xn2x)
 
 
 ## [Lync](https://msdn.microsoft.com/en-us/library/office/dn820099.aspx)

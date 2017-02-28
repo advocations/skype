@@ -9,26 +9,17 @@ Learn how to develop **Trusted Application API** service applications.
 
 **1. Registration**
 
-Use the [quick registration tool](https://skypeappregistration.azurewebsites.net) for 
-registering Skype for Business Trusted Applications in Azure 
-and Skype for Business Online, that eliminates the need to 
-register an Application manually in Azure portal.
+Use the [quick registration tool](https://aka.ms/skypeappregistration) for registering Skype for Business Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.
 
-<center><b>Or</b></center>
- 
-You can also manually register your application in Azure AD, where you will get a Client ID and set an App ID URI . Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FRegistrationInAzureActiveDirectory.md&version=GBmaster&createIfNew=true&_a=contents) for details.
- 
->NOTE: Application registration takes 8 hours to complete.  Please wait 8 hours before continuing to register your Application Endpoint.
- 
+You can also manually register your application in Azure Portal, where you will get a Client ID and set an App ID URI. Refer to [Registration in Azure Active Directory](./RegistrationInAzureActiveDirectory.md) for details.
+
 **2. Register trusted application endpoints**
- 
-Register trusted endpoints in a Skype for Business Online tenant using PowerShell. Refer to [this link](https://skypedevtap.visualstudio.com/_git/Trusted%20App%20API%20Documentation?path=%2FTrusted_Application_API%2FTrustedApplicationEndpoint.md&version=GBmaster&createIfNew=true&_a=contents) for details.
- 
+
+Register Trusted Endpoints in a Skype for Business Online tenant using PowerShell.   Refer to [Setting up a Trusted Application Endpoint](./TrustedApplicationEndpoint.md) for details.
+
 **3. Provide consent**
 
-When the application is registered in AAD, it is registered in the context of a tenant. When the same tenant wants to use the application, you do not need tenant consent.
-For a different tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
-
+When the application is registered in AAD, it is registered in the context of a tenant.  For a tenant to use the Service Application, for example, when the application is developed as a multi-tenant application, it must be consented to by that tenant's admin. Refer to [Tenant Admin Consent](./TenantAdminConsent.md) for more details.
  
 **4. Authentication** 
 
@@ -41,7 +32,7 @@ for details.
 It is the act of finding the **Trusted Application API**s home server using the discovery endpoint. This enables you to 
 connect to the API and use the exposed capabilities.
   
->Note: For **PSTN or Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md). For Chat **Customer care applications**, please refer [Discovery by chat client](./DiscoveryChatClient.md)
+>Note: For **Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
 ### Authentication using client credentials
 All endpoints other than the Discovery endpoint require authentication.
@@ -65,6 +56,5 @@ for more details.
 The following topics also apply to the **Trusted Application API** Online service application workflow:
 
 - [Webhooks (Events)](./Webhooks.md)
-- [Call Flows](./CallFlows.md)
 - [**Trusted Application API** Reference Library](./ReferenceLibrary.md)
  

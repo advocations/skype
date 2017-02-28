@@ -79,9 +79,4 @@ collection of active conversations. The conversation at index 0 directly gives u
  client.conversationsManager.conversations(0)
 ```
 
-## Sample Link:
-
-http://sdksamplesucap.azurewebsites.net/
- 
-
 

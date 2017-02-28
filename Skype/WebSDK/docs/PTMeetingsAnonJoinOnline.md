@@ -17,7 +17,7 @@ app.signInManager.signIn({
     root: { user: discoverUrl },
     auth(req, send) {
         // the GET /discover must be sent without the token
-        if (req.url != user)
+        if (req.url != discoverUrl)
             req.headers['Authorization'] = token;
 
         return send(req);
