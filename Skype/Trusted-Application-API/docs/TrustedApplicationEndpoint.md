@@ -23,7 +23,7 @@ General information about PowerShell cmdlets usage can be found in [Using Window
 |:-----|:-----|:-----|:-----|
 |Name|Required|String|Friendly name for Application endpoint|
 |ApplicationId|Required|Guid|Unique application Id that this endpoint will use.|
-|Uri|Required|String|The SipUri for the Endpoint. SIP Uri needs to be lowercase.|
+|Uri|Required|String|The SipUri for the Endpoint. SIP Uri must be lowercase.|
 |PhoneNumber|Optional|String|Phone number for the endpoint.|
 
 
@@ -38,14 +38,14 @@ General information about PowerShell cmdlets usage can be found in [Using Window
 
 | Parameters     | Required | Type   | Description                                       |
 | ---------------|:---------|:------:| -------------------------------------------------:|
-| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri needs to be lowercase. |
+| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri must be lowercase. |
 | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
 - **Remove-CsOnlineApplicationEndpoint** - It is used to remove the application endpoint.
 
 | Parameters     | Required | Type   | Description                                       |
 | ---------------|:---------|:------:| -------------------------------------------------:|
-| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri needs to be lowercase.        |
+| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri must be lowercase.        |
 
 >Note: For PSTN, Assign the **service numbers** to the trusted application endpoint using _New-CsOnlineApplicationEndpoint PhoneNumber_ parameter. PhoneNumber is not required.
  
