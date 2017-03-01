@@ -20,7 +20,7 @@ It is advised to not be logged into multiple MSA accounts when testing out OAuth
     window.location.href = href;
   ```
 
-## Detailed Setup instructions
+## Detailed Setup Instructions
 -  <a href="//msdn.microsoft.com/skype/websdk/docs/developwebsdkappsforsfbonline" target="">Developing Web SDK applications for Skype for Business Online</a>
 
 ## Related Resources
