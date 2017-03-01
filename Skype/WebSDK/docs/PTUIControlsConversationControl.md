@@ -86,10 +86,9 @@ Inside of the previous callback method, add a callback to detect when one of the
 When the state of the channel is changed to `'Notified'`, an invitation has been received. To show the <a href="//msdn.microsoft.com/skype/websdk/docs/conversationcontrol" target="">Conversation Control</a>, 
 call the  **renderConversation** method of the `api` object passed as a parameter to the callback of the **initialize** function.
 
->note: There is a known issue where adding modalities other than 'Chat' to the 'modalities' array in the second argument
-of **renderConversation** causes the Conversation Control to fail to be rendered. Audio and video can still be started later
-so it is advised to only pass the array `['Chat']` as the value of the modalities property on the object passed as the
-second argument of **renderConversation**.
+>note: Adding 'Chat' modality to the 'modalities' array in the second argument of **renderConversation** causes the Conversation Control to be rendered
+with just the chat modality. Audio and video can still be started later. If you wish to start audio and/or video as the Conversation Control is rendered,
+you can add 'Audio' and/or 'Video' modality to the 'modalities' array in the second argument of **renderConversation**.
 
 To render an incoming p2p conversation, invoke **renderConversation** with the sip uri of the sole participant as the only
 element of the `participants` array. To render an incoming group conversation, invoke **renderConversation** with the uri of
