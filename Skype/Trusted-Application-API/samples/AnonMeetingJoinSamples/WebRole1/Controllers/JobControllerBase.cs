@@ -9,12 +9,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.FrontEnd
 {
     public abstract class JobControllerBase : ApiController
     {
-        protected IStorage Storage { get; private set; }
-
-        public JobControllerBase()
-        {
-            Storage = IOCHelper.Resolve<IStorage>();
-        }
 
         protected HttpResponseMessage CreateHttpResponse(HttpStatusCode statusCode, string message)
         {

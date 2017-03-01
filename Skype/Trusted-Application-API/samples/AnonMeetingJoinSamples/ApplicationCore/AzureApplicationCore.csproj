@@ -158,8 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureBaseApplication\AzureBaseApplication.cs" />
-    <Compile Include="Azure\AzureDiagnosticLogger.cs" />
-    <Compile Include="Azure\AzureStorage.cs" />
     <Compile Include="IOCHelper.cs" />
     <Compile Include="Job\AdhocMeetingToken.cs" />
     <Compile Include="Job\AnonymousToken.cs" />
@@ -170,6 +168,7 @@
     <Compile Include="Job\JobHelper.cs" />
     <Compile Include="Job\PlatformServiceJobBase.cs" />
     <Compile Include="Job\PlatformServiceApplicationException.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
