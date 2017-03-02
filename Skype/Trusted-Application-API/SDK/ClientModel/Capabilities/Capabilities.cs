@@ -56,6 +56,7 @@
 
     public enum ParticipantCapability
     {
+        Eject
     }
 
     public enum ParticipantMessagingCapability

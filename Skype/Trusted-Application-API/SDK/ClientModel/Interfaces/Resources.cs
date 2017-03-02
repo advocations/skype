@@ -501,6 +501,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         IParticipantMessaging ParticipantMessaging { get; }
 
+        /// <summary>
+        /// Ejects the participant from the corresponding meeting.
+        /// </summary>
+        Task EjectAsync(LoggingContext loggingContext);
+
         event EventHandler<ParticipantModalityChangeEventArgs> HandleParticipantModalityChange;
     }
 

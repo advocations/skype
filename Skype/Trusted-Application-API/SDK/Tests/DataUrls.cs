@@ -61,5 +61,8 @@
         public  const string BridgedParticipants             = TgtConversation + "/conversationBridge/bridgedParticipants?" + EndpointId;
         public  const string BridgedParticipant              = TgtConversation + "/conversationBridge/bridgedParticipants/bridgedparticipant@example.com?" + EndpointId;
         public  const string TerminateConversationConference = TgtConversation + "/onlineMeeting/terminateOnlineMeeting?" + EndpointId;
+
+        // Participant urls
+        public const string EjectParticipant = TgtConversation + "/participants/participant@example.com/eject?" + EndpointId;
     }
 }
