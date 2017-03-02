@@ -7,7 +7,13 @@ You can easily register **Trusted Application Endpoints** by using the PowerShel
 General information about PowerShell cmdlets usage can be found in [Using Windows PowerShell to manage Skype for Business Online](https://technet.microsoft.com/en-us/library/dn362831.aspx).  You will need to complete the following steps to run the admin PowerShell:
 
 1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688)
-2. [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
+2. Open Windows PowerShell as Administrator and run the following:
+
+```PowerShell
+Import-PSSession (New-CsOnlineSession -Credential Get-Credential)
+```
+
+For more information see: [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
 
 ## Managing Trusted Application Endpoint With PowerShell
 
