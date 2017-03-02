@@ -36,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await data.ApplicationEndpoint.InitializeApplicationAsync(m_loggingContext).ConfigureAwait(false);
             m_application = data.ApplicationEndpoint.Application;
 
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingInput()).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AdhocMeeting), HttpMethod.Post, HttpStatusCode.Created, "AdhocMeeting_NoJoinAdhocMeetingLink.json");
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingInput()).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
 
             // When
             bool supports = m_adhocMeeting.Supports(AdhocMeetingCapability.JoinAdhocMeeting);
@@ -102,7 +102,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AdhocMeeting), HttpMethod.Post, HttpStatusCode.Created, "AdhocMeeting_NoJoinAdhocMeetingLink.json");
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingInput()).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
 
             // When
             await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext").ConfigureAwait(false);
@@ -128,10 +128,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        public async Task JoinAdhocMeetingShouldPassCustomizedCallbackUrlInHttpRequest()
+        public async Task JoinAdhocMeetingShouldPassCustomizedCallbackUrlAndAppendCallbackContextToItInHttpRequest()
         {
             // Given
             var callbackUrl = "https://example.com/customizedcallbackurl";
+            var callbackContext = "__callbackcontext__";
             m_clientPlatformSettings.CustomizedCallbackUrl = callbackUrl;
 
             var customizedCallbackUrlPassed = false;
@@ -139,17 +140,40 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {
                 var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.JoinAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-                if (operationId != null && ((JoinMeetingInvitationInput)args.Input).CallbackUrl == callbackUrl)
+                if (operationId != null)
                 {
-                    customizedCallbackUrlPassed = true;
+                    var passed = ((JoinMeetingInvitationInput)args.Input).CallbackUrl;
+                    customizedCallbackUrlPassed = passed.StartsWith(callbackUrl) && passed.EndsWith(callbackContext);
                 }
             };
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext");
+            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, callbackContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(customizedCallbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task JoinAdhocMeetingShouldPassCallbackContextInHttpRequest()
+        {
+            // Given
+            var callbackContext = "__callbackcontext__";
+            var callbackContextPassed = false;
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.JoinAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null && ((JoinMeetingInvitationInput)args.Input).CallbackContext == callbackContext)
+                {
+                    callbackContextPassed = true;
+                }
+            };
+
+            // When
+            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, callbackContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackContextPassed);
         }
 
         [TestMethod]
@@ -167,7 +191,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             Task joinTask = m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext");
-            await Task.Delay(TimeSpan.FromMilliseconds(100));
+            await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
             Assert.IsFalse(joinTask.IsCompleted);
 
             // When

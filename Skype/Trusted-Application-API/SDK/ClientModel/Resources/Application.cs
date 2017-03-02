@@ -8,6 +8,12 @@ using System.IO;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Represents your real-time communication application.
+    /// </summary>
+    /// <remarks>
+    /// This resource represents an application which is similar to a bot in functionality and is not bound to any user.
+    /// </remarks>
     internal class Application : BasePlatformResource<ApplicationResource, ApplicationCapability>, IApplication
     {
         #region Private fields
@@ -69,6 +75,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
+        /// <summary>
+        /// Gets an anonymous application token for a meeting. This token can be given to a user domain application. Using this token,
+        /// the user can sign in and join the meeting.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
+        /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        [Obsolete("Please use GetAnonApplicationTokenForMeetingAsync instead")]
+        // All obsolete methods will be removed when releasing 1.0.0
+        // We are keeping methods for prerelease as we don't want to break our partners every week :)
         public async Task<AnonymousApplicationTokenResource> GetAnonApplicationTokenAsync(LoggingContext loggingContext, AnonymousApplicationTokenInput input)
         {
             if(input == null)
@@ -103,13 +119,45 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new RemotePlatformServiceException("Not get valid anon token resource from server, deserialize failure.", ex);
             }
         }
-        
+
         /// <summary>
-        /// Get adhoc meeting from application directly
+        /// Gets an anonymous application token for a meeting. This token can be given to a user domain application. Using this token,
+        /// the user can sign in and join the meeting.
         /// </summary>
-        /// <param name="loggingContext"></param>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="meetingUrl">HTTP join url of the meeting</param>
+        /// <param name="allowedOrigins">Semi colon separated list of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        public Task<IAnonymousApplicationToken> GetAnonApplicationTokenForMeetingAsync(LoggingContext loggingContext, string meetingUrl, string allowedOrigins, string applicationSessionId)
+        {
+            if(string.IsNullOrEmpty(meetingUrl))
+            {
+                throw new ArgumentNullException(nameof(meetingUrl));
+            }
+
+            return GetAnonApplicationTokenAsync(loggingContext, meetingUrl, allowedOrigins, applicationSessionId);
+        }
+
+        /// <summary>
+        /// Gets an anonymous application token for a P2P call. This token can be given to a user domain application. Using this token,
+        /// the user can make P2P calls.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <returns>A token that can be used by a user to make P2P calls</returns>
+        public Task<IAnonymousApplicationToken> GetAnonApplicationTokenForP2PCallAsync(LoggingContext loggingContext, string allowedOrigins, string applicationSessionId)
+        {
+            return GetAnonApplicationTokenAsync(loggingContext, null, allowedOrigins, applicationSessionId);
+        }
+
+        /// <summary>
+        /// Creates an adhoc meeting
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the meeting to be created</param>
+        /// <returns>An adhoc meeting</returns>
         [Obsolete("Please use CreateAdhocMeetingAsync instead")]
         public async Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input)
         {
@@ -148,15 +196,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         /// <summary>
-        /// Creates an adhoc meeting.
+        /// Creates an adhoc meeting
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
-        /// <param name="input">Specifies properties for the required token.</param>
+        /// <param name="input">Specifies properties for the meeting to be created</param>
         /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
-        public async Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingInput input)
+        public async Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingCreationInput input)
         {
+            if(input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             #pragma warning disable CS0618 // Type or member is obsolete
-            AdhocMeetingResource adhocMeetingResource = await GetAdhocMeetingResourceAsync(loggingContext, input).ConfigureAwait(false);
+            AdhocMeetingResource adhocMeetingResource = await GetAdhocMeetingResourceAsync(loggingContext, input?.ToPlatformInput()).ConfigureAwait(false);
             #pragma warning restore CS0618 // Type or member is obsolete
 
             return new AdhocMeeting(RestfulClient, adhocMeetingResource, BaseUri, UriHelper.CreateAbsoluteUri(BaseUri, adhocMeetingResource.SelfUri), this);
@@ -169,12 +222,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             switch(capability)
             {
-                case ApplicationCapability.GetAnonApplicationToken :
+                #pragma warning disable CS0618 // Type or member is obsolete
+                case ApplicationCapability.GetAnonApplicationToken:
+                #pragma warning restore CS0618 // Type or member is obsolete
+
+                case ApplicationCapability.GetAnonApplicationTokenForMeeting:
+                case ApplicationCapability.GetAnonApplicationTokenForP2PCall:
                     {
                         href = PlatformResource?.AnonymousApplicationTokens?.Href;
                         break;
                     }
+                #pragma warning disable CS0618 // Type or member is obsolete
                 case ApplicationCapability.GetAdhocMeetingResource:
+                #pragma warning restore CS0618 // Type or member is obsolete
+
+                case ApplicationCapability.CreateAdhocMeeting:
                     {
                         href = PlatformResource?.OnlineMeetings?.SelfUri;
                         break;
@@ -182,6 +244,47 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return !string.IsNullOrEmpty(href);
+        }
+
+        #endregion
+
+        #region Internal methods
+
+        /// <summary>
+        /// Extracts CustomizedCallbackUrl from corresponding <see cref="ClientPlatform"/>
+        /// </summary>
+        /// <returns>CustomizedCallbackUrl to be given to SfB</returns>
+        internal string GetCustomizedCallbackUrl()
+        {
+            // CustomizedCallbackUrl is part of ClientPlatformSettings which is stored in IClientPlatform.
+            // Traverse the chain of parents to get GetCustomizedCallbackUrl.
+            object applicationsParent = (Parent as Applications).Parent;
+
+            // Applications' parent is Discover in a prod environment but is ApplicationEndpoint for Sandbox applications
+            ApplicationEndpoint applicationEndpoint = (applicationsParent is Discover ? (applicationsParent as Discover).Parent : applicationsParent) as ApplicationEndpoint;
+
+            var clientPlatform = applicationEndpoint.ClientPlatform as ClientPlatform;
+            return clientPlatform.CustomizedCallbackUrl;
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private async Task<IAnonymousApplicationToken> GetAnonApplicationTokenAsync(LoggingContext loggingContext, string meetingUrl, string allowedOrigins, string applicationSessionId)
+        {
+            var input = new AnonymousApplicationTokenInput()
+            {
+                MeetingUrl = meetingUrl,
+                AllowedOrigins = allowedOrigins,
+                ApplicationSessionId = applicationSessionId
+            };
+
+            #pragma warning disable CS0618 // Type or member is obsolete
+            AnonymousApplicationTokenResource anonymousApplicationToken = await GetAnonApplicationTokenAsync(loggingContext, input).ConfigureAwait(false);
+            #pragma warning restore CS0618 // Type or member is obsolete
+
+            return new AnonymousApplicationToken(RestfulClient, anonymousApplicationToken, BaseUri, UriHelper.CreateAbsoluteUri(BaseUri, anonymousApplicationToken.SelfUri), this);
         }
 
         #endregion

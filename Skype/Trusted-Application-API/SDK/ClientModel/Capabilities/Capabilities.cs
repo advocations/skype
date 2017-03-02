@@ -1,4 +1,6 @@
-﻿namespace Microsoft.SfB.PlatformService.SDK.ClientModel
+﻿using System;
+
+namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     public enum AudioVideoFlowCapability
     {
@@ -65,8 +67,17 @@
 
     public enum ApplicationCapability
     {
+        [Obsolete("Use GetAnonApplicationTokenForMeeting instead")]
         GetAnonApplicationToken,
-        GetAdhocMeetingResource
+        [Obsolete("Use CreateAdhocMeeting instead")]
+        GetAdhocMeetingResource,
+        GetAnonApplicationTokenForMeeting,
+        GetAnonApplicationTokenForP2PCall,
+        CreateAdhocMeeting
+    }
+
+    public enum AnonymousApplicationTokenCapability
+    {
     }
 
     /// <summary>

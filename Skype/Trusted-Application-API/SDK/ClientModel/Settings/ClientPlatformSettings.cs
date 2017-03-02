@@ -87,7 +87,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
             This.IsInternalPartner = isInternalPartner;
         }
 
-        // Make it public when sandbox is ready
+        //TODO: Open this method once sandbox Env is ready
         internal static void SetIsSandboxEnv(this ClientPlatformSettings This, bool isSandboxEnv)
         {
             This.IsSandBoxEnv = isSandboxEnv;

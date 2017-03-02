@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
-using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
+using ResourceModel = Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 using System.Collections.Concurrent;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
@@ -112,7 +112,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
-            if (eventContext.EventEntity.Link.Token == TokenMapper.GetTokenName(typeof(ToneResource)))
+            if (eventContext.EventEntity.Link.Token == ResourceModel.TokenMapper.GetTokenName(typeof(ToneResource)))
             {
                 var toneResource = ConvertToPlatformServiceResource<ToneResource>(eventContext);
                 Uri audioVideoFlowLink = UriHelper.CreateAbsoluteUri(this.BaseUri, toneResource.AudioVideoFlowLink.Href);
@@ -129,12 +129,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 }
             }
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            else if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(PromptResource))))
+            else if (string.Equals(eventContext.EventEntity.Link.Token, ResourceModel.TokenMapper.GetTokenName(typeof(PromptResource))))
             {
                 PromptResource prompt = this.ConvertToPlatformServiceResource<PromptResource>(eventContext);
                 if (prompt != null)
                 {
-                    if (eventContext.EventEntity.Relationship == EventOperation.Completed)
+                    if (eventContext.EventEntity.Relationship == ResourceModel.EventOperation.Completed)
                     {
                         TaskCompletionSource<Prompt> tcs = null;
                         Uri resourceAbsoluteUri = UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href);
@@ -143,19 +143,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         {
                             Prompt p = new Prompt(this.RestfulClient, prompt, this.BaseUri, resourceAbsoluteUri, this);
 
-                            if (eventContext.EventEntity.Status == EventStatus.Success)
+                            if (eventContext.EventEntity.Status == ResourceModel.EventStatus.Success)
                             {
                                 tcs.TrySetResult(p);
                             }
-                            else if (eventContext.EventEntity.Status == EventStatus.Failure)
+                            else if (eventContext.EventEntity.Status == ResourceModel.EventStatus.Failure)
                             {
-                                var errorInformation = eventContext.EventEntity.Error;
-                                string errorString = errorInformation?.GetErrorInformationString();
-                                tcs.TrySetException(
-                                    new RemotePlatformServiceException(
-                                        "PlayPrompt failed with error " + errorString + eventContext.LoggingContext.ToString(),
-                                        errorInformation
-                                    ));
+                                ResourceModel.ErrorInformation error = eventContext.EventEntity.Error;
+                                ErrorInformation errorInfo = error == null ? null : new ErrorInformation(error);
+                                string errorMessage = errorInfo?.ToString();
+                                tcs.TrySetException(new RemotePlatformServiceException("PlayPrompt failed with error " + errorMessage + eventContext.LoggingContext.ToString(), errorInfo));
                             }
                             else
                             {

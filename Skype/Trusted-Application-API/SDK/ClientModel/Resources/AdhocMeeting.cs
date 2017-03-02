@@ -48,16 +48,27 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public async Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext)
         {
             string href = PlatformResource?.JoinAdhocMeetingLink?.Href;
-            if (href == null)
+            if (string.IsNullOrWhiteSpace(href))
             {
                 throw new CapabilityNotAvailableException("Link to join adhoc meeting is not available.");
+            }
+
+            var callbackUrl = (Parent as Application).GetCustomizedCallbackUrl();
+            if (callbackUrl != null && callbackContext != null)
+            {
+                // We need to append callbackContext as a query paramter to callbackUrl
+                callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
+                callbackUrl += "callbackContext=" + callbackContext;
+
+                // We don't want to pass callbackContext if callbackUrl is being passed
+                callbackContext = null;
             }
 
             var joinMeetingInput = new JoinMeetingInvitationInput()
             {
                 CallbackContext = callbackContext,
                 OperationContext = Guid.NewGuid().ToString(),
-                CallbackUrl = GetCustomizedCallbackUrl()
+                CallbackUrl = callbackUrl
             };
 
             var communication = (Parent as Application).Communication as Communication;
@@ -117,23 +128,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return !string.IsNullOrEmpty(href);
-        }
-
-        /// <summary>
-        /// Extracts CustomizedCallbackUrl from corresponding <see cref="ClientPlatform"/>
-        /// </summary>
-        /// <returns>CustomizedCallbackUrl to be given to SfB</returns>
-        private string GetCustomizedCallbackUrl()
-        {
-            // CustomizedCallbackUrl is part of ClientPlatformSettings which is stored in IClientPlatform.
-            // Traverse the chain of parents to get GetCustomizedCallbackUrl.
-            object applicationsParent = ((Parent as Application).Parent as Applications).Parent;
-
-            // Applications' parent is Discover in a prod environment but is ApplicationEndpoint for Sandbox applications
-            ApplicationEndpoint applicationEndpoint = (applicationsParent is Discover ? (applicationsParent as Discover).Parent : applicationsParent) as ApplicationEndpoint;
-
-            var clientPlatform = applicationEndpoint.ClientPlatform as ClientPlatform;
-            return clientPlatform.CustomizedCallbackUrl;
         }
     }
 }

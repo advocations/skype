@@ -99,6 +99,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ClientModel\AdhocMeeting.cs" />
+    <Compile Include="ClientModel\AnonymousApplicationToken.cs" />
     <Compile Include="ClientModel\Application.cs" />
     <Compile Include="ClientModel\Applications.cs" />
     <Compile Include="ClientModel\AudioVideoCall.cs" />

@@ -40,7 +40,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="resource"></param>
         /// <param name="baseUri"></param>
         /// <param name="resourceUri"></param>
-        internal Communication(IRestfulClient restfulClient, CommunicationResource resource, Uri baseUri, Uri resourceUri, object parent)
+        internal Communication(IRestfulClient restfulClient, CommunicationResource resource, Uri baseUri, Uri resourceUri, Application parent)
                 : base(restfulClient, resource, baseUri, resourceUri, parent)
         {
             m_conversations = new ConcurrentDictionary<string, Conversation>();
@@ -117,7 +117,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start AudioVideoCall is not available.");
             }
 
-            return await StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return await StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start audio is not available.");
             }
 
-            return await StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return await StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext).ConfigureAwait(false);
         }
 
         public override bool Supports(CommunicationCapability capability)

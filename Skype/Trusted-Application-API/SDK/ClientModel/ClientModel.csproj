@@ -84,13 +84,14 @@
   <ItemGroup>
     <Compile Include="Capabilities\Capabilities.cs" />
     <Compile Include="Exceptions\PlatformServiceExceptions.cs" />
-    <Compile Include="Extensions\ErrorInformationExtensions.cs" />
     <Compile Include="Extensions\IPlatformServiceLoggerExtensions.cs" />
     <Compile Include="HttpTransport\IRestfulClient.cs" />
     <Compile Include="HttpTransport\RestfulClient.cs" />
     <Compile Include="HttpTransport\TokenProvider.cs" />
     <Compile Include="Interfaces\IInvitationWithConversation.cs" />
     <Compile Include="Interfaces\Resources.cs" />
+    <Compile Include="Resources\AnonymousApplicationToken.cs" />
+    <Compile Include="Resources\ErrorInformation.cs" />
     <Compile Include="Resources\AdhocMeeting.cs" />
     <Compile Include="Resources\Application.cs" />
     <Compile Include="Resources\Applications.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Resources\ConversationBridge.cs" />
     <Compile Include="Resources\Discover.cs" />
     <Compile Include="Resources\EventContext.cs" />
+    <Compile Include="Resources\Input.cs" />
     <Compile Include="Resources\Invitation.cs" />
     <Compile Include="Resources\IEventChannel.cs" />
     <Compile Include="Resources\MessagingCall.cs" />
