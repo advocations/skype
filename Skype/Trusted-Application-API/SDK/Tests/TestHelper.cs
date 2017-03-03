@@ -42,7 +42,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             var platformSettings = new ClientPlatformSettings(
                 DiscoverUri,              
                 AADClientId,
-                AppTokenCertThumbprint,               
+                AppTokenCertThumbprint,
+                false,
                 null,
                 TestHelper.IsInternalApp);
 

@@ -153,7 +153,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         public const string SkypeForBusinessApplicationClientId = "00000004-0000-0ff1-ce00-000000000000";
         public static readonly Uri PlatformDiscoverUri_Prod = new Uri("https://api.skypeforbusiness.com/platformservice/discover?deploymentpreference=Nightly&Region=northamerica");
         public static readonly Uri PlatformDiscoverUri_SandBox = new Uri("https://NOAMmeetings.resources.lync.com/platformservice/discover"); //Todo: update to api.skypeforbusinessonline after prod ready
-        public static readonly Uri PlatformApplicationsUri_SandBox = new Uri("https://ring0NOAMfreemiummeetings.resources.lync.com/platformservice/v1/applications"); //TODO update to https://NOAMfreemiummeetings.resources.lync.com/platformservice/v1/applications
         public const string PlatformAudienceUri = "https://NOAMmeetings.resources.lync.com"; //Todo: update to api.skypeforbusinessonline after prod ready
 
         #endregion

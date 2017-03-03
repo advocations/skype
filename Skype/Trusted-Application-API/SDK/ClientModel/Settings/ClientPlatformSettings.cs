@@ -17,31 +17,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         public bool IsInternalPartner { get; private set; }
 
-        public ClientPlatformSettings(Guid aadClientId, string appTokenCertThumbprint)
-            :this(null, aadClientId, appTokenCertThumbprint,  null, false)
+        public ClientPlatformSettings(Guid aadClientId, string appTokenCertThumbprint, bool isSandBoxEnv = false)
+            :this(null, aadClientId, appTokenCertThumbprint, isSandBoxEnv, null, false)
         {
             ArgumentVerifier.ThrowOnNullOrEmptyString(appTokenCertThumbprint, "appTokenCertThumbprint");       
         }
 
-        public ClientPlatformSettings(string clientSecret, Guid aadClientId )
-            : this(null, aadClientId, null,  clientSecret, false)
+        public ClientPlatformSettings(string clientSecret, Guid aadClientId, bool isSandBoxEnv = false )
+            : this(null, aadClientId, null, isSandBoxEnv, clientSecret, false)
         {
             ArgumentVerifier.ThrowOnNullOrEmptyString(clientSecret, "clientSecret");
         }
 
-        public ClientPlatformSettings(Uri discoverUri,  Guid aadClientId, string appTokenCertThumbprint, string clientSecret=null, bool isInternalPartner = false)
+        public ClientPlatformSettings(Uri discoverUri,  Guid aadClientId, string appTokenCertThumbprint, bool isSandBoxEnv = false, string clientSecret=null, bool isInternalPartner = false)
         {
             DiscoverUri = discoverUri;
             AADClientId = aadClientId;
             AppTokenCertThumbprint = appTokenCertThumbprint;
-            AADClientSecret = clientSecret;           
-            IsInternalPartner = isInternalPartner;
-        }
-
-        //TODO: Open this method once sandbox Env is ready
-        private void SetSandBoxEnv(bool isSandBoxEnv)
-        {
+            AADClientSecret = clientSecret;
             IsSandBoxEnv = isSandBoxEnv;
+            IsInternalPartner = isInternalPartner;
         }
     }
 }

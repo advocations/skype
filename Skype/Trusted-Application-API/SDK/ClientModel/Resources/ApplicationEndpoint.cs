@@ -159,27 +159,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             if (Application == null)
             {
-                IApplications ApplicationsResource = null;
-                if (!this.ClientPlatform.IsSandBoxEnv)
-                {
-                    Uri discoverUri = ClientPlatform.DiscoverUri;
-                    Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
+                Uri discoverUri = ClientPlatform.DiscoverUri;
+                Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
 
-                    var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-                    await discover.RefreshAndInitializeAsync(loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
-                    ApplicationsResource = discover.Applications;
-                }
-                else
-                {
-                    Uri applicationsUri = Constants.PlatformApplicationsUri_SandBox;
-                    Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(applicationsUri.ToString());
-                    if (this.ApplicationEndpointId != null)
-                    {
-                        applicationsUri = UriHelper.AppendQueryParameterOnUrl(applicationsUri.ToString(), Constants.EndpointId, ApplicationEndpointId.ToString(), false);
-                    }
-                    ApplicationsResource = new Applications(m_restfulClient, null, baseUri, applicationsUri, this);
-                }
+                var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
+                await discover.RefreshAndInitializeAsync(loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
 
+                IApplications ApplicationsResource = discover.Applications;
                 await ApplicationsResource.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
 
                 Application = ApplicationsResource.Application;
