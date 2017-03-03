@@ -10,7 +10,6 @@ will call the service application to get these resources before joining a meetin
 - [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../../AppSDK/HowToJoinOnlineMeeting_iOS.md)
 - [Implementing a Anonymous Client with the Skype Web SDK](ImplementingAnonymousClientWithSkypeWebSDK.md)
 
-
 ## Prerequisites:
 - Please read [Developing **Trusted Application API** applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) to learn how to develop **Trusted Application API** service applications for anonymous meeting join call flow.
 In [Registering your application in Azure AD](./RegistrationInAzureActiveDirectory.md) section, please make sure that the following application permissions are selected for **Anonymous meeting join** 
