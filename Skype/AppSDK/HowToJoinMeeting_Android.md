@@ -45,6 +45,17 @@ Be sure to read [Getting started with Skype App SDK development](GettingStarted.
    ```java
      mConversation = mAnonymousSession.getConversation();
    ```  
+
+1. Show video codec license
+
+    As per the license terms, before you start video for the first time after install, you **must** prompt the user to accept the Microsoft end-user license (also included in the SDK).  
+    This is required to proceed with features that potentially use video codecs.
+
+    This code snippet shows the use of the new Skype App SDK **"setEndUserAcceptedVideoLicense"** api. 
+    Until this method is called, any attempt to use those features will fail.
+    Once the api has been called, the user is considered in acceptance of the third party video codec license that we use to support video.  Subsequent meetings do not require the license acceptance.  
+
+    [!code-java [sample](VideoLicense_Android.md)]  
 1. Connect the conversation property callback to the [**Conversation**](https://ucwa.skype.com/reference/appSDK/Android/com/microsoft/office/sfb/appsdk/Conversation.html) object returned in the previous step.
    ```java
        mConversation.addOnPropertyChangedCallback(
@@ -122,7 +133,7 @@ Be sure to read [Getting started with Skype App SDK development](GettingStarted.
 
 1. Start the incoming and outgoing meeting video.
 
-   >Note: as per the license terms, before you start video for the first time after install, you must prompt the user to accept the Microsoft end-user license (also included in the SDK).  Subsequent versions of the SDK preview will include code to assist you in doing so.
+   >Note: as per the license terms, before you start video for the first time after install, you must prompt the user to accept the Microsoft end-user license (also included in the SDK). Please refer step 5 - Show video codec license for the sample code.
 
    ```java
          //Start up the incoming and outgoing video

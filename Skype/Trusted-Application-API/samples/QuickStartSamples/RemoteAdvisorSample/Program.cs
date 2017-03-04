@@ -45,13 +45,7 @@ namespace RemoteAdvisorSample
             logger.HttpRequestResponseNeedsToBeLogged = true;//Set to true if you want to log all http request and responses
 
             //Prepare platform
-
-            //For all public developers          
-            ClientPlatformSettings platformSettings = new ClientPlatformSettings(
-            QuickSamplesConfig.AAD_ClientSecret,
-             Guid.Parse(QuickSamplesConfig.AAD_ClientId),
-              false
-                );
+            ClientPlatformSettings platformSettings = new ClientPlatformSettings(QuickSamplesConfig.AAD_ClientSecret, Guid.Parse(QuickSamplesConfig.AAD_ClientId));
 
             var platform = new ClientPlatform(platformSettings, logger);
 
@@ -85,9 +79,12 @@ namespace RemoteAdvisorSample
             }
            );
 
-
             logger.Information("Get anon token : " + anonToken.AuthToken);
             logger.Information("Get discover url for web SDK : " + anonToken.AnonymousApplicationsDiscover.Href);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            logger.Information("RemoteAdvisor sample completed successfully!");
+            Console.ResetColor();
         }
     }
 
