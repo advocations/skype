@@ -8,7 +8,7 @@ using System;
 using System.Configuration;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

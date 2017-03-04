@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace CallCenterSample.Common
+namespace AVTransferSample.Common
 {
     /// <summary>
     /// The Logging Context Action Filter Attribute.

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     public class AVCallTransferJob
     {

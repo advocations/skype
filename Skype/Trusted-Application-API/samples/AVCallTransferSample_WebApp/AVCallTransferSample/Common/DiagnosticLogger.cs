@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     /// <summary>
     /// Definition for the class AzureDiagnosticLogger

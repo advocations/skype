@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     /// <summary>
     /// Helper class for unity

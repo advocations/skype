@@ -7,7 +7,7 @@ using System.Configuration;
 using Microsoft.Owin.Security.ActiveDirectory;
 using System.IdentityModel.Tokens;
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     public partial class Startup
     {

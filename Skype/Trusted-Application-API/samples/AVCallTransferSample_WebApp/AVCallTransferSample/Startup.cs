@@ -6,7 +6,7 @@ using Owin;
 
 [assembly: OwinStartup(typeof(CallCenterSample.Startup))]
 
-namespace CallCenterSample
+namespace AVTransferSample
 {
     public partial class Startup
     {

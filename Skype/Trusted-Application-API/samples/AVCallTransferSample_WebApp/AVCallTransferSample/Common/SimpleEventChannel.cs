@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using System.Web;
 
-namespace CallCenterSample.Common
+namespace AVTransferSample.Common
 {
     /// <summary>
     /// The implementation of <see cref="IEventChannel"/> simple event channel which take http request from callbackcontroller and raise events
