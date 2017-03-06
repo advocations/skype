@@ -9,7 +9,7 @@ This topic introduces the following new **Trusted Application API** concepts:
 ## Discovery for Service Applications
 
 The discovery flow that Service Applications (SA) built on the **Trusted Application API** use is different from the UCWA autodiscover flow. A Service Application uses a standard URL for discovery - `https://api.skypeforbusiness.com/platformservice/discover`.
-A GET on this url returns a **[service:applications](https://ucwa.skype.com/trustedapplicationapi/Resources/service_applications.html)** resource, which is the starting point for the Service Application scenarios.
+A GET on this url with a valid Oauth token returns a **[service:applications](https://ucwa.skype.com/trustedapplicationapi/Resources/service_applications.html)** resource, which is the starting point for the Service Application scenarios.
 
 You can learn more about the **Trusted Application API** discovery flow at [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
