@@ -39,6 +39,7 @@
         public  const string AudioVideoInvitationAccept  = AudioVideoInvitationBase + "/accept?" + EndpointId;
         public  const string AudioVideoInvitationDecline = AudioVideoInvitationBase + "/decline?" + EndpointId;
         public  const string AudioVideoInvitationForward = AudioVideoInvitationBase + "/forward?" + EndpointId;
+        public const string  AudioVideoInvitationAcceptAndBridge = AudioVideoInvitationBase + "/acceptAndBridgeAudioVideo?" + EndpointId;
 
         // Conversation urls
         private const string TgtConversation                 = TgtCommunication + "/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe";

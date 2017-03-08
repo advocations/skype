@@ -205,6 +205,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         Task<HttpResponseMessage> ForwardAsync(LoggingContext loggingContext, string forwardTarget);
 
         Task<HttpResponseMessage> DeclineAsync(LoggingContext loggingContext);
+
+        Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to);
+
+        Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null);
     }
 
     #endregion

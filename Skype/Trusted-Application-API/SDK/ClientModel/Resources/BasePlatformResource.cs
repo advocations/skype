@@ -74,7 +74,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         protected TPlatformResource PlatformResource { get; private set; }
 
-
+        //Unit test can leverage this to avoid waiting too long
         internal TimeSpan WaitForEvents { get; set; } = TimeSpan.FromSeconds(30);
 
         #endregion
