@@ -23,8 +23,12 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-/Skype/Trusted-Application-API/samples/QuickStartSamples/.vs/RemoteAdvisorSample/v14/.suo
-/Skype/Trusted-Application-API/samples/QuickStartSamples/.vs/QuickStartSamples/v14/.suo
-/Skype/Trusted-Application-API/SDK/.vs/PlatformSDK/v14/.suo
-/Skype/Trusted-Application-API/SDK/.vs/config/applicationhost.config
-*.suo
+
+# Visual Studio 2015 cache/options directory
+.vs/
+
+# Visual Studio test results
+TestResults/
+
+# Visual Studio user specific setting files
+*.csproj.user
