@@ -87,6 +87,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         href = PlatformResource?.DeclineOperationLink?.Href;
                         break;
                     }
+                case AudioVideoInvitationCapability.AcceptAndBridge:
+                    {
+                        href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
+                        break;
+                    }
+                case AudioVideoInvitationCapability.StartAdhocMeeting:
+                    {
+                        href = PlatformResource?.StartAdhocMeetingLink?.Href;
+                        break;
+                    }
             }
 
             return !string.IsNullOrWhiteSpace(href);
@@ -107,7 +117,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link start adhoc meeting in not available.");
             }
 
-            Logger.Instance.Information(string.Format("[MessagingInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
+            Logger.Instance.Information(string.Format("[AudioVideoInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
             Communication communication = this.Parent as Communication;
 
             string operationId = Guid.NewGuid().ToString();
@@ -125,8 +135,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             await this.PostRelatedPlatformResourceAsync(adhocMeetingUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
-            await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
-            if (!tcs.Task.IsCompleted && !tcs.Task.IsFaulted && !tcs.Task.IsCanceled)
+            Task completed  = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
+            if (completed != tcs.Task)
             {
                 throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
             }
@@ -147,7 +157,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
 
         /// <summary>
-        /// AcceptAndBridge audioVideo Async
+        /// Accept the incoming call and set up b2b call with conference or target user
         /// </summary>
         /// <param name="loggingContext"></param>
         /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
@@ -160,7 +170,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new ArgumentException("need to at least provide to or meeting uri for bridge");
             }
 
-            Logger.Instance.Information(string.Format("[OnlineMeetingInviation] calling AcceptAndBridgeAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
+            Logger.Instance.Information(string.Format("[AudioVideoInviation] calling AcceptAndBridgeAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
 
             string href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
 
