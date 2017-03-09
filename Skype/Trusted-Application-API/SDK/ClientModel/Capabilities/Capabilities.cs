@@ -86,7 +86,9 @@
     {
         Accept,
         Forward,
-        Decline
+        Decline,
+        StartAdhocMeeting,
+        AcceptAndBridge
     }
 
     public enum OnlineMeetingInvitationCapability

@@ -26,3 +26,6 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
+/Skype/Trusted-Application-API/samples/AVCallTransferSample_WebApp/AVCallTransferSample/Properties/PublishProfiles
+/Skype/Trusted-Application-API/samples/AVCallTransferSample_WebApp/AVCallTransferSample/Web.Debug.config
+/Skype/Trusted-Application-API/samples/AVCallTransferSample_WebApp/AVCallTransferSample/Web.Release.config
