@@ -9,9 +9,9 @@ using QuickSamplesCommon;
 
 namespace TrustedJoinMeeting
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             var sample = new TrustedJoinMeeting();
             try
@@ -104,7 +104,7 @@ namespace TrustedJoinMeeting
 
         private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
         {
-            if (eventArgs.AddedParticipants != null && eventArgs.AddedParticipants.Count > 0)
+            if (eventArgs.AddedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.AddedParticipants)
                 {
@@ -112,7 +112,7 @@ namespace TrustedJoinMeeting
                 }
             }
 
-            if (eventArgs.RemovedParticipants != null && eventArgs.RemovedParticipants.Count > 0)
+            if (eventArgs.RemovedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.RemovedParticipants)
                 {
@@ -120,7 +120,7 @@ namespace TrustedJoinMeeting
                 }
             }
 
-            if (eventArgs.UpdatedParticipants != null && eventArgs.UpdatedParticipants.Count > 0)
+            if (eventArgs.UpdatedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.UpdatedParticipants)
                 {

@@ -27,9 +27,9 @@ namespace TrustedJoinMeeting
     /// </para>
     /// Please keep in mind that Trouter is not a production service and this method should only be used while developing/debugging your service.
     /// </summary>
-    class TrouterBasedEventChannel : IEventChannel
+    public class TrouterBasedEventChannel : IEventChannel
     {
-        private TrouterServiceHost m_trouterServiceHost;
+        private readonly TrouterServiceHost m_trouterServiceHost;
 
         /// <summary>
         /// Trouter's home url
@@ -45,7 +45,7 @@ namespace TrustedJoinMeeting
 
         public string CallbackUri { get; private set; }
 
-        private IPlatformServiceLogger m_logger;
+        private readonly IPlatformServiceLogger m_logger;
 
         /// <summary>
         /// Create an <see cref="IEventChannel"/> which uses Trouter to receive callbacks
@@ -73,13 +73,10 @@ namespace TrustedJoinMeeting
         public async Task TryStartAsync()
         {
             string callbackPrefix = Guid.NewGuid().ToString();
-            ITrouterRequestReceiver trouterRequestReceiver = await m_trouterServiceHost.RegisterPrefix(callbackPrefix);
+            ITrouterRequestReceiver trouterRequestReceiver = await m_trouterServiceHost.RegisterPrefix(callbackPrefix).ConfigureAwait(false);
 
-            trouterRequestReceiver.ProcessRequest += ProcessIncomingTrouterRequest;
-            trouterRequestReceiver.OnTrouterUriChanged += (sender, args) => 
-            {
-                CallbackUri = args.NewTrouterUri.ToString();
-            };
+            trouterRequestReceiver.ProcessRequest += ProcessIncomingTrouterRequestAsync;
+            trouterRequestReceiver.OnTrouterUriChanged += (sender, args) => CallbackUri = args.NewTrouterUri.ToString();
 
             CallbackUri = trouterRequestReceiver.TrouterUri.ToString();
         }
@@ -89,7 +86,7 @@ namespace TrustedJoinMeeting
         /// </summary>
         /// <param name="requestReceived">Http request to be processed</param>
         /// <returns><see cref="HttpResponseMessage"/> to be sent in response of the request</returns>
-        private async Task<HttpResponseMessage> ProcessIncomingTrouterRequest(RequestReceived requestReceived)
+        private async Task<HttpResponseMessage> ProcessIncomingTrouterRequestAsync(RequestReceived requestReceived)
         {
             try
             {
@@ -163,6 +160,7 @@ namespace TrustedJoinMeeting
         /// </summary>
         /// <param name="nativeBinaryPath">Directory containing the dll</param>
         /// <param name="assemblyName">Name of the dll (must have .dll extension)</param>
+        /// <exception cref="Exception">An exception is thrown when dlls can't be loaded</exception>
         private static void LoadNativeAssembly(string nativeBinaryPath, string assemblyName)
         {
             var path = Path.Combine(nativeBinaryPath, assemblyName);

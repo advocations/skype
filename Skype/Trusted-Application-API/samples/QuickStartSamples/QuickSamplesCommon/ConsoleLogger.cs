@@ -5,11 +5,7 @@ namespace QuickSamplesCommon
 {
     public class ConsoleLogger : IPlatformServiceLogger
     {
-        public bool HttpRequestResponseNeedsToBeLogged
-        {
-            get;
-            set;           
-        }
+        public bool HttpRequestResponseNeedsToBeLogged { get; set; }
 
         public void Information(string message)
         {
@@ -17,7 +13,7 @@ namespace QuickSamplesCommon
         }
 
         public void Information(string fmt, params object[] vars)
-        {          
+        {
             Console.WriteLine("[INFO]" + string.Format(fmt, vars));
         }
 
@@ -64,6 +60,5 @@ namespace QuickSamplesCommon
             string msg = String.Format(fmt, vars);
             Console.WriteLine("[ERROR]" + msg + "; \r\nException Details= ", ExceptionUtils.FormatException(exception, includeContext: true));
         }
-
     }
 }
