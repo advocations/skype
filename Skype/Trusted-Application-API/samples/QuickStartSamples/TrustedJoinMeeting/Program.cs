@@ -9,9 +9,9 @@ using QuickSamplesCommon;
 
 namespace TrustedJoinMeeting
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             var sample = new TrustedJoinMeeting();
             try
@@ -47,6 +47,7 @@ namespace TrustedJoinMeeting
             var skypeId = ConfigurationManager.AppSettings["Trouter_SkypeId"];
             var password = ConfigurationManager.AppSettings["Trouter_Password"];
             var applicationName = ConfigurationManager.AppSettings["Trouter_ApplicationName"];
+            var userAgent = ConfigurationManager.AppSettings["Trouter_UserAgent"];
             var token = SkypeTokenClient.ConstructSkypeToken(
                 skypeId: skypeId,
                 password: password,
@@ -59,7 +60,7 @@ namespace TrustedJoinMeeting
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
 
-            EventChannel = new TrouterBasedEventChannel(m_logger, token);
+            EventChannel = new TrouterBasedEventChannel(m_logger, token, userAgent);
 
             // Prepare platform
             var platformSettings = new ClientPlatformSettings(QuickSamplesConfig.AAD_ClientSecret, new Guid(QuickSamplesConfig.AAD_ClientId));
@@ -103,7 +104,7 @@ namespace TrustedJoinMeeting
 
         private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
         {
-            if (eventArgs.AddedParticipants != null && eventArgs.AddedParticipants.Count > 0)
+            if (eventArgs.AddedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.AddedParticipants)
                 {
@@ -111,7 +112,7 @@ namespace TrustedJoinMeeting
                 }
             }
 
-            if (eventArgs.RemovedParticipants != null && eventArgs.RemovedParticipants.Count > 0)
+            if (eventArgs.RemovedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.RemovedParticipants)
                 {
@@ -119,7 +120,7 @@ namespace TrustedJoinMeeting
                 }
             }
 
-            if (eventArgs.UpdatedParticipants != null && eventArgs.UpdatedParticipants.Count > 0)
+            if (eventArgs.UpdatedParticipants?.Count > 0)
             {
                 foreach (var participant in eventArgs.UpdatedParticipants)
                 {
