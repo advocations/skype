@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
-using Microsoft.SfB.PlatformService.SDK.Common;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {

@@ -4,6 +4,8 @@ using System.Linq;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
+using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
@@ -76,7 +78,33 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         public override bool Supports(ParticipantCapability capability)
         {
-            return false;
+            string href = null;
+
+            switch (capability)
+            {
+                case ParticipantCapability.Eject:
+                    {
+                        href = PlatformResource?.EjectParticipantOperationLink?.Href;
+                        break;
+                    }
+            }
+
+            return !string.IsNullOrEmpty(href);
+        }
+
+        public async Task EjectAsync(LoggingContext loggingContext)
+        {
+            string href = PlatformResource?.EjectParticipantOperationLink?.Href;
+
+            if(string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to eject participant is not available.");
+            }
+
+            Uri url = UriHelper.CreateAbsoluteUri(BaseUri, href);
+            var content = new StringContent(string.Empty);
+
+            await PostRelatedPlatformResourceAsync(url, content, loggingContext).ConfigureAwait(false);
         }
 
         #endregion
