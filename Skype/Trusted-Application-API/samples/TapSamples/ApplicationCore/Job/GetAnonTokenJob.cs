@@ -19,26 +19,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
 
             try
             {
-                GetAnonTokenInput getAnonTokenInput = this.JobInput as GetAnonTokenInput;
+                var getAnonTokenInput = this.JobInput as GetAnonTokenInput;
                 if (getAnonTokenInput == null)
                 {
                     throw new InvalidOperationException("Failed to get valid GetAnonTokenInput intance");
                 }
 
-                AnonymousApplicationTokenInput anoninput = new AnonymousApplicationTokenInput()
-                {
-                    AllowedOrigins = getAnonTokenInput.AllowedOrigins,
-                    ApplicationSessionId = getAnonTokenInput.ApplicationSessionId,
-                    MeetingUrl = getAnonTokenInput.MeetingUrl
-                };
-
-                var tokenResources = await AzureApplication.ApplicationEndpoint.Application.GetAnonApplicationTokenAsync(LoggingContext, anoninput).ConfigureAwait(false);
+                var tokenResources = await AzureApplication.ApplicationEndpoint.Application.GetAnonApplicationTokenForMeetingAsync(LoggingContext, getAnonTokenInput.MeetingUrl, getAnonTokenInput.AllowedOrigins, getAnonTokenInput.ApplicationSessionId).ConfigureAwait(false);
 
                 if (tokenResources != null)
                 {
                     result = new AnonymousToken
                     {
-                        DiscoverUri = tokenResources.AnonymousApplicationsDiscover.Href,
+                        DiscoverUri = tokenResources.AnonymousApplicationsDiscoverUri.ToString(),
                         ExpireTime = tokenResources.AuthTokenExpiryTime,
                         Token = tokenResources.AuthToken,
                         TenantEndpointId = AzureApplication.ApplicationEndpoint.ApplicationEndpointId.ToString()

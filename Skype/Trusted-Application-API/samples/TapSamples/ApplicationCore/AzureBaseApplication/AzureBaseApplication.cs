@@ -51,49 +51,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             ClientPlatformSettings platformSettings = null;
             if (!string.IsNullOrEmpty(appTokenCertThumbprint))
             {
-                //TAP partners use below code path:
-                platformSettings = new ClientPlatformSettings
-                    (
-                     null,
-                      Guid.Parse(aadClientId),
-                      appTokenCertThumbprint,
-                      isSandBoxEnvionment,
-                      null,
-                      true
-                    );
-
-
-                //public developers use below code path
-                /*
-                platformSettings = new ClientPlatformSettings(
-                    Guid.Parse(aadClientId),
-                    appTokenCertThumbprint,
-                    isSandBoxEnvionment                
-                    );
-                    */
+                platformSettings = new ClientPlatformSettings(Guid.Parse(aadClientId), appTokenCertThumbprint);
             }
             else if (!string.IsNullOrEmpty(aadClientSecret))
             {
-                //TAP partners use below code path:
-                platformSettings = new ClientPlatformSettings
-                    (
-                     null,
-                      Guid.Parse(aadClientId),
-                      null,
-                      isSandBoxEnvionment,
-                      aadClientSecret,
-                      true
-                    );
-
-                //public developers use below code path
-                /*
-                  platformSettings = new ClientPlatformSettings(
-                      aadClientSecret,
-                       Guid.Parse(aadClientId),                    
-                        isSandBoxEnvionment
-                        );
-                        */
-
+                  platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
             }
             else
             {

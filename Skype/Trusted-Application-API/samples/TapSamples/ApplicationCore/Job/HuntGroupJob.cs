@@ -124,7 +124,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             }
             catch (RemotePlatformServiceException ex)
             {
-                ErrorInformation error = ex.ErrorInformation;
+                ClientModel.ErrorInformation error = ex.ErrorInformation;
                 if (error != null && error.Code == ErrorCode.Informational && error.Subcode == ErrorSubcode.CallTerminated)
                 {
                     Logger.Instance.Information("[HuntGroupJob] Call terminated while playing prompt.");
