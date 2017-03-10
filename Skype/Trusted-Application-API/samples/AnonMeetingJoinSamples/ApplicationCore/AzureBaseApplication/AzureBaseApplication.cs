@@ -41,12 +41,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             this.ResourceUriFormat = resourcesUriFormat;
             this.CallbackUriFormat = callbackUriFormat;
 
-            var logger = IOCHelper.Resolve<IPlatformServiceLogger>();
+            var logger = IOCHelper.Resolve<ConsoleLogger>();
             logger.HttpRequestResponseNeedsToBeLogged = logFullHttpRequestResponse;
 
             ClientPlatformSettings platformSettings = null;
             if (!string.IsNullOrEmpty(appTokenCertThumbprint))
-            {
+            {              
                 platformSettings = new ClientPlatformSettings(Guid.Parse(aadClientId), appTokenCertThumbprint);
             }
             else if (!string.IsNullOrEmpty(aadClientSecret))

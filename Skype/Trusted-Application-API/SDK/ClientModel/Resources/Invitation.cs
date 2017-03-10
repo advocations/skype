@@ -2,7 +2,7 @@
 using Microsoft.SfB.PlatformService.SDK.Common;
 using System;
 using System.Threading.Tasks;
-using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
+using ResourceModel = Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
@@ -62,19 +62,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             TPlatformResource resource = this.ConvertToPlatformServiceResource<TPlatformResource>(eventcontext);
             if (resource != null)
             {
-                if (eventcontext.EventEntity.Relationship == EventOperation.Completed)
+                if (eventcontext.EventEntity.Relationship == ResourceModel.EventOperation.Completed)
                 {
                     if (resource.State == InvitationState.Failed)
                     {
-                        string error = eventcontext.EventEntity.Error == null ? null : eventcontext.EventEntity.Error.GetErrorInformationString();
-                        m_invitationCompleteTcs.TrySetException(new RemotePlatformServiceException("Invitation failed " + error));
+                        ResourceModel.ErrorInformation error = eventcontext.EventEntity.Error;
+                        ErrorInformation errorInfo = error == null ? null : new ErrorInformation(error);
+                        string errorMessage = errorInfo?.ToString();
+                        m_invitationCompleteTcs.TrySetException(new RemotePlatformServiceException("Invitation failed " + errorMessage, errorInfo));
                     }
                     else if (resource.State == InvitationState.Connected)
                     {
                         m_invitationCompleteTcs.TrySetResult(string.Empty);
                     }
                 }
-                else if (eventcontext.EventEntity.Relationship == EventOperation.Started)
+                else if (eventcontext.EventEntity.Relationship == ResourceModel.EventOperation.Started)
                 {
                     var communication = this.Parent as Communication;
                     communication.HandleInviteStarted(resource.OperationContext, this);

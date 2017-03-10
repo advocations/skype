@@ -52,7 +52,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
             if (!tcs.Task.IsCompleted && !tcs.Task.IsFaulted && !tcs.Task.IsCanceled)
             {
-                throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation messaging invitation started event from platformservice!");
+                throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             OnlineMeetingInvitation result = invite as OnlineMeetingInvitation;
             if (result == null)
             {
-                throw new RemotePlatformServiceException("Platformservice do not deliver a messageInvitation resource with operationId " + operationId);
+                throw new RemotePlatformServiceException("Platformservice do not deliver a Onlinemeeting resource with operationId " + operationId);
             }
 
             return result;

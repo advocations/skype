@@ -87,10 +87,120 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         href = PlatformResource?.DeclineOperationLink?.Href;
                         break;
                     }
+                case AudioVideoInvitationCapability.AcceptAndBridge:
+                    {
+                        href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
+                        break;
+                    }
+                case AudioVideoInvitationCapability.StartAdhocMeeting:
+                    {
+                        href = PlatformResource?.StartAdhocMeetingLink?.Href;
+                        break;
+                    }
             }
 
             return !string.IsNullOrWhiteSpace(href);
         }
+
+        /// <summary>
+        /// schedule and trusted join a adhoc meeting
+        /// </summary>
+        /// <param name="subject">the meeting subject</param>
+        /// <param name="callbackContext">the call back context</param>
+        /// <param name="loggingContext">the logging context</param>
+        /// <returns></returns>
+        public async Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            string href = PlatformResource?.StartAdhocMeetingLink?.Href;
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link start adhoc meeting in not available.");
+            }
+
+            Logger.Instance.Information(string.Format("[AudioVideoInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
+            Communication communication = this.Parent as Communication;
+
+            string operationId = Guid.NewGuid().ToString();
+            TaskCompletionSource<IInvitation> tcs = new TaskCompletionSource<IInvitation>();
+            //Adding current invitation to collection for tracking purpose.
+            communication.HandleNewInviteOperationKickedOff(operationId, tcs);
+
+            var callbackUrl = ((Parent as Communication).Parent as Application).GetCustomizedCallbackUrl();
+            if (callbackUrl != null && callbackContext != null)
+            {
+                // We need to append callbackContext as a query paramter to callbackUrl
+                callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
+                callbackUrl += "callbackContext=" + callbackContext;
+
+                // We don't want to pass callbackContext if callbackUrl is being passed
+                callbackContext = null;
+            }
+
+            IInvitation invite = null;
+            StartAdhocMeetingInput input = new StartAdhocMeetingInput
+            {
+                Subject = subject,
+                CallbackContext = callbackContext,
+                CallbackUrl = callbackUrl,
+                OperationContext = operationId
+            };
+            var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
+            await this.PostRelatedPlatformResourceAsync(adhocMeetingUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
+
+            Task completed  = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
+            if (completed != tcs.Task)
+            {
+                throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
+            }
+            else
+            {
+                invite = await tcs.Task.ConfigureAwait(false);// Incase need to throw exception
+            }
+
+            //We are sure the invite sure be there now.
+            OnlineMeetingInvitation result = invite as OnlineMeetingInvitation;
+            if (result == null)
+            {
+                throw new RemotePlatformServiceException("Platformservice do not deliver a Onlinemeeting resource with operationId " + operationId);
+            }
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// Accept the incoming call and set up b2b call with conference or target user
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
+        /// <param name="to">the sip uri if you want to bridge to a single person</param>
+        /// <returns></returns>
+        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
+        {
+            if (string.IsNullOrWhiteSpace(meetingUri) && string.IsNullOrWhiteSpace(to))
+            {
+                throw new ArgumentException("need to at least provide to or meeting uri for bridge");
+            }
+
+            Logger.Instance.Information(string.Format("[AudioVideoInviation] calling AcceptAndBridgeAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to accept and bridge is not available.");
+            }
+
+            var input = new AcceptAndBridgeAudioVideoInput
+            {
+                MeetingUri = meetingUri,
+                ToUri = to
+            };
+
+            Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
+            return this.PostRelatedPlatformResourceAsync(bridge, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
+        }
+
 
         #endregion
     }

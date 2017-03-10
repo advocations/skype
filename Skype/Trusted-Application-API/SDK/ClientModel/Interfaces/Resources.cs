@@ -116,18 +116,106 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// the user can sign in and join the meeting.
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
-        /// <param name="input">Specifyies properties for the required token.</param>
+        /// <param name="input">Specifies properties for the required token.</param>
         /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        [Obsolete("Please use GetAnonApplicationTokenForMeetingAsync instead")]
         Task<AnonymousApplicationTokenResource> GetAnonApplicationTokenAsync(LoggingContext loggingContext, AnonymousApplicationTokenInput input);
-        
-        
+
         /// <summary>
-        /// Gets adhoc meeting tokens
+        /// Gets an anonymous application token for a meeting. This token can be given to a user domain application. Using this token,
+        /// the user can sign in and join the meeting.
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
-        /// <param name="input">Specifyies properties for the required token.</param>
-        /// <returns>A adhoc meeting tokens.</returns>
-        Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input); 
+        /// <param name="meetingUrl">HTTP join url of the meeting</param>
+        /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        Task<IAnonymousApplicationToken> GetAnonApplicationTokenForMeetingAsync(LoggingContext loggingContext, string meetingUrl, string allowedOrigins, string applicationSessionId);
+
+        /// <summary>
+        /// Gets an anonymous application token for a P2P call. This token can be given to a user domain application. Using this token,
+        /// the user can make P2P calls.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <returns>A token that can be used by a user to make P2P calls</returns>
+        Task<IAnonymousApplicationToken> GetAnonApplicationTokenForP2PCallAsync(LoggingContext loggingContext, string allowedOrigins, string applicationSessionId);
+
+        /// <summary>
+        /// Creates an adhoc meeting
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the meeting to be created</param>
+        /// <returns>An adhoc meeting</returns>
+        [Obsolete("Please use CreateAdhocMeetingAsync instead")]
+        Task<AdhocMeetingResource> GetAdhocMeetingResourceAsync(LoggingContext loggingContext, AdhocMeetingInput input);
+
+        /// <summary>
+        /// Creates an adhoc meeting
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="input">Specifies properties for the meeting to be created</param>
+        /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
+        Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingCreationInput input);
+    }
+
+    #endregion
+
+    #region public interface IAnonymousApplicationToken
+
+    /// <summary>
+    /// Represents a token which can be used by a real user to join a meeting or make P2P calls
+    /// </summary>
+    public interface IAnonymousApplicationToken
+    {
+        /// <summary>
+        /// The underlying authorization token
+        /// </summary>
+        string AuthToken { get; }
+
+        /// <summary>
+        /// Expiry time of <see cref="AuthToken"/>
+        /// </summary>
+        DateTime AuthTokenExpiryTime { get; }
+
+        /// <summary>
+        /// Uri that can be used to discover SfB services required to join the meeting/make P2P call
+        /// </summary>
+        Uri AnonymousApplicationsDiscoverUri { get; }
+    }
+
+    #endregion
+
+    #region public interface IAdhocMeeting
+
+    /// <summary>
+    /// Represents a meeting
+    /// </summary>
+    public interface IAdhocMeeting : IPlatformResource<AdhocMeetingCapability>
+    {
+        /// <summary>
+        /// A HTTP url which can be given to users to join this meeting via Lync Web App
+        /// </summary>
+        string JoinUrl { get; }
+
+        /// <summary>
+        /// SIP uri of the meeting
+        /// </summary>
+        string OnlineMeetingUri { get; }
+
+        /// <summary>
+        /// Subject specified when the meeting was created
+        /// </summary>
+        string Subject { get; }
+
+        /// <summary>
+        /// Joins the adhoc meeting
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
+        Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext);
     }
 
     #endregion
@@ -205,6 +293,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         Task<HttpResponseMessage> ForwardAsync(LoggingContext loggingContext, string forwardTarget);
 
         Task<HttpResponseMessage> DeclineAsync(LoggingContext loggingContext);
+
+        Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to);
+
+        Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -252,10 +344,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         string AADClientSecret { get; }
 
         X509Certificate2 AADAppCertificate { get; }
-
-        bool IsInternalPartner { get; }
-
-        bool IsSandBoxEnv { get; }
     }
 
     #endregion
@@ -296,9 +384,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IAudioVideoCall AudioVideoCall { get; }
 
-        /// <summary>
-        ///
-        /// </summary>
         IConversationBridge ConversationBridge { get; }
 
         IConversationConference ConversationConference { get; }
@@ -449,6 +534,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// The participant messaging resource
         /// </summary>
         IParticipantMessaging ParticipantMessaging { get; }
+
+        /// <summary>
+        /// Ejects the participant from the corresponding meeting.
+        /// </summary>
+        Task EjectAsync(LoggingContext loggingContext);
 
         event EventHandler<ParticipantModalityChangeEventArgs> HandleParticipantModalityChange;
     }
