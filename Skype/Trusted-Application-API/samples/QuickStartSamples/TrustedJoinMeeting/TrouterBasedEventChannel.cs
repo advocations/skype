@@ -41,11 +41,6 @@ namespace TrustedJoinMeeting
         /// </summary>
         private const string c_tpcUrl = "https://prod.tpc.skype.com/v1/policies";
 
-        /// <summary>
-        /// Your user agent's name
-        /// </summary>
-        private const string c_userAgent = "UCAP.UCTest";
-
         public event EventHandler<EventsChannelArgs> HandleIncomingEvents;
 
         public string CallbackUri { get; private set; }
@@ -55,8 +50,10 @@ namespace TrustedJoinMeeting
         /// <summary>
         /// Create an <see cref="IEventChannel"/> which uses Trouter to receive callbacks
         /// </summary>
+        /// <param name="logger"></param>
         /// <param name="token">Token to be used for connection with Trouter</param>
-        public TrouterBasedEventChannel(IPlatformServiceLogger logger, string token)
+        /// <param name="userAgent">User agent's name</param>
+        public TrouterBasedEventChannel(IPlatformServiceLogger logger, string token, string userAgent)
         {
             m_logger = logger;
 
@@ -66,7 +63,7 @@ namespace TrustedJoinMeeting
                 skypetoken: token,
                 trouterUrl: c_trouterUrl,
                 tpcUrl: c_tpcUrl,
-                userAgent: c_userAgent,
+                userAgent: userAgent,
                 clientVersion: Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
 

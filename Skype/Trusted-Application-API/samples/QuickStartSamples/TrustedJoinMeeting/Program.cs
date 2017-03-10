@@ -47,6 +47,7 @@ namespace TrustedJoinMeeting
             var skypeId = ConfigurationManager.AppSettings["Trouter_SkypeId"];
             var password = ConfigurationManager.AppSettings["Trouter_Password"];
             var applicationName = ConfigurationManager.AppSettings["Trouter_ApplicationName"];
+            var userAgent = ConfigurationManager.AppSettings["Trouter_UserAgent"];
             var token = SkypeTokenClient.ConstructSkypeToken(
                 skypeId: skypeId,
                 password: password,
@@ -59,7 +60,7 @@ namespace TrustedJoinMeeting
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
 
-            EventChannel = new TrouterBasedEventChannel(m_logger, token);
+            EventChannel = new TrouterBasedEventChannel(m_logger, token, userAgent);
 
             // Prepare platform
             var platformSettings = new ClientPlatformSettings(QuickSamplesConfig.AAD_ClientSecret, new Guid(QuickSamplesConfig.AAD_ClientId));
