@@ -56,7 +56,7 @@ namespace MessagingAfterJoinMeeting
                 scope: string.Empty,
                 applicationName: applicationName).Result;
 
-            m_logger = new ConsoleLogger(true);
+            m_logger = new ConsoleLogger();
 
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
