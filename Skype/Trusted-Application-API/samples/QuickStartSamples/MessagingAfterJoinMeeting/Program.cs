@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Configuration;
 using System.Threading.Tasks;
+using Microsoft.Rtc.Internal.Platform.ResourceContract;
+using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal; // Required for setting customized callback url
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.SkypeToken;
 using QuickSamplesCommon;
 
-namespace TrustedJoinMeeting
+namespace MessagingAfterJoinMeeting
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var sample = new TrustedJoinMeeting();
+            var sample = new MessagingAfterJoinMeeting();
             try
             {
                 sample.RunAsync().Wait();
@@ -36,7 +38,7 @@ namespace TrustedJoinMeeting
     ///  2. Trusted join the conference
     ///  3. Listen for participant changes for 5 minutes
     /// </summary>
-    internal class TrustedJoinMeeting
+    internal class MessagingAfterJoinMeeting
     {
         public TrouterBasedEventChannel EventChannel { get; private set; }
 
@@ -54,7 +56,7 @@ namespace TrustedJoinMeeting
                 scope: string.Empty,
                 applicationName: applicationName).Result;
 
-            m_logger = new ConsoleLogger();
+            m_logger = new ConsoleLogger(true);
 
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
@@ -92,12 +94,71 @@ namespace TrustedJoinMeeting
             await invitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
             invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
-            WriteToConsoleInColor("Showing roaster udpates for 5 minutes for meeting : " + adhocMeeting.JoinUrl);
+
+            WriteToConsoleInColor("Showing roaster udpates for 1 minute for meeting : " + adhocMeeting.JoinUrl);
 
             // Wait 5 minutes before exiting.
             // Since we have registered Conversation_HandleParticipantChange, we will continue to show participant changes in the
             // meeting for this duration.
-            await Task.Delay(TimeSpan.FromMinutes(5)).ConfigureAwait(false);
+            //await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+
+            var conversation = invitation.RelatedConversation;
+
+            var imCall = invitation.RelatedConversation.MessagingCall;
+
+            if (imCall == null)
+            {
+                WriteToConsoleInColor("No messaging call link found in conversation of the conference.");
+                return;
+            }
+
+            imCall.IncomingMessageReceived += OnIncomingMessageReceived;
+
+            var messagingInvitation = await imCall.EstablishAsync(loggingContext).ConfigureAwait(false);
+
+            if (messagingInvitation == null)
+            {
+                WriteToConsoleInColor("Messaging invitation is null.");
+                return;
+            }
+
+            await messagingInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
+
+            if (imCall.State != CallState.Connected)
+            {
+                WriteToConsoleInColor("Messaging call is not connected.");
+                return;
+            }
+
+            var modalities = invitation.RelatedConversation.ActiveModalities;
+            WriteToConsoleInColor("Active modality is : ");
+            foreach (var modality in modalities)
+            {
+                WriteToConsoleInColor(modality.ToString() + " ");
+            }
+
+            await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
+
+            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
+
+
+        }
+
+        private void OnIncomingMessageReceived(object sender, IncomingMessageEventArgs args)
+        {
+            string msg = string.Empty;
+            TextHtmlMessage HtmlMessage = args.HtmlMessage ?? null;
+            TextPlainMessage PlainMessage = args.PlainMessage ?? null;
+
+            if (HtmlMessage != null)
+            {
+                msg = System.Text.Encoding.UTF8.GetString(HtmlMessage.Message);
+            }
+            if (PlainMessage != null)
+            {
+                msg = System.Text.Encoding.UTF8.GetString(PlainMessage.Message);
+            }
+            WriteToConsoleInColor("Get incoming message from " + args.FromParticipantName + " : " + msg);
         }
 
         private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
