@@ -9,14 +9,14 @@
 | Conversation Control Production |  1.84.20 | 3/14/17 | 1.81.43
 | Skype Web SDK Production| 0.4.436 | 3/14/17 | 0.4.417 |
 
-The latest release fixies several bugs in relation to AV scnearios.
+The latest release fixes several bugs in relation to AV scnearios.
 
 **Bugs fixed in the new public preview build:**
 * Improved reliability of connecting audio calls
 * Fixed issues that prevented the active speaker indicator to show
 * Fixed redundant notifications
 * Resolved issue of where the local video would not display when resuming a held call
-* Fixed issues where DTMF tones weren't send
+* Fixed issues where DTMF tones weren't sent
 
 ---
 
