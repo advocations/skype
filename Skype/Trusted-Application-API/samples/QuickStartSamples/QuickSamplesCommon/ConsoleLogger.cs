@@ -1,4 +1,4 @@
-﻿using Microsoft.SfB.PlatformService.SDK.Common;
+using Microsoft.SfB.PlatformService.SDK.Common;
 using System;
 using System.IO;
 using System.Reflection;
