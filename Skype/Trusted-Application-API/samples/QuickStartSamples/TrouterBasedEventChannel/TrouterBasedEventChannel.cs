@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.Trouter;
 
-namespace TrustedJoinMeeting
+namespace TrouterCommon
 {
     /// <summary>
     /// Trusted Application API uses callbacks to deliver notifications (events) to the application. If the scenario supported by the application
@@ -27,9 +27,9 @@ namespace TrustedJoinMeeting
     /// </para>
     /// Please keep in mind that Trouter is not a production service and this method should only be used while developing/debugging your service.
     /// </summary>
-    class TrouterBasedEventChannel : IEventChannel
+    public class TrouterBasedEventChannel : IEventChannel
     {
-        private TrouterServiceHost m_trouterServiceHost;
+        private readonly TrouterServiceHost m_trouterServiceHost;
 
         /// <summary>
         /// Trouter's home url
@@ -41,22 +41,19 @@ namespace TrustedJoinMeeting
         /// </summary>
         private const string c_tpcUrl = "https://prod.tpc.skype.com/v1/policies";
 
-        /// <summary>
-        /// Your user agent's name
-        /// </summary>
-        private const string c_userAgent = "UCAP.UCTest";
-
         public event EventHandler<EventsChannelArgs> HandleIncomingEvents;
 
         public string CallbackUri { get; private set; }
 
-        private IPlatformServiceLogger m_logger;
+        private readonly IPlatformServiceLogger m_logger;
 
         /// <summary>
         /// Create an <see cref="IEventChannel"/> which uses Trouter to receive callbacks
         /// </summary>
+        /// <param name="logger"></param>
         /// <param name="token">Token to be used for connection with Trouter</param>
-        public TrouterBasedEventChannel(IPlatformServiceLogger logger, string token)
+        /// <param name="userAgent">User agent's name</param>
+        public TrouterBasedEventChannel(IPlatformServiceLogger logger, string token, string userAgent)
         {
             m_logger = logger;
 
@@ -66,7 +63,7 @@ namespace TrustedJoinMeeting
                 skypetoken: token,
                 trouterUrl: c_trouterUrl,
                 tpcUrl: c_tpcUrl,
-                userAgent: c_userAgent,
+                userAgent: userAgent,
                 clientVersion: Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
 
@@ -76,13 +73,10 @@ namespace TrustedJoinMeeting
         public async Task TryStartAsync()
         {
             string callbackPrefix = Guid.NewGuid().ToString();
-            ITrouterRequestReceiver trouterRequestReceiver = await m_trouterServiceHost.RegisterPrefix(callbackPrefix);
+            ITrouterRequestReceiver trouterRequestReceiver = await m_trouterServiceHost.RegisterPrefix(callbackPrefix).ConfigureAwait(false);
 
-            trouterRequestReceiver.ProcessRequest += ProcessIncomingTrouterRequest;
-            trouterRequestReceiver.OnTrouterUriChanged += (sender, args) => 
-            {
-                CallbackUri = args.NewTrouterUri.ToString();
-            };
+            trouterRequestReceiver.ProcessRequest += ProcessIncomingTrouterRequestAsync;
+            trouterRequestReceiver.OnTrouterUriChanged += (sender, args) => CallbackUri = args.NewTrouterUri.ToString();
 
             CallbackUri = trouterRequestReceiver.TrouterUri.ToString();
         }
@@ -92,7 +86,7 @@ namespace TrustedJoinMeeting
         /// </summary>
         /// <param name="requestReceived">Http request to be processed</param>
         /// <returns><see cref="HttpResponseMessage"/> to be sent in response of the request</returns>
-        private async Task<HttpResponseMessage> ProcessIncomingTrouterRequest(RequestReceived requestReceived)
+        private async Task<HttpResponseMessage> ProcessIncomingTrouterRequestAsync(RequestReceived requestReceived)
         {
             try
             {
@@ -166,6 +160,7 @@ namespace TrustedJoinMeeting
         /// </summary>
         /// <param name="nativeBinaryPath">Directory containing the dll</param>
         /// <param name="assemblyName">Name of the dll (must have .dll extension)</param>
+        /// <exception cref="Exception">An exception is thrown when dlls can't be loaded</exception>
         private static void LoadNativeAssembly(string nativeBinaryPath, string assemblyName)
         {
             var path = Path.Combine(nativeBinaryPath, assemblyName);

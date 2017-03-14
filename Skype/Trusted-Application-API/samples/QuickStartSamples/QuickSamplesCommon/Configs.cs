@@ -2,11 +2,13 @@
 
 namespace QuickSamplesCommon
 {
-    public class QuickSamplesConfig
+    public static class QuickSamplesConfig
     {
-        public static string ApplicationEndpointId { get; private set; }
-        public static string AAD_ClientId  { get; private set; }
-        public static string AAD_ClientSecret  { get; private set; }
+        public static string ApplicationEndpointId { get; }
+
+        public static string AAD_ClientId { get; }
+
+        public static string AAD_ClientSecret { get; }
 
         static QuickSamplesConfig()
         {

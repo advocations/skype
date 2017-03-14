@@ -1,4 +1,4 @@
-﻿using Microsoft.SfB.PlatformService.SDK.Common;
+using Microsoft.SfB.PlatformService.SDK.Common;
 using System;
 using System.IO;
 using System.Reflection;
@@ -7,11 +7,14 @@ namespace QuickSamplesCommon
 {
     public class ConsoleLogger : IPlatformServiceLogger
     {
+
         public bool HttpRequestResponseNeedsToBeLogged
         {
             get;
             set;
         }
+
+        public bool HttpRequestResponseNeedsToBeLogged { get; set; }
 
         private bool m_enableFileLogging;
         private const string c_logPath = @".\log\applicationLog.log";
@@ -51,7 +54,7 @@ namespace QuickSamplesCommon
         }
 
         public void Information(string fmt, params object[] vars)
-        {          
+        {
             Console.WriteLine("[INFO]" + string.Format(fmt, vars));
             if (m_enableFileLogging)
             {
@@ -138,6 +141,5 @@ namespace QuickSamplesCommon
             }
 
         }
-
     }
 }
