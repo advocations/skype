@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
@@ -8,7 +9,7 @@ using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal; // Required for se
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.SkypeToken;
 using QuickSamplesCommon;
-
+using TrouterCommon;
 namespace MessagingAfterJoinMeeting
 {
     class Program
@@ -49,6 +50,7 @@ namespace MessagingAfterJoinMeeting
             var skypeId = ConfigurationManager.AppSettings["Trouter_SkypeId"];
             var password = ConfigurationManager.AppSettings["Trouter_Password"];
             var applicationName = ConfigurationManager.AppSettings["Trouter_ApplicationName"];
+            var userAgent = ConfigurationManager.AppSettings["Trouter_UserAgent"];
             var token = SkypeTokenClient.ConstructSkypeToken(
                 skypeId: skypeId,
                 password: password,
@@ -56,12 +58,12 @@ namespace MessagingAfterJoinMeeting
                 scope: string.Empty,
                 applicationName: applicationName).Result;
 
-            m_logger = new ConsoleLogger();
+            m_logger = new ConsoleLogger(true);
 
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
 
-            EventChannel = new TrouterBasedEventChannel(m_logger, token);
+            EventChannel = new TrouterBasedEventChannel(m_logger, token, userAgent);
 
             // Prepare platform
             var platformSettings = new ClientPlatformSettings(QuickSamplesConfig.AAD_ClientSecret, new Guid(QuickSamplesConfig.AAD_ClientId));
@@ -139,7 +141,7 @@ namespace MessagingAfterJoinMeeting
 
             await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
 
-            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
+            await Task.Delay(TimeSpan.FromSeconds(180)).ConfigureAwait(false);
 
 
         }
@@ -149,7 +151,6 @@ namespace MessagingAfterJoinMeeting
             string msg = string.Empty;
             TextHtmlMessage HtmlMessage = args.HtmlMessage ?? null;
             TextPlainMessage PlainMessage = args.PlainMessage ?? null;
-
             if (HtmlMessage != null)
             {
                 msg = System.Text.Encoding.UTF8.GetString(HtmlMessage.Message);

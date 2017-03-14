@@ -12,8 +12,6 @@ namespace QuickSamplesCommon
             get;
             set;
         }
-        public bool HttpRequestResponseNeedsToBeLogged { get; set; }
-
         private bool m_enableFileLogging;
         private const string c_logPath = @".\log\applicationLog.log";
         public ConsoleLogger(bool enableFileLogging = false)
