@@ -10,7 +10,9 @@ namespace QuickSamplesCommon
     /// </summary>
     public class FakeEventChannel : IEventChannel
     {
+        #pragma warning disable CS0067 // This event is consumed by SDK
         public event EventHandler<EventsChannelArgs> HandleIncomingEvents;
+        #pragma warning restore CS0067
 
         public Task TryStartAsync()
         {

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B0FB3B0-7E0A-42FD-A828-9DEE1ACA10B5}</ProjectGuid>
+    <ProjectGuid>{C1EC31B7-6EA3-4468-8CE9-B43939EAC4D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.SfB.PlatformService.SDK.ClientModel</RootNamespace>
-    <AssemblyName>Microsoft.SfB.PlatformService.SDK.ClientModel</AssemblyName>
+    <RootNamespace>TrouterBasedEventChannel</RootNamespace>
+    <AssemblyName>TrouterBasedEventChannel</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,16 +31,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.10.305231913\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    <Reference Include="CLITrouterClient">
+      <HintPath>TrouterClient\CLITrouterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedTrouterClient">
+      <HintPath>TrouterClient\ManagedTrouterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedTrouterClientCommon">
+      <HintPath>TrouterClient\ManagedTrouterClientCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.13.7.964, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.7\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform, Version=3.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.10.305231913\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform, Version=3.13.7.964, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.7\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.Platform.ResourceContract.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -58,13 +65,28 @@
       <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.SfB.PlatformService.SDK.ClientModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease4\lib\net462\Microsoft.SfB.PlatformService.SDK.ClientModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SfB.PlatformService.SDK.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease4\lib\net462\Microsoft.SfB.PlatformService.SDK.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Skype.Calling.Framework">
+      <HintPath>TrouterClient\Microsoft.Skype.Calling.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Skype.Calling.ServiceAgents">
+      <HintPath>TrouterClient\Microsoft.Skype.Calling.ServiceAgents.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
+    <Reference Include="Skype.Common.Azure">
+      <HintPath>TrouterClient\Skype.Common.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
@@ -78,6 +100,17 @@
       <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>TrouterClient\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="TrouterClient">
+      <HintPath>TrouterClient\TrouterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,65 +118,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Capabilities\Capabilities.cs" />
-    <Compile Include="Exceptions\PlatformServiceExceptions.cs" />
-    <Compile Include="Extensions\IPlatformServiceLoggerExtensions.cs" />
-    <Compile Include="HttpTransport\IRestfulClient.cs" />
-    <Compile Include="HttpTransport\RestfulClient.cs" />
-    <Compile Include="HttpTransport\TokenProvider.cs" />
-    <Compile Include="Interfaces\IInvitationWithConversation.cs" />
-    <Compile Include="Interfaces\Resources.cs" />
-    <Compile Include="Resources\AnonymousApplicationToken.cs" />
-    <Compile Include="Resources\ErrorInformation.cs" />
-    <Compile Include="Resources\AdhocMeeting.cs" />
-    <Compile Include="Resources\Application.cs" />
-    <Compile Include="Resources\Applications.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\AudioVideoCall.cs" />
-    <Compile Include="Resources\AudioVideoFlow.cs" />
-    <Compile Include="Resources\AudioVideoInvitation.cs" />
-    <Compile Include="Resources\BasePlatformResource.cs" />
-    <Compile Include="Resources\BridgedParticipants.cs" />
-    <Compile Include="Resources\Call.cs" />
-    <Compile Include="Resources\Communication.cs" />
-    <Compile Include="Resources\Conversation.cs" />
-    <Compile Include="Resources\ConversationBridge.cs" />
-    <Compile Include="Resources\Discover.cs" />
-    <Compile Include="Resources\EventContext.cs" />
-    <Compile Include="Resources\Input.cs" />
-    <Compile Include="Resources\Invitation.cs" />
-    <Compile Include="Resources\IEventChannel.cs" />
-    <Compile Include="Resources\MessagingCall.cs" />
-    <Compile Include="Resources\MessagingInvitation.cs" />
-    <Compile Include="Resources\ConversationConference.cs" />
-    <Compile Include="Resources\Participant.cs" />
-    <Compile Include="Resources\ParticipantInvitation.cs" />
-    <Compile Include="Resources\OnlineMeetingInvitation.cs" />
-    <Compile Include="Resources\ParticipantMessaging.cs" />
-    <Compile Include="Resources\ParticipantsInternal.cs" />
-    <Compile Include="Resources\ApplicationEndpoint.cs" />
-    <Compile Include="Resources\Prompt.cs" />
-    <Compile Include="Resources\Transfer.cs" />
-    <Compile Include="Settings\ApplicationEndpointSettings.cs" />
-    <Compile Include="Settings\ClientPlatformSettings.cs" />
-    <Compile Include="ClientPlatform.cs" />
-    <Compile Include="TargetServiceType.cs" />
+    <Content Include="DLLTrouterClient.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{44d87ce1-972a-4572-bed3-62088cf351e2}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
+    <Compile Include="TrouterBasedEventChannel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClientModel.nuspec" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
