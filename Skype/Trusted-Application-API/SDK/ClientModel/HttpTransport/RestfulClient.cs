@@ -83,8 +83,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="requestUri">The request uri.</param>
         /// <param name="content">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
-        /// <param name="audienceUri">The audience uri.</param>
-        /// <param name="timeout">The timeout.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> PostAsync(
             Uri requestUri,
@@ -92,11 +90,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
            IDictionary<string, string> customerHeaders = null
          )
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException(nameof(content));
-            }
-
             return this.HttpClientBaseMethodAsync(
                 requestUri,
                  (httpRequestMessage) =>

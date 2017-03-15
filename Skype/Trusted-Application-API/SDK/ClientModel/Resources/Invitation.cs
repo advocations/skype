@@ -18,7 +18,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// complete tcs
         /// </summary>
-        private TaskCompletionSource<string> m_invitationCompleteTcs;
+        private TaskCompletionSource<IConversation> m_invitationCompleteTcs;
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         internal Invitation(IRestfulClient restfulClient, TPlatformResource resource, Uri baseUri, Uri resourceUri, Communication parent)
             :base (restfulClient, resource, baseUri, resourceUri, parent)
         {
-            m_invitationCompleteTcs = new TaskCompletionSource<string>();
+            m_invitationCompleteTcs = new TaskCompletionSource<IConversation>();
             if (parent == null)
             {
                 throw new ArgumentNullException(nameof(parent), "The paramater named parent can't be null.");
@@ -73,7 +73,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     }
                     else if (resource.State == InvitationState.Connected)
                     {
-                        m_invitationCompleteTcs.TrySetResult(string.Empty);
+                        m_invitationCompleteTcs.TrySetResult(this.RelatedConversation);
                     }
                 }
                 else if (eventcontext.EventEntity.Relationship == ResourceModel.EventOperation.Started)
@@ -94,7 +94,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Wait for invite complete
         /// </summary>
         /// <returns></returns>
-        public Task WaitForInviteCompleteAsync()
+        public Task<IConversation> WaitForInviteCompleteAsync()
         {
             return m_invitationCompleteTcs.Task;
         }
