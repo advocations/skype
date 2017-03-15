@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace QuickSamplesCommon
 {
-    public class ConsoleLogger : IPlatformServiceLogger
+    public class SampleAppLogger : IPlatformServiceLogger
     {
         public bool HttpRequestResponseNeedsToBeLogged
         {
@@ -14,7 +14,7 @@ namespace QuickSamplesCommon
         }
         private bool m_enableFileLogging;
         private const string c_logPath = @".\log\applicationLog.log";
-        public ConsoleLogger(bool enableFileLogging = false)
+        public SampleAppLogger(bool enableFileLogging = false)
         {
             m_enableFileLogging = enableFileLogging;
             if (enableFileLogging &&  Directory.Exists(Path.GetDirectoryName(c_logPath)) && File.Exists(c_logPath) )

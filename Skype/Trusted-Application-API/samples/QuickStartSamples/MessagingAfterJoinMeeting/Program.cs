@@ -58,7 +58,7 @@ namespace MessagingAfterJoinMeeting
                 scope: string.Empty,
                 applicationName: applicationName).Result;
 
-            m_logger = new ConsoleLogger(true);
+            m_logger = new SampleAppLogger();
 
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
@@ -97,13 +97,6 @@ namespace MessagingAfterJoinMeeting
 
             invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
 
-            WriteToConsoleInColor("Showing roaster udpates for 1 minute for meeting : " + adhocMeeting.JoinUrl);
-
-            // Wait 5 minutes before exiting.
-            // Since we have registered Conversation_HandleParticipantChange, we will continue to show participant changes in the
-            // meeting for this duration.
-            //await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-
             var conversation = invitation.RelatedConversation;
 
             var imCall = invitation.RelatedConversation.MessagingCall;
@@ -114,15 +107,9 @@ namespace MessagingAfterJoinMeeting
                 return;
             }
 
-            imCall.IncomingMessageReceived += OnIncomingMessageReceived;
-
             var messagingInvitation = await imCall.EstablishAsync(loggingContext).ConfigureAwait(false);
 
-            if (messagingInvitation == null)
-            {
-                WriteToConsoleInColor("Messaging invitation is null.");
-                return;
-            }
+            messagingInvitation.HandleResourceCompleted += OnMessagingResourceCompletedReceived;
 
             await messagingInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
@@ -134,32 +121,35 @@ namespace MessagingAfterJoinMeeting
 
             var modalities = invitation.RelatedConversation.ActiveModalities;
             WriteToConsoleInColor("Active modality is : ");
+            bool hasMessagingModality = false;
             foreach (var modality in modalities)
             {
                 WriteToConsoleInColor(modality.ToString() + " ");
+                if (modality == ConversationModalityType.Messaging)
+                {
+                    hasMessagingModality = true;
+                }
             }
 
             await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
 
-            await Task.Delay(TimeSpan.FromSeconds(180)).ConfigureAwait(false);
+            if (!hasMessagingModality)
+            {
+                WriteToConsoleInColor("Failed to connect messaging call.", ConsoleColor.Red);
+                return;
+            }
+            WriteToConsoleInColor("Adding messaging to meeting completed successfully.");
+            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
 
 
         }
 
-        private void OnIncomingMessageReceived(object sender, IncomingMessageEventArgs args)
+        private void OnMessagingResourceCompletedReceived(object sender, PlatformResourceEventArgs args)
         {
-            string msg = string.Empty;
-            TextHtmlMessage HtmlMessage = args.HtmlMessage ?? null;
-            TextPlainMessage PlainMessage = args.PlainMessage ?? null;
-            if (HtmlMessage != null)
+            if (args.PlatformResource is MessagingInvitationResource)
             {
-                msg = System.Text.Encoding.UTF8.GetString(HtmlMessage.Message);
+                WriteToConsoleInColor("Messaging resource completed event found.");
             }
-            if (PlainMessage != null)
-            {
-                msg = System.Text.Encoding.UTF8.GetString(PlainMessage.Message);
-            }
-            WriteToConsoleInColor("Get incoming message from " + args.FromParticipantName + " : " + msg);
         }
 
         private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
@@ -189,9 +179,9 @@ namespace MessagingAfterJoinMeeting
             }
         }
 
-        private void WriteToConsoleInColor(string message)
+        private void WriteToConsoleInColor(string message, ConsoleColor color = ConsoleColor.Green)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = color;
             Console.WriteLine(message);
             Console.ResetColor();
         }
