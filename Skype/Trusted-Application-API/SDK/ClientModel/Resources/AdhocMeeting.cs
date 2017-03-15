@@ -40,7 +40,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public string Subject { get { return PlatformResource.Subject; } }
 
         /// <summary>
-        /// Joins the adhoc meeting
+        /// Saas application Joins the adhoc meeting as trusted entity, won't be seen by other conference participants
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
         /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
