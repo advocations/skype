@@ -472,7 +472,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Wait for invite complete
         /// </summary>
         /// <returns></returns>
-        Task WaitForInviteCompleteAsync();
+        Task<IConversation> WaitForInviteCompleteAsync();
 
         /// <summary>
         /// The related conversation
