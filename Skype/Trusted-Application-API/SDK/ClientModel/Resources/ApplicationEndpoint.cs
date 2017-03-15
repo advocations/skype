@@ -75,7 +75,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             var tokenProvider = new AADServiceTokenProvider(platform.AADClientId.ToString(), Constants.AAD_AuthorityUri, platform.AADAppCertificate,platform.AADClientSecret);            
 
-            if(!platform.IsInternalPartner)
+            if(!(platform as ClientPlatform).IsInternalPartner)
             {
                 TokenMapper.RegisterNameSpaceHandling(Constants.DefaultResourceNamespace, Constants.PublicServiceResourceNamespace);
             }
@@ -160,7 +160,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             if (Application == null)
             {
                 IApplications ApplicationsResource = null;
-                if (!this.ClientPlatform.IsSandBoxEnv)
+                if (!(ClientPlatform as ClientPlatform).IsSandBoxEnv)
                 {
                     Uri discoverUri = ClientPlatform.DiscoverUri;
                     Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());

@@ -75,7 +75,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 ParticipantResource participantResource = this.ConvertToPlatformServiceResource<ParticipantResource>(eventcontext);
                 switch (eventcontext.EventEntity.Relationship)
                 {
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Added:
+                    case EventOperation.Added:
                         {
                             Participant tempParticipant = null;
                             if (!m_participantsCache.TryGetValue(normalizedUri, out tempParticipant))
@@ -91,7 +91,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                             }
                             break;
                         }
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Updated:
+                    case EventOperation.Updated:
                         {
                             Participant tempParticipant = null;
                             if (!m_participantsCache.TryGetValue(normalizedUri, out tempParticipant))
@@ -105,7 +105,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                             participantChangeEventArgs.UpdatedParticipants = new List<IParticipant> { tempParticipant };
                             break;
                         }
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Deleted:
+                    case EventOperation.Deleted:
                         {
                             Participant tempParticipant = null;
                             if (m_participantsCache.TryRemove(normalizedUri, out tempParticipant))

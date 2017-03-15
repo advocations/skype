@@ -125,11 +125,23 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             //Adding current invitation to collection for tracking purpose.
             communication.HandleNewInviteOperationKickedOff(operationId, tcs);
 
+            var callbackUrl = ((Parent as Communication).Parent as Application).GetCustomizedCallbackUrl();
+            if (callbackUrl != null && callbackContext != null)
+            {
+                // We need to append callbackContext as a query paramter to callbackUrl
+                callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
+                callbackUrl += "callbackContext=" + callbackContext;
+
+                // We don't want to pass callbackContext if callbackUrl is being passed
+                callbackContext = null;
+            }
+
             IInvitation invite = null;
             StartAdhocMeetingInput input = new StartAdhocMeetingInput
             {
                 Subject = subject,
                 CallbackContext = callbackContext,
+                CallbackUrl = callbackUrl,
                 OperationContext = operationId
             };
             var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);

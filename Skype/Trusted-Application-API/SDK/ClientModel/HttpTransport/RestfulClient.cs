@@ -94,7 +94,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             if (content == null)
             {
-                throw new ArgumentNullException("stringContent", "The parameter named value can't be null reference.");
+                throw new ArgumentNullException(nameof(content));
             }
 
             return this.HttpClientBaseMethodAsync(
