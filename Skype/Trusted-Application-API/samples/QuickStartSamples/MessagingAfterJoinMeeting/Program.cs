@@ -95,8 +95,6 @@ namespace MessagingAfterJoinMeeting
             // Wait for the join to complete
             await invitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
-            invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
-
             var conversation = invitation.RelatedConversation;
 
             var imCall = invitation.RelatedConversation.MessagingCall;
@@ -132,7 +130,7 @@ namespace MessagingAfterJoinMeeting
             }
 
             await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
-
+            await invitation.RelatedConversation.AddParticipantAsync("sip:liben@metio.onmicrosoft.com", loggingContext).ConfigureAwait(false);
             if (!hasMessagingModality)
             {
                 WriteToConsoleInColor("Failed to connect messaging call.", ConsoleColor.Red);
@@ -141,7 +139,6 @@ namespace MessagingAfterJoinMeeting
             WriteToConsoleInColor("Adding messaging to meeting completed successfully.");
             await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
 
-
         }
 
         private void OnMessagingResourceCompletedReceived(object sender, PlatformResourceEventArgs args)
@@ -149,33 +146,6 @@ namespace MessagingAfterJoinMeeting
             if (args.PlatformResource is MessagingInvitationResource)
             {
                 WriteToConsoleInColor("Messaging resource completed event found.");
-            }
-        }
-
-        private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
-        {
-            if (eventArgs.AddedParticipants != null && eventArgs.AddedParticipants.Count > 0)
-            {
-                foreach (var participant in eventArgs.AddedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " has joined the meeting.");
-                }
-            }
-
-            if (eventArgs.RemovedParticipants != null && eventArgs.RemovedParticipants.Count > 0)
-            {
-                foreach (var participant in eventArgs.RemovedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " has left the meeting.");
-                }
-            }
-
-            if (eventArgs.UpdatedParticipants != null && eventArgs.UpdatedParticipants.Count > 0)
-            {
-                foreach (var participant in eventArgs.UpdatedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " got updated");
-                }
             }
         }
 
