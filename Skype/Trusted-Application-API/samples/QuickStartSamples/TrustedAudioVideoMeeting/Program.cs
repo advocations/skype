@@ -37,7 +37,8 @@ namespace TrustedAudioVideoMeeting
     ///  1. Schedule a conference
     ///  2. Trusted join the conference
     ///  3. Start AudioVideo call
-    ///  4. Listen for participant changes for 5 minutes
+    ///  4. Wait for new participants
+    ///  5. Play a prompt
     /// </summary>
     internal class TrustedAudioVideoMeeting
     {
@@ -101,12 +102,12 @@ namespace TrustedAudioVideoMeeting
             conversation.HandleParticipantChange += Conversation_HandleParticipantChange;
 
             IAudioVideoCall audioVideoCall = conversation.AudioVideoCall;
-            await audioVideoCall.EstablishAsync(loggingContext);
+            await audioVideoCall.EstablishAsync(loggingContext).ConfigureAwait(false);
 
             // Wait for the audiovideo call to complete
             await audioVideoCall.WaitForAVFlowConnected().ConfigureAwait(false);
 
-            WriteToConsoleInColor("Showing roaster udpates for 2 minute for meeting : " + adhocMeeting.JoinUrl);
+            WriteToConsoleInColor("Showing roaster udpates for 1 minute for meeting : " + adhocMeeting.JoinUrl);
 
             // Wait for 1 minutes before playing prompt. During this time, we can connect from other skype client and listen prompt.
             // Since we have registered Conversation_HandleParticipantChange, we will also continue to show participant changes in the
@@ -114,9 +115,10 @@ namespace TrustedAudioVideoMeeting
             await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             Uri promptUri = new Uri(mediaUrl);
+            // Wait for prompt play to complete
             await audioVideoCall.AudioVideoFlow.PlayPromptAsync(promptUri, loggingContext).ConfigureAwait(false);
             
-            // exit after play prompt. wait for 10 seconds to see all responses.
+            // exit after play prompt. wait for 5 seconds to see all responses.
             await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
         }
 
