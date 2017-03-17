@@ -47,7 +47,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        [Ignore] // TODO : We need to fix Javascript date deserialization in RestApi.ResourceModel.Resource class before we can enable this test (code review in progress)
         public void ShouldExposeAuthTokenExpiryTime()
         {
             // Given
