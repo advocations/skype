@@ -4,6 +4,20 @@ Thank you for your interest in Skype for Business developer documentation!
 
 ## Release Notes
 
+### 1.0.0-prerelease5
+
+Key changes:
+ 1. IInvitation.WaitForInviteCompleteAsync() now returns the related IConversation
+
+Bug fixes:
+ 1. AdhocMeetingCreationInput was ignoring the AccessLevel when creating the meeting
+ 2. Accessing IAnonymousApplicationToken.AuthTokenExpiryTime was throwing an exception
+ 3. IMessaginCall.IncomingMessageReceived wasn't providing the incoming Text/Html message in IncomingMessageEventArgs
+
+Dependency changes:
+ 1. Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract [7.0.1586.0,)
+ 2. Microsoft.AspNet.WebApi.Core [5.2.3,)
+
 ### 1.0.0-prerelease4
 
 Key changes:
