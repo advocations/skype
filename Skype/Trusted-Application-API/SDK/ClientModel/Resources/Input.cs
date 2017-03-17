@@ -50,7 +50,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             return new AdhocMeetingInput()
             {
-                Subject = Subject
+                Subject = Subject,
+                AccessLevel = this.AccessLevel
             };
         }
     }
