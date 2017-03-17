@@ -14,8 +14,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     internal class OauthEvoRestfulClient : IRestfulClient, IDisposable
     {
         private readonly ITokenProvider m_tokenProvider;
-        private HttpClient m_httpClient;
-        private OAuthTokenIdentifier m_oauthIdentity;
+        private readonly HttpClient m_httpClient;
+        private readonly OAuthTokenIdentifier m_oauthIdentity;
 
         static OauthEvoRestfulClient()
         {
@@ -81,12 +81,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Post operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="content">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> PostAsync(
             Uri requestUri,
-            HttpContent content,
+            HttpContent httpContent,
            IDictionary<string, string> customerHeaders = null
          )
         {
@@ -95,7 +95,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                  (httpRequestMessage) =>
                  {
                      httpRequestMessage.Method = HttpMethod.Post;
-                     httpRequestMessage.Content = content;
+                     httpRequestMessage.Content = httpContent;
                      return httpRequestMessage;
                  },
                 customerHeaders
@@ -139,6 +139,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 );
         }
 
+        /// <summary>
         /// Put operation (T).
         /// </summary>
         /// <typeparam name="T">Any class</typeparam>
@@ -180,15 +181,15 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Put operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="content">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> PutAsync(
             Uri requestUri,
-            HttpContent content,
+            HttpContent httpContent,
             IDictionary<string, string> customerHeaders = null)
         {
-            if (content == null)
+            if (httpContent == null)
             {
                 throw new ArgumentNullException("stringContent", "The parameter named value can't be null reference.");
             }
@@ -198,7 +199,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 (httpRequestMessage) =>
                 {
                     httpRequestMessage.Method = HttpMethod.Put;
-                    httpRequestMessage.Content = content;
+                    httpRequestMessage.Content = httpContent;
                     return httpRequestMessage;
                 },
                 customerHeaders
@@ -237,8 +238,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         private async Task<HttpResponseMessage> HttpClientBaseMethodAsync(
             Uri requestUri,
             Func<HttpRequestMessage, HttpRequestMessage> customizeHttpRequestFunc,
-            IDictionary<string, string> customerHeaders = null,
-            TimeSpan? timeout = null)
+            IDictionary<string, string> customerHeaders = null)
         {
             if (requestUri == null)
             {
@@ -257,7 +257,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             var httpRequestMessage = new HttpRequestMessage { RequestUri = requestUri };
-            if (customerHeaders != null && customerHeaders.Any())
+            if (customerHeaders?.Any() == true)
             {
                 if (customerHeaders.ContainsKey(Constants.OriginalToken))
                 {
