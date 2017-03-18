@@ -35,7 +35,8 @@ namespace TrustedJoinMeeting
     /// Scenario:
     ///  1. Schedule a conference
     ///  2. Trusted join the conference
-    ///  3. Listen for participant changes for 5 minutes
+    ///  3. Invite the participant to join the conference
+    ///  4. Listen for participant changes for 5 minutes.If the partcipant has accepted the invitation,then remove the participant from the conference
     /// </summary>
     internal class TrustedJoinMeeting
     {
@@ -49,6 +50,7 @@ namespace TrustedJoinMeeting
             var password = ConfigurationManager.AppSettings["Trouter_Password"];
             var applicationName = ConfigurationManager.AppSettings["Trouter_ApplicationName"];
             var userAgent = ConfigurationManager.AppSettings["Trouter_UserAgent"];
+            var participantUri = ConfigurationManager.AppSettings["ParticipantUri"];
             var token = SkypeTokenClient.ConstructSkypeToken(
                 skypeId: skypeId,
                 password: password,
@@ -95,6 +97,10 @@ namespace TrustedJoinMeeting
 
             invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
 
+            // invite the participant to join the meeting
+            WriteToConsoleInColor("Invite " + participantUri+" to join the meeting");
+            await invitation.RelatedConversation.AddParticipantAsync(participantUri, loggingContext).ConfigureAwait(false);
+           
             WriteToConsoleInColor("Showing roaster udpates for 5 minutes for meeting : " + adhocMeeting.JoinUrl);
 
             // Wait 5 minutes before exiting.
@@ -110,6 +116,13 @@ namespace TrustedJoinMeeting
                 foreach (var participant in eventArgs.AddedParticipants)
                 {
                     WriteToConsoleInColor(participant.Name + " has joined the meeting.");
+
+                    var participantUri = ConfigurationManager.AppSettings["ParticipantUri"];
+                    if (participantUri.Equals(participant.Uri))
+                    {
+                        var loggingContext = new LoggingContext(Guid.NewGuid());
+                        participant.EjectAsync(loggingContext).ConfigureAwait(false);
+                    }
                 }
             }
 
