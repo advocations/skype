@@ -6,8 +6,8 @@
     <ProjectGuid>{845BD88C-5FA8-43D7-B21F-9A57550DF727}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrustedJoinMeeting</RootNamespace>
-    <AssemblyName>TrustedJoinMeeting</AssemblyName>
+    <RootNamespace>MessagingAfterJoinMeeting</RootNamespace>
+    <AssemblyName>MessagingAfterJoinMeeting</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MessagingAfterJoinMeeting.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Web.Extensions" />
@@ -115,7 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -124,7 +129,7 @@
       <Name>QuickSamplesCommon</Name>
     </ProjectReference>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\TrouterBasedEventChannel\TrouterBasedEventChannel.csproj">
       <Project>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Project>
       <Name>TrouterBasedEventChannel</Name>
@@ -134,7 +139,7 @@
     <Content Include="Microsoft.Practices.Unity.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-	<Content Include="DLLTrouterClient.dll">
+    <Content Include="DLLTrouterClient.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

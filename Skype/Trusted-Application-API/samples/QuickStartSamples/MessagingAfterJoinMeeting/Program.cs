@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Configuration;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Microsoft.Rtc.Internal.Platform.ResourceContract;
+using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal; // Required for setting customized callback url
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.SkypeToken;
 using QuickSamplesCommon;
 using TrouterCommon;
-
-namespace TrustedJoinMeeting
+namespace MessagingAfterJoinMeeting
 {
-    public static class Program
+    class Program
     {
-        public static void Main()
+        static void Main(string[] args)
         {
-            var sample = new TrustedJoinMeeting();
+            var sample = new MessagingAfterJoinMeeting();
             try
             {
                 sample.RunAsync().Wait();
@@ -37,7 +39,7 @@ namespace TrustedJoinMeeting
     ///  2. Trusted join the conference
     ///  3. Listen for participant changes for 5 minutes
     /// </summary>
-    internal class TrustedJoinMeeting
+    internal class MessagingAfterJoinMeeting
     {
         public TrouterBasedEventChannel EventChannel { get; private set; }
 
@@ -56,7 +58,7 @@ namespace TrustedJoinMeeting
                 scope: string.Empty,
                 applicationName: applicationName).Result;
 
-            m_logger = new ConsoleLogger();
+            m_logger = new SampleAppLogger();
 
             // Uncomment for debugging
             // m_logger.HttpRequestResponseNeedsToBeLogged = true;
@@ -93,45 +95,63 @@ namespace TrustedJoinMeeting
             // Wait for the join to complete
             await invitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
-            invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
-            WriteToConsoleInColor("Showing roaster udpates for 5 minutes for meeting : " + adhocMeeting.JoinUrl);
+            var conversation = invitation.RelatedConversation;
 
-            // Wait 5 minutes before exiting.
-            // Since we have registered Conversation_HandleParticipantChange, we will continue to show participant changes in the
-            // meeting for this duration.
-            await Task.Delay(TimeSpan.FromMinutes(5)).ConfigureAwait(false);
+            var imCall = invitation.RelatedConversation.MessagingCall;
+
+            if (imCall == null)
+            {
+                WriteToConsoleInColor("No messaging call link found in conversation of the conference.");
+                return;
+            }
+
+            var messagingInvitation = await imCall.EstablishAsync(loggingContext).ConfigureAwait(false);
+
+            messagingInvitation.HandleResourceCompleted += OnMessagingResourceCompletedReceived;
+
+            await messagingInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
+
+            if (imCall.State != CallState.Connected)
+            {
+                WriteToConsoleInColor("Messaging call is not connected.");
+                return;
+            }
+
+            var modalities = invitation.RelatedConversation.ActiveModalities;
+            WriteToConsoleInColor("Active modality is : ");
+            bool hasMessagingModality = false;
+            foreach (var modality in modalities)
+            {
+                WriteToConsoleInColor(modality.ToString() + " ");
+                if (modality == ConversationModalityType.Messaging)
+                {
+                    hasMessagingModality = true;
+                }
+            }
+
+            await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
+            await invitation.RelatedConversation.AddParticipantAsync("sip:liben@metio.onmicrosoft.com", loggingContext).ConfigureAwait(false);
+            if (!hasMessagingModality)
+            {
+                WriteToConsoleInColor("Failed to connect messaging call.", ConsoleColor.Red);
+                return;
+            }
+            WriteToConsoleInColor("Adding messaging to meeting completed successfully.");
+            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
+
         }
 
-        private void Conversation_HandleParticipantChange(object sender, ParticipantChangeEventArgs eventArgs)
+        private void OnMessagingResourceCompletedReceived(object sender, PlatformResourceEventArgs args)
         {
-            if (eventArgs.AddedParticipants?.Count > 0)
+            if (args.PlatformResource is MessagingInvitationResource)
             {
-                foreach (var participant in eventArgs.AddedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " has joined the meeting.");
-                }
-            }
-
-            if (eventArgs.RemovedParticipants?.Count > 0)
-            {
-                foreach (var participant in eventArgs.RemovedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " has left the meeting.");
-                }
-            }
-
-            if (eventArgs.UpdatedParticipants?.Count > 0)
-            {
-                foreach (var participant in eventArgs.UpdatedParticipants)
-                {
-                    WriteToConsoleInColor(participant.Name + " got updated");
-                }
+                WriteToConsoleInColor("Messaging resource completed event found.");
             }
         }
 
-        private void WriteToConsoleInColor(string message)
+        private void WriteToConsoleInColor(string message, ConsoleColor color = ConsoleColor.Green)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = color;
             Console.WriteLine(message);
             Console.ResetColor();
         }
