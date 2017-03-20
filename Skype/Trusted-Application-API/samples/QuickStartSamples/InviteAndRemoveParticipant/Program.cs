@@ -98,9 +98,21 @@ namespace InviteAndRemoveParticipant
             invitation.RelatedConversation.HandleParticipantChange += Conversation_HandleParticipantChange;
 
             // invite the participant to join the meeting
-            WriteToConsoleInColor("Invite " + participantUri+" to join the meeting");
-            await invitation.RelatedConversation.AddParticipantAsync(participantUri, loggingContext).ConfigureAwait(false);
-           
+            WriteToConsoleInColor("Invite " + participantUri + " to join the meeting");
+            var participantInvitation = await invitation.RelatedConversation.AddParticipantAsync(participantUri, loggingContext).ConfigureAwait(false);
+
+            // Wait for the join to complete
+            await participantInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
+
+            //remove the participant from the meeting
+            foreach (var participant in invitation.RelatedConversation.Participants)
+            {
+                if (participantUri.Equals(participant.Uri))
+                {
+                    await participant.EjectAsync(loggingContext).ConfigureAwait(false);
+                }
+            }
+
             WriteToConsoleInColor("Showing roaster udpates for 5 minutes for meeting : " + adhocMeeting.JoinUrl);
 
             // Wait 5 minutes before exiting.
@@ -116,13 +128,6 @@ namespace InviteAndRemoveParticipant
                 foreach (var participant in eventArgs.AddedParticipants)
                 {
                     WriteToConsoleInColor(participant.Name + " has joined the meeting.");
-
-                    var participantUri = ConfigurationManager.AppSettings["ParticipantUri"];
-                    if (participantUri.Equals(participant.Uri))
-                    {
-                        var loggingContext = new LoggingContext(Guid.NewGuid());
-                        participant.EjectAsync(loggingContext).ConfigureAwait(false);
-                    }
                 }
             }
 

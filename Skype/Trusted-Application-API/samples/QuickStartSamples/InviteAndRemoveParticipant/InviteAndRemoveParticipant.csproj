@@ -6,8 +6,8 @@
     <ProjectGuid>{845BD88C-5FA8-43D7-B21F-9A57550DF727}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrustedJoinMeeting</RootNamespace>
-    <AssemblyName>TrustedJoinMeeting</AssemblyName>
+    <RootNamespace>InviteAndRemoveParticipant</RootNamespace>
+    <AssemblyName>InviteAndRemoveParticipant</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
