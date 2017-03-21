@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Configuration;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
-using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal; // Required for setting customized callback url
 using Microsoft.SfB.PlatformService.SDK.Common;
@@ -37,7 +35,8 @@ namespace MessagingAfterJoinMeeting
     /// Scenario:
     ///  1. Schedule a conference
     ///  2. Trusted join the conference
-    ///  3. Listen for participant changes for 5 minutes
+    ///  3. Add messaging to the conference
+    ///  4. Send "Hello World!" to the conference
     /// </summary>
     internal class MessagingAfterJoinMeeting
     {
@@ -95,6 +94,11 @@ namespace MessagingAfterJoinMeeting
             // Wait for the join to complete
             await invitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
+            WriteToConsoleInColor("Please use this url to join the meeting : " + adhocMeeting.JoinUrl);
+
+            WriteToConsoleInColor("Giving 30 seconds for the user to join the meeting...");
+            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
+
             var conversation = invitation.RelatedConversation;
 
             var imCall = invitation.RelatedConversation.MessagingCall;
@@ -118,11 +122,11 @@ namespace MessagingAfterJoinMeeting
             }
 
             var modalities = invitation.RelatedConversation.ActiveModalities;
-            WriteToConsoleInColor("Active modality is : ");
+            WriteToConsoleInColor("Active modalities : ");
             bool hasMessagingModality = false;
             foreach (var modality in modalities)
             {
-                WriteToConsoleInColor(modality.ToString() + " ");
+                WriteToConsoleInColor(" " + modality.ToString());
                 if (modality == ConversationModalityType.Messaging)
                 {
                     hasMessagingModality = true;
@@ -130,15 +134,13 @@ namespace MessagingAfterJoinMeeting
             }
 
             await imCall.SendMessageAsync("Hello World.", loggingContext).ConfigureAwait(false);
-            await invitation.RelatedConversation.AddParticipantAsync("sip:liben@metio.onmicrosoft.com", loggingContext).ConfigureAwait(false);
+
             if (!hasMessagingModality)
             {
                 WriteToConsoleInColor("Failed to connect messaging call.", ConsoleColor.Red);
                 return;
             }
             WriteToConsoleInColor("Adding messaging to meeting completed successfully.");
-            await Task.Delay(TimeSpan.FromSeconds(30)).ConfigureAwait(false);
-
         }
 
         private void OnMessagingResourceCompletedReceived(object sender, PlatformResourceEventArgs args)

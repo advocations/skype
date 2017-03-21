@@ -1,7 +1,6 @@
 using Microsoft.SfB.PlatformService.SDK.Common;
 using System;
 using System.IO;
-using System.Reflection;
 
 namespace QuickSamplesCommon
 {

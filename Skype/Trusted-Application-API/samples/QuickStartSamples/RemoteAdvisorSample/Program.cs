@@ -31,7 +31,7 @@ namespace RemoteAdvisorSample
     {
         public async Task Run()
         {
-            ConsoleLogger logger = new ConsoleLogger();
+            var logger = new SampleAppLogger();
             logger.HttpRequestResponseNeedsToBeLogged = true;//Set to true if you want to log all http request and responses
 
             //Prepare platform
