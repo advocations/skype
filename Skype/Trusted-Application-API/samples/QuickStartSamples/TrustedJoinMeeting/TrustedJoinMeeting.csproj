@@ -131,10 +131,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Microsoft.Practices.Unity.dll">
+    <Content Include="..\TrouterBasedEventChannel\Microsoft.Practices.Unity.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-	<Content Include="DLLTrouterClient.dll">
+	<Content Include="..\TrouterBasedEventChannel\DLLTrouterClient.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
