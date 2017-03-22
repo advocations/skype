@@ -11,15 +11,15 @@ namespace AudioVideoIVRSample
 {
     public class AudioVideoIVRJob
     {
-        private readonly Uri _callbackUri;
+        private readonly Uri m_callbackUri;
              
-        private readonly IncomingInviteEventArgs<IAudioVideoInvitation> _incomingInvitation;
+        private readonly IncomingInviteEventArgs<IAudioVideoInvitation> m_incomingInvitation;
 
-        private IConversation _pstnCallConversation;
+        private IConversation m_pstnCallConversation;
 
-        private readonly string _jobId;
+        private readonly string m_jobId;
 
-        private readonly LoggingContext _loggingContext;
+        private readonly LoggingContext m_loggingContext;
 
         /// <summary>
         /// Actions which can be taken by an <see cref="AudioVideoIVRJob"/> in response to an incoming call or a tone event.
@@ -62,30 +62,30 @@ namespace AudioVideoIVRSample
         };
 
 
-        public AudioVideoIVRJob(IncomingInviteEventArgs<IAudioVideoInvitation> incomingInvitation, string callbackUri)
+        public AudioVideoIVRJob(IncomingInviteEventArgs<IAudioVideoInvitation> mIncomingInvitation, string callbackUri)
         {
-            this._incomingInvitation = incomingInvitation;
-            _jobId = Guid.NewGuid().ToString();
-            this._callbackUri = new Uri(callbackUri);
-            _loggingContext = new LoggingContext(_jobId, string.Empty);
+            this.m_incomingInvitation = mIncomingInvitation;
+            m_jobId = Guid.NewGuid().ToString();
+            this.m_callbackUri = new Uri(callbackUri);
+            m_loggingContext = new LoggingContext(m_jobId, string.Empty);
         }
 
         public void Start()
         {
             //Start async since we do not want to block the event handler thread
-            StartAudioVideoIVRFlowAsync(_incomingInvitation).ContinueWith(p =>
+            StartAudioVideoIVRFlowAsync(m_incomingInvitation).ContinueWith(p =>
             {
                 if (p.IsFaulted)
                 {
                     if (p.Exception != null)
                     {
                         Exception baseException = p.Exception.GetBaseException();
-                        Logger.Instance.Error(baseException, "AudioVideoIVRJob failed with exception. Job id {0} ", _jobId);
+                        Logger.Instance.Error(baseException, "AudioVideoIVRJob failed with exception. Job id {0} ", m_jobId);
                     }
                 }
                 else
                 {
-                    Logger.Instance.Information("AudioVideoIVRJob completed, Job id {0}", _jobId);
+                    Logger.Instance.Information("AudioVideoIVRJob completed, Job id {0}", m_jobId);
                 }
             }
             );
@@ -95,21 +95,21 @@ namespace AudioVideoIVRSample
 
         private async Task StartAudioVideoIVRFlowAsync(IncomingInviteEventArgs<IAudioVideoInvitation> e)
         {
-            Logger.Instance.Information(string.Format("[StartAudioVideoIVRFlowAsync] StartCallCenterFlowAsync: LoggingContext: {0}", _loggingContext));
+            Logger.Instance.Information(string.Format("[StartAudioVideoIVRFlowAsync]: LoggingContext: {0}", m_loggingContext));
 
-            _pstnCallConversation = null;
+            m_pstnCallConversation = null;
 
             // Step1: accept incoming call
-            Logger.Instance.Information(string.Format("[StartAudioVideoIVRFlowAsync] Step 1: Accept incoming av call: LoggingContext: {0}", _loggingContext));
-            await e.NewInvite.AcceptAsync(_loggingContext).ConfigureAwait(false);
+            Logger.Instance.Information(string.Format("[StartAudioVideoIVRFlowAsync] Step 1: Accept incoming av call: LoggingContext: {0}", m_loggingContext));
+            await e.NewInvite.AcceptAsync(m_loggingContext).ConfigureAwait(false);
             await e.NewInvite.WaitForInviteCompleteAsync().ConfigureAwait(false);
 
             // if everything is fine, you will be able to get the related conversation
-            _pstnCallConversation = e.NewInvite.RelatedConversation;
-            _pstnCallConversation.HandleResourceRemoved += HandlePSTNCallConversationRemoved;
+            m_pstnCallConversation = e.NewInvite.RelatedConversation;
+            m_pstnCallConversation.HandleResourceRemoved += HandlePSTNCallConversationRemoved;
 
             // Step 2 : wait AV flow connected and play Promt
-            IAudioVideoCall pstnAv = _pstnCallConversation.AudioVideoCall;
+            IAudioVideoCall pstnAv = m_pstnCallConversation.AudioVideoCall;
             IAudioVideoFlow pstnFlow = await pstnAv.WaitForAVFlowConnected().ConfigureAwait(false);
             pstnFlow.ToneReceivedEvent += ToneReceivedEvent;
 
@@ -157,7 +157,7 @@ namespace AudioVideoIVRSample
                 Logger.Instance.Information("[AudioVideoIVRJob] Terminating the call.");
                 var avCall = avFlow.Parent as IAudioVideoCall;
 
-                await avCall.TerminateAsync(_loggingContext).ConfigureAwait(false);
+                await avCall.TerminateAsync(m_loggingContext).ConfigureAwait(false);
                 CleanupEventHandlers(avFlow);
             }
             else 
@@ -170,10 +170,10 @@ namespace AudioVideoIVRSample
         {
             string wavFile = promptMap.GetOrNull(action);
             Logger.Instance.Information("[AudioVideoIVRJob] playing prompt: {0}.", wavFile);
-            var resourceUri = new Uri(string.Format("{0}://{1}/resources/{2}", _callbackUri.Scheme, _callbackUri.Host, wavFile));
+            var resourceUri = new Uri(string.Format("{0}://{1}/resources/{2}", m_callbackUri.Scheme, m_callbackUri.Host, wavFile));
             try
             {
-                await flow.PlayPromptAsync(resourceUri, _loggingContext).ConfigureAwait(false);
+                await flow.PlayPromptAsync(resourceUri, m_loggingContext).ConfigureAwait(false);
             }
             catch (CapabilityNotAvailableException ex)
             {
