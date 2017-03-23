@@ -180,7 +180,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-        public async Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext)
+        public async Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddParticipantResourceLink?.Href;
             if (string.IsNullOrEmpty(href))

@@ -51,7 +51,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"></param>
         /// <returns></returns>
-        public async Task RefreshAndInitializeAsync(LoggingContext loggingContext)
+        public async Task RefreshAndInitializeAsync(LoggingContext loggingContext = null)
         {
             await this.RefreshAsync(loggingContext).ConfigureAwait(false);
             if (this.PlatformResource.Application != null)

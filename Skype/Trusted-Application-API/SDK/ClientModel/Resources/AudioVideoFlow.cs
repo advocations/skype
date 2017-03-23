@@ -62,7 +62,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
-        public async Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext)
+        public async Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext = null)
         {
             if (promptUri == null)
             {

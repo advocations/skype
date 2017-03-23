@@ -92,7 +92,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return !string.IsNullOrEmpty(href);
         }
 
-        public async Task EjectAsync(LoggingContext loggingContext)
+        public async Task EjectAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.EjectParticipantOperationLink?.Href;
 

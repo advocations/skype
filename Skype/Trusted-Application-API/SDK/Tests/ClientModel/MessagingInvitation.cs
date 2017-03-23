@@ -403,7 +403,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, null, "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync(null, "Example User", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -417,7 +417,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, string.Empty, "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync(string.Empty, "Example User", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -431,7 +431,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, "   ", "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync("   ", "Example User", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -445,7 +445,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall_NoActionLinks.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, "https://example.com", "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync("https://example.com", "Example User", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -458,7 +458,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, "https://example.com", "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync("https://example.com", "Example User", m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AcceptAndBridge));
@@ -471,7 +471,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
 
             // When
-            await m_messagingInvitation.AcceptAndBridgeAsync(null, "https://example.com", "Example User").ConfigureAwait(false);
+            await m_messagingInvitation.AcceptAndBridgeAsync("https://example.com", "Example User", null).ConfigureAwait(false);
 
             // Then
             // No exception is thrown

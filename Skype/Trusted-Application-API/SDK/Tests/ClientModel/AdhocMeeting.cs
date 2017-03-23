@@ -36,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await data.ApplicationEndpoint.InitializeApplicationAsync(m_loggingContext).ConfigureAwait(false);
             m_application = data.ApplicationEndpoint.Application;
 
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(new AdhocMeetingCreationInput("subject"), m_loggingContext).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AdhocMeeting), HttpMethod.Post, HttpStatusCode.Created, "AdhocMeeting_NoJoinAdhocMeetingLink.json");
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(new AdhocMeetingCreationInput("subject"), m_loggingContext).ConfigureAwait(false);
 
             // When
             bool supports = m_adhocMeeting.Supports(AdhocMeetingCapability.JoinAdhocMeeting);
@@ -102,10 +102,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AdhocMeeting), HttpMethod.Post, HttpStatusCode.Created, "AdhocMeeting_NoJoinAdhocMeetingLink.json");
-            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, new AdhocMeetingCreationInput("subject")).ConfigureAwait(false);
+            m_adhocMeeting = await m_application.CreateAdhocMeetingAsync(new AdhocMeetingCreationInput("subject"), m_loggingContext).ConfigureAwait(false);
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext").ConfigureAwait(false);
+            await m_adhocMeeting.JoinAdhocMeetingAsync("callbackcontext", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -119,7 +119,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.JoinAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext").ConfigureAwait(false);
+            await m_adhocMeeting.JoinAdhocMeetingAsync("callbackcontext", m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.JoinAdhocMeeting));
@@ -146,7 +146,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, callbackContext).ConfigureAwait(false);
+            await m_adhocMeeting.JoinAdhocMeetingAsync(callbackContext, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(customizedCallbackUrlPassed);
@@ -168,7 +168,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, callbackContext).ConfigureAwait(false);
+            await m_adhocMeeting.JoinAdhocMeetingAsync(callbackContext, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(callbackContextPassed);
@@ -188,7 +188,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 }
             };
 
-            Task joinTask = m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext");
+            Task joinTask = m_adhocMeeting.JoinAdhocMeetingAsync("callbackcontext", m_loggingContext);
             await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
             Assert.IsFalse(joinTask.IsCompleted);
 
@@ -208,7 +208,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             ((AdhocMeeting)m_adhocMeeting).WaitForEvents = TimeSpan.FromMilliseconds(300);
 
             // When
-            await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext").ConfigureAwait(false);
+            await m_adhocMeeting.JoinAdhocMeetingAsync("callbackcontext", m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown

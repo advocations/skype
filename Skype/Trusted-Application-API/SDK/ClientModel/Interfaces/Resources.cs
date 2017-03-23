@@ -64,7 +64,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
         /// <returns><see cref="void"/> it is an async method.</returns>
         /// <remarks><see cref="HandleResourceUpdated"/> <see cref="EventHandler"/> will be invoked when the refresh succeeds.</remarks>
-        Task RefreshAsync(LoggingContext loggingContext);
+        Task RefreshAsync(LoggingContext loggingContext = null);
 
         /// <summary>
         /// Deletes this Resource from PlatformService.
@@ -72,7 +72,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
         /// <returns><see cref="void"/> it is an async method.</returns>
         /// <remarks><see cref="HandleResourceRemoved"/> <see cref="EventHandler"/> will be invoked when the delete succeeds.</remarks>
-        Task DeleteAsync(LoggingContext loggingContext);
+        Task DeleteAsync(LoggingContext loggingContext = null);
 
         /// <summary>
         /// Gets whether a particular capability is available or not.
@@ -109,7 +109,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
         /// <returns><see cref="void"/> it is an async method.</returns>
-        Task RefreshAndInitializeAsync(LoggingContext loggingContext);
+        Task RefreshAndInitializeAsync(LoggingContext loggingContext = null);
 
         /// <summary>
         /// Gets an anonymous application token for a meeting. This token can be given to a user domain application. Using this token,
@@ -130,7 +130,19 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
         /// <param name="applicationSessionId">A unique ID required to get the token</param>
         /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        [Obsolete("Please use the other variation")]
         Task<IAnonymousApplicationToken> GetAnonApplicationTokenForMeetingAsync(LoggingContext loggingContext, string meetingUrl, string allowedOrigins, string applicationSessionId);
+
+        /// <summary>
+        /// Gets an anonymous application token for a meeting. This token can be given to a user domain application. Using this token,
+        /// the user can sign in and join the meeting.
+        /// </summary>
+        /// <param name="meetingUrl">HTTP join url of the meeting</param>
+        /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <returns>A token that can be used by a user to join the specified meeting.</returns>
+        Task<IAnonymousApplicationToken> GetAnonApplicationTokenForMeetingAsync(string meetingUrl, string allowedOrigins, string applicationSessionId, LoggingContext loggingContext = null);
 
         /// <summary>
         /// Gets an anonymous application token for a P2P call. This token can be given to a user domain application. Using this token,
@@ -140,7 +152,18 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
         /// <param name="applicationSessionId">A unique ID required to get the token</param>
         /// <returns>A token that can be used by a user to make P2P calls</returns>
+        [Obsolete("Please use the other variation")]
         Task<IAnonymousApplicationToken> GetAnonApplicationTokenForP2PCallAsync(LoggingContext loggingContext, string allowedOrigins, string applicationSessionId);
+
+        /// <summary>
+        /// Gets an anonymous application token for a P2P call. This token can be given to a user domain application. Using this token,
+        /// the user can make P2P calls.
+        /// </summary>
+        /// <param name="allowedOrigins">List of origins from where the user should be allowed to join the meeting using the IAnonymousApplicationToken</param>
+        /// <param name="applicationSessionId">A unique ID required to get the token</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <returns>A token that can be used by a user to make P2P calls</returns>
+        Task<IAnonymousApplicationToken> GetAnonApplicationTokenForP2PCallAsync(string allowedOrigins, string applicationSessionId, LoggingContext loggingContext = null);
 
         /// <summary>
         /// Creates an adhoc meeting
@@ -157,7 +180,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
         /// <param name="input">Specifies properties for the meeting to be created</param>
         /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
+        [Obsolete("Please use the other variation")]
         Task<IAdhocMeeting> CreateAdhocMeetingAsync(LoggingContext loggingContext, AdhocMeetingCreationInput input);
+
+        /// <summary>
+        /// Creates an adhoc meeting
+        /// </summary>
+        /// <param name="input">Specifies properties for the meeting to be created</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <returns><see cref="IAdhocMeeting"/> which can be used to join the meeting or get meeting url, which can be passed onto real users to join it.</returns>
+        Task<IAdhocMeeting> CreateAdhocMeetingAsync(AdhocMeetingCreationInput input, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -215,7 +247,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
         /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
         /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
+        [Obsolete("Please use JoinAdhocMeetingAsync instead")]
         Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext);
+
+        /// <summary>
+        /// Joins the adhoc meeting
+        /// </summary>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
+        Task<IOnlineMeetingInvitation> JoinAdhocMeetingAsync(string callbackContext, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -234,9 +275,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IClientPlatform ClientPlatform { get; }
 
-        Task InitializeAsync(LoggingContext loggingContext);
+        Task InitializeAsync(LoggingContext loggingContext = null);
 
-        Task InitializeApplicationAsync(LoggingContext loggingContext);
+        Task InitializeApplicationAsync(LoggingContext loggingContext = null);
 
         void Uninitialize();
     }
@@ -249,7 +290,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         IApplication Application { get; }
 
-        Task RefreshAndInitializeAsync(LoggingContext loggingContext);
+        Task RefreshAndInitializeAsync(LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -264,7 +305,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IAudioVideoFlow AudioVideoFlow { get; }
 
-        Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext);
+        Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null);
 
         Task<IAudioVideoFlow> WaitForAVFlowConnected(int timeoutInSeconds = 30);
     }
@@ -279,7 +320,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         FlowState State { get; }
 
-        Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext);
+        Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -288,13 +329,19 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public interface IAudioVideoInvitation : IInvitation, IPlatformResource<AudioVideoInvitationCapability>
     {
-        Task<HttpResponseMessage> AcceptAsync(LoggingContext loggingContext);
+        Task<HttpResponseMessage> AcceptAsync(LoggingContext loggingContext = null);
 
+        [Obsolete("Please use the other variation")]
         Task<HttpResponseMessage> ForwardAsync(LoggingContext loggingContext, string forwardTarget);
 
-        Task<HttpResponseMessage> DeclineAsync(LoggingContext loggingContext);
+        Task<HttpResponseMessage> ForwardAsync(SipUri forwardTarget, LoggingContext loggingContext = null);
 
+        Task<HttpResponseMessage> DeclineAsync(LoggingContext loggingContext = null);
+
+        [Obsolete("Please use the other variation")]
         Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to);
+
+        Task AcceptAndBridgeAsync(string meetingUri, SipUri to, LoggingContext loggingContext = null);
 
         [Obsolete("Please use StartMeetingAsync instead")]
         Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null);
@@ -308,7 +355,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public interface IBridgedParticipant : IPlatformResource<BridgedParticipantCapability>
     {
-        Task UpdateAsync(LoggingContext logginContext, string displayName, bool isEnableFilter);
+        [Obsolete("Please use the other variation")]
+        Task UpdateAsync(LoggingContext loggingContext, string displayName, bool isEnableFilter);
+
+        Task UpdateAsync(string displayName, bool isEnableFilter, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -329,9 +379,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         event EventHandler<CallStateChangedEventArgs> CallStateChanged;
 
-        Task<TInvitation> EstablishAsync(LoggingContext loggingContext);
+        Task<TInvitation> EstablishAsync(LoggingContext loggingContext = null);
 
-        Task TerminateAsync(LoggingContext loggingContext);
+        Task TerminateAsync(LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -412,7 +462,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IParticipant TryGetParticipant(string href);
 
-        Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext);
+        Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -423,7 +473,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         List<IBridgedParticipant> BridgedParticipants { get; }
 
-        Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext logginContext, string displayName, string sipUri, bool enableMessageFilter);
+        [Obsolete("Please use the other variation")]
+        Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext loggingContext, string displayName, string sipUri, bool enableMessageFilter);
+
+        Task<IBridgedParticipant> AddBridgedParticipantAsync(string displayName, SipUri sipUri, bool enableMessageFilter, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -448,7 +501,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         IApplications Applications { get; }
 
+        [Obsolete("Please use the other variation")]
         Task RefreshAndInitializeAsync(LoggingContext loggingContext, string endpointId);
+
+        Task RefreshAndInitializeAsync(string endpointId, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -504,7 +560,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null);
 
+        [Obsolete("Please use the other variation")]
         Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUrl, string displayName);
+
+        Task AcceptAndBridgeAsync(string meetingUrl, string displayName, LoggingContext loggingContext = null);
     }
 
     #endregion
@@ -515,7 +574,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         EventHandler<IncomingMessageEventArgs> IncomingMessageReceived { get; set; }
 
-        Task SendMessageAsync(string message, LoggingContext loggingContext, string contentType = Constants.TextPlainContentType);
+        Task SendMessageAsync(string message, LoggingContext loggingContext = null, string contentType = Constants.TextPlainContentType);
     }
 
     #endregion
@@ -554,7 +613,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Ejects the participant from the corresponding meeting.
         /// </summary>
-        Task EjectAsync(LoggingContext loggingContext);
+        Task EjectAsync(LoggingContext loggingContext = null);
 
         event EventHandler<ParticipantModalityChangeEventArgs> HandleParticipantModalityChange;
     }

@@ -11,6 +11,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// </summary>
     internal class AdhocMeeting : BasePlatformResource<AdhocMeetingResource, AdhocMeetingCapability>, IAdhocMeeting
     {
+        #region Constructor
         /// <summary>
         /// Creates an instance of <see cref="AdhocMeeting"/>
         /// </summary>
@@ -23,6 +24,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             : base(restfulClient, resource, baseUri, resourceUri, parent)
         {
         }
+
+        #endregion
+
+        #region Public properties
 
         /// <summary>
         /// A HTTP url which can be given to users to join this meeting via Lync Web App
@@ -48,13 +53,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return PlatformResource.Subject; }
         }
 
+        #endregion
+
+        #region Public methods
+
         /// <summary>
         /// Saas application Joins the adhoc meeting as trusted entity, won't be seen by other conference participants
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
         /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
         /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
-        public async Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext)
+        public async Task<IOnlineMeetingInvitation> JoinAdhocMeetingAsync(string callbackContext, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.JoinAdhocMeetingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -96,13 +105,25 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             // We know for sure that the invitation is there now.
-            IOnlineMeetingInvitation result = invite as IOnlineMeetingInvitation;
+            var result = invite as IOnlineMeetingInvitation;
             if (result == null)
             {
                 throw new RemotePlatformServiceException("Platformservice did not deliver a OnlinemeetingInvitation resource with operationId " + joinMeetingInput.OperationContext);
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Saas application Joins the adhoc meeting as trusted entity, won't be seen by other conference participants
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation"/> which can be used to wait for the meeting join to complete</returns>
+        [Obsolete("Please use JoinAdhocMeetingAsync instead")]
+        public Task<IOnlineMeetingInvitation> JoinAdhocMeeting(LoggingContext loggingContext, string callbackContext)
+        {
+            return JoinAdhocMeetingAsync(callbackContext, loggingContext);
         }
 
         /// <summary>
@@ -130,5 +151,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             return !string.IsNullOrEmpty(href);
         }
+
+        #endregion
     }
 }

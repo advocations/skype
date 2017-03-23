@@ -131,7 +131,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="requestUri">The request uri for the related platform resource.</param>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The related platform resource.</returns>
-        public async Task RefreshAsync(LoggingContext loggingContext)
+        public async Task RefreshAsync(LoggingContext loggingContext = null)
         {
             string typeName = this.GetType().Name;
             Logger.Instance.Information("Calling " + typeName + " RefreshAsync" + (loggingContext == null ? string.Empty : loggingContext.ToString()));
@@ -146,7 +146,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The related platform resource.</returns>
-        public async Task DeleteAsync(LoggingContext loggingContext)
+        public async Task DeleteAsync(LoggingContext loggingContext = null)
         {
             string typeName = this.GetType().Name;
             Logger.Instance.Information("Calling " + typeName + " DeleteAsync");

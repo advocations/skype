@@ -45,7 +45,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return false;
         }
 
-        public Task UpdateAsync(LoggingContext logginContext, string displayName,  bool isEnableFilter)
+        public Task UpdateAsync(string displayName, bool isEnableFilter, LoggingContext loggingContext = null)
         {
             Uri bridgeUri = UriHelper.CreateAbsoluteUri(this.BaseUri, this.PlatformResource.SelfUri);
 
@@ -57,7 +57,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             };
 
             //Waiting for bridgedParticipant operation added
-            return this.PutRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), logginContext);
+            return PutRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
+        }
+
+        [Obsolete("Please use the other variation")]
+        public Task UpdateAsync(LoggingContext loggingContext, string displayName, bool isEnableFilter)
+        {
+            return UpdateAsync(displayName, isEnableFilter, loggingContext);
         }
 
         #endregion

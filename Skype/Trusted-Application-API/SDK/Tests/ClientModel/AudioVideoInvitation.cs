@@ -202,7 +202,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
-            await invitation.ForwardAsync(m_loggingContext, "sip:user@example.com").ConfigureAwait(false);
+            await invitation.ForwardAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -219,7 +219,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            HttpResponseMessage response = await invitation.ForwardAsync(m_loggingContext, "sip:user@example.com").ConfigureAwait(false);
+            HttpResponseMessage response = await invitation.ForwardAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
@@ -239,7 +239,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            HttpResponseMessage response = await invitation.ForwardAsync(m_loggingContext, null).ConfigureAwait(false);
+            HttpResponseMessage response = await invitation.ForwardAsync(null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -291,7 +291,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(m_loggingContext, null, null).ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync(null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -308,7 +308,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(m_loggingContext, string.Empty, "sip:user@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync(string.Empty, new SipUri("sip:user@domain.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -324,7 +324,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(m_loggingContext, "sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", "sip:User@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync("sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", new SipUri("sip:User@domain.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AudioVideoInvitationAcceptAndBridge));
@@ -340,7 +340,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(null, "sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", "sip:User@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync("sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", new SipUri("sip:User@domain.com"), null).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AudioVideoInvitationAcceptAndBridge));

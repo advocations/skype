@@ -141,7 +141,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The task.</returns>
-        public Task InitializeAsync(LoggingContext loggingContext)
+        public Task InitializeAsync(LoggingContext loggingContext = null)
         {
             if (m_eventChannel != null)
             {
@@ -155,7 +155,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The task.</returns>
-        public async Task InitializeApplicationAsync(LoggingContext loggingContext)
+        public async Task InitializeApplicationAsync(LoggingContext loggingContext = null)
         {
             if (Application == null)
             {
@@ -166,7 +166,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
 
                     var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-                    await discover.RefreshAndInitializeAsync(loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
+                    await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), loggingContext).ConfigureAwait(false);
                     ApplicationsResource = discover.Applications;
                 }
                 else

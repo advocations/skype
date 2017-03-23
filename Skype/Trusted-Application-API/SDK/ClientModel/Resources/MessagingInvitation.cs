@@ -41,7 +41,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="meetingUrl"></param>
         /// <param name="displayName"></param>
         /// <returns></returns>
-        public Task AcceptAndBridgeAsync(LoggingContext loggingContext,string meetingUrl,string displayName)
+        public Task AcceptAndBridgeAsync(string meetingUrl, string displayName, LoggingContext loggingContext = null)
         {
             if (string.IsNullOrWhiteSpace(meetingUrl))
             {
@@ -65,6 +65,19 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             return this.PostRelatedPlatformResourceAsync(bridge, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
+        }
+
+        /// <summary>
+        /// AcceptAndBridgeAsync
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="meetingUrl"></param>
+        /// <param name="displayName"></param>
+        /// <returns></returns>
+        [Obsolete("Please use the other variation")]
+        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUrl, string displayName)
+        {
+            return AcceptAndBridgeAsync(meetingUrl, displayName, loggingContext);
         }
 
         public override bool Supports(MessagingInvitationCapability capability)

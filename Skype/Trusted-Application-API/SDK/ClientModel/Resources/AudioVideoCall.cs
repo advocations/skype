@@ -90,7 +90,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
-        public async Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext)
+        public async Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StartTransferLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -120,7 +120,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-        public override Task TerminateAsync(LoggingContext loggingContext)
+        public override Task TerminateAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StopAudioVideoLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -139,7 +139,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to use for logging</param>
         /// <returns><see cref="AudioVideoInvitation"/> which tracks the outgoing invite.</returns>
-        public override async Task<IAudioVideoInvitation> EstablishAsync(LoggingContext loggingContext)
+        public override async Task<IAudioVideoInvitation> EstablishAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddAudioVideoLink?.Href;
             if (string.IsNullOrWhiteSpace(href))

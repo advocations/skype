@@ -36,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsNull(m_discover.Applications);
 
             // When
-            await m_discover.RefreshAndInitializeAsync(m_loggingContext, TestHelper.ApplicationEndpointUri.ToString()).ConfigureAwait(false);
+            await m_discover.RefreshAndInitializeAsync(TestHelper.ApplicationEndpointUri.ToString(), m_loggingContext).ConfigureAwait(false);
 
             // Given
             Assert.IsNotNull(m_discover.Applications);
@@ -49,7 +49,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsFalse(m_restfulClient.RequestsProcessed("GET " + c_discoverUrl));
 
             // When
-            await m_discover.RefreshAndInitializeAsync(m_loggingContext, TestHelper.ApplicationEndpointUri.ToString()).ConfigureAwait(false);
+            await m_discover.RefreshAndInitializeAsync(TestHelper.ApplicationEndpointUri.ToString(), m_loggingContext).ConfigureAwait(false);
 
             // Given
             Assert.IsTrue(m_restfulClient.RequestsProcessed("GET " + c_discoverUrl));

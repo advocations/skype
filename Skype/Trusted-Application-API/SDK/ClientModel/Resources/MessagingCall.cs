@@ -50,7 +50,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Stop messaging, RemotePlatformServiceException may throw if remote failed
         /// </summary>
         /// <returns></returns>
-        public override Task TerminateAsync(LoggingContext loggingContext)
+        public override Task TerminateAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StopMessagingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -66,7 +66,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Send message
         /// </summary>
         /// <returns></returns>
-        public async Task SendMessageAsync(string message, LoggingContext loggingContext, string contentType = Constants.TextPlainContentType)
+        public async Task SendMessageAsync(string message, LoggingContext loggingContext = null, string contentType = Constants.TextPlainContentType)
         {
             string href = PlatformResource?.SendMessageLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -88,7 +88,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             await tcs.Task.ConfigureAwait(false);
         }
 
-        public override async Task<IMessagingInvitation> EstablishAsync(LoggingContext loggingContext)
+        public override async Task<IMessagingInvitation> EstablishAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddMessagingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))

@@ -39,7 +39,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"></param>
         /// <returns></returns>
-        public async Task RefreshAndInitializeAsync(LoggingContext loggingContext, string endpointId)
+        public async Task RefreshAndInitializeAsync(string endpointId, LoggingContext loggingContext = null)
         {
             await this.RefreshAsync(loggingContext).ConfigureAwait(false);
             if (this.PlatformResource.Applications != null)
@@ -56,6 +56,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 throw new RemotePlatformServiceException("Retrieved DiscoverResource doesn't have link to ApplicationsResource.");
             }
+        }
+
+        /// <summary>
+        /// Call Get on application and initialize communication resource
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <returns></returns>
+        [Obsolete("Please use the other variation")]
+        public Task RefreshAndInitializeAsync(LoggingContext loggingContext, string endpointId)
+        {
+            return RefreshAndInitializeAsync(endpointId, loggingContext);
         }
 
         public override bool Supports(DiscoverCapability capability)

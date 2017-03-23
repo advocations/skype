@@ -50,7 +50,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            await m_bridgedParticipant.UpdateAsync(m_loggingContext, "New display name", false).ConfigureAwait(false);
+            await m_bridgedParticipant.UpdateAsync("New display name", false, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("PUT " + DataUrls.BridgedParticipant));
@@ -63,7 +63,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            await m_bridgedParticipant.UpdateAsync(null, "New display name", false).ConfigureAwait(false);
+            await m_bridgedParticipant.UpdateAsync("New display name", false, null).ConfigureAwait(false);
 
             // Then
             // No exception is thrown

@@ -20,7 +20,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
-        public Task<HttpResponseMessage> AcceptAsync(LoggingContext loggingContext)
+        public Task<HttpResponseMessage> AcceptAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AcceptLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -34,11 +34,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return PostRelatedPlatformResourceAsync(acceptLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
         }
 
-        public Task<HttpResponseMessage> ForwardAsync(LoggingContext loggingContext, string forwardTarget)
+        public Task<HttpResponseMessage> ForwardAsync(SipUri forwardTarget, LoggingContext loggingContext = null)
         {
-            if (string.IsNullOrWhiteSpace(forwardTarget))
+            if (forwardTarget == null)
             {
-                throw new ArgumentNullException(nameof(forwardTarget), nameof(forwardTarget) + " should not be null or whitespace");
+                throw new ArgumentNullException(nameof(forwardTarget));
             }
 
             string href = PlatformResource?.ForwardLink?.Href;
@@ -49,8 +49,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             Uri forwardLink = UriHelper.CreateAbsoluteUri(BaseUri, href);
 
-            var input = new ForwardInput() { To = forwardTarget };
+            var input = new ForwardInput() { To = forwardTarget.ToString() };
             return PostRelatedPlatformResourceAsync(forwardLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
+        }
+
+        [Obsolete("Please use the other variation")]
+        public Task<HttpResponseMessage> ForwardAsync(LoggingContext loggingContext, string forwardTarget)
+        {
+            return ForwardAsync(new SipUri(forwardTarget), loggingContext);
         }
 
         public Task<HttpResponseMessage> DeclineAsync(LoggingContext loggingContext)
@@ -183,9 +189,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
         /// <param name="to">the sip uri if you want to bridge to a single person</param>
         /// <returns></returns>
-        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
+        public Task AcceptAndBridgeAsync(string meetingUri, SipUri to, LoggingContext loggingContext = null)
         {
-            if (string.IsNullOrWhiteSpace(meetingUri) && string.IsNullOrWhiteSpace(to))
+            if (string.IsNullOrWhiteSpace(meetingUri) && to == null)
             {
                 throw new ArgumentException("need to at least provide to or meeting uri for bridge");
             }
@@ -202,11 +208,24 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var input = new AcceptAndBridgeAudioVideoInput
             {
                 MeetingUri = meetingUri,
-                ToUri = to
+                ToUri = to.ToString()
             };
 
             Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             return this.PostRelatedPlatformResourceAsync(bridge, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
+        }
+
+        /// <summary>
+        /// Accept the incoming call and set up b2b call with conference or target user
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
+        /// <param name="to">the sip uri if you want to bridge to a single person</param>
+        /// <returns></returns>
+        [Obsolete("Please use the other variation")]
+        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
+        {
+            return AcceptAndBridgeAsync(meetingUri, new SipUri(to), loggingContext);
         }
 
         #endregion

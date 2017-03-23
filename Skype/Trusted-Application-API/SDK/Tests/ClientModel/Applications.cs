@@ -30,7 +30,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             SipUri ApplicationEndpointId = TestHelper.ApplicationEndpointUri;
 
             var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-            await discover.RefreshAndInitializeAsync(m_loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
+            await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), m_loggingContext).ConfigureAwait(false);
 
             m_applications = discover.Applications;
         }
