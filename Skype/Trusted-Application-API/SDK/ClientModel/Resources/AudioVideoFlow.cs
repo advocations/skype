@@ -91,6 +91,28 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return await tcs.Task.ConfigureAwait(false);
         }
 
+        public async Task StopPromptsAsync(LoggingContext loggingContext)
+        {
+            string href = PlatformResource?.StopPromptsLink?.Href;
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to stop prompts is not available.");
+            }
+
+            var stopPromptLink = UriHelper.CreateAbsoluteUri(BaseUri, href);
+
+            TaskCompletionSource<Prompt> tcs = new TaskCompletionSource<Prompt>();
+            var response = await PostRelatedPlatformResourceAsync(stopPromptLink, null, loggingContext).ConfigureAwait(false);
+
+            if (response != null && response.Headers != null && response.Headers.Location != null)
+            {
+                m_onGoingPromptTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
+            }
+
+            // Return task to wait for the prompt completed event
+            await tcs.Task.ConfigureAwait(false);
+        }
+
         public override bool Supports(AudioVideoFlowCapability capability)
         {
             string href = null;
