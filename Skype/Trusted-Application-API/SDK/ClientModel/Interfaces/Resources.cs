@@ -305,7 +305,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IAudioVideoFlow AudioVideoFlow { get; }
 
+        [Obsolete("Please use the other variation")]
         Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null);
+
+        Task<ITransfer> TransferAsync(SipUri transferTarget, string replacesCallContext, LoggingContext loggingContext = null);
 
         Task<IAudioVideoFlow> WaitForAVFlowConnected(int timeoutInSeconds = 30);
     }
@@ -462,7 +465,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         IParticipant TryGetParticipant(string href);
 
+        [Obsolete("Please use the other variation")]
         Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext = null);
+
+        Task<IParticipantInvitation> AddParticipantAsync(SipUri targetSip, LoggingContext loggingContext = null);
     }
 
     #endregion

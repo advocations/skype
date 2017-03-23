@@ -90,7 +90,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
-        public async Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
+        public async Task<ITransfer> TransferAsync(SipUri transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StartTransferLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -104,7 +104,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var tcs = new TaskCompletionSource<Transfer>();
 
             this.HandleNewTransferOperationKickedOff(operationId, tcs);
-            var input = new TransferOperationInput() { To = transferTarget, ReplacesCallContext = replacesCallContext, OperationId = operationId };
+            var input = new TransferOperationInput() { To = transferTarget.ToString(), ReplacesCallContext = replacesCallContext, OperationId = operationId };
             await PostRelatedPlatformResourceAsync(transferLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
             Transfer result = null;
@@ -118,6 +118,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return result;
+        }
+
+        [Obsolete("Please use the other variation")]
+        public Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
+        {
+            return TransferAsync(new SipUri(transferTarget), replacesCallContext, loggingContext);
         }
 
         public override Task TerminateAsync(LoggingContext loggingContext = null)

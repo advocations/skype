@@ -135,7 +135,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected_NoActionLink.json");
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -155,7 +155,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 }
             };
 
-            Task transferTask = m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext);
+            Task transferTask = m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext);
             await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
             Assert.IsFalse(transferTask.IsCompleted);
 
@@ -175,7 +175,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             ((AudioVideoCall)m_audioVideoCall).WaitForEvents = TimeSpan.FromMilliseconds(300);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -189,7 +189,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // No exception is thrown
@@ -203,7 +203,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.Transfer));

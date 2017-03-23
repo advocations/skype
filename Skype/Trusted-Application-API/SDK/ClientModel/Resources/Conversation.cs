@@ -180,7 +180,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-        public async Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext = null)
+        public async Task<IParticipantInvitation> AddParticipantAsync(SipUri targetSip, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddParticipantResourceLink?.Href;
             if (string.IsNullOrEmpty(href))
@@ -199,7 +199,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var input = new AddParticipantInvitationInput
             {
                 OperationContext = operationId,
-                To = targetSip
+                To = targetSip.ToString()
             };
 
             Uri addparticipantUrl = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
@@ -221,6 +221,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return result;
+        }
+
+        [Obsolete("Please use the other variation")]
+        public Task<IParticipantInvitation> AddParticipantAsync(string targetSip, LoggingContext loggingContext = null)
+        {
+            return AddParticipantAsync(new SipUri(targetSip), loggingContext);
         }
 
         public override bool Supports(ConversationCapability capability)
