@@ -4,6 +4,24 @@
 
 | Product        | New Version           | Last Updated  |Previous Version
 | ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.85.29 | 3/21/17 | 1.85.27
+| Skype Web SDK Preview    | 0.4.440 | 3/21/17 | 0.4.438
+| Conversation Control Production |  1.85.27 | 3/21/17 | 1.84.20
+| Skype Web SDK Production| 0.4.438 | 3/21/17 | 0.4.436 |
+
+The latest release fixes several bugs in relation to AV scnearios.
+
+**Bugs fixed in the new public preview build:**
+* audioService.stop will now be disabled when accepting a call fails because of plugin issues
+* Re-joining a conversation after refreshing the page the application is hosted on is now possible
+* Added various AV related fixes
+
+---
+
+## Skype Web SDK Version Update 3/14/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
 | Conversation Control Preview     | 1.85.27 | 3/14/17 | 1.84.20
 | Skype Web SDK Preview    | 0.4.438 | 3/14/17 | 0.4.436
 | Conversation Control Production |  1.84.20 | 3/14/17 | 1.81.43
