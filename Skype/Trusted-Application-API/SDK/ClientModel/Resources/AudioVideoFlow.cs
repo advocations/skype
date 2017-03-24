@@ -109,7 +109,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 m_onGoingPromptTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
             }
 
-            // Return task to wait for the prompt completed event
+            // Return task to wait for all prompts to be cancelled
             await tcs.Task.ConfigureAwait(false);
         }
 
