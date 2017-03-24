@@ -103,6 +103,7 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://YourServiceApplica
                         throw error!
                     }
 
+
                     let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: String]
                     self.discoveryURI = json["DiscoverUri"]!
                     self.token = json["Token"]
@@ -127,7 +128,8 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://YourServiceApplica
 Joins a meeting anonymously via Skype App SDK using the anonymous token and discovery Uri from previous request as your sign-in parameters. It calls **joinMeetingAnonymously**, gets an **AnonymousSession**, and then the **Conversation** that
 represents the adhoc meeting.
 
-> [!NOTE] The sample code shows the use of the new **setEndUserAcceptedVideoLicense** api. This API must be called before a user can join video in a meeting. Once the api has been called, the user 
+> [!NOTE]
+The sample code shows the use of the new **setEndUserAcceptedVideoLicense** api. This API must be called before a user can join video in a meeting. Once the api has been called, the user 
 is considered in acceptance of the third party video codec license that we use to support video. It is necessary that your app presents the terms of this license to the user before a meeting 
 is started. Subsequent meetings do not require the license acceptance.
 
