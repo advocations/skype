@@ -101,7 +101,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 #pragma warning disable CS0618 // Type or member is obsolete
                 case AudioVideoInvitationCapability.StartAdhocMeeting:
                 #pragma warning restore CS0618 // Type or member is obsolete
-                case AudioVideoInvitationCapability.StartMeeting:
                     {
                         href = PlatformResource?.StartAdhocMeetingLink?.Href;
                         break;
@@ -118,68 +117,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="callbackContext">the call back context</param>
         /// <param name="loggingContext">the logging context</param>
         /// <returns></returns>
-        [Obsolete("Please use StartMeetingAsync instead")]
+        [Obsolete("Please use ICommunication.StartAdhocMeetingAsync instead")]
         public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
         {
             return StartMeetingAsync(subject, callbackContext, loggingContext);
-        }
-
-        /// <summary>
-        /// schedule and trusted join a adhoc meeting
-        /// </summary>
-        /// <param name="subject">the meeting subject</param>
-        /// <param name="callbackContext">the call back context</param>
-        /// <param name="loggingContext">the logging context</param>
-        /// <returns></returns>
-        public async Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
-        {
-            string href = PlatformResource?.StartAdhocMeetingLink?.Href;
-            if (string.IsNullOrWhiteSpace(href))
-            {
-                throw new CapabilityNotAvailableException("Link start adhoc meeting in not available.");
-            }
-
-            Logger.Instance.Information(string.Format("[AudioVideoInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
-            var communication = this.Parent as Communication;
-
-            string operationId = Guid.NewGuid().ToString();
-            var tcs = new TaskCompletionSource<IInvitation>();
-            //Adding current invitation to collection for tracking purpose.
-            communication.HandleNewInviteOperationKickedOff(operationId, tcs);
-
-            string callbackUrl = null;
-            var application = communication.Parent as Application;
-            application.GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
-
-            IInvitation invite = null;
-            var input = new StartAdhocMeetingInput
-            {
-                Subject = subject,
-                CallbackContext = callbackContext,
-                CallbackUrl = callbackUrl,
-                OperationContext = operationId
-            };
-            var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
-            await this.PostRelatedPlatformResourceAsync(adhocMeetingUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
-
-            Task completed  = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
-            if (completed != tcs.Task)
-            {
-                throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
-            }
-            else
-            {
-                invite = await tcs.Task.ConfigureAwait(false);// Incase need to throw exception
-            }
-
-            //We are sure the invite sure be there now.
-            OnlineMeetingInvitation result = invite as OnlineMeetingInvitation;
-            if (result == null)
-            {
-                throw new RemotePlatformServiceException("Platformservice do not deliver a Onlinemeeting resource with operationId " + operationId);
-            }
-
-            return result;
         }
 
         /// <summary>
@@ -226,6 +167,68 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
         {
             return AcceptAndBridgeAsync(meetingUri, new SipUri(to), loggingContext);
+        }
+
+        #endregion
+
+        #region Internal methods
+
+        /// <summary>
+        /// schedule and trusted join a adhoc meeting
+        /// </summary>
+        /// <param name="subject">the meeting subject</param>
+        /// <param name="callbackContext">the call back context</param>
+        /// <param name="loggingContext">the logging context</param>
+        /// <returns></returns>
+        internal async Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            string href = PlatformResource?.StartAdhocMeetingLink?.Href;
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link start adhoc meeting in not available.");
+            }
+
+            Logger.Instance.Information(string.Format("[AudioVideoInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
+            var communication = this.Parent as Communication;
+
+            string operationId = Guid.NewGuid().ToString();
+            var tcs = new TaskCompletionSource<IInvitation>();
+            //Adding current invitation to collection for tracking purpose.
+            communication.HandleNewInviteOperationKickedOff(operationId, tcs);
+
+            string callbackUrl = null;
+            var application = communication.Parent as Application;
+            application.GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
+
+            IInvitation invite = null;
+            var input = new StartAdhocMeetingInput
+            {
+                Subject = subject,
+                CallbackContext = callbackContext,
+                CallbackUrl = callbackUrl,
+                OperationContext = operationId
+            };
+            var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
+            await this.PostRelatedPlatformResourceAsync(adhocMeetingUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
+
+            Task completed = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
+            if (completed != tcs.Task)
+            {
+                throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
+            }
+            else
+            {
+                invite = await tcs.Task.ConfigureAwait(false);// Incase need to throw exception
+            }
+
+            //We are sure the invite sure be there now.
+            OnlineMeetingInvitation result = invite as OnlineMeetingInvitation;
+            if (result == null)
+            {
+                throw new RemotePlatformServiceException("Platformservice do not deliver a Onlinemeeting resource with operationId " + operationId);
+            }
+
+            return result;
         }
 
         #endregion
