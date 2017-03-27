@@ -12,7 +12,7 @@ Provides some guidelines on performance benchmarks for Skype for Business SDN In
     
     
 
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+**Applies to:** Lync Server 2013 | Skype for Business 2015
  
 Versions 2.2 and later of the Skype for Business SDN Interface were tested in a production environment and in lab setups but no formal scalability testing has been conducted. Nevertheless, the following performance data should give you an idea what you can expect. Please consider these numbers as example only.
   

@@ -12,7 +12,7 @@ ms.assetid: 8d3c28fa-dabe-4a52-9882-a6663ced5217
     
     
 
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+**Applies to:** Lync Server 2013 | Skype for Business 2015
 
 This topic covers upgrading Skype for Business SDN Interface from earlier versions to version 3.0. 
   
@@ -65,10 +65,10 @@ When upgrading from version 2.2 to 3.0, follow the instructions below without dr
   - Invoke `SdnManager /d s <Identifier> Subscriber.<Identifier>.xml` to capture each individual Subscriber configuration. 
     
   
-  - • Invoke `SdnManager /d l <Identifier> Listener.<Identifier>.xml` to capture each individual Listener pool configuration. 
+  - Invoke `SdnManager /d l <Identifier> Listener.<Identifier>.xml` to capture each individual Listener pool configuration. 
     
   
-  - • The files created will have the settings/format compatible for 3.0 uploading, post-upgrade. 
+  - The files created will have the settings/format compatible for 3.0 uploading, post-upgrade. 
     
   
 2. For each SdnManager instance of each SdnManager pool: 
@@ -123,7 +123,10 @@ When upgrading from version 2.2 to 3.0, follow the instructions below without dr
   
 
 > [!NOTE]
-> The removal and re-adding of the subscribers and listeners is only needed if your deployment has an Redis database. It is not required for deployments using an SQL database. > If the deployment consists of a single SdnManager then upgrade process will results in loss of events from the Dialog Listener during the time of the upgrade. > Additionally, there may be loss of events (signaling or quality update events not reported to subscribers) during the time that it takes to remove and add the subscribers after the SdnManager uninstall/install. > During the Dialog Listener uninstall/reinstall only events originating from the other Listeners will be reported. > Similarly, there may be loss of events during the time that it takes to remove and add the Listener settings. 
+> The removal and re-adding of the subscribers and listeners is only needed if your deployment has an Redis database. It is not required for deployments using an SQL database. <br/> If the deployment consists of a single SdnManager then upgrade process will results in loss of events from the Dialog Listener during the time of the upgrade. 
+<br/> Additionally, there may be loss of events (signaling or quality update events not reported to subscribers) during the time that it takes to remove and add the subscribers after the SdnManager uninstall/install. 
+<br/>During the Dialog Listener uninstall/reinstall only events originating from the other Listeners will be reported. 
+<br/>Similarly, there may be loss of events during the time that it takes to remove and add the Listener settings. 
   
     
     

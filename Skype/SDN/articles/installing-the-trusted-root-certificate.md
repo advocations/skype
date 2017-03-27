@@ -17,13 +17,8 @@ ms.assetid: c96be8c9-4498-4cfa-82c4-44e1e396ec3f
 Installing a trusted root certificate is necessary only if you are notified that the certificate of authority is not trusted on any machine. This can occur when you use a private or custom certificate server instead of acquiring certificates from an established public certificate of authority.
   
     
-    
 
-
-## 
-
-
-### Installing a trusted root certificate
+## Installing a trusted root certificate
 
 
 1. On the machine that requires a certificate, in your web browser, navigate to your local certification server. This should be the same certificate of authority used for generating the server and, optionally, client certificates.
@@ -52,7 +47,7 @@ Upon completing the wizard, you next want to add the certificate snap-ins using 
     
     
 
-### Adding certificate snap-ins
+## Adding certificate snap-ins
 
 
 1. Launch MMC (mmc.exe).

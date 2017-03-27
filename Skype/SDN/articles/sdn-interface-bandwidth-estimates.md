@@ -12,7 +12,7 @@ Provides bandwidth estimate data for Skype for Business SDN Interface.
     
     
 
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+**Applies to:** Lync Server 2013 | Skype for Business 2015
  
 Skype for Business SDN Interface, versions 2.2 and later, provides some estimates on the bandwidth that will be used during a call for each stream as a consequence of the codecs being used. The following table shows the raw estimates for each codec. The Bandwidth xml tag contains an exponential running weighted average based on the codecs that might be used during the call. This Bandwidth tag shows 0 bandwidth if the given stream direction is inactive. 
   

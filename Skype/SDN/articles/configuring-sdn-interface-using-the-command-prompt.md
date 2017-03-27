@@ -12,7 +12,7 @@ ms.assetid: b411b6d6-4597-416f-8a68-292527d3f226
     
     
 
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+ **Applies to:** Lync Server 2013 | Skype for Business 2015
 
 Most settings used by the Dialog Listener and SDN Manager are kept in the central data store (local cache, SQL Server database, or Redis cache) that is managed by the configuration service. These settings can be accessed and modified through a command line tool (SDNManager.exe). SDNManager.exe can also get and set limits for quality metrics of call streams from the QoEMetrics database. 
   
@@ -88,7 +88,7 @@ To access help on the available commands, enter the following at the command pro
 
 
 
-```powershell
+```ms-dos
 
 Skype for Business SDN Manager  3.0, Build Version: 7.0.1459.1
 Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -216,10 +216,8 @@ You can modify these threshold settings by using the SDNManager.exe  `/p` the `/
     
 
 > [!NOTE]
-> When Video-based Screen Sharing (VbSS) is active, SDN Manager uses the following bandwidth limits for evaluating bandwidth limits of application sharing media streams: >  `<parameter key="applicationsharing-AppliedBandwidthLimitAcceptable">14000</parameter>`
-  
-    
-    
+> When Video-based Screen Sharing (VbSS) is active, SDN Manager uses the following bandwidth limits for evaluating bandwidth limits of application sharing media streams: >  
+`<parameter key="applicationsharing-AppliedBandwidthLimitAcceptable">14000</parameter>`
  `<parameter key="applicationsharing-AppliedBandwidthLimitOptimal">15000</parameter>`
   
     

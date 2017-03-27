@@ -9,17 +9,10 @@ ms.assetid: d3e65c58-3248-4a7d-a7d9-01526c0dcca8
 
  **Last modified:** August 17, 2015
   
-    
-    
-
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+**Applies to:** Lync Server 2013 | Skype for Business 2015
 
 Follow these steps to use the **Setup Wizard** to install the Dialog Listener component.
   
-    
-    
-
-
 > [!IMPORTANT]
 > It is recommended that you first install the SDN Manager, and then install the Dialog Listener. 
   

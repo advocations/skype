@@ -12,7 +12,7 @@ ms.assetid: 7a7c63ad-4f64-46a1-9e2c-2dd51f261aeb
     
     
 
- * **Applies to:** Lync Server 2013 | Skype for Business 2015
+**Applies to:** Lync Server 2013 | Skype for Business 2015
 
 The following code examples show the input and output resulting from running the SDN Manager console application. Examples are shown for the Manager, the Listener, and the Subscriber. 
   
