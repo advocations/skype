@@ -4,7 +4,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     public enum AudioVideoFlowCapability
     {
-        PlayPrompt = 0
+        PlayPrompt = 0,
+        StopPrompts = 1
     }
 
     public enum PromptCapability

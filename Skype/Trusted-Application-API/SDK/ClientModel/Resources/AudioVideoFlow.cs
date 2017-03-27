@@ -6,6 +6,9 @@ using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 using ResourceModel = Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using Microsoft.Rtc.Internal.RestAPI.Common;
+using Microsoft.Rtc.Internal.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
@@ -100,17 +103,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             var stopPromptLink = UriHelper.CreateAbsoluteUri(BaseUri, href);
+            await PostRelatedPlatformResourceAsync(stopPromptLink, null, loggingContext).ConfigureAwait(false);
+        }
 
-            TaskCompletionSource<Prompt> tcs = new TaskCompletionSource<Prompt>();
-            var response = await PostRelatedPlatformResourceAsync(stopPromptLink, null, loggingContext).ConfigureAwait(false);
 
-            if (response != null && response.Headers != null && response.Headers.Location != null)
+        public async Task WaitForAllPromptsToComplete()
+        {
+            foreach (KeyValuePair<string, TaskCompletionSource<Prompt>> entry in m_onGoingPromptTcses)
             {
-                m_onGoingPromptTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
+                await entry.Value.Task.ConfigureAwait(false);
             }
-
-            // Return task to wait for all prompts to be cancelled
-            await tcs.Task.ConfigureAwait(false);
         }
 
         public override bool Supports(AudioVideoFlowCapability capability)
@@ -123,6 +125,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         href = PlatformResource?.PlayPromptLink?.Href;
                         break;
                     }
+                case AudioVideoFlowCapability.StopPrompts:
+                {
+                    href = PlatformResource?.StopPromptsLink?.Href;
+                    break;
+                }
             }
 
             return !string.IsNullOrWhiteSpace(href);
