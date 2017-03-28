@@ -132,6 +132,20 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task StopPromptsAsyncShouldThrowIfLinkNotAvailable()
+        {
+            // Given
+            // Setup
+
+            // When
+            await m_audioVideoFlow.StopPromptsAsync(m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task PlayPromptShouldThrowIfInputUriIsNull()
         {
@@ -197,6 +211,33 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
+        public async Task StopPromptsShouldReturnOnlyOnPromptCompletedEvent()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoFlowConnected.json");
+            TaskCompletionSource<bool> requestReceived = new TaskCompletionSource<bool>();
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                if (args.Uri == new Uri(DataUrls.StopPrompts) && args.Method == HttpMethod.Post)
+                {
+                    requestReceived.SetResult(true);
+                }
+            };
+
+            // When
+            Task promptTask = m_audioVideoFlow.PlayPromptAsync(new Uri("https://example.com/prompt"), m_loggingContext);
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_PromptStarted.json");
+            Assert.IsFalse(promptTask.IsCompleted);
+
+            m_audioVideoFlow.StopPromptsAsync(m_loggingContext);
+            await requestReceived.Task.TimeoutAfterAsync(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_PromptStopped.json");
+
+            // Then
+            Assert.IsTrue(promptTask.IsCompleted);
+        }
+
+        [TestMethod]
         public async Task PlayPromptShouldWorkWithNullLoggingContext()
         {
             // Given
@@ -217,6 +258,28 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await requestReceived.Task.TimeoutAfterAsync(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
         }
 
+
+        [TestMethod]
+        public async Task StopPromptsShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoFlowConnected.json");
+            TaskCompletionSource<bool> requestReceived = new TaskCompletionSource<bool>();
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                if (args.Uri == new Uri(DataUrls.StopPrompts) && args.Method == HttpMethod.Post)
+                {
+                    requestReceived.SetResult(true);
+                }
+            };
+
+            // When
+            m_audioVideoFlow.StopPromptsAsync(null);
+
+            // Then
+            await requestReceived.Task.TimeoutAfterAsync(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
+        }
+
         [TestMethod]
         public void ShouldSupportPlayPromptWhenLinkIsAvailable()
         {
@@ -230,6 +293,20 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsTrue(supported);
         }
 
+
+        [TestMethod]
+        public void ShouldSupportStopPromptsWhenLinkIsAvailable()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoFlowConnected.json");
+
+            // When
+            bool supported = m_audioVideoFlow.Supports(AudioVideoFlowCapability.StopPrompts);
+
+            // Then
+            Assert.IsTrue(supported);
+        }
+
         [TestMethod]
         public void ShouldNotSupportPlayPromptWhenLinkIsNotAvailable()
         {
@@ -238,6 +315,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // When
             bool supported = m_audioVideoFlow.Supports(AudioVideoFlowCapability.PlayPrompt);
+
+            // Then
+            Assert.IsFalse(supported);
+        }
+
+        [TestMethod]
+        public void ShouldNotSupportStopPromptsWhenLinkIsNotAvailable()
+        {
+            // Given
+            // Setup
+
+            // When
+            bool supported = m_audioVideoFlow.Supports(AudioVideoFlowCapability.StopPrompts);
 
             // Then
             Assert.IsFalse(supported);

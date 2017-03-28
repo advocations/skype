@@ -94,6 +94,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return await tcs.Task.ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// send stop prompts event and wait for all prompts to complete.
+        /// </summary>
         public async Task StopPromptsAsync(LoggingContext loggingContext)
         {
             string href = PlatformResource?.StopPromptsLink?.Href;
@@ -104,14 +107,24 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             var stopPromptLink = UriHelper.CreateAbsoluteUri(BaseUri, href);
             await PostRelatedPlatformResourceAsync(stopPromptLink, null, loggingContext).ConfigureAwait(false);
-        }
 
-
-        public async Task WaitForAllPromptsToComplete()
-        {
             foreach (KeyValuePair<string, TaskCompletionSource<Prompt>> entry in m_onGoingPromptTcses)
             {
-                await entry.Value.Task.ConfigureAwait(false);
+                try
+                {
+                    await entry.Value.Task.ConfigureAwait(false);
+                } catch (RemotePlatformServiceException psException)
+                {
+                    if (psException.ErrorInformation.Subcode == ResourceModel.ErrorSubcode.PromptsStopped)
+                    {
+                        Logger.Instance.Information("Exception in waiting for media prompt to stop");
+                    }
+                    else
+                    {
+                        throw psException;
+                    }
+                    
+                }
             }
         }
 
@@ -181,7 +194,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                                 ResourceModel.ErrorInformation error = eventContext.EventEntity.Error;
                                 ErrorInformation errorInfo = error == null ? null : new ErrorInformation(error);
                                 string errorMessage = errorInfo?.ToString();
-                                tcs.TrySetException(new RemotePlatformServiceException("PlayPrompt failed with error " + errorMessage + eventContext.LoggingContext.ToString(), errorInfo));
+                                tcs.TrySetException(new RemotePlatformServiceException("PlayPrompt failed with error " + errorMessage + eventContext.LoggingContext?.ToString(), errorInfo));
                             }
                             else
                             {

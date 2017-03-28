@@ -326,8 +326,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext = null);
 
         Task StopPromptsAsync(LoggingContext loggingContext = null);
-
-        Task WaitForAllPromptsToComplete();
     }
 
     #endregion
